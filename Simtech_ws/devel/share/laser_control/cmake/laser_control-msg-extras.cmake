@@ -1,0 +1,2 @@
+set(laser_control_MESSAGE_FILES "/home/david/Simtech_ws/src/LaserControl/laser_control/msg/MsgPower.msg;/home/david/Simtech_ws/src/LaserControl/laser_control/msg/MsgStart.msg;/home/david/Simtech_ws/src/LaserControl/laser_control/msg/MsgControl.msg;/home/david/Simtech_ws/src/LaserControl/laser_control/msg/MsgInfo.msg;/home/david/Simtech_ws/src/LaserControl/laser_control/msg/MsgEmission.msg")
+set(laser_control_SERVICE_FILES "")

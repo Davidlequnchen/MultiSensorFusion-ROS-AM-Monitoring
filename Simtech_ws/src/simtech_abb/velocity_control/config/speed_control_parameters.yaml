@@ -1,0 +1,5 @@
+speed_control_parameters: {
+  pid_parameters: {Kd: 0.0, Ki: 0.0, Kp: 0.0},
+  SpeedOverrideLimit: {max: 70.0, min: 40.0},
+  CurrentSpeedOverride: {CurrentSpeedOverride: 10.0, speedSet: 10},
+}

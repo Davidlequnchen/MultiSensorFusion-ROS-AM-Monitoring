@@ -1,0 +1,29 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <rosparam command="load" file="$(find cladplus_control)/config/control.yaml" />
+
+  <!-- <include file="$(find mashes_measures)/launch/measures.launch">
+    <arg name="gui" value="$(arg gui)" />
+  </include> -->
+
+  <node name="geometry_tachyon" pkg="mashes_measures" type="nd_geometry.py">
+    <param name="threshold" type="int" value="400" />
+    <param name="image" type="str" value="/tachyon/image" />
+    <param name="config" type="str" value="$(find mashes_measures)/config/tachyon.yaml" />
+  </node>
+
+  <node name="supervisor" pkg="mashes_measures" type="nd_supervisor.py" respawn="true" />
+
+  <include file="$(find cladplus_labjack)/launch/labjack.launch" unless="$(arg sim)">
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <node name="control" pkg="cladplus_control" type="nd_control.py">
+    <param name="power_min" type="double" value="0.0" />
+    <param name="power_max" type="double" value="1500.0" />
+  </node>
+
+  <node name="control_panel" pkg="cladplus_control" type="qt_control.py" if="$(arg gui)" />
+</launch>

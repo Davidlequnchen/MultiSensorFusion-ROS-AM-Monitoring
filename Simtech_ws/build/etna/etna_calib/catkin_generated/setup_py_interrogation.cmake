@@ -1,0 +1,6 @@
+set(etna_calib_SETUP_PY_VERSION "0.4.5")
+set(etna_calib_SETUP_PY_SCRIPTS "")
+set(etna_calib_SETUP_PY_PACKAGES "icv")
+set(etna_calib_SETUP_PY_PACKAGE_DIRS "src/icv")
+set(etna_calib_SETUP_PY_MODULES "")
+set(etna_calib_SETUP_PY_MODULE_DIRS "")

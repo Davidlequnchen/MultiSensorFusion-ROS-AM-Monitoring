@@ -1,0 +1,8 @@
+prefix=/home/david/Simtech_ws/install
+
+Name: stereo_image_proc
+Description: Description of stereo_image_proc
+Version: 1.13.0
+Cflags: -I/home/david/Simtech_ws/install/include
+Libs: -L/home/david/Simtech_ws/install/lib -lstereo_image_proc
+Requires: image_geometry image_proc sensor_msgs stereo_msgs

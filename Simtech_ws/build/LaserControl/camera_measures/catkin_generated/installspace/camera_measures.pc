@@ -1,0 +1,8 @@
+prefix=/home/david/Simtech_ws/install
+
+Name: camera_measures
+Description: Description of camera_measures
+Version: 0.4.0
+Cflags: -I/home/david/Simtech_ws/install/include
+Libs: -L/home/david/Simtech_ws/install/lib 
+Requires: message_runtime

@@ -1,0 +1,8 @@
+prefix=/home/david/Simtech_ws/devel
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.3.6
+Cflags: -I/home/david/Simtech_ws/src/ROS_image_processng/usb_cam/include
+Libs: -L/home/david/Simtech_ws/devel/lib -lusb_cam
+Requires: 

@@ -1,0 +1,20 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <rosparam command="load" file="$(find laser_control)/config/control_parameters.yaml" />
+
+  <include file="$(find camera_measures)/launch/camera_measures.launch">
+    <arg name="gui" value="$(arg gui)" />
+  </include> 
+
+  <node name="control" pkg="laser_control" type="nd_control.py">
+    <param name="power_min" type="double" value="65.0" />
+    <param name="power_max" type="double" value="75.0" />
+  </node>
+
+  <node name="control_panel" pkg="laser_control" type="qt_control.py" if="$(arg gui)" />
+
+  <node name="PC_communication" pkg="laser_control" type="nd_socket.py" />
+
+</launch>

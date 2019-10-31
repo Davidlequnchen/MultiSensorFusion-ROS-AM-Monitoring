@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<robot name="abb_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+    <property name="pi" value="3.141592654"/>
+
+    <!-- Robot -->
+    <xacro:include filename="$(find simtech_abb)/urdf/irb4400_macro.xacro"/>
+    <xacro:abb_irb4400 prefix=""/>
+
+    <joint name="irb4400" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0.067" rpy="0 0 0"/>
+    </joint>
+
+   
+</robot>

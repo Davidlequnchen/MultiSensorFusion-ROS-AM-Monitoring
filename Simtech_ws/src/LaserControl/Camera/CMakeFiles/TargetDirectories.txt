@@ -1,0 +1,3 @@
+/home/david/Simtech_ws/src/LaserControl/Camera/CMakeFiles/edit_cache.dir
+/home/david/Simtech_ws/src/LaserControl/Camera/CMakeFiles/rebuild_cache.dir
+/home/david/Simtech_ws/src/LaserControl/Camera/CMakeFiles/Camera_Cpp.dir

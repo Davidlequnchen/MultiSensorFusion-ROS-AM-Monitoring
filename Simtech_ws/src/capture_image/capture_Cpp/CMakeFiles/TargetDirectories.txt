@@ -1,0 +1,3 @@
+/home/david/Simtech_ws/src/capture_image/capture_Cpp/CMakeFiles/rebuild_cache.dir
+/home/david/Simtech_ws/src/capture_image/capture_Cpp/CMakeFiles/edit_cache.dir
+/home/david/Simtech_ws/src/capture_image/capture_Cpp/CMakeFiles/capture_Cpp.dir

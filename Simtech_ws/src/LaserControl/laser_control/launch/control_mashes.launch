@@ -1,0 +1,20 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <rosparam command="load" file="$(find cladplus_control)/config/control.yaml" />
+
+  <node name="control" pkg="cladplus_control" type="nd_control.py">
+    <param name="power_min" type="double" value="0.0" />
+    <param name="power_max" type="double" value="1500.0" />
+  </node>
+
+  <node name="plot_power" pkg="rqt_plot" type="rqt_plot" args="/control/power/value" if="$(arg gui)" />
+
+  <node name="labjack" pkg="cladplus_labjack" type="nd_labjack.py">
+    <param name="power_min" type="double" value="0.0" />
+    <param name="power_max" type="double" value="1500.0" />
+  </node>
+
+  <node name="control_panel" pkg="cladplus_control" type="qt_control.py" if="$(arg gui)" />
+</launch>

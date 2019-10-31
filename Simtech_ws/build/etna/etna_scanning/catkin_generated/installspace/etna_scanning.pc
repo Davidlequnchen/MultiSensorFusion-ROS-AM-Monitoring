@@ -1,0 +1,8 @@
+prefix=/home/david/Simtech_ws/install
+
+Name: etna_scanning
+Description: Description of etna_scanning
+Version: 0.4.5
+Cflags: 
+Libs: -L/home/david/Simtech_ws/install/lib 
+Requires: 
