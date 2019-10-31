@@ -308,7 +308,7 @@ PROC main()
                     ok:=SERVER_BAD_MSG;
                 ENDIF
 
-            CASE 009: ! set zone data with choice of z0(0) or fine(1)
+            CASE 1009: ! set zone data with choice of z0(0) or fine(1)
                 IF nParams = 1 THEN
                     IF params{1}=1 THEN
                         currentZone := fine;
