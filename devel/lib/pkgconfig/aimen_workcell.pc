@@ -1,0 +1,8 @@
+prefix=/home/david/SIMTech_ws/devel
+
+Name: aimen_workcell
+Description: Description of aimen_workcell
+Version: 0.4.0
+Cflags: 
+Libs: -L/home/david/SIMTech_ws/devel/lib 
+Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/david/Simtech_ws/devel
-
-Name: camera_calibration
-Description: Description of camera_calibration
-Version: 1.13.0
-Cflags: 
-Libs: -L/home/david/Simtech_ws/devel/lib 
-Requires: 

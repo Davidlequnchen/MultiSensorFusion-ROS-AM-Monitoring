@@ -1,8 +1,0 @@
-prefix=/home/david/Simtech_ws/install
-
-Name: simtech_moveit_config
-Description: Description of simtech_moveit_config
-Version: 0.3.0
-Cflags: 
-Libs: -L/home/david/Simtech_ws/install/lib 
-Requires: 
