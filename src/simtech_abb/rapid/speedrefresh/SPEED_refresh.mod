@@ -37,7 +37,9 @@ PROC SetSpeedOverride(string msg)
     !//Impossible to read the power value
         TPWrite "VelocityControl: Failed to get the SpeedOverride";
     ELSE
+        !speed_corr := 10;
         speed_corr := SpeedOverride;
+        TPWrite "VelocityControl: SpeedOverride set: ", \Num:= speed_corr;
     ENDIF
 ENDPROC
 
@@ -106,7 +108,7 @@ PROC main()
         SocketReceive clientSocket \Str:=receivedString \Time:=WAIT_MAX;
 
         SetSpeedOverride receivedString;
-        TpWrite "VelocityControl: SpeedOverride set";
+        
         
     ENDWHILE
 

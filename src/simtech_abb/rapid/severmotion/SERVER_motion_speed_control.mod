@@ -108,7 +108,7 @@ PROC main()
 		!setup interupt for velocity refresh
 		IDelete time_int;
 		CONNECT time_int WITH speed_refresh;
-		ITimer 0.01, time_int; !//is used to order and enable a timed interrupt
+		ITimer 0.1, time_int; !//is used to order and enable a timed interrupt
 		ISleep time_int; !//deactivate an individual interrupt temporarily.
 		!//During the deactivation time any generated interrupts of the specified type are discarded
 		!//without any trap execution
