@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <Program>
-	<Module>SERVER_motion(speedControl).mod</Module>
+	<Module>SERVER_motion_speed_control.mod</Module>
 </Program>

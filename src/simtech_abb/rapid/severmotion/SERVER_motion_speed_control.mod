@@ -108,10 +108,10 @@ PROC main()
 		!setup interupt for velocity refresh
 		IDelete time_int;
 		CONNECT time_int WITH speed_refresh;
-		ITimer 0.01, time_int; !is used to order and enable a timed interrupt
-		ISleep time_int; !deactivate an individual interrupt temporarily.
-		!During the deactivation time any generated interrupts of the specified type are discarded
-		!without any trap execution
+		ITimer 0.01, time_int; !//is used to order and enable a timed interrupt
+		ISleep time_int; !//deactivate an individual interrupt temporarily.
+		!//During the deactivation time any generated interrupts of the specified type are discarded
+		!//without any trap execution
 
 
 		!IDelete intr_configure;
@@ -128,9 +128,9 @@ PROC main()
       IF n_cartesian_command <> n_cartesian_motion THEN
           TEST command_type{n_cartesian_motion}
             CASE 1: !Cartesian linear move
-						  ! Read current speed override set from FlexPendant
+						  ! //Read current speed override set from FlexPendant
               override := CSpeedOverride (\CTask);
-						  !IWatch: activate an interrupt which was previously ordered but was deactivated with ISleep
+						  !//IWatch: activate an interrupt which was previously ordered but was deactivated with ISleep
               IWatch time_int;
 
               moveCompleted := FALSE;
@@ -138,8 +138,9 @@ PROC main()
               MoveL cartesianTarget{n_cartesian_motion}, cartesian_speed{n_cartesian_motion}, currentZone, currentTool \WObj:=currentWobj ;
               moveCompleted := TRUE;
 
-			  			IDelete time_int; ! Cancel the interupt
-			  			! Reset to FlexPendant old speed override
+              ISleep time_int;
+			  			!IDelete time_int; !//Cancel the interupt
+			  			! //Reset to FlexPendant old speed override
 			  			WaitTime 0.5;
 			  			SpeedRefresh override;
 
@@ -245,7 +246,6 @@ ENDTRAP
 
 ! the trap routine for speed refresh
 LOCAL TRAP speed_refresh
-
 	! speed_corr := 10;
 	! // speed_corr is obtained through pid controller, it will be updated in SPEED_refresh.mod
 	SpeedRefresh speed_corr;

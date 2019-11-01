@@ -515,7 +515,7 @@ PROC main()
                       IF n_cartesian_command > 49
                         n_cartesian_command := 1;
                     DEFAULT:
-                      TPWrite "SERVER: Illegal wait code DI =", \Num:=params{1};
+                      TPWrite "SERVER_command: Illegal wait code DI =", \Num:=params{1};
                       ok := SERVER_BAD_MSG;
                   ENDTEST
                   addString := "BUFFER_OK";
@@ -555,7 +555,7 @@ PROC main()
                     !CASE 3:
                       !SetGO TGOPROGRAM_No, params{2};
             				!DEFAULT:
-                      !TPWrite "SERVER: Illegal output code FGO = ", \Num:=params{1};
+                      !TPWrite "SERVER_command: Illegal output code FGO = ", \Num:=params{1};
                       !ok := SERVER_BAD_MSG;
         					!ENDTEST
                   !addString := "BUFFER_OK";
@@ -597,7 +597,7 @@ PROC main()
                       IF n_cartesian_command > 49
                         n_cartesian_command := 1;
             				DEFAULT:
-                      TPWrite "SERVER: Illegal output code GO = ", \Num:=params{1};
+                      TPWrite "SERVER_command: Illegal output code GO = ", \Num:=params{1};
                       ok := SERVER_BAD_MSG;
         					ENDTEST
                   addString := "BUFFER_OK";
@@ -617,7 +617,7 @@ PROC main()
                       !CASE 1:
                         !SetAO AoGTV_ExternMassflow, params{2};
           						!DEFAULT:
-                      				!TPWrite "SERVER: Illegal output code FAO = ", \Num:=params{1};
+                      				!TPWrite "SERVER_command: Illegal output code FAO = ", \Num:=params{1};
                               !ok := SERVER_BAD_MSG;
     					      !ENDTEST
                     !addString := "BUFFER_OK";
@@ -645,7 +645,7 @@ PROC main()
                               IF n_cartesian_command > 49
                                 n_cartesian_command := 1;
           						DEFAULT:
-                      				TPWrite "SERVER: Illegal output code AO = ", \Num:=params{1};
+                      				TPWrite "SERVER_command: Illegal output code AO = ", \Num:=params{1};
                               ok := SERVER_BAD_MSG;
     					      ENDTEST
                     addString := "BUFFER_OK";
@@ -775,7 +775,7 @@ PROC main()
                         !SetDO TdoPStartStat, 0;
                       !ENDIF
         						!DEFAULT:
-                  		!TPWrite "SERVER: Illegal output code DO =", \Num:=params{1};
+                  		!TPWrite "SERVER_command: Illegal output code DO =", \Num:=params{1};
                   		!ok := SERVER_BAD_MSG;
         					!ENDTEST
                   !addString := "BUFFER_OK";
@@ -905,7 +905,7 @@ PROC main()
                       IF n_cartesian_command > 49
                         n_cartesian_command := 1;
         						DEFAULT:
-                  		TPWrite "SERVER: Illegal output code DO =", \Num:=params{1};
+                  		TPWrite "SERVER_command: Illegal output code DO =", \Num:=params{1};
                   		ok := SERVER_BAD_MSG;
         					ENDTEST
                   addString := "BUFFER_OK";
@@ -928,7 +928,7 @@ PROC main()
 
             CASE 99: !Close Connection
                 IF nParams = 0 THEN
-                    TPWrite "SERVER: Client has closed connection.";
+                    TPWrite "SERVER_command: Client has closed connection.";
                     connected := FALSE;
                     FullReset;
                     !//Closing the server
@@ -996,7 +996,7 @@ PROC main()
                 ok :=SERVER_BAD_MSG;
               ENDIF
             DEFAULT:
-                TPWrite "SERVER: Illegal instruction code", \Num:=instructionCode;
+                TPWrite "SERVER_command: Illegal instruction code", \Num:=instructionCode;
                 ok := SERVER_BAD_MSG;
         ENDTEST
 
@@ -1016,18 +1016,18 @@ PROC main()
 ERROR (LONG_JMP_ALL_ERR)
     TEST ERRNO
         CASE ERR_SOCK_CLOSED:
-            TPWrite "SERVER: Error Handler:" + NumtoStr(ERRNO,0);
+            TPWrite "SERVER_command: Error Handler:" + NumtoStr(ERRNO,0);
             FullReset;
-            TPWrite "SERVER: Lost connection to the client.";
+            TPWrite "SERVER_command: Lost connection to the client.";
             Reconnect;
             TRYNEXT;
         CASE ERR_NORUNUNIT:
-            !TPWrite "SERVER: No contact with unit.";
+            !TPWrite "SERVER_command: No contact with unit.";
             TRYNEXT;
         DEFAULT:
-            TPWrite "SERVER: Error Handler:" + NumtoStr(ERRNO,0);
+            TPWrite "SERVER_command: Error Handler:" + NumtoStr(ERRNO,0);
             FullReset;
-            TPWrite "SERVER: Unknown error.";
+            TPWrite "SERVER_command: Unknown error.";
             Reconnect;
             TRYNEXT;
     ENDTEST
