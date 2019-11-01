@@ -312,8 +312,10 @@ PROC main()
                 IF nParams = 1 THEN
                     IF params{1}=1 THEN
                         currentZone := fine;
+                        TPWrite "zone set: ", \Str:="fine";
                     ELSE
                         currentZone := z0;
+                        TPWrite "Speed Set: ", \Str:="z0";
                     ENDIF
                     ok := SERVER_OK;
                 ELSE
