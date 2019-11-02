@@ -1,7 +1,8 @@
 
 import yaml
 import numpy as np
-
+import rospy
+import time
 
 class ControlSet():
     def __init__(self):
@@ -38,12 +39,14 @@ class ControlSet():
 
 class PIDController():
     def __init__(self):
-        self.set_parameters(1.0, 1.0, 1.0)
+        self.set_parameters(0.0, 0.0, 0.0)
         self.set_limits(0, 100)
         self.setpoint = 0.0
         self.error = 0.0
         self.time = None
-        self.output = 0.0
+        #self.output = 0.0
+        self.output = rospy.get_param('/speed_control_parameters/CurrentSpeedOverride')['CurrentSpeedOverride']
+
 
     def set_setpoint(self, setpoint):
         self.setpoint = setpoint
@@ -68,14 +71,14 @@ class PIDController():
         else:
             error = self.setpoint - value
             delta = time - self.time
-            # this outpur is the delta value for output
-            output = self.Kp * (error - self.error) + self.Ki * error * delta - self.Kd * value / delta
-            if output > 50:
-                output = 50
-            if output < -50:
-                output = -50
+            # this output is the delta value for output
+            output = self.Kp * (error - self.error) + self.Ki * error * delta + self.Kd * (error - self.error) / delta
+            if output > 55:
+                output = 55
+            if output < -55:
+                output = -55
             output = self.output + output
-            print 'P', self.Kp * (error - self.error), 'I', self.Ki * error * delta, 'D', - self.Kd * self.Kd * error / delta
+            print 'P', self.Kp * (error - self.error), 'I', self.Ki * error * delta, 'D', self.Kd * (error - self.error) / delta
             self.error = error
             print 'SetPoint', self.setpoint, 'Value', value, 'Time', time
             print 'Delta time', delta, 'Error', error, 'Output', output

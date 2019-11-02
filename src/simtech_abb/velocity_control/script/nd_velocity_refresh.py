@@ -45,24 +45,29 @@ class NdVelocityControl():
         self.msg_SpeedOverride = MsgSpeedOverride()
         self.control = ControlSet()
         self.mode = AUTOMATIC
+        #self.mode = MANUAL
 
-
+        self.setPIDparameters(rospy.get_param('/speed_control_parameters/pid_parameters'))
         self.setSpeedControlParameters(rospy.get_param('/speed_control_parameters/SpeedOverrideLimit'))
         self.setNominalParameters(rospy.get_param('/speed_control_parameters/CurrentSpeedOverride'))
-        self.setpoint = self.CurrentSpeedOverride * 0.001 * self.speed_set
+        self.setpoint = self.CurrentSpeedOverride * 0.01 * self.speed_set
 
         self.control.pid.set_limits(self.SpeedOverride_min, self.SpeedOverride_max)
         self.control.pid.set_setpoint(self.setpoint)
-
+        
         rospy.spin()
+
+    def setPIDparameters(self, params):
+        self.Kd = params['Kd']
+        self.Ki = params['Ki']
+        self.Kp = params['Kp']
+        self.control.pid.set_parameters(self.Kp, self.Ki, self.Kd)
 
 
     def setNominalParameters(self, params):
         self.CurrentSpeedOverride = params['CurrentSpeedOverride']
         self.speed_set = params['speedSet']
     
-        
-
     def setSpeedControlParameters(self, params):
         self.SpeedOverride_min = params['min']
         self.SpeedOverride_max = params['max']
