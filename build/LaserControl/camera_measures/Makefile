@@ -100,6 +100,17 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -121,17 +132,6 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -164,66 +164,6 @@ preinstall/fast:
 depend:
 	cd /home/david/SIMTech_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule
-.PHONY : LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-camera_measures_generate_messages_cpp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule
-
-.PHONY : camera_measures_generate_messages_cpp
-
-# fast build rule for target.
-camera_measures_generate_messages_cpp/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/build
-.PHONY : camera_measures_generate_messages_cpp/fast
-
-# Convenience name for target.
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule
-.PHONY : LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-camera_measures_generate_messages_lisp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule
-
-.PHONY : camera_measures_generate_messages_lisp
-
-# fast build rule for target.
-camera_measures_generate_messages_lisp/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/build
-.PHONY : camera_measures_generate_messages_lisp/fast
-
-# Convenience name for target.
-LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
-.PHONY : LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
-
-# Convenience name for target.
-_camera_measures_generate_messages_check_deps_MsgGeometry: LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
-
-.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry
-
-# fast build rule for target.
-_camera_measures_generate_messages_check_deps_MsgGeometry/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build.make LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build
-.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry/fast
-
-# Convenience name for target.
-LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule
-.PHONY : LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule
-
-# Convenience name for target.
-_camera_measures_generate_messages_check_deps_MsgVelocity: LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule
-
-.PHONY : _camera_measures_generate_messages_check_deps_MsgVelocity
-
-# fast build rule for target.
-_camera_measures_generate_messages_check_deps_MsgVelocity/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/build.make LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/build
-.PHONY : _camera_measures_generate_messages_check_deps_MsgVelocity/fast
 
 # Convenience name for target.
 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgStatus.dir/rule:
@@ -314,6 +254,111 @@ camera_measures_generate_messages_eus: LaserControl/camera_measures/CMakeFiles/c
 camera_measures_generate_messages_eus/fast:
 	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus.dir/build
 .PHONY : camera_measures_generate_messages_eus/fast
+
+# Convenience name for target.
+LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgTwist.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgTwist.dir/rule
+.PHONY : LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgTwist.dir/rule
+
+# Convenience name for target.
+_camera_measures_generate_messages_check_deps_MsgTwist: LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgTwist.dir/rule
+
+.PHONY : _camera_measures_generate_messages_check_deps_MsgTwist
+
+# fast build rule for target.
+_camera_measures_generate_messages_check_deps_MsgTwist/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgTwist.dir/build.make LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgTwist.dir/build
+.PHONY : _camera_measures_generate_messages_check_deps_MsgTwist/fast
+
+# Convenience name for target.
+LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule
+.PHONY : LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule
+
+# Convenience name for target.
+_camera_measures_generate_messages_check_deps_MsgVelocity: LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/rule
+
+.PHONY : _camera_measures_generate_messages_check_deps_MsgVelocity
+
+# fast build rule for target.
+_camera_measures_generate_messages_check_deps_MsgVelocity/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/build.make LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity.dir/build
+.PHONY : _camera_measures_generate_messages_check_deps_MsgVelocity/fast
+
+# Convenience name for target.
+LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
+.PHONY : LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
+
+# Convenience name for target.
+_camera_measures_generate_messages_check_deps_MsgGeometry: LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
+
+.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry
+
+# fast build rule for target.
+_camera_measures_generate_messages_check_deps_MsgGeometry/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build.make LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build
+.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry/fast
+
+# Convenience name for target.
+LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgPosition.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgPosition.dir/rule
+.PHONY : LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgPosition.dir/rule
+
+# Convenience name for target.
+_camera_measures_generate_messages_check_deps_MsgPosition: LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgPosition.dir/rule
+
+.PHONY : _camera_measures_generate_messages_check_deps_MsgPosition
+
+# fast build rule for target.
+_camera_measures_generate_messages_check_deps_MsgPosition/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgPosition.dir/build.make LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgPosition.dir/build
+.PHONY : _camera_measures_generate_messages_check_deps_MsgPosition/fast
+
+# Convenience name for target.
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule
+.PHONY : LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+camera_measures_generate_messages_cpp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/rule
+
+.PHONY : camera_measures_generate_messages_cpp
+
+# fast build rule for target.
+camera_measures_generate_messages_cpp/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/build
+.PHONY : camera_measures_generate_messages_cpp/fast
+
+# Convenience name for target.
+LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule
+.PHONY : LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule
+
+# Convenience name for target.
+camera_measures_geneus: LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule
+
+.PHONY : camera_measures_geneus
+
+# fast build rule for target.
+camera_measures_geneus/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/build
+.PHONY : camera_measures_geneus/fast
+
+# Convenience name for target.
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule
+.PHONY : LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+camera_measures_generate_messages_lisp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/rule
+
+.PHONY : camera_measures_generate_messages_lisp
+
+# fast build rule for target.
+camera_measures_generate_messages_lisp/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/build
+.PHONY : camera_measures_generate_messages_lisp/fast
 
 # Convenience name for target.
 LaserControl/camera_measures/CMakeFiles/tf_generate_messages_lisp.dir/rule:
@@ -435,21 +480,6 @@ camera_measures_generate_messages_py/fast:
 	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py.dir/build
 .PHONY : camera_measures_generate_messages_py/fast
 
-# Convenience name for target.
-LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule
-.PHONY : LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule
-
-# Convenience name for target.
-camera_measures_geneus: LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/rule
-
-.PHONY : camera_measures_geneus
-
-# fast build rule for target.
-camera_measures_geneus/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/build.make LaserControl/camera_measures/CMakeFiles/camera_measures_geneus.dir/build
-.PHONY : camera_measures_geneus/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -459,10 +489,6 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... camera_measures_generate_messages_cpp"
-	@echo "... camera_measures_generate_messages_lisp"
-	@echo "... _camera_measures_generate_messages_check_deps_MsgGeometry"
-	@echo "... _camera_measures_generate_messages_check_deps_MsgVelocity"
 	@echo "... test"
 	@echo "... _camera_measures_generate_messages_check_deps_MsgStatus"
 	@echo "... camera_measures_genlisp"
@@ -470,6 +496,14 @@ help:
 	@echo "... tf_generate_messages_eus"
 	@echo "... camera_measures_gencpp"
 	@echo "... camera_measures_generate_messages_eus"
+	@echo "... _camera_measures_generate_messages_check_deps_MsgTwist"
+	@echo "... _camera_measures_generate_messages_check_deps_MsgVelocity"
+	@echo "... _camera_measures_generate_messages_check_deps_MsgGeometry"
+	@echo "... _camera_measures_generate_messages_check_deps_MsgPosition"
+	@echo "... camera_measures_generate_messages_cpp"
+	@echo "... install/local"
+	@echo "... camera_measures_geneus"
+	@echo "... camera_measures_generate_messages_lisp"
 	@echo "... edit_cache"
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf_generate_messages_nodejs"
@@ -480,8 +514,6 @@ help:
 	@echo "... camera_measures_genpy"
 	@echo "... camera_measures_generate_messages_py"
 	@echo "... install/strip"
-	@echo "... camera_measures_geneus"
-	@echo "... install/local"
 .PHONY : help
 
 

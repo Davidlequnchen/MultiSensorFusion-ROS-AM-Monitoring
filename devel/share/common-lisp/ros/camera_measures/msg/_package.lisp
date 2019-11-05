@@ -3,8 +3,12 @@
   (:export
    "<MSGGEOMETRY>"
    "MSGGEOMETRY"
+   "<MSGPOSITION>"
+   "MSGPOSITION"
    "<MSGSTATUS>"
    "MSGSTATUS"
+   "<MSGTWIST>"
+   "MSGTWIST"
    "<MSGVELOCITY>"
    "MSGVELOCITY"
   ))

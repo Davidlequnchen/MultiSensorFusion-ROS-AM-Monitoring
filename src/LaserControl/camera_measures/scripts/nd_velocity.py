@@ -5,7 +5,8 @@ import numpy as np
 
 from camera_measures.msg import MsgVelocity
 from measures.velocity import Velocity
-
+from camera_measures.msg import MsgPosition
+from camera_measures.msg import MsgTwist
 
 class NdVelocity():
     def __init__(self):
@@ -13,10 +14,20 @@ class NdVelocity():
 
         self.velocity_pub = rospy.Publisher(
             '/velocity', MsgVelocity, queue_size=10)
+        
+        self.position_pub = rospy.Publisher(
+            '/position', MsgPosition, queue_size=10)
+ 
+        self.twist_pub = rospy.Publisher(
+            '/twist', MsgTwist, queue_size=10)
 
         self.velocity = Velocity()
         self.msg_velocity = MsgVelocity()
+        self.msg_position = MsgPosition()
+        self.msg_twist = MsgTwist()
         self.listener = tf.TransformListener()
+        
+        self.abs_speed = 0
 
         r = rospy.Rate(25)
         while not rospy.is_shutdown():
@@ -27,9 +38,33 @@ class NdVelocity():
         try:
             stamp = rospy.Time.now()
             self.listener.waitForTransform(
-                "/world", "/tcp0", stamp, rospy.Duration(1.0))
+                "/tcp0", "/world", stamp, rospy.Duration(1.0))
             position, quaternion = self.listener.lookupTransform(
-                "/world", "/tcp0", stamp)
+                "/tcp0", "/world", stamp)
+
+            linear_velocity, angular_velocity = self.listener.lookupTwist(
+                "/tcp0", "/world", stamp, rospy.Duration(0.1))
+            
+ 
+            self.msg_twist.header.stamp = stamp
+            self.msg_twist.linear_x = linear_velocity[0]
+            self.msg_twist.linear_y = linear_velocity[1]
+            self.msg_twist.linear_z = linear_velocity[2]
+            self.twist_pub.publish(self.msg_twist)
+
+            #position[0] = self.velocity.truncate(position[0], 2)
+            #position[1] = self.velocity.truncate(position[1], 2)
+            #position[2] = self.velocity.truncate(position[2], 2)
+            self.msg_position.header.stamp = stamp
+            self.msg_position.x = position[0]
+            self.msg_position.y = position[1]
+            self.msg_position.z = position[2]
+            self.position_pub.publish(self.msg_position)
+            '''
+            After truncate, the position value will not change if the robot is not move,
+            but it's not two decimals
+            '''
+
             speed, velocity = self.velocity.instantaneous(
                 stamp.to_sec(), np.array(position))
             self.msg_velocity.header.stamp = stamp

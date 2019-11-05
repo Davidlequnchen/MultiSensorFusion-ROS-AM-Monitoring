@@ -55,7 +55,9 @@ include LaserControl/camera_measures/CMakeFiles/camera_measures_generate_message
 
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgGeometry.js
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgStatus.js
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgTwist.js
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocity.js
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgPosition.js
 
 
 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgGeometry.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -69,16 +71,30 @@ LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from camera_measures/MsgStatus.msg"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg
 
+/home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgTwist.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgTwist.js: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg
+/home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgTwist.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from camera_measures/MsgTwist.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg
+
 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocity.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocity.js: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg
 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocity.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from camera_measures/MsgVelocity.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from camera_measures/MsgVelocity.msg"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg
+
+/home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgPosition.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgPosition.js: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
+/home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgPosition.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from camera_measures/MsgPosition.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg
 
 camera_measures_generate_messages_nodejs: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs
 camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgGeometry.js
 camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgStatus.js
+camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgTwist.js
 camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocity.js
+camera_measures_generate_messages_nodejs: /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgPosition.js
 camera_measures_generate_messages_nodejs: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_nodejs.dir/build.make
 
 .PHONY : camera_measures_generate_messages_nodejs

@@ -15,7 +15,9 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(FILES
                    MsgGeometry.msg
                    MsgVelocity.msg
-                   MsgStatus.msg)
+                   MsgStatus.msg
+                   MsgPosition.msg
+                   MsgTwist.msg)
 
 catkin_python_setup()
 

@@ -44,8 +44,8 @@ class NdVelocityControl():
 
         self.msg_SpeedOverride = MsgSpeedOverride()
         self.control = ControlSet()
-        self.mode = AUTOMATIC
-        #self.mode = MANUAL
+        #self.mode = AUTOMATIC
+        self.mode = MANUAL
 
         self.setPIDparameters(rospy.get_param('/speed_control_parameters/pid_parameters'))
         self.setSpeedControlParameters(rospy.get_param('/speed_control_parameters/SpeedOverrideLimit'))
@@ -78,7 +78,7 @@ class NdVelocityControl():
         if self.mode == MANUAL:
             value = self.manual(self.CurrentSpeedOverride)
         elif self.mode == AUTOMATIC:
-            value = self.automatic(msg_velocity.speed, time)
+            value = self.automatic(msg_velocity.speed * 1000.0, time) # unit should be mm/s
 
         value = self.range(value)
 

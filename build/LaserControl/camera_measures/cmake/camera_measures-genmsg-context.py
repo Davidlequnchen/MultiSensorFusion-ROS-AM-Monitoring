@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg"
+messages_str = "/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg"
 services_str = ""
 pkg_name = "camera_measures"
 dependencies_str = "std_msgs"

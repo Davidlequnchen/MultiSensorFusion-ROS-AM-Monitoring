@@ -1,3 +1,5 @@
 from ._MsgGeometry import *
+from ._MsgPosition import *
 from ._MsgStatus import *
+from ._MsgTwist import *
 from ._MsgVelocity import *

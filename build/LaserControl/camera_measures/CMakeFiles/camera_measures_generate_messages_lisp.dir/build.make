@@ -55,7 +55,9 @@ include LaserControl/camera_measures/CMakeFiles/camera_measures_generate_message
 
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgGeometry.lisp
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgStatus.lisp
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgPosition.lisp
 
 
 /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgGeometry.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
@@ -69,16 +71,30 @@ LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp: 
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from camera_measures/MsgStatus.msg"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg
 
+/home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg
+/home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from camera_measures/MsgTwist.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg
+
 /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg
 /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from camera_measures/MsgVelocity.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from camera_measures/MsgVelocity.msg"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg
+
+/home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgPosition.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgPosition.lisp: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
+/home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgPosition.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from camera_measures/MsgPosition.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg
 
 camera_measures_generate_messages_lisp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp
 camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgGeometry.lisp
 camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgStatus.lisp
+camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp
 camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp
+camera_measures_generate_messages_lisp: /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgPosition.lisp
 camera_measures_generate_messages_lisp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp.dir/build.make
 
 .PHONY : camera_measures_generate_messages_lisp

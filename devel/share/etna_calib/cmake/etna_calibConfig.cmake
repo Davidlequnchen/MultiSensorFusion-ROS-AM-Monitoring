@@ -67,7 +67,7 @@ set(etna_calib_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(etna_calib_SOURCE_PREFIX /home/david/SIMTech_ws/src/etna/etna_calib)
+  set(etna_calib_SOURCE_PREFIX /home/david/SIMTech_ws/src/etna /etna_calib)
   set(etna_calib_DEVEL_PREFIX /home/david/SIMTech_ws/devel)
   set(etna_calib_INSTALL_PREFIX "")
   set(etna_calib_PREFIX ${etna_calib_DEVEL_PREFIX})
@@ -110,7 +110,7 @@ if(NOT " " STREQUAL " ")
         message(FATAL_ERROR "Project 'etna_calib' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'etna_calib' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/david/SIMTech_ws/src/etna/etna_calib/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'etna_calib' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/david/SIMTech_ws/src/etna /etna_calib/${idir}'.  ${_report}")
     endif()
     _list_append_unique(etna_calib_INCLUDE_DIRS ${include})
   endforeach()
@@ -131,7 +131,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/david/SIMTech_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/david/SIMTech_ws/devel/lib;/home/david/SIMTech_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

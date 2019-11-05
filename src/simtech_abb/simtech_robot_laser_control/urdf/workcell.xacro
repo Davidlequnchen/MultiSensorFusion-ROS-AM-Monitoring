@@ -3,12 +3,13 @@
   <property name="pi" value="3.141592654" />
 
   <xacro:property name="tcp_frame">
-    <origin xyz="3.56212 272.158 172.892" rpy="-1.6109588 0.4533203 -7e-7" />
+    <origin xyz="0.002785 0.271833 0.174487" rpy="-${pi} 0.0 -${pi}" />
+    <!--origin xyz="3.56212 272.158 172.892" rpy="-1.6109588 0.4533203 -7e-7" /-->
     <!--origin xyz="0.24646 -0.02439 0.433932" rpy="${pi} -1.047197555 ${pi}" /-->
   </xacro:property>
 
   <xacro:property name="workobject_frame">
-    <origin xyz="-1472.25 -1273.96 233.48" rpy="0 0 0" />
+    <origin xyz="-1.47225 -1.27396 0.23348" rpy="0 0 0" />
     <!--origin xyz="0 0 0" rpy="0 0 0" /-->
     <!--<origin xyz="-0.19128875 0.19347143 0.10301394" rpy="-0.005628050440181059 0.005713681035339754 -1.5507089198045247" />-->
   </xacro:property>

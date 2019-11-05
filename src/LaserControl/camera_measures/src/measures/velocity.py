@@ -1,5 +1,5 @@
 import numpy as np
-
+import math
 
 class Velocity():
     def __init__(self):
@@ -17,6 +17,15 @@ class Velocity():
         self.times.insert(0, time)
         self.positions.insert(0, position)
         return np.around(speed, decimals=4), np.around(vel, decimals=5)
+
+    def truncate(self, f, n):
+        return math.floor(f * (10 ** n)) / (10 ** n)
+
+    '''
+    >>> f=1.923328437452
+    >>> [truncate(f, n) for n in range(7)]
+    [1.0, 1.9, 1.92, 1.923, 1.9233, 1.92332, 1.923328]
+    '''
 
 
 if __name__ == '__main__':
