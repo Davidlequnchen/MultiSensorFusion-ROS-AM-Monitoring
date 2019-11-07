@@ -108,7 +108,7 @@ PROC main()
 		!setup interupt for velocity refresh
 		IDelete time_int;
 		CONNECT time_int WITH speed_refresh;
-		ITimer 0.1, time_int; !//is used to order and enable a timed interrupt
+		ITimer 1.0, time_int; !//is used to order and enable a timed interrupt
 		ISleep time_int; !//deactivate an individual interrupt temporarily.
 		!//During the deactivation time any generated interrupts of the specified type are discarded
 		!//without any trap execution
@@ -129,7 +129,7 @@ PROC main()
           TEST command_type{n_cartesian_motion}
             CASE 1: !Cartesian linear move
 						  ! //Read current speed override set from FlexPendant
-              override := CSpeedOverride (\CTask);
+              !override := CSpeedOverride (\CTask);
 						  !//IWatch: activate an interrupt which was previously ordered but was deactivated with ISleep
               IWatch time_int;
 
@@ -139,10 +139,10 @@ PROC main()
               moveCompleted := TRUE;
 
               ISleep time_int;
-			  			!IDelete time_int; !//Cancel the interupt
-			  			! //Reset to FlexPendant old speed override
-			  			WaitTime 0.5;
-			  			SpeedRefresh override;
+			  !IDelete time_int; !//Cancel the interupt
+			  ! //Reset to FlexPendant old speed override
+			  !WaitTime 0.5;
+			  !SpeedRefresh override;
 
             CASE 10: !Cartesian joint move
               moveCompleted := FALSE;
@@ -159,9 +159,9 @@ PROC main()
               !IndReset STN1, 1;
 							moveCompleted := TRUE;
 
-						CASE 122: !External axis move
-							moveCompleted := FALSE;
-							pActC := CRobT(\Tool:=currentTool \WObj:=currentWObj);
+			CASE 122: !External axis move
+				moveCompleted := FALSE;
+				pActC := CRobT(\Tool:=currentTool \WObj:=currentWObj);
 							pActC.extax.eax_c := extAxisMove{n_cartesian_motion};
 							MOVEJ pActC, cartesian_speed{n_cartesian_motion}, currentZone, currentTool \WObj:=currentWobj;
 							!IndAMove STN1, 2\ToAbsNum:=cartesianTarget{n_cartesian_motion}.extax.eax_b, cartesian_speed{n_cartesian_motion}.v_reax;
@@ -180,28 +180,28 @@ PROC main()
               !TriggL cartesianTarget{n_cartesian_motion}, cartesian_speed{n_cartesian_motion}, laser_ON \T2:=wireON_tps, currentZone, currentTool \WObj:=currentWobj ;
 							!moveCompleted := TRUE;
 
-						CASE 94: !Wait time
-							WaitTime numBufferAux{n_cartesian_motion};
+			CASE 94: !Wait time
+				WaitTime numBufferAux{n_cartesian_motion};
 
-						CASE 1000101: !Laser Ready true
-						    LaserOn;
+			CASE 1000101: !Laser Ready true
+				LaserOn;
 
-						CASE 1000102: !Laser ready Fase
-							LaserOff;
+			CASE 1000102: !Laser ready Fase
+				LaserOff;
 
-						CASE 1000103: !Laser start (laser emission start)
-							LaserStart;
+			CASE 1000103: !Laser start (laser emission start)
+				LaserStart;
 
-						CASE 1000104: !Laser end
-							LaserEnd;
+			CASE 1000104: !Laser end
+				LaserEnd;
 
             DEFAULT:
-						TPWrite "SERVER_motion: Illegal instruction code: ", \Num:=command_type{n_cartesian_motion};
-		        ENDTEST
-		          n_cartesian_motion := n_cartesian_motion + 1;
-		          IF n_cartesian_motion > 49
-		            n_cartesian_motion := 1;
-		        ENDIF
+				TPWrite "SERVER_motion: Illegal instruction code: ", \Num:=command_type{n_cartesian_motion};
+		  ENDTEST
+		  n_cartesian_motion := n_cartesian_motion + 1;
+		IF n_cartesian_motion > 49
+		    n_cartesian_motion := 1;
+		ENDIF
         WaitTime 0.01;  ! Throttle loop while waiting for new command
     ENDWHILE
 ERROR
@@ -256,26 +256,5 @@ LOCAL TRAP speed_refresh
     	RETRY;
 	ENDIF
 ENDTRAP
-
-
-!LOCAL TRAP new_configure_handler
-	!IF laser_conf = 0 THEN
-		!SetIpg;
-	!ELSEIF laser_conf = 1 THEN
-		!SetTrumpf;
-	!ELSE
-		!TPWrite "MOTION: Invalid laser configure number: ", \Num:=laser_conf;
-	!ENDIF
-	!ERROR
-		!ErrWrite \W, "Configuring error", "Error configuring laser.";
-!ENDTRAP
-
-!LOCAL TRAP new_feeder_configure_handler
-	!IF feeder_conf = 1 THEN
-		!SetWire;
-	!ENDIF
-	!ERROR
-		!ErrWrite \W, "Configuring error", "Error configuring feeder.";
-!ENDTRAP
 
 ENDMODULE

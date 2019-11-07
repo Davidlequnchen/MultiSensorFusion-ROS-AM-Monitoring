@@ -68,7 +68,6 @@ class PIDController():
     def control_update(self, value, time):
         if self.time is None:
             output = self.output
-            '''
         else:
             error = self.setpoint - value
             delta = time - self.time
@@ -90,8 +89,8 @@ class PIDController():
         self.time = time
         self.output = output
         return output
-            '''
-
+            
+        '''
         elif value < self.setpoint - 0.1:
             self.output = self.SpeedOverride_max
         elif value > self.setpoint + 0.1:
@@ -100,7 +99,7 @@ class PIDController():
             self.output = rospy.get_param('/speed_control_parameters/CurrentSpeedOverride')['CurrentSpeedOverride']
         self.time = time
         return self.output
-
+        '''
 
 
 if __name__ == '__main__':

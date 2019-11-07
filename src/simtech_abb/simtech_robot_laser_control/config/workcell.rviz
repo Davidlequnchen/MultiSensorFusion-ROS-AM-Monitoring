@@ -26,7 +26,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Image
+    SyncSource: ""
 Toolbars:
   toolButtonStyle: 2
 Visualization Manager:
@@ -153,7 +153,19 @@ Visualization Manager:
           Value: true
         link_1:
           Value: true
+        link_2:
+          Value: true
+        link_3:
+          Value: true
+        link_4:
+          Value: true
+        link_5:
+          Value: true
         link_6:
+          Value: true
+        link_d1:
+          Value: true
+        link_d2:
           Value: true
         link_d3:
           Value: true
@@ -175,6 +187,25 @@ Visualization Manager:
       Tree:
         world:
           base_link:
+            link_1:
+              link_2:
+                link_3:
+                  link_4:
+                    link_5:
+                      link_6:
+                        tool0:
+                          head0:
+                            {}
+                          tcp0:
+                            {}
+                  link_d1:
+                    {}
+              link_d2:
+                {}
+              link_d3:
+                {}
+              link_d4:
+                {}
             workobject:
               {}
       Update Interval: 0
@@ -196,7 +227,7 @@ Visualization Manager:
       Marker Topic: visualization_marker_array
       Name: MarkerArray
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -224,25 +255,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.68306231
+      Distance: 2.04784369
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.40941456
-        Y: -0.197450966
-        Z: 0.764594495
+        X: 0.094925113
+        Y: -0.451298684
+        Z: 0.907097816
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.444800913
+      Pitch: 0.504800856
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.34854031
+      Yaw: 5.30354166
     Saved: ~
 Window Geometry:
   Displays:

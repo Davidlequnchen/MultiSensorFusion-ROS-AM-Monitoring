@@ -45,7 +45,7 @@ class Nd_socket():
 
         #set power analog value
         #convert the value(float32) to only one decimal place string
-        self.send_SpeedOverride = "%.1f" % msg_SpeedOverride.value     
+        self.send_SpeedOverride = "%.2f" % msg_SpeedOverride.value     
         
         self.SpeedOverride_controlled = self.velocity_connection.set_SpeedOverride(self.send_SpeedOverride)
         print("SpeedOverride has been set:" + str(self.SpeedOverride_controlled))
