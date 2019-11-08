@@ -28,7 +28,7 @@ class Nd_socket():
         self.velocity_connection.estab_connect(laser_ip)
 
         rospy.Subscriber(
-            '/velocity_control/SpeedOverride', MsgSpeedOverride, self.cb_SpeedOverride, queue_size=1)
+            '/velocity_control/SpeedOverride', MsgSpeedOverride, self.cb_SpeedOverride, queue_size=20)
 
         
 
@@ -48,7 +48,8 @@ class Nd_socket():
         self.send_SpeedOverride = "%.2f" % msg_SpeedOverride.value     
         
         self.SpeedOverride_controlled = self.velocity_connection.set_SpeedOverride(self.send_SpeedOverride)
-        print("SpeedOverride has been set:" + str(self.SpeedOverride_controlled))
+        rospy.loginfo("SpeedOverride has been set:" + str(self.SpeedOverride_controlled))
+
 
  
 

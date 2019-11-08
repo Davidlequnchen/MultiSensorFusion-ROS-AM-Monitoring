@@ -35,7 +35,7 @@ PERS num numBufferAux{max_cartesian};
 PERS num extAxisMove{max_cartesian};
 
 !// Velocity Control Parameter
-PERS num speed_corr;
+!// PERS num speed_corr;
 
 
 !//Control of the laser

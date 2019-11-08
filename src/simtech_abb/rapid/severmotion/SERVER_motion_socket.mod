@@ -18,8 +18,74 @@ VAR jointtarget jointsTarget;
 !//for velocityRefresh
 VAR intnum time_int;
 VAR num override;
-!VAR num speed_corr; // This variable will be defined in common.sys
+VAR num speed_corr;  
 !////////////////////local variables
+!//PC communication
+VAR socketdev clientSocket;
+VAR socketdev serverSocket;
+!VAR num SpeedOverride;
+PERS num speedPort:= 10002;
+
+
+!//Correct Instruction Execution and possible return values
+VAR num ok;
+CONST num SERVER_BAD_MSG :=  0;
+CONST num SERVER_OK := 1;
+VAR bool connected;          !//Client connected
+VAR bool reconnected;        !//Drop and reconnection happened during serving a command
+
+
+!////////////////
+!LOCAL METHODS
+!////////////////
+PROC SetSpeedOverride(string msg)
+    !//Local variables
+    VAR bool auxOk;
+
+    auxOk:= StrToVal(msg, speed_corr);
+    IF auxOk = FALSE THEN
+    !//Impossible to read the power value
+        TPWrite "VelocityControl: Failed to get the SpeedOverride";
+    ELSE
+        !speed_corr := 10;
+        !speed_corr := SpeedOverride;
+        TPWrite "VelocityControl: SpeedOverride set: ", \Num:= speed_corr;
+    ENDIF
+ENDPROC
+
+
+!//Handshake between server and client:
+!// - Creates socket.
+!// - Waits for incoming TCP connection.
+PROC ServerCreateAndConnect(num port)
+	VAR string clientIP;
+	VAR num time_val := WAIT_MAX;  ! default to wait-forever
+
+	IF (SocketGetStatus(serverSocket) = SOCKET_CLOSED) SocketCreate serverSocket;
+	IF (SocketGetStatus(serverSocket) = SOCKET_CREATED) SocketBind serverSocket, "192.168.125.1", port;
+	IF (SocketGetStatus(serverSocket) = SOCKET_BOUND) SocketListen serverSocket;
+	TPWrite "VelocityControl: SpeedRefresh waiting for incomming connections ...";
+
+	!IF Present(wait_time) time_val := wait_time;
+
+    IF (SocketGetStatus(clientSocket) <> SOCKET_CLOSED) SocketClose clientSocket;
+    WaitUntil (SocketGetStatus(clientSocket) = SOCKET_CLOSED);
+
+    SocketAccept serverSocket, clientSocket, \ClientAddress:=clientIP, \Time:=time_val;
+	TPWrite "VelocityControl: SpeedRefresh Connected to IP " + clientIP;
+ENDPROC
+
+
+PROC Reconnect ()
+    connected:=FALSE;
+    !//Closing the server
+    SocketClose clientSocket;
+    SocketClose serverSocket;
+    !//Reinitiate the server
+    ServerCreateAndConnect speedPort;
+    reconnected:= FALSE;
+    connected:= TRUE;
+ENDPROC
 
 
 !/////////////////////////////////local process
@@ -87,6 +153,16 @@ ENDPROC
 !/////main funtion start////
 
 PROC main()
+    !//Local variables
+    VAR string receivedString_SpeedOverride;   !//Received string
+    VAR string sendString;       !//Reply string
+    VAR string addString;        !//String to add to the reply.
+
+	!//Socket connection
+    connected:=FALSE;
+    ServerCreateAndConnect speedPort;
+    connected:=TRUE;
+
     !VAR jointtarget target;
     !VAR zonedata stop_mode;
 
@@ -123,9 +199,18 @@ PROC main()
 	!IPers feeder_conf, intr_configure_feeder;
 
     WHILE TRUE DO
+	  !//Initialization of program flow variables
+      ok:=SERVER_OK;              !//Correctness of executed instruction.
+      reconnected:=FALSE;         !//Has communication dropped after receiving a command? 
+      
       pAct := CRobT(\Tool:=currentTool \WObj:=currentWObj);
-        !Check for new motion command
+      !Check for new motion command
       IF n_cartesian_command <> n_cartesian_motion THEN
+		  !//Wait for a command
+		  !// store the received data into the variable receivedString within the time limit
+		  SocketReceive clientSocket \Str:=receivedString_SpeedOverride \Time:=10;
+		  SetSpeedOverride receivedString_SpeedOverride;
+		
           TEST command_type{n_cartesian_motion}
             CASE 1: !Cartesian linear move
 			  ! //Read current speed override set from FlexPendant
@@ -137,6 +222,7 @@ PROC main()
               cartesianTarget{n_cartesian_motion}.extax := pAct.extax;
               MoveL cartesianTarget{n_cartesian_motion}, cartesian_speed{n_cartesian_motion}, currentZone, currentTool \WObj:=currentWobj ;
               moveCompleted := TRUE;
+			  !addString = "motion complete";
 
               ISleep time_int;
 			  !IDelete time_int; !//Cancel the interupt
@@ -162,11 +248,11 @@ PROC main()
 			CASE 122: !External axis move
 				moveCompleted := FALSE;
 				pActC := CRobT(\Tool:=currentTool \WObj:=currentWObj);
-							pActC.extax.eax_c := extAxisMove{n_cartesian_motion};
-							MOVEJ pActC, cartesian_speed{n_cartesian_motion}, currentZone, currentTool \WObj:=currentWobj;
-							!IndAMove STN1, 2\ToAbsNum:=cartesianTarget{n_cartesian_motion}.extax.eax_b, cartesian_speed{n_cartesian_motion}.v_reax;
-							!IndReset STN1, 2;
-							moveCompleted := TRUE;
+				pActC.extax.eax_c := extAxisMove{n_cartesian_motion};
+				MOVEJ pActC, cartesian_speed{n_cartesian_motion}, currentZone, currentTool \WObj:=currentWobj;
+				!IndAMove STN1, 2\ToAbsNum:=cartesianTarget{n_cartesian_motion}.extax.eax_b, cartesian_speed{n_cartesian_motion}.v_reax;
+				!IndReset STN1, 2;
+				moveCompleted := TRUE;
 
             !CASE 110: !Trigger linear OFF
               !moveCompleted := FALSE;
@@ -199,19 +285,39 @@ PROC main()
 				TPWrite "SERVER_motion: Illegal instruction code: ", \Num:=command_type{n_cartesian_motion};
 		  ENDTEST
 		  n_cartesian_motion := n_cartesian_motion + 1;
+
+
+	    !Compose the acknowledge string to send back to the client
+        IF connected = TRUE THEN
+            IF reconnected = FALSE THEN
+			         IF SocketGetStatus(clientSocket) = SOCKET_CONNECTED THEN
+				            sendString := NumToStr(speed_corr,0);
+                            sendString := sendString + " " + NumToStr(ok,0);
+                            sendString := sendString + " " + addString;
+                            SocketSend clientSocket \Str:=sendString;
+			          ENDIF
+            ENDIF
+        ENDIF
+
 		IF n_cartesian_motion > 49
 		    n_cartesian_motion := 1;
 		ENDIF
         WaitTime 0.01;  ! Throttle loop while waiting for new command
+
     ENDWHILE
 ERROR
 	TEST ERRNO
+	        CASE ERR_SOCK_CLOSED:
+            	TPWrite "MOTION: Error Handler:" + NumtoStr(ERRNO,0);
+            	TPWrite "MOTION: Lost connection to the client.";
+            	Reconnect;
+            	TRYNEXT;
 			CASE ERR_NORUNUNIT:
-					TPWrite "MOTION: No contact with unit.";
-					TRYNEXT;
+				TPWrite "MOTION: No contact with unit.";
+				TRYNEXT;
 			DEFAULT:
-					ErrWrite \W, "Motion Error", "Error executing motion.  Aborting trajectory.";
-					abort_trajectory;
+				ErrWrite \W, "Motion Error", "Error executing motion.  Aborting trajectory.";
+				abort_trajectory;
 	ENDTEST
 ENDPROC
 
