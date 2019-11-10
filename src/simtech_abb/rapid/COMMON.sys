@@ -22,7 +22,7 @@ PERS string ipController:= "192.168.125.1"; !robot default IP
 PERS bool joints_notcartesians:= TRUE;
 
 !//Motion of the robot
-CONST num max_cartesian := 50;
+CONST num max_cartesian := 50;                    
 PERS num n_cartesian_motion := 1;
 PERS num n_cartesian_command := 1;
 PERS num command_type{max_cartesian};
@@ -35,7 +35,7 @@ PERS num numBufferAux{max_cartesian};
 PERS num extAxisMove{max_cartesian};
 
 !// Velocity Control Parameter
-!// PERS num speed_corr;
+PERS num speed_corr;
 
 
 !//Control of the laser

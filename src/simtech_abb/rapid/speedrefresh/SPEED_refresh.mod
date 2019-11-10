@@ -109,6 +109,16 @@ PROC main()
 
         SetSpeedOverride receivedString;
         
+        !Compose the acknowledge string to send back to the client
+        IF connected = TRUE THEN
+            IF reconnected = FALSE THEN
+			         IF SocketGetStatus(clientSocket) = SOCKET_CONNECTED THEN
+				            sendString := NumToStr(speed_corr,0);
+                            sendString := sendString + " " + NumToStr(ok,0);
+                            SocketSend clientSocket \Str:=sendString;
+			          ENDIF
+            ENDIF
+        ENDIF
         
     ENDWHILE
 

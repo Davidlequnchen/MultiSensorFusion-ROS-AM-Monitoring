@@ -11,6 +11,7 @@ MODULE DELCAM
   PERS wobjdata wDelcam1:=[FALSE,TRUE,"",[[1576.8,144,1160],[1,0,0,0]],[[0,0,0],[1,0,0,0]]];
   !        User defined feedrate v2
   PERS speeddata v2:=[2,500,5000,1000];
+  PERS speeddata v160:=[160,500,5000,1000];
   PERS speeddata v13:=[13,500,5000,1000];
   !        User defined Zone data z0 (if not available)
   !CONST zonedata z0:=[FALSE,0.2,0.2,0.2,0.2,0.2,0.2];

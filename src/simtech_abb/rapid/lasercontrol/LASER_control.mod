@@ -38,8 +38,8 @@ PROC SetPower(string msg)
     !//Impossible to read the power value
         TPWrite "LASER: Failed to get the power value";
     ELSE
-        !SetAO aoPower, power_value;
-        SetAO aoPower, 0;
+        SetAO aoPower, power_value;
+        !SetAO aoPower, 0;
     ENDIF
 ENDPROC
 
@@ -108,7 +108,7 @@ PROC main()
         !SocketReceive clientSocket \Str:=receivedString \Time:=WAIT_MAX;
 
         !SetAO aoPower, 2.919;                      !20191022
-        !SetPower receivedString;
+        SetPower receivedString;
         !TpWrite "laser power set";
 
 

@@ -156,8 +156,7 @@ PROC main()
     !//Local variables
     VAR string receivedString_SpeedOverride;   !//Received string
     VAR string sendString;       !//Reply string
-    VAR string addString;        !//String to add to the reply.
-
+    VAR string addString;
 	!//Socket connection
     connected:=FALSE;
     ServerCreateAndConnect speedPort;
@@ -222,7 +221,7 @@ PROC main()
               cartesianTarget{n_cartesian_motion}.extax := pAct.extax;
               MoveL cartesianTarget{n_cartesian_motion}, cartesian_speed{n_cartesian_motion}, currentZone, currentTool \WObj:=currentWobj ;
               moveCompleted := TRUE;
-			  !addString = "motion complete";
+			  
 
               ISleep time_int;
 			  !IDelete time_int; !//Cancel the interupt
@@ -243,7 +242,7 @@ PROC main()
               MOVEJ pActB, cartesian_speed{n_cartesian_motion}, currentZone, currentTool \WObj:=currentWobj;
               !IndAMove STN1, 1\ToAbsNum:=cartesianTarget{n_cartesian_motion}.extax.eax_b, cartesian_speed{n_cartesian_motion}.v_reax;
               !IndReset STN1, 1;
-							moveCompleted := TRUE;
+			  moveCompleted := TRUE;
 
 			CASE 122: !External axis move
 				moveCompleted := FALSE;
