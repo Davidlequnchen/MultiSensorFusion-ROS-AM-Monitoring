@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: monitoring
+    relative_path: urdf/workcell.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/abb_workcell.srdf
+  CONFIG:
+    author_name: Chen Lequn
+    author_email: davidleuqnchen@gmail.com
+    generated_timestamp: 1568252171

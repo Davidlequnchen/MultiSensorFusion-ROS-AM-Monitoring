@@ -1,0 +1,91 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <!-- By default, we do not start a database (it can be large) -->
+  <arg name="db" default="false" />
+  <!-- Allow user to specify database location -->
+  <arg name="db_path" default="$(find simtech_moveit_config)/default_warehouse_mongo_db" />
+
+  <!-- By default, we are not in debug mode -->
+  <arg name="debug" default="false" />
+
+  <!--
+  By default, hide joint_state_publisher's GUI
+
+  MoveIt!'s "demo" mode replaces the real robot driver with the joint_state_publisher.
+  The latter one maintains and publishes the current joint configuration of the simulated robot.
+  It also provides a GUI to move the simulated robot around "manually".
+  This corresponds to moving around the real robot without the use of MoveIt.
+  -->
+  <!-- <arg name="use_gui" default="false" /> -->
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find simtech_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <!-- If needed, broadcast static tf for robot root -->
+  
+
+  <!-- We do not have a robot connected, so publish fake joint states, comment this node if we are using actuall robot-->
+  <!--<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="$(arg use_gui)"/>
+    <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
+  </node>-->
+
+  <!-- connect to real robot to recieve joint states data and sending command -->
+  <include file="$(find abb_driver)/launch/robot_interface.launch" unless="$(arg sim)">
+    <arg name="robot_ip" value="192.168.125.1" />
+    <arg name="J23_coupled" value="true" />
+  </include>
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+   <rosparam command="load" file="$(find abb_irb4400_support)/config/joint_names_irb4400l_30_243.yaml" />
+
+  <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default, but if we have we do not use fake exeecution) -->
+  <include file="$(find simtech_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="false"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  <!-- Run Rviz and load the default config to see the state of the move_group node -->
+  <!-- the Rviz also subscribes image topic, tf topic as well as point cloud topic -->
+  <include file="$(find simtech_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  <!-- If database loading was enabled, start mongodb as well -->
+  <include file="$(find simtech_moveit_config)/launch/default_warehouse_db.launch" if="$(arg db)">
+    <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
+  </include>
+
+  <!-- the following nodes are for laser scanning using camera, disable it if you are not using it -->
+  
+  <!-- initiate the usb camera driver to get the image topic -->
+  <!-- <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="frame_rate" type="double" value="30.0" />
+    <param name="io_method" value="mmap"/>
+  </node> -->
+
+  <!-- image processing node, in order to show the undistorted image after calibration -->
+  <!-- <node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam"/> -->
+
+  <!-- publish the point cloud topic, the laser scanning result -->
+  <!-- <node name="profile_cloud" pkg="laser_scanning" type="usb_profile.py">
+    <param name="image" type="str" value="/usb_cam/image_rect_color" />
+    <param name="cloud" type="str" value="/usb_cam/cloud" />
+    <param name="config" type="str" value="$(find laser_scanning)/config/profile3d.yaml" />
+  </node> -->
+
+</launch> 

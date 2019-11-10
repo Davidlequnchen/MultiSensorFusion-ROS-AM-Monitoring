@@ -1,0 +1,46 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="true" />
+
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="frame_rate" type="double" value="30.0" />
+    <param name="io_method" value="mmap"/>
+  </node>
+  
+  <!-- image_proc is to undistort the image according to the camera calibration result, and publish the topic: /usb_cam/image_rect_color -->
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam"/>
+  <!-- <include file="$(find image_proc)/launch/image_proc.launch">
+  </include> -->
+
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/usb_cam/image_rect_color"/>
+    <param name="autosize" value="true" />
+  </node>
+
+   
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find monitoring)/config/workcell.rviz" required="true" if="$(arg gui)" />
+  
+  <arg name="model" value="$(find monitoring)/urdf/workcell.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <!-- <include file="$(find abb_irb4400_support)/launch/test_irb4400l_30_243.launch">
+  </include> -->
+
+  <!-- use joint state publisher to public the topic: sensor_msgs/joint_state -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <param name="use_gui" value="true"/>
+  </node>
+
+  <!-- use the robot state publisher to publish the /tf topic -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node name="profile_cloud" pkg="laser_scanning" type="usb_profile.py">
+    <param name="image" type="str" value="/usb_cam/image_rect_color" />
+    <param name="cloud" type="str" value="/usb_cam/cloud" />
+    <param name="config" type="str" value="$(find laser_scanning)/config/profile3d.yaml" />
+  </node>
+</launch>
