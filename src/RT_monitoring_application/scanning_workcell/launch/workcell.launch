@@ -1,0 +1,19 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <include file="$(find simtech_workcell)/launch/workcell.launch">
+    <arg name="gui" value="false" />
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="model" default="$(find scanning_workcell)/urdf/workcell.xacro" />
+  </include>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find scanning_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
+
+  <!-- contains usb camera node, image processing node(undistort image) and laser scanning node--> 
+  <include file="$(find laser_scanning)/launch/profile.launch" unless="$(arg sim)">
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="sim" value="$(arg sim)" />
+  </include>
+
+</launch>

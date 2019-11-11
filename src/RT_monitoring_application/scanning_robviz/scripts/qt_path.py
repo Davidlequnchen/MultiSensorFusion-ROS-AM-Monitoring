@@ -1,0 +1,1 @@
+../../proper_jason/scripts/qt_path.py
