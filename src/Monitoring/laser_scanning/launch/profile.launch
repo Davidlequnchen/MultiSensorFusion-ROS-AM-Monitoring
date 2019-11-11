@@ -2,15 +2,24 @@
   <arg name="gui" default="true" />
   <arg name="sim" default="false" />
 
-  <include file="$(find laser_scanning)/launch/ueye.launch" unless="$(arg sim)" />
+  <!-- usb cam driver -->
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video1" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="frame_rate" type="double" value="30.0" />
+    <param name="io_method" value="mmap"/>
+  </node> 
+  
+  <!-- image_proc is to undistort the image according to the camera calibration result, and publish the topic: /usb_cam/image_rect_color -->
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam"/>
 
-  <node name="ueye_viewer" pkg="image_view" type="image_view" if="$(arg gui)">
-    <remap from="image" to="/ueye/image" />
-  </node>
 
-  <node name="profile" pkg="etna_scanning" type="nd_profile.py">
-    <param name="image" type="str" value="/ueye/image" />
-    <param name="cloud" type="str" value="/ueye/cloud" />
-    <param name="config" type="str" value="$(find etna_scanning)/config/camera_profile3d.yaml" />
-  </node>
+  <node name="profile_cloud" pkg="laser_scanning" type="usb_profile.py">
+    <param name="image" type="str" value="/usb_cam/image_rect_color" />
+    <param name="cloud" type="str" value="/usb_cam/cloud" />
+    <param name="config" type="str" value="$(find laser_scanning)/config/profile3d.yaml" />
+  </node> 
 </launch>

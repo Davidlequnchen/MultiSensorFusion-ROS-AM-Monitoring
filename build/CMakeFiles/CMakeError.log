@@ -53,3 +53,102 @@ Makefile:126: recipe for target 'cmTC_59292/fast' failed
 make: *** [cmTC_59292/fast] Error 2
 
 
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bea1d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bea1d.dir/build.make CMakeFiles/cmTC_bea1d.dir/build
+make[1]: Entering directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bea1d.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_bea1d.dir/CheckSymbolExists.cxx.o -c /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+   return ((int*)(&Q_WS_WIN))[argc];
+                   ^
+CMakeFiles/cmTC_bea1d.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_bea1d.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_bea1d.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_bea1d/fast' failed
+make: *** [cmTC_bea1d/fast] Error 2
+
+File /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4d1a8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4d1a8.dir/build.make CMakeFiles/cmTC_4d1a8.dir/build
+make[1]: Entering directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4d1a8.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_4d1a8.dir/CheckSymbolExists.cxx.o -c /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+   return ((int*)(&Q_WS_QWS))[argc];
+                   ^
+CMakeFiles/cmTC_4d1a8.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4d1a8.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_4d1a8.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4d1a8/fast' failed
+make: *** [cmTC_4d1a8/fast] Error 2
+
+File /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7f828/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7f828.dir/build.make CMakeFiles/cmTC_7f828.dir/build
+make[1]: Entering directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7f828.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_7f828.dir/CheckSymbolExists.cxx.o -c /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+   return ((int*)(&Q_WS_MAC))[argc];
+                   ^
+CMakeFiles/cmTC_7f828.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_7f828.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_7f828.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7f828/fast' failed
+make: *** [cmTC_7f828/fast] Error 2
+
+File /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

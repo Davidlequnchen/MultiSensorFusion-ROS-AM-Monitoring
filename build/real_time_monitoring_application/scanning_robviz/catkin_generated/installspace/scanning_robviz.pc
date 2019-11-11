@@ -1,0 +1,8 @@
+prefix=/home/david/SIMTech_ws/install
+
+Name: scanning_robviz
+Description: Description of scanning_robviz
+Version: 0.3.0
+Cflags: 
+Libs: -L/home/david/SIMTech_ws/install/lib 
+Requires: 
