@@ -920,32 +920,6 @@ aimen_driver_gennodejs/fast:
 .PHONY : aimen_driver_gennodejs/fast
 
 #=============================================================================
-# Target rules for targets named pub_webcam
-
-# Build rule for target.
-pub_webcam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pub_webcam
-.PHONY : pub_webcam
-
-# fast build rule for target.
-pub_webcam/fast:
-	$(MAKE) -f "etna /etna_scanning/CMakeFiles/pub_webcam.dir/build.make" "etna /etna_scanning/CMakeFiles/pub_webcam.dir/build"
-.PHONY : pub_webcam/fast
-
-#=============================================================================
-# Target rules for targets named sub_webcam
-
-# Build rule for target.
-sub_webcam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sub_webcam
-.PHONY : sub_webcam
-
-# fast build rule for target.
-sub_webcam/fast:
-	$(MAKE) -f "etna /etna_scanning/CMakeFiles/sub_webcam.dir/build.make" "etna /etna_scanning/CMakeFiles/sub_webcam.dir/build"
-.PHONY : sub_webcam/fast
-
-#=============================================================================
 # Target rules for targets named bond_generate_messages_lisp
 
 # Build rule for target.
@@ -3980,8 +3954,6 @@ help:
 	@echo "... aimen_driver_generate_messages_lisp"
 	@echo "... aimen_driver_genlisp"
 	@echo "... aimen_driver_gennodejs"
-	@echo "... pub_webcam"
-	@echo "... sub_webcam"
 	@echo "... bond_generate_messages_lisp"
 	@echo "... bond_generate_messages_eus"
 	@echo "... test_cv_camera_no_yaml"

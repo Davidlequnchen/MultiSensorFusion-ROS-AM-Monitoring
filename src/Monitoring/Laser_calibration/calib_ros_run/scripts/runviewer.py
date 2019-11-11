@@ -52,11 +52,11 @@ class ImageViewer():
 
         image_topic = rospy.get_param('~image', '/usb_cam/image_rect')
         # Pattern parameters
-        pattern_rows = rospy.get_param('~pattern_rows', 10)
-        pattern_cols = rospy.get_param('~pattern_cols', 7)
-        pattern_size = rospy.get_param('~pattern_size', 10)
+        pattern_rows = rospy.get_param('~pattern_rows', 8)
+        pattern_cols = rospy.get_param('~pattern_cols', 5)
+        pattern_size = rospy.get_param('~pattern_size', 0.01089) #10.89 cm^2, 33mm for side
 
-        config_file = rospy.get_param('~config', 'profile3d.yaml')
+        self.config_file = rospy.get_param('~config', 'profile3d.yaml')
 
         # cv2.namedWindow('viewer')
         rospy.Subscriber(image_topic, sensor_msgs.msg.Image, self.callback, queue_size=10)
@@ -87,7 +87,7 @@ class ImageViewer():
         calibration = LaserCalibration(grid_size=self.grid_size, square_size=self.square_size, profile=self.laser_profile)
         print os.path.join(path, 'data', 'frame*.png')
         calibration.find_calibration_3d(os.path.join(path, 'data', 'frame*.png'))
-        calibration.save_parameters(os.path.join(path, 'config', config_file))
+        calibration.save_parameters(os.path.join(path, 'config', self.config_file))
 
     def on_mouse(self, event, x, y, flags, params):
         if event == cv2.EVENT_RBUTTONDOWN:

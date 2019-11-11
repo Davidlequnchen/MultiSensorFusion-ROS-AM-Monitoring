@@ -1,6 +1,6 @@
 set(calib_ros_run_SETUP_PY_VERSION "0.0.0")
 set(calib_ros_run_SETUP_PY_SCRIPTS "")
-set(calib_ros_run_SETUP_PY_PACKAGES "mnt")
-set(calib_ros_run_SETUP_PY_PACKAGE_DIRS "src/mnt")
+set(calib_ros_run_SETUP_PY_PACKAGES "icv")
+set(calib_ros_run_SETUP_PY_PACKAGE_DIRS "src/icv")
 set(calib_ros_run_SETUP_PY_MODULES "")
 set(calib_ros_run_SETUP_PY_MODULE_DIRS "")

@@ -4,14 +4,14 @@
 
   <xacro:property name="workobject_frame">
     <!--origin xyz="1.655 -0.087 0.932" rpy="0 0 0" /-->
-    <origin xyz="0.5418 -1.3796 0.7086" rpy="0.2617267779306659 0.11311034640390966 1.651246015055539" />>
+    <origin xyz="0.439 -1.1306 1.1699" rpy="-0.021561474874843944 0.048772203046152464 1.622344027188436" />
   </xacro:property>
 
   <xacro:property name="camera_frame">
     <!-- origin xyz="0.2879 -0.0399 0.1267" rpy="1.55420 0.00225 1.59185" /-->
-    <origin xyz="0.2538 0.2777 0.0141" rpy="0.2895809926436634 -0.10551009905776486 -0.08275218186502445" />
+    <origin xyz="0.2328 0.181 -0.0168" rpy="0.0016279188408910522 -0.009261168793408879 -0.05185504283900785" />
   </xacro:property>
-
+ 
   <!-- Robot cell -->
   <xacro:include filename="$(find simtech_workcell)/urdf/workcell.xacro"/>
 
@@ -23,7 +23,7 @@
 
 
   <!-- Head -->
-  <xacro:include filename="$(find etna_workcell)/urdf/diode_head.xacro"/>
+  <xacro:include filename="$(find monitoring)/urdf/diode_head.xacro"/>
 
   <joint name="tool0-head0" type="fixed">
     <parent link="tool0"/>

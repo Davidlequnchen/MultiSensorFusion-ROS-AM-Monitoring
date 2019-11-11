@@ -17,9 +17,9 @@ np.set_printoptions(precision=4, suppress=True)
 
 
 path = '../'
-pattern_rows = 10
-pattern_cols = 7
-pattern_size = 0.0245
+pattern_rows = 8
+pattern_cols = 5
+pattern_size = 0.033
 config_file = 'runprofile3d.yaml'
 camera_file = 'runcamera.yaml'
 """
@@ -43,7 +43,7 @@ images = read_calibration_data(dirname)  # read the frame.png files one by one (
 square_size = pattern_size
 grid_size = (pattern_cols-1, pattern_rows-1)
 
-laser_profile = Profile(axis=1, thr=200, method='pcog')
+laser_profile = Profile(axis=1, thr=180, method='pcog')
 camera_calibration = CameraCalibration(grid_size=grid_size,
                                        square_size=square_size)
 laser_calibration = LaserCalibration(grid_size=grid_size,

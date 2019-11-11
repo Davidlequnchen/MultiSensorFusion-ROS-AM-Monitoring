@@ -17,9 +17,9 @@ np.set_printoptions(precision=4, suppress=True)
 
 
 path = '../'
-pattern_rows = 10
-pattern_cols = 7
-pattern_size = 0.024
+pattern_rows = 9
+pattern_cols = 6
+pattern_size = 0.01089
 config_file = 'profile3d.yaml'
 camera_file = 'camera.yaml'
 """

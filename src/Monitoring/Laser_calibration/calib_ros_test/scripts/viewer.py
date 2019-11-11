@@ -52,11 +52,11 @@ class ImageViewer():
 
         image_topic = rospy.get_param('~image', '/usb_cam/image_rect')
         # Pattern parameters
-        pattern_rows = rospy.get_param('~pattern_rows', 10)
-        pattern_cols = rospy.get_param('~pattern_cols', 7)
-        pattern_size = rospy.get_param('~pattern_size', 10)
+        pattern_rows = rospy.get_param('~pattern_rows', 9)
+        pattern_cols = rospy.get_param('~pattern_cols', 6)
+        pattern_size = rospy.get_param('~pattern_size', 0.01089) #10.89 cm^2
 
-        config_file = rospy.get_param('~config', 'profile3d.yaml')
+        self.config_file = rospy.get_param('~config', 'profile3d.yaml')
 
         # cv2.namedWindow('viewer')
         rospy.Subscriber(image_topic, sensor_msgs.msg.Image, self.callback, queue_size=10)
@@ -86,12 +86,12 @@ class ImageViewer():
         calibration = LaserCalibration(grid_size=self.grid_size, square_size=self.square_size, profile=self.laser_profile)
         print os.path.join(path, 'data', 'frame*.png')
         calibration.find_calibration_3d(os.path.join(path, 'data', 'frame*.png'))
-        calibration.save_parameters(os.path.join(path, 'config', config_file))
+        calibration.save_parameters(os.path.join(path, 'config', self.config_file))
 
     def on_mouse(self, event, x, y, flags, params):
         if event == cv2.EVENT_RBUTTONDOWN:
             self.counter += 1
-            filename = os.path.join(path, 'data', 'frame%04i.png' %self.counter)
+            filename = os.path.join(path, 'data', 'frame%i.png' %self.counter)
             
             cv2.imwrite(filename, self.frame)
             rospy.loginfo(filename)
@@ -100,7 +100,7 @@ class ImageViewer():
                 #base_link
                 self.listener.waitForTransform("/base_link", "/tool0", self.stamp, rospy.Duration(1.0))
                 transform = self.listener.lookupTransform("/base_link", "/tool0", self.stamp) #(trans, rot)
-                filename = os.path.join(path, 'data', 'pose%04i.txt' %self.counter)
+                filename = os.path.join(path, 'data', 'pose%i.txt' %self.counter)
                 with open(filename, 'w') as f:
                     f.write(str(transform))
                 rospy.loginfo(transform)

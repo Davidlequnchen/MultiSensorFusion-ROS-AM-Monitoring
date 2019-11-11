@@ -15,7 +15,7 @@
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
-  <include file="$(find simtech_robot_laser_control)/launch/robot_interface.launch" unless="$(arg sim)">
+  <include file="$(find simtech_robot_laser_control)/launch/simtech_robot_interface.launch" unless="$(arg sim)">
     <arg name="robot_ip" value="192.168.125.1" />
     <arg name="J23_coupled" value="true" />
     <arg name="laser_type" value="ipg" />
