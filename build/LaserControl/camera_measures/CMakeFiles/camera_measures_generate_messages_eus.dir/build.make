@@ -53,24 +53,25 @@ CMAKE_BINARY_DIR = /home/david/SIMTech_ws/build
 # Include the progress variables for this target.
 include LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus.dir/progress.make
 
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocityStatus.l
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgTwist.l
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocity.l
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/manifest.l
 
 
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from camera_measures/MsgGeometry.msg"
-	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from camera_measures/MsgPosition.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
 
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from camera_measures/MsgStatus.msg"
-	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocityStatus.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocityStatus.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from camera_measures/MsgVelocityStatus.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
 
 /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgTwist.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgTwist.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg
@@ -84,22 +85,28 @@ LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus: /
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from camera_measures/MsgVelocity.msg"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
 
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
-/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from camera_measures/MsgPosition.msg"
-	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from camera_measures/MsgStatus.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
+
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg
+/home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from camera_measures/MsgGeometry.msg"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg
 
 /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp manifest code for camera_measures"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp manifest code for camera_measures"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures camera_measures std_msgs
 
 camera_measures_generate_messages_eus: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus
-camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l
-camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l
+camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l
+camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocityStatus.l
 camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgTwist.l
 camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocity.l
-camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgPosition.l
+camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l
+camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgGeometry.l
 camera_measures_generate_messages_eus: /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/manifest.l
 camera_measures_generate_messages_eus: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus.dir/build.make
 

@@ -17,7 +17,8 @@ add_message_files(FILES
                    MsgVelocity.msg
                    MsgStatus.msg
                    MsgPosition.msg
-                   MsgTwist.msg)
+                   MsgTwist.msg
+                   MsgVelocityStatus.msg)
 
 catkin_python_setup()
 

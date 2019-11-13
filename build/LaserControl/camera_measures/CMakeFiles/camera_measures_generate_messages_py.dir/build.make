@@ -53,24 +53,25 @@ CMAKE_BINARY_DIR = /home/david/SIMTech_ws/build
 # Include the progress variables for this target.
 include LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py.dir/progress.make
 
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgTwist.py
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocity.py
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py
 
 
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG camera_measures/MsgGeometry"
-	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG camera_measures/MsgPosition"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
 
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG camera_measures/MsgStatus"
-	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG camera_measures/MsgVelocityStatus"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
 
 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgTwist.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgTwist.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg
@@ -84,27 +85,34 @@ LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py: /h
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG camera_measures/MsgVelocity"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
 
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG camera_measures/MsgPosition"
-	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG camera_measures/MsgStatus"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
+
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG camera_measures/MsgGeometry"
+	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg
 
 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py
 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgTwist.py
 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocity.py
-/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python msg __init__.py for camera_measures"
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py
+/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python msg __init__.py for camera_measures"
 	cd /home/david/SIMTech_ws/build/LaserControl/camera_measures && ../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg --initpy
 
 camera_measures_generate_messages_py: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py
-camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py
-camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py
+camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py
+camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py
 camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgTwist.py
 camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocity.py
-camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py
+camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py
+camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py
 camera_measures_generate_messages_py: /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py
 camera_measures_generate_messages_py: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_py.dir/build.make
 

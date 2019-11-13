@@ -1,11 +1,13 @@
 import numpy as np
 import scipy
-from skimage.measure import LineModelND, ransac
+from skimage.measure import ransac
+from skimage import measure
 
 def z_heigh_ransac(points3d):
     """Fits points in a line model, and returns the difference in the 'z'
     dimension between the highest point and its nearest point in the model"""
-    model_robust, inliers = ransac(points3d, LineModelND, min_samples=2,
+    line_modelND = measure.LineModelND()
+    model_robust, inliers = ransac(points3d, line_modelND, min_samples=2,
                                residual_threshold=0.0001, max_trials=1000)
     outliers = inliers == False
     if len(points3d[outliers]) == 0:

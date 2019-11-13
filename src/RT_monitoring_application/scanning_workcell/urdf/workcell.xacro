@@ -3,7 +3,8 @@
   <property name="pi" value="3.141592654" />
 
   <xacro:property name="tcp_frame">
-    <origin xyz="0.24646 -0.02439 0.433932" rpy="${pi} -1.047197555 ${pi}" />
+    <!--origin xyz="0.24646 -0.02439 0.433932" rpy="${pi} -1.047197555 ${pi}" /-->
+    <origin xyz="0.002785 0.271833 0.174487" rpy="-${pi} 0.0 -${pi}" />
   </xacro:property>
 
   <xacro:property name="workobject_frame">

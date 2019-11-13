@@ -30,9 +30,9 @@ public:
   typedef pcl::PointCloud<Point> PointCloud;
 
   NdCloud() {
-    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/ueye/cloud", 5,  &NdCloud::cbPointCloud, this);
+    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/cloud", 5,  &NdCloud::cbPointCloud, this);
 
-    pub_cloud = nh.advertise<sensor_msgs::PointCloud2>("/ueye/scan", 10);
+    pub_cloud = nh.advertise<sensor_msgs::PointCloud2>("/usb_cam/scan", 10);
 
     tf_listener = new tf::TransformListener();
   }
@@ -53,12 +53,15 @@ public:
       ros::Time stamp = (*cloud_msg).header.stamp;
       tf_listener->waitForTransform("/world", "/camera0", stamp, ros::Duration(1.0));
       tf_listener->lookupTransform("/world", "/camera0", stamp, transform);
-      pcl_ros::transformAsMatrix(transform, matrix1);
+      pcl_ros::transformAsMatrix(transform, matrix1); 
+      // matrix1 is the transformation(trans, rot) between world frame and camera frame
       tf_listener->waitForTransform("/world", "/workobject", stamp, ros::Duration(1.0));
       tf_listener->lookupTransform("/world", "/workobject", stamp, transform);
       pcl_ros::transformAsMatrix(transform, matrix2);
       matrix = matrix2.inverse() * matrix1;
+      // the matrix calculated based on matrix1 and matrix2 is the transformation matrix from workobject to camera0
       pcl_ros::transformPointCloud(matrix, *cloud_msg, cloud_out);
+      // Transform a sensor_msgs::PointCloud2 dataset using an Eigen 4x4 matrix.
       ROS_INFO_STREAM("Transform:" << matrix);
 
       cloud_out.header.frame_id = "/workobject";

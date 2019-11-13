@@ -238,21 +238,9 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /tachyon/image
+      Image Topic: /usb_cam/image_rect
       Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: true
-    - Class: rviz/Image
-      Enabled: true
-      Image Topic: /camera/image
-      Max Value: 1
-      Median window: 5
+      Median window: 10
       Min Value: 0
       Name: Image
       Normalize Range: true
@@ -284,23 +272,11 @@ Visualization Manager:
       Selectable: true
       Size (Pixels): 3
       Size (m): 0.001
-      Style: Flat Squares
-      Topic: /ueye/cloud
+      Style: Points
+      Topic: /usb_cam/cloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
-    - Class: rviz/Image
-      Enabled: true
-      Image Topic: /ueye/image
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true

@@ -39,6 +39,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg"
     "/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg"
     "/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg"
+    "/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg"
     )
 endif()
 

@@ -53,25 +53,26 @@ CMAKE_BINARY_DIR = /home/david/SIMTech_ws/build
 # Include the progress variables for this target.
 include LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/progress.make
 
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocityStatus.h
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgTwist.h
 LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocity.h
-LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h
+LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h
 
 
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from camera_measures/MsgGeometry.msg"
-	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from camera_measures/MsgPosition.msg"
+	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
 
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from camera_measures/MsgStatus.msg"
-	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocityStatus.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocityStatus.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocityStatus.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from camera_measures/MsgVelocityStatus.msg"
+	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 /home/david/SIMTech_ws/devel/include/camera_measures/MsgTwist.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/david/SIMTech_ws/devel/include/camera_measures/MsgTwist.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg
@@ -87,19 +88,26 @@ LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp: /
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from camera_measures/MsgVelocity.msg"
 	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
 
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from camera_measures/MsgPosition.msg"
-	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from camera_measures/MsgStatus.msg"
+	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
+
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/david/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from camera_measures/MsgGeometry.msg"
+	cd /home/david/SIMTech_ws/src/LaserControl/camera_measures && /home/david/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg -Icamera_measures:/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p camera_measures -o /home/david/SIMTech_ws/devel/include/camera_measures -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 camera_measures_generate_messages_cpp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp
-camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h
-camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h
+camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h
+camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocityStatus.h
 camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgTwist.h
 camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocity.h
-camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgPosition.h
+camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h
+camera_measures_generate_messages_cpp: /home/david/SIMTech_ws/devel/include/camera_measures/MsgGeometry.h
 camera_measures_generate_messages_cpp: LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp.dir/build.make
 
 .PHONY : camera_measures_generate_messages_cpp

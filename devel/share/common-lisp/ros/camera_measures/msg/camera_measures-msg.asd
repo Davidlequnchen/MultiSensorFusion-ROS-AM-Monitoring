@@ -15,4 +15,6 @@
     (:file "_package_MsgTwist" :depends-on ("_package"))
     (:file "MsgVelocity" :depends-on ("_package_MsgVelocity"))
     (:file "_package_MsgVelocity" :depends-on ("_package"))
+    (:file "MsgVelocityStatus" :depends-on ("_package_MsgVelocityStatus"))
+    (:file "_package_MsgVelocityStatus" :depends-on ("_package"))
   ))

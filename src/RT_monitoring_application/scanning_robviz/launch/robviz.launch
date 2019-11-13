@@ -5,7 +5,7 @@
     <rosparam command="load" file="$(find scanning_robviz)/config/params.yaml" />
 
     <include file="$(find scanning_workcell)/launch/workcell.launch">
-      <arg name="gui" value="false" />
+      <arg name="gui"  value="false" />
       <arg name="sim" value="$(arg sim)" />
     </include>
 
@@ -13,11 +13,11 @@
     <node name="height" pkg="point_cloud_scanning" type="nd_height" respawn="true" />
 
 
-    <node name="robviz" pkg="scanning_robviz" type="robviz.py"/>
+    <node name="robviz" pkg="scanning_robviz" type="rob_scanning_visualization.py"/>
 
-    <include file="$(find camera_measures)/launch/camera_measures.launch">
+    <include file="$(find camera_measures)/launch/velocity_measures.launch">
     <arg name="gui" value="$(arg gui)" />
-  </include>
+    </include>
 
 
 </launch>

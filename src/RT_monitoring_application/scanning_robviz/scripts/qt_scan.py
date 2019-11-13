@@ -1,1 +1,1 @@
-../../proper_cloud/scripts/qt_scan.py
+/home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_scanning/scripts/qt_scan.py

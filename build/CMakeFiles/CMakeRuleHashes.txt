@@ -11,6 +11,7 @@ a1f53b76d104a684a074b4c64cb14bed /home/david/SIMTech_ws/devel/include/camera_mea
 b9347a624fbefaedbdc14952ee5fab31 /home/david/SIMTech_ws/devel/include/camera_measures/MsgStatus.h
 652480e89b7aaef8768be5d13a1e458b /home/david/SIMTech_ws/devel/include/camera_measures/MsgTwist.h
 eb1a25a6316758bc8dcdc8e12d7c979f /home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocity.h
+3fb2488fe2f2570b65f903c2ca66eb58 /home/david/SIMTech_ws/devel/include/camera_measures/MsgVelocityStatus.h
 fd84beee3cc0d2ce9d37f0f9ca3236fd /home/david/SIMTech_ws/devel/include/image_proc/CropDecimateConfig.h
 b40c1a72cea59887795ef4da24f1cc4e /home/david/SIMTech_ws/devel/include/image_proc/DebayerConfig.h
 b2caef5f4328e801d0704bd8c72464b6 /home/david/SIMTech_ws/devel/include/image_proc/RectifyConfig.h
@@ -47,6 +48,7 @@ a5248146a2fe7b0257b50c692a12de8f /home/david/SIMTech_ws/devel/lib/python2.7/dist
 b5d10756d16f70e8b91c8ee22e29520a /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py
 51f7c71bce5f0cc743c8dca647d69fe2 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgTwist.py
 d70360540ae9506609b44e1066fbd282 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocity.py
+62caac81a9347009976c8daf1b87ab3a /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py
 e3e0d10906e1486d2f0cc28130a56ec9 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py
 73e3ed908f642e804d984bf92e98c5d2 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/laser_control/msg/_MsgControl.py
 84e8d00e132305aa10342104eef48643 /home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/laser_control/msg/_MsgEmission.py
@@ -78,6 +80,7 @@ c1cf684885e507efde3e99a8fb65f388 /home/david/SIMTech_ws/devel/share/common-lisp/
 aff1f7349615f044606f27333faa7ec8 /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgStatus.lisp
 ca19f80c096a566143c992565109eb2a /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp
 12cd7978d629754dfc8996e133deb4f3 /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp
+622ed5b6e96e7abe4e14aa4f9d205b0c /home/david/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocityStatus.lisp
 3715216d9a57b6a37ff21400052c40b2 /home/david/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgControl.lisp
 78d65b0de2faf689ca1fbaed866e5a57 /home/david/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgEmission.lisp
 fd47adeef1eaf97f34e3849fdf5d4ff0 /home/david/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgInfo.lisp
@@ -103,6 +106,7 @@ adda7182a4432bb0d55d50133c2abb01 /home/david/SIMTech_ws/devel/share/gennodejs/ro
 0586d06b143906145c390862b8e177c6 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgStatus.js
 11213fd18c1ea21c202fec89118ea1b6 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgTwist.js
 02958424528177ce3ecbd8c6f689bb61 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocity.js
+81bfb4abf600955095a15ca963fe8e82 /home/david/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocityStatus.js
 40a7069c87bc9864594245595b74db1f /home/david/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgControl.js
 5724e7091b7d87a269e80808fc7adac0 /home/david/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgEmission.js
 a04f62952da2003c9180590ee103553a /home/david/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgInfo.js
@@ -131,6 +135,7 @@ dfc91fdb0b5088aaadaeff51219f65a2 /home/david/SIMTech_ws/devel/share/roseus/ros/c
 7020ec7d36a59f9095eb8a76255933f8 /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgStatus.l
 af882c5e87509086da6bd17fc3e08c06 /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgTwist.l
 0041daf22e7e6848102ade6531787dd2 /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocity.l
+621cdaddab071a136e7094e3d27564c6 /home/david/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocityStatus.l
 1cac2ddad79b0d7e524c7f5a88a89317 /home/david/SIMTech_ws/devel/share/roseus/ros/laser_control/manifest.l
 33c4246af11f98081da2e7d5496128db /home/david/SIMTech_ws/devel/share/roseus/ros/laser_control/msg/MsgControl.l
 1eb6ade2d632d25cdcb9317d73905da2 /home/david/SIMTech_ws/devel/share/roseus/ros/laser_control/msg/MsgEmission.l
@@ -154,6 +159,7 @@ af211596e52f526118e77b8b2b71fec2 LaserControl/camera_measures/CMakeFiles/_camera
 c8e2858df8615944932c6d267257a48b LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgStatus
 6aa844d69c45eb43b66c6124e7202560 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgTwist
 8a9e832b662662ff606d0c3eef037667 LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocity
+1b786be85c0054671a71caff5e967cae LaserControl/camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgVelocityStatus
 cf31102882e2b292b857977329d7e51d LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_cpp
 cf31102882e2b292b857977329d7e51d LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_eus
 cf31102882e2b292b857977329d7e51d LaserControl/camera_measures/CMakeFiles/camera_measures_generate_messages_lisp
@@ -189,14 +195,6 @@ c30666ff9ee821ad8534a24f93e66d57 ROS_image_processng/image_pipeline/camera_calib
 7a6c2de89b11b1f57b66fe02c41ddd1e ROS_image_processng/image_pipeline/image_rotate/CMakeFiles/image_rotate_gencfg
 88240235e7d482c3065fcfab7bcf2e23 ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_gencfg
 c61c5ff92e25177d3fd28ded9c7f1e04 ROS_image_processng/image_pipeline/stereo_image_proc/CMakeFiles/stereo_image_proc_gencfg
-f5d43cbb015622b50030729158ef96c6 aimen/aimen_driver/CMakeFiles/_aimen_driver_generate_messages_check_deps_SrvRobotCommand
-d2acaecdb21f7dce374a6bf1aa16dc00 aimen/aimen_driver/CMakeFiles/aimen_driver_generate_messages_cpp
-d2acaecdb21f7dce374a6bf1aa16dc00 aimen/aimen_driver/CMakeFiles/aimen_driver_generate_messages_eus
-d2acaecdb21f7dce374a6bf1aa16dc00 aimen/aimen_driver/CMakeFiles/aimen_driver_generate_messages_lisp
-d2acaecdb21f7dce374a6bf1aa16dc00 aimen/aimen_driver/CMakeFiles/aimen_driver_generate_messages_nodejs
-d2acaecdb21f7dce374a6bf1aa16dc00 aimen/aimen_driver/CMakeFiles/aimen_driver_generate_messages_py
-02b259a57edb73610b6cb7dd0652a548 real_time_monitoring_application/monitoring_pcl/src/include_files/moc_LmdFuncs.cxx
-bbbc8ef7e789ab92992b81d19652a630 real_time_monitoring_application/monitoring_pcl/src/moc_pclviewer.cxx
 c3390394fc2c6c52267096fa3007780b real_time_monitoring_application/monitoring_pcl/ui_pclviewer.h
 841360838991d7e7c869d424d4615396 simtech_abb/simtech_driver/CMakeFiles/_simtech_driver_generate_messages_check_deps_SrvRobotCommand
 6339c8f6cea6319534200d6f5e91ebcb simtech_abb/simtech_driver/CMakeFiles/simtech_driver_generate_messages_cpp

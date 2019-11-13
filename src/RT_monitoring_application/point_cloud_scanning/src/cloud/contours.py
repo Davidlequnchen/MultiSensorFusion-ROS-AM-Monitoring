@@ -1,7 +1,7 @@
 import os
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #matplotlib.pyplot is a state-based interface to matplotlib. It provides a MATLAB-like way of plotting.
 import matplotlib.gridspec as gridspec
 
 from matplotlib.widgets import SpanSelector
@@ -39,12 +39,21 @@ def read_cloud(filename):
 
 
 def zmap_from_cloud(cloud):
+    # numpy.all(a, axis=None, out=None, keepdims=<no value>)[source]
+    #Test whether all array elements along a given axis evaluate to True.
+    #a: Input array or object that can be converted to an array.
+    '''
+    #axis : None or int or tuple of ints, optional
+     Axis or axes along which a logical AND reduction is performed. 
+     The default (axis = None) is to perform a logical AND over all the dimensions of the input array. 
+     axis may be negative, in which case it counts from the last to the first axis.
+    '''
     cloud = cloud[np.all(cloud > 0, axis=1)]
     points = (np.round(cloud, 4) * 10000).astype(np.int32)
-    x_max = np.max(points[:, 0])
-    y_max = np.max(points[:, 1])
+    x_max = np.max(points[:, 0]) #extract all the x value -- the first elements in each row form the array
+    y_max = np.max(points[:, 1]) #extract all the y value -- second elements in each row of the array.
     zmap = np.zeros((x_max + 1, y_max + 1))
-    zmap[points[:, 0], points[:, 1]] = points[:, 2]
+    zmap[points[:, 0], points[:, 1]] = points[:, 2] # mapping all the z point into the y axis -- z-map, get the height of the part
     return zmap
 
 
@@ -69,7 +78,13 @@ def show_zmap(zmap):
 
 def fill_zmap(zmap, size=5):
     kernel = np.ones((size, size), np.uint8)
-    closing = cv2.morphologyEx(zmap, cv2.MORPH_CLOSE, kernel)
+    '''
+    Erosion and Dilation:
+    erosion removes white noises, but it also shrinks our object. So we dilate it. Since noise is gone, 
+    Closing is reverse of Opening, Dilation followed by Erosion. 
+    It is useful in closing small holes inside the foreground objects, or small black points on the object.
+    '''
+    closing = cv2.morphologyEx(zmap, cv2.MORPH_CLOSE, kernel) #remove the noise
     return closing.astype(np.uint16)
 
 
@@ -137,6 +152,13 @@ class Segmentation:
 
     def plot_zmap(self, zmap):
         self.zmap = zmap
+        '''
+        Bases: matplotlib.gridspec.GridSpecBase
+        Specifies the geometry of the grid that a subplot can be placed in.
+        The location of grid is determined by similar way as the SubplotParams.
+        The number of rows and number of columns of the grid need to be set. 
+        Optionally, the subplot layout parameters (e.g., left, right, etc.) can be tuned.
+        '''
         gs = gridspec.GridSpec(5, 1)
         self.fig = plt.figure(figsize=(8, 6))
         self.ax1 = self.fig.add_subplot(gs[:4, :])
@@ -144,8 +166,14 @@ class Segmentation:
         self.ax1.axes.get_xaxis().set_visible(False)
         self.ax1.axes.get_yaxis().set_visible(False)
         self.ax2 = self.fig.add_subplot(gs[4, :])
+        #generate histogram
+        
         self.ax2.hist(
-            zmap.flatten(), 100, range=(1, zmap.max()), fc='k', ec='k')
+            zmap.flatten(), 100, range=(0, zmap.max()), fc='k', ec='k')
+        '''
+        self.ax2.hist(
+            zmap.flatten(), 100, range=(0, zmap.max()), fc='k', ec='k')
+        '''
         self.ax2.axes.get_yaxis().set_visible(False)
         self.rect = Rectangle(
             (0, 0), 0, self.ax2.get_ylim()[1], alpha=.2, color=(1, 0, 0))
