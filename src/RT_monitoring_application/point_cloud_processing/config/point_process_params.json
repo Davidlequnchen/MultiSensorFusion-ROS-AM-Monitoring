@@ -1,0 +1,58 @@
+{
+  "align":  {
+    "leaf_size": 0.001,
+    "radius_normals": 0.005,
+    "radius_features": 0.01,
+    "max_iterations": 10000,
+    "n_samples": 3,
+    "correspondence_randomness": 5,
+    "similarity_threshold": 0.9,
+    "max_correspondence_d": 0.0025,
+    "inlier_fraction": 0.25
+  },
+  "filters":  {
+    "voxel_grid": {
+      "leaf_size_x": 0.001,
+      "leaf_size_y": 0.001,
+      "leaf_size_z":0.001
+    },
+    "statistical":  {
+      "k_neighbors" : 5,
+      "deviation" :0.01
+    },
+    "radius_search": {
+      "k_neighbors" : 7,
+      "radius" : 0.01
+    },
+    "passthrough" : {
+      "x" : {
+        "min" : 0.0,
+        "max" : 0.0
+      },
+      "y" : {
+        "min" : 0.0,
+        "max" : 0.0
+      },
+      "z" : {
+        "min" : 0.0,
+        "max" : 0.0
+      }
+    },
+    "resampling" :  {
+      "search_radius" : 0.001
+    }
+  },
+  "fitting" : {
+    "distance_threshold" : 0.001
+  }
+  "segmentation" : {
+    "region" : {
+      "k_neighbors" : 50,
+      "max_cluster" : 1000000,
+      "min_cluster" : 50,
+      "n_neighbors" : 30,
+      "smooth_thr" : 0.0523599,
+      "curvature" : 1.0
+    }
+  }
+}

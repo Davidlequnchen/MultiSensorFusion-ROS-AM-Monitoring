@@ -1,6 +1,0 @@
-set(Simtech_robot_laser_control_SETUP_PY_VERSION "0.4.0")
-set(Simtech_robot_laser_control_SETUP_PY_SCRIPTS "")
-set(Simtech_robot_laser_control_SETUP_PY_PACKAGES "abb_controller;jason;planning;control")
-set(Simtech_robot_laser_control_SETUP_PY_PACKAGE_DIRS "src/abb_controller;src/jason;src/planning;src/control")
-set(Simtech_robot_laser_control_SETUP_PY_MODULES "")
-set(Simtech_robot_laser_control_SETUP_PY_MODULE_DIRS "")

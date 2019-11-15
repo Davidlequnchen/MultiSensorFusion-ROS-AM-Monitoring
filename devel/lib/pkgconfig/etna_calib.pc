@@ -1,8 +1,0 @@
-prefix=/home/david/SIMTech_ws/devel
-
-Name: etna_calib
-Description: Description of etna_calib
-Version: 0.4.5
-Cflags: 
-Libs: -L/home/david/SIMTech_ws/devel/lib 
-Requires: 

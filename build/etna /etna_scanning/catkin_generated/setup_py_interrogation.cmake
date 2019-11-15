@@ -1,6 +1,0 @@
-set(etna_scanning_SETUP_PY_VERSION "0.4.5")
-set(etna_scanning_SETUP_PY_SCRIPTS "")
-set(etna_scanning_SETUP_PY_PACKAGES "robscan")
-set(etna_scanning_SETUP_PY_PACKAGE_DIRS "src/robscan")
-set(etna_scanning_SETUP_PY_MODULES "")
-set(etna_scanning_SETUP_PY_MODULE_DIRS "")

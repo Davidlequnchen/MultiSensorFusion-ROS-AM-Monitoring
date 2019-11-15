@@ -1,8 +1,0 @@
-prefix=/home/david/SIMTech_ws/install
-
-Name: monitoring_pcl
-Description: Description of monitoring_pcl
-Version: 0.0.1
-Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
-Requires: 

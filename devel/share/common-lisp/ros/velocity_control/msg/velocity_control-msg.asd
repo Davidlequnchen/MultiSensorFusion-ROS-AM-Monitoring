@@ -7,4 +7,6 @@
   :components ((:file "_package")
     (:file "MsgSpeedOverride" :depends-on ("_package_MsgSpeedOverride"))
     (:file "_package_MsgSpeedOverride" :depends-on ("_package"))
+    (:file "MsgVelocityControl" :depends-on ("_package_MsgVelocityControl"))
+    (:file "_package_MsgVelocityControl" :depends-on ("_package"))
   ))

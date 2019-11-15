@@ -1,6 +1,0 @@
-set(aimen_driver_SETUP_PY_VERSION "0.4.0")
-set(aimen_driver_SETUP_PY_SCRIPTS "")
-set(aimen_driver_SETUP_PY_PACKAGES "abb")
-set(aimen_driver_SETUP_PY_PACKAGE_DIRS "src/abb")
-set(aimen_driver_SETUP_PY_MODULES "")
-set(aimen_driver_SETUP_PY_MODULE_DIRS "")

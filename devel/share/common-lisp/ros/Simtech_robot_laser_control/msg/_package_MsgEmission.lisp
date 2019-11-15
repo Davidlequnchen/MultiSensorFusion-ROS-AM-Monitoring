@@ -1,4 +1,0 @@
-(cl:in-package Simtech_robot_laser_control-msg)
-(cl:export '(EMISSION-VAL
-          EMISSION
-))

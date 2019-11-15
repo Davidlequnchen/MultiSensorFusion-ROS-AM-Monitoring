@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/david/SIMTech_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -90,26 +100,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
+.PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -122,16 +122,16 @@ install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target test
+test/fast: test
 
-.PHONY : install/local/fast
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,21 +166,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
-
-# Convenience name for target.
-find_plane: RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
-
-.PHONY : find_plane
-
-# fast build rule for target.
-find_plane/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build
-.PHONY : find_plane/fast
-
-# Convenience name for target.
 RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir/rule:
 	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir/rule
 .PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir/rule
@@ -194,51 +179,6 @@ nd_cloud: RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir
 nd_cloud/fast:
 	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir/build
 .PHONY : nd_cloud/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_py.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_py: RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-
-.PHONY : topic_tools_generate_messages_py
-
-# fast build rule for target.
-topic_tools_generate_messages_py/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_py.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_py.dir/build
-.PHONY : topic_tools_generate_messages_py/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_lisp: RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : pcl_msgs_generate_messages_lisp
-
-# fast build rule for target.
-pcl_msgs_generate_messages_lisp/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build
-.PHONY : pcl_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_py: RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-
-.PHONY : pcl_msgs_generate_messages_py
-
-# fast build rule for target.
-pcl_msgs_generate_messages_py/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_py.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_py.dir/build
-.PHONY : pcl_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_height.dir/rule:
@@ -256,124 +196,19 @@ nd_height/fast:
 .PHONY : nd_height/fast
 
 # Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_eus.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_eus.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_eus.dir/rule
+RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
+.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
 
 # Convenience name for target.
-topic_tools_generate_messages_eus: RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_eus.dir/rule
+find_plane: RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
 
-.PHONY : topic_tools_generate_messages_eus
+.PHONY : find_plane
 
 # fast build rule for target.
-topic_tools_generate_messages_eus/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_eus.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_eus.dir/build
-.PHONY : topic_tools_generate_messages_eus/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_eus: RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
-
-.PHONY : pcl_msgs_generate_messages_eus
-
-# fast build rule for target.
-pcl_msgs_generate_messages_eus/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_eus.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_eus.dir/build
-.PHONY : pcl_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_ros_gencfg.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_ros_gencfg.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_ros_gencfg.dir/rule
-
-# Convenience name for target.
-pcl_ros_gencfg: RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_ros_gencfg.dir/rule
-
-.PHONY : pcl_ros_gencfg
-
-# fast build rule for target.
-pcl_ros_gencfg/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_ros_gencfg.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_ros_gencfg.dir/build
-.PHONY : pcl_ros_gencfg/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_lisp: RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-
-.PHONY : topic_tools_generate_messages_lisp
-
-# fast build rule for target.
-topic_tools_generate_messages_lisp/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_lisp.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_lisp.dir/build
-.PHONY : topic_tools_generate_messages_lisp/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_cpp: RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : pcl_msgs_generate_messages_cpp
-
-# fast build rule for target.
-pcl_msgs_generate_messages_cpp/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build
-.PHONY : pcl_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_nodejs: RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : pcl_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-pcl_msgs_generate_messages_nodejs/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/build
-.PHONY : pcl_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_cpp: RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-
-.PHONY : topic_tools_generate_messages_cpp
-
-# fast build rule for target.
-topic_tools_generate_messages_cpp/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_cpp.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_cpp.dir/build
-.PHONY : topic_tools_generate_messages_cpp/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_nodejs.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_nodejs.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_nodejs: RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_nodejs.dir/rule
-
-.PHONY : topic_tools_generate_messages_nodejs
-
-# fast build rule for target.
-topic_tools_generate_messages_nodejs/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_nodejs.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/topic_tools_generate_messages_nodejs.dir/build
-.PHONY : topic_tools_generate_messages_nodejs/fast
+find_plane/fast:
+	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build
+.PHONY : find_plane/fast
 
 src/find_plane.o: src/find_plane.cpp.o
 
@@ -462,27 +297,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... list_install_components"
-	@echo "... install/strip"
-	@echo "... find_plane"
 	@echo "... nd_cloud"
-	@echo "... topic_tools_generate_messages_py"
-	@echo "... pcl_msgs_generate_messages_lisp"
-	@echo "... pcl_msgs_generate_messages_py"
-	@echo "... nd_height"
-	@echo "... topic_tools_generate_messages_eus"
-	@echo "... pcl_msgs_generate_messages_eus"
-	@echo "... pcl_ros_gencfg"
-	@echo "... topic_tools_generate_messages_lisp"
-	@echo "... pcl_msgs_generate_messages_cpp"
-	@echo "... pcl_msgs_generate_messages_nodejs"
 	@echo "... install/local"
-	@echo "... topic_tools_generate_messages_cpp"
-	@echo "... topic_tools_generate_messages_nodejs"
+	@echo "... nd_height"
+	@echo "... install/strip"
+	@echo "... test"
+	@echo "... find_plane"
 	@echo "... src/find_plane.o"
 	@echo "... src/find_plane.i"
 	@echo "... src/find_plane.s"

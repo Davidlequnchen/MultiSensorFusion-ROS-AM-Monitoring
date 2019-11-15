@@ -1,8 +1,0 @@
-prefix=/home/david/SIMTech_ws/install
-
-Name: aimen_driver
-Description: Description of aimen_driver
-Version: 0.4.0
-Cflags: -I/home/david/SIMTech_ws/install/include
-Libs: -L/home/david/SIMTech_ws/install/lib 
-Requires: message_runtime

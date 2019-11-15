@@ -1,6 +1,0 @@
-set(monitoring_jason_SETUP_PY_VERSION "0.3.0")
-set(monitoring_jason_SETUP_PY_SCRIPTS "")
-set(monitoring_jason_SETUP_PY_PACKAGES "jason")
-set(monitoring_jason_SETUP_PY_PACKAGE_DIRS "src/jason")
-set(monitoring_jason_SETUP_PY_MODULES "")
-set(monitoring_jason_SETUP_PY_MODULE_DIRS "")
