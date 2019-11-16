@@ -224,7 +224,7 @@ pcl::visualization::PCLVisualizer::Ptr interactionCustomizationVis ()
 // --------------
 // -----Main-----
 // --------------
-/* 
+ 
 int
 main (int argc, char** argv)
 {
@@ -381,4 +381,3 @@ main (int argc, char** argv)
   }
 }
 
-*/

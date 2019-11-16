@@ -9,6 +9,12 @@
 /home/david/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/include/moc_LmdFuncs.cpp
 
 /home/david/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/include/moc_pclviewer.cpp
+../../../../src/RT_monitoring_application/point_cloud_processing/include/pclviewer.h
+/home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/pclviewer.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
 
 /home/david/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/include/moc_ui_pclviewer.cpp
 
@@ -155,6 +161,12 @@ boost/property_tree/json_parser.hpp
 -
 LmdFuncs.h
 /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/LmdFuncs.h
+ros/ros.h
+/home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/ros/ros.h
+std_msgs/String.h
+/home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/std_msgs/String.h
+sstream
+-
 
 /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/ui_pclviewer.h
 QtCore/QVariant
@@ -195,6 +207,8 @@ QtWidgets/QTextBrowser
 -
 QtWidgets/QWidget
 -
+QtWidgets/QSizePolicy
+-
 
 /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/src/LmdFuncs.cpp
 LmdFuncs.h
@@ -226,6 +240,10 @@ ros/ros.h
 std_msgs/String.h
 /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/src/std_msgs/String.h
 sstream
+-
+iostream
+-
+thread
 -
 
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv/cxcore.h
@@ -7499,6 +7517,10 @@ qmenubar.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
 qpushbutton.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy
+qsizepolicy.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpinBox
 qspinbox.h

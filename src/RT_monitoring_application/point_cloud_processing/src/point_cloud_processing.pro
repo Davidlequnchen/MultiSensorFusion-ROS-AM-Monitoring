@@ -4,17 +4,19 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-
-# greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-QT += widgets
-
 TARGET += point_cloud_processing
 TEMPLATE = app
 
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+
+
+
 INCLUDEPATH += -I/usr/local/include/opencv
 INCLUDEPATH += -I/usr/local/include
-INCLUDEPATH += ../src/include_files
+INCLUDEPATH += ../include
 LIBS += -L/usr/local/lib
 LIBS += -lopencv_core
 LIBS += -lopencv_imgproc

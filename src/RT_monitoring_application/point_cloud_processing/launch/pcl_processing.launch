@@ -2,10 +2,10 @@
     <arg name="gui" default="true" />
     <arg name="sim" default="false" /> 
 
-    <include file="$(find scanning_robviz)/launch/robviz.launch">
+    <!--include file="$(find scanning_robviz)/launch/robviz.launch">
       <arg name="gui"  value="false" />
       <arg name="sim" value="$(arg sim)" />
-    </include>
+    </include-->
 
     <node name="point_cloud_processing" pkg="point_cloud_processing" type="point_cloud_processing" respawn="true" />
 

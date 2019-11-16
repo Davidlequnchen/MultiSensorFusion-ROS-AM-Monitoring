@@ -28,6 +28,7 @@
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QSizePolicy>
 //#include "QVTKWidget.h"
 
 QT_BEGIN_NAMESPACE
@@ -140,8 +141,8 @@ public:
     {
         if (PCLViewer->objectName().isEmpty())
             PCLViewer->setObjectName(QString::fromUtf8("PCLViewer"));
-        PCLViewer->resize(966, 641);
-        PCLViewer->setMinimumSize(QSize(966, 641));
+        PCLViewer->resize(500, 641);
+        PCLViewer->setMinimumSize(QSize(500, 641));
         PCLViewer->setMaximumSize(QSize(5000, 5000));
         actionLoad = new QAction(PCLViewer);
         actionLoad->setObjectName(QString::fromUtf8("actionLoad"));
@@ -673,9 +674,9 @@ public:
         //gridLayout_17->setSizeConstraint(QLayout::SetDefaultConstraint);
         //qvtkWidget = new QVTKWidget(centerlwidget);
         //qvtkWidget->setObjectName(QString::fromUtf8("qvtkWidget"));
-        QSizePolicy sizePolicy6(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
+        //QSizePolicy sizePolicy6(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        //sizePolicy6.setHorizontalStretch(0);
+        //sizePolicy6.setVerticalStretch(0);
         //sizePolicy6.setHeightForWidth(qvtkWidget->sizePolicy().hasHeightForWidth());
         //qvtkWidget->setSizePolicy(sizePolicy6);
         //qvtkWidget->setSizeIncrement(QSize(1, 1));
@@ -686,7 +687,7 @@ public:
 
         //gridLayout_14->addLayout(gridLayout_17, 0, 1, 1, 1);
 
-        //PCLViewer->setcenterlWidget(centerlwidget);
+        PCLViewer->setCentralWidget(centerlwidget);
         menuBar = new QMenuBar(PCLViewer);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 966, 25));

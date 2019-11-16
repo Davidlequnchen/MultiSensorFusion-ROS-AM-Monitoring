@@ -1,6 +1,7 @@
 #ifndef PCLVIEWER_H
 #define PCLVIEWER_H
-#ifndef Q_MOC_RUN
+//#ifndef Q_MOC_RUN
+//define Q_MOC_RUN
 // basic file operations
 #include <fstream>
 #include <iostream>
@@ -55,6 +56,15 @@
 //LMD projects functions
 #include "LmdFuncs.h"
 
+//ros include files
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+
+#include <sstream>
+
+
+
+
 using namespace cv;
 
 struct callback_args{
@@ -83,13 +93,16 @@ namespace Ui
 
 class PCLViewer : public QMainWindow
 {
-  //Q_OBJECT
-
+  Q_OBJECT
+  
 public:
     explicit PCLViewer (QWidget *parent = 0);
     ~PCLViewer ();
-
+    void cloud_Vis();
+    
 protected:
+  // initalize the pcl visualizer shared pointer
+  //boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Point cloud Visualizer"));
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
   PointCloudTA::Ptr cloud;
 
@@ -167,7 +180,8 @@ private:
 
   void settings_to_gui();
 
+  
 };
 
 #endif // PCLVIEWER_H
-#endif // Q_MOC_RUN
+//#endif // Q_MOC_RUN

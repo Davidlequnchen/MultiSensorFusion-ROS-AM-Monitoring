@@ -606,7 +606,7 @@ public:
         doubleSpinBox_cloud_size->setObjectName(QStringLiteral("doubleSpinBox_cloud_size"));
         doubleSpinBox_cloud_size->setDecimals(1);
         doubleSpinBox_cloud_size->setSingleStep(0.1);
-        doubleSpinBox_cloud_size->setValue(1);
+        doubleSpinBox_cloud_size->setValue(5);
 
         gridLayout_6->addWidget(doubleSpinBox_cloud_size, 2, 1, 1, 1);
 
@@ -668,7 +668,7 @@ public:
         PCLViewer->setCentralWidget(centerlwidget);
         menuBar = new QMenuBar(PCLViewer);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 966, 22));
+        menuBar->setGeometry(QRect(0, 0, 966, 25));
         menuSettings = new QMenu(menuBar);
         menuSettings->setObjectName(QStringLiteral("menuSettings"));
         PCLViewer->setMenuBar(menuBar);

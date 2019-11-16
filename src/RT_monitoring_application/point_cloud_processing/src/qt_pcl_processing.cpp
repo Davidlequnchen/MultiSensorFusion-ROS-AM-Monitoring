@@ -6,6 +6,12 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include <sstream>
+#include <iostream>
+#include <thread>
+//#include "qt_pcl_processing.moc"
+
+using namespace std::literals::chrono_literals;
+
 
 
 int main (int argc, char *argv[])
@@ -21,8 +27,21 @@ int main (int argc, char *argv[])
 
   QApplication a (argc, argv);
   PCLViewer w;
+ 
+  
+  
+  /* 
+  while(!viewer->wasStopped ())
+  {
+    viewer->spinOnce(100);
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  }
+  */
 
+
+  //w.showMinimized();
   w.show ();
+  //w.cloud_Vis();
 
   return a.exec ();
 }

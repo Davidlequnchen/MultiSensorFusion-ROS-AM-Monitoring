@@ -746,7 +746,7 @@
              <double>0.100000000000000</double>
             </property>
             <property name="value">
-             <double>1.000000000000000</double>
+             <double>5.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -834,7 +834,7 @@
      <x>0</x>
      <y>0</y>
      <width>966</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
