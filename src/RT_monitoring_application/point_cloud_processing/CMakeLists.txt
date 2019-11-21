@@ -12,6 +12,18 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   message_generation
+  std_msgs
+  tf
+  tf2
+  tf2_eigen
+  tf2_ros
+  geometry_msgs
+  message_filters
+  pcl_conversions
+  pcl_msgs
+  rosbag
+  rosconsole
+  roslib
 )
 
 find_package(PCL 1.7.2 REQUIRED)
@@ -42,7 +54,7 @@ link_directories    (${PCL_LIBRARY_DIRS})
 add_definitions     (${PCL_DEFINITIONS})
 
 
-set  (project_SOURCES src/qt_pcl_processing.cpp src/pclviewer.cpp src/LmdFuncs.cpp)
+set  (project_SOURCES src/qt_pcl_processing.cpp src/pclviewer.cpp src/LmdFuncs.cpp )
 #src/pcl_visualizer_demo.cpp
 set  (project_HEADERS include/pclviewer.h include/LmdFuncs.h include/ui_pclviewer.h)
 set  (project_FORMS   resources/pclviewer.ui)
@@ -69,7 +81,6 @@ target_link_libraries( point_cloud_processing ${catkin_LIBRARIES})
 
 #add_executable(qt_pcl_processing src/qt_pcl_processing.cpp)
 #target_link_libraries(qt_pcl_processing ${catkin_LIBRARIES})
-
 
 
 

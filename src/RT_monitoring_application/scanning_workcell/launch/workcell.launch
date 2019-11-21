@@ -11,9 +11,25 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find scanning_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
 
   <!-- contains usb camera node, image processing node(undistort image) and laser scanning node--> 
-  <include file="$(find laser_scanning)/launch/profile.launch" unless="$(arg sim)">
+  <include file="$(find laser_scanning)/launch/profile_voxel_filter.launch" unless="$(arg sim)">
     <arg name="gui" value="$(arg gui)" />
     <arg name="sim" value="$(arg sim)" />
   </include>
+
+
+  <!-- convert_pointcloud_to_image -->
+  <!-- Subscribe to the /usb_cam/cloud topic and republish each message on the /usb_cam/cloud_image topic. -->
+  <!--node name="pointcloud_to_image" pkg="pcl_ros" type="convert_pointcloud_to_image" >
+    <remap from="input" to="/usb_cam/cloud" />
+    <remap from="output" to="/usb_cam/image_cloud" />
+    <remap from="cam_info" to="/usb_cam/camera_info" />
+  </node--> 
+ 
+
+  <!--Subscribes to a ROS topic and saves point cloud messages to PCD files-->
+  <!--node name="pointcloud_to_pcd" pkg="pcl_ros" type="pointcloud_to_pcd" >
+    <remap from="input" to="/usb_cam/cloud" />
+  </node-->
+  
 
 </launch>

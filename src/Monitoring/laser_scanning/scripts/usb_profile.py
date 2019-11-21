@@ -6,12 +6,13 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
 import sensor_msgs.point_cloud2 as pc2
-from sensor_msgs.msg import PointCloud2
+from sensor_msgs.msg import PointCloud2, PointField
+from sensor_msgs.msg import CameraInfo
 
 from icv.calibration import CameraCalibration
 from robscan.profile import Profile
 
-
+import struct
       
 
 
@@ -23,7 +24,7 @@ class NdProfile():
         image_topic = rospy.get_param('~image', '/usb_cam/image_raw')
         cloud_topic = rospy.get_param('~cloud', '/usb_cam/cloud')
         config_file = rospy.get_param('~config', 'profile3d.yaml')
-        #camera_file = rospy.get_param('~config', 'camera.yaml')
+        camera_file = rospy.get_param('~config', 'runcamera.yaml')
 
         #peaks_topic = rospy.get_param('~peaks', '/camera/peaks')
         #self.image_pub = rospy.Publisher(peaks_topic, Image, queue_size=10)
@@ -102,18 +103,18 @@ class NdProfile():
                                                  seq=self.sequence)
         self.cloud_pub.publish(self.pcloud)
 
-    def image_pub_peak(self, stamp, image):
-        image_msg = self.bridge.cv2_to_imgmsg(image, encoding='bgr8')
-        image_msg.header.stamp = stamp
-        self.image_pub.publish(image_msg)
+    # def image_pub_peak(self, stamp, image):
+    #     image_msg = self.bridge.cv2_to_imgmsg(image, encoding='bgr8')
+    #     image_msg.header.stamp = stamp
+    #     self.image_pub.publish(image_msg)
 
     def sub_image_topic(self, data):
         try:
             stamp = rospy.Time.now()
             image = self.bridge.imgmsg_to_cv2(data)
-            #image = undistort_image(image2)
+            #image = undistort_image(image)
             #rospy.loginfo(stamp)
-            #stamp = data.header.stamp
+            stamp = data.header.stamp
             #rospy.loginfo(stamp)
             """
             (1) points_profile:(functionality)

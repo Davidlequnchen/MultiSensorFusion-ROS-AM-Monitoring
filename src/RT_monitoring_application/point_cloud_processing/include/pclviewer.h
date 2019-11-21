@@ -59,6 +59,12 @@
 //ros include files
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include <sensor_msgs/PointCloud2.h>
+//conversions from PCL custom types
+#include <pcl_conversions/pcl_conversions.h>
+
+
+#include <string>
 
 #include <sstream>
 
@@ -99,11 +105,13 @@ public:
     explicit PCLViewer (QWidget *parent = 0);
     ~PCLViewer ();
     void cloud_Vis();
+    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+    //void cloud_visualization();
     
 protected:
   // initalize the pcl visualizer shared pointer
   //boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Point cloud Visualizer"));
-  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+  //boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
   PointCloudTA::Ptr cloud;
 
   unsigned int red;
@@ -119,7 +127,7 @@ protected:
   struct callback_args_class cb_args_class;
 
 private slots:
-  void on_pushButton_load_clicked();
+  pcl::visualization::PCLVisualizer::Ptr on_pushButton_load_clicked();
 
   void on_pushButton_save_clicked();
 
@@ -180,7 +188,15 @@ private:
 
   void settings_to_gui();
 
-  
+  //bool save(false), apply(false), undo(false), loadfile(false);
+
+  //bool accept(false), center(false), 
+
+  // ros::NodeHandle nh_; // create a node handler
+  // sensor_msgs::PointCloud2 cloud_out; //cache the cloud message
+  // std::string cloud_topic_; //default output
+  // ros::Publisher cloud_pub_; //cloud message publisher
+
 };
 
 #endif // PCLVIEWER_H

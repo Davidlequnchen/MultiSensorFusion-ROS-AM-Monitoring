@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /RobotModel1/Links1
         - /TF1/Frames1
+        - /PointCloud21
         - /Image1
       Splitter Ratio: 0.5
     Tree Height: 366
@@ -240,8 +241,8 @@ Visualization Manager:
       Selectable: true
       Size (Pixels): 3
       Size (m): 0.000500000024
-      Style: Flat Squares
-      Topic: /usb_cam/cloud
+      Style: Points
+      Topic: /statistical_outlier_removal/output
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -276,25 +277,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.06801844
+      Distance: 2.06440639
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.249149352
-        Y: -0.323674679
-        Z: 0.781934202
+        X: 0.0192921273
+        Y: -0.769250512
+        Z: 0.836404264
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.284801245
+      Pitch: 0.61480099
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.87855625
+      Yaw: 6.05355406
     Saved: ~
 Window Geometry:
   Displays:

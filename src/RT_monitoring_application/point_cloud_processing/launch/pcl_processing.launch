@@ -8,6 +8,4 @@
     </include-->
 
     <node name="point_cloud_processing" pkg="point_cloud_processing" type="point_cloud_processing" respawn="true" />
-
-
 </launch>

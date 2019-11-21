@@ -22,28 +22,31 @@ int main (int argc, char *argv[])
 
   ros::NodeHandle n;
 
+  ros::Rate loop_rate(10);
 
-  //OpenLmd::PointCloudProcess pointProcess;
+  
 
-  QApplication a (argc, argv);
-  PCLViewer w;
- 
-  
-  
-  /* 
-  while(!viewer->wasStopped ())
+  while (ros::ok())
   {
-    viewer->spinOnce(100);
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    //OpenLmd::PointCloudProcess pointProcess;
+    
+    QApplication a (argc, argv);
+
+    PCLViewer w;
+
+    //w.showMinimized();
+    w.show ();
+    w.cloud_Vis();
+    //w.cloud_visualization();
+    
+    a.exec();
+    ros::spinOnce();
+    //loop_rate.sleep();
+    
+    //return a.exec ();
   }
-  */
-
-
-  //w.showMinimized();
-  w.show ();
-  //w.cloud_Vis();
-
-  return a.exec ();
+  
+  return 0;
 }
 
 

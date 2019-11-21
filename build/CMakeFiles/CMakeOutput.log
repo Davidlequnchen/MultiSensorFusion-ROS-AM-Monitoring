@@ -580,3 +580,17 @@ Linking C executable cmTC_774ca
 make[1]: Leaving directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the CXX compiler accepts the flag -Wl,--version-script,"/home/david/SIMTech_ws/build/ROS_image_processng/perception_pcl/pcl_ros/class_loader_hide_library_symbols__pcl_ros_io.script" passed with the following output:
+Change Dir: /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e87d0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e87d0.dir/build.make CMakeFiles/cmTC_e87d0.dir/build
+make[1]: Entering directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e87d0.dir/DummyCXXFile.cxx.o
+/usr/bin/c++     -Wl,--version-script,"/home/david/SIMTech_ws/build/ROS_image_processng/perception_pcl/pcl_ros/class_loader_hide_library_symbols__pcl_ros_io.script"   -o CMakeFiles/cmTC_e87d0.dir/DummyCXXFile.cxx.o -c /usr/share/cmake-3.5/Modules/DummyCXXFile.cxx
+Linking CXX executable cmTC_e87d0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e87d0.dir/link.txt --verbose=1
+/usr/bin/c++     -Wl,--version-script,"/home/david/SIMTech_ws/build/ROS_image_processng/perception_pcl/pcl_ros/class_loader_hide_library_symbols__pcl_ros_io.script"    CMakeFiles/cmTC_e87d0.dir/DummyCXXFile.cxx.o  -o cmTC_e87d0 -rdynamic 
+make[1]: Leaving directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+
+

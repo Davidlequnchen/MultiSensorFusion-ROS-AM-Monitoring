@@ -100,16 +100,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target test
+test/fast: test
 
-.PHONY : install/local/fast
+.PHONY : test/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -122,16 +122,16 @@ install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : test/fast
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -194,48 +194,6 @@ nd_height: RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_height.d
 nd_height/fast:
 	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_height.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/nd_height.dir/build
 .PHONY : nd_height/fast
-
-# Convenience name for target.
-RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
-.PHONY : RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
-
-# Convenience name for target.
-find_plane: RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/rule
-
-.PHONY : find_plane
-
-# fast build rule for target.
-find_plane/fast:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build
-.PHONY : find_plane/fast
-
-src/find_plane.o: src/find_plane.cpp.o
-
-.PHONY : src/find_plane.o
-
-# target to build an object file
-src/find_plane.cpp.o:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/src/find_plane.cpp.o
-.PHONY : src/find_plane.cpp.o
-
-src/find_plane.i: src/find_plane.cpp.i
-
-.PHONY : src/find_plane.i
-
-# target to preprocess a source file
-src/find_plane.cpp.i:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/src/find_plane.cpp.i
-.PHONY : src/find_plane.cpp.i
-
-src/find_plane.s: src/find_plane.cpp.s
-
-.PHONY : src/find_plane.s
-
-# target to generate assembly for a file
-src/find_plane.cpp.s:
-	cd /home/david/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/build.make RT_monitoring_application/point_cloud_scanning/CMakeFiles/find_plane.dir/src/find_plane.cpp.s
-.PHONY : src/find_plane.cpp.s
 
 src/nd_cloud.o: src/nd_cloud.cpp.o
 
@@ -301,15 +259,11 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... nd_cloud"
-	@echo "... install/local"
 	@echo "... nd_height"
 	@echo "... install/strip"
-	@echo "... test"
-	@echo "... find_plane"
-	@echo "... src/find_plane.o"
-	@echo "... src/find_plane.i"
-	@echo "... src/find_plane.s"
+	@echo "... install/local"
 	@echo "... src/nd_cloud.o"
 	@echo "... src/nd_cloud.i"
 	@echo "... src/nd_cloud.s"

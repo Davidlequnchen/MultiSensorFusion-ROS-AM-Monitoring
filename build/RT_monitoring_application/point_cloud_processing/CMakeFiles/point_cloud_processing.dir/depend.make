@@ -4,6 +4,7 @@
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_LmdFuncs.cpp.o: RT_monitoring_application/point_cloud_processing/include/moc_LmdFuncs.cpp
 
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: RT_monitoring_application/point_cloud_processing/include/moc_pclviewer.cpp
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /home/david/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions/include/pcl_conversions/pcl_conversions.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/LmdFuncs.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/pclviewer.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv/cxcore.h
@@ -139,6 +140,10 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d.hpp
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/cuda.hpp
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/nonfree.hpp
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/ModelCoefficients.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/PointIndices.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/PolygonMesh.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/Vertices.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/ros/advertise_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/ros/advertise_service_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/ros/assert.h
@@ -195,6 +200,10 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/sensor_msgs/Image.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointCloud2.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointField.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/std_msgs/String.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
@@ -1578,6 +1587,7 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/LmdFuncs.cpp.o: /usr/include/x86_64-linux-gnu/bits/wordsize.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/LmdFuncs.cpp.o: /usr/include/x86_64-linux-gnu/sys/mman.h
 
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /home/david/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions/include/pcl_conversions/pcl_conversions.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/LmdFuncs.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/pclviewer.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/ui_pclviewer.h
@@ -1715,6 +1725,10 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d.hpp
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/cuda.hpp
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/nonfree.hpp
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/ModelCoefficients.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/PointIndices.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/PolygonMesh.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/pcl_msgs/Vertices.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/ros/advertise_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/ros/advertise_service_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/ros/assert.h
@@ -1771,6 +1785,10 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/sensor_msgs/Image.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointCloud2.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointField.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/std_msgs/String.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
@@ -2522,6 +2540,7 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /usr/include/x86_64-linux-gnu/sys/time.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/pclviewer.cpp.o: /usr/include/x86_64-linux-gnu/sys/timeb.h
 
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /home/david/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions/include/pcl_conversions/pcl_conversions.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/LmdFuncs.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include/pclviewer.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/src/qt_pcl_processing.cpp
@@ -2658,6 +2677,10 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d.hpp
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/cuda.hpp
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/xfeatures2d/nonfree.hpp
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/pcl_msgs/ModelCoefficients.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/pcl_msgs/PointIndices.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/pcl_msgs/PolygonMesh.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/pcl_msgs/Vertices.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/ros/advertise_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/ros/advertise_service_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/ros/assert.h
@@ -2714,6 +2737,10 @@ RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processi
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/sensor_msgs/Image.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointCloud2.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointField.h
+RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/std_msgs/String.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 RT_monitoring_application/point_cloud_processing/CMakeFiles/point_cloud_processing.dir/src/qt_pcl_processing.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h

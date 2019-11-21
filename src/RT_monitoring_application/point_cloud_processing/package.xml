@@ -15,6 +15,10 @@
   <build_depend>roscpp</build_depend>
   <build_depend>libpcl-all-dev</build_depend>
   <build_depend>sensor_msgs</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>pcl_msgs</build_depend>
 
   <run_depend>tf</run_depend>
   <run_depend>pcl_ros</run_depend>
@@ -23,4 +27,6 @@
   <run_depend>libpcl-all</run_depend>
   <run_depend>sensor_msgs</run_depend>
 
+  <run_depend>pcl_msgs</run_depend>
+  
 </package>

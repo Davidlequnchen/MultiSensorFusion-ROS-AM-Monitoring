@@ -39,5 +39,5 @@ target_link_libraries(nd_height ${catkin_LIBRARIES})
 add_executable(nd_cloud src/nd_cloud.cpp)
 target_link_libraries(nd_cloud ${catkin_LIBRARIES})
 
-add_executable(find_plane src/find_plane.cpp)
-target_link_libraries(find_plane ${catkin_LIBRARIES})
+#add_executable(find_plane src/find_plane.cpp)
+#target_link_libraries(find_plane ${catkin_LIBRARIES})

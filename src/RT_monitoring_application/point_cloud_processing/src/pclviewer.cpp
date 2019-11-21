@@ -85,7 +85,7 @@ PCLViewer::PCLViewer(QWidget *parent) :
   viewer->registerPointPickingCallback (pp_callback, (void*)&cb_args_class);
   */
 
- 
+   
   // set up the point cloud visualization viewer
   viewer.reset (new pcl::visualization::PCLVisualizer ("Point cloud Visualizer", true));
    
@@ -99,16 +99,22 @@ PCLViewer::PCLViewer(QWidget *parent) :
   viewer->registerPointPickingCallback (pp_callback, (void*)&cb_args_class);
   
 
-  viewer->spinOnce(0.1); // update the screen
+  //viewer->spinOnce(100);  // update the screen
   //std::this_thread::sleep_for(std::chrono::milliseconds(2));
-
-  /* 
-  while (!viewer->wasStopped ())
-  {
-    viewer->spinOnce (100);
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  }
-  */
+  
+//   if (!viewer->wasStopped())
+//         {
+//             viewer->spinOnce(100);
+//             std::this_thread::sleep_for(std::chrono::milliseconds(1));
+//         }
+  
+//   while (!viewer->wasStopped ())
+//   {
+//     viewer->spinOnce (100);
+//     std::this_thread::sleep_for(std::chrono::milliseconds(200));
+//   }
+  //viewer->spin();
+ 
 }
 
 
@@ -141,13 +147,18 @@ void PCLViewer::cloud_Vis ()
         cb_args_class.pointProcessPtr = &pointProcess;
         viewer->registerPointPickingCallback (pp_callback, (void*)&cb_args_class);
         
+
+        viewer->spinOnce(100); 
+        // std::this_thread::sleep_for(std::chrono::milliseconds(1));
+
+        
         // -----Main loop-----
         
-        while (!viewer->wasStopped ())
-        {
-        viewer->spinOnce(0.1);
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
-        }
+        // while (!viewer->wasStopped ())
+        // {
+        // viewer->spinOnce(100); 
+        // std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        // }
         
     }
     catch(char const* error)
@@ -160,6 +171,28 @@ void PCLViewer::cloud_Vis ()
     }
 
 }
+
+// void cloud_visualization ()
+// {
+//     try
+//     {
+//         if (!viewer->wasStopped())
+//         {
+//             viewer->spinOnce(100);
+//             std::this_thread::sleep_for(std::chrono::milliseconds(1));
+//         }
+//     }
+//     catch(char const* error)
+//     {
+//         std::cout << "PCL visualization error: " << error << std::endl;
+//     }
+//     catch(...)
+//     {
+//         std::cout << "Unknown visualization exception.";
+//     }
+// }
+
+
 
 
 //load PCD
@@ -182,7 +215,7 @@ void PCLViewer::on_pushButton_load_clicked()
 
         viewer->resetCamera ();
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
+        viewer->spinOnce(100); 
         //std::this_thread::sleep_for(std::chrono::milliseconds(2));   // added
 
 
@@ -204,7 +237,7 @@ void PCLViewer::on_pushButton_load_clicked()
         viewer->addPointCloud (cloud, "cloud");
         viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_cloud_size->value(), "cloud");
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
+        viewer->spinOnce(100); 
         //std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
 
         std::cout << "Camara:" << std::endl << " - pos: (" << cam[0].pos[0] << ", "    << cam[0].pos[1] << ", "    << cam[0].pos[2] << ")" << endl
@@ -267,7 +300,7 @@ void PCLViewer::on_pushButton_center_clicked()
         std::cout << "Frame: " << std::endl << sel_frame.linear() << std::endl;
         std::cout << "Pos: " << std::endl << sel_frame.translation() << std::endl;
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
+        viewer->spinOnce(100); 
         //std::this_thread::sleep_for(std::chrono::milliseconds(2));
     }
     catch(char const* error)
@@ -320,7 +353,7 @@ void PCLViewer::on_pushButton_apply_filtering_clicked()
     viewer->addPointCloud(mod_cloud, red_handler, "cloud_mod");
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "cloud_mod");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 
 
@@ -366,7 +399,7 @@ void PCLViewer::on_pushButton_filter_clicked()
         viewer->addPointCloud (cloud, "cloud");
         viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_cloud_size->value(), "cloud");
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
+        viewer->spinOnce(100); 
         //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 
 
@@ -389,7 +422,7 @@ void PCLViewer::on_pushButton_undo_filter_clicked()
 {
     viewer->removePointCloud("cloud_mod");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2)); 
 
 
@@ -408,7 +441,7 @@ void PCLViewer::on_pushButton_accept_filter_clicked()
     viewer->addPointCloud (cloud, "cloud");
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_cloud_size->value(), "cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2));
     }
     catch(char const* error)
@@ -477,7 +510,7 @@ void PCLViewer::on_doubleSpinBox_cloud_size_valueChanged(double arg1)
 {
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_cloud_size->value(), "cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2));
     
 }
@@ -487,7 +520,7 @@ void PCLViewer::on_doubleSpinBox_mod_size_valueChanged(double arg1)
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "cloud_mod");
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "source_cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 }
 
@@ -496,7 +529,7 @@ void PCLViewer::on_doubleSpinBox_sel_size_valueChanged(double arg1)
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_sel_size->value(), "distance_clicked_points");
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_sel_size->value(), "clicked_points");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 }
 
@@ -590,7 +623,7 @@ void PCLViewer::on_pushButton_record_plane_clicked()
         pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_handler (cloud, 255, 0, 0);
         viewer->addPointCloud(cloud, red_handler, "cloud_mod");
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
+        viewer->spinOnce(100); 
         //std::this_thread::sleep_for(std::chrono::milliseconds(2));
     }
     catch(char const* error)
@@ -682,7 +715,7 @@ void PCLViewer::on_pushButton_reorient_clicked()
         viewer->addPointCloud(cloud, red_handler, "cloud_mod");
         viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "cloud_mod");
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
+        viewer->spinOnce(100); 
         //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 
 
@@ -713,8 +746,8 @@ void PCLViewer::on_pushButton_accept_fitting_clicked()
         viewer->addPointCloud (cloud, "cloud");
         viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_cloud_size->value(), "cloud");
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
+        viewer->spinOnce(100); 
+        //std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
     }
     catch(char const* error)
     {
@@ -770,7 +803,7 @@ void PCLViewer::on_pushButton_2d_place_clicked()
         viewer->addPointCloud(cloud, red_handler, "cloud_mod");
         viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "cloud_mod");
         //ui->qvtkWidget->update ();
-        viewer->spinOnce(0.1);
+        viewer->spinOnce(100); 
         //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 
 
@@ -801,7 +834,7 @@ void PCLViewer::on_pushButton_load_model_clicked()
 
     viewer->removePointCloud("source_cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 
 
@@ -812,7 +845,7 @@ void PCLViewer::on_pushButton_load_model_clicked()
     viewer->addPointCloud(cloud, source_handler, "source_cloud");
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "source_cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
+    viewer->spinOnce(100); 
     //std::this_thread::sleep_for(std::chrono::milliseconds(2));
 
 
@@ -836,8 +869,8 @@ void PCLViewer::on_pushButton_delete_model_clicked()
     //TODO: Código
     viewer->removePointCloud("source_cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
+    viewer->spinOnce(100); 
+    //std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
 
     str = ss.str();
     QString qstr = QString::fromStdString(str);
@@ -865,8 +898,8 @@ void PCLViewer::on_pushButton_init_align_clicked()
     viewer->addPointCloud(cloud, source_handler, "source_cloud");
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "source_cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
+    viewer->spinOnce(100); 
+    //std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
 
 
     str = ss.str();
@@ -895,8 +928,8 @@ void PCLViewer::on_pushButton_fine_alignment_clicked()
     viewer->addPointCloud(cloud, source_handler, "source_cloud");
     viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, ui->doubleSpinBox_mod_size->value(), "source_cloud");
     //ui->qvtkWidget->update ();
-    viewer->spinOnce(0.1);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
+    viewer->spinOnce(100); 
+    //std::this_thread::sleep_for(std::chrono::milliseconds(1));   // added
 
     str = ss.str();
     QString qstr = QString::fromStdString(str);
