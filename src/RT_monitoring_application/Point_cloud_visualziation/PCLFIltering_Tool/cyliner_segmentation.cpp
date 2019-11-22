@@ -75,7 +75,7 @@ main (int argc, char** argv)
 
   // Remove the planar inliers, extract the rest
   extract.setNegative (true);
-  extract.filter (*cloud_filtered2);
+  extract.filter (*cloud_filtered2);//non-planner part
   extract_normals.setNegative (true);
   extract_normals.setInputCloud (cloud_normals);
   extract_normals.setIndices (inliers_plane);

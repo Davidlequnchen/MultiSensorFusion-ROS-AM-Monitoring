@@ -1,0 +1,139 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <arg name="leaf_size" default="0.1" />
+
+
+  <!-- usb cam driver -->
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="frame_rate" type="double" value="30.0" />
+    <param name="io_method" value="mmap"/>
+  </node> 
+  
+  <!-- image_proc is to undistort the image according to the camera calibration result, and publish the topic: /usb_cam/image_rect_color -->
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam"/>
+
+
+  <node name="profile_cloud" pkg="laser_scanning" type="usb_profile.py">
+    <param name="image" type="str" value="/usb_cam/image_rect_color" />
+    <param name="cloud" type="str" value="/usb_cam/cloud" />
+    <param name="config" type="str" value="$(find laser_scanning)/config/profile3d.yaml" />
+  </node> 
+
+   
+
+  <!--node name="voxel_grid"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/VoxelGrid">
+    <remap from="~input" to="/usb_cam/cloud" />
+    <rosparam subst_value="true">
+      filter_field_name: 'voxelGridFilter'
+      leaf_size: $(arg leaf_size)
+    </rosparam>
+  </node-->
+ 
+  <!--test test-name="test_voxel_grid"
+        name="test_voxel_grid"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /voxel_grid/output
+      hz: 20
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test-->
+  
+
+ 
+
+
+  <node name="statistical_outlier_removal"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/StatisticalOutlierRemoval">
+    <remap from="~input" to="/usb_cam/cloud" />
+    <rosparam>
+      mean_k: 10
+      stddev: 1.0
+    </rosparam>
+  </node>
+
+  <test test-name="test_statistical_outlier_removal"
+        name="test_statistical_outlier_removal"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /statistical_outlier_removal/output
+      hz: 20
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test>
+
+
+
+
+  <node name="radius_outlier_removal"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/RadiusOutlierRemoval">
+    <remap from="~input" to="/usb_cam/cloud" />
+    <rosparam>
+      min_neighbors: 100
+      radius_search: 1.0
+    </rosparam>
+  </node>
+
+  <test test-name="test_radius_outlier_removal"
+        name="test_radius_outlier_removal"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /radius_outlier_removal/output
+      hz: 20
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test>
+
+
+
+
+
+
+  <!--node name="pass_through"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/PassThrough">
+    <remap from="~input" to="/usb_cam/cloud" />
+    <rosparam>
+      filter_field_name: z
+        filter_limit_min: -0.5
+        filter_limit_max: 0.5
+    </rosparam>
+  </node>
+
+  <test test-name="test_pass_through"
+        name="test_pass_through"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /pass_through/output
+      hz: 20
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test-->
+
+
+
+
+
+
+
+
+
+
+
+
+</launch>

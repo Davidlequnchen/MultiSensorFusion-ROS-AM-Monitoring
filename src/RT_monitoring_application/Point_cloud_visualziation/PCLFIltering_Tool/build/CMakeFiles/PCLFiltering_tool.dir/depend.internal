@@ -360,6 +360,8 @@ CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o
  /usr/include/pcl-1.7/pcl/search/organized.h
  /usr/include/pcl-1.7/pcl/search/pcl_search.h
  /usr/include/pcl-1.7/pcl/search/search.h
+ /usr/include/pcl-1.7/pcl/segmentation/extract_clusters.h
+ /usr/include/pcl-1.7/pcl/segmentation/impl/extract_clusters.hpp
  /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
  /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
  /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h

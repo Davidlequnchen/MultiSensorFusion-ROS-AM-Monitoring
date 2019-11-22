@@ -127,7 +127,7 @@ protected:
   struct callback_args_class cb_args_class;
 
 private slots:
-  pcl::visualization::PCLVisualizer::Ptr on_pushButton_load_clicked();
+  void on_pushButton_load_clicked();
 
   void on_pushButton_save_clicked();
 

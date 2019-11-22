@@ -45,6 +45,10 @@ pcl/sample_consensus/model_types.h
 -
 pcl/segmentation/sac_segmentation.h
 -
+pcl/segmentation/extract_clusters.h
+-
+pcl/kdtree/kdtree.h
+-
 boost/property_tree/ptree.hpp
 -
 boost/property_tree/json_parser.hpp
@@ -2478,6 +2482,18 @@ pcl/common/concatenate.h
 pcl/common/copy_point.h
 -
 pcl/search/impl/search.hpp
+-
+
+/usr/include/pcl-1.7/pcl/segmentation/extract_clusters.h
+pcl/pcl_base.h
+-
+pcl/search/pcl_search.h
+-
+pcl/segmentation/impl/extract_clusters.hpp
+-
+
+/usr/include/pcl-1.7/pcl/segmentation/impl/extract_clusters.hpp
+pcl/segmentation/extract_clusters.h
 -
 
 /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp

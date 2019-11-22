@@ -359,6 +359,8 @@ CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/p
 CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/search/organized.h
 CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/search/pcl_search.h
 CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/search/search.h
+CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/segmentation/extract_clusters.h
+CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/segmentation/impl/extract_clusters.hpp
 CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
 CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
 CMakeFiles/PCLFiltering_tool.dir/PCLFiltering_tool.cpp.o: /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h
