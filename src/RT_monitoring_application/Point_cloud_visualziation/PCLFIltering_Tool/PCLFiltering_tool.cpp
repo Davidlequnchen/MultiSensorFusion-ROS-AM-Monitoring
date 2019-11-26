@@ -2,7 +2,9 @@
 #include <thread>
 #include <iostream>
 #include <vector>
-
+#include <algorithm> 
+#include <cmath>
+ 
 #include <pcl/ModelCoefficients.h>
 #include <pcl/common/common_headers.h>
 #include <pcl/features/normal_3d.h>
@@ -24,7 +26,7 @@
 //Boost Library
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
-
+#define MAX_PLANE_NUMBER 10
 
 
 using namespace std::literals::chrono_literals;
@@ -33,8 +35,25 @@ using namespace std::literals::chrono_literals;
 // define global values
 pcl::PointXYZ min_pt, max_pt;
 
-std::string loadfilename = "blade.pcd";
-std::string savefilename = "blade_filtered.txt";
+std::string loadfilename = "flatslow.pcd";
+std::string savefilename = "test_filtered.txt";
+
+float leafsize = 0.002f; // 2mm
+float StddevMulThresh = 1.5; // this parameter is for statistical filter 
+float DistanceThreshold = 0.0013; // this parameter is for plannar segmentation
+
+
+float planeheight[MAX_PLANE_NUMBER] = {}; // define an array with maximum 10 members to store the value of the plane height for each plane found
+//pcl::ModelCoefficients::Ptr coefficients_plane_list[MAX_PLANE_NUMBER] = {}; // define an Array of Pointers, stores the coefficent of the plane that been segmented
+//pcl::PointIndices::Ptr inliers_plane_list[MAX_PLANE_NUMBER] = {}; // define a pointer array to stores the inliers indices of the segmented plane
+//pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered_lst[MAX_PLANE_NUMBER] (new pcl::PointCloud<pcl::PointXYZ>); // store the segmented cloud
+std::vector < pcl::PointCloud<pcl::PointXYZ>::Ptr, Eigen::aligned_allocator <pcl::PointCloud<pcl::PointXYZ>::Ptr > > sourceClouds;
+//std::vector<PointCloud<PointXYZ>::Ptr, Eigen::aligned_allocator<PointCloud <PointXYZ>::Ptr> > sourceClouds
+
+
+
+// global point cloud viewer for viewing target plane
+pcl::visualization::PCLVisualizer::Ptr target_viewer (new pcl::visualization::PCLVisualizer ("tartget plane after segmentation"));
 
 
 
@@ -72,7 +91,7 @@ printUsage (const char* progName)
   // -----Help-----
   // --------------
 
-  std::cout << "\n\nUsage: "<<progName<<" [options]\n\n"
+  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]\n\n"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h                    this help\n"
@@ -83,7 +102,9 @@ printUsage (const char* progName)
             << "-pfilter              apply passthrough filter\n"
             << "-NormalSegmentation   normal segmentation, get planer cylindrical and sphere surfaces\n"
             << "-largestPlane         planner segmentation filter(return largest plane)\n"
+            << "-multiPlannarSeg      multiple plannar segmentation to get all the plane\n"
             << "-EuclideanExtraction  Apply Euclidean Clustering Extraction method to segment point cloud\n"
+            << "-ShapeSeg             remove the largest plane and return the desired shape\n"
 
 
             << "\n\n";
@@ -142,6 +163,18 @@ void savePointFile (std::string fileName, pcl::PointCloud<pcl::PointXYZ>::ConstP
 
 
 
+// Function to find distance between point and a plane (here we calculate distance between origin 0,0,0 and plane ax+by+cz+d=0) 
+float shortest_distance(float a, float b, float c, float d) // pass in 4 plane coefficient
+{ //Distance = (| a*x1 + b*y1 + c*z1 + d |) / (sqrt( a*a + b*b + c*c))
+  d = fabs((d)); 
+  float e = sqrt(a * a + b * b + c * c); 
+  float distance = d/e;
+  std::cout << "Perpendicular distance is " << distance <<std::endl; 
+  return distance; 
+} 
+
+
+
 pcl::visualization::PCLVisualizer::Ptr simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud)
 {
   // --------------------------------------------
@@ -183,7 +216,7 @@ pcl::visualization::PCLVisualizer::Ptr  StatisticalFilter (pcl::PointCloud<pcl::
   pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
   sor.setInputCloud (cloud);
   sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
-  sor.setStddevMulThresh (0.5); // set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.setStddevMulThresh (1.5); // set standard deviation multiplier threshold, any point has property larger than this will be removed
   sor.filter (*cloud_filtered); // return the cloud after filtering(inlier) and store it into cloud_filtered
 
   viewer->addPointCloud<pcl::PointXYZ> (cloud_filtered, "cloud after filtering"); // add points into the viewer
@@ -250,17 +283,17 @@ pcl::visualization::PCLVisualizer::Ptr  VoxelGridFilter (pcl::PointCloud<pcl::Po
 
   // create a visualizer
   pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
-  viewer->setBackgroundColor (0255, 255, 255); // set background blacks
+  viewer->setBackgroundColor (0, 0, 0); // set background blacks
 
    // Create the filtering object
   pcl::VoxelGrid<pcl::PointXYZ> sor;
   sor.setInputCloud (cloud);
   // downsampling leaf size of 1cm
-  sor.setLeafSize (0.002f, 0.002f, 0.002f);
+  sor.setLeafSize (leafsize, leafsize, leafsize);
   sor.filter (*cloud_filtered);
 
   
-  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> color_handler (cloud_filtered, 0, 0, 0);
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> color_handler (cloud_filtered, 255, 255, 255);
   viewer->addPointCloud(cloud_filtered, color_handler, "cloud after filtering");
   viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud after filtering");
 
@@ -315,7 +348,7 @@ pcl::visualization::PCLVisualizer::Ptr  PassThroughFilter (pcl::PointCloud<pcl::
 // ----------------------------------------
 
 
-pcl::visualization::PCLVisualizer::Ptr plannar_norm_segmentation (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud)
+pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
 {
   //define objects needed
   pcl::ExtractIndices<pcl::PointXYZ> extract;
@@ -340,8 +373,15 @@ pcl::visualization::PCLVisualizer::Ptr plannar_norm_segmentation (pcl::PointClou
   cloud_nonplanerorcylinder.reset (new pcl::PointCloud<pcl::PointXYZ>);
 
   // create a visualizer
-  pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+  pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("normal segmentation viewer"));
   viewer->setBackgroundColor (0, 0, 0); // set background black
+
+  // apply statistical outlier removal to get rid of the noise 
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+  sor.setInputCloud (cloud);
+  sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
+  sor.setStddevMulThresh (StddevMulThresh); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.filter (*cloud); // return the cloud after filtering(inlier) and store it into cloud
 
 
   // Estimate point normals(all points)
@@ -350,6 +390,10 @@ pcl::visualization::PCLVisualizer::Ptr plannar_norm_segmentation (pcl::PointClou
   ne.setKSearch (100);              // value for K, set the value here
   ne.compute (*cloud_normals);
 
+  //----------------------------------------------------------------------------
+  //---------------------- extract all the plannar part---- --------------------
+  //----------------------------------------------------------------------------
+
   // Create the segmentation object for the planar model and set all the parameters
   seg.setOptimizeCoefficients (true);// optional
   seg.setModelType (pcl::SACMODEL_NORMAL_PLANE); // a model for determining plane models using an additional constraint: the surface normals at each inlier point
@@ -357,7 +401,7 @@ pcl::visualization::PCLVisualizer::Ptr plannar_norm_segmentation (pcl::PointClou
   seg.setNormalDistanceWeight (0.1);
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setMaxIterations (100);
-  seg.setDistanceThreshold (0.03);
+  seg.setDistanceThreshold (0.01); //1cm
   seg.setInputCloud (cloud);
   seg.setInputNormals (cloud_normals);
   // get the inliers plane indices after segmentation
@@ -397,7 +441,7 @@ pcl::visualization::PCLVisualizer::Ptr plannar_norm_segmentation (pcl::PointClou
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setNormalDistanceWeight (0.1); //set the surface normals influence to a weight of 0.1
   seg.setMaxIterations (10000);
-  seg.setDistanceThreshold (0.05); // imposing a distance threshold from each inlier point to the model no greater than 5cm
+  seg.setDistanceThreshold (0.02); // imposing a distance threshold from each inlier point to the model no greater than 1cm
   seg.setRadiusLimits (0, 0.1);// limit the radius of the cylindrical model to be smaller than 10cm.
   seg.setInputCloud (cloud_nonplanner); // input cloud is the outlier (non-planner part)
   seg.setInputNormals (cloud_normals_nonplanner);
@@ -484,7 +528,87 @@ pcl::visualization::PCLVisualizer::Ptr plannar_norm_segmentation (pcl::PointClou
 }
 
 
+// remove all non-plannar part, return the desired shape
+pcl::visualization::PCLVisualizer::Ptr shape_segmentation (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+{
+  //define objects needed
+  pcl::ExtractIndices<pcl::PointXYZ> extract;
+  pcl::SACSegmentation<pcl::PointXYZ> seg; 
 
+  // required dataset
+  pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
+  pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
+  cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); // final filtering result
+  filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
+  //pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
+
+ // create a visualizer
+  pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+  viewer->setBackgroundColor (0, 0, 0); // set background black
+  pcl::visualization::PCLVisualizer::Ptr target_viewer;
+  //target_viewer.reset (new pcl::visualization::PCLVisualizer ("tartget plane after segmentation"));
+  //target_viewer->setBackgroundColor (0, 0, 0); // set background black
+
+
+  // Create the segmentation object for the planar model and set all the parameters
+  seg.setOptimizeCoefficients (true);// optional
+  seg.setModelType (pcl::SACMODEL_PLANE); 
+  seg.setMethodType (pcl::SAC_RANSAC);
+  seg.setMaxIterations (1000);
+  seg.setDistanceThreshold (0.001); //1mm
+
+  // apply statistical outlier removal to get rid of the noise 
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+  sor.setInputCloud (cloud);
+  sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
+  sor.setStddevMulThresh (StddevMulThresh); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.filter (*cloud); // return the cloud after filtering(inlier) and store it into cloud
+  // segment the largest plane
+  seg.setInputCloud (cloud);
+  seg.segment (*inliers_plane, *coefficients_plane);
+  if (inliers_plane->indices.size () == 0)
+  {
+    std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
+    //break;
+  }
+
+  // Extract the inliers
+  extract.setInputCloud (cloud);
+  extract.setIndices (inliers_plane);
+  extract.setNegative (false);
+  extract.filter (*cloud_filtered);
+  std::cerr << "PointCloud representing the planar component: " << cloud_filtered->width * cloud_filtered->height << " data points." << std::endl;
+  
+
+  viewer->addPointCloud<pcl::PointXYZ> (cloud_filtered, "cloud after filtering"); // add the largest planes points into the viewer
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud after filtering");
+
+
+  // Create the filtering object
+  extract.setNegative (true);
+  extract.filter (*filtered_part);//get the outlier out of the largest plane
+
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_handler (filtered_part, 255, 0, 0);
+  viewer->addPointCloud(filtered_part, red_handler, "filtered part");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "filtered part");
+  
+  //apply normal segmentation to the filtered part, to get the desired shape
+  target_viewer = normal_segmentation(filtered_part); 
+
+
+  
+
+  //target_viewer->addPointCloud<pcl::PointXYZ> (filtered_part, "segmented shape"); // add the segmented shape points into the viewer
+  //target_viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "segmented shape");
+  
+  viewer->addCoordinateSystem (0.02);
+  viewer->initCameraParameters ();
+  //target_viewer->addCoordinateSystem (0.02);
+  //target_viewer->initCameraParameters ();
+
+  return (viewer);
+
+}
 
 // return the largest plane
 pcl::visualization::PCLVisualizer::Ptr plannar_segmentation (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud)
@@ -512,7 +636,7 @@ pcl::visualization::PCLVisualizer::Ptr plannar_segmentation (pcl::PointCloud<pcl
   seg.setMaxIterations (1000);
   seg.setDistanceThreshold (0.01);
 
-  int i = 0, nr_points = (int) cloud->points.size ();
+  //int i = 0, nr_points = (int) cloud->points.size ();
   // While 30% of the original cloud is still there
   //while (cloud->points.size () > 0.3 * nr_points)
   //{
@@ -542,15 +666,200 @@ pcl::visualization::PCLVisualizer::Ptr plannar_segmentation (pcl::PointCloud<pcl
   viewer->addPointCloud<pcl::PointXYZ> (cloud_filtered, "cloud after filtering"); // add points into the viewer
   viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud after filtering");
 
-  extract.setNegative(true);// extrect the outlier (removal part)
+  // extract.setNegative(true);// extrect the outlier (removal part)
+  // extract.filter(*filtered_part);
+
+  viewer->addCoordinateSystem (0.02);
+  viewer->initCameraParameters ();
+  target_viewer->addCoordinateSystem (0.02);
+  target_viewer->initCameraParameters ();
+  return (viewer);
+
+}
+
+
+// find all the plane one by one from largest to smallest
+pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+{
+  //define objects needed
+  pcl::ExtractIndices<pcl::PointXYZ> extract;
+  pcl::SACSegmentation<pcl::PointXYZ> seg; 
+  
+   // required dataset
+  pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
+  pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
+  cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); // final filtering result
+  filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
+  //pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
+
+  // create a visualizer
+  pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+  viewer->setBackgroundColor (0, 0, 0); // set background black
+  target_viewer.reset (new pcl::visualization::PCLVisualizer ("tartget plane after segmentation"));
+  target_viewer->setBackgroundColor (0, 0, 0); // set background black
+
+
+   // Create the segmentation object for the planar model and set all the parameters
+  seg.setOptimizeCoefficients (true);// optional
+  seg.setModelType (pcl::SACMODEL_PLANE); 
+  seg.setMethodType (pcl::SAC_RANSAC);
+  seg.setMaxIterations (1000);//the maximum number of iterations the sample consensus method will run 
+  seg.setDistanceThreshold (DistanceThreshold);//Distance to the model threshold (user given parameter). default: 0.001
+  
+  //-----process start -------------------------------------------------------------------------------------------------------
+  
+  //firstly,
+   
+  // the apply voxel grid filter to downsample the data
+  // // Create the filtering object
+  // pcl::VoxelGrid<pcl::PointXYZ> vox;
+  // vox.setInputCloud (cloud);
+  // // downsampling leaf size of 1cm - 0.01
+  // vox.setLeafSize (leafsize, leafsize, leafsize);//2mm --- ideal value, lower or higher both got wrong results
+  // vox.filter (*cloud);
+  
+  // apply statistical filter to get rid of the noise
+   
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+  sor.setInputCloud (cloud);
+  sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
+  sor.setStddevMulThresh (StddevMulThresh); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.filter (*cloud); // return the cloud after filtering(inlier) and store it into cloud
+  
+
+
+
+  //secondly, segment the plane in a loop
+   
+  int i = 0, nr_points = (int) cloud->points.size ();
+  int color_r = 255;
+  int color_g = 255;
+  int color_b = 255;
+  // While 30% of the original cloud is still there
+  //inliers->indices.size () == 0
+  //while (cloud->points.size () > 0.1 * nr_points)
+  while (cloud->points.size () > 0.1 * nr_points)// 10% of the original cloud is still there, will be considered as noise
+  {
+    // color setting -- for different plane
+    if (i == 0){ // white
+      color_r = 255;
+      color_g = 255;
+      color_b = 255;
+    }
+    else if(i == 1){//blue
+      color_r = 0;
+      color_g = 0;
+      color_b = 255;
+    }
+    else if(i == 2){//green
+      color_r = 0;
+      color_g = 255;
+      color_b = 0;
+    }
+    else if(i == 3){//purple
+      color_r = 255;
+      color_g = 0;
+      color_b = 255;
+    }
+    else if(i == 4){//yellow
+      color_r = 255;
+      color_g = 255;
+      color_b = 0;
+    }
+    else if(i == 5){//sky blue
+      color_r = 0;
+      color_g = 128;i++;
+      color_b = 255;i++;
+    }
+    else if(i == 6){//bright yellow
+      color_r = 255;
+      color_g = 255;
+      color_b = 102;
+    }
+ 
+    
+    //get the current segmented plane name
+    std::ostringstream oss;
+    oss << "segmented cloud" << i << " " ;
+    std::string cloud_name = oss.str();
+    
+    // Segment the largest planar component from the remaining cloud
+    seg.setInputCloud (cloud);
+    seg.segment (*inliers_plane, *coefficients_plane);
+  
+    std::cerr << "plannar coefficients of "<< cloud_name << "is: " << *coefficients_plane << std::endl;
+    
+    planeheight[i] = shortest_distance(coefficients_plane->values[0],coefficients_plane->values[1], coefficients_plane->values[2], coefficients_plane->values[3]);
+
+    if (inliers_plane->indices.size () == 0)
+    {
+      std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
+      //break;
+    }
+    
+
+    // Extract the inliers
+    extract.setInputCloud (cloud);
+    extract.setIndices (inliers_plane);
+    extract.setNegative (false);
+    extract.filter (*cloud_filtered);
+    std::cerr << "PointCloud representing the planar component: " << cloud_name << cloud_filtered->width * cloud_filtered->height << " data points." << std::endl;
+    
+    sourceClouds.push_back(cloud_filtered);// save this current cloud into a list array
+
+    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> color_handler (cloud_filtered, color_r, color_g, color_b);
+    viewer->addPointCloud(cloud_filtered, color_handler, cloud_name);
+    viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, cloud_name);
+
+
+
+    // Create the filtering object
+    extract.setNegative (true);
+    extract.filter (*filtered_part);//outlier part
+    cloud.swap (filtered_part);
+    i++;
+  }
+
+
+  extract.setNegative(true);// extrect the outlier (removal part): non-plannar dots, niether noise defects
   extract.filter(*filtered_part);
 
   viewer->addCoordinateSystem (0.02);
   viewer->initCameraParameters ();
+  
+
+  // --------------------get the target plane from the point cloud -----------------
+
+  //float highest_plane_value; // this is a pointer
+  // get largest element from the array, go through from the first to the last element
+  //float *highest_plane_value = std::max_element(planeheight[0], planeheight[i]); // find the largest value of plane height 
+  //int highest_plane_index = std::distance(planeheight, std::max_element(planeheight[0], planeheight[i]));
+  // highest_plane_value = std::max_element(planeheight[0], planeheight[i], // Lambda expression begins, absoute comparison
+  //                                                                            [](float a, float b) {
+  //                                                                           return (std::abs(a) < std::abs(b));
+  //                                                                           } // end of lambda expression
+  //                                                   );
+  /* 
+  float highest_plane_value = *std::max_element(planeheight[0], planeheight[i]);
+  int highest_plane_index = std::distance(planeheight[0], highest_plane_value);
+  */
+  const int N = sizeof(planeheight) / sizeof(float); // number of elements
+  int highest_plane_index = std::distance(planeheight, std::max_element(planeheight, planeheight + N));
+ 
+  target_viewer->addPointCloud<pcl::PointXYZ> (sourceClouds[highest_plane_index], "target plane point cloud");
+  target_viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "target plane point cloud");
+  target_viewer->addCoordinateSystem (0.02);
+  target_viewer->initCameraParameters ();
+
+
 
   return (viewer);
 
 }
+
+
+
+
 
 
 pcl::visualization::PCLVisualizer::Ptr EuclideanClusterExtraction (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud)
@@ -634,8 +943,17 @@ main (int argc, char** argv)
     return 0;
   }
   bool simple(false), statistical(false), radiusOutlierRemoval(false);
-  bool VoxelGrid(false), Passthrough(false);
-  bool NormalSegmentation(false), largestPlane(false), EuclideanExtraction(false);
+  bool VoxelGrid(false), Passthrough(false),ShapeSeg(false);
+  bool NormalSegmentation(false), largestPlane(false), EuclideanExtraction(false), multiPlannarSeg(false);
+  
+  pcl::console::parse_argument (argc, argv, "-load", loadfilename);
+  pcl::console::parse_argument (argc, argv, "-save", savefilename);
+  pcl::console::parse_argument (argc, argv, "-leafsize", leafsize);
+  pcl::console::parse_argument (argc, argv, "-Stddev", StddevMulThresh);
+  pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
+
+
+
 
   if (pcl::console::find_argument (argc, argv, "-s") >= 0)
   {
@@ -672,10 +990,20 @@ main (int argc, char** argv)
     largestPlane = true;
     std::cout << "find the largest plane and save the results into pcd file\n";
   }
+  else if (pcl::console::find_argument (argc, argv, "-multiPlannarSeg") >= 0)
+  {
+    multiPlannarSeg = true;
+    std::cout << "find each plane with different color, get plane coefficient\n";
+  }
   else if (pcl::console::find_argument (argc, argv, "-EuclideanExtraction") >= 0)
   {
     EuclideanExtraction = true;
     std::cout << "apply Euclidean Cluster Extraction, using Kd Tree to cluster the Point Cloud\n";
+  }
+  else if (pcl::console::find_argument (argc, argv, "-ShapeSeg") >= 0)
+  {
+    ShapeSeg = true;
+    std::cout << " remove the largest plane and return the desired shape\n";
   }
   else
   {
@@ -719,7 +1047,7 @@ main (int argc, char** argv)
   }
   else if (NormalSegmentation)
   {
-    viewer = plannar_norm_segmentation(basic_cloud_ptr);
+    viewer = normal_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, cloud_filtered);
   }
    else if (largestPlane)
@@ -727,17 +1055,27 @@ main (int argc, char** argv)
     viewer = plannar_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, cloud_filtered);
   }
+   else if (multiPlannarSeg)
+  {
+    viewer = multi_plannar_segmentation(basic_cloud_ptr);
+    //savePointFile(savefilename, cloud_filtered);
+  }
   else if (EuclideanExtraction)
   {
     viewer = EuclideanClusterExtraction(basic_cloud_ptr);
     //savePointFile(savefilename, cloud_filtered);
   }
+  else if (ShapeSeg)
+  {
+    viewer = shape_segmentation(basic_cloud_ptr);
+    //savePointFile(savefilename, cloud_filtered);
+  }
   
 
   // show the filtered part in red
-  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_handler (filtered_part, 255, 0, 0);
-  viewer->addPointCloud(filtered_part, red_handler, "filtered part");
-  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "filtered part");
+  // pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_handler (filtered_part, 255, 0, 0);
+  // viewer->addPointCloud(filtered_part, red_handler, "filtered part");
+  // viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "filtered part");
 
 
 
@@ -748,6 +1086,7 @@ main (int argc, char** argv)
   {
     viewer->spinOnce (10);
     std::this_thread::sleep_for(std::chrono::milliseconds(2));
+    target_viewer->spinOnce (10);
   }
 }
 

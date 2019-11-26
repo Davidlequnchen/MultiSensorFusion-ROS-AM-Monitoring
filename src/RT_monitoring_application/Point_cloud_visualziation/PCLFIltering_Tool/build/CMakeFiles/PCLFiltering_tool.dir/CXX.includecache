@@ -15,6 +15,10 @@ iostream
 -
 vector
 -
+algorithm
+-
+cmath
+-
 pcl/ModelCoefficients.h
 -
 pcl/common/common_headers.h
