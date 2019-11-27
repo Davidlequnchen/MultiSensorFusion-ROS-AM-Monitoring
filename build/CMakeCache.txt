@@ -436,11 +436,17 @@ LIBUSB_1_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 LIBUSB_1_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libusb-1.0.so
 
+//Path to a library.
+LLT_LIBRARY:FILEPATH=/usr/local/lib/libllt.so
+
 //lsb_release executable was found
 LSB_FOUND:BOOL=TRUE
 
 //Path to a program.
 LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
+
+//Path to a library.
+MESCAN_LIBRARY:FILEPATH=/usr/local/lib/libmescan.so
 
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
@@ -963,6 +969,24 @@ message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 
 //Value Computed by CMake
+microEpsilon_scanControl_BINARY_DIR:STATIC=/home/david/SIMTech_ws/build/microEpsilon_scanControl
+
+//Dependencies for the target
+microEpsilon_scanControl_LIB_DEPENDS:STATIC=general;/opt/ros/kinetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/kinetic/lib/librosconsole.so;general;/opt/ros/kinetic/lib/librosconsole_log4cxx.so;general;/opt/ros/kinetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/kinetic/lib/libxmlrpcpp.so;general;/opt/ros/kinetic/lib/libroscpp_serialization.so;general;/opt/ros/kinetic/lib/librostime.so;general;/opt/ros/kinetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;/usr/local/lib/libllt.so;general;/usr/local/lib/libmescan.so;general;aravis-0.6;general;m;general;gio-2.0;general;gobject-2.0;general;xml2;general;gthread-2.0;general;glib-2.0;
+
+//Value Computed by CMake
+microEpsilon_scanControl_SOURCE_DIR:STATIC=/home/david/SIMTech_ws/src/microEpsilon_scanControl
+
+//Value Computed by CMake
+microepsilon_scancontrol_BINARY_DIR:STATIC=/home/david/SIMTech_ws/build/microEpsilon_scanControl
+
+//Dependencies for the target
+microepsilon_scancontrol_LIB_DEPENDS:STATIC=general;/opt/ros/kinetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/kinetic/lib/librosconsole.so;general;/opt/ros/kinetic/lib/librosconsole_log4cxx.so;general;/opt/ros/kinetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/kinetic/lib/libxmlrpcpp.so;general;/opt/ros/kinetic/lib/libroscpp_serialization.so;general;/opt/ros/kinetic/lib/librostime.so;general;/opt/ros/kinetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;/usr/local/lib/libllt.so;general;/usr/local/lib/libmescan.so;general;aravis-0.6;general;m;general;gio-2.0;general;gobject-2.0;general;xml2;general;gthread-2.0;general;glib-2.0;
+
+//Value Computed by CMake
+microepsilon_scancontrol_SOURCE_DIR:STATIC=/home/david/SIMTech_ws/src/microEpsilon_scanControl
+
+//Value Computed by CMake
 monitoring_BINARY_DIR:STATIC=/home/david/SIMTech_ws/build/Monitoring/monitoring
 
 //Value Computed by CMake
@@ -1282,6 +1306,40 @@ xmlrpcpp_DIR:PATH=/opt/ros/kinetic/share/xmlrpcpp/cmake
 # INTERNAL cache entries
 ########################
 
+ARAVIS_CFLAGS:INTERNAL=-pthread;-I/usr/local/include/aravis-0.6;-I/usr/include/libxml2;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+ARAVIS_CFLAGS_I:INTERNAL=
+ARAVIS_CFLAGS_OTHER:INTERNAL=-pthread
+ARAVIS_FOUND:INTERNAL=1
+ARAVIS_INCLUDEDIR:INTERNAL=/usr/local/include
+ARAVIS_INCLUDE_DIRS:INTERNAL=/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include
+ARAVIS_LDFLAGS:INTERNAL=-L/usr/local/lib;-laravis-0.6;-lm;-lgio-2.0;-lgobject-2.0;-lxml2;-lgthread-2.0;-pthread;-lglib-2.0
+ARAVIS_LDFLAGS_OTHER:INTERNAL=-pthread
+ARAVIS_LIBDIR:INTERNAL=/usr/local/lib
+ARAVIS_LIBRARIES:INTERNAL=aravis-0.6;m;gio-2.0;gobject-2.0;xml2;gthread-2.0;glib-2.0
+ARAVIS_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+ARAVIS_LIBS:INTERNAL=
+ARAVIS_LIBS_L:INTERNAL=
+ARAVIS_LIBS_OTHER:INTERNAL=
+ARAVIS_LIBS_PATHS:INTERNAL=
+ARAVIS_PREFIX:INTERNAL=/usr/local
+ARAVIS_STATIC_CFLAGS:INTERNAL=-pthread;-I/usr/local/include/aravis-0.6;-I/usr/include/libxml2;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+ARAVIS_STATIC_CFLAGS_I:INTERNAL=
+ARAVIS_STATIC_CFLAGS_OTHER:INTERNAL=-pthread
+ARAVIS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include
+ARAVIS_STATIC_LDFLAGS:INTERNAL=-L/usr/local/lib;-laravis-0.6;-lm;-lgio-2.0;-lz;-lresolv;-lselinux;-lgmodule-2.0;-pthread;-ldl;-lgobject-2.0;-lffi;-lxml2;-licui18n;-licuuc;-licudata;-lz;-llzma;-lm;-lgthread-2.0;-pthread;-lglib-2.0;-pthread;-lpcre;-pthread
+ARAVIS_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+ARAVIS_STATIC_LIBDIR:INTERNAL=
+ARAVIS_STATIC_LIBRARIES:INTERNAL=aravis-0.6;m;gio-2.0;z;resolv;selinux;gmodule-2.0;dl;gobject-2.0;ffi;xml2;icui18n;icuuc;icudata;z;lzma;m;gthread-2.0;glib-2.0;pcre
+ARAVIS_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+ARAVIS_STATIC_LIBS:INTERNAL=
+ARAVIS_STATIC_LIBS_L:INTERNAL=
+ARAVIS_STATIC_LIBS_OTHER:INTERNAL=
+ARAVIS_STATIC_LIBS_PATHS:INTERNAL=
+ARAVIS_VERSION:INTERNAL=0.6.1
+ARAVIS_aravis-0.6_INCLUDEDIR:INTERNAL=
+ARAVIS_aravis-0.6_LIBDIR:INTERNAL=
+ARAVIS_aravis-0.6_PREFIX:INTERNAL=
+ARAVIS_aravis-0.6_VERSION:INTERNAL=
 //ADVANCED property for variable: Boost_ATOMIC_LIBRARY_DEBUG
 Boost_ATOMIC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_ATOMIC_LIBRARY_RELEASE
@@ -1425,7 +1483,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=50
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=51
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1862,6 +1920,7 @@ _Boost_LIBRARY_DIR_RELEASE_LAST:INTERNAL=/usr/lib/x86_64-linux-gnu
 _Boost_NAMESPACE_LAST:INTERNAL=boost
 //Last used Boost_USE_MULTITHREADED value.
 _Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
+__pkg_config_checked_ARAVIS:INTERNAL=1
 __pkg_config_checked_PC_EIGEN:INTERNAL=1
 __pkg_config_checked_PC_FLANN:INTERNAL=1
 __pkg_config_checked_PC_OPENNI:INTERNAL=1
@@ -1902,7 +1961,7 @@ avcodec_libavcodec_INCLUDEDIR:INTERNAL=
 avcodec_libavcodec_LIBDIR:INTERNAL=
 avcodec_libavcodec_PREFIX:INTERNAL=
 avcodec_libavcodec_VERSION:INTERNAL=
-prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
+prefix_result:INTERNAL=/usr/local/lib
 swscale_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
 swscale_CFLAGS_I:INTERNAL=
 swscale_CFLAGS_OTHER:INTERNAL=

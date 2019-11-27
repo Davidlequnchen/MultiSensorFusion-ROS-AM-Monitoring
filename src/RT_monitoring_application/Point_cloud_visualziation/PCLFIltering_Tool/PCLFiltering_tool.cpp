@@ -401,7 +401,7 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
   seg.setNormalDistanceWeight (0.1);
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setMaxIterations (100);
-  seg.setDistanceThreshold (0.01); //1cm
+  seg.setDistanceThreshold (0.001); //1cm
   seg.setInputCloud (cloud);
   seg.setInputNormals (cloud_normals);
   // get the inliers plane indices after segmentation
@@ -441,7 +441,7 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setNormalDistanceWeight (0.1); //set the surface normals influence to a weight of 0.1
   seg.setMaxIterations (10000);
-  seg.setDistanceThreshold (0.02); // imposing a distance threshold from each inlier point to the model no greater than 1cm
+  seg.setDistanceThreshold (0.2); // imposing a distance threshold from each inlier point to the model no greater than xx
   seg.setRadiusLimits (0, 0.1);// limit the radius of the cylindrical model to be smaller than 10cm.
   seg.setInputCloud (cloud_nonplanner); // input cloud is the outlier (non-planner part)
   seg.setInputNormals (cloud_normals_nonplanner);
@@ -555,7 +555,7 @@ pcl::visualization::PCLVisualizer::Ptr shape_segmentation (pcl::PointCloud<pcl::
   seg.setModelType (pcl::SACMODEL_PLANE); 
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setMaxIterations (1000);
-  seg.setDistanceThreshold (0.001); //1mm
+  seg.setDistanceThreshold (DistanceThreshold); //13mm
 
   // apply statistical outlier removal to get rid of the noise 
   pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
@@ -868,8 +868,8 @@ pcl::visualization::PCLVisualizer::Ptr EuclideanClusterExtraction (pcl::PointClo
     pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ>);
     tree->setInputCloud (cloud); // move the input cloud into the Kd Tree
     
-    cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); // final filtering result
-    filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
+    //cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); // final filtering result
+    //filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
 
 
     // create a visualizer
@@ -881,18 +881,18 @@ pcl::visualization::PCLVisualizer::Ptr EuclideanClusterExtraction (pcl::PointClo
     std::vector<pcl::PointIndices> cluster_indices;
     pcl::EuclideanClusterExtraction<pcl::PointXYZ> ec;
     ec.setClusterTolerance (0.02); // 2cm
-    ec.setMinClusterSize (100);
+    ec.setMinClusterSize (1000);
     ec.setMaxClusterSize (25000);
     ec.setSearchMethod (tree);
     ec.setInputCloud (cloud);
     ec.extract (cluster_indices); // get the cluster indices
 
     int j = 0;
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cluster (new pcl::PointCloud<pcl::PointXYZ>);
+    //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cluster (new pcl::PointCloud<pcl::PointXYZ>);
     // loop over the cluster indices we got
     for (std::vector<pcl::PointIndices>::const_iterator it = cluster_indices.begin (); it != cluster_indices.end (); ++it)
     {
-      //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cluster (new pcl::PointCloud<pcl::PointXYZ>);
+      pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cluster (new pcl::PointCloud<pcl::PointXYZ>);
       // push back each point from the cluster into the new point cloud: cloud_cluster
       for (std::vector<int>::const_iterator pit = it->indices.begin (); pit != it->indices.end (); ++pit)
           {
@@ -906,9 +906,9 @@ pcl::visualization::PCLVisualizer::Ptr EuclideanClusterExtraction (pcl::PointClo
       viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "clusterd cloud");
   
       std::cout << "PointCloud representing the Cluster: " << cloud_cluster->points.size () << " data points." << std::endl;
-      std::stringstream ss;
-      ss << "cloud_cluster_" << j << ".pcd";
-      writer.write<pcl::PointXYZ> (ss.str (), *cloud_cluster, false); //*
+      // std::stringstream ss;
+      // ss << "cloud_cluster_" << j << ".pcd";
+      // writer.write<pcl::PointXYZ> (ss.str (), *cloud_cluster, false); 
       j++;
     }
 
@@ -1073,9 +1073,9 @@ main (int argc, char** argv)
   
 
   // show the filtered part in red
-  // pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_handler (filtered_part, 255, 0, 0);
-  // viewer->addPointCloud(filtered_part, red_handler, "filtered part");
-  // viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "filtered part");
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_handler (filtered_part, 255, 0, 0);
+  viewer->addPointCloud(filtered_part, red_handler, "filtered part");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "filtered part");
 
 
 
