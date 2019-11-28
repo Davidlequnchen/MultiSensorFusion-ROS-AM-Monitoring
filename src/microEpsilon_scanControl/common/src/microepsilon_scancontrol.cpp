@@ -39,6 +39,7 @@
 *****************************************************************************/
 
 #include "microepsilon_scancontrol.h"
+#include "llt.h"
 
 namespace microepsilon_scancontrol
 {
@@ -55,7 +56,10 @@ bool Scanner::connect()
 
   int activeDevice = 0;
 
-  int iRetValue = llt_.GetDeviceInterfaces(&vcInterfaces[0], vcInterfaces.size());
+  // Search for scanners on interface
+  int iRetValue = CInterfaceLLT::GetDeviceInterfaces(&vcInterfaces[0], vcInterfaces.size());
+
+  //int iRetValue = llt_.GetDeviceInterfaces(&vcInterfaces[0], vcInterfaces.size());
   if (iRetValue == ERROR_GETDEVINTERFACE_REQUEST_COUNT)
   {
     std::cout << "There are more than " << vcInterfaces.size() << " scanCONTROL connected \n";
@@ -96,11 +100,15 @@ bool Scanner::connect()
     }
   }
 
-  // if ((iRetValue = SetPathtoDeviceProperties(path_to_device_properties_.c_str())) < GENERAL_FUNCTION_OK)
-  // {
-  //   std::cout << "Error setting device ID path\nExit program...\n";
-  //   return false;
-  // }
+
+  if ((iRetValue = CInterfaceLLT::SetPathtoDeviceProperties(path_to_device_properties_.c_str())) < GENERAL_FUNCTION_OK)
+  {
+    std::cout << "Error setting device ID path\nExit program...\n";
+    return false;
+  }
+
+  
+  
 
   std::cout << "Connecting to " << vcInterfaces[activeDevice] << std::endl;
   if ((llt_.SetDeviceInterface(vcInterfaces[activeDevice])) < GENERAL_FUNCTION_OK)

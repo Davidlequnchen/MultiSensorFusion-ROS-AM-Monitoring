@@ -132,6 +132,8 @@ private:
 
   //LLT llt_;
   CInterfaceLLT llt_;
+  // Create a device handle
+  //CInterfaceLLT llt_ = new CInterfaceLLT(); 
 
   std::vector<ScanProfile> container_buffer_;
   std::queue<ScanProfileConvertedPtr> profile_queue_;
