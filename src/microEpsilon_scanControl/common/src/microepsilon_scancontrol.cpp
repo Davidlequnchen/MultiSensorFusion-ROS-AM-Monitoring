@@ -101,11 +101,11 @@ bool Scanner::connect()
   }
 
 
-  if ((iRetValue = CInterfaceLLT::SetPathtoDeviceProperties(path_to_device_properties_.c_str())) < GENERAL_FUNCTION_OK)
-  {
-    std::cout << "Error setting device ID path\nExit program...\n";
-    return false;
-  }
+  // if ((iRetValue = CInterfaceLLT::SetPathtoDeviceProperties(path_to_device_properties_.c_str())) < GENERAL_FUNCTION_OK)
+  // {
+  //   std::cout << "Error setting device ID path\nExit program...\n";
+  //   return false;
+  // }
 
   
   

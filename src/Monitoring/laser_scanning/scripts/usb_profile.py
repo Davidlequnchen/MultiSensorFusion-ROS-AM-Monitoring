@@ -12,8 +12,11 @@ from sensor_msgs.msg import CameraInfo
 from icv.calibration import CameraCalibration
 from robscan.profile import Profile
 
-import struct
-      
+#import struct
+import os
+import signal
+import subprocess
+
 
 
 
@@ -82,8 +85,8 @@ class NdProfile():
 
         
 
-        self.pcloud = pc2.create_cloud_xyz32(self.pcloud.header, profile3d_base)
-        #self.pcloud = pc2.create_cloud_xyz32(self.pcloud.header, profile3d)
+        #self.pcloud = pc2.create_cloud_xyz32(self.pcloud.header, profile3d_base)
+        self.pcloud = pc2.create_cloud_xyz32(self.pcloud.header, profile3d)
         '''
         create_cloud_xyz function Create a L{sensor_msgs.msg.PointCloud2} message with 3 float32 fields (x, y, z).
         (create a instance of Header)
