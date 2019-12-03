@@ -41,14 +41,14 @@ std::string savefilename = "test_filtered.txt";
 float leafsize = 0.002f; // 2mm
 float StddevMulThresh = 1.5; // this parameter is for statistical filter 
 float DistanceThreshold = 0.0013; // this parameter is for plannar segmentation
-
+int highest_plane_index = 0;
 
 float planeheight[MAX_PLANE_NUMBER] = {}; // define an array with maximum 10 members to store the value of the plane height for each plane found
 //pcl::ModelCoefficients::Ptr coefficients_plane_list[MAX_PLANE_NUMBER] = {}; // define an Array of Pointers, stores the coefficent of the plane that been segmented
 //pcl::PointIndices::Ptr inliers_plane_list[MAX_PLANE_NUMBER] = {}; // define a pointer array to stores the inliers indices of the segmented plane
 //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered_lst[MAX_PLANE_NUMBER] (new pcl::PointCloud<pcl::PointXYZ>); // store the segmented cloud
 std::vector < pcl::PointCloud<pcl::PointXYZ>::Ptr, Eigen::aligned_allocator <pcl::PointCloud<pcl::PointXYZ>::Ptr > > sourceClouds;
-//std::vector<PointCloud<PointXYZ>::Ptr, Eigen::aligned_allocator<PointCloud <PointXYZ>::Ptr> > sourceClouds
+
 
 
 
@@ -67,6 +67,7 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr color_cloud_ptr (new pcl::PointCloud<pcl:
 pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
 // filtered_part stores removal parts after filtering
 pcl::PointCloud<pcl::PointXYZ>::Ptr filtered_part (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_stored (new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PCDWriter writer;
 
 // required dataset
@@ -360,6 +361,7 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
   // required dataset resets
   cloud_filtered.reset (new pcl::PointCloud<pcl::PointXYZ>); // planner part result
   filtered_part.reset (new pcl::PointCloud<pcl::PointXYZ>); // the part be removed(noise)
+  cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);
   coefficients_plane.reset (new pcl::ModelCoefficients);
   coefficients_cylinder.reset (new pcl::ModelCoefficients);
   coefficients_sphere.reset (new pcl::ModelCoefficients);
@@ -415,6 +417,7 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
   // Write the planar inliers to disk
   extract.filter (*cloud_filtered);
 
+  *cloud_stored = *cloud_filtered;
   viewer->addPointCloud<pcl::PointXYZ> (cloud_filtered, "planer cloud"); // add points into the viewer
   viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "planer cloud");// visualize the planer cloud in white
   
@@ -426,8 +429,8 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
   extract.setNegative(true);// extract the outlier (removal part)
   extract.filter(*cloud_nonplanner); // now cloud_nonplanner  is the non-planer part
   //filtered_part = cloud_nonplanner;
-  extract.setNegative(true);// extract the outlier (removal part)
-  extract.filter(*filtered_part); 
+  // extract.setNegative(true);// extract the outlier (removal part)
+  // extract.filter(*filtered_part); 
 
   extract_normals.setNegative (true);
   extract_normals.setInputCloud (cloud_normals);
@@ -454,20 +457,22 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
   extract.setInputCloud (cloud_nonplanner);
   extract.setIndices (inliers_cylinder);
   extract.setNegative (false);
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cylinder (new pcl::PointCloud<pcl::PointXYZ> ());
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cylinder (new pcl::PointCloud<pcl::PointXYZ>);
   extract.filter (*cloud_cylinder);
+  
   if (cloud_cylinder->points.empty ()) 
     std::cerr << "Can't find the cylindrical component." << std::endl;
   else
   {
+    *cloud_stored += *cloud_cylinder;
     // we will show the cylinder in green color
     pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> green_handler (cloud_cylinder, 0, 255, 0);
     viewer->addPointCloud(cloud_cylinder, green_handler, "cylinder");
     viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cylinder");
 
 	  std::cerr << "PointCloud representing the cylindrical component: " << cloud_cylinder->points.size () << " data points." << std::endl;
-	  extract.setNegative (true);
-    extract.filter (*filtered_part); // the rest part are the removal(abandoned part), we will show this part in red   
+	  // extract.setNegative (true);
+    // extract.filter (*filtered_part); // the rest part are the removal(abandoned part), we will show this part in red   
   }
 
 
@@ -503,12 +508,14 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
   extract.setInputCloud (cloud_nonplanerorcylinder);
   extract.setIndices (inliers_sphere);
   extract.setNegative (false);
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_sphere (new pcl::PointCloud<pcl::PointXYZ> ());
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_sphere (new pcl::PointCloud<pcl::PointXYZ>);
   extract.filter (*cloud_sphere);
+
   if (cloud_sphere->points.empty ()) 
     std::cerr << "Can't find the cloud_sphere component." << std::endl;
   else
   {
+    *cloud_stored += *cloud_sphere;
     // we will show the cloud_sphere in blue color
     pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> blue_handler (cloud_sphere, 0, 0, 250);
     viewer->addPointCloud(cloud_sphere, blue_handler, "cloud_sphere");
@@ -518,8 +525,9 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
 	  extract.setNegative (true);
     extract.filter (*filtered_part); // the rest part are the removal(abandoned part), we will show this part in red   
   }
-
-
+  
+  savePointFile(savefilename, cloud_stored);
+  
   viewer->addCoordinateSystem (0.02);
   viewer->initCameraParameters ();
 
@@ -528,7 +536,7 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
 }
 
 
-// remove all non-plannar part, return the desired shape
+// remove all plannar part, return the desired shape
 pcl::visualization::PCLVisualizer::Ptr shape_segmentation (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
 {
   //define objects needed
@@ -688,7 +696,7 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
    // required dataset
   pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
   pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
-  cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); // final filtering result
+  cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); 
   filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
   //pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
 
@@ -844,7 +852,7 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
   int highest_plane_index = std::distance(planeheight[0], highest_plane_value);
   */
   const int N = sizeof(planeheight) / sizeof(float); // number of elements
-  int highest_plane_index = std::distance(planeheight, std::max_element(planeheight, planeheight + N));
+  highest_plane_index = std::distance(planeheight, std::max_element(planeheight, planeheight + N));
  
   target_viewer->addPointCloud<pcl::PointXYZ> (sourceClouds[highest_plane_index], "target plane point cloud");
   target_viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "target plane point cloud");
@@ -1048,7 +1056,7 @@ main (int argc, char** argv)
   else if (NormalSegmentation)
   {
     viewer = normal_segmentation(basic_cloud_ptr);
-    savePointFile(savefilename, cloud_filtered);
+    //savePointFile(savefilename, cloud_stored);
   }
    else if (largestPlane)
   {
@@ -1058,7 +1066,7 @@ main (int argc, char** argv)
    else if (multiPlannarSeg)
   {
     viewer = multi_plannar_segmentation(basic_cloud_ptr);
-    //savePointFile(savefilename, cloud_filtered);
+    savePointFile(savefilename, sourceClouds[highest_plane_index]);
   }
   else if (EuclideanExtraction)
   {
@@ -1068,7 +1076,7 @@ main (int argc, char** argv)
   else if (ShapeSeg)
   {
     viewer = shape_segmentation(basic_cloud_ptr);
-    //savePointFile(savefilename, cloud_filtered);
+    //savePointFile(savefilename, cloud_stored);
   }
   
 
