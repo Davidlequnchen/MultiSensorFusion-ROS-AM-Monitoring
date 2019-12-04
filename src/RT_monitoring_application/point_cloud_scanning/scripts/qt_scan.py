@@ -92,7 +92,7 @@ class QtScan(QtWidgets.QWidget):
         # if it is recording now, will save the point cloud into the data folder as a .xyz file.(only of button recording clicked)
         if self.recording:
             print self.filename
-            with open(self.filename, 'a') as f:
+            with open(self.filename, 'a') as f: # a means append data to a file
                 np.savetxt(f, self.points3d, fmt='%.6f')
 
     def cbStatus(self, msg_status):
