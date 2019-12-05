@@ -899,7 +899,7 @@ main (int argc, char** argv)
   else if (NormalSegmentation)
   {
     normal_segmentation(basic_cloud_ptr);
-    savePointFile(savefilename, cloud_filtered);
+    //savePointFile(savefilename, cloud_filtered);
   }
    else if (largestPlane)
   {
@@ -919,7 +919,7 @@ main (int argc, char** argv)
   else if (ShapeSeg)
   {
     shape_segmentation(basic_cloud_ptr);
-    savePointFile(savefilename, cloud_filtered);
+    //savePointFile(savefilename, cloud_filtered);
   }
   
   //----------------------------------

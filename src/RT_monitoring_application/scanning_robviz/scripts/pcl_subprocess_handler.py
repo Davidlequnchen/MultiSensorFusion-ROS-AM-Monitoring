@@ -30,7 +30,7 @@ class NdPCLHandler():
 
         self.stamp = rospy.Time.now()  #current time 
         
-        self.interval = rospy.Duration(10) # duration between each subprocess
+        self.interval = rospy.Duration(5) # duration between each subprocess
 
         
         self.points_list = [] #list for storing PCL XYZ for each subprocess
@@ -82,32 +82,54 @@ class NdPCLHandler():
             #     logging.info("no point cloud data stored in the list")
             
             
-            #----subprocess for segmentation program----
+            #----subprocess for segmentation program-----------------------------------------
             # define the executable program and set all the parameters here
             #Usage: ./PCL_segmentation [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]
-                     
-            command_line =  os.path.join(path, 'PCL_segmentation/build', "PCL_segmentation") + " -NormalSegmentation \
-                            -load " + os.path.join(path, 'pcl', self.pcd_file) + " -save " + os.path.join(path, 'pcl', self.pcd_processed_file) + " \
-                            -DistanceThre 0.003 -Stddev 1.0"
-                             
+            executable = os.path.join(path, 'PCL_segmentation/build', "PCL_segmentation")
+            option = " -multiPlannarSeg" # other options: -NormalSegmentation, -largestPlane, -ShapeSeg, -sfilter
+            loadfile = " -load " + os.path.join(path, 'pcl', self.pcd_file)
+            savefile = " -save " + os.path.join(path, 'pcl', self.pcd_processed_file)
+            parameters = " -DistanceThre 0.003 -Stddev 1.0"
+
+            command_line =  executable + option + loadfile + savefile + parameters
             args = shlex.split(command_line) 
             #p = subprocess.Popen(args)
             subprocess.call(args)
-            #------------subprocess end----------------
+            #------------subprocess end------------------------------------------------------
           
+            try:
+                self.seg_data = pcl.load(os.path.join(path, 'pcl', self.pcd_processed_file)) 
+                self.visual.ShowMonochromeCloud(self.seg_data, b'cloud')
+            
+                #----subprocess for visualizing the segmented cloud--------------------------------------
+                # command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
+                ros_command = "rosrun pcl_ros pcd_to_pointcloud "
+                pcdFile = os.path.join(path, 'pcl', self.pcd_processed_file)
+                interval = " 0.1 " # publish 10 times a second, If <interval> is zero or not specified the message is published once. 
+                frame = " _frame_id:=/workobject"
 
-            self.seg_data = pcl.load(os.path.join(path, 'pcl', self.pcd_processed_file)) 
-            self.visual.ShowMonochromeCloud(self.seg_data, b'cloud')
-        
+                command = ros_command + pcdFile + interval + frame
+                arg = shlex.split(command)
+                s = subprocess.Popen(arg)
+                #------------subprocess end---------------------------------------------------
+            
+            except:
+                self.seg_data = pcl.load(os.path.join(path, 'empty', "empty_cloud.pcd"))
+                self.visual.ShowMonochromeCloud(self.seg_data, b'cloud')
+            
+                #----subprocess for visualizing the segmented cloud--------------------------------------
+                # command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
+                ros_command = "rosrun pcl_ros pcd_to_pointcloud "
+                pcdFile = os.path.join(path, 'empty', "empty_cloud.pcd")
+                interval = " 0.1 " # publish 10 times a second, If <interval> is zero or not specified the message is published once. 
+                frame = " _frame_id:=/workobject"
 
-            #----subprocess for visualizing the segmented cloud--------------------------------------
-            # command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
-            command = "rosrun pcl_ros pcd_to_pointcloud " + os.path.join(path, 'pcl', self.pcd_processed_file) + " " + str(0.1) + " _frame_id:=/workobject"
-            # publish message 10 times a second
-            # <interval> is the (optional) number of seconds to sleep between messages. If <interval> is zero or not specified the message is published once. 
-            arg = shlex.split(command)
-            s = subprocess.Popen(arg)
-            #------------subprocess end---------------------------------------------------
+                command = ros_command + pcdFile + interval + frame
+                arg = shlex.split(command)
+                s = subprocess.Popen(arg)
+                #------------subprocess end---------------------------------------------------
+
+             
 
 
             self.stamp = rospy.Time.now() #stamp

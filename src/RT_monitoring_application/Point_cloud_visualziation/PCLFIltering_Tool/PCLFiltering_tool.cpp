@@ -608,6 +608,7 @@ pcl::visualization::PCLVisualizer::Ptr shape_segmentation (pcl::PointCloud<pcl::
 
   //target_viewer->addPointCloud<pcl::PointXYZ> (filtered_part, "segmented shape"); // add the segmented shape points into the viewer
   //target_viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "segmented shape");
+  savePointFile(savefilename, cloud_stored);
   
   viewer->addCoordinateSystem (0.02);
   viewer->initCameraParameters ();
