@@ -1,8 +1,0 @@
-prefix=/home/david/SIMTech_ws/install
-
-Name: laser_scanning
-Description: Description of laser_scanning
-Version: 0.4.5
-Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
-Requires: 

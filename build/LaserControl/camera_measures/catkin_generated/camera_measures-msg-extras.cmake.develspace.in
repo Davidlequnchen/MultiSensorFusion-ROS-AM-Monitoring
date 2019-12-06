@@ -1,2 +1,0 @@
-set(camera_measures_MESSAGE_FILES "/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgGeometry.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocity.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgStatus.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgPosition.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgTwist.msg;/home/david/SIMTech_ws/src/LaserControl/camera_measures/msg/MsgVelocityStatus.msg")
-set(camera_measures_SERVICE_FILES "")

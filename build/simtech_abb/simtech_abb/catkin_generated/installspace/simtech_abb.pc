@@ -1,8 +1,0 @@
-prefix=/home/david/SIMTech_ws/install
-
-Name: simtech_abb
-Description: Description of simtech_abb
-Version: 0.4.0
-Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
-Requires: 

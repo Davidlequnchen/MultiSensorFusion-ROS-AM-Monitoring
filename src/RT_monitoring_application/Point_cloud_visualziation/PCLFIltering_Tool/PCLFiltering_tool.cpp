@@ -41,6 +41,8 @@ std::string savefilename = "test_filtered.txt";
 float leafsize = 0.002f; // 2mm
 float StddevMulThresh = 1.5; // this parameter is for statistical filter 
 float DistanceThreshold = 0.0013; // this parameter is for plannar segmentation
+float CylinderDistanceThreshold = 0.1;
+float CylinderRadiusLimit = 0.1; // 1m
 int highest_plane_index = 0;
 
 float planeheight[MAX_PLANE_NUMBER] = {}; // define an array with maximum 10 members to store the value of the plane height for each plane found
@@ -106,6 +108,7 @@ printUsage (const char* progName)
             << "-multiPlannarSeg      multiple plannar segmentation to get all the plane\n"
             << "-EuclideanExtraction  Apply Euclidean Clustering Extraction method to segment point cloud\n"
             << "-ShapeSeg             remove the largest plane and return the desired shape\n"
+            << "-curveSeg             find the cylindrical curve shape\n"
 
 
             << "\n\n";
@@ -526,7 +529,7 @@ pcl::visualization::PCLVisualizer::Ptr normal_segmentation (pcl::PointCloud<pcl:
     extract.filter (*filtered_part); // the rest part are the removal(abandoned part), we will show this part in red   
   }
   
-  savePointFile(savefilename, cloud_stored);
+  //savePointFile(savefilename, cloud_stored);
   
   viewer->addCoordinateSystem (0.02);
   viewer->initCameraParameters ();
@@ -608,7 +611,7 @@ pcl::visualization::PCLVisualizer::Ptr shape_segmentation (pcl::PointCloud<pcl::
 
   //target_viewer->addPointCloud<pcl::PointXYZ> (filtered_part, "segmented shape"); // add the segmented shape points into the viewer
   //target_viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "segmented shape");
-  savePointFile(savefilename, cloud_stored);
+  //savePointFile(savefilename, cloud_stored);
   
   viewer->addCoordinateSystem (0.02);
   viewer->initCameraParameters ();
@@ -643,7 +646,7 @@ pcl::visualization::PCLVisualizer::Ptr plannar_segmentation (pcl::PointCloud<pcl
   seg.setModelType (pcl::SACMODEL_PLANE); 
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setMaxIterations (1000);
-  seg.setDistanceThreshold (0.01);
+  seg.setDistanceThreshold (DistanceThreshold);
 
   //int i = 0, nr_points = (int) cloud->points.size ();
   // While 30% of the original cloud is still there
@@ -868,29 +871,136 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
 
 
 
-
-
-
-pcl::visualization::PCLVisualizer::Ptr EuclideanClusterExtraction (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud)
+pcl::visualization::PCLVisualizer::Ptr curve_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
 {
+  //define objects needed
+  pcl::ExtractIndices<pcl::PointXYZ> extract;
+  pcl::ExtractIndices<pcl::Normal> extract_normals;
+  pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ> ());
+  pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal> ne;
+  pcl::SACSegmentationFromNormals<pcl::PointXYZ, pcl::Normal> seg; 
+
+  // required dataset resets
+  cloud_filtered.reset (new pcl::PointCloud<pcl::PointXYZ>); // planner part result
+  filtered_part.reset (new pcl::PointCloud<pcl::PointXYZ>); // the part be removed(noise)
+  cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);
+  coefficients_cylinder.reset (new pcl::ModelCoefficients);
+  inliers_cylinder.reset (new pcl::PointIndices);
+  cloud_normals.reset (new pcl::PointCloud<pcl::Normal>); // stores norms for all the points
+  cloud_normals_nonplanner.reset (new pcl::PointCloud<pcl::Normal>); // normals for non-planner part 
+  cloud_nonplanner.reset (new pcl::PointCloud<pcl::PointXYZ>);// stores the non planner part after first filterig
+
+  // create a visualizer
+  pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+  viewer->setBackgroundColor (0, 0, 0); // set background black
+  target_viewer.reset (new pcl::visualization::PCLVisualizer ("tartget plane after segmentation"));
+  target_viewer->setBackgroundColor (0, 0, 0); // set background black
+
+
+  // apply statistical outlier removal to get rid of the noise 
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+  sor.setInputCloud (cloud);
+  sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
+  sor.setStddevMulThresh (StddevMulThresh); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.filter (*cloud); // return the cloud after filtering(inlier) and store it into cloud
+  
+
+  // Estimate point normals(all points)
+  ne.setSearchMethod (tree);
+  ne.setInputCloud (cloud);
+  ne.setKSearch (100);              // value for K, set the value here
+  ne.compute (*cloud_normals); // get the norms for all the points
+
+  //----------------------------------------------------------------------------
+  //---------------------- extract all the curve shape------------------------
+  //----------------------------------------------------------------------------
+  // Create the segmentation object for cylinder segmentation and set all the parameters
+  seg.setOptimizeCoefficients (true);
+  seg.setModelType (pcl::SACMODEL_CYLINDER);
+  seg.setMethodType (pcl::SAC_RANSAC);
+  seg.setNormalDistanceWeight (0.1); //set the surface normals influence to a weight of 0.1
+  seg.setMaxIterations (10000);
+  seg.setDistanceThreshold (CylinderDistanceThreshold); // imposing a distance threshold from each inlier point to the model no greater than xx
+  seg.setRadiusLimits (0, CylinderRadiusLimit);// limit the radius of the cylindrical model to be smaller than the limit.
+  seg.setInputCloud (cloud);
+  seg.setInputNormals (cloud_normals);
+  // Obtain the cylinder inliers and coefficients
+  seg.segment (*inliers_cylinder, *coefficients_cylinder);
+  std::cerr << "Cylinder coefficients: " << *coefficients_cylinder << std::endl;
+
+
+  // Extract the planar inliers from the input cloud
+  extract.setInputCloud (cloud);
+  extract.setIndices (inliers_cylinder);
+  extract.setNegative (false);
+  // Write the planar inliers to disk
+  extract.filter (*cloud_filtered);
+  
+  std::cerr << "PointCloud representing the cylindrical component: " << cloud_stored->points.size () << " data points." << std::endl;
+  sor.setInputCloud (cloud_filtered);
+  sor.setMeanK (80);            // set K mean value: he number of neighbors to analyze for each point 
+  sor.setStddevMulThresh (0.2); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.filter (*cloud_filtered); // return the cloud after filtering(inlier) and store it into cloud
+
+  cloud_stored = cloud_filtered;
+
+  extract.setNegative (true);
+  extract.filter (*filtered_part);
+  
+
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> green_handler (cloud_filtered, 0, 255, 0);
+  viewer->addPointCloud(cloud_filtered, green_handler, "cylinder");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cylinder");
+
+  
+
+
+
+
+  target_viewer->addPointCloud<pcl::PointXYZ> (cloud_stored, "cylindrical part");
+  target_viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cylindrical part");
+  target_viewer->addCoordinateSystem (0.02);
+  target_viewer->initCameraParameters ();
+
+
+
+  return (viewer);
+
+}
+
+
+
+
+
+
+
+pcl::visualization::PCLVisualizer::Ptr EuclideanClusterExtraction (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+{
+    // Create the filtering object: downsample the dataset using a leaf size of 1cm
+    pcl::VoxelGrid<pcl::PointXYZ> vg;
+    //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
+    vg.setInputCloud (cloud);
+    vg.setLeafSize (0.001f, 0.001f, 0.001f);
+    vg.filter (*cloud);
+    std::cout << "PointCloud after filtering has: " << cloud->points.size ()  << " data points." << std::endl; //*
+
     // Creating the KdTree object for the search method of the extraction
     pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ>);
     tree->setInputCloud (cloud); // move the input cloud into the Kd Tree
     
     //cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); // final filtering result
     //filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
-
+    pcl::PCDWriter writer;
 
     // create a visualizer
     pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
     viewer->setBackgroundColor (0, 0, 0); // set background black
 
 
-    
     std::vector<pcl::PointIndices> cluster_indices;
     pcl::EuclideanClusterExtraction<pcl::PointXYZ> ec;
     ec.setClusterTolerance (0.02); // 2cm
-    ec.setMinClusterSize (1000);
+    ec.setMinClusterSize (100);
     ec.setMaxClusterSize (25000);
     ec.setSearchMethod (tree);
     ec.setInputCloud (cloud);
@@ -915,9 +1025,9 @@ pcl::visualization::PCLVisualizer::Ptr EuclideanClusterExtraction (pcl::PointClo
       viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "clusterd cloud");
   
       std::cout << "PointCloud representing the Cluster: " << cloud_cluster->points.size () << " data points." << std::endl;
-      // std::stringstream ss;
-      // ss << "cloud_cluster_" << j << ".pcd";
-      // writer.write<pcl::PointXYZ> (ss.str (), *cloud_cluster, false); 
+      std::stringstream ss;
+      ss << "cloud_cluster_" << j << ".pcd";
+      writer.write<pcl::PointXYZ> (ss.str (), *cloud_cluster, false); 
       j++;
     }
 
@@ -952,7 +1062,7 @@ main (int argc, char** argv)
     return 0;
   }
   bool simple(false), statistical(false), radiusOutlierRemoval(false);
-  bool VoxelGrid(false), Passthrough(false),ShapeSeg(false);
+  bool VoxelGrid(false), Passthrough(false),ShapeSeg(false), curveSeg(false);
   bool NormalSegmentation(false), largestPlane(false), EuclideanExtraction(false), multiPlannarSeg(false);
   
   pcl::console::parse_argument (argc, argv, "-load", loadfilename);
@@ -960,7 +1070,8 @@ main (int argc, char** argv)
   pcl::console::parse_argument (argc, argv, "-leafsize", leafsize);
   pcl::console::parse_argument (argc, argv, "-Stddev", StddevMulThresh);
   pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
-
+  pcl::console::parse_argument (argc, argv, "-CylinderRadiusLimit", CylinderRadiusLimit);
+  pcl::console::parse_argument (argc, argv, "-CylinderDistanceThreshold", CylinderDistanceThreshold);
 
 
 
@@ -1014,6 +1125,11 @@ main (int argc, char** argv)
     ShapeSeg = true;
     std::cout << " remove the largest plane and return the desired shape\n";
   }
+  else if (pcl::console::find_argument (argc, argv, "-curveSeg") >= 0)
+  {
+    curveSeg = true;
+    std::cout << " find the curvature shape\n";
+  }
   else
   {
     printUsage (argv[0]);
@@ -1057,7 +1173,7 @@ main (int argc, char** argv)
   else if (NormalSegmentation)
   {
     viewer = normal_segmentation(basic_cloud_ptr);
-    //savePointFile(savefilename, cloud_stored);
+    savePointFile(savefilename, cloud_stored);
   }
    else if (largestPlane)
   {
@@ -1077,7 +1193,12 @@ main (int argc, char** argv)
   else if (ShapeSeg)
   {
     viewer = shape_segmentation(basic_cloud_ptr);
-    //savePointFile(savefilename, cloud_stored);
+    savePointFile(savefilename, cloud_stored);
+  }
+   else if (curveSeg)
+  {
+    viewer = curve_segmentation(basic_cloud_ptr);
+    savePointFile(savefilename, cloud_stored);
   }
   
 

@@ -273,7 +273,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.001
       Style: Points
-      Topic: /usb_cam/cloud
+      Topic: /cloud_pcd
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true

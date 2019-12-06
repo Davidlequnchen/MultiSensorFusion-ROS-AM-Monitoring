@@ -30,7 +30,7 @@ class NdPCLHandler():
 
         self.stamp = rospy.Time.now()  #current time 
         
-        self.interval = rospy.Duration(5) # duration between each subprocess
+        self.interval = rospy.Duration(2) # duration between each subprocess
 
         
         self.points_list = [] #list for storing PCL XYZ for each subprocess
@@ -86,10 +86,10 @@ class NdPCLHandler():
             # define the executable program and set all the parameters here
             #Usage: ./PCL_segmentation [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]
             executable = os.path.join(path, 'PCL_segmentation/build', "PCL_segmentation")
-            option = " -multiPlannarSeg" # other options: -NormalSegmentation, -largestPlane, -ShapeSeg, -sfilter
+            option = " -NormalSegmentation" # other options: -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
             loadfile = " -load " + os.path.join(path, 'pcl', self.pcd_file)
             savefile = " -save " + os.path.join(path, 'pcl', self.pcd_processed_file)
-            parameters = " -DistanceThre 0.003 -Stddev 1.0"
+            parameters = " -DistanceThre 0.0013 -Stddev 1.0"
 
             command_line =  executable + option + loadfile + savefile + parameters
             args = shlex.split(command_line) 
@@ -98,43 +98,32 @@ class NdPCLHandler():
             #------------subprocess end------------------------------------------------------
           
             try:
-                self.seg_data = pcl.load(os.path.join(path, 'pcl', self.pcd_processed_file)) 
-                self.visual.ShowMonochromeCloud(self.seg_data, b'cloud')
-            
-                #----subprocess for visualizing the segmented cloud--------------------------------------
-                # command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
-                ros_command = "rosrun pcl_ros pcd_to_pointcloud "
                 pcdFile = os.path.join(path, 'pcl', self.pcd_processed_file)
-                interval = " 0.1 " # publish 10 times a second, If <interval> is zero or not specified the message is published once. 
-                frame = " _frame_id:=/workobject"
-
-                command = ros_command + pcdFile + interval + frame
-                arg = shlex.split(command)
-                s = subprocess.Popen(arg)
-                #------------subprocess end---------------------------------------------------
+                self.seg_data = pcl.load(pcdFile)
             
             except:
-                self.seg_data = pcl.load(os.path.join(path, 'empty', "empty_cloud.pcd"))
-                self.visual.ShowMonochromeCloud(self.seg_data, b'cloud')
-            
-                #----subprocess for visualizing the segmented cloud--------------------------------------
-                # command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
-                ros_command = "rosrun pcl_ros pcd_to_pointcloud "
                 pcdFile = os.path.join(path, 'empty', "empty_cloud.pcd")
+                self.seg_data = pcl.load(pcdFile)
+            
+            finally:
+                ros_command = "rosrun pcl_ros pcd_to_pointcloud "
                 interval = " 0.1 " # publish 10 times a second, If <interval> is zero or not specified the message is published once. 
                 frame = " _frame_id:=/workobject"
-
+                    
+                #self.seg_data = pcl.load(pcdFile) 
+                self.visual.ShowMonochromeCloud(self.seg_data, b'cloud')
+                    
+                #----subprocess for visualizing the segmented cloud--------------------------------------
+                # command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
                 command = ros_command + pcdFile + interval + frame
                 arg = shlex.split(command)
                 s = subprocess.Popen(arg)
                 #------------subprocess end---------------------------------------------------
+                
 
-             
-
-
-            self.stamp = rospy.Time.now() #stamp
-            self.points_list = []
-            #self.points_array = np.array([0,0,0], dtype=np.float32 )
+                self.stamp = rospy.Time.now() #stamp
+                self.points_list = []
+                #self.points_array = np.array([0,0,0], dtype=np.float32 )
             
 
       
