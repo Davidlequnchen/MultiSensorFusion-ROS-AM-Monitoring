@@ -1,0 +1,2 @@
+set(pcl_msgs_MESSAGE_FILES "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/ModelCoefficients.msg;/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/PointIndices.msg;/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/PolygonMesh.msg;/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/Vertices.msg")
+set(pcl_msgs_SERVICE_FILES "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/pcl_msgs/srv/UpdateFilename.srv")

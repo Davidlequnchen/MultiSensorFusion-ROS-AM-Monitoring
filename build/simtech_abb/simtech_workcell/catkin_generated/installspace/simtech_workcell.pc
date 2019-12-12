@@ -1,0 +1,8 @@
+prefix=/home/yaoxl/Documents/GitHub/SIMTech_ws/install
+
+Name: simtech_workcell
+Description: Description of simtech_workcell
+Version: 0.4.0
+Cflags: 
+Libs: -L/home/yaoxl/Documents/GitHub/SIMTech_ws/install/lib 
+Requires: 

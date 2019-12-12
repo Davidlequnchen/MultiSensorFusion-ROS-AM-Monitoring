@@ -1,0 +1,8 @@
+prefix=/home/yaoxl/Documents/GitHub/SIMTech_ws/install
+
+Name: monitoring_jason
+Description: Description of monitoring_jason
+Version: 0.3.0
+Cflags: 
+Libs: -L/home/yaoxl/Documents/GitHub/SIMTech_ws/install/lib 
+Requires: 
