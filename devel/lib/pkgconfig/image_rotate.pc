@@ -1,0 +1,8 @@
+prefix=/home/david/SIMTech_ws/devel
+
+Name: image_rotate
+Description: Description of image_rotate
+Version: 1.13.0
+Cflags: -I/home/david/SIMTech_ws/devel/include
+Libs: -L/home/david/SIMTech_ws/devel/lib 
+Requires: 
