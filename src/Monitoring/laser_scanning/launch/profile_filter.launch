@@ -17,11 +17,12 @@
   </node> 
   
   <!-- image_proc is to undistort the image according to the camera calibration result, and publish the topic: /usb_cam/image_rect_color -->
-  <node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam"/>
+  <!--node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam"/-->
 
 
   <node name="profile_cloud" pkg="laser_scanning" type="usb_profile.py">
-    <param name="image" type="str" value="/usb_cam/image_rect_color" />
+    <!--param name="image" type="str" value="/usb_cam/image_rect_color" /-->
+    <param name="image" type="str" value="/usb_cam/image_raw" />
     <param name="cloud" type="str" value="/usb_cam/cloud" />
     <param name="config" type="str" value="$(find laser_scanning)/config/profile3d.yaml" />
   </node> 

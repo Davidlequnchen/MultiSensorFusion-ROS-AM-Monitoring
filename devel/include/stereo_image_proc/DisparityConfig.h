@@ -449,9 +449,9 @@ DisparityConfig::GroupDescription<DisparityConfig::DEFAULT, DisparityConfig> Def
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.stereo_algorithm = 0;
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      Default.abstract_parameters.push_back(DisparityConfig::AbstractParamDescriptionConstPtr(new DisparityConfig::ParamDescription<int>("stereo_algorithm", "int", 0, "stereo algorithm", "{'enum_description': 'stereo algorithm', 'enum': [{'srcline': 11, 'description': 'Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'StereoBM'}, {'srcline': 12, 'description': 'SemiGlobal Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'StereoSGBM'}]}", &DisparityConfig::stereo_algorithm)));
+      Default.abstract_parameters.push_back(DisparityConfig::AbstractParamDescriptionConstPtr(new DisparityConfig::ParamDescription<int>("stereo_algorithm", "int", 0, "stereo algorithm", "{'enum_description': 'stereo algorithm', 'enum': [{'srcline': 11, 'description': 'Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'StereoBM'}, {'srcline': 12, 'description': 'SemiGlobal Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'StereoSGBM'}]}", &DisparityConfig::stereo_algorithm)));
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __param_descriptions__.push_back(DisparityConfig::AbstractParamDescriptionConstPtr(new DisparityConfig::ParamDescription<int>("stereo_algorithm", "int", 0, "stereo algorithm", "{'enum_description': 'stereo algorithm', 'enum': [{'srcline': 11, 'description': 'Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'StereoBM'}, {'srcline': 12, 'description': 'SemiGlobal Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'StereoSGBM'}]}", &DisparityConfig::stereo_algorithm)));
+      __param_descriptions__.push_back(DisparityConfig::AbstractParamDescriptionConstPtr(new DisparityConfig::ParamDescription<int>("stereo_algorithm", "int", 0, "stereo algorithm", "{'enum_description': 'stereo algorithm', 'enum': [{'srcline': 11, 'description': 'Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'StereoBM'}, {'srcline': 12, 'description': 'SemiGlobal Block Matching', 'srcfile': '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/cfg/Disparity.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'StereoSGBM'}]}", &DisparityConfig::stereo_algorithm)));
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.prefilter_size = 5;
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -661,9 +661,9 @@ DisparityConfig::GroupDescription<DisparityConfig::DEFAULT, DisparityConfig> Def
     return statics;
   }
 
-//#line 11 "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/stereo_image_proc/cfg/Disparity.cfg"
+//#line 11 "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/cfg/Disparity.cfg"
       const int Disparity_StereoBM = 0;
-//#line 12 "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/stereo_image_proc/cfg/Disparity.cfg"
+//#line 12 "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/cfg/Disparity.cfg"
       const int Disparity_StereoSGBM = 1;
 }
 

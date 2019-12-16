@@ -68,26 +68,17 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target test
 test:
@@ -100,17 +91,26 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -167,6 +167,48 @@ depend:
 	cd /home/yaoxl/Documents/GitHub/SIMTech_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/rule:
+	cd /home/yaoxl/Documents/GitHub/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/rule
+.PHONY : RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/rule
+
+# Convenience name for target.
+nd_subprocess_handler: RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/rule
+
+.PHONY : nd_subprocess_handler
+
+# fast build rule for target.
+nd_subprocess_handler/fast:
+	cd /home/yaoxl/Documents/GitHub/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/build.make RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/build
+.PHONY : nd_subprocess_handler/fast
+
+src/nd_subprocess_handler.o: src/nd_subprocess_handler.cpp.o
+
+.PHONY : src/nd_subprocess_handler.o
+
+# target to build an object file
+src/nd_subprocess_handler.cpp.o:
+	cd /home/yaoxl/Documents/GitHub/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/build.make RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/src/nd_subprocess_handler.cpp.o
+.PHONY : src/nd_subprocess_handler.cpp.o
+
+src/nd_subprocess_handler.i: src/nd_subprocess_handler.cpp.i
+
+.PHONY : src/nd_subprocess_handler.i
+
+# target to preprocess a source file
+src/nd_subprocess_handler.cpp.i:
+	cd /home/yaoxl/Documents/GitHub/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/build.make RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/src/nd_subprocess_handler.cpp.i
+.PHONY : src/nd_subprocess_handler.cpp.i
+
+src/nd_subprocess_handler.s: src/nd_subprocess_handler.cpp.s
+
+.PHONY : src/nd_subprocess_handler.s
+
+# target to generate assembly for a file
+src/nd_subprocess_handler.cpp.s:
+	cd /home/yaoxl/Documents/GitHub/SIMTech_ws/build && $(MAKE) -f RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/build.make RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/src/nd_subprocess_handler.cpp.s
+.PHONY : src/nd_subprocess_handler.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,12 +216,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... edit_cache"
-	@echo "... list_install_components"
-	@echo "... test"
 	@echo "... install/local"
+	@echo "... test"
+	@echo "... list_install_components"
+	@echo "... edit_cache"
+	@echo "... nd_subprocess_handler"
 	@echo "... rebuild_cache"
 	@echo "... install"
+	@echo "... src/nd_subprocess_handler.o"
+	@echo "... src/nd_subprocess_handler.i"
+	@echo "... src/nd_subprocess_handler.s"
 .PHONY : help
 
 

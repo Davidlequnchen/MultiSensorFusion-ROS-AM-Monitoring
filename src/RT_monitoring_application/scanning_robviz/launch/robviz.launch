@@ -15,7 +15,8 @@
 
     <node name="robviz" pkg="scanning_robviz" type="rob_scanning_visualization.py"/>
     
-    <node name="pcl_subprocessing" pkg="scanning_robviz" type="pcl_subprocess_handler.py"/>
+    <!--node name="pcl_subprocessing" pkg="scanning_robviz" type="pcl_subprocess_handler.py"/-->
+    <node name="pcl_subprocessing" pkg="scanning_robviz" type="nd_subprocess_handler" respawn="true" />
 
     <include file="$(find camera_measures)/launch/velocity_measures.launch">
     <arg name="gui" value="$(arg gui)" />
@@ -23,3 +24,5 @@
 
 
 </launch>
+
+

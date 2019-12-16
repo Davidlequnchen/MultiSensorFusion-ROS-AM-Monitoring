@@ -7,7 +7,7 @@ from sys import path as sys_path
 
 from pkgutil import extend_path
 
-__extended_path = "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/camera_calibration/src".split(";")
+__extended_path = "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/camera_calibration/src".split(";")
 for p in reversed(__extended_path):
     sys_path.insert(0, p)
     del p

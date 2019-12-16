@@ -67,7 +67,7 @@ set(pcl_conversions_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(pcl_conversions_SOURCE_PREFIX /home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_conversions)
+  set(pcl_conversions_SOURCE_PREFIX /home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions)
   set(pcl_conversions_DEVEL_PREFIX /home/yaoxl/Documents/GitHub/SIMTech_ws/devel)
   set(pcl_conversions_INSTALL_PREFIX "")
   set(pcl_conversions_PREFIX ${pcl_conversions_DEVEL_PREFIX})
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(pcl_conversions_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_conversions/include;/usr/include/eigen3;/usr/local/include/pcl-1.8;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/local/include/vtk-7.1;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include;/usr/lib/x86_64-linux-gnu/openmpi/include;/usr/include/python2.7 " STREQUAL " ")
+if(NOT "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions/include;/usr/include/eigen3;/usr/local/include/pcl-1.8;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/local/include/vtk-7.1;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include;/usr/lib/x86_64-linux-gnu/openmpi/include;/usr/include/python2.7 " STREQUAL " ")
   set(pcl_conversions_INCLUDE_DIRS "")
-  set(_include_dirs "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_conversions/include;/usr/include/eigen3;/usr/local/include/pcl-1.8;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/local/include/vtk-7.1;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include;/usr/lib/x86_64-linux-gnu/openmpi/include;/usr/include/python2.7")
+  set(_include_dirs "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions/include;/usr/include/eigen3;/usr/local/include/pcl-1.8;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/local/include/vtk-7.1;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent;/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include;/usr/lib/x86_64-linux-gnu/openmpi/include;/usr/include/python2.7")
   if(NOT "https://github.com/ros-perception/perception_pcl/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-perception/perception_pcl/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://wiki.ros.org/pcl_conversions " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/perception_pc
         message(FATAL_ERROR "Project 'pcl_conversions' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'pcl_conversions' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_conversions/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'pcl_conversions' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions/${idir}'.  ${_report}")
     endif()
     _list_append_unique(pcl_conversions_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/yaoxl/Documents/GitHub/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/yaoxl/Documents/GitHub/SIMTech_ws/devel/lib;/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

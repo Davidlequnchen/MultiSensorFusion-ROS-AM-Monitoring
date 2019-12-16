@@ -6,8 +6,8 @@
 -I/usr/include/python2.7
 -I/home/yaoxl/Documents/GitHub/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/include
 -I/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/include
--I/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_ros/include
--I/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_conversions/include
+-I/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_ros/include
+-I/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/perception_pcl/pcl_conversions/include
 -I/opt/ros/melodic/include
 -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp
 -I/usr/include

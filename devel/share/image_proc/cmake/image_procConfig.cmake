@@ -67,7 +67,7 @@ set(image_proc_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(image_proc_SOURCE_PREFIX /home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc)
+  set(image_proc_SOURCE_PREFIX /home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/image_proc)
   set(image_proc_DEVEL_PREFIX /home/yaoxl/Documents/GitHub/SIMTech_ws/devel)
   set(image_proc_INSTALL_PREFIX "")
   set(image_proc_PREFIX ${image_proc_DEVEL_PREFIX})
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(image_proc_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/include;/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/include;/usr/include;/usr/include/opencv " STREQUAL " ")
+if(NOT "/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/include;/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/image_proc/include;/usr/include;/usr/include/opencv " STREQUAL " ")
   set(image_proc_INCLUDE_DIRS "")
-  set(_include_dirs "/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/include;/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/include;/usr/include;/usr/include/opencv")
+  set(_include_dirs "/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/include;/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/image_proc/include;/usr/include;/usr/include/opencv")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://www.ros.org/wiki/image_proc " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/include;/home/yaoxl/Docume
         message(FATAL_ERROR "Project 'image_proc' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'image_proc' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'image_proc' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/yaoxl/Documents/GitHub/SIMTech_ws/src/ROS_image_processng/image_pipeline/image_proc/${idir}'.  ${_report}")
     endif()
     _list_append_unique(image_proc_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/yaoxl/Documents/GitHub/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/yaoxl/Documents/GitHub/SIMTech_ws/devel/lib;/home/yaoxl/Documents/GitHub/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
