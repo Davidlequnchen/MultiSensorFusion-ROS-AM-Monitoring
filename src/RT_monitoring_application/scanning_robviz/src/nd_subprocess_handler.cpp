@@ -27,8 +27,8 @@ namespace sp = subprocess;
 
 namespace fs =boost::filesystem;
 
-//std::string path = ros::package::getPath("scanning_robviz");
-std::string path = "/home/david/SIMTech_ws/src/RT_monitoring_application/scanning_robviz";
+std::string path = ros::package::getPath("scanning_robviz");
+//std::string path = "/home/david/SIMTech_ws/src/RT_monitoring_application/scanning_robviz";
 
 typedef pcl::PointXYZ Point;
 typedef pcl::PointCloud<Point> PointCloud;
