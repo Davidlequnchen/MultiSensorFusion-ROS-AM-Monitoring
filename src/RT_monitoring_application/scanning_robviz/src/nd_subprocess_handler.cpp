@@ -27,7 +27,8 @@ namespace sp = subprocess;
 
 namespace fs =boost::filesystem;
 
-std::string path = ros::package::getPath("scanning_robviz");
+//std::string path = ros::package::getPath("scanning_robviz");
+std::string path = "/home/david/SIMTech_ws/src/RT_monitoring_application/scanning_robviz";
 
 typedef pcl::PointXYZ Point;
 typedef pcl::PointCloud<Point> PointCloud;
@@ -40,7 +41,7 @@ private:
   
   //ros::Time stamp; //get the current time when initialization
   double stamp =ros::Time::now().toSec(); //get the current time when initialization
-  double interval = ros::Duration(2).toSec();  // duration between each subprocess
+  double interval = 2.0;  // duration between each subprocess
   std::string pcd_filename;
   std::string pcd_segmented_filename;
   
@@ -49,10 +50,12 @@ public:
   // typedef pcl::PointXYZ Point;
   // typedef pcl::PointCloud<Point> PointCloud;
   
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_stored ;
+  // pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_stored  (new pcl::PointCloud<pcl::PointXYZ>);
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_stored;
 
   // constructor
   NdSubprocessHandler() {
+    cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
     // subscriber and call back function
     sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/scan", 5,  &NdSubprocessHandler::cbPointCloud, this);
   }
@@ -77,7 +80,7 @@ public:
       // fs::path dir (path);
       // fs::path file(this->pcd_filename);
       // fs::path full_path = dir / file;
-      std::string full_path = path + "/" + this->pcd_filename;
+      std::string full_path = path + "/pcl/" + this->pcd_filename;
       std::cout << "saved to path: " << full_path << std::endl;
       // save cloud_stored into a pcd file
       NdSubprocessHandler::savePointFile(full_path, cloud_stored);
@@ -95,10 +98,9 @@ public:
       std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
       std::string parameters = " -DistanceThre 0.0013 -Stddev 1.0";
       // Initialize String Array
-      std::string command_line[5] =  {executable, option, loadfile, savefile, parameters} ;
-      // args = shlex.split(command_line) 
-      // auto p = subprocess.Popen(args)
-      auto p = sp::Popen({executable, option, loadfile, savefile, parameters});
+      std::string command_line = executable + option + loadfile + savefile + parameters;
+
+      auto p = sp::call({command_line});
       //--------------------subprocess end------------------------
 
 
@@ -108,42 +110,42 @@ public:
         pcl::PointCloud<pcl::PointXYZ>::Ptr seg_cloud = NdSubprocessHandler::LoadPointFile(pcdFile);
 
         std::string interval = " 0.1 "; //publish 10 times a second, If <interval> is zero or not specified the message is published once. 
-        std::string frame = " _frame_id:=/workobject";
+        std::string frame = "_frame_id:=/workobject";
 
         //--------subprocess for visualizing the segmented cloud--------------------------------------
         //command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
         // Initialize String Array
-        std::string command_line[6] = {"rosrun", "pcl_ros", "pcd_to_pointcloud", pcdFile, interval, frame};
+        std::string command_line = "rosrun pcl_ros pcd_to_pointcloud " + pcdFile + interval + frame; 
         
-        auto s = sp::Popen({"rosrun", "pcl_ros", "pcd_to_pointcloud", pcdFile, interval, frame});
+        auto s = sp::Popen({command_line});
         //------------subprocess end---------------------------------------------------
+       
+       
+       
         cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
         this->stamp = ros::Time::now().toSec();  // update the stamp
 
       }catch (...) { // caught by reference to base
         std::string pcdFile = path + "/empty/empty_cloud.pcd" ;
         pcl::PointCloud<pcl::PointXYZ>::Ptr seg_cloud = NdSubprocessHandler::LoadPointFile(pcdFile);
-        
-        //std::string ros_command[3] = {"rosrun", "pcl_ros", "pcd_to_pointcloud"}
+
         std::string interval = " 0.1 "; //publish 10 times a second, If <interval> is zero or not specified the message is published once. 
         std::string frame = " _frame_id:=/workobject";
 
         //--------subprocess for visualizing the segmented cloud--------------------------------------
         //command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
         // Initialize String Array
-        std::string command_line[6] = {"rosrun", "pcl_ros", "pcd_to_pointcloud", pcdFile, interval, frame};
-        
-        auto s = sp::Popen({"rosrun", "pcl_ros", "pcd_to_pointcloud", pcdFile, interval, frame});
+        std::string command_line = "rosrun pcl_ros pcd_to_pointcloud " + pcdFile + interval + frame;  
+        auto s = sp::Popen({command_line});
         //------------subprocess end---------------------------------------------------
+        
+        
         cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
         this->stamp = ros::Time::now().toSec();  // update the stamp
 
-    }
+      }
 
 
-
-      // cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
-      // this->stamp = ros::Time::now();  // update the stamp
     }
 
 
