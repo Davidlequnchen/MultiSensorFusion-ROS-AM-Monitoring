@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!C:/Opt/python27amd64/python.exe
 # -*- coding: utf-8 -*-
 
 # Software License Agreement (BSD License)
@@ -53,15 +53,15 @@ PATH_TO_ADD_SUFFIX = ['bin']
 if IS_WINDOWS:
     # while catkin recommends putting dll's into bin, 3rd party packages often put dll's into lib
     # since Windows finds dll's via the PATH variable, prepend it with path to lib
-    PATH_TO_ADD_SUFFIX.extend([['lib', os.path.join('lib', 'x86_64-linux-gnu')]])
+    PATH_TO_ADD_SUFFIX.extend(['lib'])
 
 # subfolder of workspace prepended to CMAKE_PREFIX_PATH
 ENV_VAR_SUBFOLDERS = {
     'CMAKE_PREFIX_PATH': '',
-    'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os.path.join('lib', 'x86_64-linux-gnu')],
+    'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': 'lib',
     'PATH': PATH_TO_ADD_SUFFIX,
-    'PKG_CONFIG_PATH': [os.path.join('lib', 'pkgconfig'), os.path.join('lib', 'x86_64-linux-gnu', 'pkgconfig')],
-    'PYTHONPATH': 'lib/python2.7/dist-packages',
+    'PKG_CONFIG_PATH': os.path.join('lib', 'pkgconfig'),
+    'PYTHONPATH': 'lib/site-packages',
 }
 
 
@@ -270,7 +270,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = '/home/david/SIMTech_ws/devel;/home/david/OpenLMD_ws/devel;/opt/ros/kinetic'.split(';')
+            CMAKE_PREFIX_PATH = 'C:/opt/ros/melodic/x64;C:/opt/rosdeps/x64;C:/opt/vcpkg/installed/x64-windows'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

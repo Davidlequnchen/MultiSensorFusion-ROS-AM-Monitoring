@@ -1,8 +1,8 @@
-# Install script for directory: /home/david/SIMTech_ws/src/Monitoring/simtech_moveit_config
+# Install script for directory: C:/Users/MI/Desktop/Github/src/Monitoring/simtech_moveit_config
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/david/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/MI/Desktop/Github/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -27,31 +27,31 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/david/SIMTech_ws/build/Monitoring/simtech_moveit_config/catkin_generated/installspace/simtech_moveit_config.pc")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/MI/Desktop/Github/build/Monitoring/simtech_moveit_config/catkin_generated/installspace/simtech_moveit_config.pc")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_moveit_config/cmake" TYPE FILE FILES
-    "/home/david/SIMTech_ws/build/Monitoring/simtech_moveit_config/catkin_generated/installspace/simtech_moveit_configConfig.cmake"
-    "/home/david/SIMTech_ws/build/Monitoring/simtech_moveit_config/catkin_generated/installspace/simtech_moveit_configConfig-version.cmake"
+    "C:/Users/MI/Desktop/Github/build/Monitoring/simtech_moveit_config/catkin_generated/installspace/simtech_moveit_configConfig.cmake"
+    "C:/Users/MI/Desktop/Github/build/Monitoring/simtech_moveit_config/catkin_generated/installspace/simtech_moveit_configConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_moveit_config" TYPE FILE FILES "/home/david/SIMTech_ws/src/Monitoring/simtech_moveit_config/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_moveit_config" TYPE FILE FILES "C:/Users/MI/Desktop/Github/src/Monitoring/simtech_moveit_config/package.xml")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_moveit_config" TYPE DIRECTORY FILES "/home/david/SIMTech_ws/src/Monitoring/simtech_moveit_config/launch" REGEX "/setup\\_assistant\\.launch$" EXCLUDE)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_moveit_config" TYPE DIRECTORY FILES "C:/Users/MI/Desktop/Github/src/Monitoring/simtech_moveit_config/launch" REGEX "/setup\\_assistant\\.launch$" EXCLUDE)
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_moveit_config" TYPE DIRECTORY FILES "/home/david/SIMTech_ws/src/Monitoring/simtech_moveit_config/config")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_moveit_config" TYPE DIRECTORY FILES "C:/Users/MI/Desktop/Github/src/Monitoring/simtech_moveit_config/config")
 endif()
 

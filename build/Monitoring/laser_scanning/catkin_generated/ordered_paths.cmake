@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/opt/ros/kinetic/lib")
+set(ORDERED_PATHS "C:/opt/ros/melodic/x64/lib")

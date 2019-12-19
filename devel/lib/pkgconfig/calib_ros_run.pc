@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/devel
+prefix=C:/Users/MI/Desktop/Github/devel
 
 Name: calib_ros_run
 Description: Description of calib_ros_run
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/devel/lib 
+Libs: -LC:/Users/MI/Desktop/Github/devel/lib 
 Requires: 

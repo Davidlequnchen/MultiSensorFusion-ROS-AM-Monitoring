@@ -27,8 +27,8 @@
    (setq _speed (float __speed))
    self)
   (:running
-   (&optional __running)
-   (if __running (setq _running __running)) _running)
+   (&optional (__running :null))
+   (if (not (eq __running :null)) (setq _running __running)) _running)
   (:speed
    (&optional __speed)
    (if __speed (setq _speed __speed)) _speed)

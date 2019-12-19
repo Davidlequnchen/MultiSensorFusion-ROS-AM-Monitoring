@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/install
+prefix=C:/Users/MI/Desktop/Github/install
 
 Name: scanning_workcell
 Description: Description of scanning_workcell
 Version: 0.3.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
+Libs: -LC:/Users/MI/Desktop/Github/install/lib 
 Requires: 

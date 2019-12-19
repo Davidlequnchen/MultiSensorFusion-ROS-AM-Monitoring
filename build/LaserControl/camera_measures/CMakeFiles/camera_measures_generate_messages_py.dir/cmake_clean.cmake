@@ -1,12 +1,12 @@
 file(REMOVE_RECURSE
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/camera_measures/msg/_MsgGeometry.py"
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/camera_measures/msg/_MsgPosition.py"
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/camera_measures/msg/_MsgStatus.py"
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/camera_measures/msg/_MsgTwist.py"
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/camera_measures/msg/_MsgVelocity.py"
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/camera_measures/msg/_MsgVelocityStatus.py"
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/camera_measures/msg/__init__.py"
   "CMakeFiles/camera_measures_generate_messages_py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgPosition.py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgTwist.py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocity.py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgStatus.py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgGeometry.py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

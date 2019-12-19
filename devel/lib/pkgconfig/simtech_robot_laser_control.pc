@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/devel
+prefix=C:/Users/MI/Desktop/Github/devel
 
 Name: simtech_robot_laser_control
 Description: Description of simtech_robot_laser_control
 Version: 0.4.0
-Cflags: -I/home/david/SIMTech_ws/devel/include
-Libs: -L/home/david/SIMTech_ws/devel/lib 
+Cflags: -IC:/Users/MI/Desktop/Github/devel/include
+Libs: -LC:/Users/MI/Desktop/Github/devel/lib 
 Requires: message_runtime

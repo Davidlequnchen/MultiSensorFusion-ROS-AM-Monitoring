@@ -1,5 +1,5 @@
 # generated from catkin/cmake/template/order_packages.context.py.in
-source_root_dir = "/home/david/SIMTech_ws/src"
+source_root_dir = "C:/Users/MI/Desktop/Github/src"
 whitelisted_packages = "".split(';') if "" != "" else []
 blacklisted_packages = "".split(';') if "" != "" else []
-underlay_workspaces = "/home/david/SIMTech_ws/devel;/home/david/OpenLMD_ws/devel;/opt/ros/kinetic".split(';') if "/home/david/SIMTech_ws/devel;/home/david/OpenLMD_ws/devel;/opt/ros/kinetic" != "" else []
+underlay_workspaces = "C:/opt/ros/melodic/x64".split(';') if "C:/opt/ros/melodic/x64" != "" else []

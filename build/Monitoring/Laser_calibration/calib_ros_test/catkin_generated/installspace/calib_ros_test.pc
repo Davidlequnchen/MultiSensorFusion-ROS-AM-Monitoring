@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/install
+prefix=C:/Users/MI/Desktop/Github/install
 
 Name: calib_ros_test
 Description: Description of calib_ros_test
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
+Libs: -LC:/Users/MI/Desktop/Github/install/lib 
 Requires: 

@@ -1,3 +1,0 @@
-/home/david/SIMTech_ws/src/RT_monitoring_application/Point_cloud_visualziation/PCL_visualization/build/CMakeFiles/rebuild_cache.dir
-/home/david/SIMTech_ws/src/RT_monitoring_application/Point_cloud_visualziation/PCL_visualization/build/CMakeFiles/edit_cache.dir
-/home/david/SIMTech_ws/src/RT_monitoring_application/Point_cloud_visualziation/PCL_visualization/build/CMakeFiles/pcl_simple_visualizer.dir

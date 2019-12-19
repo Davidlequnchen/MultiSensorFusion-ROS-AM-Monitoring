@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/velocity_control/msg/_MsgSpeedOverride.py"
+  "C:/Users/MI/Desktop/Github/devel/lib/site-packages/velocity_control/msg/__init__.py"
   "CMakeFiles/velocity_control_generate_messages_py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/velocity_control/msg/_MsgSpeedOverride.py"
-  "/home/david/SIMTech_ws/devel/lib/python2.7/dist-packages/velocity_control/msg/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

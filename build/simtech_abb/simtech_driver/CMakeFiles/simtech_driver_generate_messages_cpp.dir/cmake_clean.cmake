@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "C:/Users/MI/Desktop/Github/devel/include/simtech_driver/SrvRobotCommand.h"
   "CMakeFiles/simtech_driver_generate_messages_cpp"
-  "/home/david/SIMTech_ws/devel/include/simtech_driver/SrvRobotCommand.h"
 )
 
 # Per-language clean rules from dependency scanning.

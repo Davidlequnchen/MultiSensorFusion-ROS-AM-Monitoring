@@ -25,8 +25,8 @@
    (setq _emission __emission)
    self)
   (:emission
-   (&optional __emission)
-   (if __emission (setq _emission __emission)) _emission)
+   (&optional (__emission :null))
+   (if (not (eq __emission :null)) (setq _emission __emission)) _emission)
   (:serialization-length
    ()
    (+

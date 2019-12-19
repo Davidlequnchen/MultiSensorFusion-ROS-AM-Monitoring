@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/install
+prefix=C:/Users/MI/Desktop/Github/install
 
 Name: monitoring_jason
 Description: Description of monitoring_jason
 Version: 0.3.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
+Libs: -LC:/Users/MI/Desktop/Github/install/lib 
 Requires: 

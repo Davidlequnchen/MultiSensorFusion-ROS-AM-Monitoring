@@ -1,1 +1,0 @@
-/home/david/SIMTech_ws/src/simtech_abb/simtech_robot_laser_control/scripts/qt_path.py

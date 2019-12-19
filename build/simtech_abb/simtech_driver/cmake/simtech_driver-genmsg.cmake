@@ -2,7 +2,7 @@
 
 message(STATUS "simtech_driver: 0 messages, 1 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Istd_msgs:C:/Opt/ros/melodic/x64/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(simtech_driver_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
 add_custom_target(_simtech_driver_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_driver" "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_driver" "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" ""
 )
 
 #
@@ -31,7 +31,7 @@ add_custom_target(_simtech_driver_generate_messages_check_deps_${_filename}
 
 ### Generating Services
 _generate_srv_cpp(simtech_driver
-  "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
+  "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_driver
@@ -49,7 +49,7 @@ add_custom_target(simtech_driver_generate_messages_cpp
 add_dependencies(simtech_driver_generate_messages simtech_driver_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_driver_generate_messages_cpp _simtech_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -64,7 +64,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_driver_generate_messages_cp
 
 ### Generating Services
 _generate_srv_eus(simtech_driver
-  "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
+  "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_driver
@@ -82,7 +82,7 @@ add_custom_target(simtech_driver_generate_messages_eus
 add_dependencies(simtech_driver_generate_messages simtech_driver_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_driver_generate_messages_eus _simtech_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -97,7 +97,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_driver_generate_messages_eu
 
 ### Generating Services
 _generate_srv_lisp(simtech_driver
-  "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
+  "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_driver
@@ -115,7 +115,7 @@ add_custom_target(simtech_driver_generate_messages_lisp
 add_dependencies(simtech_driver_generate_messages simtech_driver_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_driver_generate_messages_lisp _simtech_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -130,7 +130,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_driver_generate_messages_li
 
 ### Generating Services
 _generate_srv_nodejs(simtech_driver
-  "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
+  "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_driver
@@ -148,7 +148,7 @@ add_custom_target(simtech_driver_generate_messages_nodejs
 add_dependencies(simtech_driver_generate_messages simtech_driver_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_driver_generate_messages_nodejs _simtech_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -163,7 +163,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_driver_generate_messages_no
 
 ### Generating Services
 _generate_srv_py(simtech_driver
-  "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
+  "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_driver
@@ -181,7 +181,7 @@ add_custom_target(simtech_driver_generate_messages_py
 add_dependencies(simtech_driver_generate_messages simtech_driver_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/david/SIMTech_ws/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "C:/Users/MI/Desktop/Github/src/simtech_abb/simtech_driver/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_driver_generate_messages_py _simtech_driver_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -238,7 +238,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_driver)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_driver\")")
+  install(CODE "execute_process(COMMAND \"C:/Opt/python27amd64/python.exe\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_driver\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_driver

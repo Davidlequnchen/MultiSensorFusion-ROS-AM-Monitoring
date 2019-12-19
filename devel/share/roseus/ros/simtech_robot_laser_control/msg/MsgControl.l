@@ -27,8 +27,8 @@
    (setq _value (round __value))
    self)
   (:change
-   (&optional __change)
-   (if __change (setq _change __change)) _change)
+   (&optional (__change :null))
+   (if (not (eq __change :null)) (setq _change __change)) _change)
   (:value
    (&optional __value)
    (if __value (setq _value __value)) _value)

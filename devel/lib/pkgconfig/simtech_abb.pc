@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/devel
+prefix=C:/Users/MI/Desktop/Github/devel
 
 Name: simtech_abb
 Description: Description of simtech_abb
 Version: 0.4.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/devel/lib 
+Libs: -LC:/Users/MI/Desktop/Github/devel/lib 
 Requires: 

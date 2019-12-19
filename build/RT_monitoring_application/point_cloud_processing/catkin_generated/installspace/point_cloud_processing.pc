@@ -1,8 +1,0 @@
-prefix=/home/david/SIMTech_ws/install
-
-Name: point_cloud_processing
-Description: Description of point_cloud_processing
-Version: 0.1.0
-Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
-Requires: 

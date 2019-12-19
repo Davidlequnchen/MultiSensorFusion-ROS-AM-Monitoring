@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "C:\\opt\\rosdeps\\x64\\include\\**",
+        "C:\\opt\\ros\\melodic\\x64\\include\\**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}
