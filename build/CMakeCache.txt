@@ -398,6 +398,36 @@ SITE:STRING=DESKTOP-9VVQVDF
 //The directory containing a CMake configuration file for VTK.
 VTK_DIR:PATH=VTK_DIR-NOTFOUND
 
+//Value Computed by CMake
+abb_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/abb/abb
+
+//Value Computed by CMake
+abb_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/abb/abb
+
+//Value Computed by CMake
+abb_driver_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/abb/abb_driver
+
+//Value Computed by CMake
+abb_driver_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/abb/abb_driver
+
+//Value Computed by CMake
+abb_irb2400_moveit_config_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/abb/abb_irb2400_moveit_config
+
+//Value Computed by CMake
+abb_irb2400_moveit_config_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/abb/abb_irb2400_moveit_config
+
+//Value Computed by CMake
+abb_irb6640_moveit_config_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/abb/abb_irb6640_moveit_config
+
+//Value Computed by CMake
+abb_irb6640_moveit_config_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/abb/abb_irb6640_moveit_config
+
+//Value Computed by CMake
+abb_resources_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/abb/abb_resources
+
+//Value Computed by CMake
+abb_resources_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/abb/abb_resources
+
 //The directory containing a CMake configuration file for actionlib.
 actionlib_DIR:PATH=C:/Opt/ros/melodic/x64/share/actionlib/cmake
 
@@ -467,6 +497,33 @@ geometry_msgs_DIR:PATH=C:/Opt/ros/melodic/x64/share/geometry_msgs/cmake
 //The directory containing a CMake configuration file for image_transport.
 image_transport_DIR:PATH=C:/Opt/ros/melodic/x64/share/image_transport/cmake
 
+//Value Computed by CMake
+industrial_core_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/industrial_core/industrial_core
+
+//Value Computed by CMake
+industrial_core_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/industrial_core/industrial_core
+
+//Value Computed by CMake
+industrial_deprecated_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/industrial_core/industrial_deprecated
+
+//Value Computed by CMake
+industrial_deprecated_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/industrial_core/industrial_deprecated
+
+//Value Computed by CMake
+industrial_msgs_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/industrial_core/industrial_msgs
+
+//Value Computed by CMake
+industrial_msgs_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/industrial_core/industrial_msgs
+
+//The directory containing a CMake configuration file for industrial_robot_client.
+industrial_robot_client_DIR:PATH=industrial_robot_client_DIR-NOTFOUND
+
+//Value Computed by CMake
+industrial_trajectory_filters_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/industrial_core/industrial_trajectory_filters
+
+//Value Computed by CMake
+industrial_trajectory_filters_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/industrial_core/industrial_trajectory_filters
+
 //The directory containing a CMake configuration file for interactive_markers.
 interactive_markers_DIR:PATH=C:/Opt/ros/melodic/x64/share/interactive_markers/cmake
 
@@ -483,7 +540,7 @@ laser_scanning_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/Monitoring/las
 laser_scanning_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/Monitoring/laser_scanning
 
 //Path to a library.
-lib:FILEPATH=C:/Opt/ros/melodic/x64/lib/xmlrpcpp.lib
+lib:FILEPATH=C:/Opt/ros/melodic/x64/lib/rostime.lib
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=C:/Opt/ros/melodic/x64/share/message_filters/cmake
@@ -520,6 +577,9 @@ moveit_actions_SOURCE_DIR:STATIC=C:/Users/MI/Desktop/Github/src/Monitoring/movei
 
 //The directory containing a CMake configuration file for moveit_core.
 moveit_core_DIR:PATH=moveit_core_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for moveit_ros_planning.
+moveit_ros_planning_DIR:PATH=moveit_ros_planning_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for nodelet.
 nodelet_DIR:PATH=C:/Opt/ros/melodic/x64/share/nodelet/cmake
@@ -664,6 +724,9 @@ tf_DIR:PATH=C:/Opt/ros/melodic/x64/share/tf/cmake
 
 //The directory containing a CMake configuration file for topic_tools.
 topic_tools_DIR:PATH=C:/Opt/ros/melodic/x64/share/topic_tools/cmake
+
+//The directory containing a CMake configuration file for trajectory_msgs.
+trajectory_msgs_DIR:PATH=C:/Opt/ros/melodic/x64/share/trajectory_msgs/cmake
 
 //Value Computed by CMake
 velocity_control_BINARY_DIR:STATIC=C:/Users/MI/Desktop/Github/build/simtech_abb/velocity_control
@@ -843,7 +906,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER

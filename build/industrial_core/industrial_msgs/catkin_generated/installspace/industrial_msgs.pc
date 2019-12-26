@@ -1,0 +1,8 @@
+prefix=C:/Users/MI/Desktop/Github/install
+
+Name: industrial_msgs
+Description: Description of industrial_msgs
+Version: 0.7.1
+Cflags: -IC:/Users/MI/Desktop/Github/install/include
+Libs: -LC:/Users/MI/Desktop/Github/install/lib 
+Requires: message_runtime std_msgs trajectory_msgs

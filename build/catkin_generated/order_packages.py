@@ -2,4 +2,4 @@
 source_root_dir = "C:/Users/MI/Desktop/Github/src"
 whitelisted_packages = "".split(';') if "" != "" else []
 blacklisted_packages = "".split(';') if "" != "" else []
-underlay_workspaces = "C:/opt/ros/melodic/x64".split(';') if "C:/opt/ros/melodic/x64" != "" else []
+underlay_workspaces = "C:/Users/MI/Desktop/Github/devel;C:/opt/ros/melodic/x64".split(';') if "C:/Users/MI/Desktop/Github/devel;C:/opt/ros/melodic/x64" != "" else []

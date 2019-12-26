@@ -1,0 +1,8 @@
+prefix=C:/Users/MI/Desktop/Github/devel
+
+Name: industrial_deprecated
+Description: Description of industrial_deprecated
+Version: 0.7.1
+Cflags: 
+Libs: -LC:/Users/MI/Desktop/Github/devel/lib 
+Requires: 

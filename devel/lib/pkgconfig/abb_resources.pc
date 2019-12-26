@@ -1,0 +1,8 @@
+prefix=C:/Users/MI/Desktop/Github/devel
+
+Name: abb_resources
+Description: Description of abb_resources
+Version: 1.3.1
+Cflags: 
+Libs: -LC:/Users/MI/Desktop/Github/devel/lib 
+Requires: 
