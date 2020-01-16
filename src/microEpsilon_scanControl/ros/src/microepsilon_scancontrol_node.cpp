@@ -89,6 +89,7 @@ private:
   bool publishing_;
 };
 
+// class constructor
 ScannerNode::ScannerNode(unsigned int shutter_time, unsigned int idle_time, unsigned int container_size,
                          MeasurementField field, double lag_compensation, std::string topic, std::string frame,
                          std::string serial_number, std::string path_to_device_properties)

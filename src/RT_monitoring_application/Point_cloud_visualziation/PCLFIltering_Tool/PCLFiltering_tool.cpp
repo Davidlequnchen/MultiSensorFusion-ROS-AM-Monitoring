@@ -29,7 +29,7 @@
 #define MAX_PLANE_NUMBER 10
 
 
-using namespace std::literals::chrono_literals;
+//using namespace std::literals::chrono_literals;
 
 
 // define global values
@@ -1215,7 +1215,7 @@ main (int argc, char** argv)
   while (!viewer->wasStopped ())
   {
     viewer->spinOnce (10);
-    std::this_thread::sleep_for(std::chrono::milliseconds(2));
+    //std::this_thread::sleep_for(std::chrono::milliseconds(2));
     target_viewer->spinOnce (10);
   }
 }
