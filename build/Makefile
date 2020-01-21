@@ -1583,97 +1583,6 @@ laser_control_gencpp/fast:
 .PHONY : laser_control_gencpp/fast
 
 #=============================================================================
-# Target rules for targets named std_srvs_generate_messages_lisp
-
-# Build rule for target.
-std_srvs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_lisp
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_eus
-
-# Build rule for target.
-std_srvs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_eus
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_nodejs
-
-# Build rule for target.
-std_srvs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_nodejs
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named microepsilon_scancontrol
-
-# Build rule for target.
-microepsilon_scancontrol: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol
-.PHONY : microepsilon_scancontrol
-
-# fast build rule for target.
-microepsilon_scancontrol/fast:
-	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol.dir/build.make microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol.dir/build
-.PHONY : microepsilon_scancontrol/fast
-
-#=============================================================================
-# Target rules for targets named microepsilon_scancontrol_node
-
-# Build rule for target.
-microepsilon_scancontrol_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_node
-.PHONY : microepsilon_scancontrol_node
-
-# fast build rule for target.
-microepsilon_scancontrol_node/fast:
-	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol_node.dir/build.make microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol_node.dir/build
-.PHONY : microepsilon_scancontrol_node/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_cpp
-
-# Build rule for target.
-std_srvs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_py
-
-# Build rule for target.
-std_srvs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_py.dir/build.make microEpsilon_scanControl/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named run_tests_pcl_conversions_gtest_test_pcl_conversions
 
 # Build rule for target.
@@ -2220,45 +2129,6 @@ simtech_robot_laser_control_generate_messages_py/fast:
 .PHONY : simtech_robot_laser_control_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named stereo_view
-
-# Build rule for target.
-stereo_view: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stereo_view
-.PHONY : stereo_view
-
-# fast build rule for target.
-stereo_view/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_view.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_view.dir/build
-.PHONY : stereo_view/fast
-
-#=============================================================================
-# Target rules for targets named disparity_view
-
-# Build rule for target.
-disparity_view: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 disparity_view
-.PHONY : disparity_view
-
-# fast build rule for target.
-disparity_view/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/disparity_view.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/disparity_view.dir/build
-.PHONY : disparity_view/fast
-
-#=============================================================================
-# Target rules for targets named image_view_exe
-
-# Build rule for target.
-image_view_exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 image_view_exe
-.PHONY : image_view_exe
-
-# fast build rule for target.
-image_view_exe/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_exe.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_exe.dir/build
-.PHONY : image_view_exe/fast
-
-#=============================================================================
 # Target rules for targets named stereo_msgs_generate_messages_py
 
 # Build rule for target.
@@ -2285,6 +2155,19 @@ stereo_msgs_generate_messages_nodejs/fast:
 .PHONY : stereo_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named std_srvs_generate_messages_cpp
+
+# Build rule for target.
+std_srvs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+#=============================================================================
 # Target rules for targets named stereo_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -2296,71 +2179,6 @@ stereo_msgs_generate_messages_eus: cmake_check_build_system
 stereo_msgs_generate_messages_eus/fast:
 	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_eus.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_eus.dir/build
 .PHONY : stereo_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named stereo_msgs_generate_messages_cpp
-
-# Build rule for target.
-stereo_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stereo_msgs_generate_messages_cpp
-.PHONY : stereo_msgs_generate_messages_cpp
-
-# fast build rule for target.
-stereo_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_cpp.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_cpp.dir/build
-.PHONY : stereo_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named image_view_gencfg
-
-# Build rule for target.
-image_view_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 image_view_gencfg
-.PHONY : image_view_gencfg
-
-# fast build rule for target.
-image_view_gencfg/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_gencfg.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_gencfg.dir/build
-.PHONY : image_view_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named image_view
-
-# Build rule for target.
-image_view: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 image_view
-.PHONY : image_view
-
-# fast build rule for target.
-image_view/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view.dir/build
-.PHONY : image_view/fast
-
-#=============================================================================
-# Target rules for targets named extract_images
-
-# Build rule for target.
-extract_images: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 extract_images
-.PHONY : extract_images
-
-# fast build rule for target.
-extract_images/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/extract_images.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/extract_images.dir/build
-.PHONY : extract_images/fast
-
-#=============================================================================
-# Target rules for targets named stereo_msgs_generate_messages_lisp
-
-# Build rule for target.
-stereo_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stereo_msgs_generate_messages_lisp
-.PHONY : stereo_msgs_generate_messages_lisp
-
-# fast build rule for target.
-stereo_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_lisp.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_lisp.dir/build
-.PHONY : stereo_msgs_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named video_recorder
@@ -2376,6 +2194,110 @@ video_recorder/fast:
 .PHONY : video_recorder/fast
 
 #=============================================================================
+# Target rules for targets named stereo_msgs_generate_messages_cpp
+
+# Build rule for target.
+stereo_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stereo_msgs_generate_messages_cpp
+.PHONY : stereo_msgs_generate_messages_cpp
+
+# fast build rule for target.
+stereo_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_cpp.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_cpp.dir/build
+.PHONY : stereo_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_nodejs
+
+# Build rule for target.
+std_srvs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_nodejs
+.PHONY : std_srvs_generate_messages_nodejs
+
+# fast build rule for target.
+std_srvs_generate_messages_nodejs/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named stereo_msgs_generate_messages_lisp
+
+# Build rule for target.
+stereo_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stereo_msgs_generate_messages_lisp
+.PHONY : stereo_msgs_generate_messages_lisp
+
+# fast build rule for target.
+stereo_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_lisp.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_msgs_generate_messages_lisp.dir/build
+.PHONY : stereo_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_py
+
+# Build rule for target.
+std_srvs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_py.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named image_view_gencfg
+
+# Build rule for target.
+image_view_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 image_view_gencfg
+.PHONY : image_view_gencfg
+
+# fast build rule for target.
+image_view_gencfg/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_gencfg.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_gencfg.dir/build
+.PHONY : image_view_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named extract_images
+
+# Build rule for target.
+extract_images: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 extract_images
+.PHONY : extract_images
+
+# fast build rule for target.
+extract_images/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/extract_images.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/extract_images.dir/build
+.PHONY : extract_images/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_lisp
+
+# Build rule for target.
+std_srvs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_lisp
+.PHONY : std_srvs_generate_messages_lisp
+
+# fast build rule for target.
+std_srvs_generate_messages_lisp/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named image_view
+
+# Build rule for target.
+image_view: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 image_view
+.PHONY : image_view
+
+# fast build rule for target.
+image_view/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view.dir/build
+.PHONY : image_view/fast
+
+#=============================================================================
 # Target rules for targets named image_saver
 
 # Build rule for target.
@@ -2387,6 +2309,58 @@ image_saver: cmake_check_build_system
 image_saver/fast:
 	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_saver.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_saver.dir/build
 .PHONY : image_saver/fast
+
+#=============================================================================
+# Target rules for targets named image_view_exe
+
+# Build rule for target.
+image_view_exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 image_view_exe
+.PHONY : image_view_exe
+
+# fast build rule for target.
+image_view_exe/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_exe.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/image_view_exe.dir/build
+.PHONY : image_view_exe/fast
+
+#=============================================================================
+# Target rules for targets named disparity_view
+
+# Build rule for target.
+disparity_view: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 disparity_view
+.PHONY : disparity_view
+
+# fast build rule for target.
+disparity_view/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/disparity_view.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/disparity_view.dir/build
+.PHONY : disparity_view/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_eus
+
+# Build rule for target.
+std_srvs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_eus
+.PHONY : std_srvs_generate_messages_eus
+
+# fast build rule for target.
+std_srvs_generate_messages_eus/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named stereo_view
+
+# Build rule for target.
+stereo_view: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stereo_view
+.PHONY : stereo_view
+
+# fast build rule for target.
+stereo_view/fast:
+	$(MAKE) -f ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_view.dir/build.make ROS_image_processng/image_pipeline/image_view/CMakeFiles/stereo_view.dir/build
+.PHONY : stereo_view/fast
 
 #=============================================================================
 # Target rules for targets named stereo_image_proc_gencfg
@@ -3414,6 +3388,45 @@ run_tests_pcl_ros: cmake_check_build_system
 run_tests_pcl_ros/fast:
 	$(MAKE) -f ROS_image_processng/perception_pcl/pcl_ros/CMakeFiles/run_tests_pcl_ros.dir/build.make ROS_image_processng/perception_pcl/pcl_ros/CMakeFiles/run_tests_pcl_ros.dir/build
 .PHONY : run_tests_pcl_ros/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol
+
+# Build rule for target.
+microepsilon_scancontrol: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol
+.PHONY : microepsilon_scancontrol
+
+# fast build rule for target.
+microepsilon_scancontrol/fast:
+	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol.dir/build.make microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol.dir/build
+.PHONY : microepsilon_scancontrol/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_node
+
+# Build rule for target.
+microepsilon_scancontrol_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_node
+.PHONY : microepsilon_scancontrol_node
+
+# fast build rule for target.
+microepsilon_scancontrol_node/fast:
+	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol_node.dir/build.make microEpsilon_scanControl/CMakeFiles/microepsilon_scancontrol_node.dir/build
+.PHONY : microepsilon_scancontrol_node/fast
+
+#=============================================================================
+# Target rules for targets named cloud_transformation_node
+
+# Build rule for target.
+cloud_transformation_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cloud_transformation_node
+.PHONY : cloud_transformation_node
+
+# fast build rule for target.
+cloud_transformation_node/fast:
+	$(MAKE) -f microEpsilon_scanControl/CMakeFiles/cloud_transformation_node.dir/build.make microEpsilon_scanControl/CMakeFiles/cloud_transformation_node.dir/build
+.PHONY : cloud_transformation_node/fast
 
 #=============================================================================
 # Target rules for targets named point_cloud_processing
@@ -4460,13 +4473,6 @@ help:
 	@echo "... laser_control_gennodejs"
 	@echo "... laser_control_genpy"
 	@echo "... laser_control_gencpp"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... microepsilon_scancontrol"
-	@echo "... microepsilon_scancontrol_node"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_py"
 	@echo "... run_tests_pcl_conversions_gtest_test_pcl_conversions"
 	@echo "... pcl_msgs_generate_messages_nodejs"
 	@echo "... test_pcl_conversions"
@@ -4509,19 +4515,24 @@ help:
 	@echo "... _simtech_robot_laser_control_generate_messages_check_deps_SrvRobotCommand"
 	@echo "... simtech_robot_laser_control_generate_messages_nodejs"
 	@echo "... simtech_robot_laser_control_generate_messages_py"
-	@echo "... stereo_view"
-	@echo "... disparity_view"
-	@echo "... image_view_exe"
 	@echo "... stereo_msgs_generate_messages_py"
 	@echo "... stereo_msgs_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... stereo_msgs_generate_messages_eus"
-	@echo "... stereo_msgs_generate_messages_cpp"
-	@echo "... image_view_gencfg"
-	@echo "... image_view"
-	@echo "... extract_images"
-	@echo "... stereo_msgs_generate_messages_lisp"
 	@echo "... video_recorder"
+	@echo "... stereo_msgs_generate_messages_cpp"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... stereo_msgs_generate_messages_lisp"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... image_view_gencfg"
+	@echo "... extract_images"
+	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... image_view"
 	@echo "... image_saver"
+	@echo "... image_view_exe"
+	@echo "... disparity_view"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... stereo_view"
 	@echo "... stereo_image_proc_gencfg"
 	@echo "... stereo_image_proc"
 	@echo "... stereoimageproc_exe"
@@ -4601,6 +4612,9 @@ help:
 	@echo "... download"
 	@echo "... topic_tools_generate_messages_eus"
 	@echo "... run_tests_pcl_ros"
+	@echo "... microepsilon_scancontrol"
+	@echo "... microepsilon_scancontrol_node"
+	@echo "... cloud_transformation_node"
 	@echo "... point_cloud_processing"
 	@echo "... nd_cloud"
 	@echo "... nd_height"

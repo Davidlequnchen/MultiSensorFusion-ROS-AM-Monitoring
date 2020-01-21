@@ -52,7 +52,7 @@ bool Scanner::connect()
 
   std::vector<char *> vcInterfaces(5);
   std::vector<unsigned int> vuiResolutions(10);
-  unsigned int uiInterfaceCount = 0;
+  guint32 uiInterfaceCount = 0;
 
   int activeDevice = 0;
 
@@ -75,7 +75,7 @@ bool Scanner::connect()
   {
     uiInterfaceCount = iRetValue;
     if (uiInterfaceCount == 0)
-      std::cout << "There is no scanCONTROL connected \n";
+      std::cout << "There is no scanCONTROL connected -Exiting\n";
     else if (uiInterfaceCount == 1)
       std::cout << "There is 1 scanCONTROL connected \n";
     else
@@ -83,7 +83,7 @@ bool Scanner::connect()
     bool foundSN = false;
     for (int i = 0; i < uiInterfaceCount; ++i)
     {
-      std::cout << vcInterfaces[i] << std::endl;
+      std::cout << vcInterfaces[i] << "" << std::endl;
       std::string tempStr = vcInterfaces[i];
       if (serial_number_.size() != 0 &&
           tempStr.compare(tempStr.size() - serial_number_.size(), serial_number_.size(), serial_number_) == 0)
@@ -100,6 +100,7 @@ bool Scanner::connect()
     }
   }
 
+  event = CInterfaceLLT::CreateEvent();
 
   // if ((iRetValue = CInterfaceLLT::SetPathtoDeviceProperties(path_to_device_properties_.c_str())) < GENERAL_FUNCTION_OK)
   // {
@@ -123,7 +124,7 @@ bool Scanner::connect()
     std::cout << "Error while connecting to camera - Error " << iRetValue << "!\n";
     return false;
   }
-  TScannerType m_tscanCONTROLType;
+  // TScannerType m_tscanCONTROLType;
   if ((iRetValue = llt_.GetLLTType(&m_tscanCONTROLType)) < GENERAL_FUNCTION_OK)
   {
     std::cout << "Error while GetLLTType!\n";
@@ -134,36 +135,40 @@ bool Scanner::connect()
   {
     std::cout << "Can't decode scanCONTROL type. Please contact Micro Epsilon for a newer version of the library.\n";
   }
-  // 	std::cout << llt_.deviceData.device_series << std::endl;
-  // 	std::cout << llt_.deviceData.scaling << std::endl;
-  // 	std::cout << llt_.deviceData.offset << std::endl;
-  // 	std::cout << llt_.deviceData.max_packet_size << std::endl;
-  // 	std::cout << llt_.deviceData.max_frequency << std::endl;
-  // 	std::cout << llt_.deviceData.post_proc << std::endl;
-  // 	std::cout << llt_.deviceData.min_x_display << std::endl;
-  // 	std::cout << llt_.deviceData.max_x_display << std::endl;
-  // 	std::cout << llt_.deviceData.min_y_display << std::endl;
-  // 	std::cout << llt_.deviceData.max_y_display << std::endl;
-  // 	std::cout << llt_.deviceData.rotate_image << std::endl;
-  // 	std::cout << llt_.deviceData.min_width << std::endl;
-
-  if (m_tscanCONTROLType == scanCONTROL27xx_xxx)
+ 
+ 
+  if (m_tscanCONTROLType >= scanCONTROL27xx_25 && m_tscanCONTROLType <= scanCONTROL27xx_xxx)
   {
-    std::cout << "The scanCONTROL is a scanCONTROL27xx\n";
+    std::cout << "The scanCONTROL is a scanCONTROL27xx\n" << std::endl;
   }
-  else if (m_tscanCONTROLType == scanCONTROL26xx_xxx)
+  else if (m_tscanCONTROLType >= scanCONTROL26xx_25 && m_tscanCONTROLType <= scanCONTROL26xx_xxx)
   {
-    std::cout << "The scanCONTROL is a scanCONTROL26xx\n";
+    std::cout << "The scanCONTROL is a scanCONTROL26xx\n" << std::endl;
   }
-  else if (m_tscanCONTROLType == scanCONTROL29xx_xxx)
+  else if (m_tscanCONTROLType >= scanCONTROL29xx_25 && m_tscanCONTROLType <= scanCONTROL29xx_xxx)
   {
-    std::cout << "The scanCONTROL is a scanCONTROL29xx\n";
+    std::cout << "The scanCONTROL is a scanCONTROL29xx\n" << std::endl;
+  }
+  else if (m_tscanCONTROLType >= scanCONTROL30xx_25 && m_tscanCONTROLType <= scanCONTROL30xx_xxx)
+  {
+    std::cout << "The scanCONTROL is a scanCONTROL30xx\n" << std::endl;
+  }
+  else if (m_tscanCONTROLType >= scanCONTROL25xx_25 && m_tscanCONTROLType <= scanCONTROL25xx_xxx)
+  {
+    std::cout << "The scanCONTROL is a scanCONTROL25xx\n" << std::endl;
   }
   else
   {
     std::cout << "The scanCONTROL is a undefined type\nPlease contact Micro-Epsilon for a newer SDK\n";
   }
   connected_ = true;
+
+  std::cout << "Get all possible resolutions" << std::endl;
+  if ((iRetValue = llt_.GetResolutions(&vuiResolutions[0], vuiResolutions.size())) < GENERAL_FUNCTION_OK) {
+      std::cout << "Error GetResolutions!" << std::endl;
+  }
+  resolution = vuiResolutions[0];
+
   return true;
 }
 
@@ -195,30 +200,32 @@ bool Scanner::initialise()
     return false;
   }
 
-  if (llt_.SetFeature(FEATURE_FUNCTION_IDLETIME, idle_time_) < GENERAL_FUNCTION_OK)
+  //if (llt_.SetFeature(FEATURE_FUNCTION_IDLETIME, idle_time_) < GENERAL_FUNCTION_OK) //deprecated
+  if (llt_.SetFeature(FEATURE_FUNCTION_IDLE_TIME, idle_time_) < GENERAL_FUNCTION_OK) 
   {
-    std::cout << "Error while setting uiIdleTime!\n";
+    std::cout << "Error while setting idle_time!\n";
     return false;
   }
 
-  if (llt_.SetFeature(FEATURE_FUNCTION_SHUTTERTIME, shutter_time_) < GENERAL_FUNCTION_OK)
+  //if (llt_.SetFeature(FEATURE_FUNCTION_SHUTTERTIME, shutter_time_) < GENERAL_FUNCTION_OK)// deprecated
+  if (llt_.SetFeature(FEATURE_FUNCTION_EXPOSURE_TIME, shutter_time_) < GENERAL_FUNCTION_OK)
   {
-    std::cout << "Error while setting uiShutterTime!\n";
+    std::cout << "Error while setting ShutterTime!\n";
     return false;
   }
 
-  if (llt_.SetFeature(FEATURE_FUNCTION_TRIGGER, 0x00000000) < GENERAL_FUNCTION_OK)
+  if (llt_.SetFeature(FEATURE_FUNCTION_TRIGGER, TRIG_INTERNAL) < GENERAL_FUNCTION_OK)
   {
     std::cout << "Error while setting trigger!\n";
     return false;
   }
 
-  // Setting High Voltage mode
-  if (llt_.SetFeature(0xf0f008c0, 0x82000820) < GENERAL_FUNCTION_OK)
-  {
-    std::cout << "Error while setting High Voltage!\n";
-    return false;
-  }
+  // // Setting High Voltage mode
+  // if (llt_.SetFeature(0xf0f008c0, 0x82000820) < GENERAL_FUNCTION_OK)
+  // {
+  //   std::cout << "Error while setting High Voltage!\n";
+  //   return false;
+  // }
 
   int iRetValue;
 
@@ -226,22 +233,22 @@ bool Scanner::initialise()
   {
     std::cout << "Error during SetPacketSize\n" << iRetValue;
     return false;
-    ;
   }
-
+  
   /* Register Callbacks for program handling */
-  if ((llt_.RegisterBufferCallback((gpointer)&Scanner::new_profile_callback_wrapper, this)) < GENERAL_FUNCTION_OK)
+  std::cout << "Register callbacks for new profile buffer" << std::endl;
+  if ((llt_.RegisterBufferCallback((gpointer)&Scanner::new_profile_callback_wrapper, this)) < GENERAL_FUNCTION_OK) // deprecated
+  //if ((llt_.RegisterBufferCallback((gpointer)&Scanner::NewProfile, this)) < GENERAL_FUNCTION_OK)
   {
     std::cout << "Error while registering buffer callback!\n";
     return false;
-    ;
   }
 
-  if ((llt_.RegisterControlLostCallback((gpointer)&Scanner::control_lost_callback_wrapper, this)) < GENERAL_FUNCTION_OK)
+  std::cout << "Register callbacks for control lost" << std::endl;
+  if ((llt_.RegisterControlLostCallback((gpointer)&Scanner::control_lost_callback_wrapper, this)) < GENERAL_FUNCTION_OK) 
   {
     std::cout << "Error while registering control lost callback!\n";
     return false;
-    ;
   }
 
   return true;
@@ -257,14 +264,11 @@ bool Scanner::disconnect()
   connected_ = false;
   return true;
 }
+
+
 void Scanner::control_lost_callback_wrapper(ArvGvDevice *gv_device, gpointer user_data)
 {
   ((Scanner *)user_data)->control_lost_callback(gv_device);
-}
-
-void Scanner::new_profile_callback_wrapper(const void *data, size_t data_size, gpointer user_data)
-{
-  ((Scanner *)user_data)->new_profile_callback(data, data_size);
 }
 
 void Scanner::control_lost_callback(ArvGvDevice *gv_device)
@@ -278,60 +282,128 @@ void Scanner::control_lost_callback(ArvGvDevice *gv_device)
     startScanning();
   }
 }
+
+
+//--------------------deprecated new profile callback-----------------------------------------------------
+void Scanner::new_profile_callback_wrapper(const void *data, size_t data_size, gpointer user_data)
+{
+  ((Scanner *)user_data)->new_profile_callback(data, data_size);
+}
+
+void Scanner::new_profile_callback(const void *data, size_t data_size)
+{
+  
+    
+    if (data != NULL && data_size == SCANNER_RESOLUTION * fieldCount_ * container_size_ * 2)
+    {
+      memcpy(&container_buffer_[0], data, data_size); //one profile get into one container buffer element
+    }
+    
+    
+    gint32 ret = 0;
+    unsigned int profile_counter;
+    guint32 polled_data_size = 0;
+    double shutter_open; // time stamp
+    double shutter_close; // time stamp of shutter close
+
+  
+    llt_.Timestamp2TimeAndCount(container_buffer_[container_buffer_.size() - 1].timestamp, &shutter_open, &shutter_close,
+                            &profile_counter, NULL);
+    if (need_time_sync_) // if sensor start scanning, then need time syncronize is true
+    {
+      time_sync_->sync_time(profile_counter, shutter_open, shutter_close);
+      need_time_sync_ = false;
+    }
+
+   
+    for (int i = 0; i < container_buffer_.size(); ++i)
+    {
+      ScanProfileConvertedPtr profile(new ScanProfileConverted);
+    //   llt_.Timestamp2TimeAndCount(container_buffer_[i].timestamp, &profile->shutter_open, &profile->shutter_close,
+    //                          &profile->profile_counter, NULL);
+    //   //DisplayTimestamp(container_buffer_[i].timestamp); //deprecated
+      
+    //   //DisplayTimestamp(&container_buffer_[(resolution * 64) - 16]);
+      for (int j = 0; j < SCANNER_RESOLUTION; ++j)
+      {
+        if (container_buffer_[i].z[j] != 0) // for each profile
+        {  
+            guint32 rearrangement = 0;
+            llt_.GetFeature(FEATURE_FUNCTION_PROFILE_REARRANGEMENT, &rearrangement);
+            std::vector<double> value_x, value_z; // temporary vector to store x and y in one profile(current one)
+            std::vector<gushort> intens, thres, refl_width;
+            value_x.resize(SCANNER_RESOLUTION * profile_counter);
+            value_z.resize(SCANNER_RESOLUTION * profile_counter);
+            intens.resize(SCANNER_RESOLUTION * profile_counter);
+            thres.resize(SCANNER_RESOLUTION * profile_counter);
+            refl_width.resize(SCANNER_RESOLUTION * profile_counter);
+
+            ret = CInterfaceLLT::ConvertRearrangedContainer2Values(&container_buffer[0], container_buffer.size(), rearrangement,
+                                                                  profile_counter, m_tscanCONTROLType, 0, &refl_width[0], &intens[0],
+                                                                  &thres[0], &value_x[0], &value_z[0]);
+            if (ret != (CONVERT_X | CONVERT_Z | CONVERT_THRESHOLD | CONVERT_WIDTH | CONVERT_MAXIMUM)) {
+                std::cout << "Error while extracting profiles" << std::endl;
+            }
+            else{
+              profile->x.push_back(value_x[0]);
+              profile->x.push_back(value_z[0]);
+            }
+         }
+      }
+      // ---------------------------------------------------------------
+      profile_queue_.push(profile);
+    }
+  notifyee_->notify();
+}
+//------------------------------------------------------------------------------------------------------------------
+
+
+
+
+// correcred new profile call back funciton
+void Scanner::NewProfile(const void *data, size_t data_size, gpointer user_data)
+{
+    if (data != NULL) {
+        if (container_buffer.size() == data_size && container_count < needed_container_count) {
+            memcpy(&container_buffer[0], data, data_size);
+            profile_data_size = data_size;
+            container_count++;
+        }
+    }
+    if (container_count >= needed_container_count) {
+        CInterfaceLLT::SetEvent(event);
+    }
+    notifyee_->notify();
+}
+
+
+
+
 // void DisplayTimestamp(unsigned char *uiTimestamp)
 // {
 //   double dShutterOpen, dShutterClose;
 //   unsigned int uiProfileCount;
 
-//   llt_.Timestamp2TimeAndCount(&uiTimestamp[0], &dShutterOpen, &dShutterClose, &uiProfileCount);
+//   llt_.Timestamp2TimeAndCount(&uiTimestamp[0], &dShutterOpen, &dShutterClose, &uiProfileCount, NULL);
 
 //   std::cout.precision(8);
 //   std::cout << "Profile Count: " << uiProfileCount << " ShutterOpen: " << dShutterOpen
 //             << " ShutterClose: " << dShutterClose << "\n";
 //   std::cout.precision(6);
 // }
-void Scanner::new_profile_callback(const void *data, size_t data_size)
+void DisplayTimestamp(guchar *timestamp)
 {
-  {
-    boost::mutex::scoped_lock lock(mutex_);
-    if (data != NULL && data_size == SCANNER_RESOLUTION * fieldCount_ * container_size_ * 2)
-    {
-      memcpy(&container_buffer_[0], data, data_size);
-    }
+    double shutter_open, shutter_close;
+    guint32 profile_count;
 
-    unsigned int profile_counter;
-    double shutter_open;
-    double shutter_close;
-    // llt_.Timestamp2TimeAndCount(container_buffer_[container_buffer_.size() - 1].timestamp, &shutter_open, &shutter_close,
-    //                        &profile_counter);
-    if (need_time_sync_)
-    {
-      time_sync_->sync_time(profile_counter, shutter_open, shutter_close);
-      need_time_sync_ = false;
-    }
-    for (int i = 0; i < container_buffer_.size(); ++i)
-    {
-      ScanProfileConvertedPtr profile(new ScanProfileConverted);
-      // llt_.Timestamp2TimeAndCount(container_buffer_[i].timestamp, &profile->shutter_open, &profile->shutter_close,
-      //                        &profile->profile_counter);
-      // DisplayTimestamp(container_buffer_[i].timestamp);
-      // for (int j = 0; j < SCANNER_RESOLUTION; ++j)
-      // {
-      //   if (container_buffer_[i].z[j] != 0)
-      //   {
-      //     double x = ((container_buffer_[i].x[j] - (guint16)32768) * llt_.appData.scaling) / 1000.0;  // in meter
-      //     double z = ((container_buffer_[i].z[j] - (guint16)32768) * llt_.appData.scaling + llt_.appData.offset) /
-      //                1000.0;  // in meter
-      //     profile->x.push_back(x);
-      //     profile->z.push_back(z);
-      //   }
-      // }
+    CInterfaceLLT::Timestamp2TimeAndCount(&timestamp[0], &shutter_open, &shutter_close, &profile_count, NULL);
 
-      profile_queue_.push(profile);
-    }
-  }
-  notifyee_->notify();
+    std::cout.precision(8);
+    std::cout << "Profile Count: " << profile_count << " ShutterOpen: " << shutter_open
+              << " ShutterClose: " << shutter_close << std::endl;
+    std::cout.precision(6);
 }
+
 
 bool Scanner::hasNewData()
 {
@@ -365,24 +437,35 @@ bool Scanner::startScanning()
   {
     return true;
   }
-  int iRetValue;
 
-  unsigned int dwInquiry;
+  // ------------------------------START SETTING CONTAINER MODE ------------------------------------
+  gint32 iRetValue; // BOOL value for true or false
+  // gint32 field_count = 5;
+  // gint32 profile_count = 256;
+  // container_count = 0;
+  // needed_container_count = 1;
+  guint32 dwInquiry = 0; // for function rearangement inqury
 
   // Bitfeld=Round(Log2(Auflösung)) for the resolution bitfield for the container
   // double dTempLog = 1.0/log(2.0);
   // unsigned int dwResolutionBitField = (unsigned int)floor((log((double)m_uiResolution)*dTempLog)+0.5);
+  
+  // calculate resolution bitfield for the container-----
+  // double tmp_log = 1.0 / log(2.0);
+  // gint32 container_resolution = (gint32)floor((log((double)resolution) * tmp_log) + 0.5);
+  //--------------------------------------------------
 
-  if ((iRetValue = llt_.GetFeature(INQUIRY_FUNCTION_REARRANGEMENT_PROFILE, &dwInquiry)) < GENERAL_FUNCTION_OK)
+  std::cout << "Demonstrate the container mode with rearrangement" << std::endl;
+  if ((iRetValue = llt_.GetFeature(INQUIRY_FUNCTION_PROFILE_REARRANGEMENT, &dwInquiry)) < GENERAL_FUNCTION_OK) 
   {
     std::cout << "Error during GetFeature";
-    return false;
+    return iRetValue;
   }
 
   if ((dwInquiry & 0x80000000) == 0)
   {
     std::cout << "\nThe connected scanCONTROL don't support the container mode\n\n";
-    return false;
+    return iRetValue;
   }
 
   // Extract Z
@@ -390,28 +473,50 @@ bool Scanner::startScanning()
   // calculation for the points per profile = 9 for 640
   // Extract only 1th reflection
   // Extract timestamp in extra field
-
-  if ((iRetValue = llt_.SetFeature(FEATURE_FUNCTION_REARRANGEMENT_PROFILE, 0x00120c03 | 9 << 12)) < GENERAL_FUNCTION_OK)
+  
+  // code from example------------------------------
+  //  std::cout << "Set rearrangement parameter" << std::endl;
+  //   if ((iRetValue = llt_.SetFeature(FEATURE_FUNCTION_PROFILE_REARRANGEMENT,
+  //                               CONTAINER_DATA_INTENS | CONTAINER_DATA_WIDTH | CONTAINER_DATA_THRES | CONTAINER_DATA_X |
+  //                               CONTAINER_DATA_Z | CONTAINER_STRIPE_1 | CONTAINER_DATA_LSBF |
+  //                               container_resolution << 12)) < GENERAL_FUNCTION_OK) {
+  //       std::cout << "Error during SetFeature(FEATURE_FUNCTION_PROFILE_REARRANGEMENT)" << std::endl;;
+  //       return iRetValue;
+  //   }
+  std::cout << "Set rearrangement parameter" << std::endl;
+  if ((iRetValue = llt_.SetFeature(FEATURE_FUNCTION_PROFILE_REARRANGEMENT, 0x00120c03 | 9 << 12)) < GENERAL_FUNCTION_OK)
   {
-    std::cout << "Error during SetFeature(FEATURE_FUNCTION_REARRANGEMENT_PROFILE)";
-    return false;
+    std::cout << "Error during SetFeature(FEATURE_FUNCTION_PROFILE_REARRANGEMENT)";
+    return iRetValue;
   }
 
   std::cout << "Set profile container size\n";
-  if ((iRetValue = llt_.SetProfileContainerSize(SCANNER_RESOLUTION * fieldCount_, container_size_)) <
-      GENERAL_FUNCTION_OK)
+   // below is original function, which is deprecated
+  // if ((iRetValue = llt_.SetProfileContainerSize(SCANNER_RESOLUTION * fieldCount_, container_size_)) <
+  //     GENERAL_FUNCTION_OK)
+  // {
+  //   std::cout << "Error during SetProfileContainerSize";
+  //   return false;
+  // }
+  if ((iRetValue = llt_.SetProfileContainerSize(0, container_size_)) < GENERAL_FUNCTION_OK)
   {
     std::cout << "Error during SetProfileContainerSize";
     return false;
   }
-
-  setMeasuringField(field_.x_start, field_.x_size, field_.z_start, field_.z_size);
+ 
+  std::cout << "Set setMeasuringField\n";
+  if (iRetValue = setMeasuringField(field_.x_start, field_.x_size, field_.z_start, field_.z_size) < GENERAL_FUNCTION_OK)
+  {
+    std::cout << "Error during setMeasuringField";
+    return false;
+  }
 
   // Setup transfer of multiple profiles
+  std::cout << "Setup transfer of multiple profile\n";
   if ((iRetValue = llt_.TransferProfiles(NORMAL_CONTAINER_MODE, true)) < GENERAL_FUNCTION_OK)
   {
     std::cout << "Error in profile transfer!\n";
-    return false;
+    return iRetValue;
   }
   scanning_ = true;
   return true;
@@ -469,6 +574,8 @@ Scanner::Scanner(TimeSync *time_sync, Notifyee *notifyee, unsigned int shutter_t
     }
   }
 }
+
+
 Scanner::~Scanner()
 {
   if (connected_)
@@ -517,7 +624,8 @@ bool Scanner::setLaserPower(bool on)
 {
   guint32 value = on ? 0x82000002 : 0x82000000;
 
-  if (llt_.SetFeature(FEATURE_FUNCTION_LASERPOWER, value) < GENERAL_FUNCTION_OK)
+  //if (llt_.SetFeature(FEATURE_FUNCTION_LASERPOWER, value) < GENERAL_FUNCTION_OK)// this is deprecated
+  if (llt_.SetFeature(FEATURE_FUNCTION_LASER, value) < GENERAL_FUNCTION_OK)
   {
     std::cout << "Error while setting trigger!\n";
     return false;
@@ -526,34 +634,89 @@ bool Scanner::setLaserPower(bool on)
   return true;
 }
 
-// Schreibkommando für seq. Register
+// Write command for separate registers
 void Scanner::WriteCommand(unsigned int command, unsigned int data)
 {
   static int toggle = 0;
-  llt_.SetFeature(FEATURE_FUNCTION_SHARPNESS, (unsigned int)(command << 9) + (toggle << 8) + data);
+  //llt_.SetFeature(FEATURE_FUNCTION_SHARPNESS, (unsigned int)(command << 9) + (toggle << 8) + data); //deprecated
+  llt_.SetFeature(FEATURE_FUNCTION_EXTRA_PARAMETER, (unsigned int)(command << 9) + (toggle << 8) + data);
   toggle = toggle ? 0 : 1;
 }
-// Schreibe Wert auf Registerposition
+
+// Write value on register position
 void Scanner::WriteValue2Register(unsigned short value)
 {
   WriteCommand(1, (unsigned int)(value / 256));
   WriteCommand(1, (unsigned int)(value % 256));
 }
 
-void Scanner::setMeasuringField(ushort x_start, ushort x_size, ushort z_start, ushort z_size)
+bool Scanner::setMeasuringField(ushort x_start, ushort x_size, ushort z_start, ushort z_size)
 {
-  // Aktiviere freies Messfeld
-  llt_.SetFeature(FEATURE_FUNCTION_MEASURINGFIELD, 0x82000800);
-  // Setze die gewünschte Messfeldgröße
+  // Activate free measuring field
+  // // llt_.SetFeature(FEATURE_FUNCTION_MEASURINGFIELD, 0x82000800);// this is deprecated
+  llt_.SetFeature(FEATURE_FUNCTION_ROI1_PRESET, MEASFIELD_ACTIVATE_FREE);
+  
+  // Set the desired measuring field size
 
-  WriteCommand(0, 0);  // Resetkommando
-  WriteCommand(0, 0);
-  WriteCommand(2, 8);
-  WriteValue2Register(z_start);
-  WriteValue2Register(z_size);
-  WriteValue2Register(x_start);
-  WriteValue2Register(x_size);
-  WriteCommand(0, 0);  // Beende Schreibvorgang
+  // WriteCommand(0, 0);  // reset command
+  // WriteCommand(0, 0);
+  // WriteCommand(2, 8);
+  // WriteValue2Register(z_start);
+  // WriteValue2Register(z_size);
+  // WriteValue2Register(x_start);
+  // WriteValue2Register(x_size);
+  // WriteCommand(0, 0);  // Finish writing
+
+
+// -----------------------------set measuring field from example -------------------------------------
+  // // set the desired free measuring field
+  //   ushort z_start = 20000;
+  //   ushort z_size = 25000;
+  //   ushort x_start = 20000;
+  //   ushort x_size = 25000;
+
+    int ret;
+    // // measuring field - possibility 1
+
+    // // write free measuring field settings to sensor
+    // std::cout << "Write free measuring field:\n - Start z: " << z_start << "\n - Size z: " << z_size
+    //           << "\n - Start x: " << x_start << "\n - Size x: " << x_size << std::endl;
+    // // enable the free measuring field
+    // if ((ret = llt_.SetFeature(FEATURE_FUNCTION_MEASURINGFIELD, ROI1_FREE_REGION)) < GENERAL_FUNCTION_OK) {
+    //     std::cout << "Error during setting the free measuring field" << ret << std::endl;
+    //     return ret;
+    // }
+    // // set the values
+    // if ((ret = llt_.SetFreeMeasuringField(z_start, z_size, x_start, x_size)) < GENERAL_FUNCTION_OK) {
+    //     std::cout << "Error during setting the free measuring field" << ret << std::endl;
+    //     return ret;
+    // }
+
+    // // measuring field - possibility 2 --> reading parameters with GetFeature also possible
+    // // available since scanCONTROL firmware version v43
+
+    // // enable the free measuring field
+    // if ((ret = llt_.SetFeature(FEATURE_FUNCTION_MEASURINGFIELD, ROI1_FREE_REGION)) < GENERAL_FUNCTION_OK) {
+    //     std::cout << "Error during setting the free measuring field" << ret << std::endl;
+    //     return ret;
+    // }
+    // write start/size x
+    if ((ret = llt_.SetFeature(FEATURE_FUNCTION_ROI1_POSITION, (x_size << 16) + x_start)) < GENERAL_FUNCTION_OK) {
+        std::cout << "Error during setting the free measuring field" << ret << std::endl;
+        return ret;
+    }
+    // write start/size z
+    if ((ret = llt_.SetFeature(FEATURE_FUNCTION_ROI1_DISTANCE, (z_size << 16) + z_start)) < GENERAL_FUNCTION_OK) {
+        std::cout << "Error during setting the free measuring field" << ret << std::endl;
+        return ret;
+    }
+    // activate settings
+    if ((ret = llt_.SetFeature(FEATURE_FUNCTION_EXTRA_PARAMETER, 0)) < GENERAL_FUNCTION_OK) {
+        std::cout << "Error during setting the free measuring field" << ret << std::endl;
+        return ret;
+    }
+    //-----------------------------------------------------------------------
+    return GENERAL_FUNCTION_OK;
 }
 
 }  // namespace microepsilon_scancontrol

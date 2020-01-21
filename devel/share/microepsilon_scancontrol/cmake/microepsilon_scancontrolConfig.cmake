@@ -116,7 +116,7 @@ if(NOT "/home/david/SIMTech_ws/src/microEpsilon_scanControl/common/include;/usr/
   endforeach()
 endif()
 
-set(libraries "microepsilon_scancontrol;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;aravis-0.6;m;gio-2.0;gobject-2.0;xml2;gthread-2.0;glib-2.0")
+set(libraries "microepsilon_scancontrol;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/x86_64-linux-gnu/libpthread.so;aravis-0.6;m;gio-2.0;gobject-2.0;xml2;gthread-2.0;glib-2.0")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -131,7 +131,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/david/SIMTech_ws/devel/lib;/home/david/SIMTech_ws/devel/lib;/home/david/OpenLMD_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/david/SIMTech_ws/devel/lib;/home/david/SIMTech_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

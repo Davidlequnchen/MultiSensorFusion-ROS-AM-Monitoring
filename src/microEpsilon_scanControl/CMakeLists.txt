@@ -4,6 +4,24 @@ project(microepsilon_scancontrol)
 find_package(catkin REQUIRED COMPONENTS roscpp sensor_msgs std_srvs std_msgs)
 
 find_package(Boost REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  rospy
+  tf
+  pcl_ros
+  pcl_conversions
+  message_generation
+  tf2
+  tf2_eigen
+  tf2_ros
+  geometry_msgs
+  message_filters
+  pcl_msgs
+  rosbag
+  rosconsole
+  roslib
+)
+
+find_package(PCL 1.7.2 REQUIRED)
 
 find_package (PkgConfig REQUIRED)
 pkg_check_modules (ARAVIS REQUIRED aravis-0.6)
@@ -24,8 +42,18 @@ catkin_package(
    CATKIN_DEPENDS roscpp sensor_msgs std_srvs std_msgs
    DEPENDS Boost ARAVIS)
 
+
+
+include_directories (${PCL_INCLUDE_DIRS})
+link_directories    (${PCL_LIBRARY_DIRS})
+add_definitions     (${PCL_DEFINITIONS})
+
+
+
 add_library(${PROJECT_NAME} common/src/${PROJECT_NAME}.cpp)
 add_executable(${PROJECT_NAME}_node ros/src/${PROJECT_NAME}_node.cpp)
+add_executable(cloud_transformation_node ros/src/cloud_transformation_node.cpp)
+target_link_libraries(cloud_transformation_node ${catkin_LIBRARIES})
 
 
 add_dependencies(${PROJECT_NAME}_node ${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})

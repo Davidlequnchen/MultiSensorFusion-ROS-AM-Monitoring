@@ -3,7 +3,7 @@
   <name>scanning_robviz</name>
   <version>0.3.0</version>
   <description>The scanning_robviz package</description>
- <author email="chen1189@e.ntu.edu.sg">Chen lequn</author>
+  <author email="chen1189@e.ntu.edu.sg">Chen lequn</author>
   <maintainer email="chen1189@e.ntu.edu.sg">Chen lequn</maintainer>
   <license>BSD</license>
 

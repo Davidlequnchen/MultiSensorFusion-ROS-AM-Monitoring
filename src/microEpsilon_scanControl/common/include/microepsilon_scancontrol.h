@@ -47,10 +47,13 @@
 #include <iostream>
 #include <boost/shared_ptr.hpp>
 #include <boost/thread/mutex.hpp>
+#include <math.h>
+#include <libpng16/png.h>
 
 namespace microepsilon_scancontrol
 {
 const int SCANNER_RESOLUTION = 640;
+guint32 resolution;
 
 class TimeSync
 {
@@ -95,6 +98,7 @@ struct MeasurementField
   }
 };
 
+// stores x and y , and timestamp information for one profile
 struct ScanProfile
 {
   guint16 z[SCANNER_RESOLUTION];
@@ -132,20 +136,36 @@ private:
 
   //LLT llt_;
   CInterfaceLLT llt_;
+  TScannerType m_tscanCONTROLType;
   // Create a device handle
   //CInterfaceLLT llt_ = new CInterfaceLLT(); 
 
-  std::vector<ScanProfile> container_buffer_;
-  std::queue<ScanProfileConvertedPtr> profile_queue_;
+
+  std::vector<guint8> container_buffer; 
+  gint32 container_count, needed_container_count;
+  guint32 profile_data_size;
+  // event handle
+  EHANDLE *event;
+
+  // temperary profile buffer to read profile in call back function
+  std::vector<unsigned char>ProfileBuffer;
+  //how many profiles to be stored in a container buffer
+  std::vector<ScanProfile> container_buffer_; // which resized to container size when setting class constructor
+  std::queue<ScanProfileConvertedPtr> profile_queue_; // a pointer of array stores a list of profiles
   bool connect();
   bool disconnect();
   bool initialise();
 
-  void control_lost_callback(ArvGvDevice* gv_device);
-  void new_profile_callback(const void* data, size_t data_size);
-  static void control_lost_callback_wrapper(ArvGvDevice* gv_device, gpointer user_data);
-  static void new_profile_callback_wrapper(const void* data, size_t data_size, gpointer user_data);
-  void setMeasuringField(ushort x_start, ushort x_size, ushort z_start, ushort z_size);
+
+  void NewProfile(const void *data, size_t data_size, gpointer user_data);// correcred function for new profile call back
+ 
+  //--------------
+  void new_profile_callback(const void* data, size_t data_size);// deprecated
+  static void control_lost_callback_wrapper(ArvGvDevice* gv_device, gpointer user_data);// deprecated
+  void control_lost_callback(ArvGvDevice* gv_device);//deprecated
+  static void new_profile_callback_wrapper(const void* data, size_t data_size, gpointer user_data);//deprecated
+  //--------------
+  bool setMeasuringField(ushort x_start, ushort x_size, ushort z_start, ushort z_size);
   void WriteCommand(unsigned int command, unsigned int data);
   void WriteValue2Register(unsigned short value);
 

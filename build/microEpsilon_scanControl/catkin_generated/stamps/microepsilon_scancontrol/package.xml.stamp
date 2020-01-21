@@ -1,4 +1,5 @@
-<package format="2">
+<?xml version="1.0"?>
+<package>
   <name>microepsilon_scancontrol</name>
   <version>1.0.0</version>
   <description>This package publishes PointCloud2 messages of profiles meassured by a MICRO-EPSILON scanCONTROL laser scanner.
@@ -12,14 +13,47 @@
 
 
   <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>pcl_conversions</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>libpcl-all-dev</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>pcl_msgs</build_depend>
+  <build_depend>boost</build_depend>
+  <build_depend>glib-2.0</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <build_depend>aravis-0.4</build_depend>
 
-  <depend>boost</depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>pcl_ros</run_depend>
+  <run_depend>pcl_conversions</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>libpcl-all</run_depend>
+  <run_depend>pcl_msgs</run_depend>
+  <run_depend>boost</run_depend>
+  <run_depend>glib-2.0</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>std_srvs</run_depend>
+  <run_depend>aravis-0.4</run_depend>
+
+
+
+
+  <!-- <depend>boost</depend>
   <depend>glib-2.0</depend>
   <depend>roscpp</depend>
   <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
   <depend>std_srvs</depend>
-  <depend>aravis-0.4</depend>
+  <depend>aravis-0.4</depend> -->
   <!--depend>libllt</depend-->
   <!--depend>libmescan</depend-->
 
