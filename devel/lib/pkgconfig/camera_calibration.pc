@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/devel
+prefix=/home/chenlequn/SIMTech_ws/devel
 
 Name: camera_calibration
 Description: Description of camera_calibration
-Version: 1.13.0
+Version: 1.14.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/devel/lib 
+Libs: -L${prefix}/lib 
 Requires: 

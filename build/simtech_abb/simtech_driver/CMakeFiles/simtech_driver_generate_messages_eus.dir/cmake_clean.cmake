@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simtech_driver_generate_messages_eus"
-  "/home/david/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv/SrvRobotCommand.l"
-  "/home/david/SIMTech_ws/devel/share/roseus/ros/simtech_driver/manifest.l"
+  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv/SrvRobotCommand.l"
+  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

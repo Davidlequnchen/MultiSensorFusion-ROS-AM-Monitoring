@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cloud_transformation_node.dir/ros/src/cloud_transformation_node.cpp.o"
-  "/home/david/SIMTech_ws/devel/lib/microepsilon_scancontrol/cloud_transformation_node.pdb"
-  "/home/david/SIMTech_ws/devel/lib/microepsilon_scancontrol/cloud_transformation_node"
+  "/home/chenlequn/SIMTech_ws/devel/lib/microepsilon_scancontrol/cloud_transformation_node.pdb"
+  "/home/chenlequn/SIMTech_ws/devel/lib/microepsilon_scancontrol/cloud_transformation_node"
 )
 
 # Per-language clean rules from dependency scanning.

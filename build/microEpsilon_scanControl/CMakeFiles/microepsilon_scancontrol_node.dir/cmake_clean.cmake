@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/microepsilon_scancontrol_node.dir/ros/src/microepsilon_scancontrol_node.cpp.o"
-  "/home/david/SIMTech_ws/devel/lib/microepsilon_scancontrol/microepsilon_scancontrol_node.pdb"
-  "/home/david/SIMTech_ws/devel/lib/microepsilon_scancontrol/microepsilon_scancontrol_node"
+  "/home/chenlequn/SIMTech_ws/devel/lib/microepsilon_scancontrol/microepsilon_scancontrol_node.pdb"
+  "/home/chenlequn/SIMTech_ws/devel/lib/microepsilon_scancontrol/microepsilon_scancontrol_node"
 )
 
 # Per-language clean rules from dependency scanning.

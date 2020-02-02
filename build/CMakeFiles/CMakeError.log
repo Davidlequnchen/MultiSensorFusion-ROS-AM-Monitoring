@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bbe3d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bbe3d.dir/build.make CMakeFiles/cmTC_bbe3d.dir/build
-make[1]: Entering directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_bbe3d.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_bbe3d.dir/CheckSymbolExists.c.o   -c /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_bbe3d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbe3d.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_bbe3d.dir/CheckSymbolExists.c.o  -o cmTC_bbe3d -rdynamic 
-CMakeFiles/cmTC_bbe3d.dir/CheckSymbolExists.c.o: In function `main':
-CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+Run Build Command:"/usr/bin/make" "cmTC_15231/fast"
+/usr/bin/make -f CMakeFiles/cmTC_15231.dir/build.make CMakeFiles/cmTC_15231.dir/build
+make[1]: Entering directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_15231.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_15231.dir/CheckSymbolExists.c.o   -c /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_15231
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_15231.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_15231.dir/CheckSymbolExists.c.o  -o cmTC_15231 
+CMakeFiles/cmTC_15231.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_bbe3d.dir/build.make:97: recipe for target 'cmTC_bbe3d' failed
-make[1]: *** [cmTC_bbe3d] Error 1
-make[1]: Leaving directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_bbe3d/fast' failed
-make: *** [cmTC_bbe3d/fast] Error 2
+CMakeFiles/cmTC_15231.dir/build.make:97: recipe for target 'cmTC_15231' failed
+make[1]: *** [cmTC_15231] Error 1
+make[1]: Leaving directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_15231/fast' failed
+make: *** [cmTC_15231/fast] Error 2
 
-File /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9d7dc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9d7dc.dir/build.make CMakeFiles/cmTC_9d7dc.dir/build
-make[1]: Entering directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9d7dc.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9d7dc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_9d7dc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d7dc.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9d7dc.dir/CheckFunctionExists.c.o  -o cmTC_9d7dc -rdynamic -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_9b9b3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9b9b3.dir/build.make CMakeFiles/cmTC_9b9b3.dir/build
+make[1]: Entering directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b9b3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9b9b3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9b9b3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b9b3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_9b9b3.dir/CheckFunctionExists.c.o  -o cmTC_9b9b3 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_9d7dc.dir/build.make:97: recipe for target 'cmTC_9d7dc' failed
-make[1]: *** [cmTC_9d7dc] Error 1
-make[1]: Leaving directory '/home/david/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_9d7dc/fast' failed
-make: *** [cmTC_9d7dc/fast] Error 2
+CMakeFiles/cmTC_9b9b3.dir/build.make:97: recipe for target 'cmTC_9b9b3' failed
+make[1]: *** [cmTC_9b9b3] Error 1
+make[1]: Leaving directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9b9b3/fast' failed
+make: *** [cmTC_9b9b3/fast] Error 2
 
 

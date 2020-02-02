@@ -1,8 +1,8 @@
-# Install script for directory: /home/david/SIMTech_ws/src/Monitoring/Laser_calibration/calib_ros_run
+# Install script for directory: /home/chenlequn/SIMTech_ws/src/Monitoring/Laser_calibration/calib_ros_run
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/david/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,22 +32,27 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  include("/home/david/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/safe_execute_install.cmake")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/david/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/installspace/calib_ros_run.pc")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  include("/home/chenlequn/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/safe_execute_install.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/installspace/calib_ros_run.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calib_ros_run/cmake" TYPE FILE FILES
-    "/home/david/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/installspace/calib_ros_runConfig.cmake"
-    "/home/david/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/installspace/calib_ros_runConfig-version.cmake"
+    "/home/chenlequn/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/installspace/calib_ros_runConfig.cmake"
+    "/home/chenlequn/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run/catkin_generated/installspace/calib_ros_runConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calib_ros_run" TYPE FILE FILES "/home/david/SIMTech_ws/src/Monitoring/Laser_calibration/calib_ros_run/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calib_ros_run" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/Monitoring/Laser_calibration/calib_ros_run/package.xml")
 endif()
 

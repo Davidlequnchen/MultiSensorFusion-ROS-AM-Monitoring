@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simtech_robot_laser_control_generate_messages_lisp"
-  "/home/david/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgStart.lisp"
-  "/home/david/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp"
-  "/home/david/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp"
-  "/home/david/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgControl.lisp"
-  "/home/david/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp"
-  "/home/david/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv/SrvRobotCommand.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgControl.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgStart.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv/SrvRobotCommand.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/install
+prefix=/home/chenlequn/SIMTech_ws/install
 
 Name: point_cloud_scanning
 Description: Description of point_cloud_scanning
 Version: 0.1.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
+Libs: -L${prefix}/lib 
 Requires: 

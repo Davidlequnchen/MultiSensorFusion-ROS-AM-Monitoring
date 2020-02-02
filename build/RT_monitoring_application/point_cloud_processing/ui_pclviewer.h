@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'pclviewer.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -690,69 +690,69 @@ public:
 
     void retranslateUi(QMainWindow *PCLViewer)
     {
-        PCLViewer->setWindowTitle(QApplication::translate("PCLViewer", "PCLViewer", 0));
-        actionLoad->setText(QApplication::translate("PCLViewer", "Load", 0));
-        actionSave->setText(QApplication::translate("PCLViewer", "Save", 0));
-        pushButton_save->setText(QApplication::translate("PCLViewer", "Save Cloud", 0));
-        pushButton_load->setText(QApplication::translate("PCLViewer", "Load Cloud", 0));
-        label_2->setText(QApplication::translate("PCLViewer", "Size X", 0));
-        label_4->setText(QApplication::translate("PCLViewer", "Size Y", 0));
-        label_5->setText(QApplication::translate("PCLViewer", "Size Z", 0));
-        label->setText(QApplication::translate("PCLViewer", "K n neighbors:", 0));
-        label_deviation->setText(QApplication::translate("PCLViewer", "Deviation:", 0));
-        label_8->setText(QApplication::translate("PCLViewer", "Radius:", 0));
-        label_7->setText(QApplication::translate("PCLViewer", "Param K:", 0));
-        label_6->setText(QApplication::translate("PCLViewer", "Search Radius", 0));
+        PCLViewer->setWindowTitle(QApplication::translate("PCLViewer", "PCLViewer", Q_NULLPTR));
+        actionLoad->setText(QApplication::translate("PCLViewer", "Load", Q_NULLPTR));
+        actionSave->setText(QApplication::translate("PCLViewer", "Save", Q_NULLPTR));
+        pushButton_save->setText(QApplication::translate("PCLViewer", "Save Cloud", Q_NULLPTR));
+        pushButton_load->setText(QApplication::translate("PCLViewer", "Load Cloud", Q_NULLPTR));
+        label_2->setText(QApplication::translate("PCLViewer", "Size X", Q_NULLPTR));
+        label_4->setText(QApplication::translate("PCLViewer", "Size Y", Q_NULLPTR));
+        label_5->setText(QApplication::translate("PCLViewer", "Size Z", Q_NULLPTR));
+        label->setText(QApplication::translate("PCLViewer", "K n neighbors:", Q_NULLPTR));
+        label_deviation->setText(QApplication::translate("PCLViewer", "Deviation:", Q_NULLPTR));
+        label_8->setText(QApplication::translate("PCLViewer", "Radius:", Q_NULLPTR));
+        label_7->setText(QApplication::translate("PCLViewer", "Param K:", Q_NULLPTR));
+        label_6->setText(QApplication::translate("PCLViewer", "Search Radius", Q_NULLPTR));
         comboBox_pass->clear();
         comboBox_pass->insertItems(0, QStringList()
-         << QApplication::translate("PCLViewer", "X filter", 0)
-         << QApplication::translate("PCLViewer", "Y filter", 0)
-         << QApplication::translate("PCLViewer", "Z filter", 0)
+         << QApplication::translate("PCLViewer", "X filter", Q_NULLPTR)
+         << QApplication::translate("PCLViewer", "Y filter", Q_NULLPTR)
+         << QApplication::translate("PCLViewer", "Z filter", Q_NULLPTR)
         );
-        label_12->setText(QApplication::translate("PCLViewer", "Min:", 0));
-        label_13->setText(QApplication::translate("PCLViewer", "Max:", 0));
+        label_12->setText(QApplication::translate("PCLViewer", "Min:", Q_NULLPTR));
+        label_13->setText(QApplication::translate("PCLViewer", "Max:", Q_NULLPTR));
         comboBox_filter->clear();
         comboBox_filter->insertItems(0, QStringList()
-         << QApplication::translate("PCLViewer", "Voxel Grid", 0)
-         << QApplication::translate("PCLViewer", "Statistical filter", 0)
-         << QApplication::translate("PCLViewer", "Radius search filter", 0)
-         << QApplication::translate("PCLViewer", "Resampling", 0)
-         << QApplication::translate("PCLViewer", "Pass trough", 0)
+         << QApplication::translate("PCLViewer", "Voxel Grid", Q_NULLPTR)
+         << QApplication::translate("PCLViewer", "Statistical filter", Q_NULLPTR)
+         << QApplication::translate("PCLViewer", "Radius search filter", Q_NULLPTR)
+         << QApplication::translate("PCLViewer", "Resampling", Q_NULLPTR)
+         << QApplication::translate("PCLViewer", "Pass trough", Q_NULLPTR)
         );
-        pushButton_accept_filter->setText(QApplication::translate("PCLViewer", "Accept", 0));
-        pushButton_undo_filter->setText(QApplication::translate("PCLViewer", "Undo", 0));
-        pushButton_filter->setText(QApplication::translate("PCLViewer", "Autofilter", 0));
-        pushButton->setText(QApplication::translate("PCLViewer", "Cloud data", 0));
-        pushButton_apply_filtering->setText(QApplication::translate("PCLViewer", "Apply", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_filters), QApplication::translate("PCLViewer", "Filter", 0));
-        label_15->setText(QApplication::translate("PCLViewer", "X:", 0));
-        pushButton_2d_place->setText(QApplication::translate("PCLViewer", "Place 2d", 0));
-        label_16->setText(QApplication::translate("PCLViewer", "Y:", 0));
-        label_17->setText(QApplication::translate("PCLViewer", "Angle:", 0));
-        pushButton_accept_fitting->setText(QApplication::translate("PCLViewer", "Accept", 0));
-        pushButton_record_plane->setText(QApplication::translate("PCLViewer", "record", 0));
-        pushButton_distances->setText(QApplication::translate("PCLViewer", "Distance", 0));
-        pushButton_reorient->setText(QApplication::translate("PCLViewer", "Reorient", 0));
-        pushButton_function_plane_fit->setText(QApplication::translate("PCLViewer", "Plane fit", 0));
-        pushButton_undo_plane->setText(QApplication::translate("PCLViewer", "Undo", 0));
-        checkBox_points_sup->setText(QApplication::translate("PCLViewer", "Upper", 0));
-        pushButton_center->setText(QApplication::translate("PCLViewer", "Center point", 0));
-        label_14->setText(QApplication::translate("PCLViewer", "Distance threshold:", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_fit), QApplication::translate("PCLViewer", "Fit", 0));
-        pushButton_proj_points->setText(QApplication::translate("PCLViewer", "Project points", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_projections), QApplication::translate("PCLViewer", "Pojection", 0));
-        pushButton_load_model->setText(QApplication::translate("PCLViewer", "Load Model", 0));
-        pushButton_delete_model->setText(QApplication::translate("PCLViewer", "Delete", 0));
-        pushButton_fine_alignment->setText(QApplication::translate("PCLViewer", "Fine Alignment", 0));
-        pushButton_init_align->setText(QApplication::translate("PCLViewer", "Initial Alignment", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_align), QApplication::translate("PCLViewer", "Align", 0));
-        label_11->setText(QApplication::translate("PCLViewer", "Sel point cloud", 0));
-        label_9->setText(QApplication::translate("PCLViewer", "Point cloud size", 0));
-        label_10->setText(QApplication::translate("PCLViewer", "Mod point cloud", 0));
-        pushButton_test->setText(QApplication::translate("PCLViewer", "Function Test", 0));
-        label_18->setText(QApplication::translate("PCLViewer", "Cluster:", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("PCLViewer", "Test", 0));
-        menuSettings->setTitle(QApplication::translate("PCLViewer", "Settings", 0));
+        pushButton_accept_filter->setText(QApplication::translate("PCLViewer", "Accept", Q_NULLPTR));
+        pushButton_undo_filter->setText(QApplication::translate("PCLViewer", "Undo", Q_NULLPTR));
+        pushButton_filter->setText(QApplication::translate("PCLViewer", "Autofilter", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("PCLViewer", "Cloud data", Q_NULLPTR));
+        pushButton_apply_filtering->setText(QApplication::translate("PCLViewer", "Apply", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_filters), QApplication::translate("PCLViewer", "Filter", Q_NULLPTR));
+        label_15->setText(QApplication::translate("PCLViewer", "X:", Q_NULLPTR));
+        pushButton_2d_place->setText(QApplication::translate("PCLViewer", "Place 2d", Q_NULLPTR));
+        label_16->setText(QApplication::translate("PCLViewer", "Y:", Q_NULLPTR));
+        label_17->setText(QApplication::translate("PCLViewer", "Angle:", Q_NULLPTR));
+        pushButton_accept_fitting->setText(QApplication::translate("PCLViewer", "Accept", Q_NULLPTR));
+        pushButton_record_plane->setText(QApplication::translate("PCLViewer", "record", Q_NULLPTR));
+        pushButton_distances->setText(QApplication::translate("PCLViewer", "Distance", Q_NULLPTR));
+        pushButton_reorient->setText(QApplication::translate("PCLViewer", "Reorient", Q_NULLPTR));
+        pushButton_function_plane_fit->setText(QApplication::translate("PCLViewer", "Plane fit", Q_NULLPTR));
+        pushButton_undo_plane->setText(QApplication::translate("PCLViewer", "Undo", Q_NULLPTR));
+        checkBox_points_sup->setText(QApplication::translate("PCLViewer", "Upper", Q_NULLPTR));
+        pushButton_center->setText(QApplication::translate("PCLViewer", "Center point", Q_NULLPTR));
+        label_14->setText(QApplication::translate("PCLViewer", "Distance threshold:", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_fit), QApplication::translate("PCLViewer", "Fit", Q_NULLPTR));
+        pushButton_proj_points->setText(QApplication::translate("PCLViewer", "Project points", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_projections), QApplication::translate("PCLViewer", "Pojection", Q_NULLPTR));
+        pushButton_load_model->setText(QApplication::translate("PCLViewer", "Load Model", Q_NULLPTR));
+        pushButton_delete_model->setText(QApplication::translate("PCLViewer", "Delete", Q_NULLPTR));
+        pushButton_fine_alignment->setText(QApplication::translate("PCLViewer", "Fine Alignment", Q_NULLPTR));
+        pushButton_init_align->setText(QApplication::translate("PCLViewer", "Initial Alignment", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_align), QApplication::translate("PCLViewer", "Align", Q_NULLPTR));
+        label_11->setText(QApplication::translate("PCLViewer", "Sel point cloud", Q_NULLPTR));
+        label_9->setText(QApplication::translate("PCLViewer", "Point cloud size", Q_NULLPTR));
+        label_10->setText(QApplication::translate("PCLViewer", "Mod point cloud", Q_NULLPTR));
+        pushButton_test->setText(QApplication::translate("PCLViewer", "Function Test", Q_NULLPTR));
+        label_18->setText(QApplication::translate("PCLViewer", "Cluster:", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("PCLViewer", "Test", Q_NULLPTR));
+        menuSettings->setTitle(QApplication::translate("PCLViewer", "Settings", Q_NULLPTR));
     } // retranslateUi
 
 };

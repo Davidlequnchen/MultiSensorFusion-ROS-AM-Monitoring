@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/velocity_control_generate_messages_cpp"
-  "/home/david/SIMTech_ws/devel/include/velocity_control/MsgSpeedOverride.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/velocity_control/MsgSpeedOverride.h"
 )
 
 # Per-language clean rules from dependency scanning.

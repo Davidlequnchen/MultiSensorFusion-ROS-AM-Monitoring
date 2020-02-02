@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/david/SIMTech_ws/src/microEpsilon_scanControl/common/include/microepsilon_scancontrol.h
+/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/include/microepsilon_scancontrol.h
 llt.h
-/home/david/SIMTech_ws/src/microEpsilon_scanControl/common/include/llt.h
+/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/include/llt.h
 vector
 -
 queue
@@ -24,11 +24,11 @@ math.h
 libpng16/png.h
 -
 
-/home/david/SIMTech_ws/src/microEpsilon_scanControl/common/src/microepsilon_scancontrol.cpp
+/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/src/microepsilon_scancontrol.cpp
 microepsilon_scancontrol.h
-/home/david/SIMTech_ws/src/microEpsilon_scanControl/common/src/microepsilon_scancontrol.h
+/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/src/microepsilon_scancontrol.h
 llt.h
-/home/david/SIMTech_ws/src/microEpsilon_scanControl/common/src/llt.h
+/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/src/llt.h
 
 /usr/include/glib-2.0/gio/gaction.h
 gio/giotypes.h
@@ -1101,6 +1101,8 @@ glib/gurifuncs.h
 -
 glib/gutils.h
 -
+glib/guuid.h
+-
 glib/gvarianttype.h
 -
 glib/gvariant.h
@@ -1179,6 +1181,8 @@ glib/gtypes.h
 /usr/include/glib-2.0/glib/gbacktrace.h
 glib/gtypes.h
 -
+sys/select.h
+-
 signal.h
 -
 
@@ -1249,6 +1253,8 @@ glib/gquark.h
 -
 
 /usr/include/glib-2.0/glib/gfileutils.h
+glibconfig.h
+-
 glib/gerror.h
 -
 
@@ -1285,6 +1291,8 @@ glib/gstring.h
 -
 
 /usr/include/glib-2.0/glib/gkeyfile.h
+glib/gbytes.h
+-
 glib/gerror.h
 -
 
@@ -1332,6 +1340,8 @@ stdarg.h
 glib/gtypes.h
 -
 glib/gmacros.h
+-
+glib/gvariant.h
 -
 
 /usr/include/glib-2.0/glib/gnode.h
@@ -1415,6 +1425,8 @@ glib/gmacros.h
 -
 glib/gtypes.h
 -
+glib/gerror.h
+-
 
 /usr/include/glib-2.0/glib/gstring.h
 glib/gtypes.h
@@ -1438,6 +1450,8 @@ glib/gstring.h
 glib/gerror.h
 -
 glib/gslist.h
+-
+string.h
 -
 
 /usr/include/glib-2.0/glib/gthread.h
@@ -1493,6 +1507,12 @@ glib/gtypes.h
 -
 stdarg.h
 -
+stdlib.h
+-
+
+/usr/include/glib-2.0/glib/guuid.h
+glib/gtypes.h
+-
 
 /usr/include/glib-2.0/glib/gvariant.h
 glib/gvarianttype.h
@@ -1503,8 +1523,6 @@ glib/gbytes.h
 -
 
 /usr/include/glib-2.0/glib/gvarianttype.h
-glib/gmessages.h
--
 glib/gtypes.h
 -
 
@@ -1620,8 +1638,12 @@ gobject/gvalue.h
 gobject/gvalue.h
 -
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
 bits/wordsize.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
+bits/thread-shared-types.h
 -
 
 /usr/include/x86_64-linux-gnu/bits/select.h
@@ -1630,20 +1652,16 @@ bits/wordsize.h
 
 /usr/include/x86_64-linux-gnu/bits/select2.h
 
-/usr/include/x86_64-linux-gnu/bits/sigset.h
-
 /usr/include/x86_64-linux-gnu/bits/stat.h
 
-/usr/include/x86_64-linux-gnu/bits/time.h
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h
 bits/types.h
--
-bits/types.h
--
-bits/timex.h
 -
 
-/usr/include/x86_64-linux-gnu/bits/timex.h
-bits/types.h
+/usr/include/x86_64-linux-gnu/bits/sysmacros.h
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h
+bits/pthreadtypes-arch.h
 -
 
 /usr/include/x86_64-linux-gnu/bits/types.h
@@ -1652,6 +1670,36 @@ features.h
 bits/wordsize.h
 -
 bits/typesizes.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h
+bits/types.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h
+bits/types.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h
+bits/types/__sigset_t.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h
+bits/types.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h
+bits/types.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h
+bits/types.h
+-
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h
+bits/types.h
 -
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h
@@ -1665,11 +1713,13 @@ bits/types.h
 -
 bits/select.h
 -
-bits/sigset.h
+bits/types/sigset_t.h
 -
-time.h
+bits/types/time_t.h
 -
-bits/time.h
+bits/types/struct_timeval.h
+-
+bits/types/struct_timespec.h
 -
 bits/select2.h
 -
@@ -1679,7 +1729,9 @@ features.h
 -
 bits/types.h
 -
-time.h
+bits/types/struct_timespec.h
+-
+bits/types/time_t.h
 -
 bits/stat.h
 -
@@ -1687,15 +1739,27 @@ bits/stat.h
 /usr/include/x86_64-linux-gnu/sys/sysmacros.h
 features.h
 -
+bits/types.h
+-
+bits/sysmacros.h
+-
 
 /usr/include/x86_64-linux-gnu/sys/types.h
 features.h
 -
 bits/types.h
 -
-time.h
+bits/types/clock_t.h
+-
+bits/types/clockid_t.h
+-
+bits/types/time_t.h
+-
+bits/types/timer_t.h
 -
 stddef.h
+-
+bits/stdint-intn.h
 -
 endian.h
 -

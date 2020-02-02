@@ -67,14 +67,14 @@ set(stereo_image_proc_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(stereo_image_proc_SOURCE_PREFIX /home/david/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc)
-  set(stereo_image_proc_DEVEL_PREFIX /home/david/SIMTech_ws/devel)
+  set(stereo_image_proc_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/image_pipeline/stereo_image_proc)
+  set(stereo_image_proc_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
   set(stereo_image_proc_INSTALL_PREFIX "")
   set(stereo_image_proc_PREFIX ${stereo_image_proc_DEVEL_PREFIX})
 else()
   set(stereo_image_proc_SOURCE_PREFIX "")
   set(stereo_image_proc_DEVEL_PREFIX "")
-  set(stereo_image_proc_INSTALL_PREFIX /home/david/SIMTech_ws/install)
+  set(stereo_image_proc_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
   set(stereo_image_proc_PREFIX ${stereo_image_proc_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(stereo_image_proc_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/david/SIMTech_ws/devel/include;/home/david/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/include " STREQUAL " ")
+if(NOT "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/image_pipeline/stereo_image_proc/include " STREQUAL " ")
   set(stereo_image_proc_INCLUDE_DIRS "")
-  set(_include_dirs "/home/david/SIMTech_ws/devel/include;/home/david/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/include")
+  set(_include_dirs "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/image_pipeline/stereo_image_proc/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://www.ros.org/wiki/stereo_image_proc " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/david/SIMTech_ws/devel/include;/home/david/SIMTech_ws/src/ROS_imag
         message(FATAL_ERROR "Project 'stereo_image_proc' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'stereo_image_proc' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/david/SIMTech_ws/src/ROS_image_processng/image_pipeline/stereo_image_proc/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'stereo_image_proc' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/image_pipeline/stereo_image_proc/${idir}'.  ${_report}")
     endif()
     _list_append_unique(stereo_image_proc_INCLUDE_DIRS ${include})
   endforeach()
@@ -123,6 +123,29 @@ foreach(library ${libraries})
     list(APPEND stereo_image_proc_LIBRARIES ${library})
   elseif(${library} MATCHES "^-l")
     list(APPEND stereo_image_proc_LIBRARIES ${library})
+  elseif(${library} MATCHES "^-")
+    # This is a linker flag/option (like -pthread)
+    # There's no standard variable for these, so create an interface library to hold it
+    if(NOT stereo_image_proc_NUM_DUMMY_TARGETS)
+      set(stereo_image_proc_NUM_DUMMY_TARGETS 0)
+    endif()
+    # Make sure the target name is unique
+    set(interface_target_name "catkin::stereo_image_proc::wrapped-linker-option${stereo_image_proc_NUM_DUMMY_TARGETS}")
+    while(TARGET "${interface_target_name}")
+      math(EXPR stereo_image_proc_NUM_DUMMY_TARGETS "${stereo_image_proc_NUM_DUMMY_TARGETS}+1")
+      set(interface_target_name "catkin::stereo_image_proc::wrapped-linker-option${stereo_image_proc_NUM_DUMMY_TARGETS}")
+    endwhile()
+    add_library("${interface_target_name}" INTERFACE IMPORTED)
+    if("${CMAKE_VERSION}" VERSION_LESS "3.13.0")
+      set_property(
+        TARGET
+        "${interface_target_name}"
+        APPEND PROPERTY
+        INTERFACE_LINK_LIBRARIES "${library}")
+    else()
+      target_link_options("${interface_target_name}" INTERFACE "${library}")
+    endif()
+    list(APPEND stereo_image_proc_LIBRARIES "${interface_target_name}")
   elseif(TARGET ${library})
     list(APPEND stereo_image_proc_LIBRARIES ${library})
   elseif(IS_ABSOLUTE ${library})
@@ -131,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/david/SIMTech_ws/devel/lib;/home/david/SIMTech_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

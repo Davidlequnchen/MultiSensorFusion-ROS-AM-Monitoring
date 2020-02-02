@@ -1,8 +1,8 @@
-# Install script for directory: /home/david/SIMTech_ws/src/Monitoring/laser_scanning
+# Install script for directory: /home/chenlequn/SIMTech_ws/src/Monitoring/laser_scanning
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/david/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,22 +32,27 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  include("/home/david/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/safe_execute_install.cmake")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/david/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/installspace/laser_scanning.pc")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  include("/home/chenlequn/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/safe_execute_install.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/installspace/laser_scanning.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/laser_scanning/cmake" TYPE FILE FILES
-    "/home/david/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/installspace/laser_scanningConfig.cmake"
-    "/home/david/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/installspace/laser_scanningConfig-version.cmake"
+    "/home/chenlequn/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/installspace/laser_scanningConfig.cmake"
+    "/home/chenlequn/SIMTech_ws/build/Monitoring/laser_scanning/catkin_generated/installspace/laser_scanningConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/laser_scanning" TYPE FILE FILES "/home/david/SIMTech_ws/src/Monitoring/laser_scanning/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/laser_scanning" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/Monitoring/laser_scanning/package.xml")
 endif()
 

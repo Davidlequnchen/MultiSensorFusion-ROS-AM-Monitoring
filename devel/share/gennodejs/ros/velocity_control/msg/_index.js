@@ -1,10 +1,10 @@
 
 "use strict";
 
-let MsgSpeedOverride = require('./MsgSpeedOverride.js');
 let MsgVelocityControl = require('./MsgVelocityControl.js');
+let MsgSpeedOverride = require('./MsgSpeedOverride.js');
 
 module.exports = {
-  MsgSpeedOverride: MsgSpeedOverride,
   MsgVelocityControl: MsgVelocityControl,
+  MsgSpeedOverride: MsgSpeedOverride,
 };

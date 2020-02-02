@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/david/SIMTech_ws/src/Monitoring/simtech_moveit_config
-# Build directory: /home/david/SIMTech_ws/build/Monitoring/simtech_moveit_config
+# Source directory: /home/chenlequn/SIMTech_ws/src/Monitoring/simtech_moveit_config
+# Build directory: /home/chenlequn/SIMTech_ws/build/Monitoring/simtech_moveit_config
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

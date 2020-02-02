@@ -1,6 +1,0 @@
-<launch>
-
-  <node name="abb_move_group_python_interface" pkg="moveit_actions" type="abb_move_group_python_interface.py" respawn="false" output="screen">
-  </node>
-
-</launch>

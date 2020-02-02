@@ -9,8 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/point_cloud_processing.dir/include/moc_pclviewer.cpp.o"
   "CMakeFiles/point_cloud_processing.dir/include/moc_LmdFuncs.cpp.o"
   "CMakeFiles/point_cloud_processing.dir/include/moc_ui_pclviewer.cpp.o"
-  "/home/david/SIMTech_ws/devel/lib/point_cloud_processing/point_cloud_processing.pdb"
-  "/home/david/SIMTech_ws/devel/lib/point_cloud_processing/point_cloud_processing"
+  "/home/chenlequn/SIMTech_ws/devel/lib/point_cloud_processing/point_cloud_processing.pdb"
+  "/home/chenlequn/SIMTech_ws/devel/lib/point_cloud_processing/point_cloud_processing"
 )
 
 # Per-language clean rules from dependency scanning.

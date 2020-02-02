@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/devel
+prefix=/home/chenlequn/SIMTech_ws/devel
 
 Name: calib_ros_test
 Description: Description of calib_ros_test
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/devel/lib 
+Libs: -L${prefix}/lib 
 Requires: 

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/nd_height.dir/src/nd_height.cpp.o"
-  "/home/david/SIMTech_ws/devel/lib/point_cloud_scanning/nd_height.pdb"
-  "/home/david/SIMTech_ws/devel/lib/point_cloud_scanning/nd_height"
+  "/home/chenlequn/SIMTech_ws/devel/lib/point_cloud_scanning/nd_height.pdb"
+  "/home/chenlequn/SIMTech_ws/devel/lib/point_cloud_scanning/nd_height"
 )
 
 # Per-language clean rules from dependency scanning.

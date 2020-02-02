@@ -1,8 +1,8 @@
-prefix=/home/david/SIMTech_ws/install
+prefix=/home/chenlequn/SIMTech_ws/install
 
 Name: calib_ros_run
 Description: Description of calib_ros_run
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/david/SIMTech_ws/install/lib 
+Libs: -L${prefix}/lib 
 Requires: 

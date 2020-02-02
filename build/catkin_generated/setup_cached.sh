@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/david/SIMTech_ws/build"
+export PWD="/home/chenlequn/SIMTech_ws/build"

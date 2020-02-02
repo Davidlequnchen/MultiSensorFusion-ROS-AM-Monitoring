@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simtech_driver_generate_messages_nodejs"
-  "/home/david/SIMTech_ws/devel/share/gennodejs/ros/simtech_driver/srv/SrvRobotCommand.js"
+  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_driver/srv/SrvRobotCommand.js"
 )
 
 # Per-language clean rules from dependency scanning.

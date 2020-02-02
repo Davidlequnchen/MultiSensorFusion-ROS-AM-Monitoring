@@ -1,8 +1,8 @@
-# Install script for directory: /home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing
+# Install script for directory: /home/chenlequn/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/david/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,18 +32,23 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/david/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/catkin_generated/installspace/point_cloud_processing.pc")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/catkin_generated/installspace/point_cloud_processing.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/point_cloud_processing/cmake" TYPE FILE FILES
-    "/home/david/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/catkin_generated/installspace/point_cloud_processingConfig.cmake"
-    "/home/david/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/catkin_generated/installspace/point_cloud_processingConfig-version.cmake"
+    "/home/chenlequn/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/catkin_generated/installspace/point_cloud_processingConfig.cmake"
+    "/home/chenlequn/SIMTech_ws/build/RT_monitoring_application/point_cloud_processing/catkin_generated/installspace/point_cloud_processingConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/point_cloud_processing" TYPE FILE FILES "/home/david/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/point_cloud_processing" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/RT_monitoring_application/point_cloud_processing/package.xml")
 endif()
 

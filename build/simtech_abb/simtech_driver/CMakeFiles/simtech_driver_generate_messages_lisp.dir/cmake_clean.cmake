@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simtech_driver_generate_messages_lisp"
-  "/home/david/SIMTech_ws/devel/share/common-lisp/ros/simtech_driver/srv/SrvRobotCommand.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_driver/srv/SrvRobotCommand.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

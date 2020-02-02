@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/laser_control_generate_messages_cpp"
-  "/home/david/SIMTech_ws/devel/include/laser_control/MsgControl.h"
-  "/home/david/SIMTech_ws/devel/include/laser_control/MsgPower.h"
-  "/home/david/SIMTech_ws/devel/include/laser_control/MsgEmission.h"
-  "/home/david/SIMTech_ws/devel/include/laser_control/MsgStart.h"
-  "/home/david/SIMTech_ws/devel/include/laser_control/MsgInfo.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/laser_control/MsgPower.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/laser_control/MsgInfo.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/laser_control/MsgEmission.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/laser_control/MsgStart.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/laser_control/MsgControl.h"
 )
 
 # Per-language clean rules from dependency scanning.
