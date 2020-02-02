@@ -1,0 +1,17 @@
+<launch>
+  <arg name="robot_ip" default="192.168.125.1" />
+  <arg name="J23_coupled" default="true" />
+  <arg name="laser_type" default="ipg" />
+  <arg name="feeder_type" default="powder" />
+
+  <node name="robot_state" pkg="simtech_robot_laser_control" type="nd_robot_state.py">
+    <param name="robot_ip" type="str" value="$(arg robot_ip)" />
+    <param name="J23_coupled" type="bool" value="$(arg J23_coupled)" />
+  </node>
+
+  <node name="robot_command_server" pkg="simtech_robot_laser_control" type="nd_robot_command.py">
+    <param name="robot_ip" type="str" value="$(arg robot_ip)" />
+    <param name="laser_type" type="str" value="$(arg laser_type)" />
+    <param name="feeder_type" type="str" value="$(arg feeder_type)" />
+  </node>
+</launch>
