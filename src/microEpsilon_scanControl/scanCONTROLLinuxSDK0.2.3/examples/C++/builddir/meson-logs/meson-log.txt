@@ -1,0 +1,33 @@
+Build started at 2020-02-03T16:41:56.968133
+Main binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.45.1
+Source dir: /home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++
+Build dir: /home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir
+Build type: native build
+Project name: cpp_examples
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ /home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir/meson-private/sanitycheckcpp.cc -o /home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir/meson-private/sanitycheckcpp.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir/meson-private/sanitycheckcpp.exe
+Native C++ compiler: c++ (gcc 7.4.0 "c++ (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Found pkg-config: /usr/bin/pkg-config (0.29.1)
+Determining dependency 'aravis-0.6' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency aravis-0.6 found: YES 0.6.1
+Determining dependency 'mescan' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency mescan found: YES 0.2.3
+Determining dependency 'llt' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency llt found: YES 0.2.3
+Determining dependency 'libpng' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency libpng found: YES 1.6.34
+Build targets in project: 8
+Found ninja-1.8.2 at /usr/bin/ninja

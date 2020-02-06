@@ -1,0 +1,55 @@
+v0.2.3 - 21.10.19
+- Added scanCONTROL 25xx support (25 mm, 50 mm, 100mm)
+
+v0.2.2 - 14.06.2019
+- Updated Documentation
+
+v0.2.1 - 01.12.2018
+- Added IP configuration functions
+- Added scanCONTROL 30xx support (25 mm, 50 mm)
+
+v0.2.0 - 03.11.2017
+- Design: all Macros and typedefs relocated to LLTDataTypes.h
+- Design: all functions now in C (libmescan). libllt now C++ wrapper.
+- Design: libmescan.h renamed to mescan.h
+- Design: libllt.h renamed to llt.h
+- Design: device_properties.dat now optional (with file MEDeviceData avail., otherwise scaling and offset only)
+
+- API: removed EventLoop control, use events instead
+- API: create Event changed, event handle now return value
+- API: WaitForSingleObject timeout now in ms
+- API: additional error code and function macros
+- API: TransferProfiles parameter "start_stop" changed from bool to gboolean
+- API: internal parameters now private and not accessible
+- API: added getters for MEDeviceData and ArvDevice
+- API: added ExportLLTConfig / ExportLLTConfigString which writes the sensor settings
+- API: added ImportLLTConfig / ImportLLTConfigString which reads and sets settings from a string, 
+       a .txt file (ExportLLTConfig) or a .sc1 file (Configuration Tools >=5.2)
+- API: added functions to read/write post processing arrays
+- API: added setter/getter for Ethernet heartbeat timeout
+- API: added new feature macros for extra parameter (usable since sensor firmware >v43)
+- API: removed ApplicationData. Added getters for scaling and offset instead.
+- API: C++ class now wrapper only, renamed to CInterfaceLLT
+- API: more entries in TScannerType (respects measuring range)
+- API: added SetPeakFilter, SetFreeMeasuringField, SetDynamicMeasuringFieldTracking
+- API: added ConvertRearrangedContainer2Values
+- API: added API for stream thread control (priority, statistics)
+- API: added TranslateErrorValue to convert error codes to readable 
+- API: changed get_device_name to comply with Windows API
+- API: changed convert_profiles_2_values to comply more with Windows API
+
+- Improved: added polling mode with GetActualProfile
+- Improved: invalid Z values now 0 mm
+- Bugfix: intensity calculation now correct
+- General: general improvements
+- General: improved code compatibility
+- Added python3 module with bindings (to install copy whole pylinllt folder to pythons "site-packages" 
+                                                                                        or "dist-packages" folder)
+- Added C and python3 examples
+- Added example build files for meson build system
+- Note: recommended aravis version: >=0.5.10; minimum for painless operation 0.5.8
+  https://github.com/AravisProject/aravis (C)Emmanuel Pacaud <emmanuel@gnome.org>
+
+v0.1.0 - 20.10.2016
+- Note: initial release
+- Note: supported aravis version: 0.3.7

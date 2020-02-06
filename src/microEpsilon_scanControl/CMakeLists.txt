@@ -38,7 +38,7 @@ FIND_LIBRARY(MESCAN_LIBRARY  mescan)
 catkin_package(
    #INCLUDE_DIRS common/include /usr/local/include/libllt  /usr/local/include/libmescan
    INCLUDE_DIRS common/include /usr/local/include/mescan  
-   LIBRARIES ${PROJECT_NAME} ${LLT_LIBRARY} ${MESCAN_LIBRARY}
+   LIBRARIES ${PROJECT_NAME} ${LLT_LIBRARY} ${MESCAN_LIBRARY} SIMPLE_NODE
    CATKIN_DEPENDS roscpp sensor_msgs std_srvs std_msgs
    DEPENDS Boost ARAVIS)
 
@@ -77,3 +77,10 @@ install(DIRECTORY common/include/
 install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
   PATTERN ".svn" EXCLUDE)
+
+
+
+
+# add_library(SIMPLE_NODE common/src/simple_node_src.cpp)
+# add_executable(SIMPLE_NODE ros/src/Simple_Node.cpp)
+# target_link_libraries(SIMPLE_NODE ${catkin_LIBRARIES} ${LLT_LIBRARY} ${MESCAN_LIBRARY} ${ARAVIS_LIBRARIES})

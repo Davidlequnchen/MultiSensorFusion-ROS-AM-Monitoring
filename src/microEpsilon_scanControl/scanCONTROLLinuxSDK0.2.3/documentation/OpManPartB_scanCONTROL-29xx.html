@@ -1,0 +1,2965 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-gb">
+  <meta name="GENERATOR" content="nvu 1.0">
+  <meta name="COPYRIGHT" content="MICRO-EPSILON Optronic GmbH">
+  <meta name="author" content="Tobias Schüller">
+  <meta http-equiv="EXPIRES" content="0">
+  <meta http-equiv="PRAGMA" content="no-cache">
+  <meta name="ROBOTS" content="index,follow">
+  <meta name="REVISIT-AFTER" content="7 days">
+  <meta name="keywords" content="instruction file">
+  <title>scanCONTROL 2900 Interface Specification</title>
+  <style type="text/css">
+  TABLE { background: #f0f0f0; }
+  CAPTION { font-weight: bold; }
+  ACRONYM { color: #CC0000;}
+  </style>
+</head>
+<body>
+  <table style="background-color: rgb(255, 255, 255);" summary="page header" frame="box" width="100%" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <td align="center">
+          <h1 style="background-color: rgb(255, 255, 255);">Interface Specification for scan<acronym>CONTROL</acronym>&nbsp;2900 Device Family</h1>
+          <h1>Ethernet and Serial Port</h1>
+        </td>
+        <td align="center"><img src="OpManPartB_scanCONTROL-29xx-Dateien/Mologo_Farbe.gif" alt="MICRO-EPSILON" border="0" align="middle"></td>
+      </tr>
+      <tr>
+        <td align="center">
+          <h2>Supplement B to the scan<acronym>CONTROL</acronym>&nbsp;2900 Manual</h2>
+        </td>
+        <td align="center">$Revision: 548ea0657d14 $<br>
+        $Date: 2019/09/19 07:50:10 $</td>
+      </tr>
+      <tr>
+        <td align="center">© MICRO-EPSILON Optronic GmbH, Lessingstr. 14, D-01465 Dresden-Langebrück, Germany<br>
+        e-mail <a href="mailto:optronic@micro-epsilon.de">optronic@micro-epsilon.de</a></td>
+        <td align="center"><a href="http://www.micro-epsilon.de/">www.micro-epsilon.de</a></td>
+      </tr>
+    </tbody>
+  </table><br>
+  <h2><a name="contents" id="contents"></a>Contents</h2>
+  <ul>
+    <li>
+      <a href="#Interface">scan<acronym>CONTROL</acronym> Device Interfaces</a>
+      <ul>
+        <li><a href="#interfaceEthernet">Ethernet (100/1000MBit)</a></li>
+        <li><a href="#InterfaceCOM">Serial Port</a></li>
+        <li><a href="#modbus">Modbus Integration</a> (scan<acronym>CONTROL</acronym> 2910/2960 only)</li>
+        <li><a href="#tcpserver">Measurement server</a> (scan<acronym>CONTROL</acronym> 2910/2960 only)</li>
+        <li><a href="#addresses1394">Address Space</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#features">Description of Feature Registers</a>
+      <ul>
+        <li><a href="#idletime">Idle Time</a></li>
+        <li><a href="#processingprofile">Processing of Profile Data</a></li>
+        <li><a href="#extraparameter">Extraparameter</a></li>
+        <li><a href="#threshold">Threshold</a></li>
+        <li><a href="#shutter">Shutter Time</a></li>
+        <li><a href="#laserpower">Laser Power</a></li>
+        <li><a href="#temperature">Temperature</a></li>
+        <li><a href="#trigger">External Trigger Input</a></li>
+        <li><a href="#zoom">Measuring Field</a></li>
+        <li><a href="#parameterqueue">Parameter Queue</a></li>
+        <li><a href="#cmmtrigger">cmmTrigger</a></li>
+        <li><a href="#maintenance">Maintenance Functions</a></li>
+        <li><a href="#channels">Save and Load of User Modes</a></li>
+        <li><a href="#profilefilter">Profile Filter</a></li>
+        <li><a href="#ioconfig">Multi-Function Port Configuration</a></li>
+        <li><a href="#rearrangementprofile">Rearrangement of Profile Data</a></li>
+      </ul>
+    </li>
+    <li><a href="#profile_data">Description of Profile Data Format</a></li>
+    <li><a href="#container">Container Mode for Transmission</a></li>
+    <li>
+      <a href="#Versioning">Firmware versions</a>
+      <ul>
+        <li><a href="#generalVER">General</a></li>
+        <li><a href="#detailsVER">Details</a></li>
+      </ul>
+    </li>
+  </ul>
+  <h1><a name="Interface" id="Interface"></a>scan<acronym>CONTROL</acronym> Device Interfaces</h1>
+  <p>Ethernet is the standard connection of scan<acronym>CONTROL</acronym> devices to a personal computer. It offers high data rates (up to
+  1000MBits/s), automatic device recognition and hot plugging.</p>
+  <p>All scan<acronym>CONTROL</acronym> devices have a programmable RS422 port which can be used as a half-duplex serial communication port. The
+  limited&nbsp;bandwidth restricts its use to set up and maintenance in most cases.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="interfaceEthernet" id="interfaceEthernet"></a>Ethernet (100/1000MBit)</h2>
+  <p>scan<acronym>CONTROL</acronym>&nbsp;follows the <a href="http://www.machinevisiononline.org/">GigE Vision Standard</a>
+ maintained by the
+  Automated Imaging Association (AIA). It is a passive device and will 
+not initiate any action of its own. However, it automatically starts the
+  standard measurement mode or the last saved user mode after power up 
+or reset.</p>
+  <p>In order for the scan<acronym>CONTROL</acronym> to communicate over ethernet, it must be connected to a PC that is running an application
+  programme. The device implements the control registers as described in the standard and the&nbsp;registers as described below.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="InterfaceCOM" id="InterfaceCOM"></a>Serial Port</h2>The serial ports of scan<acronym>CONTROL</acronym> devices are intended for
+  evaluation and maintenance only. The scan<acronym>CONTROL</acronym> device supports one half-duplex serial port. This port can work in different
+  modes (see&nbsp;<a href="#ioconfig">Multi-Function Port Configuration</a>). The serial communication function supports only a fixed configuration
+  of no parity, 8bits per byte, 2 stop bits and a variable baud rate of 115200, 57600, 38400, 19200 or 9600.
+  <p>Several commands are provided to access the control registers described&nbsp;<a href="#addresses1394">below</a> and to transmit profile data.
+  The scan<acronym>CONTROL</acronym> device uses a plain text protocol that is derived from the <a href="http://www.machinevisiononline.org/">GigE
+  Vision Standard</a>&nbsp;communication protocol.</p>
+  <table summary="none" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <thead align="center">
+      <tr>
+        <th colspan="1" rowspan="2">Command</th>
+        <th colspan="1" rowspan="2">Parameter(s)</th>
+        <th colspan="2" rowspan="1">Answer of scan<acronym>CONTROL</acronym><br></th>
+        <th colspan="1" rowspan="2">description</th>
+      </tr>
+      <tr>
+        <th>no error occurred</th>
+        <th>error occurred</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><tt>setq</tt></td>
+        <td><em>offset</em> <em>value</em></td>
+        <td><tt>#0</tt></td>
+        <td><tt>#7</tt></td>
+        <td>write quadlet (=32Bit)</td>
+      </tr>
+      <tr>
+        <td><tt>getq</tt></td>
+        <td><em>offset</em></td>
+        <td><tt>#q <em>address</em> <em>value</em></tt></td>
+        <td><tt>#q <em>address</em>0x00000000</tt></td>
+        <td>read quadlet (=32Bit)</td>
+      </tr>
+      <tr>
+        <td><tt>trig</tt></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>generate a (fake) trigger pulse, only useful if switched to external trigger</td>
+      </tr>
+      <tr>
+        <td><tt>dump</tt></td>
+        <td><em>value</em></td>
+        <td></td>
+        <td></td>
+        <td><em>value</em>=0 disables transmission of profile data<br>
+        <em>value</em>=1 enables transmission of profile data<br>
+        <em>value</em>=5 enables transmission of profile data, coordinates and intensity</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><em>offset</em>:<br>
+  The offset of&nbsp;control registers described&nbsp;<a href="#addresses1394">below</a>, can be decimal or hexadecimal, must be preceded by
+  <tt>0x</tt> in the latter case.</p>
+  <p><em>value</em>:<br>
+  The value to be written to address or parameter for command, can be decimal or hexadecimal, must be preceded by <tt>0x</tt> in the latter case.</p>
+  <p><em>profile data</em>:<br>
+  Profile data are transmitted as two or three columns of decimal 
+integers. The first column contains the position, the second one the 
+distance and
+  the third one the intensity. The header is <tt># iso</tt>.<br>
+  Example 1:</p>
+  <pre>  # iso<br><br>42180 42875<br><br>42106 42886<br><br>42031 42877<br><br>41959 42908<br><br>41882 42877<br><br>41813 42939<br><br>...<br></pre>Example
+2:
+  <pre>  # iso<br><br>44582 48230 0010258<br><br>44483 48137 0011335<br><br>44380 48006 0011062<br><br>44277 47864 0011295<br><br>44174 47731 0011096<br><br>44074 47619 0011304<br><br>43972 47493 0010569<br><br>43877 47429 0011589<br><br>43776 47305 0011960<br><br>43675 47183 0012034<br><br>...<br></pre>The
+equations for convert to millimetres are <a href="#profile_data"><strong>here</strong></a>.
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="modbus" id="modbus"></a>Modbus Integration (scan<acronym>CONTROL</acronym> 2910/2960 only)</h2>
+  <p>The scan<acronym>CONTROL</acronym> device supports Modbus RTU via serial interface and Modbus TCP via Ethernet Interface.</p>
+  <p>For using Modbus RTU the serial interface parameters baudrate, 
+start bit (none), stop bit (2), parity bits (none) and flow control 
+(none) have
+  to be set the same way like for ascii communication.</p>
+  <p>For Modbus TCP, the port 502 is open. It is possible to use profile
+ data transmission (GigE-Vision) and modbus communication via Ethernet 
+at the
+  same time.</p>
+  <p>scan<acronym>CONTROL</acronym> supports the following Modbus commands of the Modbus standard:</p>
+  <ul>
+    <li>Read Holding Registers (03)</li>
+    <li>Read Input Registers (04)</li>
+    <li>Write Single Holding Registers (06)</li>
+    <li>Write Multiple Register (16)</li>
+    <li>Read Device Identification (43/14)</li>
+  </ul>
+  <p>After the computation of the measurement values has been finished on the sensor controller (according to the parametrisation of
+  scan<acronym>CONTROL</acronym> Setup Software) the input registers are actualised with the current measurement values. This happens with the
+  specified profile frequency. These values can now be obtained by reading the input registers of the sensor.</p>
+  <p>Alternatively it is possible to copy the current state of the input
+ registers into the holding registers of the sensor (see example below).
+ The
+  values can now be transmitted by reading the holding registers. The 
+holding registers keep their values until the next input register block 
+is
+  copied to the holding registers or the holding registers are reset.</p>
+  <p>Example:</p>
+  <ol>
+    <li>Copy the input registers into the holding registers (write 1 to register 32):<br>
+    → Modbus command: 01 06 00 20 00 01 49 C0</li>
+    <li>Read 24 holding registers beginning from address 0:<br>
+    → Modbus command: 01 03 00 00 00 18 45 C0</li>
+    <li>Reset the holding registers (write 0 to register 32):<br>
+    → Modbus command: 01 06 00 20 00 00 18 00</li>
+  </ol>
+  <p>For a closer description of the modbus commands please refer to the Modbus Protocol Specification available at <a href="http://www.modbus.org/">http://www.modbus.org</a>.</p>
+  <p>The holding register 32 acts as a command interface and supports the following commands:</p>
+  <table cellspacing="2" cellpadding="2" border="1">
+    <tbody>
+      <tr>
+        <th>Value written to holding register 32</th>
+        <th>Command description</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>reset holding registers 0..31 to 0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>copy input registers 0..31 into holding registers 0..31</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>SETQ, see below</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>GETQ, see below</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The GETQ and SETQ commands access the sensor's internal registers. 
+They additionally use the holding registers 34 (lower 16bit of address),
+ 35
+  (upper 16bit of address), 36 (lower 16bit of&nbsp; data) and 37 (upper
+ 16bit of data).&nbsp;</p>
+  <p>Example 1: switch the laser power</p>
+  <table cellspacing="2" cellpadding="2" border="1">
+    <colgroup>
+      <col width="16%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+    </colgroup>
+    <tbody>
+      <tr>
+        <th>Holding register</th>
+        <td>32</td>
+        <td>33</td>
+        <td>34</td>
+        <td>35</td>
+        <td>36</td>
+        <td>37</td>
+      </tr>
+      <tr>
+        <th>Value</th>
+        <td>2 (SETQ)</td>
+        <td>0</td>
+        <td>0x0824</td>
+        <td>0xf0f0</td>
+        <td>0x0 to switch off<br>
+        0x1 to switch to reduced power<br>
+        0x2 to switch to standard power</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Example 2: switch user mode</p>
+  <table cellspacing="2" cellpadding="2" border="1">
+    <colgroup>
+      <col width="16%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+    </colgroup>
+    <tbody>
+      <tr>
+        <th>Holding register</th>
+        <td>32</td>
+        <td>33</td>
+        <td>34</td>
+        <td>35</td>
+        <td>36</td>
+        <td>37</td>
+      </tr>
+      <tr>
+        <th>Value</th>
+        <td>2 (SETQ)</td>
+        <td>0</td>
+        <td>0x0624</td>
+        <td>0xf0f0</td>
+        <td>0</td>
+        <td>0x0000&nbsp;load&nbsp;factorys&nbsp;settings<br>
+        0x1000 load user mode 1<br>
+        0x2000 load user mode 3<br>
+        ...<br>
+        0xf000 load user mode 15</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The data can be sent as one multiple write command or as several 
+single writes. In the latter case, the write to register 32 has to be 
+issued
+  last.</p>
+  <p>Example 3: read current user mode</p>
+  <table cellspacing="2" cellpadding="2" border="1">
+    <colgroup>
+      <col width="16%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+      <col width="14%">
+    </colgroup>
+    <tbody>
+      <tr>
+        <th>Holding register</th>
+        <td>32</td>
+        <td>33</td>
+        <td>34</td>
+        <td>35</td>
+        <td>36</td>
+        <td>37</td>
+      </tr>
+      <tr>
+        <th>Value</th>
+        <td>3&nbsp;(GETQ)</td>
+        <td>0</td>
+        <td>0x0624</td>
+        <td>0xf0f0</td>
+        <td>0</td>
+        <td>0x0000&nbsp;factorys&nbsp;settings<br>
+        0x1000 user mode 1<br>
+        0x2000&nbsp;user mode 3<br>
+        ...<br>
+        0xf000 user mode 15</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>First, the GetQ command is initiated by writing the registers 
+32..35. The data can be sent as one multiple write command or as several
+ single
+  writes. In the latter case, the write to register 32 has to be issued 
+last. Then, the content of the requested internal register is available 
+at
+  registers 36 and 37.</p>
+  <p align="right">Back to <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/OpManPartB.html#contents">Contents</a>.</p>
+  <h2><a name="tcpserver" id="tcpserver"></a>Measurement Server (scan<acronym>CONTROL</acronym> 2910/2960 only)</h2>
+  <p>The scan<acronym>CONTROL</acronym> device can send measurement results to a target host using a Telnet UDP connection.&nbsp;</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="appendix" id="appendix"></a>Appendix</h2>
+  <h3><a name="pinoutrs422" id="pinoutrs422"></a>Pinout of the Multi-Function Port</h3>
+  <center>
+    <table summary="Pinout" frame="box" cellspacing="1" cellpadding="5" border="1">
+      <tbody>
+        <tr>
+          <th>Pin</th>
+          <th>Function</th>
+          <th>Wire colour at the included cable PC2600/2900-x</th>
+        </tr>
+        <tr align="center">
+          <td>1</td>
+          <td>-Laser on/off (optional)</td>
+          <td>brown</td>
+        </tr>
+        <tr align="center">
+          <td>2</td>
+          <td>GND (24V)</td>
+          <td>blue</td>
+        </tr>
+        <tr align="center">
+          <td>3</td>
+          <td>+Laser on/off (optional)</td>
+          <td>white</td>
+        </tr>
+        <tr align="center">
+          <td>4</td>
+          <td>GND-In1</td>
+          <td>green</td>
+        </tr>
+        <tr align="center">
+          <td>5</td>
+          <td>In2</td>
+          <td>pink</td>
+        </tr>
+        <tr align="center">
+          <td>6</td>
+          <td>In1</td>
+          <td>yellow</td>
+        </tr>
+        <tr align="center">
+          <td>7</td>
+          <td>GND-In3</td>
+          <td>black</td>
+        </tr>
+        <tr align="center">
+          <td>8</td>
+          <td>GND-In2</td>
+          <td>grey</td>
+        </tr>
+        <tr align="center">
+          <td>9</td>
+          <td>+Ub (24V)</td>
+          <td>red</td>
+        </tr>
+        <tr align="center">
+          <td>10</td>
+          <td>In3</td>
+          <td>violet</td>
+        </tr>
+        <tr align="center">
+          <td>11</td>
+          <td>/RS422</td>
+          <td>grey-pink</td>
+        </tr>
+        <tr align="center">
+          <td>12</td>
+          <td>RS422</td>
+          <td>red-blue</td>
+        </tr>
+      </tbody>
+    </table>
+  </center>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="addresses1394" id="addresses1394"></a>Address Space</h2>
+  <ul>
+    <li>The following table defines the control registers and their meaning for scan<acronym>CONTROL</acronym>.</li>
+    <li>Numbers starting with <tt>0x</tt> are hexadecimal.</li>
+    <li><em>The most significant bit is denoted with Bit 31, the least significant bit with Bit 0.</em></li>
+    <li>scan<acronym>CONTROL</acronym> supports quadlet transfers and block transfers up to 536 bytes.</li>
+    <li><em>The requested addresses must be aligned to 4-byte boundaries. Block transfers have a granularity of 4 bytes.</em></li>
+    <li>It is&nbsp;recommended to use the either the provided C/C++ SDK or a GigE-Vision/GenIcam framework.</li>
+  </ul>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <table summary="address list" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <thead align="left">
+      <tr bgcolor="gray">
+        <th colspan="3">Offset<br>
+        R=Readable<br>
+        W=Writable</th>
+        <th>Initial value</th>
+        <th>Register name</th>
+        <th>Register description</th>
+      </tr>
+    </thead>
+    <tbody align="right">
+      <tr bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Camera initialise register</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00000</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">INITIALIZE</td>
+        <td align="left">loads standard mode if written to (factory settings)</td>
+      </tr>
+      <tr bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Inquiry register for data transmission mode</td>
+      </tr>
+      <tr>
+        <td style="height: 234px;"><tt>0xf0f0019c</tt></td>
+        <td style="height: 234px;">R</td>
+        <td style="height: 234px;">-</td>
+        <td style="height: 234px;"><tt>0xfd000000</tt></td>
+        <td style="height: 234px;" align="left">TRANSMISSION_MODE</td>
+        <td style="height: 234px;" align="left">
+          supported data transmission modes:
+          <ol start="0">
+            <li>256 × 256 × 8bit: video image mode</li>
+            <li>1280 × 1024 × 8bit: video image mode</li>
+            <li>64 × 1280 × 8bit: profile mode, 1280 points/profile, 1 profile/frame</li>
+            <li>64 × 640 × 8bit: profile mode, 640 points/profile, 1 profile/frame</li>
+            <li>64 × 320 × 8bit: profile mode, 320 points/profile, 1 profile/frame</li>
+            <li>64 × 160 × 8bit: profile mode, 160 points/profile, 1 profile/frame</li>
+            <li>reserved</li>
+            <li>16384 × 4096 × 8bit: container mode</li>
+          </ol>
+        </td>
+      </tr>
+      <tr bgcolor="#E0E0E0">
+        <td style="height: 30px;" colspan="6" align="left">Inquiry registers for the base addresses of the transmission mode control and status
+        registers</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002e0</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00380000</tt></td>
+        <td align="left">V_CSR_INQ_7_0</td>
+        <td align="left">CSR quadlet offset for Mode_0, points to <a href="#f0e00000"><tt>0xf0e00000</tt></a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002e4</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00380040</tt></td>
+        <td align="left">V_CSR_INQ_7_1</td>
+        <td align="left">CSR quadlet offset for Mode_1, points to <a href="#f0e00100"><tt>0xf0e00100</tt></a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002e8</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00380080</tt></td>
+        <td align="left">V_CSR_INQ_7_2</td>
+        <td align="left">CSR quadlet offset for Mode_2, points to <a href="#f0e00200"><tt>0xf0e00200</tt></a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002ec</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x003800c0</tt></td>
+        <td align="left">V_CSR_INQ_7_3</td>
+        <td align="left">CSR quadlet offset for Mode_3, points to <a href="#f0e00300"><tt>0xf0e00300</tt></a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002f0</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00380100</tt></td>
+        <td align="left">V_CSR_INQ_7_4</td>
+        <td align="left">CSR quadlet offset for Mode_4, points to <a href="#f0e00300"><tt>0xf0e00400</tt></a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002f4</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00380140</tt></td>
+        <td align="left">V_CSR_INQ_7_5</td>
+        <td align="left">CSR quadlet offset for Mode_5, points to <a href="#f0e00300"><tt>0xf0e00500</tt></a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002f8</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00380180</tt></td>
+        <td align="left">V_CSR_INQ_7_6</td>
+        <td align="left">not used<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f002fc</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x003801c0</tt></td>
+        <td align="left">V_CSR_INQ_7_7</td>
+        <td align="left">CSR quadlet offset for Mode_7, points to <a href="#f0e00500"><tt>0xf0e00700</tt></a></td>
+      </tr>
+      <tr bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Inquiry register for basic function</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00400</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x0000180f</tt></td>
+        <td align="left">BASIC_FUNC_INQ</td>
+        <td align="left">One_Shot and Multi_Shot, Maximum memory channel number is 15</td>
+      </tr>
+      <tr bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Inquiry register for feature presence</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00404</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0xfb480000</tt></td>
+        <td align="left">FEATURE_HI_INQ</td>
+        <td align="left">idle time, processing of profile data, access extra parameter, rearrangement of profile data, threshold, profile filter,
+        shutter, laser, temperature, trigger</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00408</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0xd0008000</tt></td>
+        <td align="left">FEATURE_LO_INQ</td>
+        <td align="left">zoom, access parameter queue, maintenance functions, digital IO Configuration</td>
+      </tr>
+      <tr bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Inquiry register for feature elements</td>
+      </tr>
+      <tr id="f00500">
+        <td><tt>0xf0f00500</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89001fff</tt></td>
+        <td align="left">IDLE_INQ</td>
+        <td align="left">ReadOut, Manual, Min=1, Max=4095, <a href="#idletime">idle time</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00504</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">PROCESSING_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095, <a href="#processingprofile">processing of profile data</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00508</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">EXTRAPARAMETER_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095,<a href="#extraparameter">access extra parameter</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0050c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">REARRANGEMENT_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095, <a href="#rearrangementprofile">rearrangement of profile data</a><br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00510</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">THRESHOLD_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095, <a href="#threshold">threshold</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00514</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00518</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">PROFILEFILTER_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095, <a href="#profilefilter">profile filter</a><br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0051c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x8b001fff</tt></td>
+        <td align="left">SHUTTER_INQ</td>
+        <td align="left">ReadOut, Manual, Automatic, Min=1, Max=4095, <a href="#shutter">shutter time</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00520</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00524</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000002</tt></td>
+        <td align="left">LASER_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=2, <a href="#laserpower">laser power</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00528</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0052c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">TEMPERATURE_INQ</td>
+        <td align="left">OnePush, ReadOut, Manual, Min=0, Max=4095 <a href="#temperature">temperature</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00530</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x8300c000</tt></td>
+        <td align="left">TRIGGER_INQ</td>
+        <td align="left">supported four modes, two sources and changing polarity of trigger input <a href="#trigger">trigger</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00580</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">ZOOM_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=127 <a href="#zoom">measuring field</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00584</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">PARAMETERQUEUE_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095, <a href="#parameterqueue">access parameter queue</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00588</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">CMMTRIGGER_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095, <a href="#cmmtrigger">configure cmmTrigger</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0058c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">MAINTENANCE_FUNCTIONS_INQ</td>
+        <td align="left">ReadOut, Manual, Min=0, Max=4095, <a href="#maintenance">maintenance functions</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f005c0</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x89000fff</tt></td>
+        <td align="left">DIGITAL_IO_INQ</td>
+        <td align="left">ReadOut, Manual, further information&nbsp;<a href="#ioconfig">Multi-Function Port Configuration</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f005c4</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Status and control registers, values are the factory settings</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00604</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x40000000</tt></td>
+        <td align="left">CUR_TRANSMISSION_MODE</td>
+        <td align="left">current transmission mode (bits 31..29) is number 2</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00614</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">TRANSMISSION_EN</td>
+        <td align="left">enable transmission (bit 31)</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00618</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">MEMORY_SAVE</td>
+        <td align="left">current status and features are saved to memory channel selected with MEM_SAVE_CH<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0061c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">ONE_SHOT<br>
+        MULTI_SHOT<br>
+        COUNT_NR</td>
+        <td align="left">transmit one (bit 31) or multiple (bit 30) frame(s)/profile(s), count number (bits 0..15), self cleared after transmission,
+        ignored if iso_en = 1</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00620</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">MEM_SAVE_CH</td>
+        <td align="left">Memory channel number for save command<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00624</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">CUR_MEM_CH</td>
+        <td align="left">Loads stored status and features from the specified memory channel<br></td>
+      </tr>
+      <tr bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Status and control registers for features</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00800</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x820003de</tt></td>
+        <td align="left">IDLE TIME</td>
+        <td align="left"><a href="#idletime">idle time 9.9ms</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00804</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x8200020f</tt></td>
+        <td align="left">PROCESSING_PROFILE_DATA</td>
+        <td align="left"><a href="#processingprofile">use calibration, high resolution, process only highest integral intensity, no flipping, align
+        right edge</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00808</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000000</tt></td>
+        <td align="left">EXTRAPARAMETER</td>
+        <td align="left"><a href="#extraparameter">last command to access the extra parameter</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0080c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000000</tt></td>
+        <td align="left">REARRANGEMENT_PROFILEDATA</td>
+        <td align="left"><a href="#rearrangementprofile">no rearrangement of profile data</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00810</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000c80</tt></td>
+        <td align="left">THRESHOLD</td>
+        <td align="left"><a href="#threshold">threshold = 128, video filter, suppress ambient light</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00814</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00818</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000000</tt></td>
+        <td align="left">PROFILE_FILTER</td>
+        <td align="left"><a href="#profilefilter">no profile filter</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0081c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x8300000a</tt></td>
+        <td align="left">SHUTTER</td>
+        <td align="left"><a href="#shutter">automatic enabled, target shutter time 0.1ms, with idle time 9.9ms the profile frequency is
+        100Hz</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00820</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00824</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000002</tt></td>
+        <td align="left">LASER_POWER</td>
+        <td align="left"><a href="#laserpower">laser power standard</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00828</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0082c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">TEMPERATURE</td>
+        <td align="left"><a href="#temperature">temperature of the sensor</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00830</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x80000000</tt></td>
+        <td align="left">TRIGGER</td>
+        <td align="left"><a href="#trigger">external trigger disabled</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00880</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000000</tt></td>
+        <td align="left">ZOOM</td>
+        <td align="left"><a href="#zoom">measuring field 0</a>, see <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/QuickReference.html#bildfeld">Section Measuring Field</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00884</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000000</tt></td>
+        <td align="left">PARAMETER_QUEUE</td>
+        <td align="left"><a href="#parameterqueue">last command to access the parameter queue</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f00888</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">CMMTRIGGER</td>
+        <td align="left"><a href="#cmmtrigger">last command to configure cmmTrigger</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f0088c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x82000000</tt></td>
+        <td align="left">MAINTENANCE</td>
+        <td align="left"><a href="#maintenance">maintenance functions disabled</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f008c0</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">DIGITAL_IO_CONFIG</td>
+        <td align="left"><a href="#ioconfig">serial communication at 115.2kBaud,&nbsp;Trigger input In1</a></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0f008c4</tt></td>
+        <td>-</td>
+        <td>-</td>
+        <td align="center">-</td>
+        <td align="center">-</td>
+        <td align="left">not used</td>
+      </tr>
+      <tr id="f0e00000" bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Transmission mode&nbsp;control and status registers for Mode_0, video image mode</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00000</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x01000100</tt></td>
+        <td align="left">MAX_IMAGE_SIZE_INQ</td>
+        <td align="left">256 × 256</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00004</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x01000100</tt></td>
+        <td align="left">UNIT_SIZE_INQ</td>
+        <td align="left">4 × 4,<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00008</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">IMAGE_POSITION</td>
+        <td align="left">upper left edge of transmitted area,<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0000C</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x01000100</tt></td>
+        <td align="left">IMAGE_SIZE</td>
+        <td align="left">size of transmitted area,<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00010</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">COLOR_CODING_ID</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00014</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x80000000</tt></td>
+        <td align="left">COLOR_CODING_INQ</td>
+        <td align="left">only Mono8</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00018<br>
+        ...<br>
+        0xf0e00030</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td></td>
+        <td align="left">filled to support block transfers</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00034</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00010000</tt></td>
+        <td align="left">PIXEL_NUMBER_INQ</td>
+        <td align="left">updated according to the transmitted area</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00038</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">TOTAL_BYTES_HI_INQ</td>
+        <td align="left">updated according to the transmitted area</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0003c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00010000</tt></td>
+        <td align="left">TOTAL_BYTES_LO_INQ</td>
+        <td align="left">updated according to the transmitted area</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00040</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00041000</tt></td>
+        <td align="left">PACKET_PARA_INQ</td>
+        <td align="left">minimal ¦ maximal packet size is 4 ¦ 4096 byte</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00044</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x04000400</tt></td>
+        <td align="left">BYTE_PER_PACKET</td>
+        <td align="left">actual 1024 byte/packet, recommended 1024 byte/packet<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00048</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000040</tt></td>
+        <td align="left">PACKET_PER_FRAME_INQ</td>
+        <td align="left">recalculated automatically after setting of BYTE_PER_PACKET</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0004c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">UNIT_POSITION_INQ</td>
+        <td align="left">UNIT_POSITION defaults to UNIT_SIZE</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0007c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">VALUE_SETTINGS</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr id="f0e00100" bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Transmission mode&nbsp;control and status registers for Mode_1, video image mode</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00100</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x04000400</tt></td>
+        <td align="left">MAX_IMAGE_SIZE_INQ</td>
+        <td align="left">1280 × 1024</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00104</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x04000400</tt></td>
+        <td align="left">UNIT_SIZE_INQ</td>
+        <td align="left">1280 × 1024</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00108</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">IMAGE_POSITION</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0010C</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x04000400</tt></td>
+        <td align="left">IMAGE_SIZE</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00110</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">COLOR_CODING_ID</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00114</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x80000000</tt></td>
+        <td align="left">COLOR_CODING_INQ</td>
+        <td align="left">only Mono8</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00118<br>
+        ...<br>
+        0xf0e00130</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td></td>
+        <td align="left">filled to support block transfers</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00134</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00100000</tt></td>
+        <td align="left">PIXEL_NUMBER_INQ</td>
+        <td align="left">hard wired</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00138</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">TOTAL_BYTES_HI_INQ</td>
+        <td align="left">hard wired</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0013c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00100000</tt></td>
+        <td align="left">TOTAL_BYTES_LO_INQ</td>
+        <td align="left">hard wired</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00140</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00041000</tt></td>
+        <td align="left">PACKET_PARA_INQ</td>
+        <td align="left">minimal ¦ maximal packet size is 4 ¦ 4096 byte</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00144</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x04001000</tt></td>
+        <td align="left">BYTE_PER_PACKET</td>
+        <td align="left">actual 1024 byte/packet, recommended 2048 byte/packet<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00148</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000400</tt></td>
+        <td align="left">PACKET_PER_FRAME_INQ</td>
+        <td align="left">recalculated automatically after setting of BYTE_PER_PACKET</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0014c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">UNIT_POSITION_INQ</td>
+        <td align="left">UNIT_POSITION defaults to UNIT_SIZE</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0017c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">VALUE_SETTINGS</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr id="f0e00200" bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Transmission mode&nbsp;control and status registers for Mode_2 see section <a href="#profile_data">Description
+        of Profile Data Format</a>.</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00200</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00400100</tt></td>
+        <td align="left">MAX_IMAGE_SIZE_INQ</td>
+        <td align="left">64 × 1280</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00204</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00040001</tt></td>
+        <td align="left">UNIT_SIZE_INQ</td>
+        <td align="left">4 × 4,<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00208</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">IMAGE_POSITION</td>
+        <td align="left">upper left edge of transmitted area,<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0020C</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00400100</tt></td>
+        <td align="left">IMAGE_SIZE</td>
+        <td align="left">size of transmitted area,<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00210</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">COLOR_CODING_ID</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00214</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x80000000</tt></td>
+        <td align="left">COLOR_CODING_INQ</td>
+        <td align="left">only Mono8</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00218<br>
+        ...<br>
+        0xf0e00230</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td></td>
+        <td align="left">filled to support block transfers</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00234</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00004000</tt></td>
+        <td align="left">PIXEL_NUMBER_INQ</td>
+        <td align="left">updated according to the transmitted area</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00238</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">TOTAL_BYTES_HI_INQ</td>
+        <td align="left">updated according to the transmitted area</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0023c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00004000</tt></td>
+        <td align="left">TOTAL_BYTES_LO_INQ</td>
+        <td align="left">updated according to the transmitted area</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00140</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00041000</tt></td>
+        <td align="left">PACKET_PARA_INQ</td>
+        <td align="left">minimal ¦ maximal packet size is 4 ¦ 4096 byte</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00144</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x04001000</tt></td>
+        <td align="left">BYTE_PER_PACKET</td>
+        <td align="left">actual 1024 byte/packet, recommended 2048 byte/packet<br></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e00148</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000010</tt></td>
+        <td align="left">PACKET_PER_FRAME_INQ</td>
+        <td align="left">recalculated automatically after setting of BYTE_PER_PACKET</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0014c</tt></td>
+        <td>R</td>
+        <td>-</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">UNIT_POSITION_INQ</td>
+        <td align="left">UNIT_POSITION defaults to UNIT_SIZE</td>
+      </tr>
+      <tr>
+        <td><tt>0xf0e0017c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">VALUE_SETTINGS</td>
+        <td align="left">ignored</td>
+      </tr>
+      <tr id="f0e00300" bgcolor="#E0E0E0">
+        <td colspan="6" align="left">Mode_3, Mode_4 and Mode_5 have a description similar to <a href="#f0e00200">Mode_2</a> but measure profiles with
+        640, 320 and 160 points, respectively. The transmission mode control and status registers start at addresses <tt>0xf0e00300</tt>,
+        <tt>0xf0e00400</tt>, <tt>0xf0e00500</tt>, respectively.</td>
+      </tr>
+      <tr id="f0e00500" bgcolor="#E0E0E0">
+        <td colspan="6" align="left">The remaining Mode_7 is used as a general container mode. See <a href="#container">Container Mode for
+        Transmission</a>.</td>
+      </tr>
+      <tr bgcolor="silver">
+        <td colspan="6" align="left"><strong>The following addresses provide easy access to the parameter queue for post processing.</strong></td>
+      </tr>
+      <tr>
+        <td><tt>0xf0b00000<br>
+        ...<br>
+        0xf0b0018c</tt></td>
+        <td>R</td>
+        <td>W</td>
+        <td><tt>0x00000000</tt></td>
+        <td align="left">PARAM_QUEUE</td>
+        <td align="left">parameter queue for post processing, 1024 quadlets.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="features" id="features"></a>Description of Feature Registers</h2>
+  <p>Each feature provides an inquiry register and a status and control 
+register. The inquiry registers indicate the presences, functionality 
+and
+  minimum/maximum values. The status and control registers contain the 
+actual value in the lower 12 bits and some additional mode bits.</p>
+  <h3><a name="idletime" id="idletime"></a>Idle Time</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Idle Time</td>
+        <td><tt>0xfffff0f00500</tt></td>
+        <td><tt>0xfffff0f00800</tt></td>
+        <td><tt>0x820003de</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Idle time in steps of 10 µs, the profile frequency yields from:</p>
+  <pre>profile rate = 1 / ( shutter time + idle time )<br></pre><br>
+  The image sensor supports interleaved read out. If the shutter time is
+ long enough for read out the idle time can be decreased down to 10µs. 
+The
+  highest profile rate depends on the actual video mode (e.g. how many 
+points per profile) and on the measurement field (e.g. how many imager 
+columns
+  are needed to cover that field). See <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/QuickReference.html#bildfeld">Section Measuring Field</a> for further details.
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="processingprofile" id="processingprofile"></a>Processing of Profile Data</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Processing_ProfilData</td>
+        <td><tt>0xfffff0f00504</tt></td>
+        <td><tt>0xfffff0f00804</tt></td>
+        <td><tt>0x82000a0f</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>How to process profile data.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td><strong>modes 2..7 (profile modes):</strong> resolution of distance coordinate: must be 1 for high resolution, low resolution mod not
+        supported<br>
+        <strong>modes 0..1 (camera modes:</strong> 1 transmit upper 8 bits (bits 9..2), 0 transmit lower 8 bits (bits 7..0) of the internal 10bit
+        analogue to digital converter</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>calibration (convert imager row/column numbers to millimetres): 1 On / 0 Off (faster, only useful for special applications)<br></td>
+      </tr>
+      <tr>
+        <td>2..4</td>
+        <td>
+          processing of multiple reflections:
+          <ol start="0">
+            <li>process all reflections</li>
+            <li>process only the first reflection</li>
+            <li>process only the last reflection and copy it to the first position</li>
+            <li>process only the reflection with the highest integral intensity and copy it to the first position</li>
+            <li>process only the reflection with the highest maximum intensity and copy it to the first position</li>
+            <li>process&nbsp;reflections only if there is only one valid reflection</li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>enable post processing of profiles (scan<acronym>CONTROL</acronym> 2910/2960 only)</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>flip distance coordinate</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>flip position coordinate</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>delay shutter automatic until all processing has been finished:<br>
+        if unset the new shutter time is calculated after processing of multiple reflections,<br>
+        if set the new shutter time is calculated after all processing of profile data including post processing</td>
+      </tr>
+      <tr>
+        <td>9..10</td>
+        <td>
+          alignment of consecutive shutter intervals (only useful in combination with automatic shutter):
+          <ol start="0">
+            <li>align centre of subsequent shutter intervals</li>
+            <li>align right edge (end) of subsequent shutter intervals</li>
+            <li>align left edge (beginning) of subsequent shutter intervals</li>
+            <li>no alignment, fastest response</li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>automatic shutter algorithm, 1=advanced (default, recommended), 0=compatibility</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Order of Data Processing</p>
+  <ol>
+    <li>detection of up to 4 reflections per position, calculation of coarse positions and reflection characteristics</li>
+    <li>reflection selection (according to processing of multiple reflections)</li>
+    <li>early shutter automatic (if selected)</li>
+    <li>sub pixel algorithm</li>
+    <li>calibration (if selected)</li>
+    <li>digital flipping of coordinates (if selected)</li>
+    <li>profile filter (if selected)</li>
+    <li>post processing (if selected)</li>
+    <li>late shutter automatic (if selected)</li>
+    <li>parameter loop back (if selected)</li>
+    <li>rearrangement of data (if selected)</li>
+    <li>compress profile data for transfer</li>
+  </ol>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="extraparameter" id="extraparameter"></a>Extra Parameter</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Extra parameter</td>
+        <td><tt>0xfffff0f00508</tt></td>
+        <td><tt>0xfffff0f00808</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table><br>
+  <p>The access on the Extra parameter is done with the Extra parameter 
+Register, in the same way as specified for the Parameter queue-Register</p>
+  <table cellspacing="2" cellpadding="2" border="1">
+    <tbody>
+      <tr>
+        <th>Byte address</th>
+        <th>Value</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>0</th>
+        <td>maximum width of reflection in pixels (default 1023)</td>
+        <td rowspan="4">this filter restricts the properties of the located peaks</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>minimum width of reflection in pixels (default 2)</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>maximum intensity of reflection above the threshold (default 1023)</td>
+      </tr>
+      <tr>
+        <th>6</th>
+        <td>minimum intensity of reflection above the threshold (default 0)</td>
+      </tr>
+      <tr>
+        <th>8</th>
+        <td>free measuring field start_z</td>
+        <td rowspan="4">
+          fractional values, 65536 means complete imager. Example:<br>
+          <pre>size_x = size_z = 6553</pre>
+          <pre>start_x = start_z = 29591</pre>means a measuring field of size 10% × 10% starting at 45% for both directions.<br>
+          See section <a href="#zoom">Measuring Field</a> for further details. These settings are enabled by the bit 11 in the&nbsp;<a href="#zoom">Measuring Field Feature</a> .
+        </td>
+      </tr>
+      <tr>
+        <th>10</th>
+        <td>free measuring field size_z</td>
+      </tr>
+      <tr>
+        <th>12</th>
+        <td>free measuring field start_x</td>
+      </tr>
+      <tr>
+        <th>14</th>
+        <td>free measuring field size_x</td>
+      </tr>
+      <tr>
+        <th>16</th>
+        <td>dynamic measurement field tracking divisor x</td>
+        <td rowspan="4">
+          parameters for the dynamic measurement field tracking using 
+the encoder. If enabled, the chosen measurement field will move 
+according to
+          the encoder signal and the following formula:<br>
+          <pre>start_dyn_x = start_x + encoder / divisor_x * multiplier_x * 256 / 1280</pre>
+          <pre>start_dyn_z = start_z + encoder / divisor_z * multiplier_z * 256 / 1024</pre>The
+ formula assumes values for start_x and start_z as
+          described above (free measurement field). The terms 
+encoder/divisor means integer division, only the integer part is used.<br>
+          Dynamic tracking is enabled by non-zero parameters. All 
+parameters are unsigned values. The direction of tracking can be 
+reversed by
+          swapping encoder tracks A and B.
+        </td>
+      </tr>
+      <tr>
+        <th>18</th>
+        <td>dynamic measurement field tracking divisor z</td>
+      </tr>
+      <tr>
+        <th>20</th>
+        <td>dynamic measurement field tracking multiplier x</td>
+      </tr>
+      <tr>
+        <th>22</th>
+        <td>dynamic measurement field tracking multiplier z</td>
+      </tr>
+      <tr>
+        <th>24..31</th>
+        <td colspan="2" align="center">reserved</td>
+      </tr>
+      <tr>
+        <th>32..63</th>
+        <td>custom calibration parameter queue</td>
+        <td>special post processing queue, is saved only once for all user modes</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="threshold" id="threshold"></a>Threshold</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Threshold</td>
+        <td><tt>0xfffff0f00510</tt></td>
+        <td><tt>0xfffff0f00810</tt></td>
+        <td><tt>0x82000c80</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Minimum intensity for recognition of reflections and video filter. 
+The automatic bit (Bit 24) controls the dynamic threshold. If set the
+  threshold is automatically controlled depending on the measured 
+object.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bits</th>
+        <th>11</th>
+        <th>10</th>
+        <th>9..0</th>
+      </tr>
+      <tr>
+        <th>video mode 0</th>
+        <td colspan="3" align="center">not used</td>
+      </tr>
+      <tr>
+        <th>video mode 1</th>
+        <td colspan="3" align="center">not used</td>
+      </tr>
+      <tr>
+        <th>video mode 2..7</th>
+        <td>video filter</td>
+        <td>ambient light suppression</td>
+        <td>minimum intensity</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="shutter" id="shutter"></a>Shutter Time</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Shutter</td>
+        <td><tt>0xfffff0f0051c</tt></td>
+        <td><tt>0xfffff0f0081c</tt></td>
+        <td><tt>0x8300000a</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Shutter time in steps of 10 µs, the profile frequency yields from:</p>
+  <pre>profile rate = 1 / ( shutter time + idle time )<br></pre><br>
+  The image sensor supports interleaved read out. If the shutter time is
+ long enough for read out the idle time can be decreased down to 10µs. 
+The
+  highest profile rate depends on the actual video mode (e.g. how many 
+points per profile) and on the measurement field (e.g. how many imager 
+columns
+  are needed to cover that field). See <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/QuickReference.html#bildfeld">Section Measuring Field</a> for further details.
+  <p>The automatic bit (Bit 24) controls the automatic shutter. If set 
+the shutter time is automatically controlled depending on the measured 
+object.
+  The value in the lower 12 bits is used as a target value in case there
+ is no object inside the measuring range. The automatic shutter also 
+changes
+  the internal idle time to keep the profile rate constant. Therefore, 
+the equation above remains valid.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="laserpower" id="laserpower"></a>Laser Power</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Laser Power</td>
+        <td><tt>0xfffff0f00524</tt></td>
+        <td><tt>0xfffff0f00824</tt></td>
+        <td><tt>0x82000002</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Laser power.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>1..0</th>
+        <td>
+          <table cellspacing="3" cellpadding="2" border="0">
+            <tbody>
+              <tr>
+                <th scope="row">Bits 1..0</th>
+                <th>Laser Power</th>
+              </tr>
+              <tr>
+                <th scope="row" align="center">0</th>
+                <td>OFF</td>
+              </tr>
+              <tr>
+                <th scope="row" align="center">1</th>
+                <td>reduced power</td>
+              </tr>
+              <tr>
+                <th align="center">2</th>
+                <td>full power</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th>11</th>
+        <td>enable laser&nbsp;pulse mode:&nbsp; the laser is switched on only in the first half of the measurement interval. Additionally
+        the&nbsp;<a href="#differentialModes">Trigger-Out</a> is delayed by half of the measurement interval (or 180 degrees). A synchronised slave
+        sensor would measure during the master's idle time.<br>
+        It is recommended to set up shutter time &lt; idle time.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The basic version of scan<acronym>CONTROL</acronym> is classified as Class 2M laser product with 8mW (standard) and 2mW (reduced) laser
+  power.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="temperature" id="temperature"></a>Temperature</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>temperature</td>
+        <td><tt>0xfffff0f0052c</tt></td>
+        <td><tt>0xfffff0f0082c</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>To get the temperature first write 0x86000000 to the control address, the read back the value.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>11..0</th>
+        <td>temperature, unit 0.1K</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="trigger" id="trigger"></a>External Trigger Input</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Trigger</td>
+        <td><tt>0xfffff0f00530</tt></td>
+        <td><tt>0xfffff0f00830</tt></td>
+        <td><tt>0x81200000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Configure the external trigger input. See <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/QuickReference.html#pinoutrs422">Section Pinout of the Multi-Function Socket</a>.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>11..0</th>
+        <td>encoder divisor</td>
+      </tr>
+      <tr>
+        <th>19..16</th>
+        <td>
+          trigger mode, supported modes are
+          <table summary="TriggerModes">
+            <tbody>
+              <tr>
+                <th>Mode</th>
+                <th>description</th>
+                <th>recommended <a href="#ioconfig">Multi-Function Port</a> setting</th>
+              </tr>
+              <tr>
+                <td align="center">0</td>
+                <td>edge mode, scan<acronym>CONTROL</acronym> starts integrating incoming light from external trigger input leading edge. Shutter
+                time is given by the shutter register or automatically calculated.</td>
+                <td>external trigger input</td>
+              </tr>
+              <tr>
+                <td align="center">1</td>
+                <td>pulse mode, scan<acronym>CONTROL</acronym> starts integrating incoming light from external trigger input leading edge. Shutter
+                time is equal to the active state time of the external trigger input.</td>
+                <td>external trigger input</td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td>gated mode, scan<acronym>CONTROL</acronym> starts integrating incoming light from gate input leading edge. Shutter time is given
+                by the shutter register or automatically calculated. As long as the gate is open, the scan<acronym>CONTROL</acronym> is working.</td>
+                <td>external trigger input</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td>encoder Mode, scan<acronym>CONTROL</acronym>starts integrating incoming light at every encoder position that is a multiple of
+                encoder divisor. Shutter time is given by the shutter register or automatically calculated.</td>
+                <td>encoder</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th>23..21</th>
+        <td>
+          <table cellspacing="3" cellpadding="2" border="0">
+            <tbody>
+              <tr>
+                <th scope="row" colspan="2">trigger source</th>
+              </tr>
+              <tr>
+                <th scope="row">Bits 23..21</th>
+                <th>selected trigger source</th>
+              </tr>
+              <tr>
+                <td scope="row" align="center">0</td>
+                <td>RS422</td>
+              </tr>
+              <tr>
+                <td scope="row" align="center">1</td>
+                <td>Input In1 (Mode 0, 1 and 2) or encoder (Mode 3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th>24</th>
+        <td>
+          <table cellspacing="3" cellpadding="2" border="0">
+            <tbody>
+              <tr>
+                <th scope="row" colspan="2">trigger polarity/ unidirectional encoder behaviour</th>
+              </tr>
+              <tr>
+                <th scope="row">Bits 24</th>
+                <th>Meaning</th>
+              </tr>
+              <tr>
+                <td scope="row" align="center">0</td>
+                <td>trigger low active <strong>or</strong> encoder count down</td>
+              </tr>
+              <tr>
+                <td scope="row" align="center">1</td>
+                <td>trigger high active <strong>or</strong> encoder count up</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th>25</th>
+        <td>enable external trigger if set to 1</td>
+      </tr>
+    </tbody>
+  </table><br>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="zoom" id="zoom"></a>Measuring Field</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Zoom</td>
+        <td><tt>0xfffff0f00580</tt></td>
+        <td><tt>0xfffff0f00880</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>It can only used the predefined field or the free field</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>10..0</th>
+        <td>predefined imager region, see <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/QuickReference.html#bildfeld">Section Measuring Field</a></td>
+      </tr>
+      <tr>
+        <th>11</th>
+        <td>enabled the free measurement field see <a href="#extraparameter">Extraparameter</a> , 1 = On, 0 = Off</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="parameterqueue" id="parameterqueue"></a>Parameter Queue</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Parameter Queue</td>
+        <td><tt>0xfffff0f00584</tt></td>
+        <td><tt>0xfffff0f00884</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Accesses the parameter queue for post processing.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="cmmtrigger" id="cmmtrigger"></a>cmmTrigger</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>CMM-Trigger</td>
+        <td><tt>0xfffff0f00588</tt></td>
+        <td><tt>0xfffff0f00888</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Configure the optional trigger output for tracking systems.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bits 11..10</th>
+        <th>Bit 9</th>
+        <th>Bit 8</th>
+        <th>Bits 7..0</th>
+      </tr>
+      <tr>
+        <td align="center">0</td>
+        <td>polarity</td>
+        <td>not used</td>
+        <td>divisor (unsigned integer), 0 disables trigger output</td>
+      </tr>
+      <tr>
+        <td align="center">1</td>
+        <td>not used</td>
+        <td colspan="2">approximate mark space ratio (signed integer), -1, 0 or 1 mean 1:1, -2 means 1:2, 2 means 2:1 and so on</td>
+      </tr>
+      <tr>
+        <td align="center">2</td>
+        <td colspan="3">skew correction (signed integer), in 0.5µs units, must be smaller than half of the shutter/idle time</td>
+      </tr>
+      <tr>
+        <td align="center">3</td>
+        <td>set</td>
+        <td>clear</td>
+        <td>output port number, 0 = RS422 , see also <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/QuickReference.html#rs422">Section Pinout of the Multi-Function Port</a>.
+ The set and
+        clear bits can be used to activate or deactivate the output. If 
+both bits are zero, the idle level of the output will be set according 
+to the
+        polarity bit.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><em>The cmmTrigger should not be reconfigured when enabled. The 
+cmmTrigger settings are not part of the user modes. Only the latest 
+value of the
+  register is saved and recalled.<br></em></p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="maintenance" id="maintenance"></a>Maintenance Functions</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Maintenance Functions</td>
+        <td><tt>0xfffff0f0058c</tt></td>
+        <td><tt>0xfffff0f0088c</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Maintenance functions, should be disabled (=0) in normal operation.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>0</th>
+        <td>compressed profile mode, 1 = On, 0 = Off</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>parameter loop back, 1 = On, 0 = Off</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>reserved</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>Encoder, 1 = On, 0 = Off,<br>
+        makes the encoder become active and resets its value</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>reserved</td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <td>suppress automatic cleanup of register, memory, temporal filter content inside the formula module (scan<acronym>CONTROL</acronym>
+        2910/2960 only)</td>
+      </tr>
+      <tr>
+        <th>7..6</th>
+        <td>
+          the user mode loading by the <a href="#DigitalInputTable">digital inputs</a> can be suppressed for maintenance
+          <ol start="0">
+            <li>load user modes according to the inputs</li>
+            <li>suppress until next reboot</li>
+            <li>suppress until next close of the GVCP-Channel</li>
+            <li>suppress until next reboot or close of GVCP-Channel</li>
+          </ol>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="ioconfig" id="ioconfig"></a>Multi-Function Port Configuration</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr align="center">
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>IO-Configuration</td>
+        <td><tt>0xfffff0f005c0</tt></td>
+        <td><tt>0xfffff0f008c0</tt></td>
+        <td>0x82000020</td>
+      </tr>
+    </tbody>
+  </table><br>
+  <br>
+  Change the behaviour of the Multi-Function port. This feature adjusts 
+the port only. Additional setting may be necessary to use the chosen 
+function
+  (for example&nbsp; <a href="#trigger">External Trigger Input</a>).<br clear="all">
+  The interface powers up as serial interface (115200baud half-duplex) 
+on the RS422 port and to external trigger+encoder (Low Level Logic) on 
+the
+  digital Inputs.<br>
+  <br>
+  <table cellspacing="2" cellpadding="3" border="1">
+    <tbody style="text-align: left;">
+      <tr>
+        <th>Bit</th>
+        <th align="center">Function</th>
+      </tr>
+      <tr style="text-align: center;">
+        <th>11</th>
+        <td>
+          <table style="text-align: center;" cellspacing="2" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th colspan="2" style="text-align: center;">Voltage level of digital inputs</th>
+              </tr>
+              <tr>
+                <th>Bit</th>
+                <th>Meaning</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>Low Level Logic (TTL, 5V)</td>
+              </tr>
+              <tr>
+                <td scope="row">1</td>
+                <td>High Level Logic (HTL, 24V)</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr style="text-align: center;">
+        <th>10</th>
+        <td>
+          <table style="text-align: left;" cellspacing="2" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th colspan="2" style="text-align: center;">RS422 Line Termination resistor</th>
+              </tr>
+              <tr>
+                <th>Bit</th>
+                <th>Meaning</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>default RS422 termination</td>
+              </tr>
+              <tr>
+                <td scope="row">1</td>
+                <td>no RS422 termination</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th align="center">9</th>
+        <td>
+          <table style="text-align: left;" cellspacing="2" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th colspan="2" style="text-align: center;">encoder behaviour (also <a href="#trigger">External Trigger Input</a>)</th>
+              </tr>
+              <tr>
+                <th>Bit</th>
+                <th>Meaning</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>bidirectional encoder</td>
+              </tr>
+              <tr>
+                <td scope="row">1</td>
+                <td>unidirectional encoder</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th>7..4</th>
+        <td>
+          <table id="DigitalInputTable" cellspacing="2" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th colspan="7" style="text-align: center;">Digital Inputs Functions</th>
+              </tr>
+              <tr>
+                <th>Bits 7..4</th>
+                <th>Meaning</th>
+                <th>In1</th>
+                <th>In2</th>
+                <th>In3</th>
+              </tr>
+              <tr>
+                <td style="text-align: center;">0</td>
+                <td>encoder, positive edge of index track (*)</td>
+                <td style="text-align: center;">N</td>
+                <td style="text-align: center;">A</td>
+                <td style="text-align: center;">B</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td>encoder with external trigger input (*)</td>
+                <td style="text-align: center;">trigger</td>
+                <td style="text-align: center;">A</td>
+                <td style="text-align: center;">B</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td>external trigger input</td>
+                <td style="text-align: center;">trigger</td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td>ext. trigger + two bits for user mode loading</td>
+                <td style="text-align: center;">trigger</td>
+                <td style="text-align: center;">bit 0</td>
+                <td style="text-align: center;">bit 1</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">4</td>
+                <td>three bits for user mode loading</td>
+                <td style="text-align: center;">bit 0</td>
+                <td style="text-align: center;">bit 1</td>
+                <td style="text-align: center;">bit 2</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">5</td>
+                <td>insert into timestamp</td>
+                <td style="text-align: center;">bit 0</td>
+                <td style="text-align: center;">bit 1</td>
+                <td style="text-align: center;">bit 2</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">6</td>
+                <td>frametrigger and encoder</td>
+                <td style="text-align: center;">start container</td>
+                <td style="text-align: center;">A</td>
+                <td style="text-align: center;">B</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">7</td>
+                <td>frametrigger and encoderline A</td>
+                <td style="text-align: center;">start container</td>
+                <td style="text-align: center;">A</td>
+                <td style="text-align: center;"></td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">8</td>
+                <td>encoder with gate</td>
+                <td style="text-align: center;">gate</td>
+                <td style="text-align: center;">A</td>
+                <td style="text-align: center;">B</td>
+              </tr>
+            </tbody>
+          </table>(*) the input counts every edge, usually an encoder outputs 4 edges per encoder count<br>
+        </td>
+      </tr>
+      <tr>
+        <th>3..0</th>
+        <td>
+          <a name="differentialModes" id="differentialModes"></a>
+          <table summary="description" cellspacing="1" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th colspan="4" style="text-align: center;">RS422 Functions</th>
+              </tr>
+              <tr>
+                <th>Bits 3..0</th>
+                <th align="center">Meaning</th>
+                <th>Direction</th>
+                <th>Default RS422 termination</th>
+              </tr>
+              <tr>
+                <td align="center">0</td>
+                <td>half-duplex serial communication 115200baud</td>
+                <td rowspan="5">Input/Output</td>
+                <td rowspan="5">termination active&nbsp;(120Ω)</td>
+              </tr>
+              <tr>
+                <td align="center">1</td>
+                <td>half-duplex serial communication 57600baud</td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td>half-duplex serial communication 38400baud</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td>half-duplex serial communication 19200baud</td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td>half-duplex serial communication 9600baud</td>
+              </tr>
+              <tr>
+                <td align="center">5</td>
+                <td>external trigger input</td>
+                <td>Input</td>
+                <td>termination active&nbsp;(120Ω)</td>
+              </tr>
+              <tr>
+                <td align="center">6</td>
+                <td>external trigger output</td>
+                <td>Output</td>
+                <td>termination not active</td>
+              </tr>
+              <tr>
+                <td align="center">7</td>
+                <td>CMM trigger</td>
+                <td>Output</td>
+                <td>termination not active</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="text-align: right;">
+    Back to <a href="#contents">Contents</a>
+  </div>
+  <h3><a name="profilefilter" id="profilefilter"></a>Profile Filter</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Profile Filter</td>
+        <td><tt>0xfffff0f00518</tt></td>
+        <td><tt>0xfffff0f00818</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Activates filtering of profile data. The filters are applied in the following order (if enabled): resample, median, average.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>11</th>
+        <td>Extrapolate/interpolate invalid points. Creates new valid 
+points in the profile from adjacent valid points during the first filter
+        operation. Should be used only in conjunction with resampling.</td>
+      </tr>
+      <tr>
+        <th>10</th>
+        <td>Resample all information: if enabled, all reflection data (threshold, reflection width, etc.) is resampled during the resampling
+        operation. Otherwise only the z coordinate is resampled.</td>
+      </tr>
+      <tr>
+        <th>9..7</th>
+        <td>Reserved</td>
+      </tr>
+      <tr>
+        <th>6..4</th>
+        <td>
+          Resampling of the profile to equally spaced x coordinates. The
+ range is always centred around x=0. Note that the resample range should
+ be
+          selected according to the used <a href="#zoom">measuring field</a> to avoid over sampling or under sampling. Depending on the measurement
+          range of the scan<acronym>CONTROL</acronym> device the ranges have the following sizes:
+          <table summary="description" frame="none" cellspacing="1" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th style="text-align: center;">Bits 6..4</th>
+                <th style="text-align: center;">10mm</th>
+                <th style="text-align: center;">25mm</th>
+                <th style="text-align: center;">50mm</th>
+                <th style="text-align: center;">100mm</th>
+              </tr>
+              <tr>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">disabled</td>
+                <td style="text-align: center;" colspan="1" rowspan="1">disabled</td>
+                <td style="text-align: center;">disabled</td>
+                <td style="text-align: center;">disabled</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">+/- 0.4mm</td>
+                <td style="text-align: center;">+/- 0.8mm</td>
+                <td style="text-align: center;">+/- 1.6mm</td>
+                <td style="text-align: center;">+/- 4.0mm</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">+/- 0.5mm</td>
+                <td style="text-align: center;">+/- 1.0mm</td>
+                <td style="text-align: center;">+/- 2.0mm</td>
+                <td style="text-align: center;">+/- 5.0mm</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">+/- 1.0mm</td>
+                <td style="text-align: center;">+/- 2.0mm</td>
+                <td style="text-align: center;">+/- 4.0mm</td>
+                <td style="text-align: center;">+/- 10mm</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">4</td>
+                <td style="text-align: center;">+/- 2.0mm</td>
+                <td style="text-align: center;">+/- 4.0mm</td>
+                <td style="text-align: center;">+/- 8.0mm</td>
+                <td style="text-align: center;">+/- 20mm</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">5</td>
+                <td style="text-align: center;">+/- 4.0mm</td>
+                <td style="text-align: center;">+/- 8.0mm</td>
+                <td style="text-align: center;">+/- 16mm</td>
+                <td style="text-align: center;">+/- 40mm</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">6</td>
+                <td style="text-align: center;">+/- 5.0mm</td>
+                <td style="text-align: center;">+/- 10mm</td>
+                <td style="text-align: center;">+/- 20mm</td>
+                <td style="text-align: center;">+/- 50mm</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">7</td>
+                <td style="text-align: center;">+/- 10mm</td>
+                <td style="text-align: center;">+/- 20mm</td>
+                <td style="text-align: center;">+/- 40mm</td>
+                <td style="text-align: center;">+/- 100mm</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th>3..2</th>
+        <td>
+          Median filter. Should be used only in conjunction with 
+resampling of the profile to equally spaced x coordinates. The width of 
+the filter
+          can be chosen from:<br>
+          <table summary="description" frame="none" cellspacing="1" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th style="text-align: center;">Bits 3..2</th>
+                <th style="text-align: center;">Width</th>
+              </tr>
+              <tr>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;" colspan="1" rowspan="1">disabled</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">3</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">5</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">7</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th>1..0</th>
+        <td>
+          Average filter. Should be used only in conjunction with 
+resampling of the profile to equally spaced x coordinates. The width of 
+the filter
+          can be chosen from:
+          <table summary="description" frame="none" cellspacing="1" cellpadding="3" border="0">
+            <tbody>
+              <tr>
+                <th>Bits 1..0</th>
+                <th>Width</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>disabled</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>7</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="rearrangementprofile" id="rearrangementprofile"></a>Rearrangement of Profile Data</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+      </tr>
+      <tr align="center">
+        <td>Rearrangement Profile Data</td>
+        <td><tt>0xfffff0f0050c</tt></td>
+        <td><tt>0xfffff0f0080c</tt></td>
+        <td><tt>0x82000000</tt></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Changes the data layout and size of profiles for transmission. Should be used only in conjunction with the <a href="#container">Container Mode
+  for Transmission</a>.</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bit</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <th>23</th>
+        <td>extract fields from stripe 4 (fourth reflection)</td>
+      </tr>
+      <tr>
+        <th>22</th>
+        <td>extract fields from stripe 3 (third reflection)</td>
+      </tr>
+      <tr>
+        <th>21</th>
+        <td>extract fields from stripe 2 (second reflection)</td>
+      </tr>
+      <tr>
+        <th>20</th>
+        <td>extract fields from stripe 1 (first reflection)</td>
+      </tr>
+      <tr>
+        <th>19</th>
+        <td>join consecutive profiles (allow for big packets), not supported for resolution 1280 points</td>
+      </tr>
+      <tr>
+        <th>18</th>
+        <td>data format of fields: 1 = signed, 0 = unsigned</td>
+      </tr>
+      <tr>
+        <th>17</th>
+        <td>byte order: 0 = MSB first (default), 1 = LSB first (for GigE-Vision compliant applications only)</td>
+      </tr>
+      <tr>
+        <th>16</th>
+        <td>reserved, should be 0</td>
+      </tr>
+      <tr>
+        <th>15..12</th>
+        <td>points per profile: 7 = 160 points, 8 = 320 points, ... , 10 = 1280 points, other values not supported</td>
+      </tr>
+      <tr>
+        <th>11</th>
+        <td>include time stamp</td>
+      </tr>
+      <tr>
+        <th>10</th>
+        <td>insert empty field, can be used to prevent the time stamp from overwriting valuable information</td>
+      </tr>
+      <tr>
+        <th>9</th>
+        <td>parameterloopback data (internal use only)</td>
+      </tr>
+      <tr>
+        <th>8</th>
+        <td>extract momentum 1 (upper 16bits)</td>
+      </tr>
+      <tr>
+        <th>7</th>
+        <td>extract momentum 1 (lower 16bits)</td>
+      </tr>
+      <tr>
+        <th>6</th>
+        <td>extract momentum 0 (upper 16bits)</td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <td>extract momentum 0 (lower 16bits)</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>extract reflection width</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>extract maximum intensity</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>extract threshold</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>extract x</td>
+      </tr>
+      <tr>
+        <th>0</th>
+        <td>extract z</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="channels" id="channels"></a>Load and Save of User Modes</h3>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="1*">
+    <col width="1*">
+    <col width="1*">
+    <col width="1*">
+    </colgroup><tbody>
+      <tr>
+        <th>Feature name</th>
+        <th>Inquiry address</th>
+        <th>Status and control address</th>
+        <th>Default setting</th>
+        <th>Description</th>
+      </tr>
+      <tr align="center">
+        <td>Basic_Func_Inq</td>
+        <td><tt>0xfffff0f00400</tt></td>
+        <td></td>
+        <td><tt>0x0000180f</tt></td>
+        <td align="left">maximum memory channel number is 15</td>
+      </tr>
+      <tr align="center">
+        <td>Memory_Save</td>
+        <td></td>
+        <td><tt>0xfffff0f00618</tt></td>
+        <td></td>
+        <td align="left">setting bit 31 to 1 will save the current settings to the current channel</td>
+      </tr>
+      <tr align="center">
+        <td>Mem_Save_Ch</td>
+        <td></td>
+        <td><tt>0xfffff0f00620</tt></td>
+        <td></td>
+        <td align="left">current channel for Memory_Save</td>
+      </tr>
+      <tr align="center">
+        <td>Cur_Mem_Ch</td>
+        <td></td>
+        <td><tt>0xfffff0f00624</tt></td>
+        <td></td>
+        <td align="left">returns the current channel when read from,<br>
+        loads settings from the specified channel when written to</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>All feature and status registers are saved as user modes. Only the 
+isochronous transmission state is not saved. Therefore, if the user mode
+ is
+  loaded with disabled transmission, the transmission will remain 
+disabled and vice versa. The user modes can be loaded while transmission
+ is
+  enabled. <em>Be careful not to change important transmission parameters like packet size or image size. This may lock or crash the PC.</em></p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="profile_data" id="profile_data"></a>Description of Profile Data Format</h2>
+  <p>A profile consists of&nbsp;160, 320, 640, or 1280 points. Each 
+point consists of 4 reflections, each reflection is described by 4 × 32 
+bits:</p>
+  <ol>
+    <li>&lt;2bit = 00&gt;&lt;width_in_pixels_10&gt;&lt;maximum_intensity_10&gt;&lt;actual_threshold_10&gt;</li>
+    <li>&lt;imager_row_16&gt;&lt;imager_column_16&gt;</li>
+    <li>&lt;0. momentum_32&gt; (= integral intensity)</li>
+    <li>&lt;1. momentum_32&gt;</li>
+  </ol>
+  <p><strong><em>All fields are unsigned integers represented in big-endian byte order (most scale byte first)!</em></strong></p>
+  <p>In high resolution mode (<a href="#processingprofile">Processing of Profile Data, Bit0=1</a>) the &lt;imager_column_16&gt; is overwritten by
+  &lt;centre_of_gravity_16&gt;<br>
+  Calibration (<a href="#processingprofile">Processing of Profile Data, Bit1=1</a>) converts &lt;imager_row_16&gt; and &lt;centre_of_gravity_16&gt;
+  fields into millimetres, after that conversion the following equations hold true:</p>
+  <pre>  <em>scan<acronym>CONTROL</acronym> 2900-10:</em><br>distance_in_mm = ( calibrated_centre_of_gravity_16 - 32768 ) * 0.0005 mm + 55 mm<br>position_in_mm = ( calibrated_imager_row_16 - 32768 ) * 0.0005 mm<br><br><em>scan<acronym>CONTROL</acronym> 2900-25:</em><br>distance_in_mm = ( calibrated_centre_of_gravity_16 - 32768 ) * 0.001 mm + 65 mm<br>position_in_mm = ( calibrated_imager_row_16 - 32768 ) * 0.001 mm<br><br><em>scan<acronym>CONTROL</acronym> 2900-50:</em><br>distance_in_mm = ( calibrated_centre_of_gravity_16 - 32768 ) * 0.002 mm + 95 mm<br>position_in_mm = ( calibrated_imager_row_16 - 32768 ) * 0.002 mm<br><br><em>scan<acronym>CONTROL</acronym> 2900-100:</em><br>distance_in_mm = ( calibrated_centre_of_gravity_16 - 32768 ) * 0.005 mm + 250 mm<br>position_in_mm = ( calibrated__imager_row_16 - 32768 ) * 0.005 mm</pre>Flipping
+of coordinates (<a href="#processingprofile">Processing of Profile Data, Bit6=1, Bit7=1</a>) toggles all bits of the 16bit values:
+  <pre>flipped_and_calibrated_centre_of_gravity_16 = 65535 - calibrated_centre_of_gravity_16<br>flipped_and_calibrated_imager_row_16 = 65535 - calibrated_imager_row_16<br></pre>
+  <p>If the imager does not see any reflection in a particular row then 
+the corresponding &lt;imager_column_16&gt; or 
+&lt;centre_of_gravity_16&gt; or
+  &lt;calibrated_centre_of_gravity_16&gt; field will be zero resulting 
+in a distance_in_mm of 29.464mm (example for scan<acronym>CONTROL</acronym>
+  2900-50)&nbsp;. The position_in_mm will be invalid in this case. The 
+error value of zero remains unchanged also if flipping is activated.</p>
+  <p>The last 4 words (32bits) of each profile contain the time stamp. 
+If the whole frame is transmitted, the time stamp will overwrite the 
+fourth
+  reflection of the last row which does not contain any valuable 
+information in most cases. If partial transmission is used, valuable 
+information can
+  be overwritten. The time stamp has the following format:</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <colgroup><col width="6%">
+    <col width="19%">
+    <col width="25%">
+    <col width="3%">
+    <col width="3%">
+    <col width="44%">
+    </colgroup><tbody>
+      <tr align="center">
+        <td>flags</td>
+        <td>reserved</td>
+        <td colspan="4">profile_counter</td>
+      </tr>
+      <tr align="center">
+        <td colspan="6">time_stamp_shutter_has_opened</td>
+      </tr>
+      <tr align="center">
+        <td colspan="3">edge_count_times_2 or state of In1, In2, In3</td>
+        <td>e</td>
+        <td>a</td>
+        <td>cmm_pulse_count</td>
+      </tr>
+      <tr align="center">
+        <td colspan="6">time_stamp_shutter_has_closed</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The fields are described below:</p>
+  <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <th>Bits</th>
+        <th>Field</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <th>31-30</th>
+        <td>flags</td>
+        <td>reserved for debugging purpose</td>
+      </tr>
+      <tr>
+        <th>29-25</th>
+        <td>reserved</td>
+        <td>reserved</td>
+      </tr>
+      <tr>
+        <th>23-0</th>
+        <td>profile_counter</td>
+        <td>profile number</td>
+      </tr>
+      <tr>
+        <th>31- 0</th>
+        <td>time_stamp_shutter_has_opened</td>
+        <td>
+          absolute time when the shutter has opened (clock has a period of 128 seconds)
+          <table summary="description" frame="box" cellspacing="1" cellpadding="3" border="1">
+            <colgroup><col width="21%">
+            <col width="40%">
+            <col width="37%">
+            </colgroup><tbody>
+              <tr align="center">
+                <td>31-25</td>
+                <td>24-12</td>
+                <td>11-0</td>
+              </tr>
+              <tr align="center">
+                <td>seconds_count</td>
+                <td>cycle_count (rollover at 8000)</td>
+                <td>cycle_offset (rollover at 3072)</td>
+              </tr>
+            </tbody>
+          </table>The actual time stamp follows from the bit fields by:
+          <pre>time_stamp = seconds_count + cycle_count / 8000 + cycle_offset / ( 8000 × 3072 )<br></pre><br>
+        </td>
+      </tr>
+      <tr>
+        <th>31-16</th>
+        <td>edge_count_times_2</td>
+        <td>
+          <ul>
+            <li>twice the number of counted edges if encoder input is enabled, usually an encoder outputs 4 edges per encoder count</li>
+            <li style="list-style: none">OR</li>
+            <li>state of the digital Inputs</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>15-15</th>
+        <td>e</td>
+        <td>set if an active cmmTrigger edge was output during the shutter interval (optional)</td>
+      </tr>
+      <tr>
+        <th>14-14</th>
+        <td>a</td>
+        <td>set if cmmTrigger output was active (optional)</td>
+      </tr>
+      <tr>
+        <th>13- 0</th>
+        <td>cmm_pulse_count</td>
+        <td>number of cmmTrigger pulses issued since activation (optional)</td>
+      </tr>
+      <tr>
+        <th>31- 0</th>
+        <td>time_stamp_shutter_has_closed</td>
+        <td>absolute time when the shutter has closed, see above for description</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="container" id="container"></a>Container Mode for Transmission</h2>
+  <p>The container mode provides a flexible way to transmit profile 
+data. It releases the fixed connection between profile resolution 
+(points per
+  profile) and the video mode used for transmission. It provides also a 
+data layout which is easier to handle for the application software 
+running on
+  the PC.</p>
+  <p>The Mode_7 serves as a data container. The IMAGE_SIZE register 
+determines its size which can be up to 128MByte. One container is 
+equivalent to
+  one frame in case of a video camera. Data of consecutive profiles are 
+collected until they fill one container of the specified size. The
+  application software receives only complete containers. The rate at 
+which filled containers are available depends on the measurement 
+frequency and
+  on the number of profiles per container. If the scan<acronym>CONTROL</acronym>
+ device runs at 100 profiles/second and one container contains 128
+  profiles, then the application software will get approximately one 
+container per second. This reduces the required response time by a 
+factor of
+  100.</p>
+  <p>A flexible rearrangement of the profile data before transmission 
+simplifies the following processing and reduces the amount of data being
+  transmitted. With a carefully chosen data layout and container size 
+the scan<acronym>CONTROL</acronym> device connects seamlessly to an image
+  processing software that can operate on height data as a greyscale map.</p>
+  <p>The <a href="#rearrangementprofile">rearrangement of profile data</a>
+ register determines the number of points per profile and which
+  information, in other words which fields of which stripes are actually
+ transmitted. Fields are information like z-coordinate, x-coordinate, 
+maximum
+  intensity, reflection width, threshold or moments of reflections, or 
+the time stamp of the profile. Each field consists of an 16bit integer 
+value
+  (2 bytes) per point of the profile, except the time stamp, which is 
+always 16 bytes and resides in the last 16 bytes of the data set. An 
+empty
+  field may be added to prevent the time stamp from overwriting valuable
+ information. Field are extracted first for one stripe in the previously
+  mentioned order, then for the other stripes.</p>
+  <p><strong>Example:</strong> Selecting z coordinates and maximum intensity data of stripe 1 and 3 with 320 points per profile.<br>
+  Set the <a href="#rearrangementprofile">rearrangement of profile data</a> register to <tt>0x82508009</tt> which means in detail:
+  <tt>0x--5-----</tt> sets the bits for the first and the third stripe, <tt>0x----8----</tt> selects 320 points per profile, <tt>0x-----009</tt>
+  selects the fields z coordinate and maximum. The resulting data will 
+have 2 fields × 2 stripes × 320 points × 2 bytes = 2560 bytes. An 
+appropriate
+  container could have a size of 1.6Mbyte with the format 1280 × 1280 
+pixels and 2 bytes per pixel (colour coding Mono16), packet size 1280 
+bytes.
+  The application software would acquire a 16 bit grey scale image of 
+1280 × 1280 pixels which divides into 4 columns, each 320 pixels wide. 
+The
+  first column contains z coordinates from the first stripe and the 
+second one contains the maximum values. The third and fourth columns 
+contain
+  those values from the third stripe. On row of the image contains the 
+information of one profile.</p>
+  <p>Several restrictions apply for the selection of container sizes and data layout:</p>
+  <ul>
+    <li>containers must contain complete profiles, a profile cannot 
+reside partially in one container and partially in the following 
+container</li>
+    <li>one container must be divisible into packets without reminder (no padding allowed)</li>
+    <li>one container must be divisible into blocks without reminder, block size is 64bytes × points per profile</li>
+    <li>if the joined transmission is not used (<a href="#rearrangementprofile">rearrangement of profile data</a> register Bit 19), then the
+    transmitted data of one profile must be divisible into packets without reminder</li>
+    <li>joined transmission is not supported for profile resolution of 1280 points</li>
+  </ul>
+  <p align="right">Back to <a href="#contents">Contents</a></p>
+  <h2><a name="Versioning" id="Versioning"></a> Firmware Versions</h2>New firmware versions enhance the features of scan<acronym>CONTROL</acronym>
+  devices. Special software allows customers to update the firmware.
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="generalVER" id="generalVER"></a>General</h3>
+  <p>The currently running firmware version shows up in the model name 
+string. The standalone demo programme shows it by default. The model 
+name
+  string looks like:</p>
+  <pre>scanCONTROL 2900-100 v31-07<br> -- --<br> | |<br> | +------- logic firmware<br> |<br> +--------- controller firmware<br></pre>The current
+  production version is <strong>v46-15</strong>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="detailsVER" id="detailsVER"></a> Details</h3>
+  <p>Enhancement of features also means enhancement of interface. The 
+above table of control and status registers reflects always the current
+  interface specification. Older firmware versions may implement a 
+slightly different interface or only parts of it.</p>
+  <p><em>See also <a href="file:///C:/Program%20Files%20(x86)/Micro-Epsilon/scanCONTROL%20Configuration%20Tools%206.4a/Program/Documentation/deutsch/scanCONTROL%2029XX/FirmwareChangelog.html">scanCONTROL Release Notes</a> for a complete firmware history.</em></p>
+  <p align="right"></p>
+
+
+</body></html>

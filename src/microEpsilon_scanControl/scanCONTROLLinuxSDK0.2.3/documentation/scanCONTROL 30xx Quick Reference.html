@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.7.16">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-gb">
+  <meta name="GENERATOR" content="nvu 1.0">
+  <meta name="COPYRIGHT" content="MICRO-EPSILON Optronic GmbH">
+  <meta name="author" content="Tobias Schüller">
+  <meta http-equiv="EXPIRES" content="0">
+  <meta http-equiv="PRAGMA" content="no-cache">
+  <meta name="ROBOTS" content="index,follow">
+  <meta name="REVISIT-AFTER" content="7 days">
+  <meta name="keywords" content="instruction file">
+  <title>scanCONTROL 30xx Quick Reference</title>
+  <style type="text/css">
+  TABLE { background: #f0f0f0; }
+  CAPTION { font-weight: bold; }
+  ACRONYM { color: #CC0000;}
+  TODO_HINT {font-weight: bold; background: #FF3333; font-size: 22px;}
+  </style>
+</head>
+<body>
+  <table style="background-color: rgb(255, 255, 255);" summary="page header" frame="box" width="100%" cellspacing="1" cellpadding="3" border="1">
+    <tbody>
+      <tr>
+        <td align="center">
+          <h1>scan<acronym>CONTROL</acronym>&nbsp;30xx Quick Reference</h1>
+        </td>
+        <td align="center"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/CompanyLogo.gif" alt="MICRO-EPSILON" border="0" align="middle"></td>
+      </tr>
+      <tr>
+        <td align="center">
+          <h2>Brief Introduction to scan<acronym>CONTROL</acronym>&nbsp;30xx Device Family</h2>
+        </td>
+        <td align="center">$Revision: 841138416dc9 $<br>
+        $Date: 2019/06/07 11:29:07 $</td>
+      </tr>
+      <tr>
+        <td align="center">© MICRO-EPSILON Optronic GmbH, Lessingstr. 14, D-01465 Dresden-Langebrück, Germany<br>
+        e-mail <a href="mailto:optronic@micro-epsilon.de">optronic@micro-epsilon.de</a></td>
+        <td align="center"><a href="http://www.micro-epsilon.de/">www.micro-epsilon.de</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2><a name="contents" id="contents"></a>Contents</h2>
+  <ul>
+    <li>
+      <a href="#basic">Basic Procedures</a>
+      <ul>
+        <li><a href="#principle">Laser Line Triangulation Principle</a></li>
+        <li><a href="#demo">Demonstration Programs and Basic Settings</a></li>
+        <li><a href="#factory">Factory Default Settings</a></li>
+        <li><a href="#usermodes">Store Settings and Recall Them at Power up</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#advanced">Advanced Procedures</a>
+      <ul>
+        <li><a href="#resolution">Profile Resolution</a></li>
+        <li><a href="#operation_modes">Operation Modes</a></li>
+        <li><a href="#orientation">Orientation on the sensor array (Region Of Interest)</a></li>
+        <li><a href="#speed">Maximum Frequencies of Profile Measurements</a></li>
+        <li><a href="#processing">Profile Processing</a></li>
+        <li><a href="#rs422">Digital I/O Port</a></li>
+        <li><a href="#pinoutrs422">Pinout of the Digital I/O Port</a></li>
+        <li><a href="#error">Sensor LEDs and Error Codes</a></li>
+      </ul>
+    </li>
+  </ul>
+  <h2><a name="basic" id="basic"></a>Basic Procedures</h2>
+  <h3><a name="principle" id="principle"></a>Laser Line Triangulation Principle</h3>
+  <center>
+    <img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/gregaria.png" alt="sketch of tringulation principle" height="600" border="0">
+  </center>
+  <ul>
+    <li>Projecting a laser line on the target surface</li>
+    <li>Diffuse reflected light of the laser line is registered by a high quality sensor array</li>
+    <li>Calculation of the distance coordinate Z and the actual position X along the laser line for all measuring
+    points</li>
+  </ul>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="demo" id="demo"></a>Demonstration Programs and Basic Settings</h3>
+  <p>The scan<acronym>CONTROL</acronym> devices are equipped with ethernet 100/1000MBit full duplex. All
+  scan<acronym>CONTROL</acronym> demonstration programs support the communication via Ethernet interface.<br>
+  Ethernet connections require the appropriate setup of the network card and firewall settings on the host PC (see <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/Installation/index.html">
+  installation help</a> of the scan<acronym>CONTROL</acronym> software tools for further details).</p>
+  <p>All devices have a <a href="#rs422">Multifunction Digital I/O Port</a> that provides power supply, RS422 (for serial
+  communication or master-slave operation), digital inputs (for User-Mode switching, encoder input, trigger) and external
+  laser switch off (optional for safety regulations).</p>
+  <p>Basic parameters for measurement are <em>profiles per second</em> and <em>exposure time</em>. The default values can be
+  used as base for parameter adaptions to the target's requirements. The best value for the exposure time depends on the
+  reflective properties of your target. The automatic exposure control (default) tries to find automatically an appropriate
+  exposure time for a given target. The exposure time cannot be longer than the period resulting from the profiles per
+  second.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="factory" id="factory"></a>Factory Default Settings</h3>
+  <p>After power up the scan<acronym>CONTROL</acronym> sensor starts profile measurements with factory settings:</p>
+  <ul>
+    <li>Profile frequency: 200 profiles per second</li>
+    <li>Exposure Time: 100μs, automatic exposure control enabled</li>
+    <li>Laser Power: standard</li>
+    <li>Threshold for point detection: 128 (dynamic)</li>
+    <li>Region Of Interest Preset Number: 0 (whole sensor matrix)</li>
+    <li>Resolution: 2048 points per profile</li>
+    <li>Data transfer: container mode</li>
+    <li>Container mode settings:</li>
+    <li style="list-style: none; display: inline">
+      <ul>
+        <li>Data from stripe 1</li>
+        <li>Information field: Z</li>
+        <li>Container size: 200 profiles per container (@ 200 profiles/s = 1 frame/s)</li>
+      </ul>
+    </li>
+  </ul>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="usermodes" id="usermodes"></a>Store Settings and Recall Them at Power up</h3>
+  <p>The scan<acronym>CONTROL</acronym> supports storing custom settings. These stored settings are called User Modes.
+  Fifteen User Modes are available.&nbsp;At start up the most recently stored User Mode is recalled automatically. To store
+  settings into User Modes or&nbsp;recall settings from User Modes,&nbsp;use one of the scan<acronym>CONTROL</acronym>
+  demonstration programs.<br>
+  <strong>Note:</strong> The duration to load a user mode is approx. 10-100ms (depending on the parameters that have to be
+  changed between the modes).</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h2><a name="advanced" id="advanced"></a>Advanced Procedures</h2>
+  <h3><a name="resolution" id="resolution"></a>Profile Resolution</h3>
+  <p>The scan<acronym>CONTROL</acronym> supports the following lateral resolutions in terms of point per profile: 2048,
+  1024, 512 and 256.&nbsp;A bigger setting for points per profile results in a higher processing load, a higher
+  post-processing load (only scan<acronym>CONTROL</acronym> SMART sensors) and a higher Ethernet bandwidth needed for
+  profile/container data transmission.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="operation_modes" id="operation_modes"></a>Operation Modes</h3>
+  <h4>High Resolution mode</h4>The High Resolution mode is the standard mode for profile acquisition. All rows on the sensor
+  matrix are used to compute the profile points and so the High Resolution mode provides profile data with the best Z
+  linearity compared to the other modes.
+  <h4>High Speed mode</h4>The High Speed mode only uses every second row on the sensor array to compute profile points.
+  Therefore, profiles can be acquired at double profile frequency (in comparison to the High Resolution mode at the same
+  Region Of Interest size) while losing a small degree of Z linearity.
+  <h4>High Dynamic Range mode (HDR)</h4>The High Dynamic Range mode is used for target surfaces that have inhomogenous
+  surface properties (e.g. very dark and very bright parts). The sensor rows are exposed alternately. Every uneven sensor
+  matrix row is exposed with the set exposure time (or the exposure time deriving from the auto exposure algorithm). Every
+  even row is exposed with the exposure time from the uneven rows times four. The sensor array image with rows of both
+  exposure times is read out as a whole so that no in-motion unsharpness occurs between the two exposure time images.
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="orientation" id="orientation"></a>Orientation on the sensor array (Region Of Interest)</h3>
+  Following illustrations show the positions of selected Region
+  Of Interest (ROI) on the sensor array and the coordinate system used by the sensor.<p>
+  </p><table style="text-align: left; margin-left: auto; margin-right: auto;" cellspacing="2" cellpadding="2" border="1">
+    <tbody align="center">
+      <tr>
+        <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/view1.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/view1.png" width="50%" height="50%"></a></td>
+        <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/view2.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/view2.png" width="50%" height="50%"></a></td>
+        <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/view3.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/view3.png" width="50%" height="50%"></a></td>
+      </tr>
+      <tr>
+        <td><b>Sensor array view:</b><p>
+          Exemplary ROI (red) set with</p><p>following parameters:
+          </p><ul style="text-align: left; margin-left: 25%; margin-right: auto;">
+            <li>Origin: upper left corner</li>
+            <li>Start X: 10%</li>
+            <li>Start Z: 10%</li>
+            <li>Width X: 40%</li>
+            <li>Width Z: 40%</li>
+          </ul>
+        </td>
+        <td><b>Calibrated coordinate view<br>(X and Z not flipped)</b><p>
+          CO = <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/OpManPartB.html#calibrationscale">CALIBRATION_OFFSET</a>
+        </p></td>
+        <td><b>Calibrated coordinate view<br>(X not flipped, Z flipped)</b><p>
+          CO = <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/OpManPartB.html#calibrationscale">CALIBRATION_OFFSET</a>
+        </p></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>All scan<acronym>CONTROL</acronym> measuring ranges have a defined calibration offset (CO) that can be read from the
+  sensor. This calibration offset (e.g. 85mm for the 30xx-25) is close to the middle of the measuring range and is the
+  mirror axis for digital Z flipping. See <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/OpManPartB.html#mmconversion">Conversion To Millimeter</a> and the SDK
+  documentation for details.<br>All ROI settings have to be done with respect to the sensor array view in the correct rotation.
+  All scan<acronym>CONTROL</acronym> demonstration programs show the sensor array image in the correct rotation. If the
+  sensor array image is grabbed directly via LLT.dll or GigE Vision, it has to be rotated by 180 degrees to get the correct
+  orientation. See the scan<acronym>CONTROL</acronym> SDKs for details.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  
+  <h3><a name="speed" id="speed"></a>Maximum Frequencies of Profile Measurements</h3>The maximum profile frequency depends
+  on four basic factors:<br>
+  <ul>
+    <li>Measurement target (required Exposure Time)</li>
+    <li>Sensor hardware (Region Of Interest, Profile Processing)</li>
+    <li>Post processing (only scan<acronym>CONTROL</acronym> SMART sensors)</li>
+    <li>Needed Ethernet bandwidth for data transmission</li>
+  </ul>The smallest value limits the overall performance.
+  <h4>Measurement Target</h4>Most targets require an exposure time between 0.1 and 1.0ms. Thus,&nbsp;1000 profiles per
+  second or more can be measured. Very dark objects like black rubber or shiny metal surfaces may require a longer exposure
+  time or a higher laser power (class 3R, optional available for scan<acronym>CONTROL</acronym> sensors with red laser).<br>
+  <h4>Sensor Hardware</h4>scan<acronym>CONTROL</acronym> 3000 and 3010 devices can acquire up to 300 profiles per second.
+  The speed is limited by the internal processing hardware.
+  scan<acronym>CONTROL</acronym> HIGH SPEED devices can acquire up to 10000 profiles per second. The
+  actual measuring speed depends on two basic factors and the minimum of both is the limit for this category:
+  <ul>
+    <li>Number of rows evaluated on the sensor array
+      <p>Formula: <tt>Max.Frequency = 1 MHz/ceil(33.25+(rows+3)*2.6875)</tt></p>
+      <p>Exemplary profile frequencies:</p>
+      <table style="text-align: left; margin-left: auto; margin-right: auto;" cellspacing="2" cellpadding="2" border="1">
+        <tbody align="center">
+          <tr>
+            <th>Number of lines</th>
+            <th>1088</th>
+            <th>816</th>
+            <th>544</th>
+            <th>272</th>
+            <th>136</th>
+            <th>68</th>
+            <th>34</th>
+          </tr>
+          <tr>
+            <th>Frequency</th>
+            <td>337Hz</td>
+            <td>447Hz</td>
+            <td>664Hz</td>
+            <td>1293Hz</td>
+            <td>2457Hz</td>
+            <td>4444Hz</td>
+            <td>7518Hz</td>
+          </tr>
+          <tr>
+            <th>Example ROI in High Resolution or HDR mode</th>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI1.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI1.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI2.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI2.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI3.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI3.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI4.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI4.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI5.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI5.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI6.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI6.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI7.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI7.png"></a></td>
+          </tr>
+          <tr>
+            <th>Example ROI in High Speed mode</th>
+            <td></td>
+            <td></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI1.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI1.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI3.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI3.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI4.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI4.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI5.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI5.png"></a></td>
+            <td><a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/ROI6.png"><img src="scanCONTROL%2030xx%20Quick%20Reference-Dateien/ROI6.png"></a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>If the sensor is used in high-speed mode, only every second row is used for evaluation and thus the number of
+      covered rows by the ROIs is divided by two.</p>
+      <p>scan<acronym>CONTROL</acronym> 30xx sensors provide two Regions Of Interest and one Region Of No Interest (RONI) to
+      select the best matrix region for the measurement target. The number of rows evaluated on the sensor array is the set
+      union of the covered rows of ROI1 and ROI2 (see OpManPartB.html and the SDK documentation for details). The RONI does
+      not have any effect on the evaluated number of sensor matrix rows.</p>
+    </li>
+    <li>Number of points per profile for processing. Following data rate limits are valid:
+      <ul>
+        <li>2048 points per profile: <tt>Max.Frequency = 2703Hz</tt></li>
+        <li>1024 points per profile: <tt>Max.Frequency = 4000Hz</tt></li>
+        <li>512 points per profile: <tt>Max.Frequency = 7143Hz</tt></li>
+        <li>256 points per profile: <tt>Max.Frequency = 10000Hz</tt></li>
+      </ul>
+      <br>
+      </li><li>laserpulse mode: data rate limit <tt>Max.Frequency = 2100Hz</tt></li>
+    
+  </ul>
+  <h4>Post Processing</h4>The processing time for the post processing algorithms varies according to the complexity of the
+  post processing algorithms set up with scan<acronym>CONTROL</acronym> Configuration Tools. Further, the algorithms scale
+  with the value set points per profile.
+  <h4>Needed Ethernet Bandwidth for data transmission</h4>Transmission speed mainly depends on the amount of transmitted
+  data.<br>
+  In addition to the transmission of the complete profile information ("full set") scan<acronym>CONTROL</acronym> 3xxx
+  sensors provide the transmission of partial profiles to reduce the required transmission bandwidth significantly.
+  Transmitting only parts of the data set, for example profile data X/Z only without additional information, will decrease
+  the required bandwidth even more. The frequencies above may also be reached with the container transmission only.<br>
+  The Ethernet interface does not provide a bandwidth control. Packets are sent as fast as possible. To use the uncompressed
+  Video Mode or to run the sensor at its limits, Jumbo Frames have to be active (Ethernet interface card setting supported
+  by most Gigabit Ethernet interface cards) and all used network components (e.g. Switches) between
+  scan<acronym>CONTROL</acronym> sensor and the PC. The packet size parameter has to be set to 4096 Byte.<br>
+  If the used Ethernet interface card or one of the used Ethernet components between scan<acronym>CONTROL</acronym> sensor
+  and the PC does not support Jumbo Frames, the packet size has to be set to 1024. In this case not all listed profile
+  frequencies can be reached.<p>
+  </p><center>
+    <table frame="box" cellspacing="1" cellpadding="5" border="1">
+      <tbody align="center">
+        <tr>
+          <th colspan="5">Required bandwidth per sensor running at 100 profiles per second @Packet size = 4096 Byte (Jumbo
+          Frames)</th>
+        </tr>
+        <tr align="center">
+          <td></td>
+          <th>256 points per profile</th>
+          <th>512 points per profile</th>
+          <th>1024 points per profile</th>
+          <th>2048 points per profile</th>
+        </tr>
+        <tr align="center">
+          <td>Full Set (64 Byte per point)</td>
+          <td>14 MBit/s</td>
+          <td>27 MBit/s</td>
+          <td>54 MBit/s</td>
+          <td>107 MBit/s</td>
+        </tr>
+        <tr align="center">
+          <td>X/Z + Data (16 Byte per point)</td>
+          <td>4 MBit/s</td>
+          <td>7 MBit/s</td>
+          <td>14 MBit/s</td>
+          <td>27 MBit/s</td>
+        </tr>
+      </tbody>
+    </table>
+  </center>
+  <h5>Remarks</h5>
+  <ul>
+    <li>Hubs must not be used.</li>
+    <li>If a switch is used, a 1000MBit switch is strongly recommended.</li>
+    <li>If a switch is used, the packet delay parameter should be set. Switches should not be cascaded (the packet delay
+    parameter is only valid for the switch that the scan<acronym>CONTROL</acronym> sensor is connected to).</li>
+    <li>We recommend using Jumbo Frames (Ethernet interface card setting) to use the Video Mode in full resolution and to
+    reach the maximum profile frequencies.</li>
+    <li>Only about 80% of the available Ethernet bandwidth (100MBit or 1000MBit) should be dedicated for the profile
+    transmission of all sensors.</li>
+    <li>A single sensor can send up to 800MBit/s.</li>
+  </ul>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="processing" id="processing"></a>Profile Processing</h3>
+  <p><strong>Threshold:</strong><br>
+  The recommended value 128 is applicable for most measurement targets. It can be increased for target surfaces that deliver
+  fuzzy reflections on the sensor array to get stable measurement points. If the target has different surface properties
+  (e.g. bright and dark surface regions), the Threshold Automatic feature should be used to get good profile data of all
+  surface regions. It is not recommended to decrease the absolute threshold to get more reflections on dark surfaces
+  (ambient light might influence the measurements).</p>
+  <p><strong>Multiple reflections:</strong><br>
+  The digital hardware can recognize up to 4 reflections per sensor matrix column. Only valid reflections will be processed
+  in the result set (according to Threshold and Peak Filter settings). According to the reflection selection parameter the
+  scan<acronym>CONTROL</acronym> sensor selects the main reflection to generate the corresponding profile point. The
+  selection is based on the position (first or last), the integral intensities (largest area) or the maximum intensities of
+  the valid reflections.</p>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="rs422" id="rs422"></a>Digital I/O Port</h3>scan<acronym>CONTROL</acronym> sensors have a programmable
+  Multifunction Digital I/O-Port. The port provides one RS422 half-duplex channel for serial communication or
+  synchronization and four general purpose inputs with programmable voltage level (TTL/5V or HTL/24V) and selectable Pull up
+  or Pull down behavior. For details please refer to the <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019-09-19_25xx_PartB+QR/english/scanCONTROL%2030XX/OpManPartB.html#ioconfig">Digital I/O Configuration</a>.
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="pinoutrs422" id="pinoutrs422"></a>Pinout of the Digital I/O Port</h3>
+  <center>
+    <table summary="Pinout" frame="box" cellspacing="1" cellpadding="5" border="1">
+      <tbody>
+        <tr>
+          <th>Pin</th>
+          <th>Function</th>
+          <th>Wire colour at the included cable PC3000-x</th>
+        </tr>
+        <tr align="center">
+          <td>1</td>
+          <td>-Laser on/off (optional)</td>
+          <td>brown</td>
+        </tr>
+        <tr align="center">
+          <td>2</td>
+          <td>GND (24V)</td>
+          <td>blue</td>
+        </tr>
+        <tr align="center">
+          <td>3</td>
+          <td>+Laser on/off (optional)</td>
+          <td>white</td>
+        </tr>
+        <tr align="center">
+          <td>4</td>
+          <td>In1</td>
+          <td>green</td>
+        </tr>
+        <tr align="center">
+          <td>5</td>
+          <td>In4</td>
+          <td>pink</td>
+        </tr>
+        <tr align="center">
+          <td>6</td>
+          <td>In2</td>
+          <td>yellow</td>
+        </tr>
+        <tr align="center">
+          <td>7</td>
+          <td>GND-In</td>
+          <td>black</td>
+        </tr>
+        <tr align="center">
+          <td>8</td>
+          <td>In3</td>
+          <td>grey</td>
+        </tr>
+        <tr align="center">
+          <td>9</td>
+          <td>+Ub (24V)</td>
+          <td>red</td>
+        </tr>
+        <tr align="center">
+          <td>10</td>
+          <td>GND-RS422</td>
+          <td>violet</td>
+        </tr>
+        <tr align="center">
+          <td>11</td>
+          <td>/RS422</td>
+          <td>grey-pink</td>
+        </tr>
+        <tr align="center">
+          <td>12</td>
+          <td>RS422</td>
+          <td>red-blue</td>
+        </tr>
+      </tbody>
+    </table>
+  </center>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <h3><a name="error" id="error"></a>Sensor LEDs and Error Codes</h3>On the top of the housing scanCONTROL sensors have
+  three LEDs that indicate different operating states:
+  <ol>
+    <li>The Laser LED indicates the state of the laser (on/off)</li>
+    <li>The Data LED flashes green.<br>
+    Long flashes during active data transmission and short flashes for controller access. Controller accesses can cause
+    various data overflows, especially if the measuring frequency is close to the maximum.</li>
+    <li>The error LED shows different error states by blinking red with different schemes (— long blink, · short
+    blink):</li>
+  </ol>
+  <center>
+    <table summary="Error codes" frame="box" cellspacing="0" cellpadding="5" border="1">
+      <tbody>
+        <tr>
+          <th colspan="5">Group: store/load user modes</th>
+        </tr>
+        <tr>
+          <th>Blinking scheme</th>
+          <th>Value</th>
+          <th>Cause</th>
+          <th>Resolution</th>
+          <th>Note</th>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>· ·<br>
+          2×short</td>
+          <td>0x80000005</td>
+          <td>user mode not found</td>
+          <td>choose another user mode</td>
+          <td>only previously stored user modes can be loaded</td>
+        </tr>
+        <tr>
+          <td>· · —<br>
+          2×short, 1×long</td>
+          <td>0x800000f5</td>
+          <td>Write error flash device</td>
+          <td>none, contact manufacturer</td>
+          <td>should not appear in normal operation</td>
+        </tr>
+        <tr>
+          <td>· · ·<br>
+          3×short</td>
+          <td>0x80000015</td>
+          <td>overflow</td>
+          <td>none, contact manufacturer</td>
+          <td>should not appear in normal operation</td>
+        </tr>
+        <tr>
+          <td>· · · ·<br>
+          4×short</td>
+          <td>0x80000055</td>
+          <td>load suppressed because of an active data transmission</td>
+          <td>stop active data transmission</td>
+          <td>avoids crashes of the pc software</td>
+        </tr>
+        <tr>
+          <th colspan="5">Group: processing and transmission</th>
+        </tr>
+        <tr>
+          <th>Blinking scheme</th>
+          <th>Value</th>
+          <th>Cause</th>
+          <th>Resolution</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td>— —<br>
+          2×long</td>
+          <td>0x800001ef</td>
+          <td>sensor head overflow</td>
+          <td>
+            <ul>
+              <li>choose smaller Region Of Interest</li>
+              <li>decrease profile frequency</li>
+              <li>choose less complex processing</li>
+            </ul>
+          </td>
+          <td>data can be corrupted, shutter time may be longer than expected</td>
+        </tr>
+        <tr>
+          <td>— — ·<br>
+          2×long, 1×short</td>
+          <td>0x800005ef</td>
+          <td>logic overflow</td>
+          <td>
+            <ul>
+              <li>choose smaller Region Of Interest</li>
+              <li>decrease profile frequency</li>
+              <li>choose less complex processing</li>
+            </ul>
+          </td>
+          <td>data can be corrupted</td>
+        </tr>
+        <tr>
+          <td>— — · ·<br>
+          2×long, 2×short</td>
+          <td>0x800015ef</td>
+          <td>transmission overflow (serial port)</td>
+          <td>
+            <ul>
+              <li>decrease profile frequency</li>
+              <li>choose less complex processing</li>
+            </ul>
+          </td>
+          <td>data can be corrupted</td>
+        </tr>
+        <tr>
+          <td>— — · · ·<br>
+          2×long, 3×short</td>
+          <td>0x800055ef</td>
+          <td>transmission overflow (ethernet)</td>
+          <td>
+            <ul>
+              <li>decrease profile frequency</li>
+              <li>increase packet size</li>
+            </ul>
+          </td>
+          <td>data can be corrupted</td>
+        </tr>
+        <tr>
+          <td>— — · · · · ·<br>
+          2×long, 5×short</td>
+          <td>0x800555ef</td>
+          <td>data corruption during processing</td>
+          <td>
+            <ul>
+              <li>decrease profile frequency</li>
+              <li>use faster processing modes</li>
+            </ul>
+          </td>
+          <td>data can be corrupted</td>
+        </tr>
+        <tr>
+          <td>— — · · · · · ·<br>
+          2×long, 6×short</td>
+          <td>0x801555ef</td>
+          <td>data corruption during transmission</td>
+          <td>
+            <ul>
+              <li>decrease profile frequency</li>
+              <li>increase packet size</li>
+            </ul>
+          </td>
+          <td>data can be corrupted</td>
+        </tr>
+        <tr>
+          <th colspan="5" rowspan="1">Group: Output Unit connection<br></th>
+        </tr>
+        <tr>
+          <th>Blinking scheme</th>
+          <th>Value</th>
+          <th>Cause</th>
+          <th>Resolution</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td>— — —<br>
+          3×long</td>
+          <td>0x80003def</td>
+          <td>output unit not found</td>
+          <td>
+            <ul>
+              <li>check ethernet connection</li>
+              <li>check Output Unit configuration</li>
+            </ul>
+          </td>
+          <td>if the problem persists, please contact manufacturer</td>
+        </tr>
+        <tr>
+          <td>— — — ·<br>
+          3×long, 1×short</td>
+          <td>0x8000bdef</td>
+          <td>output unit&nbsp;contains unsupported modules</td>
+          <td>
+            <ul>
+              <li>check modules and remove unsupported modules</li>
+            </ul>
+          </td>
+          <td>only supported modules may be used</td>
+        </tr>
+        <tr>
+          <td>— — — · ·<br>
+          3×long, 2×short</td>
+          <td>0x8002bdef</td>
+          <td>error during communication with the&nbsp;output unit</td>
+          <td>
+            <ul>
+              <li>check ethernet connection</li>
+            </ul>
+          </td>
+          <td>if the problem persists, please contact manufacturer</td>
+        </tr>
+        <tr>
+          <td>— — — · · ·<br>
+          3×long, 3×short</td>
+          <td>0x800abdef</td>
+          <td>overflow during output update</td>
+          <td>
+            <ul>
+              <li>decrease profile frequency</li>
+              <li>decrease number of used outputs</li>
+            </ul>
+          </td>
+          <td>outputs may have missed an update</td>
+        </tr>
+        <tr>
+          <th colspan="5" rowspan="1">Group: ethernet interface<br></th>
+        </tr>
+        <tr>
+          <th>Blinking scheme</th>
+          <th>Value</th>
+          <th>Cause</th>
+          <th>Resolution</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td>— — — —<br>
+          4×long</td>
+          <td>0x8007bdef</td>
+          <td>IP address conflict</td>
+          <td>
+            <ul>
+              <li>check ethernet configuration of device and host PC</li>
+              <li>choose another IP address for the device</li>
+            </ul>
+          </td>
+          <td>if the problem persists, please contact manufacturer</td>
+        </tr>
+        <tr>
+          <th colspan="5" rowspan="1">Group: internal errors<br></th>
+        </tr>
+        <tr>
+          <th>Blinking scheme</th>
+          <th>Value</th>
+          <th>Cause</th>
+          <th>Resolution</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td>—<br>
+          — ·<br>
+          — · ·<br>
+          1×long<br>
+          1×long, 1×short<br>
+          1×long, 2×short</td>
+          <td>0x8000000f<br>
+          0x8000002f<br>
+          0x800000af</td>
+          <td>internal error</td>
+          <td>none, contact manufacturer</td>
+          <td>should not appear in normal operation</td>
+        </tr>
+        <tr>
+          <td>— · · ·<br>
+          1×long, 3×short</td>
+          <td>0x800002af</td>
+          <td>laser error</td>
+          <td>none, contact manufacturer</td>
+          <td>should not appear in normal operation</td>
+        </tr>
+      </tbody>
+    </table>
+  </center>
+  <p align="right">Back to <a href="#contents">Contents</a>.</p>
+  <hr>
+
+
+</body></html>

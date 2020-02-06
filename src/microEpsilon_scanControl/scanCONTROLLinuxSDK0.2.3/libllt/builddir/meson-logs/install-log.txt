@@ -1,0 +1,7 @@
+# List of files installed by Meson
+# Does not contain files installed by custom scripts.
+/usr/local/lib/libllt.so.0.2.3
+/usr/local/lib/libllt.so.0
+/usr/local/lib/libllt.so
+/usr/local/include/mescan/llt.h
+/usr/local/lib/pkgconfig/llt.pc

@@ -1,0 +1,11 @@
+# List of files installed by Meson
+# Does not contain files installed by custom scripts.
+/usr/local/lib/libmescan.so.0.2.3
+/usr/local/lib/libmescan.so.0
+/usr/local/lib/libmescan.so
+/usr/local/include/mescan/mescan.h
+/usr/local/include/mescan/mescan_basic.h
+/usr/local/include/mescan/mescan_adv.h
+/usr/local/include/mescan/LLTDataTypes.h
+/usr/local/lib/pkgconfig/mescan.pc
+/usr/local/include/mescan
