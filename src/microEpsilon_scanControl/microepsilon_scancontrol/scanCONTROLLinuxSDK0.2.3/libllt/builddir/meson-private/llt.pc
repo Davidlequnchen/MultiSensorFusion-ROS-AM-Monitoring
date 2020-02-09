@@ -1,0 +1,9 @@
+prefix=/usr/local
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+Name: libllt
+Description: Wrapper library for mescan and aravis
+Version: 0.2.3
+Libs: -lllt
+Cflags: -I${includedir}/mescan

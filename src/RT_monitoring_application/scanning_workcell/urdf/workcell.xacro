@@ -32,7 +32,7 @@
   <joint name="head0" type="fixed">
     <parent link="tool0"/>
     <child link="head0"/>
-    <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
+    <origin xyz="0 0 0" rpy="${radians(20)} 0 ${radians(90)}" />
     <axis xyz="0 0 1"/>
   </joint>
 

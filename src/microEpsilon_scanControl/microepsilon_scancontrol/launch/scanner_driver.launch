@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>  
+  <arg name="shutter_time" default="100" />
+  <arg name="idle_time" default="100000"/>
+  <arg name="lag_compensation" default="0.001"/>
+  <arg name="topic" default="laser_scan"/>
+  <arg name="frame" default="scanCONTROL_2900-50_scanner_laser_link"/>
+  <arg name="dense" default="false"/>
+  <arg name="serial_number" default="218120116"/>
+  <arg name="path_to_device_properties" default="~/SIMTech_ws/src/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/misc"/>
+  <arg name="ns" default="arm"/>
+  <node ns = "$(arg ns)" name="microepsilon_scancontrol_node" pkg="microepsilon_scancontrol" type="microepsilon_scancontrol_node" cwd="node" respawn="true" output="screen">
+    <param name="shutter_time" type="int" value="$(arg shutter_time)"/>
+    <param name="idle_time" type="int" value="$(arg idle_time)"/>
+    <param name="lag_compensation" type="double" value="$(arg lag_compensation)"/>
+    <param name="topic" type="string" value="$(arg topic)"/>
+    <param name="frame" type="string" value="$(arg frame)"/>
+    <param name="dense" type="bool" value="$(arg dense)"/>
+    <param name="serial_number" type="string" value="$(arg serial_number)"/>
+    <param name="path_to_device_properties" type="string" value="$(arg path_to_device_properties)"/>
+  </node>
+
+  <!-- <node name="laser_scan_transformed" pkg="microepsilon_scancontrol" type="cloud_transformation_node" respawn="true" />  -->
+
+</launch>

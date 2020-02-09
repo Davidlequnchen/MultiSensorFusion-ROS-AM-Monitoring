@@ -1,0 +1,10 @@
+# ninja log v5
+0	167	1580719384	get_profiles_poll@exe/get_profiles_poll_get_profiles_poll.c.o	58f330a7ba6a13dd
+0	170	1580719384	get_profiles_callback@exe/get_profiles_callback_get_profiles_callback.c.o	bd6112c950d49b63
+1	181	1580719384	set_ip_address@exe/set_ip_address_set_ip_address.c.o	b4ddb31f2a30eef8
+1	189	1580719384	partial_profile@exe/partial_profile_partial_profile.c.o	df9768d2ffb715e
+170	275	1580719384	get_profiles_callback	1a48bcaa6bc91e2
+189	295	1580719384	partial_profile	982ff4f84db29a0f
+168	318	1580719384	get_profiles_poll	bd4fb2fcbacc0bd1
+181	329	1580719384	set_ip_address	ae012511b4076753
+1	141	0	meson-install	4317db4030acad06

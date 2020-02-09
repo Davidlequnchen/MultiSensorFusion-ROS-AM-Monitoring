@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <meta http-equiv="Content-Language" content="en-gb">
+  <meta name="GENERATOR" content="nvu 1.0">
+  <meta name="COPYRIGHT" content="MICRO-EPSILON Optronic GmbH">
+  <meta name="author" content="Tobias Schüller">
+  <meta http-equiv="EXPIRES" content="0">
+  <meta http-equiv="PRAGMA" content="no-cache">
+  <meta name="ROBOTS" content="index,follow">
+  <meta name="REVISIT-AFTER" content="7 days">
+  <meta name="keywords" content="instruction file">
+  <title>scanCONTROL 2700 Quick Reference</title>
+  <style type="text/css">
+TABLE { background: #f0f0f0; }
+CAPTION { font-weight: bold; }
+ACRONYM { color: #CC0000;}
+  </style>
+</head>
+<body>
+<table style="background-color: rgb(255, 255, 255);" summary="page header" frame="box" width="100%" cellspacing="1" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td align="center">
+      <h1>scan<acronym>CONTROL</acronym>&nbsp;2700
+Quick Reference</h1>
+      </td>
+      <td align="center"> <img src="scanCONTROL%202700%20Quick%20Reference-Dateien/Mologo_Farbe.gif" alt="MICRO-EPSILON" border="0" align="middle"></td>
+    </tr>
+    <tr>
+      <td align="center">
+      <h2>Brief Introduction to scan<acronym>CONTROL</acronym>&nbsp;2700
+Device Family</h2>
+      </td>
+      <td align="center">1.30<br>
+2013/11/28 15:23:16</td>
+    </tr>
+    <tr>
+      <td align="center">©
+MICRO-EPSILON Optronic GmbH, Lessingstr. 14, D-01465
+Dresden-Langebrück, Germany<br>
+e-mail <a href="mailto:optronic@micro-epsilon.de">optronic@micro-epsilon.de</a></td>
+      <td align="center"><a href="http://www.micro-epsilon.de/">www.micro-epsilon.de</a></td>
+    </tr>
+  </tbody>
+</table>
+<h2><a name="contents"></a>Contents</h2>
+<ul>
+  <li><a href="#basic">Basic Procedures</a>
+    <ul>
+      <li><a href="#principle">Laser Line
+Triangulation Principle</a> </li>
+      <li><a href="#demo">Demonstration Programmes
+and Basic Settings</a></li>
+      <li><a href="#factory">Factory Default Settings</a>
+      </li>
+      <li><a href="#usermodes">Store Settings and
+Recall Them at Power up</a> </li>
+    </ul>
+  </li>
+  <li><a href="#advanced">Advanced Procedures</a>
+    <ul>
+      <li><a href="#bildfeld">Supported Measuring
+Fields</a></li>
+      <li><a href="#resolution">Profile Resolution</a>
+      </li>
+      <li><a href="#speed">Maximum Frequency of
+Profile Measurements and Interface Bandwidth</a> </li>
+      <li><a href="#processing">Processing of
+Profile Data</a></li>
+      <li><a href="#rs422">Programmable Interface
+Port RS422</a></li>
+    </ul>
+  </li>
+  <li><a href="#appendix">Appendix</a>
+    <ul>
+      <li><a href="#pinoutrs422">Pinout of the RS422
+Socket</a></li>
+      <li><a href="#pinoutpower">Pinout of the Power
+Socket</a></li>
+      <li><a href="#error">Error Codes</a> </li>
+    </ul>
+  </li>
+</ul>
+<h2><a name="basic"></a>Basic Procedures</h2>
+<h3><a name="principle"></a>Laser Line
+Triangulation Principle</h3>
+<center><img src="scanCONTROL%202700%20Quick%20Reference-Dateien/Triangulation.gif" alt="sketch of tringulation principle" border="0"></center>
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<h3><a name="demo"></a>Demonstration
+Programmes and Basic Settings</h3>
+<p>The scan<acronym>CONTROL</acronym> devices are
+equipped with one of the following two&nbsp;high speed interfaces:</p>
+<ul>
+  <li> firewire bus (IEEE1394a) 400MBit: standard devices and
+options 001, 002, 003, 004 and 005</li>
+  <li>ethernet 100/1000MBit full duplex: devices with options
+500, 501, 502, 503, 504 and 505&nbsp;</li>
+</ul>
+<p>All devices have also a <a href="#rs422">multi
+purpose RS422 interface</a> that can be used as a serial
+communication port. All demonstration programmes support the
+communication via the high speed interface. The DeveloperDemo programme
+supports also the serial communication. A connection over the firewire
+bus requires the appropriate driver
+(see <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019_03_27_Config_Tools_CD62a_MEO_Anteil/CD/Documentation/deutsch/Installation/index.html">installation
+help</a> for further details). An ethernet connection requires
+the appropriate setup of the network card and firewall settings on the
+host PC (see <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019_03_27_Config_Tools_CD62a_MEO_Anteil/CD/Documentation/deutsch/Installation/index.html">installation
+help</a> for further details).</p>
+<p>Basic parameters for measurement are <em>profiles per
+second</em> and <em>shutter</em>.
+Choosing too many profiles per second can freeze your computer, 25Hz or
+50Hz are good for evaluation.
+The optimum value of shutter time strongly depends on the reflective
+properties of your target.
+The following table lists some hints for approximate values:
+</p>
+<center>
+<table summary="recommended shutter settings" frame="box" cellspacing="1" cellpadding="5" border="1">
+  <thead> <tr>
+    <th colspan="4">recommended shutter time (appoximate
+values) </th>
+  </tr>
+  <tr>
+    <th>Target material</th>
+    <th>scan<acronym>CONTROL</acronym>2700-25<br>
+		scan<acronym>CONTROL</acronym>2710-25<br>
+		scan<acronym>CONTROL</acronym>2750-25<br>
+		scan<acronym>CONTROL</acronym>2760-25<br></th>
+    <th>scan<acronym>CONTROL</acronym>2700-50<br>
+		scan<acronym>CONTROL</acronym>2710-50<br>
+		scan<acronym>CONTROL</acronym>2750-50<br>
+		scan<acronym>CONTROL</acronym>2760-50</th>			
+    <th>scan<acronym>CONTROL</acronym>2700-100<br>
+		scan<acronym>CONTROL</acronym>2710-100<br>
+		scan<acronym>CONTROL</acronym>2750-100<br>
+		scan<acronym>CONTROL</acronym>2760-100</th>
+  </tr>
+  </thead><tbody>
+    <tr>
+      <td>white plastic<br>
+white paper</td>
+      <td>10 ... 50&#956;s</td>
+      <td>20 ... 100&#956;s</td>
+      <td>20 ... 100&#956;s </td>
+    </tr>
+    <tr>
+      <td>coloured plastic</td>
+      <td>50 ... 100&#956;s</td>
+      <td>100 .. 200&#956;s</td>
+      <td>100 .. 200&#956;s </td>
+    </tr>
+    <tr>
+      <td>blank metal</td>
+      <td>0.1 ... 1ms</td>
+      <td>0.1 ... 1ms</td>
+      <td>0.1 ... 1ms </td>
+    </tr>
+    <tr>
+      <td>black rubber</td>
+      <td>0.5 ... 1ms</td>
+      <td>0.5 ... 1ms</td>
+      <td>0.5 ... 1ms </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p>The automatic shutter control (default) tries to find
+automatically an appropriate value for a given target.</p>
+<p>Shutter times longer then 10ms are not recommended.
+The shutter time can not be longer then the period resulting from the
+profiles per second.
+</p>
+<p align="right">Back to <a href="#contents">Contents</a>.</p>
+<h3><a name="factory"></a>Factory Default
+Settings</h3>
+<p>After power up the scan<acronym>CONTROL</acronym>
+starts profile measurements with factory settings:
+</p>
+<ul>
+  <li>100 profiles per second</li>
+  <li>640 points per profile</li>
+  <li>100&#956;s shutter time, automatic shutter control </li>
+  <li>Laser power 10mW </li>
+  <li>measuring field "large" (index&nbsp;0),
+this covers the
+standard measurement range given in the data sheet </li>
+</ul>
+If there are user modes stored then the most recently stored user mode
+will be loaded instead of the factory settings.
+<p align="right">Back to <a href="#contents">Contents</a>.</p>
+<h3><a name="usermodes"></a>Store Settings and
+Recall Them at Power up</h3>
+<p>The scan<acronym>CONTROL</acronym> supports
+storing
+custom settings. These stored settings are called user modes. Fifteen
+user modes are available.&nbsp;At start up the most recently stored
+user mode is recalled automatically. To store settings into user modes
+or&nbsp;recall settings
+from user
+modes,&nbsp;use one of the demonstration programmes.<br>
+<b>Remark:</b> The duration to load a user mode is approx. 10ms.
+</p>
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<h2><a name="advanced"></a>Advanced Procedures</h2>
+<h3><a name="bildfeld"></a>Supported Measuring
+Fields</h3>
+<p>The image sensor used in the scan<acronym>CONTROL</acronym>
+supports read out of a region of interest.
+The following table lists the predefined imager regions and shows the
+measuring field corresponding to each imager region.
+</p>
+<p align="center">
+<br>
+<a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019_03_27_Config_Tools_CD62a_MEO_Anteil/CD/Documentation/deutsch/scanCONTROL%2027XX/MeasuringField.gif"><img src="scanCONTROL%202700%20Quick%20Reference-Dateien/MeasuringField-s.gif" alt="Table of measuring field"></a>
+<br>
+<a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019_03_27_Config_Tools_CD62a_MEO_Anteil/CD/Documentation/deutsch/scanCONTROL%2027XX/MeasuringField.gif">enlarge picture</a>
+</p>
+<p>Three measuring fields are predefined in the demonstration
+programmes:
+</p>
+<center>
+<table summary="Measuring fields" frame="box" cellspacing="1" cellpadding="5" border="1">
+  <thead> <tr>
+    <th colspan="2">Predefined Measuring Fields </th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Index </th>
+  </tr>
+  </thead><tbody>
+    <tr>
+      <td>large</td>
+      <td>0 </td>
+    </tr>
+    <tr>
+      <td>standard</td>
+      <td>2 </td>
+    </tr>
+    <tr>
+      <td>small</td>
+      <td>7 </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<br>
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<h3><a name="resolution"></a>Profile Resolution</h3>
+<p>The scan<acronym>CONTROL</acronym> supports the
+following lateral resolutions in terms of point per profile: 640, 320,
+160 and 80.&nbsp;Changing the lateral resolution allows to select
+the trade off point between lateral resolution and distance resolution.</p>
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<h3><a name="speed"></a>Maximum Frequencies of
+Profile Measurements</h3>
+The maximum profile frequency depends on three basic factors:<br>
+<ul>
+  <li>Measurement target </li>
+  <li>Sensor hardware</li>
+  <li>Transmission bandwidth</li>
+</ul>
+The smallest value limits the over all perfomance.
+<h4>Measurement Target</h4>
+Most targets require a shutter time between 0.1 and 1.0ms.
+Thus,&nbsp;1000 profiles per second or more can be measured. Very
+dark objects like black rubber or shiny metal surfaces may require a
+longer shutter time or a higher laser power (class 3B, optional
+available).<br>
+<h4>Sensor Hardware</h4>
+Scan<acronym>CONTROL</acronym> 2700 and 2710 devices can
+acquire up to 100 profiles per second. The speed is limited by the
+internal processing hardware and does not depend on the measurement
+field or lateral resolution.<br>
+Scan<acronym>CONTROL</acronym> 2750 and 2760 devices contain faster
+processing hardware. They can acquire up to 4000 profiles per second.
+A profile can have up to 640 points. The measurement field setting allows a fine
+grained adjustment between speed and field of view.<br>
+<table style="text-align: left; margin-left: auto; margin-right: auto;" cellspacing="2" cellpadding="2" border="1">
+  <tbody align="center">
+    <tr>
+      <th colspan="9" rowspan="1">Maximum Acquiring
+Rate Depending on the Measurement Field Number</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>+0</th>
+      <th>+1</th>
+      <th>+2</th>
+      <th>+3</th>
+      <th>+4</th>
+      <th>+5</th>
+      <th>+6</th>
+      <th>+7</th>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>246Hz</td>
+      <td>328Hz</td>
+      <td>328Hz</td>
+      <td>328Hz</td>
+      <td>492Hz</td>
+      <td>492Hz</td>
+      <td>492Hz</td>
+      <td>980Hz</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>323Hz</td>
+      <td>431Hz</td>
+      <td>431Hz</td>
+      <td>431Hz</td>
+      <td>645Hz</td>
+      <td>645Hz</td>
+      <td>645Hz</td>
+      <td>1282Hz</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>323Hz</td>
+      <td>431Hz</td>
+      <td>431Hz</td>
+      <td>431Hz</td>
+      <td>645Hz</td>
+      <td>645Hz</td>
+      <td>645Hz</td>
+      <td>1282Hz</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">24</th>
+      <td>323Hz</td>
+      <td>431Hz</td>
+      <td>431Hz</td>
+      <td>431Hz</td>
+      <td>645Hz</td>
+      <td>645Hz</td>
+      <td>645Hz</td>
+      <td>1282Hz</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>469Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>1851Hz</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>469Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>1851Hz</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>469Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>1851Hz</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>469Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>625Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>934Hz</td>
+      <td>1851Hz</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>854Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>3333Hz</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>854Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>3333Hz</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>854Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>3333Hz</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>854Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1136Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>1694Hz</td>
+      <td>3333Hz</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>980Hz</td>
+      <td>980Hz</td>
+      <td>1923Hz</td>
+      <td>1923Hz</td>
+      <td>1923Hz</td>
+      <td>1923Hz</td>
+      <td>1923Hz</td>
+      <td>1923Hz</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>1282Hz</td>
+      <td>1282Hz</td>
+      <td>2500Hz</td>
+      <td>2500Hz</td>
+      <td>2500Hz</td>
+      <td>2500Hz</td>
+      <td>2500Hz</td>
+      <td>2500Hz</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>1851Hz</td>
+      <td>1851Hz</td>
+      <td>3571Hz</td>
+      <td>3571Hz</td>
+      <td>3571Hz</td>
+      <td>3571Hz</td>
+      <td>3571Hz</td>
+      <td>3571Hz</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>3333Hz</td>
+      <td>3333Hz</td>
+      <td>4000Hz</td>
+      <td>4000Hz</td>
+      <td>4000Hz</td>
+      <td>4000Hz</td>
+      <td>4000Hz</td>
+      <td>4000Hz</td>
+    </tr>
+  </tbody>
+</table>
+The specified measurement range will be covered with the following
+measurement field numbers: 0 and 2 for 25mm sensors; 0, 1, 2, 3, 4 and
+for 50mm and 100mm sensors. <br>
+<h4>Transmission Bandwidth</h4>
+Transmission speed mainly depends on the amount of transmitted data. The below values
+apply if the complete data set is transmitted.
+Transmitting only parts of the data set, for example profile data only
+without additional information, will decrease the required bandwidth.
+The frequencies above may be reached with the <a href="file:///I:/E2D3D/Entwicklung/scanCONTROL_Firmware/Doku_release/scanCONTROL/2019_03_27_Config_Tools_CD62a_MEO_Anteil/CD/Documentation/deutsch/scanCONTROL%2027XX/OpManPartB.html#container">container transmission</a>
+only.<br>
+<br>
+The firewire bus provides a bandwidth control by choosing
+a specific packet size. The scan<acronym>CONTROL</acronym>
+supports 100MBit, 200MBit and 400MBit transmissions. The following
+table is valid for 200Mbit (the default):<br>
+<table style="text-align: left; margin-left: auto; margin-right: auto;" cellspacing="2" cellpadding="2" border="1">
+  <tbody align="center">
+    <tr>
+      <th colspan="5" rowspan="1">The throughput of
+the firewire bus
+depends only on the packet size of transmission.</th>
+    </tr>
+    <tr>
+      <th colspan="1" rowspan="2" style="text-align: center;">Packet size /<br>
+devices per firewire bus</th>
+      <th style="text-align: center;" colspan="4" rowspan="1">Maximum frequency of profile
+measurements with respect to firewire packet size</th>
+    </tr>
+    <tr>
+      <th>80 points per profile</th>
+      <th>160 points per profile</th>
+      <th>320 points per profile</th>
+      <th>640 points per profile</th>
+    </tr>
+    <tr>
+      <td>256Bytes / see remarks</td>
+      <td>380Hz</td>
+      <td>195Hz</td>
+      <td>98Hz</td>
+      <td>49Hz</td>
+    </tr>
+    <tr>
+      <td>512Bytes / 4</td>
+      <td>727Hz</td>
+      <td>380Hz</td>
+      <td>195Hz</td>
+      <td>98Hz</td>
+    </tr>
+    <tr>
+      <td>1024Bytes / 2</td>
+      <td>1333Hz</td>
+      <td>727Hz</td>
+      <td>380Hz</td>
+      <td>195Hz</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">2048Bytes / 1</td>
+      <td>2285Hz</td>
+      <td>1333Hz</td>
+      <td>727Hz</td>
+      <td>380Hz</td>
+    </tr>
+  </tbody>
+</table>
+<p>Remarks:
+</p>
+<ul>
+  <li>Most
+firewire cards support &nbsp;simultaneous transmission for only up
+to 4
+devices.</li>
+  <li>Smaller packet sizes will be relevant if the transmission
+speed of the firewire is limited to 200MBit or 100MBit.</li>
+</ul>
+The ethernet interface does not provide such a bandwith control.
+Packets are sent as fast as possible. Furthermore, most ethernet cards
+support only packets up to approximately 1500bytes. Therefore, it is
+recommended to always use 1024bytes/packet for the ethernet interface.<br>
+<table style="text-align: left; margin-left: auto; margin-right: auto;" cellspacing="2" cellpadding="2" border="1">
+  <tbody align="center">
+    <tr>
+      <th style="text-align: center;" colspan="4" rowspan="1">Required bandwith per sensor running at 100
+profiles per second</th>
+    </tr>
+    <tr>
+      <th>80 points per profile</th>
+      <th>160 points per profile</th>
+      <th>320 points per profile</th>
+      <th>640 points per profile</th>
+    </tr>
+    <tr>
+      <td>5MBit/s</td>
+      <td>9MBit/s</td>
+      <td>18MBit/s</td>
+      <td>36MBit/s</td>
+    </tr>
+  </tbody>
+</table>
+<p>Remarks:
+</p>
+<ul>
+  <li>It is&nbsp;recommended to connect each
+device directly to one dedicated network card.</li>
+  <li>Hubs must not be used.</li>
+  <li>If a switch is used, the packet delay parameter should be set.
+Switches must not be cascaded.</li>
+  <li>Only about 80% of the available bandwidth (100MBit or
+1000MBit) should be dedicated for the profile transmission of all sensors.</li>
+  <li>A single sensor can send up to 400MBit/s</li>
+</ul>
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<h3><a name="processing"></a>Processing of
+Profile Data
+</h3>
+<p><strong>Threshold:</strong><br>
+The recommended value 128 can be decreased/increased for special situations (for instance
+decreased for black rubber targets).	
+Reflections must have a higher intensity than the threshold level which was adjusted.
+If <strong>suppress ambient light</strong> is checked
+threshold is relativ to the ambient light (recommended).
+</p>
+<p><strong>Video filter:</strong><br>
+Slight smoothing the video signal before processing reflections
+(recommended).
+</p>
+<p><strong>Use calibration:</strong><br>
+Convert image sensor row/column numbers to millimeters. Recommended in
+most cases. </p>
+<p><strong>Multiple reflections:</strong><br>
+The digital hardware can recognize up to 4 reflections per image row.
+They all can be processed in case of later decision
+on which reflection belongs to the real target. This decision can also
+be made by the&nbsp;scan<acronym>CONTROL</acronym>
+based on the positions, the integral intensities
+or the maximum intensities of reflections. This procedure saves time
+because the decision is made first,
+high resolution and calibration algorithms are performed later for less
+reflections. </p>
+<p align="right">Back to <a href="#contents">Contents</a>.</p>
+<h3><a name="rs422"></a>Programmable Interface
+Port RS422
+</h3>
+The&nbsp;scan<acronym>CONTROL</acronym> features a
+programmable RS422
+interface. The port has two channels 1 and 2. Both can act as
+receiver or transmitter, respectively. <br>
+<center>
+<table summary="Pinout" frame="box" cellspacing="1" cellpadding="5" border="1">
+  <tbody>
+    <tr>
+      <th>interface function</th>
+      <th>CH1 function</th>
+      <th>CH2 function</th>
+    </tr>
+    <tr>
+      <td> serial communication</td>
+      <td align="center">RX</td>
+      <td align="center">TX</td>
+    </tr>
+    <tr>
+      <td>external trigger</td>
+      <td align="center">&nbsp;SyncIn</td>
+      <td align="center">SyncOut</td>
+    </tr>
+    <tr>
+      <td>CMM trigger</td>
+      <td align="center">&nbsp;Port 0</td>
+      <td align="center">&nbsp;Port 1</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p align="right">Back to <a href="#contents">Contents</a>.</p>
+<h2><a name="appendix"></a>Appendix</h2>
+<h3><a name="pinoutrs422"></a>Pin out of the
+RS422 Socket</h3>
+<center>
+<table summary="Pinout" frame="box" cellspacing="1" cellpadding="5" border="1">
+  <tbody>
+    <tr>
+      <th>pin</th>
+      <th>connected to</th>
+    </tr>
+    <tr align="center">
+      <td>1</td>
+      <td>CH1</td>
+    </tr>
+    <tr align="center">
+      <td>2</td>
+      <td>/CH1</td>
+    </tr>
+    <tr align="center">
+      <td>3</td>
+      <td>CH2</td>
+    </tr>
+    <tr align="center">
+      <td>4</td>
+      <td>/CH2</td>
+    </tr>
+    <tr align="center">
+      <td>5</td>
+      <td>GND1</td>
+    </tr>
+    <tr align="center">
+      <td>6</td>
+      <td>GND2</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<h3><a name="pinoutpower"></a>Pinout of the
+Power Socket</h3>
+<center>
+<table summary="Pinout" frame="box" cellspacing="1" cellpadding="5" border="1">
+  <tbody>
+    <tr>
+      <th>pin</th>
+      <th>connected to</th>
+    </tr>
+    <tr align="center">
+      <td> 1</td>
+      <td>+24V</td>
+    </tr>
+    <tr align="center">
+      <td>2</td>
+      <td>NC</td>
+    </tr>
+    <tr align="center">
+      <td>3</td>
+      <td>NC</td>
+    </tr>
+    <tr align="center">
+      <td>4</td>
+      <td>NC</td>
+    </tr>
+    <tr align="center">
+      <td>5</td>
+      <td>NC</td>
+    </tr>
+    <tr align="center">
+      <td>6</td>
+      <td>GND</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<h3><a name="error"></a>Error Codes</h3>
+The state lamp shows different error states by blinking red with
+different
+schemes. (— long blink, · short blink.)<br>
+<center>
+<table summary="Error codes" frame="box" cellspacing="0" cellpadding="5" border="1">
+  <tbody>
+    <tr>
+      <th colspan="4">Group store/load user modes </th>
+    </tr>
+    <tr>
+      <th>Blinking scheme</th>
+      <th>Cause</th>
+      <th>Resolution</th>
+      <th>Note </th>
+    </tr>
+  </tbody><tbody>
+    <tr>
+      <td>· ·<br>
+2×short </td>
+      <td>user mode not found </td>
+      <td>choose another user mode </td>
+      <td>only previously stored user modes can be loaded </td>
+    </tr>
+    <tr>
+      <td>· · —<br>
+2×short, 1×long </td>
+      <td>Write error flash device </td>
+      <td>none, contact manufacturer </td>
+      <td>should not appear in normal operation </td>
+    </tr>
+    <tr>
+      <td>· · ·<br>
+3×short </td>
+      <td>overflow </td>
+      <td>none, contact manufacturer </td>
+      <td>should not appear in normal operation </td>
+    </tr>
+    <tr>
+      <td>· · · ·<br>
+4×short </td>
+      <td>load suppressed because of an active data transmission </td>
+      <td>stop active data transmission </td>
+      <td>avoids crashes of the pc software, however the user
+mode number is counted </td>
+    </tr>
+    <tr>
+      <th colspan="4">Group processing and transmission </th>
+    </tr>
+    <tr>
+      <th>Blinking scheme</th>
+      <th>Cause</th>
+      <th>Resolution</th>
+      <th>Note </th>
+    </tr>
+    <tr>
+      <td>— —<br>
+2×long </td>
+      <td>sensor head overflow </td>
+      <td>
+      <ul>
+        <li>choose smaller measuring field</li>
+        <li>decrease profile frequency</li>
+        <li>choose less complex processing</li>
+      </ul>
+      </td>
+      <td>data can be corrupted, shutter time may be longer than
+expected </td>
+    </tr>
+    <tr>
+      <td>— — ·<br>
+2×long, 1×short </td>
+      <td>logic overflow </td>
+      <td>
+      <ul>
+        <li>choose smaller measuring field</li>
+        <li>decrease profile frequency</li>
+        <li>choose less complex processing</li>
+      </ul>
+      </td>
+      <td>data can be corrupted </td>
+    </tr>
+    <tr>
+      <td>— — · ·<br>
+2×long, 2×short </td>
+      <td>transmission overflow (serial port) </td>
+      <td>
+      <ul>
+        <li>decrease profile frequency</li>
+        <li>choose less complex processing</li>
+      </ul>
+      </td>
+      <td>data can be corrupted </td>
+    </tr>
+    <tr>
+      <td>— — · ·
+·<br>
+2×long, 3×short </td>
+      <td>transmission overflow (firewire/ethernet) </td>
+      <td>
+      <ul>
+        <li>decrease profile frequency</li>
+        <li>increase packet size</li>
+      </ul>
+      </td>
+      <td>data can be corrupted </td>
+    </tr>
+    <tr>
+      <td>— — · ·
+· · ·<br>
+2×long, 5×short </td>
+      <td>data corruption during processing </td>
+      <td>
+      <ul>
+        <li>decrease profile frequency</li>
+        <li>use faster processing modes</li>
+      </ul>
+      </td>
+      <td>data can be corrupted </td>
+    </tr>
+    <tr>
+      <td>— — · ·
+· · · ·<br>
+2×long, 6×short </td>
+      <td>data corruption during transmission (firewire/ethernet) </td>
+      <td>
+      <ul>
+        <li>decrease profile frequency</li>
+        <li>increase packet size</li>
+      </ul>
+      </td>
+      <td>data can be corrupted </td>
+    </tr>
+    <tr>
+      <th colspan="4" rowspan="1">Group Wago
+buscoupler connection<br>
+      </th>
+    </tr>
+    <tr>
+      <th>Blinking scheme</th>
+      <th>Cause</th>
+      <th>Resolution</th>
+      <th>Note </th>
+    </tr>
+    <tr>
+      <td>— — —<br>
+3×long</td>
+      <td>buscoupler not found</td>
+      <td>
+      <ul>
+        <li>check ethernet connection</li>
+        <li>&nbsp;check firewire speed</li>
+        <li>unplug the firewire cable and plug in again</li>
+      </ul>
+      </td>
+      <td>if the problem persists, please contact manufacturer</td>
+    </tr>
+    <tr>
+      <td>— — — ·<br>
+3×long, 1×short</td>
+      <td>buscoupler contains unsupported modules</td>
+      <td>
+      <ul>
+        <li>check modules and remove unsupported modules</li>
+      </ul>
+      </td>
+      <td>only supported modules may be used</td>
+    </tr>
+    <tr>
+      <td>— — — ·
+·<br>
+3×long, 2×short</td>
+      <td>error during communication with the buscoupler</td>
+      <td>
+      <ul>
+        <li>check ethernet connection</li>
+        <li>&nbsp;check firewire speed</li>
+        <li>unplug the firewire cable and plug in again</li>
+      </ul>
+      </td>
+      <td>if the problem persists, please contact manufacturer</td>
+    </tr>
+    <tr>
+      <td>— — — ·
+· ·<br>
+3×long, 3×short</td>
+      <td>overflow during output update</td>
+      <td>
+      <ul>
+        <li>decrease profile frequency</li>
+        <li>decrease number of used outputs</li>
+      </ul>
+      </td>
+      <td>outputs may have missed an update</td>
+    </tr>
+    <tr>
+      <th colspan="4" rowspan="1">Group ethernet interface<br>
+      </th>
+    </tr>
+    <tr>
+      <th>Blinking scheme</th>
+      <th>Cause</th>
+      <th>Resolution</th>
+      <th>Note </th>
+    </tr>
+    <tr>
+      <td>— — — —<br>
+4×long</td>
+      <td>IP address conflict</td>
+      <td>
+      <ul>
+        <li>check ethernet configuration of device and host PC</li>
+        <li>&nbsp;choose another IP address for the device</li>
+      </ul>
+      </td>
+      <td>if the problem persists, please contact manufacturer</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+The&nbsp;state lamp also blinks green, long during an active data
+transmission and short for control access.
+Control accesses can cause various data overflows, especially if the
+measuring frequency is near the maximum.
+<p align="right">Back to <a href="#contents">Contents</a>.
+</p>
+<hr>
+
+
+</body></html>

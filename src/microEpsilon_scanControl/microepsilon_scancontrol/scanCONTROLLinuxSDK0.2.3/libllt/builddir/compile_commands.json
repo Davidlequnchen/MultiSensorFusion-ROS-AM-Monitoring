@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROL Linux SDK 0.2.3/libllt/builddir",
+    "command": "c++  -Illt@sha -I. -I.. -I../include -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -fPIC -pthread -MD -MQ 'llt@sha/src_llt.cpp.o' -MF 'llt@sha/src_llt.cpp.o.d' -o 'llt@sha/src_llt.cpp.o' -c ../src/llt.cpp",
+    "file": "../src/llt.cpp"
+  }
+]
