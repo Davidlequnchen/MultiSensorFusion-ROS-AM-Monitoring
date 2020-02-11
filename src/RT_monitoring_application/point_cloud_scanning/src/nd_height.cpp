@@ -36,7 +36,8 @@ public:
   NdHeight() {
     z_height = 0;
 
-    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/scan", 1,  &NdHeight::cbPointCloud, this);
+    // sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/scan", 1,  &NdHeight::cbPointCloud, this);
+    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/arm/laser_scan", 5,  &NdHeight::cbPointCloud, this);
     pub_height = nh.advertise<std_msgs::Float32>("/usb_cam/zheight", 1);
 
   }

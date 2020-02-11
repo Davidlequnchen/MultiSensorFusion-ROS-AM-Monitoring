@@ -30,7 +30,8 @@ public:
   typedef pcl::PointCloud<Point> PointCloud;
 
   NdCloud() {
-    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/cloud", 5,  &NdCloud::cbPointCloud, this);
+    // sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/cloud", 5,  &NdCloud::cbPointCloud, this);
+    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/arm/laser_scan", 5,  &NdCloud::cbPointCloud, this);
 
     pub_cloud = nh.advertise<sensor_msgs::PointCloud2>("/usb_cam/scan", 10);
 
@@ -51,8 +52,10 @@ public:
       // ROS_INFO_STREAM("Time: " << ros::Time::now());
 
       ros::Time stamp = (*cloud_msg).header.stamp;
-      tf_listener->waitForTransform("/world", "/camera0", stamp, ros::Duration(1.0));
-      tf_listener->lookupTransform("/world", "/camera0", stamp, transform);
+      // tf_listener->waitForTransform("/world", "/camera0", stamp, ros::Duration(1.0));
+      // tf_listener->lookupTransform("/world", "/camera0", stamp, transform);
+      tf_listener->waitForTransform("/world", "/scanCONTROL_2900-50_scanner_laser_link", stamp, ros::Duration(1.0));
+      tf_listener->lookupTransform("/world", "/scanCONTROL_2900-50_scanner_laser_link", stamp, transform);
       pcl_ros::transformAsMatrix(transform, matrix1); 
       // matrix1 is the transformation(trans, rot) between world frame and camera frame
       tf_listener->waitForTransform("/world", "/workobject", stamp, ros::Duration(1.0));

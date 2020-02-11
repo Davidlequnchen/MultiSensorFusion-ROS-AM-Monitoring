@@ -5,12 +5,10 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /RobotModel1
-        - /RobotModel1/Status1
         - /RobotModel1/Links1
-        - /TF1
+        - /RobotModel1/Links1/scanCONTROL_2900-50_scanner_laser_link1
         - /TF1/Frames1
         - /PointCloud21
-        - /PointCloud21/Status1
         - /Image1
       Splitter Ratio: 0.5996732115745544
     Tree Height: 538
@@ -83,37 +81,37 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         link_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         link_3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         link_4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         link_5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         link_6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         link_d1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         link_d2:
           Alpha: 1
           Show Axes: false
@@ -131,7 +129,7 @@ Visualization Manager:
           Value: true
         scanCONTROL_2900-50_scanner_laser_link:
           Alpha: 1
-          Show Axes: false
+          Show Axes: true
           Show Trail: false
         scanCONTROL_2900-50_scanner_link:
           Alpha: 1
@@ -161,83 +159,19 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        base_link:
-          Value: false
-        camera0:
-          Value: false
-        head0:
-          Value: false
-        link_1:
-          Value: false
-        link_2:
-          Value: false
-        link_3:
-          Value: false
-        link_4:
-          Value: false
-        link_5:
-          Value: false
-        link_6:
-          Value: false
-        link_d1:
-          Value: false
-        link_d2:
-          Value: false
-        link_d3:
-          Value: false
-        link_d4:
-          Value: false
-        scanCONTROL_2900-50_scanner_laser_link:
-          Value: true
-        scanCONTROL_2900-50_scanner_link:
-          Value: false
-        tcp0:
-          Value: false
-        tool0:
-          Value: false
-        workobject:
-          Value: false
-        world:
-          Value: false
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        world:
-          base_link:
-            link_1:
-              link_2:
-                link_3:
-                  link_4:
-                    link_5:
-                      link_6:
-                        tool0:
-                          camera0:
-                            {}
-                          head0:
-                            {}
-                          tcp0:
-                            scanCONTROL_2900-50_scanner_link:
-                              scanCONTROL_2900-50_scanner_laser_link:
-                                {}
-                  link_d1:
-                    {}
-              link_d2:
-                {}
-              link_d3:
-                {}
-              link_d4:
-                {}
-            workobject:
-              {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -249,7 +183,7 @@ Visualization Manager:
       Class: rviz/PointCloud2
       Color: 255; 0; 0
       Color Transformer: Intensity
-      Decay Time: 0
+      Decay Time: 60
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
@@ -298,25 +232,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.9643940925598145
+      Distance: 1.6163722276687622
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.21211199462413788
-        Y: -0.5949679017066956
-        Z: 0.49609845876693726
+        X: 0.20699094235897064
+        Y: -0.4835888147354126
+        Z: 0.5666669607162476
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6698009371757507
+      Pitch: 0.5298011302947998
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.805368959903717
+      Yaw: 5.13355016708374
     Saved: ~
 Window Geometry:
   Displays:
