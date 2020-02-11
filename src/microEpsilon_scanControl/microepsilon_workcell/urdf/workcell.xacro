@@ -13,7 +13,7 @@
   <xacro:include filename="$(find microepsilon_workcell)/urdf/scanCONTROL_2900-50_macro.urdf.xacro" />
   <!-- sensor -->
   <xacro:scanCONTROL_2900-50 prefix="scanCONTROL_2900-50_" parent="link_6">
-    <origin xyz="0.1 0.2 -0.1" rpy="${radians(180)} ${radians(-90)} ${radians(-90)}" />
+    <origin xyz="0.1 0.2 -0.1" rpy="${radians(0)} ${radians(0)} ${radians(90)}" />
   </xacro:scanCONTROL_2900-50>
 
 

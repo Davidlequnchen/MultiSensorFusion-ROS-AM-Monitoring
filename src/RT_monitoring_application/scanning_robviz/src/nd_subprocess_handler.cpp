@@ -93,7 +93,7 @@ public:
       // fs::path file("PCL_segmentation");
       // fs::path full_path = dir / file;
       std::string executable = path + "/PCL_segmentation/build/PCL_segmentation";
-      std::string option = " -multiPlannarSeg"; //other options: -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
+      std::string option = " -largestPlane"; //other options: -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
       std::string loadfile = " -load " + path + "/pcl/" + this->pcd_filename;
       std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
       std::string parameters = " -DistanceThre 0.0013 -Stddev 1.0";

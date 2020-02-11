@@ -27,7 +27,7 @@
     </link>
 
     <joint name="${prefix}scanner_laser_joint" type="fixed">
-        <origin xyz="0 0 0" rpy="${radians(0)} ${radians(90)} ${radians(180)}" />
+        <origin xyz="0 0 0" rpy="${radians(0)} ${radians(0)} ${radians(180)}" />
         <parent link="${prefix}scanner_link"/>
         <child link="${prefix}scanner_laser_link" />
     </joint>

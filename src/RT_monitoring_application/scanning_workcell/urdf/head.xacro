@@ -3,7 +3,8 @@
   <link name="head0">
     <visual>
       <geometry>
-        <mesh filename="package://scanning_workcell/meshes/head/visual/head_wt03.stl" />
+        <!-- <mesh filename="package://scanning_workcell/meshes/head/visual/head_wt03.stl" /> -->
+        <mesh filename="package://scanning_workcell/meshes/head/visual/laserhead.stl" />
       </geometry>
       <material name="dark_gray">
         <color rgba="0.3 0.4 0.3 1"/>
@@ -11,7 +12,7 @@
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://scanning_workcell/meshes/head/collision/head_wt03.stl" />
+        <mesh filename="package://scanning_workcell/meshes/head/collision/laserhead.stl" />
       </geometry>
       <material name="yellow">
         <color rgba="0 1 1 1" />
