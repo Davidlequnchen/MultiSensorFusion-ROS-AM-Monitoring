@@ -169,7 +169,7 @@ void savePointFile (std::string fileName, pcl::PointCloud<pcl::PointXYZ>::Ptr cl
 // Function to find distance between point and a plane (here we calculate distance between origin 0,0,0 and plane ax+by+cz+d=0) 
 float shortest_distance(float a, float b, float c, float d) // pass in 4 plane coefficient
 { //Distance = (| a*x1 + b*y1 + c*z1 + d |) / (sqrt( a*a + b*b + c*c))
-  d = fabs((d)); 
+  // d = fabs((d)); 
   float e = sqrt(a * a + b * b + c * c); 
   float distance = d/e;
   std::cout << "Perpendicular distance is " << distance <<std::endl; 
@@ -583,7 +583,7 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
    // required dataset
   pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
   pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
-  cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); 
+  // cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); 
   filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
 
 
@@ -616,7 +616,7 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
   
   //secondly, segment the plane in a loop
    
-  int i = 0, nr_points = (int) cloud->points.size ();
+  int number_of_plane = 0, nr_points = (int) cloud->points.size ();
   int color_r = 255;
   int color_g = 255;
   int color_b = 255;
@@ -624,37 +624,37 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
   while (cloud->points.size () > 0.1 * nr_points)// 10% of the original cloud is still there, will be considered as noise
   {
     // color setting -- for different plane
-    if (i == 0){ // white
+    if (number_of_plane == 0){ // white
       color_r = 255;
       color_g = 255;
       color_b = 255;
     }
-    else if(i == 1){//blue
+    else if(number_of_plane == 1){//blue
       color_r = 0;
       color_g = 0;
       color_b = 255;
     }
-    else if(i == 2){//green
+    else if(number_of_plane == 2){//green
       color_r = 0;
       color_g = 255;
       color_b = 0;
     }
-    else if(i == 3){//purple
+    else if(number_of_plane == 3){//purple
       color_r = 255;
       color_g = 0;
       color_b = 255;
     }
-    else if(i == 4){//yellow
+    else if(number_of_plane == 4){//yellow
       color_r = 255;
       color_g = 255;
       color_b = 0;
     }
-    else if(i == 5){//sky blue
+    else if(number_of_plane == 5){//sky blue
       color_r = 0;
-      color_g = 128;i++;
-      color_b = 255;i++;
+      color_g = 128;
+      color_b = 255;
     }
-    else if(i == 6){//bright yellow
+    else if(number_of_plane == 6){//bright yellow
       color_r = 255;
       color_g = 255;
       color_b = 102;
@@ -663,7 +663,7 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
     
     //get the current segmented plane name
     std::ostringstream oss;
-    oss << "segmented cloud" << i << " " ;
+    oss << "segmented cloud" << number_of_plane << " " ;
     std::string cloud_name = oss.str();
     
     // Segment the largest planar component from the remaining cloud
@@ -672,15 +672,15 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
   
     std::cerr << "plannar coefficients of "<< cloud_name << "is: " << *coefficients_plane << std::endl;
     
-    planeheight[i] = shortest_distance(coefficients_plane->values[0],coefficients_plane->values[1], coefficients_plane->values[2], coefficients_plane->values[3]);
+    planeheight[number_of_plane] = shortest_distance(coefficients_plane->values[0],coefficients_plane->values[1], coefficients_plane->values[2], coefficients_plane->values[3]);
 
     if (inliers_plane->indices.size () == 0)
     {
       std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
       //break;
     }
+    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
     
-
     // Extract the inliers
     extract.setInputCloud (cloud);
     extract.setIndices (inliers_plane);
@@ -696,7 +696,7 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
     extract.setNegative (true);
     extract.filter (*filtered_part);//outlier part
     cloud.swap (filtered_part);
-    i++;
+    number_of_plane++;
   }
 
 
@@ -706,8 +706,9 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
 
   // --------------------get the target plane from the point cloud -----------------
 
-  const int N = sizeof(planeheight) / sizeof(float); // number of elements
-  highest_plane_index = std::distance(planeheight, std::max_element(planeheight, planeheight + N));
+  // const int N = sizeof(planeheight) / sizeof(float); // number of elements
+  // highest_plane_index = std::distance(planeheight, std::max_element(planeheight, planeheight + N));
+  highest_plane_index = std::distance(planeheight, std::min_element(planeheight, planeheight+number_of_plane ));
 
 }
 
