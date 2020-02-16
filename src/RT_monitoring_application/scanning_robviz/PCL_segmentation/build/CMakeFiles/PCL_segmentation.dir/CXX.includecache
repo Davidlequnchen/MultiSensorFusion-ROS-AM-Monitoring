@@ -19,6 +19,8 @@ algorithm
 -
 cmath
 -
+fstream
+-
 pcl/ModelCoefficients.h
 -
 pcl/common/common_headers.h

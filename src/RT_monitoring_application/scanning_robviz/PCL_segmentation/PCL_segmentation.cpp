@@ -4,7 +4,8 @@
 #include <vector>
 #include <algorithm> 
 #include <cmath>
- 
+#include <fstream>
+
 #include <pcl/ModelCoefficients.h>
 #include <pcl/common/common_headers.h>
 #include <pcl/features/normal_3d.h>
@@ -37,6 +38,7 @@ pcl::PointXYZ min_pt, max_pt;
 
 std::string loadfilename = "flatslow.pcd";
 std::string savefilename = "test_filtered.txt";
+std::string plane_coefficient_filename = "plane_coefficient_filename.txt";
 
 float leafsize = 0.002f; // 2mm
 float StddevMulThresh = 1.5; // this parameter is for statistical filter 
@@ -50,7 +52,8 @@ float planeheight[MAX_PLANE_NUMBER] = {}; // define an array with maximum 10 mem
 //pcl::PointIndices::Ptr inliers_plane_list[MAX_PLANE_NUMBER] = {}; // define a pointer array to stores the inliers indices of the segmented plane
 //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered_lst[MAX_PLANE_NUMBER] (new pcl::PointCloud<pcl::PointXYZ>); // store the segmented cloud
 std::vector < pcl::PointCloud<pcl::PointXYZ>::Ptr, Eigen::aligned_allocator <pcl::PointCloud<pcl::PointXYZ>::Ptr > > sourceClouds;
-
+// vector toe store the coefficient plane pointer
+std::vector < pcl::ModelCoefficients::Ptr, Eigen::aligned_allocator <pcl::ModelCoefficients::Ptr> > plane_coefficient_vector;
 
 
 
@@ -93,7 +96,7 @@ printUsage (const char* progName)
   // -----Help-----
   // --------------
 
-  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]\n\n"
+  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-saveCoefficientPlaneName plane_coefficient_filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]\n\n"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h                    this help\n"
@@ -162,6 +165,17 @@ void savePointFile (std::string fileName, pcl::PointCloud<pcl::PointXYZ>::Ptr cl
     {
         std::cout << "Unknown save exception.";
     }
+}
+
+// save the highest plane coefficient a,b,c,d into a txt file
+void saveCoefficientPlane (std::string filename, pcl::ModelCoefficients::Ptr coefficients_plane )
+{
+  // define a output file object
+  std::ofstream outfile;
+  // std::ios_base::app -- All output operations are performed at the end of the file, appending the content to the current content of the file
+  outfile.open(filename, std::ios_base::app);//std::ios_base::app
+  // write a b c d coefficeint of the plane into this file
+  outfile << coefficients_plane->values[0] << " " << coefficients_plane->values[1] << " " << coefficients_plane->values[2] << " " << coefficients_plane->values[3];
 }
 
 
@@ -581,7 +595,7 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
   pcl::SACSegmentation<pcl::PointXYZ> seg; 
   
    // required dataset
-  pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
+  // pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
   pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
   // cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); 
   filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
@@ -666,6 +680,10 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
     oss << "segmented cloud" << number_of_plane << " " ;
     std::string cloud_name = oss.str();
     
+    // define temporary coefficients_plane pointer, to store current plane coefficient, 
+    // note it has to be inside this loop
+    pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
+
     // Segment the largest planar component from the remaining cloud
     seg.setInputCloud (cloud);
     seg.segment (*inliers_plane, *coefficients_plane);
@@ -679,6 +697,9 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
       std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
       //break;
     }
+
+    // define temporary point cloud pointer to store the current plane's point clouds
+    // it has to be inside the while loop
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
     
     // Extract the inliers
@@ -689,7 +710,7 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
     std::cerr << "PointCloud representing the planar component: " << cloud_name << cloud_filtered->width * cloud_filtered->height << " data points." << std::endl;
     
     sourceClouds.push_back(cloud_filtered);// save this current cloud into a list array
-
+    plane_coefficient_vector.push_back(coefficients_plane); // save current plane coefficent(a,b,c,d) inot the vector
 
 
     // Create the filtering object
@@ -709,7 +730,7 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
   // const int N = sizeof(planeheight) / sizeof(float); // number of elements
   // highest_plane_index = std::distance(planeheight, std::max_element(planeheight, planeheight + N));
   highest_plane_index = std::distance(planeheight, std::min_element(planeheight, planeheight+number_of_plane ));
-
+  
 }
 
 void curve_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
@@ -867,6 +888,7 @@ main (int argc, char** argv)
   
   pcl::console::parse_argument (argc, argv, "-load", loadfilename);
   pcl::console::parse_argument (argc, argv, "-save", savefilename);
+  pcl::console::parse_argument (argc, argv, "-saveCoefficientPlaneName", plane_coefficient_filename);
   pcl::console::parse_argument (argc, argv, "-leafsize", leafsize);
   pcl::console::parse_argument (argc, argv, "-Stddev", StddevMulThresh);
   pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
@@ -984,6 +1006,7 @@ main (int argc, char** argv)
   {
     multi_plannar_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, sourceClouds[highest_plane_index]);
+    saveCoefficientPlane (plane_coefficient_filename, plane_coefficient_vector[highest_plane_index]);
   }
   else if (EuclideanExtraction)
   {

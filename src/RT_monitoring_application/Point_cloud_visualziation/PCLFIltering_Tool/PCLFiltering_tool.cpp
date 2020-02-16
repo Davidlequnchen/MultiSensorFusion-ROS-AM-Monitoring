@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm> 
 #include <cmath>
+#include <fstream>
  
 #include <pcl/ModelCoefficients.h>
 #include <pcl/common/common_headers.h>
@@ -19,6 +20,7 @@
 #include <pcl/filters/extract_indices.h>
 #include <pcl/sample_consensus/method_types.h>
 #include <pcl/sample_consensus/model_types.h>
+#include <pcl/sample_consensus/sac_model_plane.h>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/segmentation/extract_clusters.h>
 #include <pcl/kdtree/kdtree.h>
@@ -31,12 +33,14 @@
 
 //using namespace std::literals::chrono_literals;
 
-
 // define global values
 pcl::PointXYZ min_pt, max_pt;
 
 std::string loadfilename = "flatslow.pcd";
 std::string savefilename = "test_filtered.txt";
+std::string plane_coefficient_filename = "plane_coefficient_filename.txt";
+std::string PointToPlaneDistance_filename = "PointToPlaneDistance_filename.txt";
+std::string NormalEstimation_filename = "NormalEstimation_filename.txt";
 
 float leafsize = 0.002f; // 2mm
 float StddevMulThresh = 1.5; // this parameter is for statistical filter 
@@ -51,6 +55,13 @@ float planeheight[MAX_PLANE_NUMBER] = {}; // define an array with maximum 10 mem
 //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered_lst[MAX_PLANE_NUMBER] (new pcl::PointCloud<pcl::PointXYZ>); // store the segmented cloud
 std::vector < pcl::PointCloud<pcl::PointXYZ>::Ptr, Eigen::aligned_allocator <pcl::PointCloud<pcl::PointXYZ>::Ptr > > sourceClouds;
 // std::vector <pcl::PointCloud<pcl::PointXYZ>, Eigen::aligned_allocator<pcl::PointXYZ> > sourceClouds; 
+// vector to store the coefficient plane pointer
+std::vector < pcl::ModelCoefficients::Ptr, Eigen::aligned_allocator <pcl::ModelCoefficients::Ptr> > plane_coefficient_vector;
+// vector to store the point to Plane distance
+std::vector < double > point_to_plane_distance_vector;
+// vector to store the estimated normal vector
+// std::vector < double point_normal[4] > normal_estimation_vector;
+std::vector < std::array<float, 4> > normal_estimation_vector ;
 
 
 
@@ -94,7 +105,9 @@ printUsage (const char* progName)
   // -----Help-----
   // --------------
 
-  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]\n\n"
+  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-saveCoefficientPlaneName plane_coefficient_filename]\n"
+            << "[-savePointToPlaneDistance PointToPlaneDistance_filename] [-saveNormalEstimation NormalEstimation_filename][-leafsize /float] [-DistanceThre /float]"
+            << "[-Stddev /float]\n\n"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h                    this help\n"
@@ -164,6 +177,45 @@ void savePointFile (std::string fileName, pcl::PointCloud<pcl::PointXYZ>::ConstP
         std::cout << "Unknown save exception.";
     }
 }
+
+
+
+// save the highest plane coefficient a,b,c,d into a txt file
+void saveCoefficientPlane (std::string filename, pcl::ModelCoefficients::Ptr coefficients_plane )
+{
+  // define a output file object
+  std::ofstream outfile;
+  // std::ios_base::app -- All output operations are performed at the end of the file, appending the content to the current content of the file
+  outfile.open(filename, std::ios_base::app);//std::ios_base::app
+  // write a b c d coefficeint of the plane into this file
+  outfile << coefficients_plane->values[0] << " " << coefficients_plane->values[1] << " " << coefficients_plane->values[2] << " " << coefficients_plane->values[3];
+}
+
+
+// save the point to plane distance value into a txt file
+void savePointToPlaneDistance (std::string filename, std::vector< double > distance )
+{
+  std::ofstream output_file(filename);
+  std::ostream_iterator<double> output_iterator(output_file, "\n");
+  std::copy(distance.begin(), distance.end(), output_iterator);
+}
+
+// save the normal estimation results(normal vector and curvature) into a txt file
+void saveNormalEstimation (std::string filename, std::vector < std::array<float, 4> > normal_estimation_vector)
+{ 
+  // method of put a vector into a txt file
+  std::ofstream output_file;
+  output_file.open(filename, std::ios_base::app);//std::ios_base::app
+  int i = 0;
+  while (i < normal_estimation_vector.size())
+  {
+    output_file << normal_estimation_vector[i][0] << " " << normal_estimation_vector[i][1]  << " " << normal_estimation_vector[i][2]  << " " << normal_estimation_vector[i][3] << "\n";
+    i++; 
+  }
+  
+}
+
+
 
 
 
@@ -698,7 +750,7 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
   pcl::SACSegmentation<pcl::PointXYZ> seg; 
   
    // required dataset
-  pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
+  // pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
   pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
   // cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); 
   filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
@@ -795,6 +847,13 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
     oss << "segmented cloud" << number_of_plane << " " ;
     std::string cloud_name = oss.str();
     
+
+    // define temporary coefficients_plane pointer, to store current plane coefficient, 
+    // note it has to be inside this loop
+    pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
+
+
+
     // Segment the largest planar component from the remaining cloud
     seg.setInputCloud (cloud);
     seg.segment (*inliers_plane, *coefficients_plane);
@@ -808,6 +867,9 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
       std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
       //break;
     }
+
+    // define temporary point cloud pointer to store the current plane's point clouds
+    // it has to be inside the while loop
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
 
     // Extract the inliers
@@ -818,6 +880,7 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
     std::cerr << "PointCloud representing the planar component: " << cloud_name << cloud_filtered->width * cloud_filtered->height << " data points." << std::endl;
     
     sourceClouds.push_back(cloud_filtered);// save this current cloud into a list array
+    plane_coefficient_vector.push_back(coefficients_plane); // save current plane coefficent(a,b,c,d) inot the vector
 
     pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> color_handler (cloud_filtered, color_r, color_g, color_b);
     viewer->addPointCloud(cloud_filtered, color_handler, cloud_name);
@@ -863,6 +926,94 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
   target_viewer->addCoordinateSystem (0.02);
   target_viewer->initCameraParameters ();
 
+  /*
+  calculate distance of each point from sourceClouds[highest_plane_index], to the highest plane model with coefficient a,b,c,d
+  save the output(distance) into another txt file.
+  */
+  //Let i be the element number which you want to access
+  int i = 0;
+  while (i < sourceClouds[highest_plane_index]->points.size () ) // loop to calculate the pointToPlaneDistanceSigned
+  {
+    // sourceClouds[highest_plane_index]->points[i] ----> the current point we are calculating
+    /*
+    double pcl::pointToPlaneDistanceSigned 	( const Point &	p,
+		const Eigen::Vector4f & plane_coefficients ) 		
+    */
+    double Distance; // temporary double value to store current pointToPlaneDisntacne (signed)
+    Distance = pcl::pointToPlaneDistanceSigned ( sourceClouds[highest_plane_index]->points[i], plane_coefficient_vector[highest_plane_index]->values[0]
+                                                ,plane_coefficient_vector[highest_plane_index]->values[1]
+                                                ,plane_coefficient_vector[highest_plane_index]->values[2]
+                                                ,plane_coefficient_vector[highest_plane_index]->values[3]  );
+    // savePointToPlaneDistance(PointToPlaneDistance_filename, Distance);
+    point_to_plane_distance_vector.push_back(Distance);
+    i++;
+  }
+
+  savePointToPlaneDistance(PointToPlaneDistance_filename, point_to_plane_distance_vector);
+
+  // // Estimate normal vectors of the points -------------------------------------------------------------------------------------------------------------
+  // // the apply voxel grid filter to downsample the data ==============================
+  // // Create the filtering object
+  // pcl::VoxelGrid<pcl::PointXYZ> vox;
+  // vox.setInputCloud (sourceClouds[highest_plane_index]);
+  // // downsampling
+  // vox.setLeafSize (0.003f, 0.003f, 0.003f);//3mm --- ideal value, lower or higher both got wrong results
+  // pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_voxel_filtered (new pcl::PointCloud<pcl::PointXYZ>);
+  // vox.filter (*cloud_voxel_filtered);
+  
+  // std::cout << "PointCloud after filtering has: " << cloud->points.size ()  << " data points." << std::endl;
+
+  // //=======================================
+
+
+  // Create the normal estimation class, and pass the input dataset to it
+  pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal> ne;
+  // ne.setInputCloud (cloud_voxel_filtered); // set input cloud as the highest plane after segmentation
+  ne.setInputCloud (sourceClouds[highest_plane_index]);
+  // Create an empty kdtree representation, and pass it to the normal estimation object.
+  // Its content will be filled inside the object, based on the given input dataset (as no other search surface is given).
+  pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ> ());
+  ne.setSearchMethod (tree);
+  // Output datasets
+  pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
+  // Use all neighbors in a sphere of radius 5mm
+  ne.setRadiusSearch (0.005);
+  //  Compute the features
+  ne.compute (*cloud_normals);
+  // compute function: for each point p in cloud P
+  // 1. get the nearest neighbors of p
+  // 2. compute the surface normal n of p
+  // 3. check if n is consistently oriented towards the viewpoint and flip otherwise
+  
+  //The viewpoint is by default (0,0,0) and can be changed with:
+  //setViewPoint (float vpx, float vpy, float vpz);
+
+
+  // To compute a single point normal, use:
+  // computePointNormal (const pcl::PointCloud<PointInT> &cloud, const std::vector<int> &indices, Eigen::Vector4f &plane_parameters, float &curvature);
+
+
+
+  /*
+  NormalEstimation estimates local surface properties (surface normals and curvatures)at each 3D point.
+  If PointOutT is specified as pcl::Normal, the normal is stored in the first 3 components (0-2), and the curvature is stored in component 3.
+  */
+  // cloud_normals->points.size () should have the same size as the input cloud->points.size ()*
+  int k = 0;
+  while (k < cloud_normals->points.size () )  // while loop to get all the normal vector of the points
+  {
+    std::array< float, 4>  point_normal = {}; // initialize a temporory array to store the 4 component of pcl::Normal
+    point_normal[0] = cloud_normals->points[k].normal_x;
+    point_normal[1] = cloud_normals->points[k].normal_y;
+    point_normal[2] = cloud_normals->points[k].normal_z;
+    point_normal[3] = cloud_normals->points[k].curvature;
+    // std::cerr << point_normal[0] << " " << point_normal[1] << "  "<< point_normal[2] << " " << point_normal[3] << std::endl;
+    normal_estimation_vector.push_back (point_normal);
+    k++;
+  }
+
+  saveNormalEstimation (NormalEstimation_filename, normal_estimation_vector);
+  
 
 
   return (viewer);
@@ -1067,6 +1218,9 @@ main (int argc, char** argv)
   
   pcl::console::parse_argument (argc, argv, "-load", loadfilename);
   pcl::console::parse_argument (argc, argv, "-save", savefilename);
+  pcl::console::parse_argument (argc, argv, "-saveCoefficientPlaneName", plane_coefficient_filename);
+  pcl::console::parse_argument (argc, argv, "-savePointToPlaneDistance", PointToPlaneDistance_filename);
+  pcl::console::parse_argument (argc, argv, "-saveNormalEstimation", NormalEstimation_filename);
   pcl::console::parse_argument (argc, argv, "-leafsize", leafsize);
   pcl::console::parse_argument (argc, argv, "-Stddev", StddevMulThresh);
   pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
@@ -1184,6 +1338,7 @@ main (int argc, char** argv)
   {
     viewer = multi_plannar_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, sourceClouds[highest_plane_index]);
+    saveCoefficientPlane (plane_coefficient_filename, plane_coefficient_vector[highest_plane_index]);
   }
   else if (EuclideanExtraction)
   {

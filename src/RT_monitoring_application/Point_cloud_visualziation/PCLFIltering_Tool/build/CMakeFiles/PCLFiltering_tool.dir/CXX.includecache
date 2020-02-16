@@ -19,6 +19,8 @@ algorithm
 -
 cmath
 -
+fstream
+-
 pcl/ModelCoefficients.h
 -
 pcl/common/common_headers.h
@@ -46,6 +48,8 @@ pcl/filters/extract_indices.h
 pcl/sample_consensus/method_types.h
 -
 pcl/sample_consensus/model_types.h
+-
+pcl/sample_consensus/sac_model_plane.h
 -
 pcl/segmentation/sac_segmentation.h
 -
