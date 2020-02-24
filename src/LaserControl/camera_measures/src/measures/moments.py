@@ -93,7 +93,7 @@ class Moments():
 
         # center, axis, angle = self.find_ellipse(img_bin)
 
-        _, contours, _ = cv2.findContours(
+        contours, _ = cv2.findContours(
             frame, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         if len(contours) > 0:
             areas = [cv2.contourArea(contour) for contour in contours]

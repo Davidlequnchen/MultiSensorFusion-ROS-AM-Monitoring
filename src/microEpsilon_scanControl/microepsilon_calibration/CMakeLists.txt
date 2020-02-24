@@ -13,6 +13,11 @@ find_package(catkin REQUIRED COMPONENTS
   rosbag
   rosconsole
   roslib
+  roscpp
+  std_msgs
+  cv_bridge
+  sensor_msgs
+  image_transport
 )
 
 find_package(OpenCV REQUIRED)

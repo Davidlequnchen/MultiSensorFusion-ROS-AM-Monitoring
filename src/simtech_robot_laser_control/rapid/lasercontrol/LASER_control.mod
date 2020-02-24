@@ -116,7 +116,7 @@ PROC main()
 
        
 
-        !Compose the acknowledge string to send back to the client
+        !Compose the acknowledge string to send back to the client - must do
         !IF connected = TRUE THEN
             !IF reconnected = FALSE THEN
 			         !IF SocketGetStatus(clientSocket) = SOCKET_CONNECTED THEN

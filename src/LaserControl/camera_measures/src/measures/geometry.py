@@ -12,7 +12,9 @@ class Geometry():
         return img_bin
 
     def find_contour(self, frame):
-        _, contours, _ = cv2.findContours(
+        # _, contours, _ = cv2.findContours(
+        #     frame, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _ = cv2.findContours(
             frame, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         cnt = None
         if len(contours) > 0:
@@ -29,7 +31,8 @@ class Geometry():
         mask = np.zeros(shape = frame.shape, dtype = "uint8")
 
         # Draw a white, filled circle on the mask image
-        cv2.circle(mask, (320,240), 40, (255, 255, 255),80)
+        # cv2.circle(image, center_coordinates, radius, color, thickness)
+        cv2.circle(mask, (390,260), 65, (255, 255, 255),130)
         # for camera 0
         #cv2.circle(mask, (640,360), 100, (255, 255, 255),200)
 
