@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Laser Control</class>
+ <class>Form</class>
  <widget class="QWidget" name="Form">
   <property name="geometry">
    <rect>
@@ -247,19 +247,19 @@ color: rgb(255, 255, 255);</string>
             </font>
            </property>
            <property name="suffix">
-            <string> W</string>
+            <string> V</string>
            </property>
            <property name="decimals">
             <number>3</number>
            </property>
            <property name="maximum">
-            <double>3500.000000000000000</double>
-           </property>
-           <property name="singleStep">
             <double>10.000000000000000</double>
            </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
            <property name="value">
-            <double>1000.000000000000000</double>
+            <double>1.000000000000000</double>
            </property>
           </widget>
          </item>
@@ -309,19 +309,19 @@ color: rgb(255, 255, 255);</string>
             </font>
            </property>
            <property name="suffix">
-            <string> W</string>
+            <string> V</string>
            </property>
            <property name="decimals">
             <number>3</number>
            </property>
            <property name="maximum">
-            <double>3500.000000000000000</double>
-           </property>
-           <property name="singleStep">
             <double>10.000000000000000</double>
            </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
            <property name="value">
-            <double>1000.000000000000000</double>
+            <double>10.000000000000000</double>
            </property>
           </widget>
          </item>

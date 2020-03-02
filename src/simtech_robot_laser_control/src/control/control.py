@@ -32,7 +32,7 @@ class Control():
         if power > self.pid.pwr_max:
             power = self.pid.pwr_max
         if power < self.pid.pwr_min:
-            power = self.pid_pwr_min
+            power = self.pid.pwr_min
         return power
 
 

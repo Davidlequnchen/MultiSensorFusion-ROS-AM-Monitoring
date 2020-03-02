@@ -7,11 +7,11 @@ import glob
 import rospkg
 import rospy
 
-from Simtech_robot_laser_control.msg import MsgControl
-from Simtech_robot_laser_control.msg import MsgPower
-from Simtech_robot_laser_control.msg import MsgInfo
-from Simtech_robot_laser_control.msg import MsgStart
-from Simtech_robot_laser_control.msg import MsgEmission                                           #20191011
+from simtech_robot_laser_control.msg import MsgControl
+from simtech_robot_laser_control.msg import MsgPower
+from simtech_robot_laser_control.msg import MsgInfo
+from simtech_robot_laser_control.msg import MsgStart
+from simtech_robot_laser_control.msg import MsgEmission                                           #20191011
 from camera_measures.msg import MsgStatus
 
 
@@ -73,7 +73,8 @@ class Nd_socket():
 
         #set power analog value
         #convert the value(float32) to only one decimal place string
-        self.send_power = "%.1f" % msg_power.value     
+        self.send_power = "%.1f" % msg_power.value   
+        print("send_power =  " + self.send_power)  
         #self.send_power = str(msg_power.value)
         #self.send_power = str(70.0)
         self.power_controlled = self.laser_connection.set_analog_power(self.send_power)

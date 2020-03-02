@@ -38,8 +38,8 @@ PROC SetPower(string msg)
     !//Impossible to read the power value
         TPWrite "LASER: Failed to get the power value";
     ELSE
-        !SetAO aoPower, power_value;
-        SetAO aoPower, 0;
+        SetAO aoPower, power_value;
+        ! SetAO aoPower, 0;
     ENDIF
 ENDPROC
 
@@ -105,11 +105,11 @@ PROC main()
 
         !//Wait for a command
         !// store the received data into the variable receivedString within the time limit
-        !SocketReceive clientSocket \Str:=receivedString \Time:=WAIT_MAX;
+        SocketReceive clientSocket \Str:=receivedString \Time:=WAIT_MAX;
 
         !SetAO aoPower, 2.919;                      !20191022
-        !SetPower receivedString;
-        !TpWrite "laser power set";
+        SetPower receivedString;
+        ! TpWrite "laser power set";
 
 
 
@@ -117,16 +117,16 @@ PROC main()
        
 
         !Compose the acknowledge string to send back to the client - must do
-        !IF connected = TRUE THEN
-            !IF reconnected = FALSE THEN
-			         !IF SocketGetStatus(clientSocket) = SOCKET_CONNECTED THEN
-				            !sendString := NumToStr(instructionCode,0);
-                    !sendString := sendString + " " + NumToStr(ok,0);
-                    !sendString := sendString + " " + addString;
-                    !SocketSend clientSocket \Str:=sendString;
-			        !ENDIF
-            !ENDIF
-        !ENDIF
+        IF connected = TRUE THEN
+            IF reconnected = FALSE THEN
+			         IF SocketGetStatus(clientSocket) = SOCKET_CONNECTED THEN
+                    ! sendString := sendString + " " + NumToStr(ok,0);
+                    ! sendString := sendString + " " + addString;
+                    sendString :=  "True" ;
+                    SocketSend clientSocket \Str:=sendString;
+			        ENDIF
+            ENDIF
+        ENDIF
     ENDWHILE
 
 ERROR
