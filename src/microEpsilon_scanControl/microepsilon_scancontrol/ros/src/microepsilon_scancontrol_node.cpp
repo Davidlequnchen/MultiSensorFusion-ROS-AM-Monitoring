@@ -227,7 +227,7 @@ void ScannerNode::publish ( ScanProfileConvertedPtr data )
       ros::Time now = ros::Time::now();
       ros::Time profile_time = now - ros::Duration ( average ( data->shutter_open, data->shutter_close ) + lag_compensation_ );
       pcl_conversions::toPCL ( profile_time, cloud_msg_.header.stamp );
-      std::cout << "Time now is: [" << now << "], Time for cloud_msg_ is: [" << profile_time << "], Time different is: [" << ( now - profile_time ) << std::endl;
+      // std::cout << "Time now is: [" << now << "], Time for cloud_msg_ is: [" << profile_time << "], Time different is: [" << ( now - profile_time ) << std::endl;
       ++cloud_msg_.header.seq;
       PointT temp_point;
       int point_counter = 0;

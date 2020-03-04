@@ -67,7 +67,7 @@ set(microepsilon_scancontrol_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(microepsilon_scancontrol_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl)
+  set(microepsilon_scancontrol_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol)
   set(microepsilon_scancontrol_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
   set(microepsilon_scancontrol_INSTALL_PREFIX "")
   set(microepsilon_scancontrol_PREFIX ${microepsilon_scancontrol_DEVEL_PREFIX})
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(microepsilon_scancontrol_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/include;/usr/local/include/mescan;/usr/include;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include " STREQUAL " ")
+if(NOT "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/common/include;/usr/local/include/mescan;/usr/include;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include " STREQUAL " ")
   set(microepsilon_scancontrol_INCLUDE_DIRS "")
-  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/include;/usr/local/include/mescan;/usr/include;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include")
+  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/common/include;/usr/local/include/mescan;/usr/include;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,13 +110,13 @@ if(NOT "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/common/include;/
         message(FATAL_ERROR "Project 'microepsilon_scancontrol' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'microepsilon_scancontrol' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'microepsilon_scancontrol' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/${idir}'.  ${_report}")
     endif()
     _list_append_unique(microepsilon_scancontrol_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "microepsilon_scancontrol;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/x86_64-linux-gnu/libpthread.so;aravis-0.6;m;gio-2.0;gobject-2.0;xml2;gthread-2.0;glib-2.0")
+set(libraries "microepsilon_scancontrol;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;SIMPLE_NODE;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/x86_64-linux-gnu/libpthread.so;aravis-0.6;m;gio-2.0;gobject-2.0;xml2;gthread-2.0;glib-2.0")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/microepsilon_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

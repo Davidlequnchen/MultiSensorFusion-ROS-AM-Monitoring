@@ -24,7 +24,7 @@ from python_qt_binding import QtWidgets
 MANUAL = 0
 AUTOMATIC = 1
 STEP = 2
-path = rospkg.RosPack().get_path('laser_control')
+path = rospkg.RosPack().get_path('simtech_robot_laser_control')
 
 
 class QtControl(QtWidgets.QWidget):

@@ -9,8 +9,8 @@
       <arg name="sim" value="$(arg sim)" />
     </include>
 
-    <node name="cloud" pkg="point_cloud_scanning" type="nd_cloud" respawn="true" />
-    <node name="height" pkg="point_cloud_scanning" type="nd_height" respawn="true" />
+    <node name="cloud_transform" pkg="point_cloud_scanning" type="nd_cloud" respawn="true" />
+    <!-- <node name="height" pkg="point_cloud_scanning" type="nd_height" respawn="true" /> -->
 
 
     <node name="robviz" pkg="scanning_robviz" type="rob_scanning_visualization.py"/>

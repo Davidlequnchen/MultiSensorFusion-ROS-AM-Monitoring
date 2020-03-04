@@ -17,7 +17,7 @@ from camera_measures.msg import MsgVelocityStatus
 from qt_scan import QtScan
 #from qt_param import QtParam
 #from qt_part import QtPart
-from qt_path import QtPath
+# from qt_path import QtPath
 
 
 path = rospkg.RosPack().get_path('scanning_robviz')
@@ -108,13 +108,13 @@ class Robviz(QtWidgets.QMainWindow):
         #self.qtParam = QtParam(self)
         self.qtScan = QtScan(self)
         #self.qtPart = QtPart(self)
-        self.qtPath = QtPath(self)
+        # self.qtPath = QtPath(self)
 
         #self.tabWidget.addTab(self.qtData, 'Data')
         #self.tabWidget.addTab(self.qtParam, 'Params')
         self.tabWidget.addTab(self.qtScan, 'Scan')
         #self.tabWidget.addTab(self.qtPart, 'Part')
-        self.tabWidget.addTab(self.qtPath, 'Path')
+        # self.tabWidget.addTab(self.qtPath, 'Path')
 
         #self.qtData.accepted.connect(self.qtDataAccepted)
         #self.qtParam.accepted.connect(self.qtParamAccepted)
@@ -169,15 +169,15 @@ class Robviz(QtWidgets.QMainWindow):
 
     def qtScanAccepted(self, path):
         print 'Path:', path
-        commands = self.qtPath.jason.path2cmds(path)
-        print 'Commands:', commands
-        self.qtPath.loadCommands(commands)
-        self.tabWidget.setCurrentWidget(self.qtPath)
+        # commands = self.qtPath.jason.path2cmds(path)
+        # print 'Commands:', commands
+        # self.qtPath.loadCommands(commands)
+        # self.tabWidget.setCurrentWidget(self.qtPath)
 
-    def qtPartAccepted(self, path):
-        commands = self.qtPath.jason.path2cmds(path)
-        self.qtPath.loadCommands(commands)
-        self.tabWidget.setCurrentWidget(self.qtPath)
+    # def qtPartAccepted(self, path):
+    #     commands = self.qtPath.jason.path2cmds(path)
+    #     self.qtPath.loadCommands(commands)
+    #     self.tabWidget.setCurrentWidget(self.qtPath)
 
     def btnQuitClicked(self):
         QtCore.QCoreApplication.instance().quit()

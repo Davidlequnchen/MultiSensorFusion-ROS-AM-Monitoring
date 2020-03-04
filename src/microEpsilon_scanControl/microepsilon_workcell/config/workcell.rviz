@@ -197,7 +197,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.0005000000237487257
       Style: Points
-      Topic: /arm/laser_scan
+      Topic: /microepsilon/laser_scan
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true

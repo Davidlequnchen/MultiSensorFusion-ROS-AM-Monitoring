@@ -57,7 +57,7 @@ public:
   NdSubprocessHandler() {
     cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
     // subscriber and call back function
-    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/scan", 5,  &NdSubprocessHandler::cbPointCloud, this);
+    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/microepsilon/cloud_transformed", 5,  &NdSubprocessHandler::cbPointCloud, this);
   }
 
   //destructor

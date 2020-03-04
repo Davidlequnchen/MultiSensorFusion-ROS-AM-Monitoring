@@ -36,11 +36,11 @@ class QtScan(QtWidgets.QWidget):
         loadUi(os.path.join(dirname, 'resources', 'scan.ui'), self)
 
         rospy.Subscriber(
-            '/usb_cam/scan', PointCloud2, self.cbPointCloud, queue_size=1)
+            '/microepsilon/cloud_transformed', PointCloud2, self.cbPointCloud, queue_size=1)
         rospy.Subscriber(
             '/supervisor/velocity_status', MsgVelocityStatus, self.cbStatus, queue_size=1)
         rospy.Subscriber(
-            '/usb_cam/zheight', std_msgs.msg.Float32, self.cbHeight, queue_size=1)
+            '/microepsilon/zheight', std_msgs.msg.Float32, self.cbHeight, queue_size=1)
 
         self.pub_marker_array = rospy.Publisher(
             'visualization_marker_array', MarkerArray, queue_size=10)

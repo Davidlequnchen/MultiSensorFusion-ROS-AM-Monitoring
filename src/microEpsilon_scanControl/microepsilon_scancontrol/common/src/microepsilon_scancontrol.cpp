@@ -351,8 +351,8 @@ void Scanner::new_profile_callback(const void *data, size_t data_size)
         ScanProfileConvertedPtr profile ( new ScanProfileConverted );
         CInterfaceLLT::Timestamp2TimeAndCount ( &profile_buffer_[0], &( profile->shutter_open ), &(profile->shutter_close), &(profile->profile_counter), NULL );
         // show the time information of the input profile
-        std::cout <<"[profile_counter, shutter_open, shutter_close] = [" << profile->profile_counter << ", " << profile->shutter_open << ", " << profile->shutter_close << "]" 
-                      << std::endl;
+        // std::cout <<"[profile_counter, shutter_open, shutter_close] = [" << profile->profile_counter << ", " << profile->shutter_open << ", " << profile->shutter_close << "]" 
+                      // << std::endl;
         profile->x.resize ( SCANNER_RESOLUTION );
         profile->z.resize ( SCANNER_RESOLUTION );
         // CInterfaceLLT::ConvertProfile2Values(&profile_buffer_[0], profile_buffer_.size(), &llt_.appData, SCANNER_RESOLUTION, m_tscanCONTROLType, 0,
