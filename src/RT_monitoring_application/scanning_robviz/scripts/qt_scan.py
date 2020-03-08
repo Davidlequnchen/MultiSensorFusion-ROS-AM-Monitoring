@@ -39,8 +39,8 @@ class QtScan(QtWidgets.QWidget):
             '/microepsilon/cloud_transformed', PointCloud2, self.cbPointCloud, queue_size=1)
         rospy.Subscriber(
             '/supervisor/velocity_status', MsgVelocityStatus, self.cbStatus, queue_size=1)
-        rospy.Subscriber(
-            '/microepsilon/zheight', std_msgs.msg.Float32, self.cbHeight, queue_size=1)
+        # rospy.Subscriber(
+        #     '/microepsilon/zheight', std_msgs.msg.Float32, self.cbHeight, queue_size=1)
 
         self.pub_marker_array = rospy.Publisher(
             'visualization_marker_array', MarkerArray, queue_size=10)
@@ -82,16 +82,15 @@ class QtScan(QtWidgets.QWidget):
         else:
             self.lcdZ.setEnabled(False)
 
-    def cbHeight(self, msg_float):
-        self.lcdZ.display(float(msg_float.data * 1000.0)) #from meter to mm, will display the height message on ui.
-        self.lcdZ.setEnabled(True)
+    # def cbHeight(self, msg_float):
+    #     self.lcdZ.display(float(msg_float.data * 1000.0)) #from meter to mm, will display the height message on ui.
+    #     self.lcdZ.setEnabled(True)
 
     def cbPointCloud(self, msg_cloud):
         points = pc2.read_points(msg_cloud, skip_nans=False)
         self.points3d = np.float32([point for point in points])
         # if it is recording now, will save the point cloud into the data folder as a .xyz file.(only of button recording clicked)
         if self.recording:
-            print self.filename
             with open(self.filename, 'a') as f: # a means append data to a file
                 np.savetxt(f, self.points3d, fmt='%.6f')
 
@@ -141,18 +140,18 @@ class QtScan(QtWidgets.QWidget):
             self.recording = False
             self.btnRecord.setText('Record Cloud')
         else:
-            try:
-                filename = QtWidgets.QFileDialog.getSaveFileName(
-                    self, 'Save file', os.path.join(dirname, 'data', 'test.xyz'),
-                    'Point Cloud Files (*.xyz)')[0]
-                self.filename = filename
-                with open(self.filename, 'w') as f:
-                    pass
-                self.running = True
-                self.recording = True
-                self.btnRecord.setText('Stop recording...')
-            except IOError as error:
-                print error
+            # try:
+            filename = QtWidgets.QFileDialog.getSaveFileName(
+                self, 'Save file', os.path.join(dirname, 'data', 'test.xyz'),
+                'Point Cloud Files (*.xyz)')[0]
+            self.filename = filename
+            # with open(self.filename, 'w') as f:
+            #     pass
+            self.running = True
+            self.recording = True
+            self.btnRecord.setText('Stop recording...')
+            # except IOError as error:
+            #     print error
 
     def btnZmapClicked(self):
         filename = QtWidgets.QFileDialog.getOpenFileName(

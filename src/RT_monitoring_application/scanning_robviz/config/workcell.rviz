@@ -273,7 +273,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.001
       Style: Points
-      Topic: /cloud_pcd
+      Topic: /microepsilon/cloud_transformed
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
