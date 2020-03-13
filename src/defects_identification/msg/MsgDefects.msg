@@ -1,0 +1,1 @@
+int32 classification_type  # 0, 1, 2, 3
