@@ -93,7 +93,10 @@ RT_monitoring_application/scanning_robviz/CMakeFiles/nd_subprocess_handler.dir/s
  /opt/ros/melodic/include/sensor_msgs/PointField.h
  /opt/ros/melodic/include/std_msgs/Empty.h
  /opt/ros/melodic/include/std_msgs/Float32.h
+ /opt/ros/melodic/include/std_msgs/Float32MultiArray.h
  /opt/ros/melodic/include/std_msgs/Header.h
+ /opt/ros/melodic/include/std_msgs/MultiArrayDimension.h
+ /opt/ros/melodic/include/std_msgs/MultiArrayLayout.h
  /opt/ros/melodic/include/tf/FrameGraph.h
  /opt/ros/melodic/include/tf/FrameGraphRequest.h
  /opt/ros/melodic/include/tf/FrameGraphResponse.h

@@ -1,0 +1,19 @@
+<launch>
+    <arg name="gui" default="true" />
+    <arg name="sim" default="false" /> 
+    
+    <rosparam command="load" file="$(find scanning_robviz)/config/params.yaml" />
+
+    <include file="$(find scanning_robviz)/launch/robviz_microepsilon_simulation.launch">
+      <arg name="gui"  value="false" />
+      <arg name="sim" value="$(arg sim)" />
+    </include>
+
+    <node name="defects_prediction" pkg="defects_identification" type="nd_defects_identification.py" respawn="true" />
+  
+
+    
+   
+
+
+</launch>

@@ -1,1 +1,2 @@
-int32 classification_type  # 0, 1, 2, 3
+Header header
+int32 defectsType  # 0, 1, 2, 3

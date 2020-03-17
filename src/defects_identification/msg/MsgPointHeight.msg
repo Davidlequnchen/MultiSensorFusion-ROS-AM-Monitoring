@@ -1,1 +1,0 @@
-float[] point_to_plane_distance

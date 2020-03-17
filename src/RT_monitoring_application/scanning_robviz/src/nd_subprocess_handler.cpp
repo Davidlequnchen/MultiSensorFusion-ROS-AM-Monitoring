@@ -3,6 +3,7 @@
 
 #include <sensor_msgs/PointCloud2.h>
 #include <std_msgs/Float32.h>
+#include <std_msgs/Float32MultiArray.h>
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -18,6 +19,7 @@
 
 #include <ctime>
 #include <sstream>
+#include <fstream>
 #include <iostream> //std::cout
 #include <string>  //std::string, std::to_string
 #include <boost/filesystem.hpp>
@@ -38,12 +40,17 @@ class NdSubprocessHandler {
 private:
   ros::NodeHandle nh;
   ros::Subscriber sub_cloud;
+
+  
+
+  std_msgs::Float32MultiArray msg_point_distance;
   
   //ros::Time stamp; //get the current time when initialization
   double stamp =ros::Time::now().toSec(); //get the current time when initialization
-  double interval = 2.0;  // duration between each subprocess
+  double interval = 5.0;  // duration between each subprocess
   std::string pcd_filename;
   std::string pcd_segmented_filename;
+  std::string pcd_plane_distance_file;
   
   
 public:
@@ -58,6 +65,11 @@ public:
     cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
     // subscriber and call back function
     sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/microepsilon/cloud_transformed", 5,  &NdSubprocessHandler::cbPointCloud, this);
+    
+    //ref: http://docs.ros.org/api/std_msgs/html/msg/Float32MultiArray.html
+    // msg_point_distance.layout.dim[1].label  = "column";
+    // msg_point_distance.layout.dim[1].size   = 1;
+
   }
 
   //destructor
@@ -70,6 +82,7 @@ public:
     double current_stamp = ros::Time::now().toSec(); // local variable for the current time when receiving current message
     this->pcd_filename = std::to_string(this->stamp) + ".pcd";
     this->pcd_segmented_filename = std::to_string(this->stamp) + "segmented.pcd";
+    this->pcd_plane_distance_file = std::to_string(this->stamp) + "distance.txt";
 
     if (current_stamp - this->stamp < this->interval)
     {
@@ -93,13 +106,15 @@ public:
       // fs::path file("PCL_segmentation");
       // fs::path full_path = dir / file;
       std::string executable = path + "/PCL_segmentation/build/PCL_segmentation";
-      std::string option = " -largestPlane"; //other options: -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
+      std::string option = " -multiPlannarSeg"; //other options: -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
       std::string loadfile = " -load " + path + "/pcl/" + this->pcd_filename;
       std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
-      std::string parameters = " -DistanceThre 0.0013 -Stddev 1.0";
+      // std::string savePointDistance = " -savePointToPlaneDistance /home/chenlequn/SIMTech_ws/src/RT_monitoring_application/scanning_robviz/distance/distance.txt";
+      std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
+      std::string parameters = " -DistanceThre 0.001 -Stddev 1.5";
       // std::string parameters = " ";
       // Initialize String Array
-      std::string command_line = executable + option + loadfile + savefile + parameters;
+      std::string command_line = executable + option + loadfile + savefile + savePointDistance + parameters;
 
       auto p = sp::call({command_line});
       //--------------------subprocess end------------------------
@@ -107,8 +122,9 @@ public:
 
       try{
         std::string pcdFile = path + "/pcl/" + this->pcd_segmented_filename;
+        std::string distanceFile = path+ "/distance/" + this->pcd_plane_distance_file;
 
-        pcl::PointCloud<pcl::PointXYZ>::Ptr seg_cloud = NdSubprocessHandler::LoadPointFile(pcdFile);
+        // pcl::PointCloud<pcl::PointXYZ>::Ptr seg_cloud = NdSubprocessHandler::LoadPointFile(pcdFile);
 
         std::string interval = " 0.1 "; //publish 10 times a second, If <interval> is zero or not specified the message is published once. 
         std::string frame = "_frame_id:=/workobject";
@@ -116,11 +132,20 @@ public:
         //--------subprocess for visualizing the segmented cloud--------------------------------------
         //command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
         // Initialize String Array
-        std::string command_line = "rosrun pcl_ros pcd_to_pointcloud " + pcdFile + interval + frame; 
-        
+        std::string command_line = "rosrun pcl_ros pcd_to_pointcloud " + pcdFile  + interval + frame; 
         auto s = sp::Popen({command_line});
+        // auto s = sp::Popen({command_line});
         //------------subprocess end---------------------------------------------------
        
+
+        // --------------subprocess for defects prediction---------------------------------
+        std::string prediction_python_exe = path + "/defects_prediction/Plane_defect_machine_learning.py";
+        std::string DecisionTree_Model_file = path + "/config/DTC.pkl";
+
+        std::string prediction_exe = "python " + prediction_python_exe + " " + pcdFile + " " + distanceFile + " " + DecisionTree_Model_file;
+        auto predict = sp::Popen({prediction_exe});
+        // --------------------------------------------------------------------------------
+        
        
        
         cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
@@ -128,17 +153,30 @@ public:
 
       }catch (...) { // caught by reference to base
         std::string pcdFile = path + "/empty/empty_cloud.pcd" ;
-        pcl::PointCloud<pcl::PointXYZ>::Ptr seg_cloud = NdSubprocessHandler::LoadPointFile(pcdFile);
+        std::string distanceFile = path+ "/distance/" + this->pcd_plane_distance_file;
+
+        // pcl::PointCloud<pcl::PointXYZ>::Ptr seg_cloud = NdSubprocessHandler::LoadPointFile(pcdFile);
 
         std::string interval = " 0.1 "; //publish 10 times a second, If <interval> is zero or not specified the message is published once. 
-        std::string frame = " _frame_id:=/workobject";
+        std::string frame = "_frame_id:=/workobject";
 
         //--------subprocess for visualizing the segmented cloud--------------------------------------
         //command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
         // Initialize String Array
         std::string command_line = "rosrun pcl_ros pcd_to_pointcloud " + pcdFile + interval + frame;  
+        
         auto s = sp::Popen({command_line});
         //------------subprocess end---------------------------------------------------
+
+        // --------------subprocess for defects prediction---------------------------------
+        std::string prediction_python_exe = path + "/defects_prediction/Plane_defect_machine_learning.py";
+        std::string DecisionTree_Model_file = path + "/config/DTC.pkl";
+
+        std::string prediction_exe = "python " + prediction_python_exe + " " + pcdFile + " " + distanceFile + " " + DecisionTree_Model_file;
+        auto predict = sp::Popen({prediction_exe});
+        // --------------------------------------------------------------------------------
+
+        
         
         
         cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
@@ -199,6 +237,10 @@ public:
   }
 
  
+  
+
+
+
 };
 
 

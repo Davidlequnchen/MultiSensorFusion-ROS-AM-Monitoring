@@ -49,6 +49,8 @@ pcl/sample_consensus/method_types.h
 -
 pcl/sample_consensus/model_types.h
 -
+pcl/sample_consensus/sac_model_plane.h
+-
 pcl/segmentation/sac_segmentation.h
 -
 pcl/segmentation/extract_clusters.h

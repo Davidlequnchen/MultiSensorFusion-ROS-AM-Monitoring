@@ -1,26 +1,15 @@
 #!/usr/bin/env python
-
-'''
-
-This ROS node identifies the defects on planar surfaces based on training results
-
-
-
-subscribe topic: segmentation point cloud
-publish topic: message of defects identification result: 0 / 1 / 2 / 3
-
-'''
-# required ROS libraries
 import os
 import rospy
 import rospkg
 import std_msgs.msg
+from std_msgs.msg import Float32MultiArray
 
 import sensor_msgs.point_cloud2 as pc2
 from sensor_msgs.msg import PointCloud2
 
 from defects_identification.msg import MsgDefects
-from defects_identification.msg import MsgPointHeight
+
 
 import pandas
 from pandas import DataFrame
@@ -42,125 +31,149 @@ import numpy as np
 # For ML model saving
 import pickle
 
+
+'''
+
+This ROS node identifies the defects on planar surfaces based on training results
+
+
+
+subscribe topic: segmentation point cloud
+publish topic: message of defects identification result: 0 / 1 / 2 / 3
+
+'''
+
+
+
 rospack = rospkg.RosPack()
 path = rospack.get_path('defects_identification')
-
+# load the decision tree model from config folder
+filename = os.path.join(path, 'config', 'DTC.pkl')
 
 
 class DefectsIdentification():
     def __init__(self):
-        rospy.init_node("surface defects indentification")
+
+        self.clf_loaded = pickle.load(open(filename, 'rb'))
+        
+        self.msg_defects = MsgDefects()
+        
+        
+        self.Y_predict = 0 # prediction result
+
+
+
+        rospy.init_node("defects_identification")
         # subscribe the point cloud after segmentation 
         rospy.Subscriber(
             '/cloud_pcd', PointCloud2, self.cb_point_cloud, queue_size=1)
 
-        # subscribe point heigt
-        rospy.Subscriber(
-            '/cloud_pcd/point_height', MsgPointHeight, self.cb_point_height, queue_size=10)
-        
+
         
         # publish information of plane defects: no defects , ridge , dent ,both ridge and dent 
         self.pub_defects_info = rospy.Publisher(
             '/plane_defects_identification', MsgDefects, queue_size=10)
 
-        self.msg_defects = MsgDefects()
-
-        self.defects_classifier = PlaneDefectsML()
-
-        # load the decision tree model from config folder
-        filename = os.path.join(path, 'config', 'DTC.pkl')
-        self.defects_classifier.load_classification_model(filename)
+        
+        rospy.spin()
 
         
     def cb_point_cloud(self, msg_cloud):
         '''
         data type of subscribed msg_cloud: PointClou2
         1. pass the point cloud value (x,y,z) to the machine learning model
-        2. perform classification and publish results
+        2. perform defects prediction and publish results
         '''
+        # PointCloud2:  uint8[] data: [....]
+        # get the actual point( x y z) information
+        self.point_data = pc2.read_points(msg_cloud, skip_nans=True, field_names=("x", "y", "z"))
+        
+        self.msg_defects.header.stamp = msg_cloud.header.stamp
+        
+        # subscribe point heigt
+        rospy.Subscriber(
+            '/cloud_pcd/point_distance', Float32MultiArray, self.cb_distance, queue_size=1)
+        
 
 
 
-    def cb_point_height(self, msg_point_height):
+
+
+    def cb_distance(self, msg_point_distance):
         '''
-        subscribe point heights message, 
+        subscribe point distances message, 
         pass this point to plane distance value as a list to the machine learning model
         '''
+        # point_to_plane_distance: float32[], a list of float number (msg_point_distance.data )
+        # self.point_distance_data =  msg_point_distance.data 
+
+        self.defects_prediction(self.point_data, msg_point_distance.data )
+        
 
 
 
 
-class PlaneDefectsML():
-    def __init__(self):
+
+
+    def defects_prediction(self, input_cloud, point_distance):
         
         # Lists of features to be used in machine learning:
         # Each element in the following lists correspond to one scanned surface
 
-        self.stdRidgeDistList = []  # standard deviation of absolute distance (positive) to the fitted plane, from "ridge" points
-        self.stdDentDistList = []  # standard deviation of absolute distance (negative) to the fitted plane, from "dent" points
-        self.percentRidgeList = []  # percentage of "ridge" points to total points in the cloud
-        self.percentDentList = []  # percentage of "dent" points to total points in the cloud
+        stdRidgeDistList = []  # standard deviation of absolute distance (positive) to the fitted plane, from "ridge" points
+        stdDentDistList = []  # standard deviation of absolute distance (negative) to the fitted plane, from "dent" points
+        percentRidgeList = []  # percentage of "ridge" points to total points in the cloud
+        percentDentList = []  # percentage of "dent" points to total points in the cloud
 
         # List of class labels (targets) as training data:
         # Each element in the following lists correspond to one scanned surface
-        self.classList = []   # 0: no defect. 1: "ridge" defect. 2: "dent" defect. 3: both "ridge" and "dent" defects
+        classList = []   # 0: no defect. 1: "ridge" defect. 2: "dent" defect. 3: both "ridge" and "dent" defects
 
         # List of defect (ridge and dent) point clusters:
-        self.ridgePointClusterList = []  # list of pandas dataframe
-        self.ridgeDistanceClusterList = []
-        self.dentPointClusterList = []
-        self.dentDistanceClusterList = []
-        
-        self.point_to_plane_distance = []
-        self.point_cloud = [] #[[x,y,z], [x,y,z],...]
-
+        ridgePointClusterList = []  # list of pandas dataframe
+        ridgeDistanceClusterList = []
+        dentPointClusterList = []
+        dentDistanceClusterList = []
         
 
+        Y_predict = 0 # prediction result: 0,1,2,3
 
-    def get_cloud(self, pointcloud):
-        self.point_cloud = pointcloud
-
-    def get_point_to_plane_distance(self, distance):
-        self.point_to_plane_distance = distance
-
-
-
-    def panda_DF_create(self):
         #-------------------------Create pandas dataframe for point cloud------------------------------------------------------------------
 
-        # Load data from file into pandas dataframe:--------------This needs to be changed into read ros topic subscribed--------
+        # Load data from list into pandas dataframe:--------------This needs to be changed into read ros topic subscribed--------
         # All points' (x,y,z), 3-column dataframe
-        self.pointsDF = pandas.read_csv(self.point_cloud, sep=',', names=('x', 'y', 'z'))   # skip the first 11 lines in the .pcd file
-
+        pointsDF = DataFrame(input_cloud, columns=['x', 'y', 'z'] )   
+        # print pointsDF
+        # print pointsDF.index
         # Distances FROM the plane to all points (1-column dataframe)
-        self.distanceDF = pandas.read_csv(self.point_to_plane_distance, names=('D'))
+        distanceDF = DataFrame(point_distance, columns=['D'])
+        # print self.point_to_plane_distance
+        # print distanceDF
+        # print distanceDF.index
         #----------------------------------------------------------------------------------------------------------------
 
         
         # Select the points with large positive distances FROM the plane:  "Ridge" label (defect)
-        self.ridgeDistanceDF = self.distanceDF[self.distanceDF['D'] > 0.0005]
-        self.ridgePointsDF = self.pointsDF[self.distanceDF['D'] > 0.0005]
+        ridgeDistanceDF = distanceDF[distanceDF['D'] > 0.0005]
+        ridgePointsDF = pointsDF[distanceDF['D'] > 0.0005]
 
         # Select the points with small negative distances FROM the plane:  "Dent" label (defect)
-        self.dentDistanceDF = self.distanceDF[self.distanceDF['D'] < -0.0005]
-        self.dentPointsDF = self.pointsDF[self.distanceDF['D'] < -0.0005]
+        dentDistanceDF = distanceDF[distanceDF['D'] < -0.0005]
+        dentPointsDF = pointsDF[distanceDF['D'] < -0.0005]
 
         # Select the points nearly on the the plane:  "Plane" label (no defect)
-        self.planeDistanceDF = self.distanceDF[ (self.distanceDF['D'] <= 0.0005) & (self.distanceDF['D'] >= -0.0005) ]
-        self.planePointsDF = self.pointsDF[ (self.distanceDF['D'] <= 0.0005) & (self.distanceDF['D'] >= -0.0005) ]
+        planeDistanceDF = distanceDF[ (distanceDF['D'] <= 0.0005) & (distanceDF['D'] >= -0.0005) ]
+        planePointsDF = pointsDF[ (distanceDF['D'] <= 0.0005) & (distanceDF['D'] >= -0.0005) ]
 
 
-
-    def clustering_defects(self):
-            
         #------------------Clustering of "ridge" defect points------------------------------------------------
 
-        if not self.ridgePointsDF.empty:
+        if not ridgePointsDF.empty:
 
 
             # For clustering, instead of using Open3D, we can also use scikit-learn
             # Use either DBSCAN or OPTICS method:
-            ridgePointsDF_transformed = StandardScaler().fit_transform(self.ridgePointsDF)
+            ridgePointsDF_transformed = StandardScaler().fit_transform(ridgePointsDF)
 
             # Compute DBSCAN:
             db = DBSCAN(eps=0.5, min_samples=10).fit(ridgePointsDF_transformed)
@@ -175,16 +188,16 @@ class PlaneDefectsML():
 
             # Extract the clusters of points
             for n in range(0, N_clusters):
-                self.ridgePointClusterList.append(self.ridgePointsDF[labels == n])
-                self.ridgeDistanceClusterList.append(self.ridgeDistanceDF[labels == n])
+                ridgePointClusterList.append(ridgePointsDF[labels == n])
+                ridgeDistanceClusterList.append(ridgeDistanceDF[labels == n])
 
         #------------------Clustering of "dent" defect points------------------------------------------------
 
-        if not self.dentPointsDF.empty:
+        if not dentPointsDF.empty:
 
             # Use scikit-learn for clustering
             # Use either DBSCAN or OPTICS method:
-            dentPointsDF_transformed = StandardScaler().fit_transform(self.dentPointsDF)
+            dentPointsDF_transformed = StandardScaler().fit_transform(dentPointsDF)
 
             # Compute DBSCAN:
             db = DBSCAN(eps=0.3, min_samples=10).fit(dentPointsDF_transformed)
@@ -196,69 +209,61 @@ class PlaneDefectsML():
 
             # Extract the clusters of points
             for n in range(0, N_clusters):
-                self.dentPointClusterList.append(self.dentPointsDF[labels == n])
-                self.dentDistanceClusterList.append(self.dentDistanceDF[labels == n])
+                dentPointClusterList.append(dentPointsDF[labels == n])
+                dentDistanceClusterList.append(dentDistanceDF[labels == n])
 
 
 
-
-
-
-    
-    def data_featuring (self):   
         #-----------------Feature data for each scanned surface---------------------------------------------------------
-        if len(self.ridgeDistanceClusterList) > 0:
-            self.stdRidgeDistList.append(max([dist['D'].std() for dist in self.ridgeDistanceClusterList]))
-            #percentRidgeList.append( float(len(ridgePointsDF.index)) / len(pointsDF.index) )  # len(df.index) returns the number of rows in the dataframe (i.e. number of points in the cloud)
-            self.percentRidgeList.append(max([float(len(p.index))/len(self.pointsDF.index) for p in self.ridgePointClusterList]))   # "p" is a pandas dataframe
+        if len(ridgeDistanceClusterList) > 0:
+            stdRidgeDistList.append(max([dist['D'].std() for dist in ridgeDistanceClusterList]))
+            percentRidgeList.append(max([float(len(p.index))/len(pointsDF.index) for p in ridgePointClusterList]))   # "p" is a pandas dataframe
         
         else:
-            self.stdRidgeDistList.append(0.0)
-            self.percentRidgeList.append(0.0)
+            stdRidgeDistList.append(0.0)
+            percentRidgeList.append(0.0)
             
 
-        if len(self.dentDistanceClusterList) > 0:
-            self.stdDentDistList.append(max([dist['D'].std() for dist in self.dentDistanceClusterList]))
-            self.percentDentList.append(max([float(len(p.index))/len(self.pointsDF.index) for p in self.dentPointClusterList]))   # "p" is a pandas dataframe
+        if len(dentDistanceClusterList) > 0:
+            stdDentDistList.append(max([dist['D'].std() for dist in dentDistanceClusterList]))
+            percentDentList.append(max([float(len(p.index))/len(pointsDF.index) for p in dentPointClusterList]))   # "p" is a pandas dataframe
         
 
         else:
         
-            self.stdDentDistList.append(0.0)
-            self.percentDentList.append(0.0)
-            
+            stdDentDistList.append(0.0)
+            percentDentList.append(0.0)
+        #------------------------------------------------------------------------------
 
 
-
-
-    def load_classification_model(self, filename):
-        # load the decision tree model from config folder
-        self.clf_loaded = pickle.load(open(filename, 'rb'))
-
-
-
-    def decision_tree_prediction (self):
-        #------------------------Prediction based on Decision tree classification ------------------------
+        #------------------------Prediction ------------------------
         # Feature X and class (labels) Y
         #------------------------Pandas dataframe for machine learning-----------
-        self.X = DataFrame(list(zip(self.stdRidgeDistList, self.percentRidgeList,
-                                    self.stdDentDistList, self.percentDentList,
-                                self.classList)))[0:3]
-        self.Y = DataFrame(list(zip(self.stdRidgeDistList, self.percentRidgeList,
-                                    self.stdDentDistList, self.percentDentList,
-                                self.classList)))[4]
+        X = DataFrame(list(zip(stdRidgeDistList, percentRidgeList,
+                                    stdDentDistList, percentDentList,
+                                classList)))[0:3]
+        Y = DataFrame(list(zip(stdRidgeDistList, percentRidgeList,
+                                    stdDentDistList, percentDentList,
+                                classList)))[4]
        
 
         # Transform the feature data X to zero mean and unit variance:
-        X = StandardScaler().fit_transform(self.X)
+        X = StandardScaler().fit_transform(X)
 
         #-------------------- Decision Tree Classifier accuracy using all data (training + testing)---------------
 
         # clf_loaded = pickle.load(open(filename, 'rb'))
 
-        Y_predict = self.clf_loaded.predict(X)
+        self.Y_predict = self.clf_loaded.predict(X)
+
+        # prediction result
+        self.msg_defects.defectsType = self.Y_predict 
+        # publish the defects prediction result
+        self.pub_defects_info.publish(self.msg_defects)
+        
+        
         print("\nY_predict (all data) = ")
-        print(Y_predict)
+        print(self.Y_predict)
         #-------------------------------------------------------------------------------------------------
 
                 

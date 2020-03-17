@@ -5,6 +5,8 @@
 24c9be5c7ae7d804f6d1b102f5ed4890 /home/chenlequn/SIMTech_ws/devel/include/camera_measures/MsgTwist.h
 fecf3fefb94ce89f9ce9787d4ed31619 /home/chenlequn/SIMTech_ws/devel/include/camera_measures/MsgVelocity.h
 e957aaf4616c267a1644ef87477adf2d /home/chenlequn/SIMTech_ws/devel/include/camera_measures/MsgVelocityStatus.h
+d71597c8f94dc8b2a81e1cf86233bca4 /home/chenlequn/SIMTech_ws/devel/include/defects_identification/MsgDefects.h
+809620d248598a2d44c783d92229cf34 /home/chenlequn/SIMTech_ws/devel/include/defects_identification/MsgPointDistance.h
 9fe24c2183e7dc069d808d3209a328dd /home/chenlequn/SIMTech_ws/devel/include/image_proc/CropDecimateConfig.h
 bd5c1a820cab763af3b32f400cd169bb /home/chenlequn/SIMTech_ws/devel/include/image_proc/DebayerConfig.h
 b52517422ac5f75dcc9dea0e36af2b40 /home/chenlequn/SIMTech_ws/devel/include/image_proc/RectifyConfig.h
@@ -51,6 +53,9 @@ e1f2bec6b6a6ec6447863f4810806d84 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/
 47b88a0d9e9f34e6fff82db8d45a17e0 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocity.py
 4ff3bb5c130ea8a5b5c5b179478fbd7f /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/_MsgVelocityStatus.py
 3f2e5802dd1b39c292c51cc48f0d24f5 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/camera_measures/msg/__init__.py
+2669a1ede045609c83954a46a02e6c7f /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/defects_identification/msg/_MsgDefects.py
+85c24839f39b358e6908f24eb984b65a /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/defects_identification/msg/_MsgPointDistance.py
+296e01517685aa0b551c653d5806c88d /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/defects_identification/msg/__init__.py
 2daa9e3a53d078ab0c04503e31a0ec5f /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/laser_control/msg/_MsgControl.py
 8e370f6bb17be06639826159c21da13f /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/laser_control/msg/_MsgEmission.py
 0d2c8ea5ff85dfb8cb3d896de2260836 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/laser_control/msg/_MsgInfo.py
@@ -82,6 +87,8 @@ d88e61b2ac4ac6e177bd1c1b20c04d04 /home/chenlequn/SIMTech_ws/devel/share/common-l
 68bea19b06578583ef4893b69ee61e14 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp
 efdf80ee61a2b83cdb8041dc25d3fb04 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp
 1c49708bd3edd0ec4687f726881e8801 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocityStatus.lisp
+373fef990028156f44e6caac727278d3 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/defects_identification/msg/MsgDefects.lisp
+5a5afe46d5595c4d78268f6a77edbde9 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/defects_identification/msg/MsgPointDistance.lisp
 b962fcfd6f2b63efc2ad8d11683b36c1 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgControl.lisp
 e8de0608bac3df1aef5f933eb5a0c592 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgEmission.lisp
 5def87009fe4bee49648798fada321fe /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgInfo.lisp
@@ -106,6 +113,8 @@ f13fe5618d3554b820c27b5d2d793503 /home/chenlequn/SIMTech_ws/devel/share/gennodej
 43128d5599c117824abb6e99607b43c9 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgTwist.js
 b6d2131f481fef74565b2b35cca05dff /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocity.js
 ee584d31d564627925d2bcda230d926b /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/camera_measures/msg/MsgVelocityStatus.js
+c658edf338251ec712f7a713dcab3854 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/defects_identification/msg/MsgDefects.js
+26322b0a29b3ab8223f917a12821dcf0 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/defects_identification/msg/MsgPointDistance.js
 dd490492c9a050333a2c9f309e641d50 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgControl.js
 7b7d3f25092a0428cb8ef7981032b822 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgEmission.js
 b5016e9aa7c684934b8d9c092484ff80 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgInfo.js
@@ -131,6 +140,9 @@ cf77d6d7fad9465449ff25f00d3e70e0 /home/chenlequn/SIMTech_ws/devel/share/roseus/r
 7d71110d8cfc867811a10ee3fbb279d2 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgTwist.l
 639a8c5e00842a3c331b7863270253a4 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocity.l
 a8b364f6c0ebb62604bb5a609f9e8442 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/camera_measures/msg/MsgVelocityStatus.l
+947bef255193542ac59e4bcb53a0dae9 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/defects_identification/manifest.l
+681419b060bd1674dbb16b99615c3ecc /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/defects_identification/msg/MsgDefects.l
+34bc7db3dcffb02f91ba6b02a556a3a5 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/defects_identification/msg/MsgPointDistance.l
 58cb8c6d66784588d3c77fb17eab5ae8 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/laser_control/manifest.l
 3317ef3edc9223d6478764801778d705 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/laser_control/msg/MsgControl.l
 919ecbd8ca4f99ed029c316639ed1278 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/laser_control/msg/MsgEmission.l
@@ -183,6 +195,12 @@ bcd88e553a7bbbb9542de0f48faad8b3 RT_monitoring_application/point_cloud_processin
 75da70702993b081b977e5912b4dded3 abb/abb_irb4400_support/CMakeFiles/_run_tests_abb_irb4400_support_roslaunch-check_tests_roslaunch_test.xml
 d397400b5edd5edb450cdcf1f30fcfad abb/abb_irb4400_support/CMakeFiles/clean_test_results_abb_irb4400_support
 75da70702993b081b977e5912b4dded3 abb/abb_irb4400_support/CMakeFiles/run_tests_abb_irb4400_support_roslaunch-check_tests_roslaunch_test.xml
+15810380409d2dd946fc5ec817f1bb5b defects_identification/CMakeFiles/_defects_identification_generate_messages_check_deps_MsgDefects
+eaed1799425b8842620b38b85daefb38 defects_identification/CMakeFiles/defects_identification_generate_messages_cpp
+eaed1799425b8842620b38b85daefb38 defects_identification/CMakeFiles/defects_identification_generate_messages_eus
+eaed1799425b8842620b38b85daefb38 defects_identification/CMakeFiles/defects_identification_generate_messages_lisp
+eaed1799425b8842620b38b85daefb38 defects_identification/CMakeFiles/defects_identification_generate_messages_nodejs
+eaed1799425b8842620b38b85daefb38 defects_identification/CMakeFiles/defects_identification_generate_messages_py
 16897dd7a55d2ae0ec6bee4246368d14 image_pipeline/camera_calibration/CMakeFiles/_run_tests_camera_calibration_nosetests_test.directed.py
 0da6e1570f9cdb141e841a20f87b8dcc image_pipeline/camera_calibration/CMakeFiles/_run_tests_camera_calibration_nosetests_test.multiple_boards.py
 3b834f41ed4939e3ff6aca4d35af7b87 image_pipeline/camera_calibration/CMakeFiles/camera_calibration.tar.gz

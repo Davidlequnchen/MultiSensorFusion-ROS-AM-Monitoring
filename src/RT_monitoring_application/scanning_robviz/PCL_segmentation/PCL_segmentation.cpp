@@ -20,6 +20,7 @@
 #include <pcl/filters/extract_indices.h>
 #include <pcl/sample_consensus/method_types.h>
 #include <pcl/sample_consensus/model_types.h>
+#include <pcl/sample_consensus/sac_model_plane.h>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/segmentation/extract_clusters.h>
 #include <pcl/kdtree/kdtree.h>
@@ -30,14 +31,13 @@
 #define MAX_PLANE_NUMBER 10
 
 
-//using namespace std::literals::chrono_literals;
-
 
 // define global values
 pcl::PointXYZ min_pt, max_pt;
 
 std::string loadfilename = "flatslow.pcd";
 std::string savefilename = "test_filtered.txt";
+std::string PointToPlaneDistance_filename = "PointToPlaneDistance_filename.txt";
 std::string plane_coefficient_filename = "plane_coefficient_filename.txt";
 
 float leafsize = 0.002f; // 2mm
@@ -55,7 +55,7 @@ std::vector < pcl::PointCloud<pcl::PointXYZ>::Ptr, Eigen::aligned_allocator <pcl
 // vector toe store the coefficient plane pointer
 std::vector < pcl::ModelCoefficients::Ptr, Eigen::aligned_allocator <pcl::ModelCoefficients::Ptr> > plane_coefficient_vector;
 
-
+std::vector < double > point_to_plane_distance_vector;
 
 
 
@@ -96,7 +96,9 @@ printUsage (const char* progName)
   // -----Help-----
   // --------------
 
-  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-saveCoefficientPlaneName plane_coefficient_filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]\n\n"
+  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] \n"
+            << "[-savePointToPlaneDistance PointToPlaneDistance_filename] [-leafsize /float] [-DistanceThre /float]"
+            << "[-Stddev /float]\n\n"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h                    this help\n"
@@ -167,16 +169,17 @@ void savePointFile (std::string fileName, pcl::PointCloud<pcl::PointXYZ>::Ptr cl
     }
 }
 
-// save the highest plane coefficient a,b,c,d into a txt file
-void saveCoefficientPlane (std::string filename, pcl::ModelCoefficients::Ptr coefficients_plane )
+
+
+// save the point to plane distance value into a txt file
+void savePointToPlaneDistance (std::string filename, std::vector< double > distance )
 {
-  // define a output file object
-  std::ofstream outfile;
-  // std::ios_base::app -- All output operations are performed at the end of the file, appending the content to the current content of the file
-  outfile.open(filename, std::ios_base::app);//std::ios_base::app
-  // write a b c d coefficeint of the plane into this file
-  outfile << coefficients_plane->values[0] << " " << coefficients_plane->values[1] << " " << coefficients_plane->values[2] << " " << coefficients_plane->values[3];
+  std::ofstream output_file(filename);
+  std::ostream_iterator<double> output_iterator(output_file, "\n");
+  std::copy(distance.begin(), distance.end(), output_iterator);
 }
+
+
 
 
 
@@ -731,6 +734,31 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
   // highest_plane_index = std::distance(planeheight, std::max_element(planeheight, planeheight + N));
   highest_plane_index = std::distance(planeheight, std::min_element(planeheight, planeheight+number_of_plane ));
   
+  /*
+  calculate distance of each point from sourceClouds[highest_plane_index], to the highest plane model with coefficient a,b,c,d
+  save the output(distance) into another txt file.
+  */
+  //Let i be the element number which you want to access
+  int i = 0;
+  while (i < sourceClouds[highest_plane_index]->points.size () ) // loop to calculate the pointToPlaneDistanceSigned
+  {
+    // sourceClouds[highest_plane_index]->points[i] ----> the current point we are calculating
+    /*
+    double pcl::pointToPlaneDistanceSigned 	( const Point &	p,
+		const Eigen::Vector4f & plane_coefficients ) 		
+    */
+    double Distance; // temporary double value to store current pointToPlaneDisntacne (signed)
+    Distance = pcl::pointToPlaneDistanceSigned ( sourceClouds[highest_plane_index]->points[i], plane_coefficient_vector[highest_plane_index]->values[0]
+                                                ,plane_coefficient_vector[highest_plane_index]->values[1]
+                                                ,plane_coefficient_vector[highest_plane_index]->values[2]
+                                                ,plane_coefficient_vector[highest_plane_index]->values[3]  );
+    // savePointToPlaneDistance(PointToPlaneDistance_filename, Distance);
+    point_to_plane_distance_vector.push_back(Distance);
+    i++;
+  }
+
+  savePointToPlaneDistance(PointToPlaneDistance_filename, point_to_plane_distance_vector);
+
 }
 
 void curve_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
@@ -888,9 +916,9 @@ main (int argc, char** argv)
   
   pcl::console::parse_argument (argc, argv, "-load", loadfilename);
   pcl::console::parse_argument (argc, argv, "-save", savefilename);
-  pcl::console::parse_argument (argc, argv, "-saveCoefficientPlaneName", plane_coefficient_filename);
   pcl::console::parse_argument (argc, argv, "-leafsize", leafsize);
   pcl::console::parse_argument (argc, argv, "-Stddev", StddevMulThresh);
+  pcl::console::parse_argument (argc, argv, "-savePointToPlaneDistance", PointToPlaneDistance_filename);
   pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
   pcl::console::parse_argument (argc, argv, "-CylinderRadiusLimit", CylinderRadiusLimit);
   pcl::console::parse_argument (argc, argv, "-CylinderDistanceThreshold", CylinderDistanceThreshold);
@@ -1006,7 +1034,6 @@ main (int argc, char** argv)
   {
     multi_plannar_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, sourceClouds[highest_plane_index]);
-    saveCoefficientPlane (plane_coefficient_filename, plane_coefficient_vector[highest_plane_index]);
   }
   else if (EuclideanExtraction)
   {

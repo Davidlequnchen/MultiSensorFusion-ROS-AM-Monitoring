@@ -3626,6 +3626,162 @@ _run_tests_pcl_ros_rostest_sample_extract_clusters__gui_false.launch/fast:
 .PHONY : _run_tests_pcl_ros_rostest_sample_extract_clusters__gui_false.launch/fast
 
 #=============================================================================
+# Target rules for targets named defects_identification_generate_messages_eus
+
+# Build rule for target.
+defects_identification_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_generate_messages_eus
+.PHONY : defects_identification_generate_messages_eus
+
+# fast build rule for target.
+defects_identification_generate_messages_eus/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_generate_messages_eus.dir/build.make defects_identification/CMakeFiles/defects_identification_generate_messages_eus.dir/build
+.PHONY : defects_identification_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_gencpp
+
+# Build rule for target.
+defects_identification_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_gencpp
+.PHONY : defects_identification_gencpp
+
+# fast build rule for target.
+defects_identification_gencpp/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_gencpp.dir/build.make defects_identification/CMakeFiles/defects_identification_gencpp.dir/build
+.PHONY : defects_identification_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_generate_messages_py
+
+# Build rule for target.
+defects_identification_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_generate_messages_py
+.PHONY : defects_identification_generate_messages_py
+
+# fast build rule for target.
+defects_identification_generate_messages_py/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_generate_messages_py.dir/build.make defects_identification/CMakeFiles/defects_identification_generate_messages_py.dir/build
+.PHONY : defects_identification_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_geneus
+
+# Build rule for target.
+defects_identification_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_geneus
+.PHONY : defects_identification_geneus
+
+# fast build rule for target.
+defects_identification_geneus/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_geneus.dir/build.make defects_identification/CMakeFiles/defects_identification_geneus.dir/build
+.PHONY : defects_identification_geneus/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_generate_messages_cpp
+
+# Build rule for target.
+defects_identification_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_generate_messages_cpp
+.PHONY : defects_identification_generate_messages_cpp
+
+# fast build rule for target.
+defects_identification_generate_messages_cpp/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_generate_messages_cpp.dir/build.make defects_identification/CMakeFiles/defects_identification_generate_messages_cpp.dir/build
+.PHONY : defects_identification_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named _defects_identification_generate_messages_check_deps_MsgDefects
+
+# Build rule for target.
+_defects_identification_generate_messages_check_deps_MsgDefects: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _defects_identification_generate_messages_check_deps_MsgDefects
+.PHONY : _defects_identification_generate_messages_check_deps_MsgDefects
+
+# fast build rule for target.
+_defects_identification_generate_messages_check_deps_MsgDefects/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/_defects_identification_generate_messages_check_deps_MsgDefects.dir/build.make defects_identification/CMakeFiles/_defects_identification_generate_messages_check_deps_MsgDefects.dir/build
+.PHONY : _defects_identification_generate_messages_check_deps_MsgDefects/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_generate_messages
+
+# Build rule for target.
+defects_identification_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_generate_messages
+.PHONY : defects_identification_generate_messages
+
+# fast build rule for target.
+defects_identification_generate_messages/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_generate_messages.dir/build.make defects_identification/CMakeFiles/defects_identification_generate_messages.dir/build
+.PHONY : defects_identification_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_gennodejs
+
+# Build rule for target.
+defects_identification_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_gennodejs
+.PHONY : defects_identification_gennodejs
+
+# fast build rule for target.
+defects_identification_gennodejs/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_gennodejs.dir/build.make defects_identification/CMakeFiles/defects_identification_gennodejs.dir/build
+.PHONY : defects_identification_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_generate_messages_lisp
+
+# Build rule for target.
+defects_identification_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_generate_messages_lisp
+.PHONY : defects_identification_generate_messages_lisp
+
+# fast build rule for target.
+defects_identification_generate_messages_lisp/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_generate_messages_lisp.dir/build.make defects_identification/CMakeFiles/defects_identification_generate_messages_lisp.dir/build
+.PHONY : defects_identification_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_genlisp
+
+# Build rule for target.
+defects_identification_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_genlisp
+.PHONY : defects_identification_genlisp
+
+# fast build rule for target.
+defects_identification_genlisp/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_genlisp.dir/build.make defects_identification/CMakeFiles/defects_identification_genlisp.dir/build
+.PHONY : defects_identification_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_generate_messages_nodejs
+
+# Build rule for target.
+defects_identification_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_generate_messages_nodejs
+.PHONY : defects_identification_generate_messages_nodejs
+
+# fast build rule for target.
+defects_identification_generate_messages_nodejs/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_generate_messages_nodejs.dir/build.make defects_identification/CMakeFiles/defects_identification_generate_messages_nodejs.dir/build
+.PHONY : defects_identification_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named defects_identification_genpy
+
+# Build rule for target.
+defects_identification_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 defects_identification_genpy
+.PHONY : defects_identification_genpy
+
+# fast build rule for target.
+defects_identification_genpy/fast:
+	$(MAKE) -f defects_identification/CMakeFiles/defects_identification_genpy.dir/build.make defects_identification/CMakeFiles/defects_identification_genpy.dir/build
+.PHONY : defects_identification_genpy/fast
+
+#=============================================================================
 # Target rules for targets named microepsilon_scancontrol_node
 
 # Build rule for target.
@@ -4424,6 +4580,18 @@ help:
 	@echo "... run_tests_pcl_ros_rostest_sample_extract_clusters__gui_false.launch"
 	@echo "... run_tests_pcl_ros_rostest_sample_normal_3d__gui_false.launch"
 	@echo "... _run_tests_pcl_ros_rostest_sample_extract_clusters__gui_false.launch"
+	@echo "... defects_identification_generate_messages_eus"
+	@echo "... defects_identification_gencpp"
+	@echo "... defects_identification_generate_messages_py"
+	@echo "... defects_identification_geneus"
+	@echo "... defects_identification_generate_messages_cpp"
+	@echo "... _defects_identification_generate_messages_check_deps_MsgDefects"
+	@echo "... defects_identification_generate_messages"
+	@echo "... defects_identification_gennodejs"
+	@echo "... defects_identification_generate_messages_lisp"
+	@echo "... defects_identification_genlisp"
+	@echo "... defects_identification_generate_messages_nodejs"
+	@echo "... defects_identification_genpy"
 	@echo "... microepsilon_scancontrol_node"
 	@echo "... microepsilon_scancontrol"
 	@echo "... cloud_transformation_node"

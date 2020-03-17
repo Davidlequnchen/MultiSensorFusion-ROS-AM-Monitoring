@@ -65,7 +65,7 @@ public:
       // the matrix calculated based on matrix1 and matrix2 is the transformation matrix from workobject to camera0
       pcl_ros::transformPointCloud(matrix, *cloud_msg, cloud_out);
       // Transform a sensor_msgs::PointCloud2 dataset using an Eigen 4x4 matrix.
-      ROS_INFO_STREAM("Transform:" << matrix);
+      // ROS_INFO_STREAM("Transform:" << matrix);
 
       cloud_out.header.frame_id = "/workobject";
       pub_cloud.publish(cloud_out);
