@@ -25,8 +25,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/vtk-7.1"
   "/home/chenlequn/SIMTech_ws/devel/include"
-  "/home/chenlequn/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_ros/include"
-  "/home/chenlequn/SIMTech_ws/src/ROS_perception/perception_pcl/pcl_conversions/include"
+  "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_ros/include"
+  "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_conversions/include"
   "/opt/ros/melodic/include"
   "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"
@@ -37,8 +37,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/chenlequn/SIMTech_ws/build/ROS_perception/perception_pcl/pcl_ros/CMakeFiles/pcl_ros_filter.dir/DependInfo.cmake"
-  "/home/chenlequn/SIMTech_ws/build/ROS_perception/perception_pcl/pcl_ros/CMakeFiles/pcl_ros_tf.dir/DependInfo.cmake"
+  "/home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_ros/CMakeFiles/pcl_ros_filter.dir/DependInfo.cmake"
+  "/home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_ros/CMakeFiles/pcl_ros_tf.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
