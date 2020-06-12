@@ -55,9 +55,10 @@ include simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_gener
 
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgControl.h
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgStart.h
-simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgEmission.h
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgPower.h
+simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgSetpoint.h
+simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/SrvRobotCommand.h
 
 
@@ -73,39 +74,46 @@ simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_mess
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from simtech_robot_laser_control/MsgStart.msg"
 	cd /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgStart.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control -e /opt/ros/melodic/share/gencpp/cmake/..
 
-/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
-/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg
-/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from simtech_robot_laser_control/MsgInfo.msg"
-	cd /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control -e /opt/ros/melodic/share/gencpp/cmake/..
-
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgEmission.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgEmission.h: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgEmission.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from simtech_robot_laser_control/MsgEmission.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from simtech_robot_laser_control/MsgEmission.msg"
 	cd /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgPower.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgPower.h: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgPower.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgPower.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from simtech_robot_laser_control/MsgPower.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from simtech_robot_laser_control/MsgPower.msg"
 	cd /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgSetpoint.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgSetpoint.h: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg
+/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgSetpoint.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from simtech_robot_laser_control/MsgSetpoint.msg"
+	cd /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg
+/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from simtech_robot_laser_control/MsgInfo.msg"
+	cd /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/SrvRobotCommand.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/SrvRobotCommand.h: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/SrvRobotCommand.h: /opt/ros/melodic/share/gencpp/msg.h.template
 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/SrvRobotCommand.h: /opt/ros/melodic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from simtech_robot_laser_control/SrvRobotCommand.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from simtech_robot_laser_control/SrvRobotCommand.srv"
 	cd /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control -e /opt/ros/melodic/share/gencpp/cmake/..
 
 simtech_robot_laser_control_generate_messages_cpp: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp
 simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgControl.h
 simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgStart.h
-simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h
 simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgEmission.h
 simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgPower.h
+simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgSetpoint.h
+simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h
 simtech_robot_laser_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/SrvRobotCommand.h
 simtech_robot_laser_control_generate_messages_cpp: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_cpp.dir/build.make
 

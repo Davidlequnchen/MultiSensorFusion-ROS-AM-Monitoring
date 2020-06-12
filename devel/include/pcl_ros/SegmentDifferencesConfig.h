@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (SegmentDifferencesConfig::* field);
+      T SegmentDifferencesConfig::* field;
 
       virtual void clamp(SegmentDifferencesConfig &config, const SegmentDifferencesConfig &max, const SegmentDifferencesConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<SegmentDifferencesConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

@@ -23,6 +23,7 @@ add_message_files(
   MsgControl.msg
   MsgInfo.msg
   MsgEmission.msg
+  MsgSetpoint.msg
 )
 
 generate_messages(

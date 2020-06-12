@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (ExtractIndicesConfig::* field);
+      T ExtractIndicesConfig::* field;
 
       virtual void clamp(ExtractIndicesConfig &config, const ExtractIndicesConfig &max, const ExtractIndicesConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<ExtractIndicesConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

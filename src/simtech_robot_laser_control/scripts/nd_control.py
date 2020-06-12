@@ -3,12 +3,14 @@ import os
 import rospy
 import rospkg
 
-from laser_control.msg import MsgControl
-from laser_control.msg import MsgPower
-from laser_control.msg import MsgInfo
-from laser_control.msg import MsgStart
+from simtech_robot_laser_control.msg import MsgControl
+from simtech_robot_laser_control.msg import MsgPower
+from simtech_robot_laser_control.msg import MsgInfo
+from simtech_robot_laser_control.msg import MsgStart
+from simtech_robot_laser_control.msg import MsgSetpoint
 from camera_measures.msg import MsgGeometry
 from camera_measures.msg import MsgStatus
+# from camera_measures.msg import MsgVelocityStatus
 
 from control.control import Control
 from control.control import PID
@@ -18,6 +20,7 @@ import numpy as np
 MANUAL = 0
 STEP = 2
 AUTOMATIC = 1
+ADAPTIVE_SETPOINT_INTERVAL = 6 # adaptive setpoint interval [sec]
 
 
 class NdControl():
@@ -29,17 +32,22 @@ class NdControl():
             '/control/parameters', MsgControl, self.cb_control, queue_size=1)
         rospy.Subscriber(
             '/supervisor/status', MsgStatus, self.cb_status, queue_size=1)
+        # rospy.Subscriber(
+        #     '/supervisor/velocity_status', MsgVelocityStatus, self.cb_status, queue_size=1)
         self.pub_power = rospy.Publisher(
             '/control/power', MsgPower, queue_size=10)
         self.pub_info = rospy.Publisher(
             '/control/info', MsgInfo, queue_size=10)
         self.pub_start = rospy.Publisher(
             '/control/start', MsgStart, queue_size=10)
+        self.pub_setpoint = rospy.Publisher(
+            '/control/setpoint', MsgSetpoint, queue_size=10)
 
 
         self.msg_power = MsgPower()
         self.msg_info = MsgInfo()
         self.msg_start = MsgStart()
+        self.msg_setpoint = MsgSetpoint()
         self.mode = MANUAL
 
         self.status = False
@@ -51,6 +59,9 @@ class NdControl():
         self.start = False
 
         self.track= []
+        
+        self.minor_axis_list = []
+        self.adaptive_time = 0.0
 
         self.track_number = 0
         self.t_reg = 0
@@ -105,6 +116,7 @@ class NdControl():
         self.track_number = 0
         self.time_step= 0
         self.control.pid.set_setpoint(self.setpoint)
+        self.adaptive_time = rospy.get_time() # get current ros time in sec
         #-----------------------------------------
         self.control_change = msg_control.change
 
@@ -122,7 +134,8 @@ class NdControl():
             self.setFirstPowerValue = True
             value = self.manual(self.power)
         elif self.mode == AUTOMATIC:
-            value = self.automatic(msg_geo.minor_axis, time)
+            # value = self.automatic(msg_geo.minor_axis, time)
+            value = self.automatic(msg_geo.minor_axis_average, time)
         elif self.mode == STEP:
             value = self.step(time)
         value = self.range(value)
@@ -178,12 +191,14 @@ class NdControl():
         # value = self.power
         self.msg_start.control = False
         if self.status and self.time_step > 0:
-            if self.auto_mode is 0:    # continous mode, use time
-                if self.time_control < self.control_time_interval:
-                    self.auto_setpoint(minor_axis)
-                if self.time_control > self.control_time_interval:
-                    self.controlled_value = self.control.pid.update(minor_axis, time)
-                    self.msg_start.control = True
+            if self.auto_mode is 0 and minor_axis > 50:    # continous mode, use time
+                # if self.time_control < self.control_time_interval:
+                #     self.auto_setpoint(minor_axis)
+                # if self.time_control > self.control_time_interval:
+                
+                self.adaptive_setpoint(time, minor_axis)
+                self.controlled_value = self.control.pid.update(minor_axis, time)
+                self.msg_start.control = True
             elif self.auto_mode is 1:   # use track number
                 if self.track_number is 3:
                     self.auto_setpoint(minor_axis)
@@ -193,8 +208,20 @@ class NdControl():
         
         value = self.controlled_value
         return value
-
-
+    
+    
+    def adaptive_setpoint(self, current_time, minor_axis):
+        if current_time - self.adaptive_time < ADAPTIVE_SETPOINT_INTERVAL: 
+            self.minor_axis_list.append(minor_axis)
+        else:
+            self.setpoint = sum(self.minor_axis_list)/len(self.minor_axis_list)
+            self.control.pid.set_setpoint(self.setpoint)
+            self.msg_setpoint.setpoint = self.setpoint
+            self.pub_setpoint.publish (self.msg_setpoint)
+            self.minor_axis_list = []
+            self.adaptive_time = current_time
+    
+    
 
 
     def auto_setpoint(self, minor_axis):

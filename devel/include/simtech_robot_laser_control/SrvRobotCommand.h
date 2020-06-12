@@ -57,8 +57,8 @@ struct DataType< ::simtech_robot_laser_control::SrvRobotCommand > {
 };
 
 
-// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandRequest> should match 
-// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommand > 
+// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandRequest> should match
+// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommand >
 template<>
 struct MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandRequest>
 {
@@ -72,8 +72,8 @@ struct MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandRequest>
   }
 };
 
-// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommandRequest> should match 
-// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommand > 
+// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommandRequest> should match
+// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommand >
 template<>
 struct DataType< ::simtech_robot_laser_control::SrvRobotCommandRequest>
 {
@@ -87,8 +87,8 @@ struct DataType< ::simtech_robot_laser_control::SrvRobotCommandRequest>
   }
 };
 
-// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandResponse> should match 
-// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommand > 
+// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandResponse> should match
+// service_traits::MD5Sum< ::simtech_robot_laser_control::SrvRobotCommand >
 template<>
 struct MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandResponse>
 {
@@ -102,8 +102,8 @@ struct MD5Sum< ::simtech_robot_laser_control::SrvRobotCommandResponse>
   }
 };
 
-// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommandResponse> should match 
-// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommand > 
+// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommandResponse> should match
+// service_traits::DataType< ::simtech_robot_laser_control::SrvRobotCommand >
 template<>
 struct DataType< ::simtech_robot_laser_control::SrvRobotCommandResponse>
 {

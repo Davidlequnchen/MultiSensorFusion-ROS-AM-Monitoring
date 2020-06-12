@@ -74,6 +74,7 @@ class MsgControl {
   static messageDefinition() {
     // Returns full string definition for message
     return `
+    # /control/parameters topic 
     bool change
     int32 value
     

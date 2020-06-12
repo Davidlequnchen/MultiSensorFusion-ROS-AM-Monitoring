@@ -69,7 +69,7 @@ namespace image_rotate
         field(a_f)
       {}
 
-      T (ImageRotateConfig::* field);
+      T ImageRotateConfig::* field;
 
       virtual void clamp(ImageRotateConfig &config, const ImageRotateConfig &max, const ImageRotateConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace image_rotate
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<ImageRotateConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

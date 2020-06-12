@@ -1,0 +1,10 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+
+  <node name="velocity" pkg="camera_measures" type="nd_velocity.py" respawn="true"/>
+
+  <!-- supervise speed, tell if the robot is running -->
+  <node name="velocity_supervisor" pkg="camera_measures" type="nd_velocity_supervisor.py" respawn="true" />
+</launch>

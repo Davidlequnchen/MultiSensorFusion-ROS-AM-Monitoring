@@ -10,7 +10,8 @@
     </include>
 
     <node name="defects_prediction" pkg="defects_identification" type="nd_defects_identification.py" respawn="true" />
-  
+    
+    <node name="robot_laser_stop" pkg="defects_identification" type="nd_laser_robot_stop.py" />
 
     
    

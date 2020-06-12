@@ -69,7 +69,7 @@ namespace image_proc
         field(a_f)
       {}
 
-      T (ResizeConfig::* field);
+      T ResizeConfig::* field;
 
       virtual void clamp(ResizeConfig &config, const ResizeConfig &max, const ResizeConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace image_proc
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<ResizeConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 
@@ -417,9 +417,9 @@ ResizeConfig::GroupDescription<ResizeConfig::DEFAULT, ResizeConfig> Default("Def
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.interpolation = 1;
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      Default.abstract_parameters.push_back(ResizeConfig::AbstractParamDescriptionConstPtr(new ResizeConfig::ParamDescription<int>("interpolation", "int", 0, "Interpolation algorithm between source image pixels", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 11, 'description': 'Nearest neighbor', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 12, 'description': 'Linear', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 13, 'description': 'Cubic', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 14, 'description': 'Lanczos4', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &ResizeConfig::interpolation)));
+      Default.abstract_parameters.push_back(ResizeConfig::AbstractParamDescriptionConstPtr(new ResizeConfig::ParamDescription<int>("interpolation", "int", 0, "Interpolation algorithm between source image pixels", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 11, 'description': 'Nearest neighbor', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 12, 'description': 'Linear', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 13, 'description': 'Cubic', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 14, 'description': 'Lanczos4', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &ResizeConfig::interpolation)));
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __param_descriptions__.push_back(ResizeConfig::AbstractParamDescriptionConstPtr(new ResizeConfig::ParamDescription<int>("interpolation", "int", 0, "Interpolation algorithm between source image pixels", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 11, 'description': 'Nearest neighbor', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 12, 'description': 'Linear', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 13, 'description': 'Cubic', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 14, 'description': 'Lanczos4', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &ResizeConfig::interpolation)));
+      __param_descriptions__.push_back(ResizeConfig::AbstractParamDescriptionConstPtr(new ResizeConfig::ParamDescription<int>("interpolation", "int", 0, "Interpolation algorithm between source image pixels", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 11, 'description': 'Nearest neighbor', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 12, 'description': 'Linear', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 13, 'description': 'Cubic', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 14, 'description': 'Lanczos4', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &ResizeConfig::interpolation)));
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.use_scale = 0;
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -549,13 +549,13 @@ ResizeConfig::GroupDescription<ResizeConfig::DEFAULT, ResizeConfig> Default("Def
     return statics;
   }
 
-//#line 11 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg"
+//#line 11 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg"
       const int Resize_NN = 0;
-//#line 12 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg"
+//#line 12 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg"
       const int Resize_Linear = 1;
-//#line 13 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg"
+//#line 13 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg"
       const int Resize_Cubic = 2;
-//#line 14 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Resize.cfg"
+//#line 14 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Resize.cfg"
       const int Resize_Lanczos4 = 4;
 }
 

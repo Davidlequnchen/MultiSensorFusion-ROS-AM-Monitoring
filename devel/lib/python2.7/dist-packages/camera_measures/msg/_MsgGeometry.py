@@ -8,15 +8,17 @@ import struct
 import std_msgs.msg
 
 class MsgGeometry(genpy.Message):
-  _md5sum = "53b067171589c1f92c32f242adc15c57"
+  _md5sum = "b591f4599791fbd2dc5c964bbb9d1b55"
   _type = "camera_measures/MsgGeometry"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
 float32 major_axis
 float32 minor_axis
+float32 circle_diameter
 float32 orientation
 float32 x
 float32 y
+float32 minor_axis_average
 
 ================================================================================
 MSG: std_msgs/Header
@@ -34,8 +36,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','major_axis','minor_axis','orientation','x','y']
-  _slot_types = ['std_msgs/Header','float32','float32','float32','float32','float32']
+  __slots__ = ['header','major_axis','minor_axis','circle_diameter','orientation','x','y','minor_axis_average']
+  _slot_types = ['std_msgs/Header','float32','float32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -45,7 +47,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,major_axis,minor_axis,orientation,x,y
+       header,major_axis,minor_axis,circle_diameter,orientation,x,y,minor_axis_average
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -60,19 +62,25 @@ string frame_id
         self.major_axis = 0.
       if self.minor_axis is None:
         self.minor_axis = 0.
+      if self.circle_diameter is None:
+        self.circle_diameter = 0.
       if self.orientation is None:
         self.orientation = 0.
       if self.x is None:
         self.x = 0.
       if self.y is None:
         self.y = 0.
+      if self.minor_axis_average is None:
+        self.minor_axis_average = 0.
     else:
       self.header = std_msgs.msg.Header()
       self.major_axis = 0.
       self.minor_axis = 0.
+      self.circle_diameter = 0.
       self.orientation = 0.
       self.x = 0.
       self.y = 0.
+      self.minor_axis_average = 0.
 
   def _get_types(self):
     """
@@ -95,7 +103,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_get_struct_5f().pack(_x.major_axis, _x.minor_axis, _x.orientation, _x.x, _x.y))
+      buff.write(_get_struct_7f().pack(_x.major_axis, _x.minor_axis, _x.circle_diameter, _x.orientation, _x.x, _x.y, _x.minor_axis_average))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -123,8 +131,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 20
-      (_x.major_axis, _x.minor_axis, _x.orientation, _x.x, _x.y,) = _get_struct_5f().unpack(str[start:end])
+      end += 28
+      (_x.major_axis, _x.minor_axis, _x.circle_diameter, _x.orientation, _x.x, _x.y, _x.minor_axis_average,) = _get_struct_7f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -146,7 +154,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_get_struct_5f().pack(_x.major_axis, _x.minor_axis, _x.orientation, _x.x, _x.y))
+      buff.write(_get_struct_7f().pack(_x.major_axis, _x.minor_axis, _x.circle_diameter, _x.orientation, _x.x, _x.y, _x.minor_axis_average))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -175,8 +183,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 20
-      (_x.major_axis, _x.minor_axis, _x.orientation, _x.x, _x.y,) = _get_struct_5f().unpack(str[start:end])
+      end += 28
+      (_x.major_axis, _x.minor_axis, _x.circle_diameter, _x.orientation, _x.x, _x.y, _x.minor_axis_average,) = _get_struct_7f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -185,15 +193,15 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_7f = None
+def _get_struct_7f():
+    global _struct_7f
+    if _struct_7f is None:
+        _struct_7f = struct.Struct("<7f")
+    return _struct_7f
 _struct_3I = None
 def _get_struct_3I():
     global _struct_3I
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
-_struct_5f = None
-def _get_struct_5f():
-    global _struct_5f
-    if _struct_5f is None:
-        _struct_5f = struct.Struct("<5f")
-    return _struct_5f

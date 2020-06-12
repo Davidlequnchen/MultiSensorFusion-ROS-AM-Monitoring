@@ -55,9 +55,10 @@ include simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_gener
 
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgControl.js
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgStart.js
-simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgEmission.js
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgPower.js
+simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgSetpoint.js
+simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/srv/SrvRobotCommand.js
 
 
@@ -71,34 +72,40 @@ simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_mess
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from simtech_robot_laser_control/MsgStart.msg"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgStart.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg
 
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from simtech_robot_laser_control/MsgInfo.msg"
-	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg
-
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgEmission.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgEmission.js: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from simtech_robot_laser_control/MsgEmission.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from simtech_robot_laser_control/MsgEmission.msg"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgPower.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgPower.js: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgPower.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from simtech_robot_laser_control/MsgPower.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from simtech_robot_laser_control/MsgPower.msg"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgSetpoint.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgSetpoint.js: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from simtech_robot_laser_control/MsgSetpoint.msg"
+	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from simtech_robot_laser_control/MsgInfo.msg"
+	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/srv/SrvRobotCommand.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/srv/SrvRobotCommand.js: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from simtech_robot_laser_control/SrvRobotCommand.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from simtech_robot_laser_control/SrvRobotCommand.srv"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/srv
 
 simtech_robot_laser_control_generate_messages_nodejs: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs
 simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgControl.js
 simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgStart.js
-simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js
 simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgEmission.js
 simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgPower.js
+simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgSetpoint.js
+simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js
 simtech_robot_laser_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/srv/SrvRobotCommand.js
 simtech_robot_laser_control_generate_messages_nodejs: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs.dir/build.make
 

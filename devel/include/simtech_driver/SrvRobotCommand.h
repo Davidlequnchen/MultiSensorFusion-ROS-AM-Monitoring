@@ -57,8 +57,8 @@ struct DataType< ::simtech_driver::SrvRobotCommand > {
 };
 
 
-// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommandRequest> should match 
-// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommand > 
+// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommandRequest> should match
+// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommand >
 template<>
 struct MD5Sum< ::simtech_driver::SrvRobotCommandRequest>
 {
@@ -72,8 +72,8 @@ struct MD5Sum< ::simtech_driver::SrvRobotCommandRequest>
   }
 };
 
-// service_traits::DataType< ::simtech_driver::SrvRobotCommandRequest> should match 
-// service_traits::DataType< ::simtech_driver::SrvRobotCommand > 
+// service_traits::DataType< ::simtech_driver::SrvRobotCommandRequest> should match
+// service_traits::DataType< ::simtech_driver::SrvRobotCommand >
 template<>
 struct DataType< ::simtech_driver::SrvRobotCommandRequest>
 {
@@ -87,8 +87,8 @@ struct DataType< ::simtech_driver::SrvRobotCommandRequest>
   }
 };
 
-// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommandResponse> should match 
-// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommand > 
+// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommandResponse> should match
+// service_traits::MD5Sum< ::simtech_driver::SrvRobotCommand >
 template<>
 struct MD5Sum< ::simtech_driver::SrvRobotCommandResponse>
 {
@@ -102,8 +102,8 @@ struct MD5Sum< ::simtech_driver::SrvRobotCommandResponse>
   }
 };
 
-// service_traits::DataType< ::simtech_driver::SrvRobotCommandResponse> should match 
-// service_traits::DataType< ::simtech_driver::SrvRobotCommand > 
+// service_traits::DataType< ::simtech_driver::SrvRobotCommandResponse> should match
+// service_traits::DataType< ::simtech_driver::SrvRobotCommand >
 template<>
 struct DataType< ::simtech_driver::SrvRobotCommandResponse>
 {

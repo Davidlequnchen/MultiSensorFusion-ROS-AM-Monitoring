@@ -69,7 +69,7 @@ namespace image_proc
         field(a_f)
       {}
 
-      T (CropDecimateConfig::* field);
+      T CropDecimateConfig::* field;
 
       virtual void clamp(CropDecimateConfig &config, const CropDecimateConfig &max, const CropDecimateConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace image_proc
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<CropDecimateConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 
@@ -481,9 +481,9 @@ CropDecimateConfig::GroupDescription<CropDecimateConfig::DEFAULT, CropDecimateCo
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.interpolation = 0;
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      Default.abstract_parameters.push_back(CropDecimateConfig::AbstractParamDescriptionConstPtr(new CropDecimateConfig::ParamDescription<int>("interpolation", "int", 0, "Sampling algorithm", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 21, 'description': 'Nearest-neighbor sampling', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 22, 'description': 'Bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 23, 'description': 'Bicubic interpolation over 4x4 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 24, 'description': 'Resampling using pixel area relation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'Area'}, {'srcline': 25, 'description': 'Lanczos interpolation over 8x8 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &CropDecimateConfig::interpolation)));
+      Default.abstract_parameters.push_back(CropDecimateConfig::AbstractParamDescriptionConstPtr(new CropDecimateConfig::ParamDescription<int>("interpolation", "int", 0, "Sampling algorithm", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 21, 'description': 'Nearest-neighbor sampling', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 22, 'description': 'Bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 23, 'description': 'Bicubic interpolation over 4x4 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 24, 'description': 'Resampling using pixel area relation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'Area'}, {'srcline': 25, 'description': 'Lanczos interpolation over 8x8 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &CropDecimateConfig::interpolation)));
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __param_descriptions__.push_back(CropDecimateConfig::AbstractParamDescriptionConstPtr(new CropDecimateConfig::ParamDescription<int>("interpolation", "int", 0, "Sampling algorithm", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 21, 'description': 'Nearest-neighbor sampling', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 22, 'description': 'Bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 23, 'description': 'Bicubic interpolation over 4x4 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 24, 'description': 'Resampling using pixel area relation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'Area'}, {'srcline': 25, 'description': 'Lanczos interpolation over 8x8 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &CropDecimateConfig::interpolation)));
+      __param_descriptions__.push_back(CropDecimateConfig::AbstractParamDescriptionConstPtr(new CropDecimateConfig::ParamDescription<int>("interpolation", "int", 0, "Sampling algorithm", "{'enum_description': 'interpolation type', 'enum': [{'srcline': 21, 'description': 'Nearest-neighbor sampling', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'NN'}, {'srcline': 22, 'description': 'Bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'Linear'}, {'srcline': 23, 'description': 'Bicubic interpolation over 4x4 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'Cubic'}, {'srcline': 24, 'description': 'Resampling using pixel area relation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'Area'}, {'srcline': 25, 'description': 'Lanczos interpolation over 8x8 neighborhood', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg', 'cconsttype': 'const int', 'value': 4, 'ctype': 'int', 'type': 'int', 'name': 'Lanczos4'}]}", &CropDecimateConfig::interpolation)));
 //#line 246 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.convertParams();
 //#line 246 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -563,15 +563,15 @@ CropDecimateConfig::GroupDescription<CropDecimateConfig::DEFAULT, CropDecimateCo
     return statics;
   }
 
-//#line 21 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg"
+//#line 21 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg"
       const int CropDecimate_NN = 0;
-//#line 22 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg"
+//#line 22 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg"
       const int CropDecimate_Linear = 1;
-//#line 23 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg"
+//#line 23 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg"
       const int CropDecimate_Cubic = 2;
-//#line 24 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg"
+//#line 24 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg"
       const int CropDecimate_Area = 3;
-//#line 25 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/CropDecimate.cfg"
+//#line 25 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/CropDecimate.cfg"
       const int CropDecimate_Lanczos4 = 4;
 }
 

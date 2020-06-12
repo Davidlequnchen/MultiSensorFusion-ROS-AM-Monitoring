@@ -57,8 +57,8 @@ struct DataType< ::pcl_msgs::UpdateFilename > {
 };
 
 
-// service_traits::MD5Sum< ::pcl_msgs::UpdateFilenameRequest> should match 
-// service_traits::MD5Sum< ::pcl_msgs::UpdateFilename > 
+// service_traits::MD5Sum< ::pcl_msgs::UpdateFilenameRequest> should match
+// service_traits::MD5Sum< ::pcl_msgs::UpdateFilename >
 template<>
 struct MD5Sum< ::pcl_msgs::UpdateFilenameRequest>
 {
@@ -72,8 +72,8 @@ struct MD5Sum< ::pcl_msgs::UpdateFilenameRequest>
   }
 };
 
-// service_traits::DataType< ::pcl_msgs::UpdateFilenameRequest> should match 
-// service_traits::DataType< ::pcl_msgs::UpdateFilename > 
+// service_traits::DataType< ::pcl_msgs::UpdateFilenameRequest> should match
+// service_traits::DataType< ::pcl_msgs::UpdateFilename >
 template<>
 struct DataType< ::pcl_msgs::UpdateFilenameRequest>
 {
@@ -87,8 +87,8 @@ struct DataType< ::pcl_msgs::UpdateFilenameRequest>
   }
 };
 
-// service_traits::MD5Sum< ::pcl_msgs::UpdateFilenameResponse> should match 
-// service_traits::MD5Sum< ::pcl_msgs::UpdateFilename > 
+// service_traits::MD5Sum< ::pcl_msgs::UpdateFilenameResponse> should match
+// service_traits::MD5Sum< ::pcl_msgs::UpdateFilename >
 template<>
 struct MD5Sum< ::pcl_msgs::UpdateFilenameResponse>
 {
@@ -102,8 +102,8 @@ struct MD5Sum< ::pcl_msgs::UpdateFilenameResponse>
   }
 };
 
-// service_traits::DataType< ::pcl_msgs::UpdateFilenameResponse> should match 
-// service_traits::DataType< ::pcl_msgs::UpdateFilename > 
+// service_traits::DataType< ::pcl_msgs::UpdateFilenameResponse> should match
+// service_traits::DataType< ::pcl_msgs::UpdateFilename >
 template<>
 struct DataType< ::pcl_msgs::UpdateFilenameResponse>
 {

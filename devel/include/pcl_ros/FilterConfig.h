@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (FilterConfig::* field);
+      T FilterConfig::* field;
 
       virtual void clamp(FilterConfig &config, const FilterConfig &max, const FilterConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<FilterConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

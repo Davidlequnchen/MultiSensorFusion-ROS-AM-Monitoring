@@ -11,7 +11,8 @@ class MsgPower(genpy.Message):
   _md5sum = "4bea522f9243fd34ea7bc74ce85697a8"
   _type = "simtech_robot_laser_control/MsgPower"
   _has_header = True #flag to mark the presence of a Header object
-  _full_text = """Header header
+  _full_text = """# the power to be published and send to laser socket
+Header header
 float32 value
 
 ================================================================================

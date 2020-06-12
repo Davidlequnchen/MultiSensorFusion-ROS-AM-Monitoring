@@ -10,7 +10,8 @@ class MsgControl(genpy.Message):
   _md5sum = "c0714776f3b1ecd3928d4fe859ff95f8"
   _type = "simtech_robot_laser_control/MsgControl"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """bool change
+  _full_text = """# /control/parameters topic 
+bool change
 int32 value
 """
   __slots__ = ['change','value']

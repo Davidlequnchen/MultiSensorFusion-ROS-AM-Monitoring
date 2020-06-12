@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (VoxelGridConfig::* field);
+      T VoxelGridConfig::* field;
 
       virtual void clamp(VoxelGridConfig &config, const VoxelGridConfig &max, const VoxelGridConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<VoxelGridConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

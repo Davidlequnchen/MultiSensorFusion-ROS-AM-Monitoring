@@ -183,36 +183,6 @@ simtech_robot_laser_control_genpy/fast:
 .PHONY : simtech_robot_laser_control_genpy/fast
 
 # Convenience name for target.
-simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
-.PHONY : simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
-
-# Convenience name for target.
-_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo: simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
-
-.PHONY : _simtech_robot_laser_control_generate_messages_check_deps_MsgInfo
-
-# fast build rule for target.
-_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/build
-.PHONY : _simtech_robot_laser_control_generate_messages_check_deps_MsgInfo/fast
-
-# Convenience name for target.
-simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule
-.PHONY : simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-simtech_robot_laser_control_generate_messages_lisp: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule
-
-.PHONY : simtech_robot_laser_control_generate_messages_lisp
-
-# fast build rule for target.
-simtech_robot_laser_control_generate_messages_lisp/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/build.make simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/build
-.PHONY : simtech_robot_laser_control_generate_messages_lisp/fast
-
-# Convenience name for target.
 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgStart.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgStart.dir/rule
 .PHONY : simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgStart.dir/rule
@@ -271,6 +241,51 @@ simtech_robot_laser_control_generate_messages_nodejs: simtech_robot_laser_contro
 simtech_robot_laser_control_generate_messages_nodejs/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs.dir/build.make simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_nodejs.dir/build
 .PHONY : simtech_robot_laser_control_generate_messages_nodejs/fast
+
+# Convenience name for target.
+simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint.dir/rule
+.PHONY : simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint.dir/rule
+
+# Convenience name for target.
+_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint: simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint.dir/rule
+
+.PHONY : _simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint
+
+# fast build rule for target.
+_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint.dir/build.make simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint.dir/build
+.PHONY : _simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint/fast
+
+# Convenience name for target.
+simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
+.PHONY : simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
+
+# Convenience name for target.
+_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo: simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
+
+.PHONY : _simtech_robot_laser_control_generate_messages_check_deps_MsgInfo
+
+# fast build rule for target.
+_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo.dir/build
+.PHONY : _simtech_robot_laser_control_generate_messages_check_deps_MsgInfo/fast
+
+# Convenience name for target.
+simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule
+.PHONY : simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+simtech_robot_laser_control_generate_messages_lisp: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/rule
+
+.PHONY : simtech_robot_laser_control_generate_messages_lisp
+
+# fast build rule for target.
+simtech_robot_laser_control_generate_messages_lisp/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/build.make simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/build
+.PHONY : simtech_robot_laser_control_generate_messages_lisp/fast
 
 # Convenience name for target.
 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgEmission.dir/rule:
@@ -434,12 +449,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... simtech_robot_laser_control_genpy"
-	@echo "... _simtech_robot_laser_control_generate_messages_check_deps_MsgInfo"
-	@echo "... simtech_robot_laser_control_generate_messages_lisp"
 	@echo "... _simtech_robot_laser_control_generate_messages_check_deps_MsgStart"
 	@echo "... _simtech_robot_laser_control_generate_messages_check_deps_MsgPower"
 	@echo "... simtech_robot_laser_control_generate_messages"
 	@echo "... simtech_robot_laser_control_generate_messages_nodejs"
+	@echo "... _simtech_robot_laser_control_generate_messages_check_deps_MsgSetpoint"
+	@echo "... _simtech_robot_laser_control_generate_messages_check_deps_MsgInfo"
+	@echo "... simtech_robot_laser_control_generate_messages_lisp"
 	@echo "... _simtech_robot_laser_control_generate_messages_check_deps_MsgEmission"
 	@echo "... simtech_robot_laser_control_generate_messages_cpp"
 	@echo "... simtech_robot_laser_control_generate_messages_py"

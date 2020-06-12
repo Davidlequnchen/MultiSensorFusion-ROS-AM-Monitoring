@@ -9,7 +9,6 @@ if [ -n "$DESTDIR" ] ; then
             /bin/echo "otherwise python's distutils will bork things."
             exit 1
     esac
-    DESTDIR_ARG="--root=$DESTDIR"
 fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
@@ -29,5 +28,5 @@ echo_and_run /usr/bin/env \
     "/home/chenlequn/SIMTech_ws/src/Monitoring/Laser_calibration/calib_ros_run/setup.py" \
     build --build-base "/home/chenlequn/SIMTech_ws/build/Monitoring/Laser_calibration/calib_ros_run" \
     install \
-    $DESTDIR_ARG \
+    --root="${DESTDIR-/}" \
     --install-layout=deb --prefix="/home/chenlequn/SIMTech_ws/install" --install-scripts="/home/chenlequn/SIMTech_ws/install/bin"

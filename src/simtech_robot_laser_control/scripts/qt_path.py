@@ -83,7 +83,8 @@ class QtPath(QtWidgets.QWidget):
         # Parse robot description file
         robot = URDF.from_parameter_server()
         tcp = robot.joint_map['tcp0']
-        workobject = robot.joint_map['world-workobject']
+        # workobject = robot.joint_map['world-workobject']
+        workobject = robot.joint_map['workobject']
 
         tool = [tcp.origin.position,
                 list(tf.quaternion_from_euler(*tcp.origin.rotation))]

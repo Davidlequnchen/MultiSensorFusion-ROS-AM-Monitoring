@@ -69,7 +69,7 @@ namespace image_proc
         field(a_f)
       {}
 
-      T (DebayerConfig::* field);
+      T DebayerConfig::* field;
 
       virtual void clamp(DebayerConfig &config, const DebayerConfig &max, const DebayerConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace image_proc
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<DebayerConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 
@@ -397,9 +397,9 @@ DebayerConfig::GroupDescription<DebayerConfig::DEFAULT, DebayerConfig> Default("
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.debayer = 0;
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      Default.abstract_parameters.push_back(DebayerConfig::AbstractParamDescriptionConstPtr(new DebayerConfig::ParamDescription<int>("debayer", "int", 0, "Debayering algorithm", "{'enum_description': 'Debayering algorithm', 'enum': [{'srcline': 10, 'description': 'Fast algorithm using bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'Bilinear'}, {'srcline': 12, 'description': 'Edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAware'}, {'srcline': 14, 'description': 'Weighted edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAwareWeighted'}, {'srcline': 16, 'description': 'Slow but high quality Variable Number of Gradients algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'VNG'}]}", &DebayerConfig::debayer)));
+      Default.abstract_parameters.push_back(DebayerConfig::AbstractParamDescriptionConstPtr(new DebayerConfig::ParamDescription<int>("debayer", "int", 0, "Debayering algorithm", "{'enum_description': 'Debayering algorithm', 'enum': [{'srcline': 10, 'description': 'Fast algorithm using bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'Bilinear'}, {'srcline': 12, 'description': 'Edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAware'}, {'srcline': 14, 'description': 'Weighted edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAwareWeighted'}, {'srcline': 16, 'description': 'Slow but high quality Variable Number of Gradients algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'VNG'}]}", &DebayerConfig::debayer)));
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __param_descriptions__.push_back(DebayerConfig::AbstractParamDescriptionConstPtr(new DebayerConfig::ParamDescription<int>("debayer", "int", 0, "Debayering algorithm", "{'enum_description': 'Debayering algorithm', 'enum': [{'srcline': 10, 'description': 'Fast algorithm using bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'Bilinear'}, {'srcline': 12, 'description': 'Edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAware'}, {'srcline': 14, 'description': 'Weighted edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAwareWeighted'}, {'srcline': 16, 'description': 'Slow but high quality Variable Number of Gradients algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'VNG'}]}", &DebayerConfig::debayer)));
+      __param_descriptions__.push_back(DebayerConfig::AbstractParamDescriptionConstPtr(new DebayerConfig::ParamDescription<int>("debayer", "int", 0, "Debayering algorithm", "{'enum_description': 'Debayering algorithm', 'enum': [{'srcline': 10, 'description': 'Fast algorithm using bilinear interpolation', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 0, 'ctype': 'int', 'type': 'int', 'name': 'Bilinear'}, {'srcline': 12, 'description': 'Edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 1, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAware'}, {'srcline': 14, 'description': 'Weighted edge-aware algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 2, 'ctype': 'int', 'type': 'int', 'name': 'EdgeAwareWeighted'}, {'srcline': 16, 'description': 'Slow but high quality Variable Number of Gradients algorithm', 'srcfile': '/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg', 'cconsttype': 'const int', 'value': 3, 'ctype': 'int', 'type': 'int', 'name': 'VNG'}]}", &DebayerConfig::debayer)));
 //#line 246 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.convertParams();
 //#line 246 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -479,13 +479,13 @@ DebayerConfig::GroupDescription<DebayerConfig::DEFAULT, DebayerConfig> Default("
     return statics;
   }
 
-//#line 10 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg"
+//#line 10 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg"
       const int Debayer_Bilinear = 0;
-//#line 12 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg"
+//#line 12 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg"
       const int Debayer_EdgeAware = 1;
-//#line 14 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg"
+//#line 14 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg"
       const int Debayer_EdgeAwareWeighted = 2;
-//#line 16 "/home/chenlequn/SIMTech_ws/src/image_pipeline/image_proc/cfg/Debayer.cfg"
+//#line 16 "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/cfg/Debayer.cfg"
       const int Debayer_VNG = 3;
 }
 

@@ -22,6 +22,11 @@
     :initarg :minor_axis
     :type cl:float
     :initform 0.0)
+   (circle_diameter
+    :reader circle_diameter
+    :initarg :circle_diameter
+    :type cl:float
+    :initform 0.0)
    (orientation
     :reader orientation
     :initarg :orientation
@@ -35,6 +40,11 @@
    (y
     :reader y
     :initarg :y
+    :type cl:float
+    :initform 0.0)
+   (minor_axis_average
+    :reader minor_axis_average
+    :initarg :minor_axis_average
     :type cl:float
     :initform 0.0))
 )
@@ -62,6 +72,11 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:minor_axis-val is deprecated.  Use camera_measures-msg:minor_axis instead.")
   (minor_axis m))
 
+(cl:ensure-generic-function 'circle_diameter-val :lambda-list '(m))
+(cl:defmethod circle_diameter-val ((m <MsgGeometry>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:circle_diameter-val is deprecated.  Use camera_measures-msg:circle_diameter instead.")
+  (circle_diameter m))
+
 (cl:ensure-generic-function 'orientation-val :lambda-list '(m))
 (cl:defmethod orientation-val ((m <MsgGeometry>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:orientation-val is deprecated.  Use camera_measures-msg:orientation instead.")
@@ -76,6 +91,11 @@
 (cl:defmethod y-val ((m <MsgGeometry>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:y-val is deprecated.  Use camera_measures-msg:y instead.")
   (y m))
+
+(cl:ensure-generic-function 'minor_axis_average-val :lambda-list '(m))
+(cl:defmethod minor_axis_average-val ((m <MsgGeometry>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:minor_axis_average-val is deprecated.  Use camera_measures-msg:minor_axis_average instead.")
+  (minor_axis_average m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <MsgGeometry>) ostream)
   "Serializes a message object of type '<MsgGeometry>"
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'header) ostream)
@@ -85,6 +105,11 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'minor_axis))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'circle_diameter))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -100,6 +125,11 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'y))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'minor_axis_average))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -125,6 +155,12 @@
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'circle_diameter) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'orientation) (roslisp-utils:decode-single-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
@@ -138,6 +174,12 @@
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'y) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'minor_axis_average) (roslisp-utils:decode-single-float-bits bits)))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<MsgGeometry>)))
@@ -148,19 +190,21 @@
   "camera_measures/MsgGeometry")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<MsgGeometry>)))
   "Returns md5sum for a message object of type '<MsgGeometry>"
-  "53b067171589c1f92c32f242adc15c57")
+  "b591f4599791fbd2dc5c964bbb9d1b55")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'MsgGeometry)))
   "Returns md5sum for a message object of type 'MsgGeometry"
-  "53b067171589c1f92c32f242adc15c57")
+  "b591f4599791fbd2dc5c964bbb9d1b55")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<MsgGeometry>)))
   "Returns full string definition for message of type '<MsgGeometry>"
-  (cl:format cl:nil "Header header~%float32 major_axis~%float32 minor_axis~%float32 orientation~%float32 x~%float32 y~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float32 major_axis~%float32 minor_axis~%float32 circle_diameter~%float32 orientation~%float32 x~%float32 y~%float32 minor_axis_average~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'MsgGeometry)))
   "Returns full string definition for message of type 'MsgGeometry"
-  (cl:format cl:nil "Header header~%float32 major_axis~%float32 minor_axis~%float32 orientation~%float32 x~%float32 y~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float32 major_axis~%float32 minor_axis~%float32 circle_diameter~%float32 orientation~%float32 x~%float32 y~%float32 minor_axis_average~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <MsgGeometry>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
+     4
+     4
      4
      4
      4
@@ -173,7 +217,9 @@
     (cl:cons ':header (header msg))
     (cl:cons ':major_axis (major_axis msg))
     (cl:cons ':minor_axis (minor_axis msg))
+    (cl:cons ':circle_diameter (circle_diameter msg))
     (cl:cons ':orientation (orientation msg))
     (cl:cons ':x (x msg))
     (cl:cons ':y (y msg))
+    (cl:cons ':minor_axis_average (minor_axis_average msg))
 ))

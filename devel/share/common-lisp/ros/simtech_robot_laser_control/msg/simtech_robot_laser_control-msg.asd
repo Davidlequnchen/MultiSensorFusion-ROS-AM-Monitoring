@@ -13,6 +13,8 @@
     (:file "_package_MsgInfo" :depends-on ("_package"))
     (:file "MsgPower" :depends-on ("_package_MsgPower"))
     (:file "_package_MsgPower" :depends-on ("_package"))
+    (:file "MsgSetpoint" :depends-on ("_package_MsgSetpoint"))
+    (:file "_package_MsgSetpoint" :depends-on ("_package"))
     (:file "MsgStart" :depends-on ("_package_MsgStart"))
     (:file "_package_MsgStart" :depends-on ("_package"))
   ))

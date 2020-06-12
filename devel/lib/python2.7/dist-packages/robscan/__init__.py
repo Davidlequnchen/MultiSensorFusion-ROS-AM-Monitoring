@@ -3,11 +3,10 @@
 # keep symbol table as clean as possible by deleting all unnecessary symbols
 
 from os import path as os_path
+from pkgutil import extend_path
 from sys import path as sys_path
 
-from pkgutil import extend_path
-
-__extended_path = "/home/chenlequn/SIMTech_ws/src/Monitoring/laser_scanning/src".split(";")
+__extended_path = '/home/chenlequn/SIMTech_ws/src/laser_profiler_scanning/laser_scanning/src'.split(';')
 for p in reversed(__extended_path):
     sys_path.insert(0, p)
     del p

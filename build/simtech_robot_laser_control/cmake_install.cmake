@@ -52,6 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgControl.msg"
     "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
     "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg"
+    "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg"
     )
 endif()
 

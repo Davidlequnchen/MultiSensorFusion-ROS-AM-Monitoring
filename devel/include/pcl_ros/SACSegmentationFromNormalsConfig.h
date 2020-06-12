@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (SACSegmentationFromNormalsConfig::* field);
+      T SACSegmentationFromNormalsConfig::* field;
 
       virtual void clamp(SACSegmentationFromNormalsConfig &config, const SACSegmentationFromNormalsConfig &max, const SACSegmentationFromNormalsConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<SACSegmentationFromNormalsConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

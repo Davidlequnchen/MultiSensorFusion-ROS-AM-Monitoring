@@ -1,7 +1,7 @@
 control_parameters: {
-  pid_parameters: {Kd: 0.0, Ki: 0.0, Kp: 0.1},
-  power: {max: 4.2, min: 3.8},
-  step: {power: 2.919, trigger: 2},
-  manual: {power: 4},
-  automatic: {width: 150, time: 1, mode: 0}
+  pid_parameters: {Kd: 0.0, Ki: 0.02, Kp: 0.05},
+  power: {max: 6.4, min: 5.5},
+  step: {power: 2, trigger: 2},
+  manual: {power: 6.2},
+  automatic: {width: 87, time: 10, mode: 0}
 }

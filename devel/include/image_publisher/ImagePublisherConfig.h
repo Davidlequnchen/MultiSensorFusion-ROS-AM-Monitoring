@@ -69,7 +69,7 @@ namespace image_publisher
         field(a_f)
       {}
 
-      T (ImagePublisherConfig::* field);
+      T ImagePublisherConfig::* field;
 
       virtual void clamp(ImagePublisherConfig &config, const ImagePublisherConfig &max, const ImagePublisherConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace image_publisher
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<ImagePublisherConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

@@ -1,6 +1,8 @@
 (cl:defpackage camera_measures-msg
   (:use )
   (:export
+   "<MSGACCELERATION>"
+   "MSGACCELERATION"
    "<MSGGEOMETRY>"
    "MSGGEOMETRY"
    "<MSGPOSITION>"

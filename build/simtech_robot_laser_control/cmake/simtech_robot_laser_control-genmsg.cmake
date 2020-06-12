@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "simtech_robot_laser_control: 5 messages, 1 services")
+message(STATUS "simtech_robot_laser_control: 6 messages, 1 services")
 
 set(MSG_I_FLAGS "-Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -37,6 +37,11 @@ add_custom_target(_simtech_robot_laser_control_generate_messages_check_deps_${_f
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_robot_laser_control" "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg" "std_msgs/Header"
 )
 
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg" NAME_WE)
+add_custom_target(_simtech_robot_laser_control_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_robot_laser_control" "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg" ""
+)
+
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg" NAME_WE)
 add_custom_target(_simtech_robot_laser_control_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_robot_laser_control" "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg" "std_msgs/Header"
@@ -66,12 +71,6 @@ _generate_msg_cpp(simtech_robot_laser_control
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_robot_laser_control
 )
 _generate_msg_cpp(simtech_robot_laser_control
-  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_robot_laser_control
-)
-_generate_msg_cpp(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -79,6 +78,18 @@ _generate_msg_cpp(simtech_robot_laser_control
 )
 _generate_msg_cpp(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_cpp(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_cpp(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_robot_laser_control
@@ -112,6 +123,8 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_l
 add_dependencies(simtech_robot_laser_control_generate_messages_cpp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_cpp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg" NAME_WE)
+add_dependencies(simtech_robot_laser_control_generate_messages_cpp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_cpp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv" NAME_WE)
@@ -139,12 +152,6 @@ _generate_msg_eus(simtech_robot_laser_control
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_robot_laser_control
 )
 _generate_msg_eus(simtech_robot_laser_control
-  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_robot_laser_control
-)
-_generate_msg_eus(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -152,6 +159,18 @@ _generate_msg_eus(simtech_robot_laser_control
 )
 _generate_msg_eus(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_eus(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_eus(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_robot_laser_control
@@ -185,6 +204,8 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_l
 add_dependencies(simtech_robot_laser_control_generate_messages_eus _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_eus _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg" NAME_WE)
+add_dependencies(simtech_robot_laser_control_generate_messages_eus _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_eus _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv" NAME_WE)
@@ -212,12 +233,6 @@ _generate_msg_lisp(simtech_robot_laser_control
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_robot_laser_control
 )
 _generate_msg_lisp(simtech_robot_laser_control
-  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_robot_laser_control
-)
-_generate_msg_lisp(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -225,6 +240,18 @@ _generate_msg_lisp(simtech_robot_laser_control
 )
 _generate_msg_lisp(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_lisp(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_lisp(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_robot_laser_control
@@ -258,6 +285,8 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_l
 add_dependencies(simtech_robot_laser_control_generate_messages_lisp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_lisp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg" NAME_WE)
+add_dependencies(simtech_robot_laser_control_generate_messages_lisp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_lisp _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv" NAME_WE)
@@ -285,12 +314,6 @@ _generate_msg_nodejs(simtech_robot_laser_control
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_robot_laser_control
 )
 _generate_msg_nodejs(simtech_robot_laser_control
-  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_robot_laser_control
-)
-_generate_msg_nodejs(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -298,6 +321,18 @@ _generate_msg_nodejs(simtech_robot_laser_control
 )
 _generate_msg_nodejs(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_nodejs(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_nodejs(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_robot_laser_control
@@ -331,6 +366,8 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_l
 add_dependencies(simtech_robot_laser_control_generate_messages_nodejs _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_nodejs _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg" NAME_WE)
+add_dependencies(simtech_robot_laser_control_generate_messages_nodejs _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_nodejs _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv" NAME_WE)
@@ -358,12 +395,6 @@ _generate_msg_py(simtech_robot_laser_control
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_robot_laser_control
 )
 _generate_msg_py(simtech_robot_laser_control
-  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_robot_laser_control
-)
-_generate_msg_py(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -371,6 +402,18 @@ _generate_msg_py(simtech_robot_laser_control
 )
 _generate_msg_py(simtech_robot_laser_control
   "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_py(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_robot_laser_control
+)
+_generate_msg_py(simtech_robot_laser_control
+  "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_robot_laser_control
@@ -403,6 +446,8 @@ add_dependencies(simtech_robot_laser_control_generate_messages_py _simtech_robot
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_py _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg" NAME_WE)
+add_dependencies(simtech_robot_laser_control_generate_messages_py _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_py _simtech_robot_laser_control_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg" NAME_WE)
 add_dependencies(simtech_robot_laser_control_generate_messages_py _simtech_robot_laser_control_generate_messages_check_deps_${_filename})

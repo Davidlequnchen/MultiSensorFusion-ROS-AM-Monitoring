@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (CropBoxConfig::* field);
+      T CropBoxConfig::* field;
 
       virtual void clamp(CropBoxConfig &config, const CropBoxConfig &max, const CropBoxConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<CropBoxConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

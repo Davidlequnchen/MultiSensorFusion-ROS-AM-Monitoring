@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (RadiusOutlierRemovalConfig::* field);
+      T RadiusOutlierRemovalConfig::* field;
 
       virtual void clamp(RadiusOutlierRemovalConfig &config, const RadiusOutlierRemovalConfig &max, const RadiusOutlierRemovalConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<RadiusOutlierRemovalConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

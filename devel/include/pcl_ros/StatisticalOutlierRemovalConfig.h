@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (StatisticalOutlierRemovalConfig::* field);
+      T StatisticalOutlierRemovalConfig::* field;
 
       virtual void clamp(StatisticalOutlierRemovalConfig &config, const StatisticalOutlierRemovalConfig &max, const StatisticalOutlierRemovalConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<StatisticalOutlierRemovalConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

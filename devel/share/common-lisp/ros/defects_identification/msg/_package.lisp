@@ -3,7 +3,5 @@
   (:export
    "<MSGDEFECTS>"
    "MSGDEFECTS"
-   "<MSGPOINTDISTANCE>"
-   "MSGPOINTDISTANCE"
   ))
 

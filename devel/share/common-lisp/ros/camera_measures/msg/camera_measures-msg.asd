@@ -5,6 +5,8 @@
   :depends-on (:roslisp-msg-protocol :roslisp-utils :std_msgs-msg
 )
   :components ((:file "_package")
+    (:file "MsgAcceleration" :depends-on ("_package_MsgAcceleration"))
+    (:file "_package_MsgAcceleration" :depends-on ("_package"))
     (:file "MsgGeometry" :depends-on ("_package_MsgGeometry"))
     (:file "_package_MsgGeometry" :depends-on ("_package"))
     (:file "MsgPosition" :depends-on ("_package_MsgPosition"))

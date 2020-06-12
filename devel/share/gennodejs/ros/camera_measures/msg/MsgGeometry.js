@@ -22,9 +22,11 @@ class MsgGeometry {
       this.header = null;
       this.major_axis = null;
       this.minor_axis = null;
+      this.circle_diameter = null;
       this.orientation = null;
       this.x = null;
       this.y = null;
+      this.minor_axis_average = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -45,6 +47,12 @@ class MsgGeometry {
       else {
         this.minor_axis = 0.0;
       }
+      if (initObj.hasOwnProperty('circle_diameter')) {
+        this.circle_diameter = initObj.circle_diameter
+      }
+      else {
+        this.circle_diameter = 0.0;
+      }
       if (initObj.hasOwnProperty('orientation')) {
         this.orientation = initObj.orientation
       }
@@ -63,6 +71,12 @@ class MsgGeometry {
       else {
         this.y = 0.0;
       }
+      if (initObj.hasOwnProperty('minor_axis_average')) {
+        this.minor_axis_average = initObj.minor_axis_average
+      }
+      else {
+        this.minor_axis_average = 0.0;
+      }
     }
   }
 
@@ -74,12 +88,16 @@ class MsgGeometry {
     bufferOffset = _serializer.float32(obj.major_axis, buffer, bufferOffset);
     // Serialize message field [minor_axis]
     bufferOffset = _serializer.float32(obj.minor_axis, buffer, bufferOffset);
+    // Serialize message field [circle_diameter]
+    bufferOffset = _serializer.float32(obj.circle_diameter, buffer, bufferOffset);
     // Serialize message field [orientation]
     bufferOffset = _serializer.float32(obj.orientation, buffer, bufferOffset);
     // Serialize message field [x]
     bufferOffset = _serializer.float32(obj.x, buffer, bufferOffset);
     // Serialize message field [y]
     bufferOffset = _serializer.float32(obj.y, buffer, bufferOffset);
+    // Serialize message field [minor_axis_average]
+    bufferOffset = _serializer.float32(obj.minor_axis_average, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -93,19 +111,23 @@ class MsgGeometry {
     data.major_axis = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [minor_axis]
     data.minor_axis = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [circle_diameter]
+    data.circle_diameter = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [orientation]
     data.orientation = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [x]
     data.x = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [y]
     data.y = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [minor_axis_average]
+    data.minor_axis_average = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 20;
+    return length + 28;
   }
 
   static datatype() {
@@ -115,7 +137,7 @@ class MsgGeometry {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '53b067171589c1f92c32f242adc15c57';
+    return 'b591f4599791fbd2dc5c964bbb9d1b55';
   }
 
   static messageDefinition() {
@@ -124,9 +146,11 @@ class MsgGeometry {
     Header header
     float32 major_axis
     float32 minor_axis
+    float32 circle_diameter
     float32 orientation
     float32 x
     float32 y
+    float32 minor_axis_average
     
     ================================================================================
     MSG: std_msgs/Header
@@ -174,6 +198,13 @@ class MsgGeometry {
       resolved.minor_axis = 0.0
     }
 
+    if (msg.circle_diameter !== undefined) {
+      resolved.circle_diameter = msg.circle_diameter;
+    }
+    else {
+      resolved.circle_diameter = 0.0
+    }
+
     if (msg.orientation !== undefined) {
       resolved.orientation = msg.orientation;
     }
@@ -193,6 +224,13 @@ class MsgGeometry {
     }
     else {
       resolved.y = 0.0
+    }
+
+    if (msg.minor_axis_average !== undefined) {
+      resolved.minor_axis_average = msg.minor_axis_average;
+    }
+    else {
+      resolved.minor_axis_average = 0.0
     }
 
     return resolved;

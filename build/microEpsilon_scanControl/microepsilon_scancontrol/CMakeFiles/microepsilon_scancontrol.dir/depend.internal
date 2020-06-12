@@ -247,29 +247,6 @@ microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scanco
  /usr/include/glib-2.0/gobject/gvalue.h
  /usr/include/glib-2.0/gobject/gvaluearray.h
  /usr/include/glib-2.0/gobject/gvaluetypes.h
- /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
- /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
- /usr/include/x86_64-linux-gnu/bits/select.h
- /usr/include/x86_64-linux-gnu/bits/select2.h
- /usr/include/x86_64-linux-gnu/bits/stat.h
- /usr/include/x86_64-linux-gnu/bits/stdint-intn.h
- /usr/include/x86_64-linux-gnu/bits/sysmacros.h
- /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h
- /usr/include/x86_64-linux-gnu/bits/types.h
- /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h
- /usr/include/x86_64-linux-gnu/bits/types/clock_t.h
- /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h
- /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h
- /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h
- /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h
- /usr/include/x86_64-linux-gnu/bits/types/time_t.h
- /usr/include/x86_64-linux-gnu/bits/types/timer_t.h
- /usr/include/x86_64-linux-gnu/bits/typesizes.h
- /usr/include/x86_64-linux-gnu/bits/wordsize.h
- /usr/include/x86_64-linux-gnu/sys/select.h
- /usr/include/x86_64-linux-gnu/sys/stat.h
- /usr/include/x86_64-linux-gnu/sys/sysmacros.h
- /usr/include/x86_64-linux-gnu/sys/types.h
  /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h
  /usr/local/include/aravis-0.6/arv.h
  /usr/local/include/aravis-0.6/arvbuffer.h

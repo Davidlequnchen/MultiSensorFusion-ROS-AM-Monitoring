@@ -2,9 +2,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/simtech_robot_laser_control_generate_messages_lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgControl.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgStart.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgSetpoint.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv/SrvRobotCommand.lisp"
 )
 

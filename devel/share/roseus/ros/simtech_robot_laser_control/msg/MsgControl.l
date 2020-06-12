@@ -63,7 +63,8 @@
 (setf (get simtech_robot_laser_control::MsgControl :md5sum-) "c0714776f3b1ecd3928d4fe859ff95f8")
 (setf (get simtech_robot_laser_control::MsgControl :datatype-) "simtech_robot_laser_control/MsgControl")
 (setf (get simtech_robot_laser_control::MsgControl :definition-)
-      "bool change
+      "# /control/parameters topic 
+bool change
 int32 value
 
 ")

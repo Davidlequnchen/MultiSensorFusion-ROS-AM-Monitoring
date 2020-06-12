@@ -55,9 +55,10 @@ include simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_gener
 
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgControl.lisp
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgStart.lisp
-simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp
+simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgSetpoint.lisp
+simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp
 simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv/SrvRobotCommand.lisp
 
 
@@ -71,34 +72,40 @@ simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_mess
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from simtech_robot_laser_control/MsgStart.msg"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgStart.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg
 
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from simtech_robot_laser_control/MsgInfo.msg"
-	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg
-
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from simtech_robot_laser_control/MsgEmission.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from simtech_robot_laser_control/MsgEmission.msg"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from simtech_robot_laser_control/MsgPower.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from simtech_robot_laser_control/MsgPower.msg"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgSetpoint.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgSetpoint.lisp: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from simtech_robot_laser_control/MsgSetpoint.msg"
+	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Lisp code from simtech_robot_laser_control/MsgInfo.msg"
+	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv/SrvRobotCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv/SrvRobotCommand.lisp: /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Lisp code from simtech_robot_laser_control/SrvRobotCommand.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Lisp code from simtech_robot_laser_control/SrvRobotCommand.srv"
 	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv -Isimtech_robot_laser_control:/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_robot_laser_control -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv
 
 simtech_robot_laser_control_generate_messages_lisp: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp
 simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgControl.lisp
 simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgStart.lisp
-simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp
 simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp
 simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgPower.lisp
+simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgSetpoint.lisp
+simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp
 simtech_robot_laser_control_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/srv/SrvRobotCommand.lisp
 simtech_robot_laser_control_generate_messages_lisp: simtech_robot_laser_control/CMakeFiles/simtech_robot_laser_control_generate_messages_lisp.dir/build.make
 

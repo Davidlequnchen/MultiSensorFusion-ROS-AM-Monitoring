@@ -28,17 +28,21 @@ struct MsgGeometry_
     : header()
     , major_axis(0.0)
     , minor_axis(0.0)
+    , circle_diameter(0.0)
     , orientation(0.0)
     , x(0.0)
-    , y(0.0)  {
+    , y(0.0)
+    , minor_axis_average(0.0)  {
     }
   MsgGeometry_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , major_axis(0.0)
     , minor_axis(0.0)
+    , circle_diameter(0.0)
     , orientation(0.0)
     , x(0.0)
-    , y(0.0)  {
+    , y(0.0)
+    , minor_axis_average(0.0)  {
   (void)_alloc;
     }
 
@@ -53,6 +57,9 @@ struct MsgGeometry_
    typedef float _minor_axis_type;
   _minor_axis_type minor_axis;
 
+   typedef float _circle_diameter_type;
+  _circle_diameter_type circle_diameter;
+
    typedef float _orientation_type;
   _orientation_type orientation;
 
@@ -61,6 +68,9 @@ struct MsgGeometry_
 
    typedef float _y_type;
   _y_type y;
+
+   typedef float _minor_axis_average_type;
+  _minor_axis_average_type minor_axis_average;
 
 
 
@@ -87,6 +97,27 @@ ros::message_operations::Printer< ::camera_measures::MsgGeometry_<ContainerAlloc
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::camera_measures::MsgGeometry_<ContainerAllocator1> & lhs, const ::camera_measures::MsgGeometry_<ContainerAllocator2> & rhs)
+{
+  return lhs.header == rhs.header &&
+    lhs.major_axis == rhs.major_axis &&
+    lhs.minor_axis == rhs.minor_axis &&
+    lhs.circle_diameter == rhs.circle_diameter &&
+    lhs.orientation == rhs.orientation &&
+    lhs.x == rhs.x &&
+    lhs.y == rhs.y &&
+    lhs.minor_axis_average == rhs.minor_axis_average;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::camera_measures::MsgGeometry_<ContainerAllocator1> & lhs, const ::camera_measures::MsgGeometry_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace camera_measures
 
 namespace ros
@@ -94,12 +125,6 @@ namespace ros
 namespace message_traits
 {
 
-
-
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'std_msgs': ['/opt/ros/melodic/share/std_msgs/cmake/../msg'], 'camera_measures': ['/home/chenlequn/SIMTech_ws/src/LaserControl/camera_measures/msg']}
-
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
 
 
@@ -140,12 +165,12 @@ struct MD5Sum< ::camera_measures::MsgGeometry_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "53b067171589c1f92c32f242adc15c57";
+    return "b591f4599791fbd2dc5c964bbb9d1b55";
   }
 
   static const char* value(const ::camera_measures::MsgGeometry_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x53b067171589c1f9ULL;
-  static const uint64_t static_value2 = 0x2c32f242adc15c57ULL;
+  static const uint64_t static_value1 = 0xb591f4599791fbd2ULL;
+  static const uint64_t static_value2 = 0xdc5c964bbb9d1b55ULL;
 };
 
 template<class ContainerAllocator>
@@ -167,9 +192,11 @@ struct Definition< ::camera_measures::MsgGeometry_<ContainerAllocator> >
     return "Header header\n"
 "float32 major_axis\n"
 "float32 minor_axis\n"
+"float32 circle_diameter\n"
 "float32 orientation\n"
 "float32 x\n"
 "float32 y\n"
+"float32 minor_axis_average\n"
 "\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
@@ -207,9 +234,11 @@ namespace serialization
       stream.next(m.header);
       stream.next(m.major_axis);
       stream.next(m.minor_axis);
+      stream.next(m.circle_diameter);
       stream.next(m.orientation);
       stream.next(m.x);
       stream.next(m.y);
+      stream.next(m.minor_axis_average);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -235,12 +264,16 @@ struct Printer< ::camera_measures::MsgGeometry_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.major_axis);
     s << indent << "minor_axis: ";
     Printer<float>::stream(s, indent + "  ", v.minor_axis);
+    s << indent << "circle_diameter: ";
+    Printer<float>::stream(s, indent + "  ", v.circle_diameter);
     s << indent << "orientation: ";
     Printer<float>::stream(s, indent + "  ", v.orientation);
     s << indent << "x: ";
     Printer<float>::stream(s, indent + "  ", v.x);
     s << indent << "y: ";
     Printer<float>::stream(s, indent + "  ", v.y);
+    s << indent << "minor_axis_average: ";
+    Printer<float>::stream(s, indent + "  ", v.minor_axis_average);
   }
 };
 

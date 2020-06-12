@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (EuclideanClusterExtractionConfig::* field);
+      T EuclideanClusterExtractionConfig::* field;
 
       virtual void clamp(EuclideanClusterExtractionConfig &config, const EuclideanClusterExtractionConfig &max, const EuclideanClusterExtractionConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<EuclideanClusterExtractionConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

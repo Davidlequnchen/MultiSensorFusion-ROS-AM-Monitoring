@@ -69,7 +69,8 @@
 (setf (get simtech_robot_laser_control::MsgPower :md5sum-) "4bea522f9243fd34ea7bc74ce85697a8")
 (setf (get simtech_robot_laser_control::MsgPower :datatype-) "simtech_robot_laser_control/MsgPower")
 (setf (get simtech_robot_laser_control::MsgPower :definition-)
-      "Header header
+      "# the power to be published and send to laser socket
+Header header
 float32 value
 
 ================================================================================

@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (ExtractPolygonalPrismDataConfig::* field);
+      T ExtractPolygonalPrismDataConfig::* field;
 
       virtual void clamp(ExtractPolygonalPrismDataConfig &config, const ExtractPolygonalPrismDataConfig &max, const ExtractPolygonalPrismDataConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<ExtractPolygonalPrismDataConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 

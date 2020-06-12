@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgStart.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgControl.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg"
+messages_str = "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgPower.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgStart.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgControl.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgInfo.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg;/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgSetpoint.msg"
 services_str = "/home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/srv/SrvRobotCommand.srv"
 pkg_name = "simtech_robot_laser_control"
 dependencies_str = "std_msgs"

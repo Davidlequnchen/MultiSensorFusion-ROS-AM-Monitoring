@@ -71,10 +71,10 @@
   "c0714776f3b1ecd3928d4fe859ff95f8")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<MsgControl>)))
   "Returns full string definition for message of type '<MsgControl>"
-  (cl:format cl:nil "bool change~%int32 value~%~%~%"))
+  (cl:format cl:nil "# /control/parameters topic ~%bool change~%int32 value~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'MsgControl)))
   "Returns full string definition for message of type 'MsgControl"
-  (cl:format cl:nil "bool change~%int32 value~%~%~%"))
+  (cl:format cl:nil "# /control/parameters topic ~%bool change~%int32 value~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <MsgControl>))
   (cl:+ 0
      1

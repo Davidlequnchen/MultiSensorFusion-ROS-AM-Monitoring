@@ -1,0 +1,4 @@
+adaptive_calculation: {
+  pid_calculation_coefficient: {coefficient_1: 1.0, coefficient_2: 1.0, coefficient_3: 1.0, coefficient_4: 1.0},
+  nominal_speed: {speed: 0.02}
+}

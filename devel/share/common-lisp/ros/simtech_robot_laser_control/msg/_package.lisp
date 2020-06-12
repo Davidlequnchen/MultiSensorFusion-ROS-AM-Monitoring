@@ -9,6 +9,8 @@
    "MSGINFO"
    "<MSGPOWER>"
    "MSGPOWER"
+   "<MSGSETPOINT>"
+   "MSGSETPOINT"
    "<MSGSTART>"
    "MSGSTART"
   ))

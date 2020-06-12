@@ -69,7 +69,7 @@ namespace pcl_ros
         field(a_f)
       {}
 
-      T (FeatureConfig::* field);
+      T FeatureConfig::* field;
 
       virtual void clamp(FeatureConfig &config, const FeatureConfig &max, const FeatureConfig &min) const
       {
@@ -216,7 +216,7 @@ namespace pcl_ros
         }
       }
 
-      T (PT::* field);
+      T PT::* field;
       std::vector<FeatureConfig::AbstractGroupDescriptionConstPtr> groups;
     };
 
