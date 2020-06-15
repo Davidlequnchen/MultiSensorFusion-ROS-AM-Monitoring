@@ -46,9 +46,10 @@ class NdAccelerationPowerControl():
         # self.v_z = msg_velocity.vz
         self.acceleration = msg_acceleration.acceleration
         a_min = -0.12 # m/s^2
+        a_max = 0.12
         
         # power calculation
-        power = self.power_min + (self.nominal_power - self.power_min)/(-a_min) * (self.acceleration - a_min)
+        power = self.power_min + (self.power_max - self.power_min) / (a_max - a_min) * (self.acceleration - a_min)
         
         power = self.range(power)
         

@@ -3,7 +3,7 @@ import math
 
 class Velocity():
     def __init__(self):
-        self.len = 10
+        self.len = 1
         self.times = []
         self.acceleration_time = []
         self.positions = []
@@ -29,7 +29,7 @@ class Velocity():
             
         self.acceleration_time.insert(0, time)
         self.speed.insert(0, speed)
-        return np.around(acceleration, decimals=5)
+        return np.around(acceleration, decimals=4)
             
             
             
