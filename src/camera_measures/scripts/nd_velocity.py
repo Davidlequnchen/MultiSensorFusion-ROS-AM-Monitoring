@@ -24,15 +24,19 @@ class NdVelocity():
         
         self.acceleration_pub = rospy.Publisher(
             '/acceleration', MsgAcceleration, queue_size=10)
+        
+        self.twist_acceleration_pub = rospy.Publisher(
+            '/twist_acceleration', MsgAcceleration, queue_size=10)
 
         self.velocity = Velocity()
         self.msg_velocity = MsgVelocity()
         self.msg_position = MsgPosition()
         self.msg_acceleration = MsgAcceleration()
+        self.msg_twist_acceleration = MsgAcceleration()
         self.msg_twist = MsgTwist()
         self.listener = tf.TransformListener()
         
-        self.abs_speed = 0
+        self.twsit_speed = 0
 
         r = rospy.Rate(30)
         while not rospy.is_shutdown():
@@ -50,12 +54,25 @@ class NdVelocity():
             linear_velocity, angular_velocity = self.listener.lookupTwist(
                 "/tcp0", "/world", stamp, rospy.Duration(0.1))
             
- 
+            # publishing the twist (linear velocity)
+            self.twsit_speed = np.sqrt(linear_velocity[0] * linear_velocity[0] 
+                                       + linear_velocity[1] * linear_velocity[1] 
+                                       + linear_velocity[2] * linear_velocity[2] )
             self.msg_twist.header.stamp = stamp
             self.msg_twist.linear_x = linear_velocity[0]
             self.msg_twist.linear_y = linear_velocity[1]
             self.msg_twist.linear_z = linear_velocity[2]
+            self.msg_twist.linear_speed = self.twsit_speed
             self.twist_pub.publish(self.msg_twist)
+            
+            
+            # calculate the acceleration calculated by twist change
+            twist_acceleration = self.velocity.twist_acceleration(
+                stamp.to_sec(), self.twsit_speed)
+            self.msg_twist_acceleration.header.stamp = stamp
+            self.msg_twist_acceleration.acceleration = twist_acceleration
+            self.twist_acceleration_pub.publish (self.msg_twist_acceleration)
+
 
             #position[0] = self.velocity.truncate(position[0], 2)
             #position[1] = self.velocity.truncate(position[1], 2)

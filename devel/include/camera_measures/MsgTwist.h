@@ -28,13 +28,15 @@ struct MsgTwist_
     : header()
     , linear_x(0.0)
     , linear_y(0.0)
-    , linear_z(0.0)  {
+    , linear_z(0.0)
+    , linear_speed(0.0)  {
     }
   MsgTwist_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , linear_x(0.0)
     , linear_y(0.0)
-    , linear_z(0.0)  {
+    , linear_z(0.0)
+    , linear_speed(0.0)  {
   (void)_alloc;
     }
 
@@ -51,6 +53,9 @@ struct MsgTwist_
 
    typedef float _linear_z_type;
   _linear_z_type linear_z;
+
+   typedef float _linear_speed_type;
+  _linear_speed_type linear_speed;
 
 
 
@@ -84,7 +89,8 @@ bool operator==(const ::camera_measures::MsgTwist_<ContainerAllocator1> & lhs, c
   return lhs.header == rhs.header &&
     lhs.linear_x == rhs.linear_x &&
     lhs.linear_y == rhs.linear_y &&
-    lhs.linear_z == rhs.linear_z;
+    lhs.linear_z == rhs.linear_z &&
+    lhs.linear_speed == rhs.linear_speed;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -141,12 +147,12 @@ struct MD5Sum< ::camera_measures::MsgTwist_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "cc0f6420b30e73cd33eb8167636e926b";
+    return "65dc00dc0a137c0a769cb88b9a8dbe98";
   }
 
   static const char* value(const ::camera_measures::MsgTwist_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xcc0f6420b30e73cdULL;
-  static const uint64_t static_value2 = 0x33eb8167636e926bULL;
+  static const uint64_t static_value1 = 0x65dc00dc0a137c0aULL;
+  static const uint64_t static_value2 = 0x769cb88b9a8dbe98ULL;
 };
 
 template<class ContainerAllocator>
@@ -169,7 +175,7 @@ struct Definition< ::camera_measures::MsgTwist_<ContainerAllocator> >
 "float32 linear_x\n"
 "float32 linear_y\n"
 "float32 linear_z\n"
-"\n"
+"float32 linear_speed\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
 "# Standard metadata for higher-level stamped data types.\n"
@@ -207,6 +213,7 @@ namespace serialization
       stream.next(m.linear_x);
       stream.next(m.linear_y);
       stream.next(m.linear_z);
+      stream.next(m.linear_speed);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -234,6 +241,8 @@ struct Printer< ::camera_measures::MsgTwist_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.linear_y);
     s << indent << "linear_z: ";
     Printer<float>::stream(s, indent + "  ", v.linear_z);
+    s << indent << "linear_speed: ";
+    Printer<float>::stream(s, indent + "  ", v.linear_speed);
   }
 };
 

@@ -7,4 +7,6 @@
           LINEAR_Y
           LINEAR_Z-VAL
           LINEAR_Z
+          LINEAR_SPEED-VAL
+          LINEAR_SPEED
 ))

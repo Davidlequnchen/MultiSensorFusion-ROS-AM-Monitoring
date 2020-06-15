@@ -16,7 +16,7 @@
 
 (defclass camera_measures::MsgTwist
   :super ros::object
-  :slots (_header _linear_x _linear_y _linear_z ))
+  :slots (_header _linear_x _linear_y _linear_z _linear_speed ))
 
 (defmethod camera_measures::MsgTwist
   (:init
@@ -25,12 +25,14 @@
     ((:linear_x __linear_x) 0.0)
     ((:linear_y __linear_y) 0.0)
     ((:linear_z __linear_z) 0.0)
+    ((:linear_speed __linear_speed) 0.0)
     )
    (send-super :init)
    (setq _header __header)
    (setq _linear_x (float __linear_x))
    (setq _linear_y (float __linear_y))
    (setq _linear_z (float __linear_z))
+   (setq _linear_speed (float __linear_speed))
    self)
   (:header
    (&rest __header)
@@ -48,6 +50,9 @@
   (:linear_z
    (&optional __linear_z)
    (if __linear_z (setq _linear_z __linear_z)) _linear_z)
+  (:linear_speed
+   (&optional __linear_speed)
+   (if __linear_speed (setq _linear_speed __linear_speed)) _linear_speed)
   (:serialization-length
    ()
    (+
@@ -58,6 +63,8 @@
     ;; float32 _linear_y
     4
     ;; float32 _linear_z
+    4
+    ;; float32 _linear_speed
     4
     ))
   (:serialize
@@ -72,6 +79,8 @@
        (sys::poke _linear_y (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _linear_z
        (sys::poke _linear_z (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _linear_speed
+       (sys::poke _linear_speed (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -84,18 +93,20 @@
      (setq _linear_y (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _linear_z
      (setq _linear_z (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _linear_speed
+     (setq _linear_speed (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get camera_measures::MsgTwist :md5sum-) "cc0f6420b30e73cd33eb8167636e926b")
+(setf (get camera_measures::MsgTwist :md5sum-) "65dc00dc0a137c0a769cb88b9a8dbe98")
 (setf (get camera_measures::MsgTwist :datatype-) "camera_measures/MsgTwist")
 (setf (get camera_measures::MsgTwist :definition-)
       "Header header
 float32 linear_x
 float32 linear_y
 float32 linear_z
-
+float32 linear_speed
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -116,6 +127,6 @@ string frame_id
 
 
 
-(provide :camera_measures/MsgTwist "cc0f6420b30e73cd33eb8167636e926b")
+(provide :camera_measures/MsgTwist "65dc00dc0a137c0a769cb88b9a8dbe98")
 
 

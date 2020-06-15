@@ -23,6 +23,7 @@ class MsgTwist {
       this.linear_x = null;
       this.linear_y = null;
       this.linear_z = null;
+      this.linear_speed = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -49,6 +50,12 @@ class MsgTwist {
       else {
         this.linear_z = 0.0;
       }
+      if (initObj.hasOwnProperty('linear_speed')) {
+        this.linear_speed = initObj.linear_speed
+      }
+      else {
+        this.linear_speed = 0.0;
+      }
     }
   }
 
@@ -62,6 +69,8 @@ class MsgTwist {
     bufferOffset = _serializer.float32(obj.linear_y, buffer, bufferOffset);
     // Serialize message field [linear_z]
     bufferOffset = _serializer.float32(obj.linear_z, buffer, bufferOffset);
+    // Serialize message field [linear_speed]
+    bufferOffset = _serializer.float32(obj.linear_speed, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -77,13 +86,15 @@ class MsgTwist {
     data.linear_y = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [linear_z]
     data.linear_z = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [linear_speed]
+    data.linear_speed = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 12;
+    return length + 16;
   }
 
   static datatype() {
@@ -93,7 +104,7 @@ class MsgTwist {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'cc0f6420b30e73cd33eb8167636e926b';
+    return '65dc00dc0a137c0a769cb88b9a8dbe98';
   }
 
   static messageDefinition() {
@@ -103,7 +114,7 @@ class MsgTwist {
     float32 linear_x
     float32 linear_y
     float32 linear_z
-    
+    float32 linear_speed
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -155,6 +166,13 @@ class MsgTwist {
     }
     else {
       resolved.linear_z = 0.0
+    }
+
+    if (msg.linear_speed !== undefined) {
+      resolved.linear_speed = msg.linear_speed;
+    }
+    else {
+      resolved.linear_speed = 0.0
     }
 
     return resolved;

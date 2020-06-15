@@ -8,14 +8,14 @@ import struct
 import std_msgs.msg
 
 class MsgTwist(genpy.Message):
-  _md5sum = "cc0f6420b30e73cd33eb8167636e926b"
+  _md5sum = "65dc00dc0a137c0a769cb88b9a8dbe98"
   _type = "camera_measures/MsgTwist"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
 float32 linear_x
 float32 linear_y
 float32 linear_z
-
+float32 linear_speed
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -32,8 +32,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','linear_x','linear_y','linear_z']
-  _slot_types = ['std_msgs/Header','float32','float32','float32']
+  __slots__ = ['header','linear_x','linear_y','linear_z','linear_speed']
+  _slot_types = ['std_msgs/Header','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -43,7 +43,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,linear_x,linear_y,linear_z
+       header,linear_x,linear_y,linear_z,linear_speed
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -60,11 +60,14 @@ string frame_id
         self.linear_y = 0.
       if self.linear_z is None:
         self.linear_z = 0.
+      if self.linear_speed is None:
+        self.linear_speed = 0.
     else:
       self.header = std_msgs.msg.Header()
       self.linear_x = 0.
       self.linear_y = 0.
       self.linear_z = 0.
+      self.linear_speed = 0.
 
   def _get_types(self):
     """
@@ -87,7 +90,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_get_struct_3f().pack(_x.linear_x, _x.linear_y, _x.linear_z))
+      buff.write(_get_struct_4f().pack(_x.linear_x, _x.linear_y, _x.linear_z, _x.linear_speed))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -115,8 +118,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 12
-      (_x.linear_x, _x.linear_y, _x.linear_z,) = _get_struct_3f().unpack(str[start:end])
+      end += 16
+      (_x.linear_x, _x.linear_y, _x.linear_z, _x.linear_speed,) = _get_struct_4f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -138,7 +141,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_get_struct_3f().pack(_x.linear_x, _x.linear_y, _x.linear_z))
+      buff.write(_get_struct_4f().pack(_x.linear_x, _x.linear_y, _x.linear_z, _x.linear_speed))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -167,8 +170,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 12
-      (_x.linear_x, _x.linear_y, _x.linear_z,) = _get_struct_3f().unpack(str[start:end])
+      end += 16
+      (_x.linear_x, _x.linear_y, _x.linear_z, _x.linear_speed,) = _get_struct_4f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -177,15 +180,15 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_4f = None
+def _get_struct_4f():
+    global _struct_4f
+    if _struct_4f is None:
+        _struct_4f = struct.Struct("<4f")
+    return _struct_4f
 _struct_3I = None
 def _get_struct_3I():
     global _struct_3I
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
-_struct_3f = None
-def _get_struct_3f():
-    global _struct_3f
-    if _struct_3f is None:
-        _struct_3f = struct.Struct("<3f")
-    return _struct_3f

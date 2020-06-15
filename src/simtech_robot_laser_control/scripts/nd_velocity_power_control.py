@@ -22,6 +22,8 @@ class NdVelocityPowerControl():
         # subscribe velocity
         rospy.Subscriber(
             '/velocity', MsgVelocity, self.cb_velocity, queue_size=5)
+        rospy.Subscriber(
+            '/twist', MsgVelocity, self.cb_velocity, queue_size=5)
         
         self.pub_power = rospy.Publisher(
             '/control/power', MsgPower, queue_size=10)

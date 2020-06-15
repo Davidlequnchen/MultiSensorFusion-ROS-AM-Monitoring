@@ -6,8 +6,10 @@ class Velocity():
         self.len = 1
         self.times = []
         self.acceleration_time = []
+        self.twist_acceleration_time = []
         self.positions = []
         self.speed = []
+        self.twist_speed = []
 
     def instantaneous(self, time, position):
         if len(self.positions) < self.len:
@@ -29,7 +31,18 @@ class Velocity():
             
         self.acceleration_time.insert(0, time)
         self.speed.insert(0, speed)
-        return np.around(acceleration, decimals=4)
+        return np.around(acceleration, decimals=5)
+    
+    
+    def twist_acceleration(self, time, twist_speed):
+        if len(self.twist_speed) < self.len:
+            twist_acceleration = 0
+        else:     
+            twist_acceleration = (twist_speed - self.twist_speed.pop()) / (time - self.twist_acceleration_time.pop())
+            
+        self.twist_acceleration_time.insert(0, time)
+        self.twist_speed.insert(0, twist_speed)
+        return np.around(twist_acceleration, decimals=5)
             
             
             
