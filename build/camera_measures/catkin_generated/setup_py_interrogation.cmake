@@ -1,0 +1,6 @@
+set(camera_measures_SETUP_PY_VERSION "0.4.0")
+set(camera_measures_SETUP_PY_SCRIPTS "")
+set(camera_measures_SETUP_PY_PACKAGES "measures")
+set(camera_measures_SETUP_PY_PACKAGE_DIRS "src/measures")
+set(camera_measures_SETUP_PY_MODULES "")
+set(camera_measures_SETUP_PY_MODULE_DIRS "")
