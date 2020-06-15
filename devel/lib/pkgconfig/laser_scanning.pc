@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
-
-Name: laser_scanning
-Description: Description of laser_scanning
-Version: 0.4.5
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
-
-Name: microepsilon_scancontrol
-Description: Description of microepsilon_scancontrol
-Version: 1.0.0
-Cflags: -I/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/common/include -I/usr/local/include/mescan -I/usr/include -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
-Libs: -L${prefix}/lib -lmicroepsilon_scancontrol /usr/local/lib/libllt.so /usr/local/lib/libmescan.so -lSIMPLE_NODE /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_filesystem.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so /usr/lib/x86_64-linux-gnu/libboost_iostreams.so /usr/lib/x86_64-linux-gnu/libboost_serialization.so /usr/lib/x86_64-linux-gnu/libboost_regex.so -laravis-0.6 -lm -lgio-2.0 -lgobject-2.0 -lxml2 -lgthread-2.0 -lglib-2.0
-Requires: roscpp sensor_msgs std_srvs std_msgs
