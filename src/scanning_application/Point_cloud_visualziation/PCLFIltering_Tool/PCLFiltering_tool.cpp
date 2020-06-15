@@ -222,7 +222,7 @@ void saveNormalEstimation (std::string filename, std::vector < std::array<float,
 // Function to find distance between point and a plane (here we calculate distance between origin 0,0,0 and plane ax+by+cz+d=0) 
 float shortest_distance(float a, float b, float c, float d) // pass in 4 plane coefficient
 { //Distance = (| a*x1 + b*y1 + c*z1 + d |) / (sqrt( a*a + b*b + c*c))
-  // d = fabs((d)); 
+  d = fabs((d)); 
   float e = sqrt(a * a + b * b + c * c); 
   float distance = d/e;
   std::cout << "Perpendicular distance is " << distance <<std::endl; 
