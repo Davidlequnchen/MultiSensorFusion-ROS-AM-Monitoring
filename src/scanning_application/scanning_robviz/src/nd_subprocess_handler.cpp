@@ -105,13 +105,19 @@ public:
       // fs::path dir (path + "/PCL_segmentation/build");
       // fs::path file("PCL_segmentation");
       // fs::path full_path = dir / file;
+      // EXAMPLE ------------------------------------------------------------------------------------
+      // ./PCL_segmentation -passThroughSeg -load Q1.pcd -save Q1_seg.pcd -saveCoefficientPlaneName coefficient_Q1.txt 
+      // -savePointToPlaneDistance distance_Q1.txt -saveNormalEstimation normalEstimation_Q1.txt -DistanceThre 0.003 
+      // -Stddev 1.2 -leafsize 0.00018 -zmin -0.236 -zmax 0
+      // However, normalEstimation and saveCoefficientPlaneName can be ommited
+      //--------------------------------------------------------------------------------------------
       std::string executable = path + "/PCL_segmentation/build/PCL_segmentation";
-      std::string option = " -multiPlannarSeg"; //other options: -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
+      std::string option = " -passThroughSeg"; //other options: -multiPlannarSeg, -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
       std::string loadfile = " -load " + path + "/pcl/" + this->pcd_filename;
       std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
-      // std::string savePointDistance = " -savePointToPlaneDistance /home/chenlequn/SIMTech_ws/src/RT_monitoring_application/scanning_robviz/distance/distance.txt";
+      // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/RT_monitoring_application/scanning_robviz/distance/distance.txt";
       std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
-      std::string parameters = " -DistanceThre 0.001 -Stddev 1.5";
+      std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.00018 -zmin -0.236 -zmax 0";
       // std::string parameters = " ";
       // Initialize String Array
       std::string command_line = executable + option + loadfile + savefile + savePointDistance + parameters;

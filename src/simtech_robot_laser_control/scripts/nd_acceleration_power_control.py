@@ -20,6 +20,9 @@ class NdAccelerationPowerControl():
         # subscribe velocity
         rospy.Subscriber(
             '/acceleration', MsgAcceleration, self.cb_acceleration, queue_size=5)
+        rospy.Subscriber(
+            "/twist_acceleration", MsgAcceleration, self.cb_twist_acceleration, queue_size=5)
+        
         
         self.pub_power = rospy.Publisher(
             '/control/power', MsgPower, queue_size=10)
@@ -57,7 +60,32 @@ class NdAccelerationPowerControl():
         
         self.msg_power.value = power
         
-        # rospy.set_param('/control/power', power)
+        rospy.set_param('/control/power', power)
+        
+        self.pub_power.publish (self.msg_power)
+        
+        
+    def cb_twist_acceleration(self, msg_twist_acceleration):
+        # real-time acceleration callback 
+        stamp = msg_twist_acceleration.header.stamp
+        # time = stamp.to_sec()
+        # self.v_x = msg_velocity.vx
+        # self.v_y = msg_velocity.vy
+        # self.v_z = msg_velocity.vz
+        self.acceleration = msg_twist_acceleration.acceleration
+        a_min = -0.12 # m/s^2
+        a_max = 0.12
+        
+        # power calculation
+        power = self.power_min + (self.power_max - self.power_min) / (a_max - a_min) * (self.acceleration - a_min)
+        
+        power = self.range(power)
+        
+        self.msg_power.header.stamp = stamp
+        
+        self.msg_power.value = power
+        
+        rospy.set_param('/control/power', power)
         
         self.pub_power.publish (self.msg_power)
         

@@ -40,10 +40,12 @@ std::string savefilename = "test_filtered.txt";
 std::string PointToPlaneDistance_filename = "PointToPlaneDistance_filename.txt";
 std::string plane_coefficient_filename = "plane_coefficient_filename.txt";
 
-float leafsize = 0.002f; // 2mm
+float leafsize = 0.0002f; // m
 float StddevMulThresh = 1.5; // this parameter is for statistical filter 
 float DistanceThreshold = 0.0013; // this parameter is for plannar segmentation
 float CylinderDistanceThreshold = 0.2;
+float zmin = -0.237;
+float zmax = 0;
 float CylinderRadiusLimit = 0.1; // 1m
 int highest_plane_index = 0;
 
@@ -52,6 +54,7 @@ float planeheight[MAX_PLANE_NUMBER] = {}; // define an array with maximum 10 mem
 //pcl::PointIndices::Ptr inliers_plane_list[MAX_PLANE_NUMBER] = {}; // define a pointer array to stores the inliers indices of the segmented plane
 //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered_lst[MAX_PLANE_NUMBER] (new pcl::PointCloud<pcl::PointXYZ>); // store the segmented cloud
 std::vector < pcl::PointCloud<pcl::PointXYZ>::Ptr, Eigen::aligned_allocator <pcl::PointCloud<pcl::PointXYZ>::Ptr > > sourceClouds;
+pcl::ModelCoefficients::Ptr plane_coefficient_top (new pcl::ModelCoefficients); // this is for passthrough segementation
 // vector toe store the coefficient plane pointer
 std::vector < pcl::ModelCoefficients::Ptr, Eigen::aligned_allocator <pcl::ModelCoefficients::Ptr> > plane_coefficient_vector;
 
@@ -71,6 +74,7 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr color_cloud_ptr (new pcl::PointCloud<pcl:
 pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
 // filtered_part stores removal parts after filtering
 pcl::PointCloud<pcl::PointXYZ>::Ptr filtered_part (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr bottom_plate (new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_stored (new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PCDWriter writer;
 
@@ -96,9 +100,9 @@ printUsage (const char* progName)
   // -----Help-----
   // --------------
 
-  std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] \n"
+  std::cout<< "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-saveCoefficientPlaneName plane_coefficient_filename]\n"
             << "[-savePointToPlaneDistance PointToPlaneDistance_filename] [-leafsize /float] [-DistanceThre /float]"
-            << "[-Stddev /float]\n\n"
+            << "[-Stddev /float] [-zmin /float] [-zmax /float]\n\n"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h                    this help\n"
@@ -180,6 +184,16 @@ void savePointToPlaneDistance (std::string filename, std::vector< double > dista
 }
 
 
+// save the highest plane coefficient a,b,c,d into a txt file
+void saveCoefficientPlane (std::string filename, pcl::ModelCoefficients::Ptr coefficients_plane )
+{
+  // define a output file object
+  std::ofstream outfile;
+  // std::ios_base::app -- All output operations are performed at the end of the file, appending the content to the current content of the file
+  outfile.open(filename, std::ios_base::app);//std::ios_base::app
+  // write a b c d coefficeint of the plane into this file
+  outfile << coefficients_plane->values[0] << " " << coefficients_plane->values[1] << " " << coefficients_plane->values[2] << " " << coefficients_plane->values[3];
+}
 
 
 
@@ -759,7 +773,121 @@ void multi_plannar_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
 
   savePointToPlaneDistance(PointToPlaneDistance_filename, point_to_plane_distance_vector);
 
+
 }
+
+
+
+// using pass though filter then using planner segemtation to get top plane
+void pass_through_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+{
+  
+  //define objects needed
+  pcl::ExtractIndices<pcl::PointXYZ> extract;
+  pcl::SACSegmentation<pcl::PointXYZ> seg; 
+  
+  // required dataset ---------------------------------------------
+  plane_coefficient_top.reset(new pcl::ModelCoefficients);
+  pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
+  filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
+  bottom_plate.reset(new pcl::PointCloud<pcl::PointXYZ>);
+  //pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
+
+
+  // Create the segmentation object for the planar model and set all the parameters
+  seg.setOptimizeCoefficients (true);// optional
+  seg.setModelType (pcl::SACMODEL_PLANE); 
+  seg.setMethodType (pcl::SAC_RANSAC);
+  seg.setMaxIterations (1000);//the maximum number of iterations the sample consensus method will run 
+  seg.setDistanceThreshold (DistanceThreshold);//Distance to the model threshold (user given parameter). default: 0.001
+  
+
+
+  // ----------------STEP 0: apply statistical filter to get rid of the noise---------------------------------------
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+  sor.setInputCloud (cloud);
+  sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
+  sor.setStddevMulThresh (StddevMulThresh); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.filter (*cloud); // return the cloud after filtering(inlier) and store it into cloud
+  // savePointFile("s_filtered.pcd", cloud);
+  
+  //------------------Step 1：　Voxel grid filter--------------------------------------
+
+   // Create the filtering object
+  pcl::VoxelGrid<pcl::PointXYZ> sor_voxel;
+  sor_voxel.setInputCloud (cloud);
+  // downsampling leaf size of 1cm
+  sor_voxel.setLeafSize (leafsize, leafsize, leafsize);
+  sor_voxel.filter (*cloud);
+  // savePointFile("v_filtered.pcd", cloud);
+
+
+
+  //----------------STEP 2:  apply passthough filter to get ride of the bottom plate-----------------------
+  // define a cloud_filtered to store the cloud after filtering
+  cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>);
+
+  // Create the filtering object
+  pcl::PassThrough<pcl::PointXYZ> pass;
+  pass.setInputCloud (cloud);
+  pass.setFilterFieldName ("z");
+  pass.setFilterLimits (zmin, zmax);
+  // This is to get the outlier
+  pass.setNegative (true);
+  pass.filter (*bottom_plate);
+
+  //pass.setFilterLimitsNegative (true);
+  pass.setNegative (false);
+  pass.filter (*cloud);
+
+  
+  //--------------STEP 3: Fit the plane------------------------------------------------------
+
+  // Segment the largest planar component from the remaining cloud
+  seg.setInputCloud (cloud);
+  seg.segment (*inliers_plane, *plane_coefficient_top);
+
+
+  if (inliers_plane->indices.size () == 0)
+  {
+    std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
+    //break;
+  }
+
+  // Extract the inliers
+  extract.setInputCloud (cloud);
+  extract.setIndices (inliers_plane);
+  extract.setNegative (false);
+  extract.filter (*cloud_filtered);
+
+  // Create the filtering object
+  extract.setNegative (true);
+  extract.filter (*filtered_part);//outlier part
+
+  
+  /* --------------------STEP 5-------------------------------------------------------------
+  calculate distance of each point from extracted plane with coefficient a,b,c,d to the origin save the output(distance) into another txt file.
+  */
+  //Let i be the element number which you want to access
+  int i = 0;
+  while (i < cloud_filtered->points.size () ) // loop to calculate the pointToPlaneDistanceSigned
+  {
+    double Distance; // temporary double value to store current pointToPlaneDisntacne (signed)
+    Distance = pcl::pointToPlaneDistanceSigned (cloud_filtered->points[i], plane_coefficient_top->values[0]
+                                                ,plane_coefficient_top->values[1]
+                                                ,plane_coefficient_top->values[2]
+                                                ,plane_coefficient_top->values[3]  );
+    // savePointToPlaneDistance(PointToPlaneDistance_filename, Distance);
+    point_to_plane_distance_vector.push_back(Distance);
+    i++;
+  }
+
+  savePointToPlaneDistance(PointToPlaneDistance_filename, point_to_plane_distance_vector);
+  
+}
+
+
+
 
 void curve_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
 {
@@ -913,16 +1041,18 @@ main (int argc, char** argv)
   bool simple(false), statistical(false), radiusOutlierRemoval(false);
   bool VoxelGrid(false), Passthrough(false),ShapeSeg(false), curveSeg(false);
   bool NormalSegmentation(false), largestPlane(false), EuclideanExtraction(false), multiPlannarSeg(false);
+  bool passThroughSeg(false);
   
   pcl::console::parse_argument (argc, argv, "-load", loadfilename);
   pcl::console::parse_argument (argc, argv, "-save", savefilename);
+  pcl::console::parse_argument (argc, argv, "-savePointToPlaneDistance", PointToPlaneDistance_filename);
   pcl::console::parse_argument (argc, argv, "-leafsize", leafsize);
   pcl::console::parse_argument (argc, argv, "-Stddev", StddevMulThresh);
-  pcl::console::parse_argument (argc, argv, "-savePointToPlaneDistance", PointToPlaneDistance_filename);
   pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
   pcl::console::parse_argument (argc, argv, "-CylinderRadiusLimit", CylinderRadiusLimit);
   pcl::console::parse_argument (argc, argv, "-CylinderDistanceThreshold", CylinderDistanceThreshold);
-
+  pcl::console::parse_argument (argc, argv, "-zmin", zmin);
+  pcl::console::parse_argument (argc, argv, "-zmax", zmax);
 
 
   if (pcl::console::find_argument (argc, argv, "-s") >= 0)
@@ -964,6 +1094,11 @@ main (int argc, char** argv)
   {
     multiPlannarSeg = true;
     std::cout << "find each plane with different color, get plane coefficient\n";
+  }
+   else if (pcl::console::find_argument (argc, argv, "-passThroughSeg") >= 0)
+  {
+    passThroughSeg = true;
+    std::cout << "apply passthrough segmentation process and save the results into pcd file\n";
   }
   else if (pcl::console::find_argument (argc, argv, "-EuclideanExtraction") >= 0)
   {
@@ -1035,6 +1170,11 @@ main (int argc, char** argv)
     multi_plannar_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, sourceClouds[highest_plane_index]);
   }
+  else if (passThroughSeg)
+  {
+    pass_through_segmentation(basic_cloud_ptr);
+    savePointFile(savefilename, cloud_filtered);
+  }
   else if (EuclideanExtraction)
   {
     EuclideanClusterExtraction(basic_cloud_ptr);
@@ -1051,15 +1191,7 @@ main (int argc, char** argv)
     savePointFile(savefilename, cloud_stored);
   }
   
-  //----------------------------------
-  // -----Main visualization loop-----
-  //----------------------------------
-  // while (!viewer->wasStopped ())
-  // {
-  //   viewer->spinOnce (10);
-  //   std::this_thread::sleep_for(std::chrono::milliseconds(2));
-  // }
-
+  
  
 }
 

@@ -42,10 +42,12 @@ std::string plane_coefficient_filename = "plane_coefficient_filename.txt";
 std::string PointToPlaneDistance_filename = "PointToPlaneDistance_filename.txt";
 std::string NormalEstimation_filename = "NormalEstimation_filename.txt";
 
-float leafsize = 0.002f; // 2mm
+float leafsize = 0.0002f; // m
 float StddevMulThresh = 1.5; // this parameter is for statistical filter 
 float DistanceThreshold = 0.0013; // this parameter is for plannar segmentation
 float CylinderDistanceThreshold = 0.1;
+float zmin = -0.237;
+float zmax = 0;
 float CylinderRadiusLimit = 0.1; // 1m
 int highest_plane_index = 0;
 
@@ -57,6 +59,7 @@ std::vector < pcl::PointCloud<pcl::PointXYZ>::Ptr, Eigen::aligned_allocator <pcl
 // std::vector <pcl::PointCloud<pcl::PointXYZ>, Eigen::aligned_allocator<pcl::PointXYZ> > sourceClouds; 
 // vector to store the coefficient plane pointer
 std::vector < pcl::ModelCoefficients::Ptr, Eigen::aligned_allocator <pcl::ModelCoefficients::Ptr> > plane_coefficient_vector;
+pcl::ModelCoefficients::Ptr plane_coefficient_top (new pcl::ModelCoefficients); // this is for passthrough segementation
 // vector to store the point to Plane distance
 std::vector < double > point_to_plane_distance_vector;
 // vector to store the estimated normal vector
@@ -80,6 +83,7 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr color_cloud_ptr (new pcl::PointCloud<pcl:
 pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
 // filtered_part stores removal parts after filtering
 pcl::PointCloud<pcl::PointXYZ>::Ptr filtered_part (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr bottom_plate (new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_stored (new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PCDWriter writer;
 
@@ -107,7 +111,7 @@ printUsage (const char* progName)
 
   std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-saveCoefficientPlaneName plane_coefficient_filename]\n"
             << "[-savePointToPlaneDistance PointToPlaneDistance_filename] [-saveNormalEstimation NormalEstimation_filename][-leafsize /float] [-DistanceThre /float]"
-            << "[-Stddev /float]\n\n"
+            << "[-Stddev /float] [-zmin /float] [-zmax /float]\n\n"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h                    this help\n"
@@ -119,6 +123,7 @@ printUsage (const char* progName)
             << "-NormalSegmentation   normal segmentation, get planer cylindrical and sphere surfaces\n"
             << "-largestPlane         planner segmentation filter(return largest plane)\n"
             << "-multiPlannarSeg      multiple plannar segmentation to get all the plane\n"
+            << "-passThroughSeg       pass though segmentation to get the top plane\n"
             << "-EuclideanExtraction  Apply Euclidean Clustering Extraction method to segment point cloud\n"
             << "-ShapeSeg             remove the largest plane and return the desired shape\n"
             << "-curveSeg             find the cylindrical curve shape\n"
@@ -383,7 +388,7 @@ pcl::visualization::PCLVisualizer::Ptr  PassThroughFilter (pcl::PointCloud<pcl::
   pcl::PassThrough<pcl::PointXYZ> pass;
   pass.setInputCloud (cloud);
   pass.setFilterFieldName ("z");
-  pass.setFilterLimits (0.0, 1.0);
+  pass.setFilterLimits (-0.238, 0);
   //pass.setFilterLimitsNegative (true);
   pass.filter (*cloud_filtered);
 
@@ -749,7 +754,7 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
   pcl::ExtractIndices<pcl::PointXYZ> extract;
   pcl::SACSegmentation<pcl::PointXYZ> seg; 
   
-   // required dataset
+  // required dataset ---------------------------------------------
   // pcl::ModelCoefficients::Ptr coefficients_plane (new pcl::ModelCoefficients);
   pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
   // cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>); 
@@ -1021,6 +1026,194 @@ pcl::visualization::PCLVisualizer::Ptr multi_plannar_segmentation(pcl::PointClou
 }
 
 
+// using pass though filter then using planner segemtation to get top plane
+pcl::visualization::PCLVisualizer::Ptr pass_through_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+{
+  
+  //define objects needed
+  pcl::ExtractIndices<pcl::PointXYZ> extract;
+  pcl::SACSegmentation<pcl::PointXYZ> seg; 
+  
+  // required dataset ---------------------------------------------
+  plane_coefficient_top.reset(new pcl::ModelCoefficients);
+  pcl::PointIndices::Ptr inliers_plane (new pcl::PointIndices);
+  filtered_part.reset(new pcl::PointCloud<pcl::PointXYZ>);
+  bottom_plate.reset(new pcl::PointCloud<pcl::PointXYZ>);
+  //pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
+
+  // create a visualizer
+  pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+  viewer->setBackgroundColor (0, 0, 0); // set background black
+  target_viewer.reset (new pcl::visualization::PCLVisualizer ("tartget plane after segmentation"));
+  target_viewer->setBackgroundColor (0, 0, 0); // set background black
+
+
+  // Create the segmentation object for the planar model and set all the parameters
+  seg.setOptimizeCoefficients (true);// optional
+  seg.setModelType (pcl::SACMODEL_PLANE); 
+  seg.setMethodType (pcl::SAC_RANSAC);
+  seg.setMaxIterations (1000);//the maximum number of iterations the sample consensus method will run 
+  seg.setDistanceThreshold (DistanceThreshold);//Distance to the model threshold (user given parameter). default: 0.001
+  
+
+
+  // ----------------STEP 0: apply statistical filter to get rid of the noise---------------------------------------
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+  sor.setInputCloud (cloud);
+  sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
+  sor.setStddevMulThresh (StddevMulThresh); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
+  sor.filter (*cloud); // return the cloud after filtering(inlier) and store it into cloud
+  savePointFile("s_filtered.pcd", cloud);
+  
+  //------------------Step 1：　Voxel grid filter--------------------------------------
+
+   // Create the filtering object
+  pcl::VoxelGrid<pcl::PointXYZ> sor_voxel;
+  sor_voxel.setInputCloud (cloud);
+  // downsampling leaf size of 1cm
+  sor_voxel.setLeafSize (leafsize, leafsize, leafsize);
+  sor_voxel.filter (*cloud);
+  savePointFile("v_filtered.pcd", cloud);
+
+
+
+  //----------------STEP 2:  apply passthough filter to get ride of the bottom plate-----------------------
+  // define a cloud_filtered to store the cloud after filtering
+  cloud_filtered.reset(new pcl::PointCloud<pcl::PointXYZ>);
+
+  // Create the filtering object
+  pcl::PassThrough<pcl::PointXYZ> pass;
+  pass.setInputCloud (cloud);
+  pass.setFilterFieldName ("z");
+  pass.setFilterLimits (zmin, zmax);
+  // This is to get the outlier
+  pass.setNegative (true);
+  pass.filter (*bottom_plate);
+
+  //pass.setFilterLimitsNegative (true);
+  pass.setNegative (false);
+  pass.filter (*cloud);
+
+ 
+  
+  // show the bottom plate
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> red_handler (bottom_plate, 255, 255, 255);
+  viewer->addPointCloud(bottom_plate, red_handler, "bottom plate");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "bottom plate");
+  // viewer->addCoordinateSystem (0.02);
+  // viewer->initCameraParameters ();
+  
+  
+  //--------------STEP 3: Fit the plane------------------------------------------------------
+  // name of the segemted plane
+  std::string cloud_name = " TOP plannar surface ";
+
+  // Segment the largest planar component from the remaining cloud
+  seg.setInputCloud (cloud);
+  seg.segment (*inliers_plane, *plane_coefficient_top);
+
+  std::cerr << "plannar coefficients of "<< cloud_name << "is: " << *plane_coefficient_top << std::endl;
+  
+  // planeheight = shortest_distance(plane_coefficient_top->values[0], plane_coefficient_top->values[1], plane_coefficient_top->values[2], plane_coefficient_top->values[3]);
+
+  if (inliers_plane->indices.size () == 0)
+  {
+    std::cerr << "Could not estimate a planar model for the given dataset." << std::endl;
+    //break;
+  }
+
+  // Extract the inliers
+  extract.setInputCloud (cloud);
+  extract.setIndices (inliers_plane);
+  extract.setNegative (false);
+  extract.filter (*cloud_filtered);
+  std::cerr << "PointCloud representing the planar component: " << cloud_name << cloud_filtered->width * cloud_filtered->height << " data points." << std::endl;
+  
+
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> green_handler (cloud_filtered, 0, 255, 0); //green
+  viewer->addPointCloud(cloud_filtered, green_handler, cloud_name);
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, cloud_name);
+  viewer->addCoordinateSystem (0.02);
+  viewer->initCameraParameters ();
+
+  // Create the filtering object
+  extract.setNegative (true);
+  extract.filter (*filtered_part);//outlier part
+
+  
+  // --------------------STEP 4: get the target plane from the point cloud -----------------
+
+  target_viewer->addPointCloud<pcl::PointXYZ> (cloud_filtered, "target plane point cloud");
+  target_viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "target plane point cloud");
+  target_viewer->addCoordinateSystem (0.02);
+  target_viewer->initCameraParameters ();
+
+
+  
+  /* --------------------STEP 5-------------------------------------------------------------
+  calculate distance of each point from extracted plane with coefficient a,b,c,d to the origin save the output(distance) into another txt file.
+  */
+  //Let i be the element number which you want to access
+  int i = 0;
+  while (i < cloud_filtered->points.size () ) // loop to calculate the pointToPlaneDistanceSigned
+  {
+    double Distance; // temporary double value to store current pointToPlaneDisntacne (signed)
+    Distance = pcl::pointToPlaneDistanceSigned (cloud_filtered->points[i], plane_coefficient_top->values[0]
+                                                ,plane_coefficient_top->values[1]
+                                                ,plane_coefficient_top->values[2]
+                                                ,plane_coefficient_top->values[3]  );
+    // savePointToPlaneDistance(PointToPlaneDistance_filename, Distance);
+    point_to_plane_distance_vector.push_back(Distance);
+    i++;
+  }
+
+  savePointToPlaneDistance(PointToPlaneDistance_filename, point_to_plane_distance_vector);
+  
+
+  // ------------------STEP 6 Estimate normal vectors of the points -----------------------------------------------------------------
+  // Create the normal estimation class, and pass the input dataset to it
+  pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal> ne;
+  // ne.setInputCloud (cloud_voxel_filtered); // set input cloud as the highest plane after segmentation
+  ne.setInputCloud (cloud_filtered);
+  // Create an empty kdtree representation, and pass it to the normal estimation object.
+  // Its content will be filled inside the object, based on the given input dataset (as no other search surface is given).
+  pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ> ());
+  ne.setSearchMethod (tree);
+  // Output datasets
+  pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
+  // Use all neighbors in a sphere of radius 5mm
+  ne.setRadiusSearch (0.005);
+  //  Compute the features
+  ne.compute (*cloud_normals);
+  
+
+  /* --------------STEP 7: normal estimation------------------------------------------------------
+  NormalEstimation estimates local surface properties (surface normals and curvatures)at each 3D point.
+  If PointOutT is specified as pcl::Normal, the normal is stored in the first 3 components (0-2), and the curvature is stored in component 3.
+  */
+  // cloud_normals->points.size () should have the same size as the input cloud->points.size ()*
+  int k = 0;
+  while (k < cloud_normals->points.size () )  // while loop to get all the normal vector of the points
+  {
+    std::array< float, 4>  point_normal = {}; // initialize a temporory array to store the 4 component of pcl::Normal
+    point_normal[0] = cloud_normals->points[k].normal_x;
+    point_normal[1] = cloud_normals->points[k].normal_y;
+    point_normal[2] = cloud_normals->points[k].normal_z;
+    point_normal[3] = cloud_normals->points[k].curvature;
+    // std::cerr << point_normal[0] << " " << point_normal[1] << "  "<< point_normal[2] << " " << point_normal[3] << std::endl;
+    normal_estimation_vector.push_back (point_normal);
+    k++;
+  }
+  saveNormalEstimation (NormalEstimation_filename, normal_estimation_vector);
+  
+  
+
+
+  return (viewer);
+
+}
+
+
 
 pcl::visualization::PCLVisualizer::Ptr curve_segmentation(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
 {
@@ -1215,7 +1408,8 @@ main (int argc, char** argv)
   bool simple(false), statistical(false), radiusOutlierRemoval(false);
   bool VoxelGrid(false), Passthrough(false),ShapeSeg(false), curveSeg(false);
   bool NormalSegmentation(false), largestPlane(false), EuclideanExtraction(false), multiPlannarSeg(false);
-  
+  bool passThroughSeg(false);
+
   pcl::console::parse_argument (argc, argv, "-load", loadfilename);
   pcl::console::parse_argument (argc, argv, "-save", savefilename);
   pcl::console::parse_argument (argc, argv, "-saveCoefficientPlaneName", plane_coefficient_filename);
@@ -1226,6 +1420,9 @@ main (int argc, char** argv)
   pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
   pcl::console::parse_argument (argc, argv, "-CylinderRadiusLimit", CylinderRadiusLimit);
   pcl::console::parse_argument (argc, argv, "-CylinderDistanceThreshold", CylinderDistanceThreshold);
+  pcl::console::parse_argument (argc, argv, "-zmin", zmin);
+  pcl::console::parse_argument (argc, argv, "-zmax", zmax);
+
 
 
 
@@ -1268,6 +1465,11 @@ main (int argc, char** argv)
   {
     multiPlannarSeg = true;
     std::cout << "find each plane with different color, get plane coefficient, save highest plane\n";
+  }
+  else if (pcl::console::find_argument (argc, argv, "-passThroughSeg") >= 0)
+  {
+    passThroughSeg = true;
+    std::cout << "apply passthrough segmentation process and save the results into pcd file\n";
   }
   else if (pcl::console::find_argument (argc, argv, "-EuclideanExtraction") >= 0)
   {
@@ -1339,6 +1541,12 @@ main (int argc, char** argv)
     viewer = multi_plannar_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, sourceClouds[highest_plane_index]);
     saveCoefficientPlane (plane_coefficient_filename, plane_coefficient_vector[highest_plane_index]);
+  }
+  else if (passThroughSeg)
+  {
+    viewer = pass_through_segmentation(basic_cloud_ptr);
+    savePointFile(savefilename, cloud_filtered);
+    saveCoefficientPlane (plane_coefficient_filename, plane_coefficient_top);
   }
   else if (EuclideanExtraction)
   {
