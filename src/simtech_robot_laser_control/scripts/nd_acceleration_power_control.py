@@ -18,8 +18,8 @@ class NdAccelerationPowerControl():
         rospy.init_node('Acceleration-Power Control')
         
         # subscribe velocity
-        rospy.Subscriber(
-            '/acceleration', MsgAcceleration, self.cb_acceleration, queue_size=5)
+        # rospy.Subscriber(
+            # '/acceleration', MsgAcceleration, self.cb_acceleration, queue_size=5)
         rospy.Subscriber(
             "/twist_acceleration", MsgAcceleration, self.cb_twist_acceleration, queue_size=5)
         
@@ -30,7 +30,7 @@ class NdAccelerationPowerControl():
         # set power min max limit
         self.setPowerParameters(rospy.get_param('/control_parameters/power'))
         # set nominal power value
-        self.get_nominal_power(rospy.get_param('control_parameters/manual'))
+        self.get_nominal_power(rospy.get_param('/control_parameters/manual'))
         
         self.msg_power = MsgPower()
         self.acceleration = 0
@@ -73,8 +73,9 @@ class NdAccelerationPowerControl():
         # self.v_y = msg_velocity.vy
         # self.v_z = msg_velocity.vz
         self.acceleration = msg_twist_acceleration.acceleration
-        a_min = -0.12 # m/s^2
-        a_max = 0.12
+        # self.acceleration = msg_twist_acceleration.acceleration_averaged
+        a_min = -0.02 # m/s^2
+        a_max = 0.02
         
         # power calculation
         power = self.power_min + (self.power_max - self.power_min) / (a_max - a_min) * (self.acceleration - a_min)

@@ -36,7 +36,11 @@ class NdVelocity():
         self.msg_twist = MsgTwist()
         self.listener = tf.TransformListener()
         
-        self.twsit_speed = 0
+        self.twist_speed = 0
+        self.averaged_twist_acceleration = 0
+        self.twist_acceleration_list = []
+        self.twist_speed_list = []
+        self.averaged_twist_speed = 0
 
         r = rospy.Rate(30)
         while not rospy.is_shutdown():
@@ -52,25 +56,31 @@ class NdVelocity():
                 "/tcp0", "/world", stamp)
 
             linear_velocity, angular_velocity = self.listener.lookupTwist(
-                "/tcp0", "/world", stamp, rospy.Duration(0.1))
+                "/tcp0", "/world", stamp, rospy.Duration(0.033))
             
             # publishing the twist (linear velocity)
-            self.twsit_speed = np.sqrt(linear_velocity[0] * linear_velocity[0] 
+            self.twist_speed = np.sqrt(linear_velocity[0] * linear_velocity[0] 
                                        + linear_velocity[1] * linear_velocity[1] 
                                        + linear_velocity[2] * linear_velocity[2] )
             self.msg_twist.header.stamp = stamp
             self.msg_twist.linear_x = linear_velocity[0]
             self.msg_twist.linear_y = linear_velocity[1]
             self.msg_twist.linear_z = linear_velocity[2]
-            self.msg_twist.linear_speed = self.twsit_speed
+            self.msg_twist.linear_speed = self.twist_speed
+            self.speed_moving_average (self.twist_speed)
+            self.msg_twist.speed_averaged = self.averaged_twist_speed
             self.twist_pub.publish(self.msg_twist)
             
             
             # calculate the acceleration calculated by twist change
+            # twist_acceleration = self.velocity.twist_acceleration(
+            #     stamp.to_sec(), self.twist_speed)
             twist_acceleration = self.velocity.twist_acceleration(
-                stamp.to_sec(), self.twsit_speed)
+                stamp.to_sec(), self.averaged_twist_speed)
             self.msg_twist_acceleration.header.stamp = stamp
             self.msg_twist_acceleration.acceleration = twist_acceleration
+            self.acceleration_moving_average(twist_acceleration)
+            self.msg_twist_acceleration.acceleration_averaged = self.averaged_twist_acceleration
             self.twist_acceleration_pub.publish (self.msg_twist_acceleration)
 
 
@@ -109,6 +119,31 @@ class NdVelocity():
         except (tf.Exception, tf.LookupException, tf.ConnectivityException,
                 tf.ExtrapolationException):
             rospy.loginfo("TF Exception")
+            
+            
+              
+    def acceleration_moving_average(self, accelertation):
+        frames = 5
+        if len(self.twist_acceleration_list) == 4:
+            self.twist_acceleration_list.append(accelertation) 
+            self.averaged_twist_acceleration = sum(self.twist_acceleration_list)/frames
+            self.twist_acceleration_list.pop(0) # remove the first item in the list
+        else:
+            self.twist_acceleration_list.append(accelertation)
+            
+               
+    def speed_moving_average(self, speed):
+        frames = 5
+        if len(self.twist_speed_list) == 4:
+            self.twist_speed_list.append(speed)
+            self.averaged_twist_speed = sum(self.twist_speed_list)/frames
+            self.twist_speed_list.pop(0) # remove the first item in the list
+        else:
+            self.twist_speed_list.append(speed)
+
+
+
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,52 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <!-- define the powder, process, material parameters -->
+  <rosparam command="load" file="$(find simtech_robot_laser_control)/config/params.yaml" />
+
+
+  <!-- parameter robot model and robot interface(motion and state) nodes and parameters -->
+  <arg name="model" default="$(find simtech_robot_laser_control)/urdf/workcell.xacro" />
+
+  <param name="/use_sim_time" value="$(arg sim)" />
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <include file="$(find simtech_robot_laser_control)/launch/simtech_robot_interface.launch" unless="$(arg sim)">
+    <arg name="robot_ip" value="192.168.125.1" />
+    <arg name="J23_coupled" value="true" />
+    <arg name="laser_type" value="ipg" />
+    <arg name="feeder_type" default="powder" />
+  </include>
+
+
+  <!-- contains nd_supervisor(MsgStatus), nd_velocity, nd_geometry.py(image processing), nd_moments.py, usb_cam_node,image_view -->
+  <include file="$(find camera_measures)/launch/camera_measures.launch">
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+
+
+  <!-- laser control parameters-->
+  <rosparam command="load" file="$(find simtech_robot_laser_control)/config/control_parameters.yaml" />
+
+  <!-- received processed image and published controlled power value-->
+  <node name="control" pkg="simtech_robot_laser_control" type="nd_control.py">
+    <param name="power_min" type="double" value="0" />
+    <param name="power_max" type="double" value="5" />
+  </node>
+
+  <node name="control_panel" pkg="simtech_robot_laser_control" type="qt_control.py" if="$(arg gui)" />
+
+
+  <!-- laser socket will subscribe controlled power value and send to robot(laser socket server) via tcp/ip -->
+  <node name="laser_socket" pkg="simtech_robot_laser_control" type="nd_laser_socket.py" />
+
+  <!-- pid parameter adaptive calculation -->
+  <node name="pid_vrft_calculation" pkg="simtech_robot_laser_control" type="nd_adaptive_pid_vrft.py" />
+
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_robot_laser_control)/config/workcell.rviz" required="true" if="$(arg gui)" />
+</launch>

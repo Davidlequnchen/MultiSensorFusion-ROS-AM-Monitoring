@@ -74,10 +74,10 @@ class PID():
             if output < -50:
                 output = -50
             output = self.output + output
-            print 'P', self.Kp * (error - self.error), 'I', self.Ki * error * delta
+            # print 'P', self.Kp * (error - self.error), 'I', self.Ki * error * delta
             self.error = error
-            print 'SetPoint', self.setpoint, 'Value', value, 'Time', time
-            print 'Delta time', delta, 'Error', error, 'Output', output
+            # print 'SetPoint', self.setpoint, 'Value', value, 'Time', time
+            # print 'Delta time', delta, 'Error', error, 'Output', output
             if output > self.pwr_max:
                 output = self.pwr_max
             if output < self.pwr_min:

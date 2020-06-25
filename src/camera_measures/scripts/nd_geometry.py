@@ -75,31 +75,31 @@ class NdGeometry():
             center, axis, angle = self.geometry.find_geometry(frame)
             
             # get the maximum circle inside the countour, return center and radius of the circle
-            center_circle, diameter, radius = self.geometry.find_circular_geometry(frame)
+            # center_circle, diameter, radius = self.geometry.find_circular_geometry(frame)
             
             # mask the frame into the circlular shape
             frame = self.geometry.mask(frame)
             frame = self.geometry.binarize(frame)
             
            
-            circle = center_circle, diameter, radius
+            # circle = center_circle, diameter, radius
             ellipse = center, axis, angle 
             
             # draw the ellipse geometry on the frame 
-            # frame_ellipse = self.geometry.draw_geometry(frame, ellipse)
+            frame_ellipse = self.geometry.draw_geometry(frame, ellipse)
             
             # draw the maximum inside circle on the frame
-            frame_circle = self.geometry.draw_circlular_geometry(frame, circle)
+            # frame_circle = self.geometry.draw_circlular_geometry(frame, circle)
             
             self.moving_average(axis[1]) # minor axis, moving average
             # self.moving_average(diameter) # diameter of circle as melt pool width
             
     
-            # cv2.namedWindow('geometry_ellipse', cv2.WINDOW_NORMAL)
-            # cv2.imshow('geometry_ellipse',frame_ellipse)
+            cv2.namedWindow('geometry_ellipse', cv2.WINDOW_NORMAL)
+            cv2.imshow('geometry_ellipse',frame_ellipse)
             
-            cv2.namedWindow('geometry_circle', cv2.WINDOW_NORMAL)
-            cv2.imshow('geometry_circle',frame_circle)
+            # cv2.namedWindow('geometry_circle', cv2.WINDOW_NORMAL)
+            # cv2.imshow('geometry_circle',frame_circle)
 
             k = cv2.waitKey(10)
             if k == 27:         # wait for ESC key to exit
@@ -131,12 +131,14 @@ class NdGeometry():
             
     def moving_average(self, minor_axis):
         frames = 10
-        if len(self.minor_axis_list) < frames:
+        if len(self.minor_axis_list) == 9 or len(self.minor_axis_list) > frames:
             if minor_axis > 50:
                 self.minor_axis_list.append(minor_axis) # append current minor_axis to the end of the list
+                self.averaged_minor_axis = sum(self.minor_axis_list)/frames
+                self.minor_axis_list.pop(0) # remove the first item in the list
         else:
-            self.averaged_minor_axis = sum(self.minor_axis_list)/frames
-            self.minor_axis_list.pop(0) # remove the first item in the list
+            self.minor_axis_list.append(minor_axis) # append current minor_axis to the end of the list
+            
 
 
 

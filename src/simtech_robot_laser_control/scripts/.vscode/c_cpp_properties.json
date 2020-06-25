@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/chenlequn/ROS_Academy/devel/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/devel/include/**",
+                "/home/chenlequn/SIMTech_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/chenlequn/ABB_industrial/src/abb/abb_driver/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/depth_image_proc/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/image_geometry/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/image_proc/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_conversions/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_ros/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/src/Quadrobot_simulation/quadrobot/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/src/Quadrobot_simulation/quadrobot_gazebo/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/src/Quadrobot_simulation/quadrobot_slam/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/image_pipeline/stereo_image_proc/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/src/turtlebot3_packages/turtlebot_simulations/turtlebot3_fake/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/src/turtlebot3_packages/turtlebot_simulations/turtlebot3_gazebo/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/src/turtlebot3_packages/turtlebot3/turtlebot3_slam/include/**",
+                "/home/chenlequn/SIMTech_ws/src/ROS_perception/usb_cam/include/**",
+                "/home/chenlequn/Quad_Robot_Schaeffler/src/zbar_ros_library/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}

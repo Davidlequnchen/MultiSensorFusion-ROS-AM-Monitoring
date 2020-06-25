@@ -21,10 +21,10 @@ class NdVelocityPowerControl():
         rospy.init_node('Velocity-Power Control')
         
         # subscribe velocity
+        # rospy.Subscriber(
+            # '/velocity', MsgVelocity, self.cb_velocity, queue_size=5)
         rospy.Subscriber(
-            '/velocity', MsgVelocity, self.cb_velocity, queue_size=5)
-        rospy.Subscriber(
-            '/twist', MsgVelocity, self.cb_twist, queue_size=5)
+            '/twist', MsgTwist, self.cb_twist, queue_size=5)
         
         self.pub_power = rospy.Publisher(
             '/control/power', MsgPower, queue_size=10)
@@ -76,8 +76,8 @@ class NdVelocityPowerControl():
         # self.v_z = msg_twist.linear_z
         self.speed = msg_twist.linear_speed
         
-        v_min = 0.005
-        v_max = 0.032
+        v_min = 0.016
+        v_max = 0.026
         
         # power calculation
         power = self.power_min + (self.power_max - self.power_min)/(v_max - v_min) * (self.speed - v_min)

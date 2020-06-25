@@ -74,11 +74,11 @@ class Nd_socket():
         #set power analog value
         #convert the value(float32) to only one decimal place string
         self.send_power = "%.1f" % msg_power.value   
-        print("send_power =  " + self.send_power)  
+        # print("send_power =  " + self.send_power)  
         #self.send_power = str(msg_power.value)
         #self.send_power = str(70.0)
         self.power_controlled = self.laser_connection.set_analog_power(self.send_power)
-        print("power has been set:" + str(self.power_controlled))
+        # print("power has been set:" + str(self.power_controlled))
 
 
         #enable hardware emission control

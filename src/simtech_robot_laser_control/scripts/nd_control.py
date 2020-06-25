@@ -109,7 +109,7 @@ class NdControl():
         self.setAutoParameters(rospy.get_param('/control_parameters/automatic'))
 
     def cb_control(self, msg_control):
-        self.mode = msg_control.value # mode set by qt, either continuous(time) or tracks
+        self.mode = msg_control.value # mode set by qt/ Manual/auto/step
         self.updateParameters()
         # self.t_auto = 0.01* self.control_time_interval
         # self.t_reg = 0.005* self.control_time_interval 
@@ -148,7 +148,7 @@ class NdControl():
         self.pub_power.publish(self.msg_power)
         self.pub_info.publish(self.msg_info)
         start = self.msg_start.control
-        if start is not self.start:
+        if start is not self.start: # if this is the first time control
             self.control.pid.set_setpoint(self.setpoint)
             self.msg_start.setpoint = self.setpoint
             self.pub_start.publish(self.msg_start)
