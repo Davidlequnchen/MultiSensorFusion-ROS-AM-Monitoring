@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: scanning_robviz
+Description: Description of scanning_robviz
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

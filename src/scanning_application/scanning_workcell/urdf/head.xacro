@@ -9,6 +9,7 @@
       <material name="dark_gray">
         <!-- <color rgba="0.3 0.4 0.3 1"/> -->
         <color rgba="${175/255} ${175/255} ${169/255} 1.0"/>
+        <!-- <color rgba="${170/255} ${170/255} ${170/255} 1.0"/> -->
       </material>
     </visual>
     <collision>

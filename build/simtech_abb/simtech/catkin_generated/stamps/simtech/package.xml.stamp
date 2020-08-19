@@ -1,0 +1,22 @@
+<package>
+  <name>simtech</name>
+  <version>0.5.1</version>
+  <description>This package provides simtech packages.</description>
+  <maintainer email="chen1189@e.ntu.edu.sg">Chen Lequn</maintainer>
+  <license>BSD</license>
+
+  <!--url type="website">http://openlmd.github.io/aimen.html</url-->
+  <!--url type="repository">https://github.com/openlmd/aimen</url-->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>simtech_abb</run_depend>
+  <run_depend>simtech_driver</run_depend>
+  <run_depend>simtech_workcell</run_depend>
+  <run_depend>Simtech_robot_laser_control</run_depend>
+
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

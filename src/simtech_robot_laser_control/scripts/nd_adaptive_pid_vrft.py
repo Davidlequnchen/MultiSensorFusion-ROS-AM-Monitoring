@@ -36,8 +36,8 @@ it set kp ki kd value as a rospram, which will be read by the nd_control node.
 (it is similar to the way that qt program sets pid parameters)
 '''
 
-BUFFER_INTERVAL = 5 # save the buffer every XX secods
-BUFFER_LENGTH = 150
+BUFFER_INTERVAL = 10 # save the buffer every XX secods
+BUFFER_LENGTH = 600 # 1 seconds - 30 data points
 
 class NdPIDVRFT():
     def __init__(self):

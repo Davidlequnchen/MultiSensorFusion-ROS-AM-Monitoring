@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<robot name="abb_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+    <property name="pi" value="3.141592654"/>
+
+    <!-- Robot -->
+    <xacro:include filename="$(find simtech_abb)/urdf/irb4400_macro.xacro"/>
+    <xacro:abb_irb4400 prefix=""/>
+
+    <joint name="irb4400" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0.067" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Robot table -->
+    <xacro:include filename="$(find simtech_workcell)/urdf/irbp_a250.xacro"/>
+
+    <joint name="irbp_a250" type="fixed">
+        <parent link="world"/>
+        <child link="irbp_a250/base_link"/>
+        <!-- <origin xyz="1.753 0.015 -0.003" rpy="-0.005599 -0.005742 1.550718"/> -->
+        <origin xyz="1.5 0.02 0" rpy="-0.005599 -0.005742 1.550718"/>
+    </joint>
+
+</robot>

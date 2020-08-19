@@ -1,0 +1,7 @@
+set(velocity_control_SETUP_PY_SETUP_MODULE "distutils.core")
+set(velocity_control_SETUP_PY_VERSION "0.4.0")
+set(velocity_control_SETUP_PY_SCRIPTS "")
+set(velocity_control_SETUP_PY_PACKAGES "velocity_controller")
+set(velocity_control_SETUP_PY_PACKAGE_DIRS "src/velocity_controller")
+set(velocity_control_SETUP_PY_MODULES "")
+set(velocity_control_SETUP_PY_MODULE_DIRS "")

@@ -16,11 +16,38 @@ from control.control import Control
 from control.control import PID
 import numpy as np
 
+from threading import Timer,Thread,Event,Lock
+import time
+import logging
+
 
 MANUAL = 0
 STEP = 2
 AUTOMATIC = 1
-ADAPTIVE_SETPOINT_INTERVAL = 6 # adaptive setpoint interval [sec]
+ADAPTIVE_SETPOINT_INTERVAL = 50 # adaptive setpoint interval [sec]
+
+class Timer_thread(Thread):
+    def __init__(self, interval, hFunction):
+        Thread.__init__(self)
+        self.hFunction = hFunction
+        self.interval = interval
+        
+        # initialize a timer object to execute the function handler
+        # this timer will call function handler after [interval] seconds
+        self.thread = Timer(self.interval,self.function_handler)
+        
+    def function_handler(self):
+        self.hFunction() # execute the function (the actual function for execution)
+        # create a new timer to call the funciton_handler again
+        self.thread = Timer(self.interval,self.function_handler)
+        self.thread.start()
+    
+    def start(self):
+        self.thread.start() # this will start the first timer
+        
+    def cancel(self):
+        self.thread.cancel() # cancel the timer thread
+
 
 
 class NdControl():
@@ -75,9 +102,19 @@ class NdControl():
         self.setPowerParameters(rospy.get_param('/control_parameters/power'))
         self.control.pid.set_limits(self.power_min, self.power_max)
         self.control.pid.set_setpoint(self.setpoint)
+        
+        # timer_reduce_power = Timer_thread(5,self.reduce_power_level) # wait 30s to execute function once 
+        # timer_reduce_power.start() # start the thread
 
         rospy.spin()
 
+    def reduce_power_level(self):
+        if self.power_max < 5.5 or self.power_min < 4.7: 
+            pass
+        else:
+            self.power_max -= 0.01
+            self.power_min -= 0.01
+    
     def setParameters(self, params):
         self.Kp = params['Kp']
         self.Ki = params['Ki']
@@ -139,7 +176,7 @@ class NdControl():
         elif self.mode == STEP:
             value = self.step(time)
         value = self.range(value)
-        value = self.cooling(msg_geo.minor_axis, value) 
+        # value = self.cooling(msg_geo.minor_axis, value) 
         self.msg_power.header.stamp = stamp
         self.msg_power.value = value
         self.msg_info.time = str(self.time_control)
@@ -196,7 +233,12 @@ class NdControl():
                 #     self.auto_setpoint(minor_axis)
                 # if self.time_control > self.control_time_interval:
                 
-                self.adaptive_setpoint(time, minor_axis)
+                # self.adaptive_setpoint(time, minor_axis)
+                # thread = Thread(target=self.adaptive_setpoint,
+                #                 args=(time, minor_axis)
+                #                 )
+                # thread.start()
+                
                 self.controlled_value = self.control.pid.update(minor_axis, time)
                 self.msg_start.control = True
             elif self.auto_mode is 1:   # use track number
@@ -211,6 +253,9 @@ class NdControl():
     
     
     def adaptive_setpoint(self, current_time, minor_axis):
+        countLock = Lock() # use Lock() to avoid conflict when multiple thread accessing the same vriable
+        countLock.acquire()
+        
         if current_time - self.adaptive_time < ADAPTIVE_SETPOINT_INTERVAL: 
             self.minor_axis_list.append(minor_axis)
         else:
@@ -220,6 +265,8 @@ class NdControl():
             self.pub_setpoint.publish (self.msg_setpoint)
             self.minor_axis_list = []
             self.adaptive_time = current_time
+            
+        countLock.release()
     
     
 
@@ -247,12 +294,11 @@ class NdControl():
         #    value = 0
         return value
 
-    def cooling(self, msg_geo, value):
-        
-        if msg_geo > 180:
-            value = 0
-        return value
-        #avoiding overheating
+    # def cooling(self, msg_geo, value):
+    #     if msg_geo > 180:
+    #         value = 0
+    #     return value
+    #     #avoiding overheating
 
 
 if __name__ == '__main__':

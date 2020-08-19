@@ -91,4 +91,4 @@ if __name__ == '__main__':
     filename = '../../config/control_parameters.yaml'
     control = Control()
     control.save_conf(filename)
-    print control.load_conf(filename)
+    # print control.load_conf(filename)

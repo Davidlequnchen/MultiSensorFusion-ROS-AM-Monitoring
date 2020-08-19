@@ -4,6 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
         - /RobotModel1
         - /RobotModel1/Links1
         - /RobotModel1/Links1/scanCONTROL_2900-50_scanner_laser_link1
@@ -27,7 +28,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -39,7 +40,7 @@ Visualization Manager:
       Cell Size: 1
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: true
+      Enabled: false
       Line Style:
         Line Width: 0.029999999329447746
         Value: Lines
@@ -52,13 +53,13 @@ Visualization Manager:
       Plane: XY
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
       Links:
-        All Links Enabled: true
+        All Links Enabled: false
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -77,6 +78,35 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        irbp_a250/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        irbp_a250/link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        irbp_a250/link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        irbp_a250/link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        irbp_a250/link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        irbp_a250/tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         link_1:
           Alpha: 1
           Show Axes: false
@@ -129,9 +159,14 @@ Visualization Manager:
           Value: true
         scanCONTROL_2900-50_scanner_laser_link:
           Alpha: 1
-          Show Axes: true
+          Show Axes: false
           Show Trail: false
         scanCONTROL_2900-50_scanner_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        table0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -216,7 +251,7 @@ Visualization Manager:
       Value: true
   Enabled: true
   Global Options:
-    Background Color: 0; 0; 0
+    Background Color: 255; 255; 255
     Default Light: true
     Fixed Frame: base_link
     Frame Rate: 30
@@ -232,25 +267,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.1359829902648926
+      Distance: 4.405830383300781
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.09164479374885559
-        Y: -0.40620753169059753
-        Z: 0.6191991567611694
+        X: 0.04280257970094681
+        Y: -0.3865533471107483
+        Z: 0.6493799686431885
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5498011112213135
+      Pitch: 0.45980119705200195
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.8103877902030945
+      Yaw: 0.9003877639770508
     Saved: ~
 Window Geometry:
   Displays:
