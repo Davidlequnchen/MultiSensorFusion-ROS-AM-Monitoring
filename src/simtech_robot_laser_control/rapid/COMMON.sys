@@ -40,6 +40,9 @@ PERS num extAxisMove{max_cartesian};
 PERS num laser_conf:=0;
 PERS num feeder_conf:=0;
 
+!// this variable indicates which modes the program is in
+PERS num routine_command :=0;
+
 
 !//External axis position variables
 PERS extjoint externalAxis;

@@ -102,7 +102,7 @@ PROC main()
     ! Set up interrupt
 	IDelete intr_cancel_motion;
 	CONNECT intr_cancel_motion WITH new_cancel_motion_handler;
-	IPers cancel_motion, intr_cancel_motion;
+	IPers cancel_motion, intr_cancel_motion; !// Interrupt at value change of a persistent variable
 
 
 	!setup interupt for velocity refresh
@@ -117,6 +117,7 @@ PROC main()
 	!IDelete intr_configure;
 	!CONNECT intr_configure WITH new_configure_handler;
 	!IPers laser_conf, intr_configure;
+	!Orders an interrupt which is to occur each time the persistent variable laser_conf is changed. 
 
 	!IDelete intr_configure_feeder;
 	!CONNECT intr_configure_feeder WITH new_configure_handler;

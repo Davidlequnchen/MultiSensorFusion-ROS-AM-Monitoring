@@ -105,7 +105,7 @@ PROC main()
 
         !//Wait for a command
         !// store the received data into the variable receivedString within the time limit
-        !SocketReceive clientSocket \Str:=receivedString \Time:=WAIT_MAX;
+        SocketReceive clientSocket \Str:=receivedString \Time:=WAIT_MAX;
 
         !SetAO aoPower, 2.919;                      !20191022
         SetPower receivedString;
