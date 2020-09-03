@@ -7,5 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/chenlequn/SIMTech_ws/build"
-export PYTHONPATH="/home/chenlequn/ROS_Academy/devel/lib/python2.7/dist-packages:/home/chenlequn/Quad_Robot_Schaeffler/devel/lib/python2.7/dist-packages:/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages:/home/chenlequn/Quad_Robot_Schaeffler/devel/lib/python3/dist-packages:/home/chenlequn/SIMTech_ws/devel/lib/python3/dist-packages:/home/chenlequn/OpenLMD/devel/lib/python2.7/dist-packages"
+export PWD='/home/chenlequn/SIMTech_ws/build'
+export PYTHONPATH='/home/chenlequn/Desktop/map_gui_ws/devel/lib/python2.7/dist-packages:/home/chenlequn/ROS_Academy/devel/lib/python2.7/dist-packages:/home/chenlequn/Quad_Robot_Schaeffler/devel/lib/python2.7/dist-packages:/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages:/home/chenlequn/Quad_Robot_Schaeffler/devel/lib/python3/dist-packages'

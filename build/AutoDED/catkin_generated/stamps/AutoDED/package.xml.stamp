@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>AutoDED</name>
+  <version>1.2.3</version>
+  <description>
+    the combined program for automatic DED process control and monitoring
+  </description>
+  <license>NA</license>
+  <author>Chen Lequn</author>
+  <author email="chen1189@e.ntu.edu.sg">Chen Lequn</author>
+  <maintainer email="chen1189@e.ntu.edu.sg">Chen Lequn</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>tf</depend>
+  <!-- <build_depend>python-numpy</build_depend>
+  <exec_depend>python-numpy</exec_depend> -->
+</package>

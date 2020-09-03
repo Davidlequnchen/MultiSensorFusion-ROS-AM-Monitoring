@@ -23,6 +23,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/chenlequn/SIMTech_ws/devel/include"
   "/usr/local/include/vtk-7.1"
   "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/common/include"
   "/usr/local/include/mescan"
@@ -30,7 +31,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/libxml2"
   "/usr/include/glib-2.0"
   "/usr/lib/x86_64-linux-gnu/glib-2.0/include"
-  "/home/chenlequn/SIMTech_ws/devel/include"
   "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_ros/include"
   "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_conversions/include"
   "/opt/ros/melodic/include"

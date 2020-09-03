@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+AutoDED_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/AutoDED
+
+//Value Computed by CMake
+AutoDED_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/AutoDED
+
 //The threading library used by boost-thread
 BOOST_THREAD_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.so
 
@@ -767,6 +773,12 @@ actionlib_DIR:PATH=/opt/ros/melodic/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/melodic/share/actionlib_msgs/cmake
 
+//Value Computed by CMake
+auto_control_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/AutoDED
+
+//Value Computed by CMake
+auto_control_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/AutoDED
+
 //The directory containing a CMake configuration file for bond.
 bond_DIR:PATH=/opt/ros/melodic/share/bond/cmake
 
@@ -1475,7 +1487,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=47
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=48
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

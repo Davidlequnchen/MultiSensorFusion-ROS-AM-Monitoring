@@ -16,7 +16,7 @@
 
 (defclass camera_measures::MsgGeometry
   :super ros::object
-  :slots (_header _major_axis _minor_axis _circle_diameter _orientation _x _y _minor_axis_average ))
+  :slots (_header _major_axis _minor_axis _orientation _x _y _minor_axis_average ))
 
 (defmethod camera_measures::MsgGeometry
   (:init
@@ -24,7 +24,6 @@
     ((:header __header) (instance std_msgs::Header :init))
     ((:major_axis __major_axis) 0.0)
     ((:minor_axis __minor_axis) 0.0)
-    ((:circle_diameter __circle_diameter) 0.0)
     ((:orientation __orientation) 0.0)
     ((:x __x) 0.0)
     ((:y __y) 0.0)
@@ -34,7 +33,6 @@
    (setq _header __header)
    (setq _major_axis (float __major_axis))
    (setq _minor_axis (float __minor_axis))
-   (setq _circle_diameter (float __circle_diameter))
    (setq _orientation (float __orientation))
    (setq _x (float __x))
    (setq _y (float __y))
@@ -53,9 +51,6 @@
   (:minor_axis
    (&optional __minor_axis)
    (if __minor_axis (setq _minor_axis __minor_axis)) _minor_axis)
-  (:circle_diameter
-   (&optional __circle_diameter)
-   (if __circle_diameter (setq _circle_diameter __circle_diameter)) _circle_diameter)
   (:orientation
    (&optional __orientation)
    (if __orientation (setq _orientation __orientation)) _orientation)
@@ -77,8 +72,6 @@
     4
     ;; float32 _minor_axis
     4
-    ;; float32 _circle_diameter
-    4
     ;; float32 _orientation
     4
     ;; float32 _x
@@ -98,8 +91,6 @@
        (sys::poke _major_axis (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _minor_axis
        (sys::poke _minor_axis (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
-     ;; float32 _circle_diameter
-       (sys::poke _circle_diameter (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _orientation
        (sys::poke _orientation (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _x
@@ -118,8 +109,6 @@
      (setq _major_axis (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _minor_axis
      (setq _minor_axis (sys::peek buf ptr- :float)) (incf ptr- 4)
-   ;; float32 _circle_diameter
-     (setq _circle_diameter (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _orientation
      (setq _orientation (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _x
@@ -132,13 +121,13 @@
    self)
   )
 
-(setf (get camera_measures::MsgGeometry :md5sum-) "b591f4599791fbd2dc5c964bbb9d1b55")
+(setf (get camera_measures::MsgGeometry :md5sum-) "3adfca161cefb9cf304720422e5ec87c")
 (setf (get camera_measures::MsgGeometry :datatype-) "camera_measures/MsgGeometry")
 (setf (get camera_measures::MsgGeometry :definition-)
       "Header header
 float32 major_axis
 float32 minor_axis
-float32 circle_diameter
+# float32 circle_diameter
 float32 orientation
 float32 x
 float32 y
@@ -164,6 +153,6 @@ string frame_id
 
 
 
-(provide :camera_measures/MsgGeometry "b591f4599791fbd2dc5c964bbb9d1b55")
+(provide :camera_measures/MsgGeometry "3adfca161cefb9cf304720422e5ec87c")
 
 

@@ -28,7 +28,6 @@ struct MsgGeometry_
     : header()
     , major_axis(0.0)
     , minor_axis(0.0)
-    , circle_diameter(0.0)
     , orientation(0.0)
     , x(0.0)
     , y(0.0)
@@ -38,7 +37,6 @@ struct MsgGeometry_
     : header(_alloc)
     , major_axis(0.0)
     , minor_axis(0.0)
-    , circle_diameter(0.0)
     , orientation(0.0)
     , x(0.0)
     , y(0.0)
@@ -56,9 +54,6 @@ struct MsgGeometry_
 
    typedef float _minor_axis_type;
   _minor_axis_type minor_axis;
-
-   typedef float _circle_diameter_type;
-  _circle_diameter_type circle_diameter;
 
    typedef float _orientation_type;
   _orientation_type orientation;
@@ -104,7 +99,6 @@ bool operator==(const ::camera_measures::MsgGeometry_<ContainerAllocator1> & lhs
   return lhs.header == rhs.header &&
     lhs.major_axis == rhs.major_axis &&
     lhs.minor_axis == rhs.minor_axis &&
-    lhs.circle_diameter == rhs.circle_diameter &&
     lhs.orientation == rhs.orientation &&
     lhs.x == rhs.x &&
     lhs.y == rhs.y &&
@@ -165,12 +159,12 @@ struct MD5Sum< ::camera_measures::MsgGeometry_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "b591f4599791fbd2dc5c964bbb9d1b55";
+    return "3adfca161cefb9cf304720422e5ec87c";
   }
 
   static const char* value(const ::camera_measures::MsgGeometry_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xb591f4599791fbd2ULL;
-  static const uint64_t static_value2 = 0xdc5c964bbb9d1b55ULL;
+  static const uint64_t static_value1 = 0x3adfca161cefb9cfULL;
+  static const uint64_t static_value2 = 0x304720422e5ec87cULL;
 };
 
 template<class ContainerAllocator>
@@ -192,7 +186,7 @@ struct Definition< ::camera_measures::MsgGeometry_<ContainerAllocator> >
     return "Header header\n"
 "float32 major_axis\n"
 "float32 minor_axis\n"
-"float32 circle_diameter\n"
+"# float32 circle_diameter\n"
 "float32 orientation\n"
 "float32 x\n"
 "float32 y\n"
@@ -234,7 +228,6 @@ namespace serialization
       stream.next(m.header);
       stream.next(m.major_axis);
       stream.next(m.minor_axis);
-      stream.next(m.circle_diameter);
       stream.next(m.orientation);
       stream.next(m.x);
       stream.next(m.y);
@@ -264,8 +257,6 @@ struct Printer< ::camera_measures::MsgGeometry_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.major_axis);
     s << indent << "minor_axis: ";
     Printer<float>::stream(s, indent + "  ", v.minor_axis);
-    s << indent << "circle_diameter: ";
-    Printer<float>::stream(s, indent + "  ", v.circle_diameter);
     s << indent << "orientation: ";
     Printer<float>::stream(s, indent + "  ", v.orientation);
     s << indent << "x: ";

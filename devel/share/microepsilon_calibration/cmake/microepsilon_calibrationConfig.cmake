@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(microepsilon_calibration_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_calibration/common/include;/usr/local/include/mescan " STREQUAL " ")
+if(NOT "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_calibration/common/include;/usr/local/include/mescan;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include " STREQUAL " ")
   set(microepsilon_calibration_INCLUDE_DIRS "")
-  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_calibration/common/include;/usr/local/include/mescan")
+  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_calibration/common/include;/usr/local/include/mescan;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "/home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_cal
   endforeach()
 endif()
 
-set(libraries "microepsilon_calibration;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so")
+set(libraries "microepsilon_calibration;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;aravis-0.6;m;gio-2.0;gobject-2.0;xml2;gthread-2.0;glib-2.0")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/ROS_Academy/devel/lib;/home/chenlequn/Quad_Robot_Schaeffler/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/ABB_industrial/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/Desktop/map_gui_ws/devel/lib;/home/chenlequn/ROS_Academy/devel/lib;/home/chenlequn/Quad_Robot_Schaeffler/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/ABB_industrial/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

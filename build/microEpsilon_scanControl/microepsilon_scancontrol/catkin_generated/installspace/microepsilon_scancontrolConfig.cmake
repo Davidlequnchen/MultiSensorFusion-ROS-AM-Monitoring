@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/ROS_Academy/devel/lib;/home/chenlequn/Quad_Robot_Schaeffler/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/ABB_industrial/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/Desktop/map_gui_ws/devel/lib;/home/chenlequn/ROS_Academy/devel/lib;/home/chenlequn/Quad_Robot_Schaeffler/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/ABB_industrial/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(microepsilon_scancontrol_EXPORTED_TARGETS "")
+set(microepsilon_scancontrol_EXPORTED_TARGETS "microepsilon_scancontrol_generate_messages_cpp;microepsilon_scancontrol_generate_messages_eus;microepsilon_scancontrol_generate_messages_lisp;microepsilon_scancontrol_generate_messages_nodejs;microepsilon_scancontrol_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${microepsilon_scancontrol_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${microepsilon_scancontrol_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;sensor_msgs;std_srvs;std_msgs")
+set(depends "roscpp;sensor_msgs;std_srvs;std_msgs;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   list(APPEND microepsilon_scancontrol_EXPORTED_TARGETS ${${microepsilon_scancontrol_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "microepsilon_scancontrol-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${microepsilon_scancontrol_DIR}/${extra})

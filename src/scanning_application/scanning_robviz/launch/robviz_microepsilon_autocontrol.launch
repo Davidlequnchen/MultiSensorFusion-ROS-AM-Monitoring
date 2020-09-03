@@ -1,0 +1,21 @@
+<launch>
+    <arg name="gui" default="true" />
+    <arg name="sim" default="false" /> 
+    
+    <rosparam command="load" file="$(find scanning_robviz)/config/params.yaml" />
+
+    <include file="$(find microepsilon_workcell)/launch/workcell_autocontrol.launch">
+      <arg name="gui"  value="false" />
+      <arg name="sim" value="$(arg sim)" />
+    </include>
+
+    <node name="cloud_transform" pkg="point_cloud_scanning" type="nd_cloud" respawn="true" />
+
+    <node name="robviz" pkg="scanning_robviz" type="rob_scanning_visualization.py"/>
+    
+    <!-- <include file="$(find camera_measures)/launch/velocity_measures.launch"> -->
+    <!-- <arg name="gui" value="$(arg gui)" />
+    </include> -->
+
+
+</launch>

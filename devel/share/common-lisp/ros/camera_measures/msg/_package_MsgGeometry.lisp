@@ -5,8 +5,6 @@
           MAJOR_AXIS
           MINOR_AXIS-VAL
           MINOR_AXIS
-          CIRCLE_DIAMETER-VAL
-          CIRCLE_DIAMETER
           ORIENTATION-VAL
           ORIENTATION
           X-VAL

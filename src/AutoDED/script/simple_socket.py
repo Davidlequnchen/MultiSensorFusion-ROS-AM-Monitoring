@@ -41,10 +41,17 @@ class SimpleConnection():
         #self.log.debug('%-14s recieved: %s', caller, data)
         return data
     
-    def recv(self):
-        data = self.s.recv(1024)
-        return data
-
+    def read_command(self):
+        try:
+            data = self.s.recv(1024)
+            self.command_received = data
+            
+            return True
+        
+        except socket.error, e:
+            return False
+            
+       
     def estab_connect(self,remote):
         self.log.info('Attempting to connect to server at %s', str(remote))
         self.s.settimeout(2.5)
@@ -53,6 +60,7 @@ class SimpleConnection():
         except Exception as e: 
             self.log.error("something's wrong with %s:%d. Exception is %s" % (remote, PORT, e))
         self.s.settimeout(None)
+        self.command_received = None
         self.log.info('Successfully connected to server at %s', str(remote))
         print ('Successfully connected to server at %s', str(remote))
 
@@ -72,7 +80,7 @@ class SimpleConnection():
 
 
 
-
+'''
 connection = SimpleConnection()
 connection.estab_connect(laser_ip)
 
@@ -89,3 +97,4 @@ while True:
     # read the message
     print("command received: ")
     print(recved.decode())
+'''

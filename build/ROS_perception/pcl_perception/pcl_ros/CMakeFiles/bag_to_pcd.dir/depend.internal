@@ -52,6 +52,7 @@ ROS_perception/pcl_perception/pcl_ros/CMakeFiles/bag_to_pcd.dir/tools/bag_to_pcd
  /opt/ros/melodic/include/ros/forwards.h
  /opt/ros/melodic/include/ros/header.h
  /opt/ros/melodic/include/ros/init.h
+ /opt/ros/melodic/include/ros/internal/condition_variable.h
  /opt/ros/melodic/include/ros/macros.h
  /opt/ros/melodic/include/ros/master.h
  /opt/ros/melodic/include/ros/message.h

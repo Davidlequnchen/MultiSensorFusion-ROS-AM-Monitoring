@@ -38,6 +38,7 @@ ROS_perception/pcl_perception/pcl_ros/CMakeFiles/pcl_ros_tf.dir/src/transforms.c
  /opt/ros/melodic/include/ros/exceptions.h
  /opt/ros/melodic/include/ros/forwards.h
  /opt/ros/melodic/include/ros/init.h
+ /opt/ros/melodic/include/ros/internal/condition_variable.h
  /opt/ros/melodic/include/ros/macros.h
  /opt/ros/melodic/include/ros/master.h
  /opt/ros/melodic/include/ros/message.h

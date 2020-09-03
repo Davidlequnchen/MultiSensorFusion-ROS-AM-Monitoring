@@ -42,4 +42,7 @@ Example:  <code> a20x40_wo_profile.mod</code>
 - __mode 0__ Idle mode, __mode 1__ -- Laser control, __mode 2__-- surface scanning
 - Use ROS service On/off switch to switch between the modes
 #### 2.2 __microEpsilon_scanControl__
+
+- Add a separate C++ ROS node program ___microepsilon_scancontrol_node_AutoDED.cpp___ in the <code>microepsilon_scancontrol</code> folder 
+
 #### 2.3 __simtech_robot_laser_control__

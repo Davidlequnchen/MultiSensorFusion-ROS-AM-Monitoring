@@ -636,6 +636,162 @@ run_tests_camera_calibration_nosetests_test.multiple_boards.py/fast:
 .PHONY : run_tests_camera_calibration_nosetests_test.multiple_boards.py/fast
 
 #=============================================================================
+# Target rules for targets named auto_control_geneus
+
+# Build rule for target.
+auto_control_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_geneus
+.PHONY : auto_control_geneus
+
+# fast build rule for target.
+auto_control_geneus/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_geneus.dir/build.make AutoDED/CMakeFiles/auto_control_geneus.dir/build
+.PHONY : auto_control_geneus/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_generate_messages
+
+# Build rule for target.
+auto_control_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_generate_messages
+.PHONY : auto_control_generate_messages
+
+# fast build rule for target.
+auto_control_generate_messages/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_generate_messages.dir/build.make AutoDED/CMakeFiles/auto_control_generate_messages.dir/build
+.PHONY : auto_control_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_generate_messages_cpp
+
+# Build rule for target.
+auto_control_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_generate_messages_cpp
+.PHONY : auto_control_generate_messages_cpp
+
+# fast build rule for target.
+auto_control_generate_messages_cpp/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_generate_messages_cpp.dir/build.make AutoDED/CMakeFiles/auto_control_generate_messages_cpp.dir/build
+.PHONY : auto_control_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_gencpp
+
+# Build rule for target.
+auto_control_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_gencpp
+.PHONY : auto_control_gencpp
+
+# fast build rule for target.
+auto_control_gencpp/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_gencpp.dir/build.make AutoDED/CMakeFiles/auto_control_gencpp.dir/build
+.PHONY : auto_control_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_generate_messages_eus
+
+# Build rule for target.
+auto_control_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_generate_messages_eus
+.PHONY : auto_control_generate_messages_eus
+
+# fast build rule for target.
+auto_control_generate_messages_eus/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_generate_messages_eus.dir/build.make AutoDED/CMakeFiles/auto_control_generate_messages_eus.dir/build
+.PHONY : auto_control_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_generate_messages_lisp
+
+# Build rule for target.
+auto_control_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_generate_messages_lisp
+.PHONY : auto_control_generate_messages_lisp
+
+# fast build rule for target.
+auto_control_generate_messages_lisp/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_generate_messages_lisp.dir/build.make AutoDED/CMakeFiles/auto_control_generate_messages_lisp.dir/build
+.PHONY : auto_control_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_genlisp
+
+# Build rule for target.
+auto_control_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_genlisp
+.PHONY : auto_control_genlisp
+
+# fast build rule for target.
+auto_control_genlisp/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_genlisp.dir/build.make AutoDED/CMakeFiles/auto_control_genlisp.dir/build
+.PHONY : auto_control_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_generate_messages_py
+
+# Build rule for target.
+auto_control_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_generate_messages_py
+.PHONY : auto_control_generate_messages_py
+
+# fast build rule for target.
+auto_control_generate_messages_py/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_generate_messages_py.dir/build.make AutoDED/CMakeFiles/auto_control_generate_messages_py.dir/build
+.PHONY : auto_control_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_generate_messages_nodejs
+
+# Build rule for target.
+auto_control_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_generate_messages_nodejs
+.PHONY : auto_control_generate_messages_nodejs
+
+# fast build rule for target.
+auto_control_generate_messages_nodejs/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_generate_messages_nodejs.dir/build.make AutoDED/CMakeFiles/auto_control_generate_messages_nodejs.dir/build
+.PHONY : auto_control_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named _auto_control_generate_messages_check_deps_MsgCommand
+
+# Build rule for target.
+_auto_control_generate_messages_check_deps_MsgCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _auto_control_generate_messages_check_deps_MsgCommand
+.PHONY : _auto_control_generate_messages_check_deps_MsgCommand
+
+# fast build rule for target.
+_auto_control_generate_messages_check_deps_MsgCommand/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/_auto_control_generate_messages_check_deps_MsgCommand.dir/build.make AutoDED/CMakeFiles/_auto_control_generate_messages_check_deps_MsgCommand.dir/build
+.PHONY : _auto_control_generate_messages_check_deps_MsgCommand/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_genpy
+
+# Build rule for target.
+auto_control_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_genpy
+.PHONY : auto_control_genpy
+
+# fast build rule for target.
+auto_control_genpy/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_genpy.dir/build.make AutoDED/CMakeFiles/auto_control_genpy.dir/build
+.PHONY : auto_control_genpy/fast
+
+#=============================================================================
+# Target rules for targets named auto_control_gennodejs
+
+# Build rule for target.
+auto_control_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auto_control_gennodejs
+.PHONY : auto_control_gennodejs
+
+# fast build rule for target.
+auto_control_gennodejs/fast:
+	$(MAKE) -f AutoDED/CMakeFiles/auto_control_gennodejs.dir/build.make AutoDED/CMakeFiles/auto_control_gennodejs.dir/build
+.PHONY : auto_control_gennodejs/fast
+
+#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_py
 
 # Build rule for target.
@@ -3912,17 +4068,173 @@ defects_identification_genpy/fast:
 .PHONY : defects_identification_genpy/fast
 
 #=============================================================================
-# Target rules for targets named microepsilon_scancontrol_node
+# Target rules for targets named microepsilon_scancontrol_geneus
 
 # Build rule for target.
-microepsilon_scancontrol_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_node
-.PHONY : microepsilon_scancontrol_node
+microepsilon_scancontrol_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_geneus
+.PHONY : microepsilon_scancontrol_geneus
 
 # fast build rule for target.
-microepsilon_scancontrol_node/fast:
-	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_node.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_node.dir/build
-.PHONY : microepsilon_scancontrol_node/fast
+microepsilon_scancontrol_geneus/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_geneus.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_geneus.dir/build
+.PHONY : microepsilon_scancontrol_geneus/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_generate_messages
+
+# Build rule for target.
+microepsilon_scancontrol_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_generate_messages
+.PHONY : microepsilon_scancontrol_generate_messages
+
+# fast build rule for target.
+microepsilon_scancontrol_generate_messages/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages.dir/build
+.PHONY : microepsilon_scancontrol_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_generate_messages_eus
+
+# Build rule for target.
+microepsilon_scancontrol_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_generate_messages_eus
+.PHONY : microepsilon_scancontrol_generate_messages_eus
+
+# fast build rule for target.
+microepsilon_scancontrol_generate_messages_eus/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_eus.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_eus.dir/build
+.PHONY : microepsilon_scancontrol_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_gencpp
+
+# Build rule for target.
+microepsilon_scancontrol_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_gencpp
+.PHONY : microepsilon_scancontrol_gencpp
+
+# fast build rule for target.
+microepsilon_scancontrol_gencpp/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_gencpp.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_gencpp.dir/build
+.PHONY : microepsilon_scancontrol_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_generate_messages_cpp
+
+# Build rule for target.
+microepsilon_scancontrol_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_generate_messages_cpp
+.PHONY : microepsilon_scancontrol_generate_messages_cpp
+
+# fast build rule for target.
+microepsilon_scancontrol_generate_messages_cpp/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_cpp.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_cpp.dir/build
+.PHONY : microepsilon_scancontrol_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named cloud_transformation_node
+
+# Build rule for target.
+cloud_transformation_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cloud_transformation_node
+.PHONY : cloud_transformation_node
+
+# fast build rule for target.
+cloud_transformation_node/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/cloud_transformation_node.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/cloud_transformation_node.dir/build
+.PHONY : cloud_transformation_node/fast
+
+#=============================================================================
+# Target rules for targets named _microepsilon_scancontrol_generate_messages_check_deps_MsgCommand
+
+# Build rule for target.
+_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _microepsilon_scancontrol_generate_messages_check_deps_MsgCommand
+.PHONY : _microepsilon_scancontrol_generate_messages_check_deps_MsgCommand
+
+# fast build rule for target.
+_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand.dir/build
+.PHONY : _microepsilon_scancontrol_generate_messages_check_deps_MsgCommand/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_generate_messages_lisp
+
+# Build rule for target.
+microepsilon_scancontrol_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_generate_messages_lisp
+.PHONY : microepsilon_scancontrol_generate_messages_lisp
+
+# fast build rule for target.
+microepsilon_scancontrol_generate_messages_lisp/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_lisp.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_lisp.dir/build
+.PHONY : microepsilon_scancontrol_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_genlisp
+
+# Build rule for target.
+microepsilon_scancontrol_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_genlisp
+.PHONY : microepsilon_scancontrol_genlisp
+
+# fast build rule for target.
+microepsilon_scancontrol_genlisp/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_genlisp.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_genlisp.dir/build
+.PHONY : microepsilon_scancontrol_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_genpy
+
+# Build rule for target.
+microepsilon_scancontrol_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_genpy
+.PHONY : microepsilon_scancontrol_genpy
+
+# fast build rule for target.
+microepsilon_scancontrol_genpy/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_genpy.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_genpy.dir/build
+.PHONY : microepsilon_scancontrol_genpy/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_generate_messages_nodejs
+
+# Build rule for target.
+microepsilon_scancontrol_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_generate_messages_nodejs
+.PHONY : microepsilon_scancontrol_generate_messages_nodejs
+
+# fast build rule for target.
+microepsilon_scancontrol_generate_messages_nodejs/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_nodejs.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_nodejs.dir/build
+.PHONY : microepsilon_scancontrol_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_gennodejs
+
+# Build rule for target.
+microepsilon_scancontrol_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_gennodejs
+.PHONY : microepsilon_scancontrol_gennodejs
+
+# fast build rule for target.
+microepsilon_scancontrol_gennodejs/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_gennodejs.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_gennodejs.dir/build
+.PHONY : microepsilon_scancontrol_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_generate_messages_py
+
+# Build rule for target.
+microepsilon_scancontrol_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_generate_messages_py
+.PHONY : microepsilon_scancontrol_generate_messages_py
+
+# fast build rule for target.
+microepsilon_scancontrol_generate_messages_py/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_py.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_generate_messages_py.dir/build
+.PHONY : microepsilon_scancontrol_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named microepsilon_scancontrol
@@ -3938,17 +4250,30 @@ microepsilon_scancontrol/fast:
 .PHONY : microepsilon_scancontrol/fast
 
 #=============================================================================
-# Target rules for targets named cloud_transformation_node
+# Target rules for targets named microepsilon_scancontrol_node
 
 # Build rule for target.
-cloud_transformation_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cloud_transformation_node
-.PHONY : cloud_transformation_node
+microepsilon_scancontrol_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_node
+.PHONY : microepsilon_scancontrol_node
 
 # fast build rule for target.
-cloud_transformation_node/fast:
-	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/cloud_transformation_node.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/cloud_transformation_node.dir/build
-.PHONY : cloud_transformation_node/fast
+microepsilon_scancontrol_node/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_node.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_node.dir/build
+.PHONY : microepsilon_scancontrol_node/fast
+
+#=============================================================================
+# Target rules for targets named microepsilon_scancontrol_node_AutoDED
+
+# Build rule for target.
+microepsilon_scancontrol_node_AutoDED: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 microepsilon_scancontrol_node_AutoDED
+.PHONY : microepsilon_scancontrol_node_AutoDED
+
+# fast build rule for target.
+microepsilon_scancontrol_node_AutoDED/fast:
+	$(MAKE) -f microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_node_AutoDED.dir/build.make microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/microepsilon_scancontrol_node_AutoDED.dir/build
+.PHONY : microepsilon_scancontrol_node_AutoDED/fast
 
 #=============================================================================
 # Target rules for targets named nd_cloud
@@ -4259,6 +4584,18 @@ help:
 	@echo "... camera_calibration.tar.gz"
 	@echo "... _run_tests_camera_calibration_nosetests_test.multiple_boards.py"
 	@echo "... run_tests_camera_calibration_nosetests_test.multiple_boards.py"
+	@echo "... auto_control_geneus"
+	@echo "... auto_control_generate_messages"
+	@echo "... auto_control_generate_messages_cpp"
+	@echo "... auto_control_gencpp"
+	@echo "... auto_control_generate_messages_eus"
+	@echo "... auto_control_generate_messages_lisp"
+	@echo "... auto_control_genlisp"
+	@echo "... auto_control_generate_messages_py"
+	@echo "... auto_control_generate_messages_nodejs"
+	@echo "... _auto_control_generate_messages_check_deps_MsgCommand"
+	@echo "... auto_control_genpy"
+	@echo "... auto_control_gennodejs"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_cpp"
@@ -4511,9 +4848,22 @@ help:
 	@echo "... defects_identification_genlisp"
 	@echo "... defects_identification_generate_messages_nodejs"
 	@echo "... defects_identification_genpy"
-	@echo "... microepsilon_scancontrol_node"
-	@echo "... microepsilon_scancontrol"
+	@echo "... microepsilon_scancontrol_geneus"
+	@echo "... microepsilon_scancontrol_generate_messages"
+	@echo "... microepsilon_scancontrol_generate_messages_eus"
+	@echo "... microepsilon_scancontrol_gencpp"
+	@echo "... microepsilon_scancontrol_generate_messages_cpp"
 	@echo "... cloud_transformation_node"
+	@echo "... _microepsilon_scancontrol_generate_messages_check_deps_MsgCommand"
+	@echo "... microepsilon_scancontrol_generate_messages_lisp"
+	@echo "... microepsilon_scancontrol_genlisp"
+	@echo "... microepsilon_scancontrol_genpy"
+	@echo "... microepsilon_scancontrol_generate_messages_nodejs"
+	@echo "... microepsilon_scancontrol_gennodejs"
+	@echo "... microepsilon_scancontrol_generate_messages_py"
+	@echo "... microepsilon_scancontrol"
+	@echo "... microepsilon_scancontrol_node"
+	@echo "... microepsilon_scancontrol_node_AutoDED"
 	@echo "... nd_cloud"
 	@echo "... nd_height"
 	@echo "... nd_subprocess_handler"

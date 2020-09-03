@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="gui" default="true" />
+    <arg name="sim" default="false" />
+
+
+     <!-- open the microepsilon robviz (the microepsilon drive + visualization GUI) -->
+     <include file="$(find scanning_robviz)/launch/robviz_microepsilon_autocontrol.launch"/>
+
+     <!-- open the pid-vrft auto control algorithm -->
+     <include file="$(find simtech_robot_laser_control)/launch/vrft_adaptive_autocontrol.launch"/>
+
+
+
+    <node pkg="auto_control" type="main.py" name="main_task" />
+    <!-- <node pkg="auto_control" type="main_test.py" name="main_task" /> -->
+
+    
+
+    
+
+
+</launch>
