@@ -270,56 +270,7 @@ int main(int argc, char** argv)
 
 
 
-  // method 1----------------------------------------------------------                                     
-  // bool scanning = scanner.startScanning();
-  // // while ros is NOT shutdown but is not scanning
-  // while (!scanning && !ros::isShuttingDown())
-  // {
-  //   ROS_ERROR("Couldn't start scanning. Reconnecting!");
-  //   scanner.reconnect();
-  //   scanning = scanner.startScanning();
-  // }
-  // ROS_INFO("Started scanning.");
-
-
-
-  // ros::spin();
-  // // ros::AsyncSpinner spinner( 6 );
-  // // spinner.start();
-  // ros::waitForShutdown();
-  // scanner.stopScanning();
-  // return 0;
   
-
-
- // method 2 --------------------------------------------
-  // ros::Rate loop_rate(30);
-
-  // while (!ros::isShuttingDown())
-  // {
-  //   if (scanner.is_active == false){
-  //     // if the service is not active, then directly sleep without doing anything (do not turn on sensor)
-  //     scanner.stopScanning();
-  //     scanner.setLaserPower(false);
-  //     // ROS_INFO("Scanning stopped.");
-  //   }
-  //   else{
-  //     bool scanning = scanner.startScanning();
-
-  //     if (!scanning){
-  //       ROS_ERROR("Couldn't start scanning. Reconnecting!");
-  //       scanner.reconnect();
-  //       scanner.setLaserPower(true);
-  //       scanning = scanner.startScanning();
-  //     }
-  //     loop_rate.sleep();
-  //     // ROS_INFO("Started scanning.");
-  //   }
-
-  //   // ros::spinOnce(); 
-  //   // loop_rate.sleep();
-
-  // }
 
 
 // method 3------------------------------------------------------------------------------------

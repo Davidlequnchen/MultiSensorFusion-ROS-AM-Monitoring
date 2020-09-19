@@ -18,7 +18,7 @@ class SimpleConnection():
 
     def __init__(self):
         #self.control = True
-        self.delay = .08
+        self.delay = .01
         # define a socket object(client) for data transmission
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.log = logging.getLogger(__name__)
@@ -37,9 +37,13 @@ class SimpleConnection():
         time.sleep(self.delay)
 
 
-        data = self.s.recv(1024)
+        data = self.s.recv(512)
         #self.log.debug('%-14s recieved: %s', caller, data)
         return data
+    
+    def set_defects_result(self, send_defects, response=True):
+        msg = (send_defects).encode('utf-8')
+        return self.send(msg, response)
     
     def read_command(self):
         try:

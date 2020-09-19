@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: proper_jason
+Description: Description of proper_jason
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

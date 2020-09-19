@@ -4,7 +4,7 @@
 
 
   <!-- define the powder, process, material parameters -->
-  <rosparam command="load" file="$(find simtech_robot_laser_control)/config/params.yaml" />
+  <!-- <rosparam command="load" file="$(find simtech_robot_laser_control)/config/params.yaml" /> -->
   <!-- parameter robot model and robot interface(motion and state) nodes and parameters -->
   <!-- <arg name="model" default="$(find simtech_robot_laser_control)/urdf/workcell.xacro" /> -->
 

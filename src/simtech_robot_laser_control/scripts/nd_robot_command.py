@@ -31,8 +31,8 @@ class NdRobotServer():
         feeder_type = rospy.get_param('~feeder_type', 'powder')
         self.server_robot = ServerRobot()
         self.server_robot.connect(robot_ip)
-        print self.server_robot.set_laser_type(laser_type)
-        print self.server_robot.set_feeder_type(feeder_type)
+        print (self.server_robot.set_laser_type(laser_type))
+        print (self.server_robot.set_feeder_type(feeder_type))
 
         rospy.on_shutdown(self.server_robot.disconnect)
         rospy.spin()
@@ -47,7 +47,7 @@ class NdRobotServer():
             response = self.process_command(command)
             return SrvRobotCommandResponse(response)
         except ValueError, e:
-            print "Command is not json", e
+            print ("Command is not json", e)
             return SrvRobotCommandResponse("NOK")
 
     def process_command(self, command):
@@ -80,6 +80,9 @@ class NdRobotServer():
                 return self.server_robot.zone_set(command[cmd])      # set_zone z0 or fine
             elif cmd == 'setpower':
                 return self.server_robot.laser_power(command[cmd])
+            
+            elif cmd == 'motion_complete':
+                return self.server_robot.set_motion_complete(command[cmd])
 
             elif cmd == 'wire':
                 return self.server_robot.wire_set(command[cmd])
@@ -103,7 +106,7 @@ class NdRobotServer():
                 return self.server_robot.reset_wire()
             else:
                 return 'ERR_COMMAND'
-                print 'Unknown command:', cmd
+                print ('Unknown command:', cmd)
 
 
 if __name__ == '__main__':

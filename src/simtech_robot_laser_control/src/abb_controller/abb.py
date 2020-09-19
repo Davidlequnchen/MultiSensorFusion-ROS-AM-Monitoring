@@ -191,6 +191,13 @@ class Robot:
             msg = '1000104 #'
             return self.send(msg, response)
 
+    def json_motion_complete(self, motion_complete, response=True):
+        if motion_complete == 1: # the motion is complete
+            msg = "20201 #"
+            return self.send(msg, response)
+        else:
+            msg = "20202 #" # the motion is not complete (false)
+            return self.send(msg, response)
 
 
     def get_cartesian(self):

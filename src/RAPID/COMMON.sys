@@ -1,0 +1,78 @@
+MODULE SERVER_common(SYSMODULE)
+
+!//Robot configuration
+!claddingheadUser
+PERS tooldata currentTool := [TRUE,[[3.56212,272.158,172.892],[0.675046,-0.702717,0.155681,-0.162063]],[30,[0,200,0],[1,0,0,0],0,0,0]];
+!PERS wobjdata currentWobj := [FALSE,TRUE,"",[[-1472.25,-1273.96,233.48],[1,0,0,0]],[[1655,-87,932],[1,0,0,0]]];
+!PERS tooldata currentTool := [TRUE,[[3.56212, 27],[0.675046,-0.702717,0.155681,-0.162063]],[0.001,[0,0,0.001],[1,0,0,0],0,0,0]];
+PERS wobjdata currentWobj := [FALSE,TRUE,"",[[0,0,0],[1,0,0,0]],[[0,0,0],[1,0,0,0]]];
+! PERS tooldata claddinghead:=[TRUE,[[2.785,271.833,174.487],[0.00000000,0.00000000,1.00000000,0.00000000]],[30,[0,200,0],[1,0,0,0],0,0,0]];
+!        Part origin (part origin position relative to robot base)
+! PERS wobjdata wDelcam1:=[FALSE,TRUE,"",[[1202.3,88.6,1000],[1,0,0,0]],[[0,0,0],[1,0,0,0]]];
+PERS speeddata currentSpeed;
+PERS zonedata currentZone;
+PERS tooldata tPincho:=[TRUE,[[258.255,39.554,343.395],[1,0,0,0]],[5,[50,0,150],[1,0,0,0],1,1,1]];
+PERS wobjdata wMesa:=[FALSE,TRUE,"",[[1753,14.7086,929.897],[0.714138,1.04554E-05,-0.00401276,0.699993]],[[0,0,0],[1,0,0,0]]];
+
+
+!// Clock Synchronization
+PERS bool startLog:=TRUE;
+PERS bool startRob:=TRUE;
+
+PERS string ipController:= "192.168.125.1"; !robot default IP
+!PERS string ipController:= "172.20.0.100"; !local IP for testing in simulation
+!PERS num serverPort:= 11000;
+PERS bool joints_notcartesians:= TRUE;
+
+!//Motion of the robot
+CONST num max_cartesian := 50;
+PERS num n_cartesian_motion := 1;
+PERS num n_cartesian_command := 1;
+PERS num command_type{max_cartesian};
+PERS robtarget cartesianTarget{max_cartesian};
+PERS speeddata cartesian_speed{max_cartesian};
+PERS bool moveCompleted; !Set to true after finishing a Move instruction.
+PERS bool cartesianTriggSet{max_cartesian};
+PERS bool commandSetDO{max_cartesian};
+PERS num numBufferAux{max_cartesian};
+PERS num extAxisMove{max_cartesian};
+
+!//Control of the laser
+!PERS triggdata laserON;
+!PERS triggdata laserOFF;
+PERS num laser_conf:=0;
+PERS num feeder_conf:=0;
+
+!// routine_command: this variable indicates which modes the program is in
+!// default: 0 (idle mode, do nothing) 1: scanning, 2: adaptive pid control
+!// used in both a20x40_wo_profile and Socket_routine
+PERS num routine_command :=0;
+!// is_defects is used in a20x40_wo_profile.mod to trigger the function SERVER_motion() execution when it is set true
+!// it is set in Socket_routine.mod, which is a tcp socket, value is got from PC side.
+PERS bool is_defects := TRUE;
+!// path_finished variable is to indicate whether the generated JSON command path is completed
+!// while path_fihished is false, the SERVER_motion  
+!// will stay in the while loop to wait for the new motion command to execute
+!// path_finished should be set by SERVER_command.mod, which is a signal issued from the PC 
+!// indicate the start and end of the execution of path
+PERS bool path_finished :=FALSE;
+
+
+!//External axis position variables
+PERS extjoint externalAxis;
+
+!//Circular move buffer
+PERS robtarget circPoint;
+
+
+!// Mutex between logger and changing the tool and work objects
+PERS bool frameMutex:=FALSE;
+PERS bool connectMutex := FALSE;
+
+
+PERS bool trajectory_lock := FALSE;
+PERS bool new_trajectory := FALSE;
+PERS bool cancel_motion := FALSE;
+VAR extjoint extjointCero:=[9E+09,0,0,9E+09,9E+09,9E+09];
+
+ENDMODULE

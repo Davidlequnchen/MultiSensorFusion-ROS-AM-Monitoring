@@ -107,32 +107,17 @@ def main():
     # cmd_publisher_.publish(command_message)
     
     
-    rate = rospy.Rate(60)
+    rate = rospy.Rate(10)
     while not rospy.is_shutdown():
     # while True:
-        recved = connection.s.recv(512)
+        # recved = connection.s.recv(512)
+        recved = connection.set_defects_result("1.0")
         
         # print (recved.decode())   #------------------verified can
         recved = float(recved.decode()) # change the data from string to float number
         # print ("command received")  #------------------verified can
         
-        # command_changed = check_command_change(recved)
         
-        
-        # if command_changed:
-            
-        #     if recved == 0.0:
-        #         change_state(0)
-        #         print("current state is idle")
-        #     elif recved == 1.0:
-        #         change_state(1)
-        #         print ("current state is scanning")
-        #     elif recved == 2.0:
-        #         change_state(2)
-        #         print ("current state is control")
-        #     else:
-        #         change_state(0)
-            
         command_message.command = recved
         cmd_publisher_.publish(command_message)
             

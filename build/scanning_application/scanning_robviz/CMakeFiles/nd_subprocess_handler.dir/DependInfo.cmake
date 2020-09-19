@@ -23,8 +23,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/local/include/vtk-7.1"
   "/home/chenlequn/SIMTech_ws/devel/include"
+  "/usr/local/include/vtk-7.1"
   "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_ros/include"
   "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_perception/pcl_conversions/include"
   "/opt/ros/melodic/include"

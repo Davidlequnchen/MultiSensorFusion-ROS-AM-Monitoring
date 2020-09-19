@@ -1,0 +1,7 @@
+set(motion_planning_jason_SETUP_PY_SETUP_MODULE "distutils.core")
+set(motion_planning_jason_SETUP_PY_VERSION "0.4.0")
+set(motion_planning_jason_SETUP_PY_SCRIPTS "")
+set(motion_planning_jason_SETUP_PY_PACKAGES "jason;planning")
+set(motion_planning_jason_SETUP_PY_PACKAGE_DIRS "src/jason;src/planning")
+set(motion_planning_jason_SETUP_PY_MODULES "")
+set(motion_planning_jason_SETUP_PY_MODULE_DIRS "")

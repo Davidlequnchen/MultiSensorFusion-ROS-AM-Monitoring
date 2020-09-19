@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<robot name="simtech_workcell" xmlns:xacro="http://ros.org/wiki/xacro">
+  <property name="pi" value="3.141592654" />
+
+  <xacro:property name="tcp_frame">
+    <origin xyz="0.002785 0.271833 0.174487" rpy="-${pi} 0.0 -${pi}" />
+    <!--origin xyz="3.56212 272.158 172.892" rpy="-1.6109588 0.4533203 -7e-7" /-->
+    <!--origin xyz="0.24646 -0.02439 0.433932" rpy="${pi} -1.047197555 ${pi}" /-->
+  </xacro:property>
+
+  <xacro:property name="workobject_frame">
+    <origin xyz="-1.47225 -1.27396 0.23348" rpy="0 0 0" />
+    <!--origin xyz="0 0 0" rpy="0 0 0" /-->
+    <!--<origin xyz="-0.19128875 0.19347143 0.10301394" rpy="-0.005628050440181059 0.005713681035339754 -1.5507089198045247" />-->
+  </xacro:property>
+
+  <!-- xacro:property name="camera_frame"-->
+    <!--origin xyz="0.2593  0.1265 -0.0073" rpy="-1.531686220600927 -0.013933220259962117 -2.2243073317011355" /-->
+  <!--/xacro:property-->
+
+  <!-- Robot cell -->
+  <xacro:include filename="$(find simtech_workcell)/urdf/workcell.xacro"/>
+
+  <joint name="workcell" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.067" rpy="0 0 0" />
+  </joint>
+
+  <!-- Head -->
+  <xacro:include filename="$(find simtech_robot_laser_control)/urdf/head.xacro"/>
+
+  <joint name="head0" type="fixed">
+    <parent link="tool0"/>
+    <child link="head0"/>
+    <origin xyz="0.14633243 -0.083423 0.172" rpy="${radians(0)} ${radians(180)} 0" />
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- TCP -->
+  <link name="tcp0"/>
+  <joint name="tcp0" type="fixed">
+    <parent link="tool0"/>
+    <child link="tcp0"/>
+    <xacro:insert_block name="tcp_frame" />
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Workobject -->
+  <link name="workobject" />
+
+  <joint name="workobject" type="fixed">
+    <parent link="base_link" />
+    <!--<parent link="irbp_a250/tool0"/>-->
+    <child link="workobject" />
+    <xacro:insert_block name="workobject_frame" />
+    <!--<axis xyz="0 0 1"/>-->
+  </joint>
+
+  <!-- Camera -->
+  <!--link name="camera0" /-->
+
+  <!--joint name="camera0" type="fixed"-->
+    <!--parent link="tool0"/-->
+    <!--child link="camera0"/-->
+    <!--xacro:insert_block name="camera_frame" /-->
+  <!--/joint-->
+</robot>

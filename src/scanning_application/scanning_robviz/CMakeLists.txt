@@ -30,10 +30,21 @@ find_package(PCL 1.7.2 REQUIRED)
 # find_package(Qt5Core)
 # find_package(Qt5 REQUIRED Widgets)
 
+add_message_files(
+  FILES
+  MsgCommand.msg
+)
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
 
 ADD_DEFINITIONS      (${QT_DEFINITIONS})
 
-catkin_package()
+catkin_package(
+  CATKIN_DEPENDS roscpp sensor_msgs std_msgs message_runtime
+)
 
 
 include_directories(
@@ -52,3 +63,6 @@ add_definitions     (${PCL_DEFINITIONS})
 
 add_executable(nd_subprocess_handler src/nd_subprocess_handler.cpp)
 target_link_libraries(nd_subprocess_handler ${catkin_LIBRARIES})
+
+add_executable(nd_pcl_processing src/nd_pcl_processing.cpp)
+target_link_libraries(nd_pcl_processing ${catkin_LIBRARIES})

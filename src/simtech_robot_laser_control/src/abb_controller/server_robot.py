@@ -38,8 +38,8 @@ class ServerRobot(Robot):
     def workobject(self, work_obj):
         return self.set_workobject(work_obj)
 
-    def configure(self, filename):
-        print filename
+    # def configure(self, filename):
+    #     print filename
 
     def move(self, pose, movel=True):
         """Linear movement to cartestian coordiantes when movel=True."""
@@ -292,6 +292,8 @@ class ServerRobot(Robot):
         return self.laser_emission_ipg(start_emission)
 
 
+    def set_motion_complete(self, motion):
+        return self.json_motion_complete(motion)
 
 
 

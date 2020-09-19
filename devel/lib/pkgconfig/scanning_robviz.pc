@@ -3,6 +3,6 @@ prefix=/home/chenlequn/SIMTech_ws/devel
 Name: scanning_robviz
 Description: Description of scanning_robviz
 Version: 0.3.0
-Cflags: 
+Cflags: -I/home/chenlequn/SIMTech_ws/devel/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: roscpp sensor_msgs std_msgs message_runtime

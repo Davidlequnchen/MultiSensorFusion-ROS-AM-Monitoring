@@ -31,5 +31,6 @@
   <run_depend>libpcl-all</run_depend>
   <run_depend>sensor_msgs</run_depend>
   <run_depend>pcl_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
   
 </package>

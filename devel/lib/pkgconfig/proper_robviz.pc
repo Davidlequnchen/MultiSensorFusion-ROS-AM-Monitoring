@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: proper_robviz
+Description: Description of proper_robviz
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
