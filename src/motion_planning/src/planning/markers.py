@@ -19,6 +19,7 @@ class ShapeMarker():
         self.set_scale()
         self.set_color()
         self.set_position()
+        self.set_orientation()
 
     def set_frame(self, frame_id):
         self.marker.header.frame_id = frame_id

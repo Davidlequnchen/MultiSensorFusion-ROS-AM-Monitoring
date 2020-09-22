@@ -624,14 +624,17 @@ LOCAL TRAP trap_in_stop_point
   MoveL [[0.000,120.000,90.000],[0.73157410,0.00000000,0.00000000,-0.68176194],[0,0,1,0],[9E9,9E9,9E9,9E9,9E9,9E9]],v10,fine,claddinghead\WObj:=wDelcam1;
   routine_command:=0; ! idle mode 
 
-  WaitTime 10; !// wait for ML and pcl segmentation result: is_defects 
+  WaitTime 5; !// wait for ML and pcl segmentation result: is_defects 
   !// -------------------------------------------------------------------
   !// Defects check: global variable is_defects, which is declared in COMMOM.sys and read by Socket_routine, send by ROS
   !// -------------------------------------------------------------------
   IF is_defects = TRUE THEN
+    path_finished := FALSE;
     Motion_command;  !// if there is defects, call the SERVER_motion function to execute the path planning results(JSON command)
-    WaitTime 10;
+    path_finished := FALSE;
+    WaitTime 5;
   ENDIF
+  
 
   
   ! Move back to interrupted position on the motion base path level

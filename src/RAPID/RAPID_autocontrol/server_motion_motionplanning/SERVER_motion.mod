@@ -173,6 +173,13 @@ PROC Motion_command()
 				CASE 1000104: !Laser end
 					Laser_End;
 
+
+				CASE 20201: !set JOSN motion finish -- path_finished is true 
+					path_finished := TRUE;
+
+				CASE 20202: !set JOSN motion start -- path_finished is false 
+					path_finished := FALSE;
+
 				DEFAULT:
 						TPWrite "SERVER_motion: Illegal instruction code: ", \Num:=command_type{n_cartesian_motion};
 			ENDTEST

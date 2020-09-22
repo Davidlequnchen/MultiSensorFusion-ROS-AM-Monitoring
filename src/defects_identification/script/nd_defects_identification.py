@@ -48,7 +48,8 @@ publish topic: message of defects identification result: 0 / 1 / 2 / 3
 rospack = rospkg.RosPack()
 path = rospack.get_path('defects_identification')
 # load the decision tree model from config folder
-filename = os.path.join(path, 'config', 'DTC.pkl')
+# filename = os.path.join(path, 'config', 'DTC.pkl')
+filename = os.path.join(path, 'config', 'KNN.pkl')
 
 
 class DefectsIdentification():
@@ -90,7 +91,7 @@ class DefectsIdentification():
         
         self.msg_defects.header.stamp = msg_cloud.header.stamp
         
-        # subscribe point heigt
+        # subscribe point height
         rospy.Subscriber(
             '/cloud_pcd/point_distance', Float32MultiArray, self.cb_distance, queue_size=1)
         
@@ -257,7 +258,7 @@ class DefectsIdentification():
         self.Y_predict = self.clf_loaded.predict(X)
 
         # prediction result
-        self.msg_defects.defectsType = self.Y_predict 
+        self.msg_defects.defectsType = self.Y_predict[0]
         # publish the defects prediction result
         self.pub_defects_info.publish(self.msg_defects)
         

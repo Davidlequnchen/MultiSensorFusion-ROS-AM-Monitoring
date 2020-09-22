@@ -401,20 +401,41 @@ PROC main()
 
             CASE 20201: !set JOSN motion finish -- path_finished is true 
                 IF nParams = 0 THEN
-                  ok := SERVER_OK;
-                  TPWrite "JSON command END";
-                  path_finished := TRUE;
+                    ok := SERVER_OK;
+					          IF NOT ((n_cartesian_motion - n_cartesian_command) = 1 OR (n_cartesian_motion - n_cartesian_command) = -48) THEN
+                      command_type{n_cartesian_command} := 20201;
+
+                      n_cartesian_command := n_cartesian_command + 1;
+                      IF n_cartesian_command > 49
+                        n_cartesian_command := 1;
+                      TPWrite "JSON command END";
+                      addString := "BUFFER_OK";
+                    ELSE
+                      addString := "BUFFER_FULL";
+                    ENDIF
                 ELSE
-                    ok:=SERVER_BAD_MSG;
+                    ok := SERVER_BAD_MSG;
                 ENDIF
+
+
+
 
             CASE 20202: !set JOSN motion start -- path_finished is false 
                 IF nParams = 0 THEN
-                  ok := SERVER_OK;
-                  TPWrite "JSON command start execution";
-                  path_finished := FALSE;
+                    ok := SERVER_OK;
+					          IF NOT ((n_cartesian_motion - n_cartesian_command) = 1 OR (n_cartesian_motion - n_cartesian_command) = -48) THEN
+                      command_type{n_cartesian_command} := 20202;
+
+                      n_cartesian_command := n_cartesian_command + 1;
+                      IF n_cartesian_command > 49
+                        n_cartesian_command := 1;
+                      TPWrite "JSON command READY";
+                      addString := "BUFFER_OK";
+                    ELSE
+                      addString := "BUFFER_FULL";
+                    ENDIF
                 ELSE
-                    ok:=SERVER_BAD_MSG;
+                    ok := SERVER_BAD_MSG;
                 ENDIF
 
 

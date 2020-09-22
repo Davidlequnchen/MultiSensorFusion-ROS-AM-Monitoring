@@ -160,10 +160,17 @@ class NdSubprocessHandler {
 
                         // --------------subprocess for defects prediction---------------------------------
                         std::string prediction_python_exe = path + "/defects_prediction/Plane_defect_machine_learning.py";
-                        std::string DecisionTree_Model_file = path + "/config/DTC.pkl";
+                        std::string DecisionTree_Model_file = path + "/config/KNN.pkl";
 
                         std::string prediction_exe = "python " + prediction_python_exe + " " + pcdFile + " " + distanceFile + " " + DecisionTree_Model_file;
-                        auto predict = sp::Popen({prediction_exe});
+                        // auto predict = sp::Popen({prediction_exe}, output{PIPE});
+                        // auto obuf = predict.communicate().first;
+                        // std::cout << "Data : " << obuf.buf.data() << std::endl;
+                        // std::cout << "Data len: " << obuf.length << std::endl;
+                        // auto p = Popen({"ls", "-l"}, output{PIPE});
+                        // auto obuf = p.communicate().first;
+                        // std::cout << "Data : " << obuf.buf.data() << std::endl;
+                        // std::cout << "Data len: " << obuf.length << std::endl;
                         // --------------------------------------------------------------------------------
                         
                     

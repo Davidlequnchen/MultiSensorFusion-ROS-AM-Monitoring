@@ -32,3 +32,8 @@
    - msg: MsgVelocityStatus
   
 3. __camera_measueres.launch__
+
+
+
+## 2020 Sep 22
+Changed the SERVER_motion.md, while loop wait time from 0.01 to 0.1s (0.1 is used in OpenLMD)
