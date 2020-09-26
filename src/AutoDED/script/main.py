@@ -24,6 +24,7 @@ import logging
 ## 0-- idel state (no control, no scanning)
 ## 1: -- surface scanning node (turn on the microepsilon driver to produce point cloud)
 ## 2. -- process control mode (microepsilon scanner turned off, only process control is applied)
+## 3. -- apply the path planning Json command
 
 robot_ip = '192.168.125.1'  # the robot controller ip address that you want to connect
 

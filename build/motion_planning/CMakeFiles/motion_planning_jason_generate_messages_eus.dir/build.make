@@ -53,14 +53,21 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include motion_planning/CMakeFiles/motion_planning_jason_generate_messages_eus.dir/progress.make
 
+motion_planning/CMakeFiles/motion_planning_jason_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv/SrvRobotCommand.l
 motion_planning/CMakeFiles/motion_planning_jason_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/manifest.l
 
 
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv/SrvRobotCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv/SrvRobotCommand.l: /home/chenlequn/SIMTech_ws/src/motion_planning/srv/SrvRobotCommand.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from motion_planning_jason/SrvRobotCommand.srv"
+	cd /home/chenlequn/SIMTech_ws/build/motion_planning && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/motion_planning/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p motion_planning_jason -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv
+
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp manifest code for motion_planning_jason"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for motion_planning_jason"
 	cd /home/chenlequn/SIMTech_ws/build/motion_planning && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason motion_planning_jason std_msgs
 
 motion_planning_jason_generate_messages_eus: motion_planning/CMakeFiles/motion_planning_jason_generate_messages_eus
+motion_planning_jason_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv/SrvRobotCommand.l
 motion_planning_jason_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/manifest.l
 motion_planning_jason_generate_messages_eus: motion_planning/CMakeFiles/motion_planning_jason_generate_messages_eus.dir/build.make
 

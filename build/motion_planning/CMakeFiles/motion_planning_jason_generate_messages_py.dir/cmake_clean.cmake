@@ -1,3 +1,8 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/motion_planning_jason_generate_messages_py"
+  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/motion_planning_jason/srv/_SrvRobotCommand.py"
+  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/motion_planning_jason/srv/__init__.py"
+)
 
 # Per-language clean rules from dependency scanning.
 foreach(lang )

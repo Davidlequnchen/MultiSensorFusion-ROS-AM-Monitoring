@@ -11,20 +11,12 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_python_setup()
 
-# add_service_files(
-#   FILES
-#   SrvRobotCommand.srv
-# )
+add_service_files(
+  FILES
+  SrvRobotCommand.srv
+)
 
-# add_message_files(
-#   FILES
-#   MsgPower.msg
-#   MsgStart.msg
-#   MsgControl.msg
-#   MsgInfo.msg
-#   MsgEmission.msg
-#   MsgSetpoint.msg
-# )
+
 
 generate_messages(
   DEPENDENCIES

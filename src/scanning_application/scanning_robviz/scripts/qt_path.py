@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 import os
 import sys
+import logging
 import json
+import simplejson
 import rospy
 import rospkg
 import numpy as np
 import tf.transformations as tf
 
-from simtech_driver.srv import SrvRobotCommand
+from simtech_robot_laser_control.srv import SrvRobotCommand
 
+from visualization_msgs.msg import Marker
 from visualization_msgs.msg import MarkerArray
 from markers import PathMarkers
+#from planning.markers import PathMarkers
 
 from urdf_parser_py.urdf import URDF
 
@@ -19,11 +23,20 @@ from python_qt_binding import QtGui
 from python_qt_binding import QtCore
 from python_qt_binding import QtWidgets
 
-
 from jason.jason import Jason
 
 
-path = rospkg.RosPack().get_path('scanning_robviz')
+path = rospkg.RosPack().get_path('motion_planning_jason')
+'''
+This node 'path_panel' is a Client, it wait for the ROS service 'robot_send_command' to be created and send command
+to the ROS service(request) to the (nd_robot_command),
+i.e. it calls the service 'robot_send_command' by rospy.ServiceProxy
+call rospy.wait_for_service() to block until a service is available.
+'''
+
+
+log = logging.getLogger(__name__)
+log.addHandler(logging.NullHandler())
 
 
 class QtPath(QtWidgets.QWidget):
@@ -60,7 +73,7 @@ class QtPath(QtWidgets.QWidget):
         self.btnStep.clicked.connect(self.btnStepClicked)
         self.btnCancel.clicked.connect(self.btnCancelClicked)
 
-        self.listWidgetPoses.itemSelectionChanged.connect(self.lstPosesClicked)
+        # self.listWidgetPoses.itemSelectionChanged.connect(self.lstPosesClicked)
         self.listWidgetPoses.itemDoubleClicked.connect(self.qlistDoubleClicked)
 
         self.testing = False
@@ -70,26 +83,27 @@ class QtPath(QtWidgets.QWidget):
         # Parse robot description file
         robot = URDF.from_parameter_server()
         tcp = robot.joint_map['tcp0']
-        workobject = robot.joint_map['Workobject']
+        workobject = robot.joint_map['world-workobject']
+        # workobject = robot.joint_map['workobject']
 
         tool = [tcp.origin.position,
                 list(tf.quaternion_from_euler(*tcp.origin.rotation))]
-        print 'Tool:', tool
+        print ('Tool:', tool)
         workobject = [workobject.origin.position,
                       list(tf.quaternion_from_euler(*workobject.origin.rotation))]
-        print 'Workobject:', workobject
+        print ('Workobject:', workobject)
         if rospy.has_param('/powder'):
             powder = rospy.get_param('/powder')
         else:
-            print '/powder param missing, loaded default'
+            print ('/powder param missing, loaded default')
             powder = {'carrier': 5.0, 'shield': 10.0, 'stirrer': 20.0, 'turntable': 4.0}
-        print 'Powder:', powder
+        print ('Powder:', powder)
         if rospy.has_param('/process'):
             process = rospy.get_param('/process')
         else:
-            print '/process param missing, loaded default'
+            print ('/process param missing, loaded default')
             process = {'focus': 0, 'power': 1000, 'speed': 8}
-        print 'Process:', process
+        print ('Process:', process)
 
         self.jason = Jason()
         self.jason.set_tool(tool)
@@ -118,7 +132,7 @@ class QtPath(QtWidgets.QWidget):
     def removeComamnd(self):
         item = self.listWidgetPoses.takeItem(0)
         if item:
-            print item.text()
+            print (item.text())
             return item.text()
         else:
             return None
@@ -130,22 +144,22 @@ class QtPath(QtWidgets.QWidget):
         self.getMoveCommands()
 
     def btnLoadPathClicked(self):
-        filename = QtGui.QFileDialog.getOpenFileName(
+        filename = QtWidgets.QFileDialog.getOpenFileName(
             self, 'Load Path Routine', os.path.join(path, 'routines'),
             'Jason Routine Files (*.jas)')[0]
-        print 'Load routine:', filename
+        print ('Load routine:', filename)
         commands = self.jason.load_commands(filename)
         self.loadCommands(commands)
 
     def btnSavePathClicked(self):
-        filename = QtGui.QFileDialog.getSaveFileName(
+        filename = QtWidgets.QFileDialog.getSaveFileName(
             self, 'Load Path Routine', os.path.join(path, 'routines'),
             'Jason Routine Files (*.jas)')[0]
         n_row = self.listWidgetPoses.count()
         if n_row > 0:
             cmds = [str(self.listWidgetPoses.item(row).text()) for row in range(n_row)]
             self.jason.save_commands(filename, cmds)
-        print 'Saved routine:', filename
+        print ('Saved routine:', filename)
 
     def btnRunPathClicked(self):
         """Start-Stop sending commands to robot from the list of commands."""
@@ -195,12 +209,12 @@ class QtPath(QtWidgets.QWidget):
     def btnLoadPoseClicked(self):
         rob_pose = self.send_command('{"get_pose":1}')
         default_command = '{"move":' + rob_pose.response + '}'
-        str_command = QtGui.QInputDialog.getText(
+        str_command = QtWidgets.QInputDialog.getText(
             self, "Load Jason Command", "Comamnd:", text=default_command)
         row = self.listWidgetPoses.currentRow()
         if len(str_command[0]) > 3:
             self.insertCommand(str_command[0], insert=True, position=row)
-        print str_command
+        print (str_command)
 
     def btnStepClicked(self):
         n_row = self.listWidgetPoses.count()
@@ -250,7 +264,7 @@ class QtPath(QtWidgets.QWidget):
     def qlistDoubleClicked(self):
         row = self.listWidgetPoses.currentRow()
         item_text = self.listWidgetPoses.item(row)
-        str_command = QtGui.QInputDialog.getText(
+        str_command = QtWidgets.QInputDialog.getText(
             self, "Load Jason Command", "Comamnd:", text=item_text.text())
         if len(str_command[0]) > 3:
             self.listWidgetPoses.takeItem(row)
@@ -272,15 +286,20 @@ class QtPath(QtWidgets.QWidget):
             self.btnRunTest.setEnabled(True)
             self.btnRunPath.setEnabled(True)
 
-    def getMoveCommands(self):
+    def getMoveCommands(self):                                               # may have bug
         n_row = self.listWidgetPoses.count()
         # row = self.listWidgetPoses.currentRow()
         path = []
         for row in range(n_row):
             item_text = self.listWidgetPoses.item(row)
-            command = json.loads(item_text.text())
-            if 'move' in command:
-                path.append(command['move'])
+            try:
+                command = json.loads(item_text.text())
+                if 'move' in command:
+                    path.append(command['move'])
+            except:
+                log.info("Exception parsing comments json - not leaving comment")
+                #return True
+
         self.path_markers.set_path(path)
         self.pub_marker_array.publish(self.path_markers.marker_array)
 
@@ -288,7 +307,7 @@ class QtPath(QtWidgets.QWidget):
         if self.testing:
             command = command.lower()
             command = command.replace(' ','')
-            if command.lower().find('laser') == 2:
+            if command.lower().find('laserReady') == 2:
                 return
             if command.lower().find('powder') == 2:
                 return
@@ -298,8 +317,8 @@ class QtPath(QtWidgets.QWidget):
                 if command.find(',false') > 0:
                     command = command.replace(',false','')
         rob_response = self.send_command(command)
-        print 'Sended command:', command
-        print 'Received response:', rob_response
+        print ('Sended command:', command)
+        print ('Received response:', rob_response)
         self.ok_command = rob_response.response
 
     def timeRunPathEvent(self):
@@ -353,20 +372,20 @@ class QtPath(QtWidgets.QWidget):
             self.listWidgetPoses.setCurrentRow(row)
 
     def invalid_command(self, informative):
-        msg = QtGui.QMessageBox()
-        msg.setIcon(QtGui.QMessageBox.Warning)
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Warning)
         msg.setText("Invalid command")
         msg.setInformativeText(informative)
         msg.setWindowTitle("Command error")
         #msg.setDetailedText("The details are as follows:")
-        msg.setStandardButtons(QtGui.QMessageBox.Ok)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         #msg.buttonClicked.connect(msgbtn)
         retval = msg.exec_()
 
 if __name__ == "__main__":
     rospy.init_node('path_panel')
 
-    app = QtWidgets.QApplication(sys.argv)
+    app=QtWidgets.QApplication(sys.argv)
     qt_path = QtPath()
     qt_path.show()
     app.exec_()

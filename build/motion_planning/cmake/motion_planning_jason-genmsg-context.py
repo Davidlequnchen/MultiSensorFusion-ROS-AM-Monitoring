@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = ""
+services_str = "/home/chenlequn/SIMTech_ws/src/motion_planning/srv/SrvRobotCommand.srv"
 pkg_name = "motion_planning_jason"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

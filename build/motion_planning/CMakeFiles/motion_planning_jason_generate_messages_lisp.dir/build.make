@@ -53,6 +53,16 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include motion_planning/CMakeFiles/motion_planning_jason_generate_messages_lisp.dir/progress.make
 
+motion_planning/CMakeFiles/motion_planning_jason_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_jason/srv/SrvRobotCommand.lisp
+
+
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_jason/srv/SrvRobotCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_jason/srv/SrvRobotCommand.lisp: /home/chenlequn/SIMTech_ws/src/motion_planning/srv/SrvRobotCommand.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from motion_planning_jason/SrvRobotCommand.srv"
+	cd /home/chenlequn/SIMTech_ws/build/motion_planning && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/motion_planning/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p motion_planning_jason -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_jason/srv
+
+motion_planning_jason_generate_messages_lisp: motion_planning/CMakeFiles/motion_planning_jason_generate_messages_lisp
+motion_planning_jason_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_jason/srv/SrvRobotCommand.lisp
 motion_planning_jason_generate_messages_lisp: motion_planning/CMakeFiles/motion_planning_jason_generate_messages_lisp.dir/build.make
 
 .PHONY : motion_planning_jason_generate_messages_lisp

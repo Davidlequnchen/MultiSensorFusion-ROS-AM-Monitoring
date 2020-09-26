@@ -630,12 +630,13 @@ LOCAL TRAP trap_in_stop_point
   !// -------------------------------------------------------------------
   IF is_defects = TRUE THEN
     path_finished := FALSE;
+    routine_command:=3; ! set the routine_command to 3, which means the path plannning mode
     Motion_command;  !// if there is defects, call the SERVER_motion function to execute the path planning results(JSON command)
     path_finished := FALSE;
     WaitTime 5;
   ENDIF
   
-
+  routine_command:=0; !// idle mode, move back
   
   ! Move back to interrupted position on the motion base path level
   MoveL stop_pos, v10, fine, claddinghead, \WObj:=wDelcam1;

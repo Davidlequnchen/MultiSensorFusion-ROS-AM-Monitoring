@@ -26,7 +26,8 @@
   
 
   <!-- The path panel for loading and executing path command from jason file -->
-  <node name="path_panel" pkg="motion_planning_jason" type="qt_path.py" />
+  <!-- <node name="path_panel" pkg="motion_planning_jason" type="qt_path.py" /> -->
+  <node name="path_panel" pkg="motion_planning_jason" type="json_path_planning.py" />
 
 
   <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find motion_planning_jason)/config/workcell.rviz" required="true" if="$(arg gui)" /> -->
