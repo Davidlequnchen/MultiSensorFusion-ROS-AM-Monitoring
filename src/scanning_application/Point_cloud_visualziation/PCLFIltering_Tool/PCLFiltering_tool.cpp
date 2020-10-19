@@ -112,6 +112,7 @@ printUsage (const char* progName)
   std::cout << "\n\nUsage: "<<progName<<" [options] [-load filename] [-save filename] [-saveCoefficientPlaneName plane_coefficient_filename]\n"
             << "[-savePointToPlaneDistance PointToPlaneDistance_filename] [-saveNormalEstimation NormalEstimation_filename][-leafsize /float] [-DistanceThre /float]"
             << "[-Stddev /float] [-zmin /float] [-zmax /float]\n\n"
+            << "default parameters: -leafsize 0.0002 -DistanceThre 0.0013 -Stddev 1.5"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h                    this help\n"
@@ -1063,7 +1064,7 @@ pcl::visualization::PCLVisualizer::Ptr pass_through_segmentation(pcl::PointCloud
   sor.setMeanK (100);            // set K mean value: he number of neighbors to analyze for each point 
   sor.setStddevMulThresh (StddevMulThresh); // defalt 1.5, set standard deviation multiplier threshold, any point has property larger than this will be removed
   sor.filter (*cloud); // return the cloud after filtering(inlier) and store it into cloud
-  savePointFile("s_filtered.pcd", cloud);
+  // savePointFile("s_filtered.pcd", cloud);
   
   //------------------Step 1：　Voxel grid filter--------------------------------------
 
@@ -1073,7 +1074,7 @@ pcl::visualization::PCLVisualizer::Ptr pass_through_segmentation(pcl::PointCloud
   // downsampling leaf size of 1cm
   sor_voxel.setLeafSize (leafsize, leafsize, leafsize);
   sor_voxel.filter (*cloud);
-  savePointFile("v_filtered.pcd", cloud);
+  // savePointFile("v_filtered.pcd", cloud);
 
 
 

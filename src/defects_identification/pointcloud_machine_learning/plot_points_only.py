@@ -17,7 +17,7 @@ import plotly.graph_objects as go
 import numpy as np
 
 
-PCLFile_seg = "23_seg.pcd"   # the point cloud after segmentation
+PCLFile_seg = "V_repaired_10_6.pcd"   # the point cloud after segmentation
 
 
 
@@ -55,6 +55,6 @@ fig.update_layout(scene = dict(xaxis = dict(nticks=6, range=[pointsSegDF['x'].mi
                                )
                   )
 # Use the offline mode of plotly:
-pio.write_html(fig, file="23_Seg.html", auto_open=True)
+pio.write_html(fig, file="10_6.html", auto_open=True)
 
 #----------------------------------------------------------------------------------------------------------------

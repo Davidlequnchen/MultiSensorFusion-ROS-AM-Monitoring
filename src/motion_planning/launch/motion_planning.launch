@@ -17,12 +17,19 @@
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
-  <include file="$(find motion_planning_jason)/launch/robot_interface.launch" unless="$(arg sim)">
+  <!-- <include file="$(find motion_planning_jason)/launch/robot_interface.launch" unless="$(arg sim)">
+    <arg name="robot_ip" value="192.168.125.1" />
+    <arg name="J23_coupled" value="true" />
+    <arg name="laser_type" value="ipg" />
+    <arg name="feeder_type" default="powder" />
+  </include> -->
+  <include file="$(find simtech_robot_laser_control)/launch/simtech_robot_interface.launch" unless="$(arg sim)">
     <arg name="robot_ip" value="192.168.125.1" />
     <arg name="J23_coupled" value="true" />
     <arg name="laser_type" value="ipg" />
     <arg name="feeder_type" default="powder" />
   </include>
+
   
 
   <!-- The path panel for loading and executing path command from jason file -->

@@ -1508,6 +1508,24 @@ scanning_application/scanning_workcell/preinstall:
 .PHONY : scanning_application/scanning_workcell/preinstall
 
 #=============================================================================
+# Directory level rules for directory simtech_kuka/simtech_kuka_workcell
+
+# Convenience name for "all" pass in the directory.
+simtech_kuka/simtech_kuka_workcell/all:
+
+.PHONY : simtech_kuka/simtech_kuka_workcell/all
+
+# Convenience name for "clean" pass in the directory.
+simtech_kuka/simtech_kuka_workcell/clean:
+
+.PHONY : simtech_kuka/simtech_kuka_workcell/clean
+
+# Convenience name for "preinstall" pass in the directory.
+simtech_kuka/simtech_kuka_workcell/preinstall:
+
+.PHONY : simtech_kuka/simtech_kuka_workcell/preinstall
+
+#=============================================================================
 # Directory level rules for directory laser_profiler_scanning/simtech_moveit_config
 
 # Convenience name for "all" pass in the directory.

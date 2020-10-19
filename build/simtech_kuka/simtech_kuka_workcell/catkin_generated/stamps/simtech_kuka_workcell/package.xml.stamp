@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>simtech_kuka_workcell</name>
+  <version>0.4.0</version>
+  <description>The simtech_kuka_workcell package</description>
+  <author email="chen1189@e.ntu.edu.sg">Chen Lequn</author>
+  <maintainer email="chen1189@e.ntu.edu.sg">Chen Lequn</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

@@ -1858,6 +1858,12 @@ simtech_driver_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/simtech_abb/si
 simtech_driver_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_driver_deprecated_reference
 
 //Value Computed by CMake
+simtech_kuka_workcell_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_workcell
+
+//Value Computed by CMake
+simtech_kuka_workcell_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_workcell
+
+//Value Computed by CMake
 simtech_moveit_config_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/laser_profiler_scanning/simtech_moveit_config
 
 //Value Computed by CMake
@@ -2138,7 +2144,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=49
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=50
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
