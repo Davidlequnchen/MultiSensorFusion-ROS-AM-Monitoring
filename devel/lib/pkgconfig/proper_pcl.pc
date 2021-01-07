@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
-
-Name: proper_pcl
-Description: Description of proper_pcl
-Version: 0.0.1
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

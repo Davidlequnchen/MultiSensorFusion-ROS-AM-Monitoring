@@ -1,2 +1,0 @@
-set(AutoDED_MESSAGE_FILES "")
-set(AutoDED_SERVICE_FILES "")

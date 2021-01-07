@@ -1,7 +1,0 @@
-set(proper_jason_SETUP_PY_SETUP_MODULE "distutils.core")
-set(proper_jason_SETUP_PY_VERSION "0.3.0")
-set(proper_jason_SETUP_PY_SCRIPTS "")
-set(proper_jason_SETUP_PY_PACKAGES "jason")
-set(proper_jason_SETUP_PY_PACKAGE_DIRS "src/jason")
-set(proper_jason_SETUP_PY_MODULES "")
-set(proper_jason_SETUP_PY_MODULE_DIRS "")

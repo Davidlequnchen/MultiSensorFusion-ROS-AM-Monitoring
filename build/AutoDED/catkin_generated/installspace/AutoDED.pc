@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/install
-
-Name: AutoDED
-Description: Description of AutoDED
-Version: 1.2.3
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: rospy std_msgs tf
