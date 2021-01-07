@@ -38,10 +38,10 @@
   <rosparam command="load" file="$(find simtech_robot_laser_control)/config/control_parameters.yaml" />
 
   <!-- received processed image and published controlled power value-->
-  <node name="control" pkg="simtech_robot_laser_control" type="nd_control.py">
+  <!-- <node name="control" pkg="simtech_robot_laser_control" type="nd_control.py">
     <param name="power_min" type="double" value="0" />
     <param name="power_max" type="double" value="5" />
-  </node>
+  </node> -->
 
   <node name="control_panel" pkg="simtech_robot_laser_control" type="qt_control.py" if="$(arg gui)" />
 

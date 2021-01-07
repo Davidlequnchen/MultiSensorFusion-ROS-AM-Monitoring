@@ -37,7 +37,7 @@ it set kp ki kd value as a rospram, which will be read by the nd_control node.
 '''
 
 BUFFER_INTERVAL = 10 # save the buffer every XX secods
-BUFFER_LENGTH = 600 # 1 seconds - 30 data points
+BUFFER_LENGTH = 300 # 1 seconds - 30 data points
 
 class NdPIDVRFT():
     def __init__(self):

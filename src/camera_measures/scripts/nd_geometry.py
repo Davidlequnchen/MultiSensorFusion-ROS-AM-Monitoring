@@ -130,7 +130,7 @@ class NdGeometry():
             
             
     def moving_average(self, minor_axis):
-        frames = 10
+        frames = 20
         if len(self.minor_axis_list) == (frames-1):
             if minor_axis > 50:
                 self.minor_axis_list.append(minor_axis) # append current minor_axis to the end of the list
