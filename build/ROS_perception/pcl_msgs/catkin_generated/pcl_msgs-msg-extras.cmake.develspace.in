@@ -1,0 +1,2 @@
+set(pcl_msgs_MESSAGE_FILES "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/ModelCoefficients.msg;/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/PointIndices.msg;/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/PolygonMesh.msg;/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/Vertices.msg")
+set(pcl_msgs_SERVICE_FILES "/home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/srv/UpdateFilename.srv")

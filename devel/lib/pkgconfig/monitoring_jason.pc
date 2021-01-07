@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: monitoring_jason
+Description: Description of monitoring_jason
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

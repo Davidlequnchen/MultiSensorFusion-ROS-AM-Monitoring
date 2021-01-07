@@ -1,0 +1,38 @@
+&ACCESS RVO
+&PARAM EDITMASK = *
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\submit
+DEF kuka_ekihw_test( )
+;FOLD DECLARATIONS
+  ;FOLD USER DECL
+  ; Please insert user defined declarations
+ 
+  ;ENDFOLD (USER DECL)
+;ENDFOLD (DECLARATIONS)
+;FOLD INI
+  ;FOLD USER INIT
+  ; Please insert user defined initialization commands
+  
+  DECL STATE_T STAT
+  DECL MODUS_T MODE
+   
+  CWRITE($CMD,STAT,MODE,"RUN kuka_eki_ros_sub()") 
+
+  ;ENDFOLD (USER INIT)
+;ENDFOLD (INI)
+
+LOOP
+;FOLD USER PLC
+;Make your modifications here
+ 
+;ENDFOLD (USER PLC)
+ENDLOOP
+;FOLD ;%{H};
+END
+;ENDFOLD
+;FOLD USER SUBROUTINE
+;Integrate your user defined subroutines
+
+;ENDFOLD (USER SUBROUTINE)
+
+
+

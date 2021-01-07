@@ -1,0 +1,7 @@
+set(microepsilon_calibration_SETUP_PY_SETUP_MODULE "distutils.core")
+set(microepsilon_calibration_SETUP_PY_VERSION "1.0.0")
+set(microepsilon_calibration_SETUP_PY_SCRIPTS "")
+set(microepsilon_calibration_SETUP_PY_PACKAGES "calib")
+set(microepsilon_calibration_SETUP_PY_PACKAGE_DIRS "src/calib")
+set(microepsilon_calibration_SETUP_PY_MODULES "")
+set(microepsilon_calibration_SETUP_PY_MODULE_DIRS "")

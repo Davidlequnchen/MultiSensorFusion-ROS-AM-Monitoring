@@ -1,0 +1,10 @@
+(cl:defpackage pcl_msgs-srv
+  (:use )
+  (:export
+   "UPDATEFILENAME"
+   "<UPDATEFILENAME-REQUEST>"
+   "UPDATEFILENAME-REQUEST"
+   "<UPDATEFILENAME-RESPONSE>"
+   "UPDATEFILENAME-RESPONSE"
+  ))
+

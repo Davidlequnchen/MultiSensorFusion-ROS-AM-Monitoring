@@ -1,0 +1,8 @@
+# generated from catkin/cmake/template/pkg.context.pc.in
+CATKIN_PACKAGE_PREFIX = ""
+PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include;/usr/local/include/mescan;/usr/include;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include".split(';') if "${prefix}/include;/usr/local/include/mescan;/usr/include;/usr/local/include/aravis-0.6;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include" != "" else []
+PROJECT_CATKIN_DEPENDS = "roscpp;sensor_msgs;std_srvs;std_msgs;message_runtime".replace(';', ' ')
+PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-lmicroepsilon_scancontrol;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;-lSIMPLE_NODE;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;-laravis-0.6;-lm;-lgio-2.0;-lgobject-2.0;-lxml2;-lgthread-2.0;-lglib-2.0".split(';') if "-lmicroepsilon_scancontrol;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;-lSIMPLE_NODE;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;-laravis-0.6;-lm;-lgio-2.0;-lgobject-2.0;-lxml2;-lgthread-2.0;-lglib-2.0" != "" else []
+PROJECT_NAME = "microepsilon_scancontrol"
+PROJECT_SPACE_DIR = "/home/chenlequn/SIMTech_ws/install"
+PROJECT_VERSION = "1.0.0"
