@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: simtech_kuka_eki_interface
+Description: Description of simtech_kuka_eki_interface
+Version: 0.0.1
+Cflags: -I/home/chenlequn/SIMTech_ws/devel/include -I/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_eki_interface/include -I/usr/include
+Libs: -L${prefix}/lib -lsimtech_kuka_eki_interface /usr/lib/x86_64-linux-gnu/libtinyxml.so
+Requires: controller_manager hardware_interface joint_limits_interface roscpp message_runtime

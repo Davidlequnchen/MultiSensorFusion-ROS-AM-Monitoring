@@ -26,7 +26,7 @@ DEF Cube_15X30X10_post ( )
    
    $APO.CDIS = 0.3 ;mm; in ABB: zonddata = z0, meaning the tolerate zone during motion commands
 
-   PTP $POS_ACT ; $POS_ACT is a system variable of structure type E6POS and contains the current Cartesian robot position.
+   PTP $POS_ACT ; $POS_ACT is a system variable of structure type E6POS and contains the current Cartesian robot position(XYZABC).
    
    LaserOn()
    

@@ -22,6 +22,7 @@ b9cc0ef158f752a75a702b6ffa115b2c /home/chenlequn/SIMTech_ws/devel/include/laser_
 89e3de9a6bc718049594885ddeaa55cd /home/chenlequn/SIMTech_ws/devel/include/laser_control/MsgStart.h
 d2509ee2e53473ecaf0daa246f005f73 /home/chenlequn/SIMTech_ws/devel/include/microepsilon_scancontrol/MsgCommand.h
 6625dd326e6371522a3b9cbdf0534567 /home/chenlequn/SIMTech_ws/devel/include/motion_planning_jason/SrvRobotCommand.h
+c12db52a5f8e68351ac690ef9d936f69 /home/chenlequn/SIMTech_ws/devel/include/motion_planning_kuka/SrvRobotCommand.h
 7dfa9f2278171cae455c1aab9b099056 /home/chenlequn/SIMTech_ws/devel/include/pcl_msgs/ModelCoefficients.h
 0b902f6f8caba5f41c28e463d7e86d3c /home/chenlequn/SIMTech_ws/devel/include/pcl_msgs/PointIndices.h
 25c187589bcd3f95fcebc97e69b83b28 /home/chenlequn/SIMTech_ws/devel/include/pcl_msgs/PolygonMesh.h
@@ -42,6 +43,7 @@ a587424dc74c11b7a58591432db42b39 /home/chenlequn/SIMTech_ws/devel/include/pcl_ro
 946246b577c7250a7c7daf5aa3ac462c /home/chenlequn/SIMTech_ws/devel/include/pcl_ros/VoxelGridConfig.h
 30ce8a95bc551d28e7c37afa94f9ccd4 /home/chenlequn/SIMTech_ws/devel/include/scanning_robviz/MsgCommand.h
 ae22212c5de390125d4c53341419b966 /home/chenlequn/SIMTech_ws/devel/include/simtech_driver/SrvRobotCommand.h
+e9cc07bb1ae0edefe5a97aa05e0e77ed /home/chenlequn/SIMTech_ws/devel/include/simtech_kuka_eki_interface/SrvRobotCommand.h
 8a498dc213ae8f1ec019ae39c13016f3 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgControl.h
 190f9ce035953491e12cad0b9796e96c /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgEmission.h
 509df78d80b1462ad07b071ca5599df9 /home/chenlequn/SIMTech_ws/devel/include/simtech_robot_laser_control/MsgInfo.h
@@ -73,6 +75,8 @@ e33f6e9b04f612832cb534596d749330 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/
 18ccb411b70f0b30425fc596fdb89f1f /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/microepsilon_scancontrol/msg/__init__.py
 31cb23b8709cd6ce0456e04dff08ee95 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/motion_planning_jason/srv/_SrvRobotCommand.py
 21646888d77caf3a995af4cf563803f9 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/motion_planning_jason/srv/__init__.py
+30d2644b7beb1121164e311f695198f9 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/motion_planning_kuka/srv/_SrvRobotCommand.py
+134b5b6bcfa3ff2ee1a2efde8efd8482 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/motion_planning_kuka/srv/__init__.py
 88426a1c3f40fa5c8450c93f14609467 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/pcl_msgs/msg/_ModelCoefficients.py
 1ebbe9e47f5b3dd85cba4ad6f1d2fbd3 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/pcl_msgs/msg/_PointIndices.py
 4b7edaee7c698c32e1fef133d79980fc /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/pcl_msgs/msg/_PolygonMesh.py
@@ -84,6 +88,8 @@ e21133eea25e201b9d99e8633bdd9bbd /home/chenlequn/SIMTech_ws/devel/lib/python2.7/
 2d69c904b26da51dd548009a99e2c31c /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/scanning_robviz/msg/__init__.py
 83e19bab5f6698b6b51a69b079428248 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_driver/srv/_SrvRobotCommand.py
 6689b20b3a4c032ed4dcc26f57cbaecb /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_driver/srv/__init__.py
+ecc83fe61f07ca3fc299cc24c3239fe9 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_kuka_eki_interface/srv/_SrvRobotCommand.py
+40ac261104d870a78df89ad447998b91 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_kuka_eki_interface/srv/__init__.py
 76729f3087d97742786aec64eaf1c23a /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_robot_laser_control/msg/_MsgControl.py
 39df00263f30a09cb7b936c5d1435b69 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_robot_laser_control/msg/_MsgEmission.py
 a4f343499558e13a37a1c568c90ad83c /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_robot_laser_control/msg/_MsgInfo.py
@@ -111,6 +117,7 @@ d04dc35c77c3d1f30704707b4e3615a1 /home/chenlequn/SIMTech_ws/devel/share/common-l
 25eae9ffb8990a41e4a2678906e7499d /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgStart.lisp
 61a19f4dcf4a9187b35f3cd6ddd47be5 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/microepsilon_scancontrol/msg/MsgCommand.lisp
 ecdc18ab49b0d5d121eaf8aa38962089 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_jason/srv/SrvRobotCommand.lisp
+7e1f4946c5f648c96882b82bd42ea028 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_kuka/srv/SrvRobotCommand.lisp
 6a9f766d903f485a32f638c74e359387 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/pcl_msgs/msg/ModelCoefficients.lisp
 de4dfcb7f1bef8cf8be1b5289c95ecc7 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/pcl_msgs/msg/PointIndices.lisp
 e3ef4f771c41c612c221dd92bbc302f8 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/pcl_msgs/msg/PolygonMesh.lisp
@@ -118,6 +125,7 @@ e3ef4f771c41c612c221dd92bbc302f8 /home/chenlequn/SIMTech_ws/devel/share/common-l
 64f12c06cd96da85d86dcb715b565117 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/pcl_msgs/srv/UpdateFilename.lisp
 fff790ef46234812dae84a5c6ff55b30 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp
 af664b8dbd99e85b1d4e6e8c4665cdb7 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_driver/srv/SrvRobotCommand.lisp
+ed43f8f430902c90506971e3d61f2e44 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_kuka_eki_interface/srv/SrvRobotCommand.lisp
 01bf5fa9c38661389d93cda69b618a2a /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgControl.lisp
 883e2b6b39d36c308520171e915481b8 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgEmission.lisp
 7ca61f6b20270c0684a254b7f505c248 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/simtech_robot_laser_control/msg/MsgInfo.lisp
@@ -142,6 +150,7 @@ c658edf338251ec712f7a713dcab3854 /home/chenlequn/SIMTech_ws/devel/share/gennodej
 cd9aab0ce4db6a9484e1b92e15a6b6e8 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgStart.js
 198e2e7412837d4e371874bebd08fa06 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/microepsilon_scancontrol/msg/MsgCommand.js
 be2c0a2331a96b04604eaa1c1a4b4ab4 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/motion_planning_jason/srv/SrvRobotCommand.js
+c03171f0cf89203b63b790a4e3140999 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/motion_planning_kuka/srv/SrvRobotCommand.js
 ee693ef419fde9d28831eda312b9e521 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/ModelCoefficients.js
 8c9b396619a64a01cf554e8cfa4ac722 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/PointIndices.js
 5a71e6e8bf70929030ff7fbe721d3a4b /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/PolygonMesh.js
@@ -149,6 +158,7 @@ ee693ef419fde9d28831eda312b9e521 /home/chenlequn/SIMTech_ws/devel/share/gennodej
 6fd0ea0ebcb62fdbf4b34fac7176cb0a /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/srv/UpdateFilename.js
 8de36f5cca2a6e8151b7f6d843e102fb /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/scanning_robviz/msg/MsgCommand.js
 8fcda1ac6232983ec74273333d040aef /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_driver/srv/SrvRobotCommand.js
+a36b5fa9351c2387e2b5eb06fb3e5a3a /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_kuka_eki_interface/srv/SrvRobotCommand.js
 49319fb30a55b49b9d4518c83271619e /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgControl.js
 b29cb3236d2105209189b61c54c48d70 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgEmission.js
 93a1f706ea7c84f5dd10cc2ab4ad1bd7 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_robot_laser_control/msg/MsgInfo.js
@@ -179,6 +189,8 @@ e3f3dbe92c6243045c689fc251278e44 /home/chenlequn/SIMTech_ws/devel/share/roseus/r
 5c46efce6880f4f99c6d859fab444d30 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/microepsilon_scancontrol/msg/MsgCommand.l
 bce01d453d7c66c9449ce04259ba4841 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/manifest.l
 256355a932ad355d90014016b9c20925 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv/SrvRobotCommand.l
+451fe4664776bec7ddb8321165d896fb /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/manifest.l
+172e467e17865bf62f8742145fefb8b1 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/srv/SrvRobotCommand.l
 502723c8a530011999d69b8d343f1233 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/pcl_msgs/manifest.l
 8476e6bbe5f4c82fb3c427b5ee7c5cfd /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/pcl_msgs/msg/ModelCoefficients.l
 6ce212562eb7bc9b072ec5f8145c1433 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/pcl_msgs/msg/PointIndices.l
@@ -189,6 +201,8 @@ ea71b0b6f970890aa9ac69f7d708fdfd /home/chenlequn/SIMTech_ws/devel/share/roseus/r
 73b86291a13cce2ecd260c49a38fd8c9 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l
 1a1201594952b6cf49a84d926fa7a49b /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/manifest.l
 08541f632bc74edbe9c6c48f60200a22 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv/SrvRobotCommand.l
+1b135ede4b9322b5c5606d565688b94c /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_kuka_eki_interface/manifest.l
+a30016ae279e3500419730613a4fb791 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_kuka_eki_interface/srv/SrvRobotCommand.l
 d78d5cebc7c60fda47344ad434fd658b /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_robot_laser_control/manifest.l
 5b0c1d93b55badad22f7889517c297a5 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_robot_laser_control/msg/MsgControl.l
 e0f72c742c33e40219e1c533ae28f9e5 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_robot_laser_control/msg/MsgEmission.l
@@ -304,6 +318,12 @@ e29b0d786d068f923fa218b43cc1bce7 motion_planning_ABB/CMakeFiles/_motion_planning
 5a3733f15e34fce2866484e1d3fe3b9e motion_planning_ABB/CMakeFiles/motion_planning_jason_generate_messages_lisp
 5a3733f15e34fce2866484e1d3fe3b9e motion_planning_ABB/CMakeFiles/motion_planning_jason_generate_messages_nodejs
 5a3733f15e34fce2866484e1d3fe3b9e motion_planning_ABB/CMakeFiles/motion_planning_jason_generate_messages_py
+ebea361530e78fd488108e2d59f0c59e motion_planning_kuka/CMakeFiles/_motion_planning_kuka_generate_messages_check_deps_SrvRobotCommand
+4c1818113a850f189f6d328ff8aa8f3d motion_planning_kuka/CMakeFiles/motion_planning_kuka_generate_messages_cpp
+4c1818113a850f189f6d328ff8aa8f3d motion_planning_kuka/CMakeFiles/motion_planning_kuka_generate_messages_eus
+4c1818113a850f189f6d328ff8aa8f3d motion_planning_kuka/CMakeFiles/motion_planning_kuka_generate_messages_lisp
+4c1818113a850f189f6d328ff8aa8f3d motion_planning_kuka/CMakeFiles/motion_planning_kuka_generate_messages_nodejs
+4c1818113a850f189f6d328ff8aa8f3d motion_planning_kuka/CMakeFiles/motion_planning_kuka_generate_messages_py
 c1917ea8053be44a9215ba62047c0d4c scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgCommand
 9726099f40b033b4d7d294d290cf08ee scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_cpp
 9726099f40b033b4d7d294d290cf08ee scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus
@@ -316,6 +336,12 @@ e27d36fc6d724725fc131a3ae5a055da simtech_abb/simtech_driver_deprecated_reference
 e27d36fc6d724725fc131a3ae5a055da simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/simtech_driver_generate_messages_lisp
 e27d36fc6d724725fc131a3ae5a055da simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/simtech_driver_generate_messages_nodejs
 e27d36fc6d724725fc131a3ae5a055da simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/simtech_driver_generate_messages_py
+403f5e6433aa7a9b10d1442d4540c25b simtech_kuka/simtech_kuka_eki_interface/CMakeFiles/_simtech_kuka_eki_interface_generate_messages_check_deps_SrvRobotCommand
+b00e149fd493e317bb051c4f43d05db2 simtech_kuka/simtech_kuka_eki_interface/CMakeFiles/simtech_kuka_eki_interface_generate_messages_cpp
+b00e149fd493e317bb051c4f43d05db2 simtech_kuka/simtech_kuka_eki_interface/CMakeFiles/simtech_kuka_eki_interface_generate_messages_eus
+b00e149fd493e317bb051c4f43d05db2 simtech_kuka/simtech_kuka_eki_interface/CMakeFiles/simtech_kuka_eki_interface_generate_messages_lisp
+b00e149fd493e317bb051c4f43d05db2 simtech_kuka/simtech_kuka_eki_interface/CMakeFiles/simtech_kuka_eki_interface_generate_messages_nodejs
+b00e149fd493e317bb051c4f43d05db2 simtech_kuka/simtech_kuka_eki_interface/CMakeFiles/simtech_kuka_eki_interface_generate_messages_py
 cf3cfc1cb0b0e2cf0bdd38ef4764d41c simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgControl
 d1e2acadc6fc5dcef238707cb7448eb7 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgEmission
 ebfdf61e83a4d1bcf3a19bfd001911e4 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgInfo

@@ -25,20 +25,20 @@ MODULE DELCAM
     LaserOn;
     ! Start position = (4.0376,-5.8051,30.8485,0,64.9566,90,9E9,9E9,9E9,9E9,9E9,9E9)
 	Proc_a20x40_wo_profile;
-  LaserOff;
+    LaserOff;
     ConfJ\On;
     ConfL\On;
     Stop;
   ENDPROC
   
-  	Proc InitIO()
+	PROC InitIO()
 		Reset doLaserReq;
 		Reset doLaserOn;
 		Reset DoBeam2;
 		Reset DoAnologOn;
 		SetAO aoPower,0;
 		Reset doProgramStart;
-	EndProc
+	ENDPROC
 
 	Proc LaserOn()
 		setdo doLaserReq,1;

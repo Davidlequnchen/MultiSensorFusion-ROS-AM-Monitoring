@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_74863/fast"
-/usr/bin/make -f CMakeFiles/cmTC_74863.dir/build.make CMakeFiles/cmTC_74863.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_de33d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_de33d.dir/build.make CMakeFiles/cmTC_de33d.dir/build
 make[1]: Entering directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_74863.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_74863.dir/CheckSymbolExists.c.o   -c /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_74863
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74863.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_74863.dir/CheckSymbolExists.c.o  -o cmTC_74863 
-CMakeFiles/cmTC_74863.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_de33d.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_de33d.dir/CheckSymbolExists.c.o   -c /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_de33d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de33d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_de33d.dir/CheckSymbolExists.c.o  -o cmTC_de33d 
+CMakeFiles/cmTC_de33d.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_74863.dir/build.make:97: recipe for target 'cmTC_74863' failed
-make[1]: *** [cmTC_74863] Error 1
+CMakeFiles/cmTC_de33d.dir/build.make:97: recipe for target 'cmTC_de33d' failed
+make[1]: *** [cmTC_de33d] Error 1
 make[1]: Leaving directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_74863/fast' failed
-make: *** [cmTC_74863/fast] Error 2
+Makefile:126: recipe for target 'cmTC_de33d/fast' failed
+make: *** [cmTC_de33d/fast] Error 2
 
 File /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d1f26/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d1f26.dir/build.make CMakeFiles/cmTC_d1f26.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7a23d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7a23d.dir/build.make CMakeFiles/cmTC_7a23d.dir/build
 make[1]: Entering directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_d1f26.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d1f26.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_d1f26
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1f26.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_d1f26.dir/CheckFunctionExists.c.o  -o cmTC_d1f26 -lpthreads 
+Building C object CMakeFiles/cmTC_7a23d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7a23d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7a23d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7a23d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7a23d.dir/CheckFunctionExists.c.o  -o cmTC_7a23d -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_d1f26.dir/build.make:97: recipe for target 'cmTC_d1f26' failed
-make[1]: *** [cmTC_d1f26] Error 1
+CMakeFiles/cmTC_7a23d.dir/build.make:97: recipe for target 'cmTC_7a23d' failed
+make[1]: *** [cmTC_7a23d] Error 1
 make[1]: Leaving directory '/home/chenlequn/SIMTech_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_d1f26/fast' failed
-make: *** [cmTC_d1f26/fast] Error 2
+Makefile:126: recipe for target 'cmTC_7a23d/fast' failed
+make: *** [cmTC_7a23d/fast] Error 2
 
 
