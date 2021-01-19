@@ -2,7 +2,6 @@
   <arg name="gui" default="true" />
   <arg name="sim" default="false" />
 
-
   <!-- parameter robot model and robot interface(motion and state) nodes and parameters -->
   <arg name="model" default="$(find microepsilon_workcell)/urdf/workcell_kuka.xacro" />
 
@@ -19,10 +18,13 @@
     <arg name="model" value="$(arg model)" />
   </include>
 
-  <!-- The path panel for loading and executing path command from jason file -->
+  <!-- The Qt path panel for loading and executing path command from jason file -->
+  <!-- For testing  -->
   <node name="path_panel" pkg="motion_planning_kuka" type="qt_path.py" />
+  <!-- For actual implementation: run the path planning automatically  -->
   <!-- <node name="path_panel" pkg="motion_planning_kuka" type="json_path_planning.py" /> -->
 
-
+  <!-- disable the rvize during actual implementation  -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find motion_planning_kuka)/config/workcell.rviz" required="true" if="$(arg gui)" />
+  
 </launch>

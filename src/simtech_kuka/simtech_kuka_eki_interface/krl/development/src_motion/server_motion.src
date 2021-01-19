@@ -11,7 +11,7 @@ def server_motion()
             LIN cartesian_target
          
          DEFAULT
-            LIN cartesian_target
+            ;LIN cartesian_target
          ENDSWITCH
       
       ;n_command_executed = n_command_executed + 1
@@ -20,7 +20,7 @@ def server_motion()
       ;n_command_executed = 1
 
       ;endif
-      wait 0.01
+      wait sec 0.01
 
    endloop
 

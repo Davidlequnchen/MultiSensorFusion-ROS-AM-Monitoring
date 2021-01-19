@@ -1,4 +1,4 @@
-&ACCESS RVO
+&ACCESS RVO1
 &PARAM EDITMASK = *
 &PARAM TEMPLATE = C:\KRC\Roboter\Template\submit
 def kuka_eki_command_server()
@@ -6,23 +6,19 @@ def kuka_eki_command_server()
    ;FOLD USER DECL
    ; local vairable declarations
    decl int elements_read
-   decl real laser_temp
-   decl bool success
 
    eki_hw_iface_init() ; socket connection
  
-   laser_temp = 0 
+   parameters[1] = $POS_ACT.X
+   parameters[2] = $POS_ACT.Y
+   parameters[3] = $POS_ACT.Z
+   parameters[4] = $POS_ACT.A
+   parameters[5] = $POS_ACT.B
+   parameters[6] = $POS_ACT.C
   
-   $advance = 5 
    loop
-      elements_read = eki_get_temperature(laser_temp) ;checking the laser temp with Arduino reading
-      if laser_temp>26 then
-      $OUT[3]=FALSE
-      $OUT[1]=FALSE
-      endif
-
       elements_read = eki_hw_iface_get()  ; Get new command from buffer 
-
+      
                            
       SWITCH (instruction_code)
       CASE 1
@@ -33,15 +29,15 @@ def kuka_eki_command_server()
          cartesian_target.A = parameters[4]
          cartesian_target.B = parameters[5]
          cartesian_target.C = parameters[6]
+         ;MsgNotify("Cartesian target command received and set",,,,)
          
       DEFAULT
-         cartesian_target.X = parameters[1]
-         cartesian_target.Y = parameters[2]
-         cartesian_target.Z = parameters[3]
-         cartesian_target.A = parameters[4]
-         cartesian_target.B = parameters[5]
-         cartesian_target.C = parameters[6]
-
+         cartesian_target.X = $POS_ACT.X
+         cartesian_target.Y = $POS_ACT.Y
+         cartesian_target.Z = $POS_ACT.Z
+         cartesian_target.A = $POS_ACT.A
+         cartesian_target.B = $POS_ACT.B
+         cartesian_target.C = $POS_ACT.C
       ENDSWITCH
    endloop
 
@@ -52,7 +48,7 @@ end
 
 def eki_hw_iface_init()
    decl eki_status eki_ret
-
+   
    ; Setup interrupts
    ; Interrupt 15 - Connection cleanup on client disconnect
    global interrupt decl 15 when $flag[1]==false do eki_hw_iface_reset()
@@ -67,14 +63,13 @@ def eki_hw_iface_init()
    ; Create and open EKI interface
    eki_ret = eki_init("EkiCommandServer")
    eki_ret = eki_open("EkiCommandServer")
-   MsgNotify("Kuka Controller connected to ROS command interface",,,,)
+   MsgNotify("ROS connection established",,,,)
 end
 
 
 
 def eki_hw_iface_send()
    decl eki_status eki_ret
-   decl real vel_percent
 
    if $flag[1] then  ; If connection alive
       ; Load state values into xml structure
@@ -85,20 +80,6 @@ def eki_hw_iface_send()
       eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A4", $axis_act_meas.a4)
       eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A5", $axis_act_meas.a5)
       eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A6", $axis_act_meas.a6)
-      ; velocity
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Vel/@A1", $vel_axis_act[1] * $vel_axis_ma[1] / 100.0)
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Vel/@A2", $vel_axis_act[2] * $vel_axis_ma[2] / 100.0)
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Vel/@A3", $vel_axis_act[3] * $vel_axis_ma[3] / 100.0)
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Vel/@A4", $vel_axis_act[4] * $vel_axis_ma[4] / 100.0)
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Vel/@A5", $vel_axis_act[5] * $vel_axis_ma[5] / 100.0)
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Vel/@A6", $vel_axis_act[6] * $vel_axis_ma[6] / 100.0)
-      ; effort
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Eff/@A1", $torque_axis_act[1])
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Eff/@A2", $torque_axis_act[2])
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Eff/@A3", $torque_axis_act[3])
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Eff/@A4", $torque_axis_act[4])
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Eff/@A5", $torque_axis_act[5])
-      ;eki_ret = eki_setreal("EkiCommandServer", "RobotState/Eff/@A6", $torque_axis_act[6])
       ; interface state
       eki_ret = eki_checkbuffer("EkiCommandServer", "CommandServer/@InstructionCode")
       eki_ret = eki_setint("EkiCommandServer", "RobotState/CommandServer/@Size", eki_ret.buff)
@@ -112,19 +93,6 @@ def eki_hw_iface_send()
    ; Set timer for next interrupt [ms]
    $timer[1] = -10  ; ~10 ms for above send + 10 ms interrupt timer -> ~50 Hz state transmission
 end
-
-
-
-deffct int eki_hw_iface_available()
-   decl eki_status eki_ret
-
-   if not $flag[1] then
-      return 0
-   endif
-
-   eki_ret = eki_checkbuffer("EkiCommandServer", "CommandServer/@InstructionCode")
-   return eki_ret.buff
-endfct
 
 
 ; eki_hw_iface_get: phrase command
@@ -143,36 +111,13 @@ deffct int eki_hw_iface_get()
    endif
 
    eki_ret = eki_getint("EkiCommandServer", "CommandServer/@InstructionCode", instruction_code)
-   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P1", parameters_char[1])
-   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P2", parameters_char[2])
-   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P3", parameters_char[3])
-   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P4", parameters_char[4])
-   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P5", parameters_char[5])
-   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P6", parameters_char[6])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P1", parameters[1])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P2", parameters[2])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P3", parameters[3])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P4", parameters[4])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P5", parameters[5])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P6", parameters[6])
    
-   ; length = StrLen(instruction_code)
-   ; success = StrToREAL(CHAR receive_string[256], REAL instruction_code)
-  
-   return 1
-endfct
-
-
-
-
-deffct int eki_get_temperature(temp :out)
-   decl eki_status eki_ret
-   decl real temp
-
-   if not $flag[1] then
-      return 0
-   endif
-
-   eki_ret = eki_checkbuffer("EkiCommandServer", "CommandServer/Temp/@Laser")
-   if eki_ret.buff <= 0 then
-     return 0
-   endif
-
-   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Temp/@Laser", temp)
    return 1
 endfct
 

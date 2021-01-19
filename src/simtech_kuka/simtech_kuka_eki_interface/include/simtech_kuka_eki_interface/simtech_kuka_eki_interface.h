@@ -48,7 +48,7 @@ private:
 
   // Interfaces
   hardware_interface::JointStateInterface joint_state_interface_;
-  hardware_interface::PositionJointInterface position_joint_interface_;
+  // hardware_interface::PositionJointInterface position_joint_interface_;
 
   // EKI socket read/write
   int eki_read_state_timeout_ = 10;  // [s]; settable by parameter (default = 5)
@@ -59,8 +59,9 @@ private:
   void eki_check_read_state_deadline();
   static void eki_handle_receive(const boost::system::error_code &ec, size_t length,
                                  boost::system::error_code* out_ec, size_t* out_length);
-  bool eki_read_state(std::vector<double> &joint_position, std::vector<double> &joint_velocity,
-                      std::vector<double> &joint_effort, int &cmd_buff_len);
+  // bool eki_read_state(std::vector<double> &joint_position, std::vector<double> &joint_velocity,
+  //                     std::vector<double> &joint_effort, int &cmd_buff_len);
+    bool eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len);
   // bool eki_write_command(const std::vector<double> &joint_position, const float &temperature);
   
 
@@ -74,8 +75,9 @@ public:
   void read(const ros::Time &time, const ros::Duration &period);
   // void write(const ros::Time &time, const ros::Duration &period);
   void writeTemp(const float temp);
-  bool send_command(const int &instruction_code, const std::vector<double> &command_parameters, 
-                    const float &temperature);
+  // bool send_command(const int &instruction_code, const std::vector<double> &command_parameters, 
+  //                   const float &temperature);
+    bool send_command(const int &instruction_code, const std::vector<double> &command_parameters);
 
 };
 

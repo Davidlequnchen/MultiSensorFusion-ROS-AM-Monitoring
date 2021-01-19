@@ -1,0 +1,7 @@
+set(laser_scanning_SETUP_PY_SETUP_MODULE "distutils.core")
+set(laser_scanning_SETUP_PY_VERSION "0.4.5")
+set(laser_scanning_SETUP_PY_SCRIPTS "")
+set(laser_scanning_SETUP_PY_PACKAGES "robscan")
+set(laser_scanning_SETUP_PY_PACKAGE_DIRS "src/robscan")
+set(laser_scanning_SETUP_PY_MODULES "")
+set(laser_scanning_SETUP_PY_MODULE_DIRS "")

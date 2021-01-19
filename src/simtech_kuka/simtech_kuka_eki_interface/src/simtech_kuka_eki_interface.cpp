@@ -47,10 +47,67 @@ void KukaEkiHardwareInterface::eki_handle_receive(const boost::system::error_cod
 }
 
 
-bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_position,
-                                              std::vector<double> &joint_velocity,
-                                              std::vector<double> &joint_effort,
-                                              int &cmd_buff_len)
+// bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_position,
+//                                               std::vector<double> &joint_velocity,
+//                                               std::vector<double> &joint_effort,
+//                                               int &cmd_buff_len)
+// {
+//   static boost::array<char, 2048> in_buffer;
+
+//   // Read socket buffer (with timeout)
+//   // Based off of Boost documentation example: doc/html/boost_asio/example/timeouts/blocking_udp_client.cpp
+//   deadline_.expires_from_now(boost::posix_time::seconds(eki_read_state_timeout_));  // set deadline
+//   boost::system::error_code ec = boost::asio::error::would_block;
+//   size_t len = 0;
+//   eki_server_socket_.async_receive(boost::asio::buffer(in_buffer),
+//                                    boost::bind(&KukaEkiHardwareInterface::eki_handle_receive, _1, _2, &ec, &len));
+//   do
+//     ios_.run_one();
+//   while (ec == boost::asio::error::would_block);
+//   if (ec)
+//     return false;
+
+//   // Update joint positions from XML packet (if received)
+//   if (len == 0)
+//     return false;
+
+//   // Parse XML
+//   TiXmlDocument xml_in;
+//   in_buffer[len] = '\0';  // null-terminate data buffer for parsing (expects c-string)
+//   xml_in.Parse(in_buffer.data());
+//   TiXmlElement* robot_state = xml_in.FirstChildElement("RobotState");
+//   if (!robot_state)
+//     return false;
+//   TiXmlElement* pos = robot_state->FirstChildElement("Pos");
+//   TiXmlElement* vel = robot_state->FirstChildElement("Vel");
+//   TiXmlElement* eff = robot_state->FirstChildElement("Eff");
+//   TiXmlElement* robot_command = robot_state->FirstChildElement("CommandServer");
+//   if (!pos || !vel || !eff || !robot_command)
+//     return false;
+
+//   // Extract axis positions
+//   double joint_pos;  // [deg]
+//   double joint_vel;  // [%max]
+//   double joint_eff;  // [Nm]
+//   char axis_name[] = "A1";
+//   for (int i = 0; i < n_dof_; ++i)
+//   {
+//     pos->Attribute(axis_name, &joint_pos);
+//     joint_position[i] = angles::from_degrees(joint_pos);  // convert deg to rad
+//     vel->Attribute(axis_name, &joint_vel);
+//     joint_velocity[i] = joint_vel;
+//     eff->Attribute(axis_name, &joint_eff);
+//     joint_effort[i] = joint_eff;
+//     axis_name[1]++;
+//   }
+
+//   // Extract number of command elements buffered on robot
+//   robot_command->Attribute("Size", &cmd_buff_len);
+
+//   return true;
+// }
+
+bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len)
 {
   static boost::array<char, 2048> in_buffer;
 
@@ -79,25 +136,26 @@ bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_positio
   if (!robot_state)
     return false;
   TiXmlElement* pos = robot_state->FirstChildElement("Pos");
-  TiXmlElement* vel = robot_state->FirstChildElement("Vel");
-  TiXmlElement* eff = robot_state->FirstChildElement("Eff");
+  // TiXmlElement* vel = robot_state->FirstChildElement("Vel");
+  // TiXmlElement* eff = robot_state->FirstChildElement("Eff");
   TiXmlElement* robot_command = robot_state->FirstChildElement("CommandServer");
-  if (!pos || !vel || !eff || !robot_command)
+  // if (!pos || !vel || !eff || !robot_command)
+  if (!pos || !robot_command)
     return false;
 
   // Extract axis positions
   double joint_pos;  // [deg]
-  double joint_vel;  // [%max]
-  double joint_eff;  // [Nm]
+  // double joint_vel; // [%max]
+  // double joint_eff; // [Nm]
   char axis_name[] = "A1";
   for (int i = 0; i < n_dof_; ++i)
   {
     pos->Attribute(axis_name, &joint_pos);
     joint_position[i] = angles::from_degrees(joint_pos);  // convert deg to rad
-    vel->Attribute(axis_name, &joint_vel);
-    joint_velocity[i] = joint_vel;
-    eff->Attribute(axis_name, &joint_eff);
-    joint_effort[i] = joint_eff;
+    // vel->Attribute(axis_name, &joint_vel);
+    // joint_velocity[i] = joint_vel;
+    // eff->Attribute(axis_name, &joint_eff);
+    // joint_effort[i] = joint_eff;
     axis_name[1]++;
   }
 
@@ -110,16 +168,17 @@ bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_positio
 
 
 
-bool KukaEkiHardwareInterface::send_command(const int &instruction_code, const std::vector<double> &command_parameters, 
-                                            const float &temperature)
+// bool KukaEkiHardwareInterface::send_command(const int &instruction_code, const std::vector<double> &command_parameters, 
+//                                             const float &temperature)
+bool KukaEkiHardwareInterface::send_command(const int &instruction_code, const std::vector<double> &command_parameters)
 {
   TiXmlDocument xml_out;
   TiXmlElement* robot_command_server = new TiXmlElement("CommandServer");
   TiXmlElement* parameters = new TiXmlElement("Parameters");
-  TiXmlElement* temp = new TiXmlElement("Temp");
+  // TiXmlElement* temp = new TiXmlElement("Temp");
   TiXmlText* empty_text = new TiXmlText("");
   robot_command_server->LinkEndChild(parameters);
-  robot_command_server->LinkEndChild(temp);
+  // robot_command_server->LinkEndChild(temp);
   parameters->LinkEndChild(empty_text);  // force <parameters></parameters> format (vs <parameters />)
   char params[] = "P1";
   for (int i = 0; i < n_dof_; ++i)
@@ -129,7 +188,7 @@ bool KukaEkiHardwareInterface::send_command(const int &instruction_code, const s
     params[1]++;
   }
   robot_command_server->SetAttribute("InstructionCode", instruction_code);
-  temp->SetDoubleAttribute("Laser", temperature);
+  // temp->SetDoubleAttribute("Laser", temperature);
   xml_out.LinkEndChild(robot_command_server);
 
   TiXmlPrinter xml_printer;
@@ -206,14 +265,14 @@ void KukaEkiHardwareInterface::init()
                                              &joint_effort_[i]));
 
     // Joint position control interface
-    position_joint_interface_.registerHandle(
-        hardware_interface::JointHandle(joint_state_interface_.getHandle(joint_names_[i]),
-                                        &joint_position_command_[i]));
+    // position_joint_interface_.registerHandle(
+    //     hardware_interface::JointHandle(joint_state_interface_.getHandle(joint_names_[i]),
+    //                                     &joint_position_command_[i]));
   }
 
   // Register interfaces
   registerInterface(&joint_state_interface_);
-  registerInterface(&position_joint_interface_);
+  // registerInterface(&position_joint_interface_);
   
 
   ROS_INFO_STREAM_NAMED("simtech_kuka_eki_interface", "Loaded Kuka EKI hardware interface");
@@ -236,7 +295,8 @@ void KukaEkiHardwareInterface::start()
   eki_check_read_state_deadline();
 
   // Initialize joint_position_command_ from initial robot state (avoid bad (null) commands before controllers come up)
-  if (!eki_read_state(joint_position_, joint_velocity_, joint_effort_, eki_cmd_buff_len_))
+  // if (!eki_read_state(joint_position_, joint_velocity_, joint_effort_, eki_cmd_buff_len_))
+  if (!eki_read_state(joint_position_, eki_cmd_buff_len_))
   {
     std::string msg = "Failed to read from robot EKI server within alloted time of "
                       + std::to_string(eki_read_state_timeout_) + " seconds.  Make sure eki_hw_interface is running "
@@ -252,7 +312,8 @@ void KukaEkiHardwareInterface::start()
 
 void KukaEkiHardwareInterface::read(const ros::Time &time, const ros::Duration &period)
 {
-  if (!eki_read_state(joint_position_, joint_velocity_, joint_effort_, eki_cmd_buff_len_))
+  // if (!eki_read_state(joint_position_, joint_velocity_, joint_effort_, eki_cmd_buff_len_))
+  if (!eki_read_state(joint_position_, eki_cmd_buff_len_))
   {
     std::string msg = "Failed to read from robot EKI server within alloted time of "
                       + std::to_string(eki_read_state_timeout_) + " seconds.  Make sure eki_hw_interface is running "

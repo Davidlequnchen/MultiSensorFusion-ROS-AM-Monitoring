@@ -1070,22 +1070,22 @@ clean: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_genera
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory laser_profiler_scanning/monitoring
+# Directory level rules for directory deprecated/laser_profiler_scanning/monitoring
 
 # Convenience name for "all" pass in the directory.
-laser_profiler_scanning/monitoring/all:
+deprecated/laser_profiler_scanning/monitoring/all:
 
-.PHONY : laser_profiler_scanning/monitoring/all
+.PHONY : deprecated/laser_profiler_scanning/monitoring/all
 
 # Convenience name for "clean" pass in the directory.
-laser_profiler_scanning/monitoring/clean:
+deprecated/laser_profiler_scanning/monitoring/clean:
 
-.PHONY : laser_profiler_scanning/monitoring/clean
+.PHONY : deprecated/laser_profiler_scanning/monitoring/clean
 
 # Convenience name for "preinstall" pass in the directory.
-laser_profiler_scanning/monitoring/preinstall:
+deprecated/laser_profiler_scanning/monitoring/preinstall:
 
-.PHONY : laser_profiler_scanning/monitoring/preinstall
+.PHONY : deprecated/laser_profiler_scanning/monitoring/preinstall
 
 #=============================================================================
 # Directory level rules for directory scanning_application/monitoring_json
@@ -1526,22 +1526,22 @@ simtech_kuka/simtech_kuka_workcell/preinstall:
 .PHONY : simtech_kuka/simtech_kuka_workcell/preinstall
 
 #=============================================================================
-# Directory level rules for directory laser_profiler_scanning/simtech_moveit_config
+# Directory level rules for directory deprecated/laser_profiler_scanning/simtech_moveit_config
 
 # Convenience name for "all" pass in the directory.
-laser_profiler_scanning/simtech_moveit_config/all:
+deprecated/laser_profiler_scanning/simtech_moveit_config/all:
 
-.PHONY : laser_profiler_scanning/simtech_moveit_config/all
+.PHONY : deprecated/laser_profiler_scanning/simtech_moveit_config/all
 
 # Convenience name for "clean" pass in the directory.
-laser_profiler_scanning/simtech_moveit_config/clean:
+deprecated/laser_profiler_scanning/simtech_moveit_config/clean:
 
-.PHONY : laser_profiler_scanning/simtech_moveit_config/clean
+.PHONY : deprecated/laser_profiler_scanning/simtech_moveit_config/clean
 
 # Convenience name for "preinstall" pass in the directory.
-laser_profiler_scanning/simtech_moveit_config/preinstall:
+deprecated/laser_profiler_scanning/simtech_moveit_config/preinstall:
 
-.PHONY : laser_profiler_scanning/simtech_moveit_config/preinstall
+.PHONY : deprecated/laser_profiler_scanning/simtech_moveit_config/preinstall
 
 #=============================================================================
 # Directory level rules for directory simtech_abb/simtech_workcell
@@ -3026,40 +3026,40 @@ clean: ROS_perception/vision_opencv/cv_bridge/test/CMakeFiles/run_tests_cv_bridg
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory laser_profiler_scanning/Laser_calibration/calib_ros_run
+# Directory level rules for directory deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run
 
 # Convenience name for "all" pass in the directory.
-laser_profiler_scanning/Laser_calibration/calib_ros_run/all:
+deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run/all:
 
-.PHONY : laser_profiler_scanning/Laser_calibration/calib_ros_run/all
+.PHONY : deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run/all
 
 # Convenience name for "clean" pass in the directory.
-laser_profiler_scanning/Laser_calibration/calib_ros_run/clean:
+deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run/clean:
 
-.PHONY : laser_profiler_scanning/Laser_calibration/calib_ros_run/clean
+.PHONY : deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run/clean
 
 # Convenience name for "preinstall" pass in the directory.
-laser_profiler_scanning/Laser_calibration/calib_ros_run/preinstall:
+deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run/preinstall:
 
-.PHONY : laser_profiler_scanning/Laser_calibration/calib_ros_run/preinstall
+.PHONY : deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run/preinstall
 
 #=============================================================================
-# Directory level rules for directory laser_profiler_scanning/Laser_calibration/calib_ros_test
+# Directory level rules for directory deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_test
 
 # Convenience name for "all" pass in the directory.
-laser_profiler_scanning/Laser_calibration/calib_ros_test/all:
+deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_test/all:
 
-.PHONY : laser_profiler_scanning/Laser_calibration/calib_ros_test/all
+.PHONY : deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_test/all
 
 # Convenience name for "clean" pass in the directory.
-laser_profiler_scanning/Laser_calibration/calib_ros_test/clean:
+deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_test/clean:
 
-.PHONY : laser_profiler_scanning/Laser_calibration/calib_ros_test/clean
+.PHONY : deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_test/clean
 
 # Convenience name for "preinstall" pass in the directory.
-laser_profiler_scanning/Laser_calibration/calib_ros_test/preinstall:
+deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_test/preinstall:
 
-.PHONY : laser_profiler_scanning/Laser_calibration/calib_ros_test/preinstall
+.PHONY : deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_test/preinstall
 
 #=============================================================================
 # Directory level rules for directory ROS_perception/vision_opencv/image_geometry
@@ -4671,601 +4671,601 @@ clean: ROS_perception/image_pipeline/image_publisher/CMakeFiles/image_publisher_
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory laserControl_CNC/laser_control
+# Directory level rules for directory deprecated/laserControl_CNC/laser_control
 
 # Convenience name for "all" pass in the directory.
-laserControl_CNC/laser_control/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
+deprecated/laserControl_CNC/laser_control/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
 
-.PHONY : laserControl_CNC/laser_control/all
+.PHONY : deprecated/laserControl_CNC/laser_control/all
 
 # Convenience name for "clean" pass in the directory.
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
-laserControl_CNC/laser_control/clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
+deprecated/laserControl_CNC/laser_control/clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
 
-.PHONY : laserControl_CNC/laser_control/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/clean
 
 # Convenience name for "preinstall" pass in the directory.
-laserControl_CNC/laser_control/preinstall:
+deprecated/laserControl_CNC/laser_control/preinstall:
 
-.PHONY : laserControl_CNC/laser_control/preinstall
-
-#=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir
-
-# All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgPower"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
-
-# Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule
-
-# Convenience name for target.
-_laser_control_generate_messages_check_deps_MsgPower: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule
-
-.PHONY : _laser_control_generate_messages_check_deps_MsgPower
-
-# clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
-
-# clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
-
-.PHONY : clean
+.PHONY : deprecated/laserControl_CNC/laser_control/preinstall
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgStart"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
-
-# Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
-
-# Convenience name for target.
-_laser_control_generate_messages_check_deps_MsgStart: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
-
-.PHONY : _laser_control_generate_messages_check_deps_MsgStart
-
-# clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
-
-# clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir
-
-# All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgControl"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
-
-# Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/rule
-
-# Convenience name for target.
-_laser_control_generate_messages_check_deps_MsgControl: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/rule
-
-.PHONY : _laser_control_generate_messages_check_deps_MsgControl
-
-# clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
-
-# clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir
-
-# All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgEmission"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
-
-# Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/rule
-
-# Convenience name for target.
-_laser_control_generate_messages_check_deps_MsgEmission: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/rule
-
-.PHONY : _laser_control_generate_messages_check_deps_MsgEmission
-
-# clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
-
-# clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir
-
-# All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_gennodejs"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/all
-
-# Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/rule
-
-# Convenience name for target.
-laser_control_gennodejs: laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/rule
-
-.PHONY : laser_control_gennodejs
-
-# clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
-
-# clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir
-
-# All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_py.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=43,44 "Built target laser_control_generate_messages_py"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/rule
-
-# Convenience name for target.
-laser_control_generate_messages_py: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/rule
-
-.PHONY : laser_control_generate_messages_py
-
-# clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir
-
-# All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_generate_messages"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
-
-# Include target in all.
-all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/rule
-
-# Convenience name for target.
-laser_control_generate_messages: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/rule
-
-.PHONY : laser_control_generate_messages
-
-# clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
-
-# clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir
-
-# All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgInfo"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
 
 # Convenience name for target.
-_laser_control_generate_messages_check_deps_MsgInfo: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
+_laser_control_generate_messages_check_deps_MsgInfo: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/rule
 
 .PHONY : _laser_control_generate_messages_check_deps_MsgInfo
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=38 "Built target laser_control_generate_messages_cpp"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgEmission"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/rule
 
 # Convenience name for target.
-laser_control_generate_messages_cpp: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/rule
+_laser_control_generate_messages_check_deps_MsgEmission: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/rule
+
+.PHONY : _laser_control_generate_messages_check_deps_MsgEmission
+
+# clean rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
+
+# clean rule for target.
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir
+
+# All Build rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_gennodejs"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/all
+
+# Build rule for subdir invocation for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/rule
+
+# Convenience name for target.
+laser_control_gennodejs: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/rule
+
+.PHONY : laser_control_gennodejs
+
+# clean rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
+
+# clean rule for target.
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gennodejs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir
+
+# All Build rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_py.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=43,44 "Built target laser_control_generate_messages_py"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/rule
+
+# Convenience name for target.
+laser_control_generate_messages_py: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/rule
+
+.PHONY : laser_control_generate_messages_py
+
+# clean rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir
+
+# All Build rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgControl"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
+
+# Build rule for subdir invocation for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/rule
+
+# Convenience name for target.
+_laser_control_generate_messages_check_deps_MsgControl: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/rule
+
+.PHONY : _laser_control_generate_messages_check_deps_MsgControl
+
+# clean rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
+
+# clean rule for target.
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir
+
+# All Build rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_generate_messages"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
+
+# Include target in all.
+all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/rule
+
+# Convenience name for target.
+laser_control_generate_messages: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/rule
+
+.PHONY : laser_control_generate_messages
+
+# clean rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
+
+# clean rule for target.
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir
+
+# All Build rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgPower"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
+
+# Build rule for subdir invocation for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule
+
+# Convenience name for target.
+_laser_control_generate_messages_check_deps_MsgPower: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule
+
+.PHONY : _laser_control_generate_messages_check_deps_MsgPower
+
+# clean rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
+
+# clean rule for target.
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir
+
+# All Build rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _laser_control_generate_messages_check_deps_MsgStart"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
+
+# Build rule for subdir invocation for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
+
+# Convenience name for target.
+_laser_control_generate_messages_check_deps_MsgStart: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
+
+.PHONY : _laser_control_generate_messages_check_deps_MsgStart
+
+# clean rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
+
+# clean rule for target.
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir
+
+# All Build rule for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=38 "Built target laser_control_generate_messages_cpp"
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+laser_control_generate_messages_cpp: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/rule
 
 .PHONY : laser_control_generate_messages_cpp
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_py.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_genpy"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/rule
 
 # Convenience name for target.
-laser_control_genpy: laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/rule
+laser_control_genpy: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/rule
 
 .PHONY : laser_control_genpy
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genpy.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_gencpp"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/rule
 
 # Convenience name for target.
-laser_control_gencpp: laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/rule
+laser_control_gencpp: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/rule
 
 .PHONY : laser_control_gencpp
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_gencpp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=42 "Built target laser_control_generate_messages_nodejs"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-laser_control_generate_messages_nodejs: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/rule
+laser_control_generate_messages_nodejs: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/rule
 
 .PHONY : laser_control_generate_messages_nodejs
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_nodejs.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=39,40 "Built target laser_control_generate_messages_eus"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-laser_control_generate_messages_eus: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/rule
+laser_control_generate_messages_eus: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/rule
 
 .PHONY : laser_control_generate_messages_eus
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgInfo.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgControl.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/all
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=41 "Built target laser_control_generate_messages_lisp"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-laser_control_generate_messages_lisp: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/rule
+laser_control_generate_messages_lisp: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/rule
 
 .PHONY : laser_control_generate_messages_lisp
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_eus.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_geneus"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/rule
 
 # Convenience name for target.
-laser_control_geneus: laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/rule
+laser_control_geneus: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/rule
 
 .PHONY : laser_control_geneus
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_geneus.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir
+# Target rules for target deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir
 
 # All Build rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/all: laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/depend
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/all: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_lisp.dir/all
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/depend
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target laser_control_genlisp"
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/all
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/all
 
 # Build rule for subdir invocation for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/rule: cmake_check_build_system
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/rule
 
 # Convenience name for target.
-laser_control_genlisp: laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/rule
+laser_control_genlisp: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/rule
 
 .PHONY : laser_control_genlisp
 
 # clean rule for target.
-laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean:
-	$(MAKE) -f laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build.make laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
-.PHONY : laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
+deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean:
+	$(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
 
 # clean rule for target.
-clean: laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
+clean: deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_genlisp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory laser_profiler_scanning/laser_scanning
+# Directory level rules for directory deprecated/laser_profiler_scanning/laser_scanning
 
 # Convenience name for "all" pass in the directory.
-laser_profiler_scanning/laser_scanning/all:
+deprecated/laser_profiler_scanning/laser_scanning/all:
 
-.PHONY : laser_profiler_scanning/laser_scanning/all
+.PHONY : deprecated/laser_profiler_scanning/laser_scanning/all
 
 # Convenience name for "clean" pass in the directory.
-laser_profiler_scanning/laser_scanning/clean:
+deprecated/laser_profiler_scanning/laser_scanning/clean:
 
-.PHONY : laser_profiler_scanning/laser_scanning/clean
+.PHONY : deprecated/laser_profiler_scanning/laser_scanning/clean
 
 # Convenience name for "preinstall" pass in the directory.
-laser_profiler_scanning/laser_scanning/preinstall:
+deprecated/laser_profiler_scanning/laser_scanning/preinstall:
 
-.PHONY : laser_profiler_scanning/laser_scanning/preinstall
+.PHONY : deprecated/laser_profiler_scanning/laser_scanning/preinstall
 
 #=============================================================================
 # Directory level rules for directory motion_planning_ABB
@@ -14557,429 +14557,429 @@ clean: ROS_perception/usb_cam/CMakeFiles/usb_cam.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory velocity_control
+# Directory level rules for directory deprecated/velocity_control
 
 # Convenience name for "all" pass in the directory.
-velocity_control/all: velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
+deprecated/velocity_control/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
 
-.PHONY : velocity_control/all
+.PHONY : deprecated/velocity_control/all
 
 # Convenience name for "clean" pass in the directory.
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
-velocity_control/clean: velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
+deprecated/velocity_control/clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
 
-.PHONY : velocity_control/clean
+.PHONY : deprecated/velocity_control/clean
 
 # Convenience name for "preinstall" pass in the directory.
-velocity_control/preinstall:
+deprecated/velocity_control/preinstall:
 
-.PHONY : velocity_control/preinstall
+.PHONY : deprecated/velocity_control/preinstall
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_geneus.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_geneus.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_geneus.dir/build.make velocity_control/CMakeFiles/velocity_control_geneus.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_geneus.dir/build.make velocity_control/CMakeFiles/velocity_control_geneus.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_geneus"
-.PHONY : velocity_control/CMakeFiles/velocity_control_geneus.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_geneus.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_geneus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_geneus.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/rule
 
 # Convenience name for target.
-velocity_control_geneus: velocity_control/CMakeFiles/velocity_control_geneus.dir/rule
+velocity_control_geneus: deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/rule
 
 .PHONY : velocity_control_geneus
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_geneus.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_geneus.dir/build.make velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_geneus.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=98 "Built target velocity_control_generate_messages_eus"
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-velocity_control_generate_messages_eus: velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/rule
+velocity_control_generate_messages_eus: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/rule
 
 .PHONY : velocity_control_generate_messages_eus
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_gencpp.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_gencpp.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_gencpp.dir/build.make velocity_control/CMakeFiles/velocity_control_gencpp.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_gencpp.dir/build.make velocity_control/CMakeFiles/velocity_control_gencpp.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_gencpp"
-.PHONY : velocity_control/CMakeFiles/velocity_control_gencpp.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_gencpp.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_gencpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_gencpp.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/rule
 
 # Convenience name for target.
-velocity_control_gencpp: velocity_control/CMakeFiles/velocity_control_gencpp.dir/rule
+velocity_control_gencpp: deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/rule
 
 .PHONY : velocity_control_gencpp
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_gencpp.dir/build.make velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_gencpp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_generate_messages_lisp"
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-velocity_control_generate_messages_lisp: velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/rule
+velocity_control_generate_messages_lisp: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/rule
 
 .PHONY : velocity_control_generate_messages_lisp
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_generate_messages_cpp"
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-velocity_control_generate_messages_cpp: velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/rule
+velocity_control_generate_messages_cpp: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/rule
 
 .PHONY : velocity_control_generate_messages_cpp
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_genpy.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_genpy.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_genpy.dir/build.make velocity_control/CMakeFiles/velocity_control_genpy.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_genpy.dir/build.make velocity_control/CMakeFiles/velocity_control_genpy.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_genpy"
-.PHONY : velocity_control/CMakeFiles/velocity_control_genpy.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_genpy.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_genpy.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_genpy.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/rule
 
 # Convenience name for target.
-velocity_control_genpy: velocity_control/CMakeFiles/velocity_control_genpy.dir/rule
+velocity_control_genpy: deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/rule
 
 .PHONY : velocity_control_genpy
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_genpy.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_genpy.dir/build.make velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_genpy.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_generate_messages.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_eus.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_cpp.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_generate_messages"
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
 
 # Include target in all.
-all: velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
+all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/rule
 
 # Convenience name for target.
-velocity_control_generate_messages: velocity_control/CMakeFiles/velocity_control_generate_messages.dir/rule
+velocity_control_generate_messages: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/rule
 
 .PHONY : velocity_control_generate_messages
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all:
-	$(MAKE) -f velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build.make velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build.make velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build
+deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build.make deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build.make deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target _velocity_control_generate_messages_check_deps_MsgSpeedOverride"
-.PHONY : velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/rule
 
 # Convenience name for target.
-_velocity_control_generate_messages_check_deps_MsgSpeedOverride: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/rule
+_velocity_control_generate_messages_check_deps_MsgSpeedOverride: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/rule
 
 .PHONY : _velocity_control_generate_messages_check_deps_MsgSpeedOverride
 
 # clean rule for target.
-velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build.make velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
-.PHONY : velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
+deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build.make deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_gennodejs.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_gennodejs.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build.make velocity_control/CMakeFiles/velocity_control_gennodejs.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build.make velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_gennodejs"
-.PHONY : velocity_control/CMakeFiles/velocity_control_gennodejs.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_gennodejs.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_gennodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_gennodejs.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/rule
 
 # Convenience name for target.
-velocity_control_gennodejs: velocity_control/CMakeFiles/velocity_control_gennodejs.dir/rule
+velocity_control_gennodejs: deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/rule
 
 .PHONY : velocity_control_gennodejs
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build.make velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_gennodejs.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_genlisp.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_genlisp.dir/all: velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_genlisp.dir/build.make velocity_control/CMakeFiles/velocity_control_genlisp.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_genlisp.dir/build.make velocity_control/CMakeFiles/velocity_control_genlisp.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/all: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_lisp.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_genlisp"
-.PHONY : velocity_control/CMakeFiles/velocity_control_genlisp.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_genlisp.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_genlisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_genlisp.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/rule
 
 # Convenience name for target.
-velocity_control_genlisp: velocity_control/CMakeFiles/velocity_control_genlisp.dir/rule
+velocity_control_genlisp: deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/rule
 
 .PHONY : velocity_control_genlisp
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_genlisp.dir/build.make velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_genlisp.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num= "Built target velocity_control_generate_messages_nodejs"
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-velocity_control_generate_messages_nodejs: velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/rule
+velocity_control_generate_messages_nodejs: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/rule
 
 .PHONY : velocity_control_generate_messages_nodejs
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_nodejs.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir
+# Target rules for target deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir
 
 # All Build rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_py.dir/all
-velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all: velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/depend
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all: microEpsilon_scanControl/microepsilon_workcell/CMakeFiles/std_msgs_generate_messages_py.dir/all
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/all
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/depend
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=99 "Built target velocity_control_generate_messages_py"
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/rule: cmake_check_build_system
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chenlequn/SIMTech_ws/build/CMakeFiles 0
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/rule
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/rule
 
 # Convenience name for target.
-velocity_control_generate_messages_py: velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/rule
+velocity_control_generate_messages_py: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/rule
 
 .PHONY : velocity_control_generate_messages_py
 
 # clean rule for target.
-velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean:
-	$(MAKE) -f velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build.make velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
-.PHONY : velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
+deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean:
+	$(MAKE) -f deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/build.make deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
+.PHONY : deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
 
 # clean rule for target.
-clean: velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
+clean: deprecated/velocity_control/CMakeFiles/velocity_control_generate_messages_py.dir/clean
 
 .PHONY : clean
 

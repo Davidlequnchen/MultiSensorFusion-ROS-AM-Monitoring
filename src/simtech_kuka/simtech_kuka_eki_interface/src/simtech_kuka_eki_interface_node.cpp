@@ -88,7 +88,8 @@ class NdKukaRobotInterface {
                 // check command
                 std::cout << "check the command parameter X: " << command_parameters[1] << "\n";
             }
-            return hardware_interface.send_command(instruction_code, command_parameters, temperature);
+            // return hardware_interface.send_command(instruction_code, command_parameters, temperature);
+            return hardware_interface.send_command(instruction_code, command_parameters);
           }
         }
 
@@ -142,7 +143,7 @@ class NdKukaRobotInterface {
           controller_manager->update(timestamp, period);
 
           // Send new setpoint to robot (not used by simtech program)
-          hardware_interface.writeTemp(temperature);
+          // hardware_interface.writeTemp(temperature);
           // hardware_interface.write(timestamp, period);
         }
 

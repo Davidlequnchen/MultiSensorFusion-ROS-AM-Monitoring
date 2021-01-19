@@ -1,26 +1,19 @@
-&ACCESS RVO
+&ACCESS RVO1
+&PARAM EDITMASK = *
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\submit
 defdat kuka_eki_command_server public
+;FOLD EXTERNAL DECLARATIONS;%{PE}%MKUKATPBASIS,%CEXT,%VCOMMON,%P
+;FOLD BASISTECH EXT;%{PE}%MKUKATPBASIS,%CEXT,%VEXT,%P
+EXT  BAS (BAS_COMMAND  :IN,REAL  :IN )
+DECL INT SUCCESS
+;ENDFOLD (BASISTECH EXT)
+;FOLD USER EXT;%{E}%MKUKATPUSER,%CEXT,%VEXT,%P
+;Make your modifications here
 
-; adding keyword "public" making the object in this data list (DAT file) global
-; also , need to inset "Global" keyword in declaration of variables, signals, etc. 
-; this file cannot define global functions,subprograms.
-; alternatively, we can define all these global varibales in $config.dat under USER GLOBALS section.
-
-; this files defines global variables used for PC-robot communication, which are simmilar to COMMON.sys in ABB
-
-
-;EXTERNAL declaration ; global variables are defined in this section
-
-decl global INT instruction_code        ; identify which command (i.e, velocity, motion, laser, etc)
-decl global char parameters_char[6]     ; number of received parameters in string
-decl global real parameters[6]          ; number of received parameters in real number
-decl global frame cartesian_target      ; frame is a sturct, X, Y, Z, A, B, C
-decl global pos cartesian_target_pos    ;pos: X, Y, Z, A, B, C, INT S, T
-
-
-
-
-
-
-
+;ENDFOLD (USER EXT)
+;ENDFOLD (EXTERNAL DECLARATIONS)
+decl global INT instruction_code = 0      ; identify which command (i.e, velocity, motion, laser, etc)
+decl global real parameters[6]        ; number of received parameters in real value
+decl global frame cartesian_target    ; frame is a sturct, X, Y, Z, A, B, C
+;decl global pos cartesian_target_pos  ;pos: X, Y, Z, A, B, C, INT S, T
 enddat
