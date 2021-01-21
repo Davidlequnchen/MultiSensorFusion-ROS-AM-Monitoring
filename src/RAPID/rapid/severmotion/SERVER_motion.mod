@@ -178,7 +178,7 @@ PROC main()
 					n_cartesian_motion := n_cartesian_motion + 1;
 					IF n_cartesian_motion > 49
 					n_cartesian_motion := 1;
-				ENDIF
+				    ENDIF
 				WaitTime 0.01;  ! Throttle loop while waiting for new command
 			ENDWHILE
 ERROR

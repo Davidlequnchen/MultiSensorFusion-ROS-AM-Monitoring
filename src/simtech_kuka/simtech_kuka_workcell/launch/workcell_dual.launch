@@ -1,0 +1,19 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+  <arg name="model" default="$(find simtech_kuka_workcell)/urdf/workcell.xacro" />
+  <arg name="modelB" default="$(find simtech_kuka_workcell)/urdf/workcellB.xacro" />
+  <!-- <arg name="model" default="$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro" /> -->
+
+  <param name="/use_sim_time" value="$(arg sim)" />
+
+  <include file="$(find simtech_kuka_workcell)/launch/workcell.launch" unless="$(arg sim)">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <include file="$(find simtech_kuka_workcell)/launch/workcellB.launch" unless="$(arg sim)">
+    <arg name="model" value="$(arg modelB)" />
+  </include>
+
+
+</launch>

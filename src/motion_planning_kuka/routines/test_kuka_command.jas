@@ -1,0 +1,8 @@
+{"move_frame": [0, 0, 30, -130.94, -0.57, 178.12]}
+{"move_xyz": [0, 0, -30]}
+{"wait": 5}
+{"move_xyz": [0, 0, 30]}
+{"move_xyz": [30, 0, 30]}
+{"velocity_linear": 0.03}
+{"velocity_swivel": 300}
+{"velocity_rotation": 300}

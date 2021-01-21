@@ -173,6 +173,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/chenlequn/SIMTech_ws/build/ROS_perception/image_pipeline/image_rotate/cmake_install.cmake")
   include("/home/chenlequn/SIMTech_ws/build/simtech_kuka/kuka_rsi_hw_interface/cmake_install.cmake")
   include("/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_eki_interface/cmake_install.cmake")
+  include("/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_eki_interfaceB/cmake_install.cmake")
   include("/home/chenlequn/SIMTech_ws/build/ROS_perception/usb_cam/cmake_install.cmake")
   include("/home/chenlequn/SIMTech_ws/build/deprecated/velocity_control/cmake_install.cmake")
 

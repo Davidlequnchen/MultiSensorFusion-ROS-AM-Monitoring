@@ -12,8 +12,23 @@ DECL INT SUCCESS
 
 ;ENDFOLD (USER EXT)
 ;ENDFOLD (EXTERNAL DECLARATIONS)
-decl global INT instruction_code = 0      ; identify which command (i.e, velocity, motion, laser, etc)
-decl global real parameters[6]        ; number of received parameters in real value
-decl global frame cartesian_target    ; frame is a sturct, X, Y, Z, A, B, C
-;decl global pos cartesian_target_pos  ;pos: X, Y, Z, A, B, C, INT S, T
+decl global INT max_command_packet = 50
+decl global INT instruction_code = 0                            ; identify which command (i.e, velocity, motion, laser, etc)
+decl global real parameters[6]                                  ; number of received parameters in real value
+decl global real wait_time = 0                                  ; wait time between move
+decl global frame cartesian_target[50]                          ; an array of frame, frame is a sturct, X, Y, Z, A, B, C
+;decl global pos cartesian_target_pos                           ;pos: X, Y, Z, A, B, C, INT S, T
+
+; // Motion of the robot
+decl global INT n_cartesian_motion = 1
+decl global INT n_cartesian_command = 1
+
+decl global INT command_type[50]
+decl global real json_motion_complete = 0     ; json motion command complete or not
+
+
+decl global bool is_defects = TRUE
+decl global bool path_finished = False
+decl global bool cancel_motion = False
+
 enddat

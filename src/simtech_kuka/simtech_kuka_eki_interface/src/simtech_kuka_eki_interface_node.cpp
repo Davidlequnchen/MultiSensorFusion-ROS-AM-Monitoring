@@ -79,15 +79,128 @@ class NdKukaRobotInterface {
             std::cout << "command parameters are: " << it.value() << "\n";
             
             // check the instruction type
-            if (it.key() == "move")
+            if (it.key() == "move_xyz")
             {
-                // for linear motion command, the instruction code is 1
+                // for linear motion command with only xyz coordinate, the instruction code is 1
                 instruction_code = 1;
-                // convert json object into std::vector, now should be {X,Y,Z,A,B,C}
+                // convert json object into std::vector, now should be {X,Y,Z}
                 command_parameters = it.value().get<std::vector<double>>();
                 // check command
-                std::cout << "check the command parameter X: " << command_parameters[1] << "\n";
+                std::cout << "check the command parameter X: " << command_parameters[0] << "\n";
             }
+            else if (it.key() == "move_frame")
+            {
+              // for linear move with full frame: X,Y,Z,A,B，C defined (6 parameters)
+              instruction_code = 2;
+              // convert json object into std::vector, now should be {X,Y,Z,A,B,C}
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command parameter A: " << command_parameters[3] << "\n";
+            }
+            else if (it.key() == "motion_complete")
+            {
+              // indicate if the json command is completed (send from Qt Gui)
+              instruction_code = 3;
+              // convert json object into std::vector, now should be 0 (not complete)/ 1 (complete)
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command json complete: " << command_parameters[0] << "\n";
+            }
+            else if (it.key() == "velocity_linear")
+            {
+              // set linear velocity
+              instruction_code = 4;
+              // convert json object into std::vector, now should be (linear speed) m/s (default 0.03)
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command velocity linear: " << command_parameters[0] << "\n";
+            }
+            else if (it.key() == "velocity_swivel")
+            {
+              // set swivel velocity (ORT1)
+              instruction_code = 5;
+              // convert json object into std::vector, now should be (swivel speed) deg/s (default 300)
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command velocity swivel (ORT1): " << command_parameters[0] << "\n";
+            }
+            else if (it.key() == "velocity_rotation")
+            {
+              // set rotation velocity ORT2
+              instruction_code = 6;
+              // convert json object into std::vector, now should be (rotation speed) deg/s (default 300)
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command velocity rotation (ORT2): " << command_parameters[0] << "\n";
+            }
+            else if (it.key() == "laser_ready")
+            {
+              // convert json object into std::vector, now should be 0/1
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command laser ready: " << command_parameters[0] << "\n";
+              if (command_parameters[0] == 0)
+              {
+                instruction_code = 7; // laser off
+              }
+              else{
+                instruction_code = 8; // laser on
+              }
+            }
+            else if (it.key() == "laser_emission")
+            {
+              // convert json object into std::vector, now should be 0/1
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command laser emission: " << command_parameters[0] << "\n";
+              if (command_parameters[0] == 0)
+              {
+                instruction_code = 9; // laser end
+              }
+              else{
+                instruction_code = 10; // laser start
+              }
+            }
+            else if (it.key() == "set_laser_power")
+            {
+              // set the laser power analog voltage
+              instruction_code = 11;
+              // convert json object into std::vector, now should be around 0.1 (according to the table)
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command set laser power: " << command_parameters[0] << "\n";
+            }
+            else if (it.key() == "tool")
+            {
+              // set the laser power analog voltage
+              instruction_code = 12;
+              // convert json object into std::vector, 1/2/3.... --> $TOOL=TOOL_DATA[1] ; "LASER"
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command set tool: " << command_parameters[0] << "\n";
+            }
+            else if (it.key() == "workobject")
+            {
+              // set the laser power analog voltage
+              instruction_code = 13;
+              // convert json object into std::vector, $BASE={X 1250.29, Y -1480.35, Z 1247.41, A 90, B 0, C 0}  ; user-defined BASE frame
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command set workobject X value: " << command_parameters[0] << "\n";
+            }
+            else if (it.key() == "wait")
+            {
+              // wait time seconds
+              instruction_code = 14;
+              // convert json object into std::vector
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command wait value: " << command_parameters[0] << "\n";
+            }
+            else{
+              std::cout << "Invalid command, check the json again \n";
+            }
+
             // return hardware_interface.send_command(instruction_code, command_parameters, temperature);
             return hardware_interface.send_command(instruction_code, command_parameters);
           }

@@ -178,7 +178,7 @@ class QtPath(QtWidgets.QWidget):
             self.btnRunPath.setText('Stop')
             icon = QtGui.QIcon.fromTheme('media-playback-stop')
             self.btnRunPath.setIcon(icon)
-            self.tmrRunPath.start(100)  # time in ms
+            self.tmrRunPath.start(1000)  # time in ms (originally 100 ms)
 
     def btnRunTestClicked(self):
         """Start-Stop sending test commands to robot from the list of commands."""
@@ -208,7 +208,7 @@ class QtPath(QtWidgets.QWidget):
 
     def btnLoadPoseClicked(self):
         rob_pose = self.send_command('{"get_pose":1}')
-        default_command = '{"move":' + rob_pose.response + '}'
+        default_command = '{"move_frame":' + rob_pose.response + '}'
         str_command = QtWidgets.QInputDialog.getText(
             self, "Load Jason Command", "Comamnd:", text=default_command)
         row = self.listWidgetPoses.currentRow()
@@ -225,22 +225,22 @@ class QtPath(QtWidgets.QWidget):
             item_text = self.listWidgetPoses.item(row)
             #self.pub.publish(item_text.text())
             self.sendCommand(item_text.text())
-            if len(self.ok_command.split()) == 0:
-                self.invalid_command("No response command")
-                return
-            if len(self.ok_command.split()) == 1:
-                if self.ok_command.split()[0] == "ERR_COMMAND":
-                    self.invalid_command("Check the command name")
-                    return
-                if self.ok_command.split()[0] == "PARAM_ERROR":
-                    self.invalid_command("Check the command parameters")
-                    return
-                if self.ok_command.split()[0] == "NOK":
-                    self.invalid_command("Not a Json comand")
-                    return
-            if len(self.ok_command.split()) == 3:
-                if self.ok_command.split()[2] == "BUFFER_FULL":
-                    return
+            # if len(self.ok_command.split()) == 0:
+            #     self.invalid_command("No response command")
+            #     return
+            # if len(self.ok_command.split()) == 1:
+            #     if self.ok_command.split()[0] == "ERR_COMMAND":
+            #         self.invalid_command("Check the command name")
+            #         return
+            #     if self.ok_command.split()[0] == "PARAM_ERROR":
+            #         self.invalid_command("Check the command parameters")
+            #         return
+            #     if self.ok_command.split()[0] == "NOK":
+            #         self.invalid_command("Not a Json comand")
+            #         return
+            # if len(self.ok_command.split()) == 3:
+            #     if self.ok_command.split()[2] == "BUFFER_FULL":
+            #         return
             row += 1
             if row == n_row:
                 row = 0
@@ -294,8 +294,8 @@ class QtPath(QtWidgets.QWidget):
             item_text = self.listWidgetPoses.item(row)
             try:
                 command = json.loads(item_text.text())
-                if 'move' in command:
-                    path.append(command['move'])
+                if 'move_frame' in command:
+                    path.append(command['move_frame'])
             except:
                 log.info("Exception parsing comments json - not leaving comment")
                 #return True
@@ -311,7 +311,7 @@ class QtPath(QtWidgets.QWidget):
                 return
             if command.lower().find('powder') == 2:
                 return
-            if command.lower().find('move') == 2:
+            if command.lower().find('move_frame') == 2:
                 if command.find(',true') > 0:
                     command = command.replace(',true','')
                 if command.find(',false') > 0:
@@ -330,38 +330,38 @@ class QtPath(QtWidgets.QWidget):
                 row = 0
             item_text = self.listWidgetPoses.item(row)
             self.sendCommand(item_text.text())
-            if len(self.ok_command.split()) == 3:
-                if self.ok_command.split()[2] == "BUFFER_FULL":
-                    return
-            if len(self.ok_command.split()) == 1:
-                if self.ok_command.split()[0] == "ERR_COMMAND":
-                    if self.testing:
-                        self.btnRunTestClicked()
-                    else:
-                        self.btnRunPathClicked()
-                    self.invalid_command("Check the command name")
-                    return
-                if self.ok_command.split()[0] == "PARAM_ERROR":
-                    if self.testing:
-                        self.btnRunTestClicked()
-                    else:
-                        self.btnRunPathClicked()
-                    self.invalid_command("Check the command parameters")
-                    return
-                if self.ok_command.split()[0] == "NOK":
-                    if self.testing:
-                        self.btnRunTestClicked()
-                    else:
-                        self.btnRunPathClicked()
-                    self.invalid_command("Not a Json comand")
-                    return
-            if len(self.ok_command.split()) == 0:
-                if self.testing:
-                    self.btnRunTestClicked()
-                else:
-                    self.btnRunPathClicked()
-                self.invalid_command("No response command")
-                return
+            # if len(self.ok_command.split()) == 3:
+            #     if self.ok_command.split()[2] == "BUFFER_FULL":
+            #         return
+            # if len(self.ok_command.split()) == 1:
+            #     if self.ok_command.split()[0] == "ERR_COMMAND":
+            #         if self.testing:
+            #             self.btnRunTestClicked()
+            #         else:
+            #             self.btnRunPathClicked()
+            #         self.invalid_command("Check the command name")
+            #         return
+            #     if self.ok_command.split()[0] == "PARAM_ERROR":
+            #         if self.testing:
+            #             self.btnRunTestClicked()
+            #         else:
+            #             self.btnRunPathClicked()
+            #         self.invalid_command("Check the command parameters")
+            #         return
+            #     if self.ok_command.split()[0] == "NOK":
+            #         if self.testing:
+            #             self.btnRunTestClicked()
+            #         else:
+            #             self.btnRunPathClicked()
+            #         self.invalid_command("Not a Json comand")
+            #         return
+            # if len(self.ok_command.split()) == 0:
+            #     if self.testing:
+            #         self.btnRunTestClicked()
+            #     else:
+            #         self.btnRunPathClicked()
+            #     self.invalid_command("No response command")
+            #     return
             row += 1
             if row == n_row:
                 row = 0

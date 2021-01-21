@@ -65,6 +65,7 @@ int main (int argc, char** argv)
 
     json motion_command_1 = {"move", {10.0, 0.0, 0.0, 180.0, 0.0, 180}} ; // json format
     std::string motion_command_1_str = "{\"move\":[0.0, 0.0, 10.0, 180.0, 0.0, 180]}"; // a raw string, just like received from ROS service
+    // std::string laser_on_off = "{\"laser_start\"}";
     
     std::cout << "motion_command_1 by json format is " << motion_command_1 << std::endl;;
     std::cout << "JSON Command received in string1 " << motion_command_1_str << std::endl;;

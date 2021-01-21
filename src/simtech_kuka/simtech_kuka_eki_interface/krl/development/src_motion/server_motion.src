@@ -5,23 +5,24 @@ def server_motion()
    initialize()
 
    loop
-      ;if n_command <> n_command_executed then
-         SWITCH (instruction_code)
+      if (n_cartesian_command <> n_cartesian_motion) then
+         SWITCH (command_type[n_cartesian_motion])
          CASE 1
-            LIN cartesian_target
-         
+            LIN cartesian_target[n_cartesian_motion]
+         CASE 2
+            LIN cartesian_target[n_cartesian_motion]
+         CASE 14
+            wait sec wait_time  
          DEFAULT
             ;LIN cartesian_target
          ENDSWITCH
       
-      ;n_command_executed = n_command_executed + 1
-
-      ;if n_command_executed > max_command_packet then
-      ;n_command_executed = 1
-
-      ;endif
+         n_cartesian_motion = n_cartesian_motion + 1
+         if n_cartesian_motion > 49 then
+            n_cartesian_motion = 1
+         endif
+      endif
       wait sec 0.01
-
    endloop
 
 
@@ -43,7 +44,7 @@ def initialize()
    
    $TOOL=TOOL_DATA[1] ; "LASER"
    ;$TOOL={X -5.25,Y -259.33,Z 286.75,A 0.0,B 0.0,C 0.0}
-   $BASE={X 1250.29, Y -1480.35, Z 1247.41, A 90, B 0, C 0}  ; user-defined BASE frame
+   $BASE={X 276.59, Y -1378.80, Z 1185.07, A 0, B 0, C 0}  ; user-defined BASE frame
    ;$BASE=BASE_DATA[3] ; user-defined BASE frame
    ;$BASE=BASE_DATA[1] ; "LK_BASE (TurnTable)"
    ;$BASE={X 1622.85,Y -1582.69,Z 15.62,A 0.14,B 0.07,C 0.25}

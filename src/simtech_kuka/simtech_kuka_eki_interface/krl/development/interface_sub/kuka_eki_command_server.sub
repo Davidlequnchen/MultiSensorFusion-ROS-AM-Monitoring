@@ -7,6 +7,8 @@ def kuka_eki_command_server()
    ; local vairable declarations
    decl int elements_read
 
+   cancel_motion = false
+
    eki_hw_iface_init() ; socket connection
  
    parameters[1] = $POS_ACT.X
@@ -17,27 +19,82 @@ def kuka_eki_command_server()
    parameters[6] = $POS_ACT.C
   
    loop
+      instruction_code = 0 ; reset instruction code to default
       elements_read = eki_hw_iface_get()  ; Get new command from buffer 
-      
                            
       SWITCH (instruction_code)
       CASE 1
-         ; cartesian motion command, phrase parameters into global variable cartesian_target
-         cartesian_target.X = parameters[1]
-         cartesian_target.Y = parameters[2]
-         cartesian_target.Z = parameters[3]
-         cartesian_target.A = parameters[4]
-         cartesian_target.B = parameters[5]
-         cartesian_target.C = parameters[6]
-         ;MsgNotify("Cartesian target command received and set",,,,)
+         ; cartesian motion XYZ command, phrase parameters into global variable cartesian_target
+         if NOT (n_cartesian_motion - n_cartesian_command == 1) OR (n_cartesian_motion - n_cartesian_command == -48) then
+               command_type[n_cartesian_command] = 1 ; set corresponding command type
+               cartesian_target[n_cartesian_command].X = parameters[1]
+               cartesian_target[n_cartesian_command].Y = parameters[2]
+               cartesian_target[n_cartesian_command].Z = parameters[3]
+               n_cartesian_command = n_cartesian_command +1
+               if n_cartesian_command > 49 then
+                  n_cartesian_command = 1
+               endif
+               MsgNotify("Cartesian target XYZ command received and set",,,,)
+         endif
          
+
+      CASE 2
+         ; cartesian motion XYZABC command
+         if NOT (n_cartesian_motion - n_cartesian_command == 1) OR (n_cartesian_motion - n_cartesian_command == -48) then
+            command_type[n_cartesian_command] = 2
+            cartesian_target[n_cartesian_command].X = parameters[1]
+            cartesian_target[n_cartesian_command].Y = parameters[2]
+            cartesian_target[n_cartesian_command].Z = parameters[3]
+            cartesian_target[n_cartesian_command].A = parameters[4]
+            cartesian_target[n_cartesian_command].B = parameters[5]
+            cartesian_target[n_cartesian_command].C = parameters[6]
+            n_cartesian_command = n_cartesian_command +1
+               if n_cartesian_command > 49 then
+                  n_cartesian_command = 1
+               endif
+               MsgNotify("Cartesian target XYZ command received and set",,,,)
+         endif
+
+      CASE 3
+         ; whether motion complete (0/1)
+         json_motion_complete = parameters[1]
+
+      CASE 4
+         ; set linear velocity
+         $VEL.CP = parameters[1]
+
+      CASE 5
+         ; set swivel velocity
+         $VEL.ORI1 = parameters[1] 
+
+      CASE 6
+         ; set swivel velocity
+         $VEL.ORI2 = parameters[1]
+
+      CASE 7
+         LaserOff()
+      CASE 8
+         LaserOn()
+      CASE 9
+         LaserEnd()
+      CASE 10
+         LaserStart()
+      CASE 11
+         $ANOUT[1] = parameters[1] ; set laser power
+      CASE 12
+         ; $TOOL=TOOL_DATA[parameters[1]] ; set tool
+      CASE 13 
+         ; $BASE.X = parameters[1]
+         ; $BASE.Y = parameters[2]
+         ; $BASE.Z = parameters[3]
+         ; $BASE.A = parameters[4]
+         ; $BASE.B = parameters[5]
+         ; $BASE.C = parameters[6]
+      CASE 14
+         wait_time = parameters[1]
+         
+
       DEFAULT
-         cartesian_target.X = $POS_ACT.X
-         cartesian_target.Y = $POS_ACT.Y
-         cartesian_target.Z = $POS_ACT.Z
-         cartesian_target.A = $POS_ACT.A
-         cartesian_target.B = $POS_ACT.B
-         cartesian_target.C = $POS_ACT.C
       ENDSWITCH
    endloop
 
@@ -124,6 +181,11 @@ endfct
 
 def eki_hw_iface_reset()
    decl eki_status eki_ret
+   if cancel_motion == True then
+      cancel_motion = false
+   endif
+   n_cartesian_command = n_cartesian_motion
+   cancel_motion = true
 
    eki_ret = eki_clear("EkiCommandServer")
    eki_ret = eki_init("EkiCommandServer")

@@ -1,0 +1,87 @@
+&ACCESS RVO1
+DEF LAAM_Routines ( )
+END
+
+; This file defines the GLOBAL routines for LAAM that can be used by any other programs
+; Power setting is done in individual LAAM programs, not here
+; Save this file in KRC/R1/System
+
+GLOBAL DEF LaserOn()
+   ;FOLD OUT 17 'QSys_LockDoor' State=TRUE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:17, 3:QSys_LockDoor, 5:TRUE, 6:
+      $OUT[17]=TRUE
+   ;ENDFOLD
+   ;FOLD WAIT FOR ( IN 21 'ISys_DoorLocked' );%{PE}%R 8.5.19,%MKUKATPBASIS,%CEXT_WAIT_FOR,%VEXT_WAIT_FOR,%P 2:, 4:, 5:$IN, 6:21, 7:ISys_DoorLocked, 9:
+      WAIT FOR  ( $IN[21] ) 
+   ;ENDFOLD
+   dn_LaserReq = TRUE
+   ;FOLD WAIT Time=0.5 sec;%{PE}%R 8.5.19,%MKUKATPBASIS,%CWAIT,%VWAIT,%P 3:0.5
+      WAIT SEC 0.5
+   ;ENDFOLD
+   dn_RstErr = TRUE
+   ;FOLD WAIT Time=0.5 sec;%{PE}%R 8.5.19,%MKUKATPBASIS,%CWAIT,%VWAIT,%P 3:0.5
+      WAIT SEC 0.5
+   ;ENDFOLD
+   dn_RstErr = FALSE
+   dn_OptChannel = 1
+   ;FOLD WAIT Time=0.5 sec;%{PE}%R 8.5.19,%MKUKATPBASIS,%CWAIT,%VWAIT,%P 3:0.5
+      WAIT SEC 0.5
+   ;ENDFOLD
+   dn_AnalogCtrlON = TRUE
+   dn_LaserON = TRUE
+   ;FOLD WAIT FOR ( IN 2010 '' );%{PE}%R 8.5.19,%MKUKATPBASIS,%CEXT_WAIT_FOR,%VEXT_WAIT_FOR,%P 2:, 4:, 5:$IN, 6:2010, 7:, 9:
+      WAIT FOR  ( $IN[2010] ) 
+   ;ENDFOLD
+   dn_PrgNo = 0
+   ;FOLD OUT 2005 '' State=TRUE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:2005, 3:, 5:TRUE, 6:
+      $OUT[2005]=TRUE
+   ;ENDFOLD
+   
+   ; Compressed air ON
+   ;FOLD OUT 12 'QW_OnCDA' State=TRUE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:12, 3:QW_OnCDA, 5:TRUE, 6:
+      $OUT[12]=TRUE
+   ;ENDFOLD
+   ; Ar gas on
+   ;FOLD OUT 8 'QW_OnAgGas' State=TRUE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:8, 3:QW_OnAgGas, 5:TRUE, 6:
+      $OUT[8]=TRUE
+   ;ENDFOLD
+End
+
+GLOBAL DEF LaserOff()
+   ;FOLD OUT 3 'QL_OnEmission' State=FALSE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:3, 3:QL_OnEmission, 5:FALSE, 6:
+      $OUT[3]=FALSE
+   ;ENDFOLD
+   ;FOLD ANOUT ql_Power=0 ;%{PE}%R 8.5.19,%MKUKATPBASIS,%CANA,%VANOUT_STAT,%P 2:CHANNEL_1, 4:0
+      $ANOUT[1]=0
+   ;ENDFOLD
+   ;FOLD OUT 2005 '' State=FALSE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:2005, 3:, 5:FALSE, 6:
+      $OUT[2005]=FALSE
+   ;ENDFOLD
+   dn_AnalogCtrlON = FALSE
+   WAIT SEC 0.5
+   dn_LaserON = FALSE
+   WAIT SEC 0.5
+   dn_OptChannel = 0
+   WAIT SEC 0.5
+   dn_LaserReq = FALSE
+   ;FOLD OUT 8 'QW_OnAgGas' State=FALSE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:8, 3:QW_OnAgGas, 5:FALSE, 6:
+      $OUT[8]=FALSE
+   ;ENDFOLD
+   ;FOLD OUT 12 'QW_OnCDA' State=FALSE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:12, 3:QW_OnCDA, 5:FALSE, 6:
+      $OUT[12]=FALSE
+   ;ENDFOLD
+   ;FOLD OUT 17 'QSys_LockDoor' State=FALSE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:17, 3:QSys_LockDoor, 5:FALSE, 6:
+      $OUT[17]=FALSE
+   ;ENDFOLD
+End
+
+GLOBAL DEF LaserStart()
+   ;FOLD OUT 3 'QL_OnEmission' State=TRUE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:3, 3:QL_OnEmission, 5:TRUE, 6:
+      $OUT[3]=TRUE
+   ;ENDFOLD
+End
+
+GLOBAL DEF LaserEnd()
+   ;FOLD OUT 3 'QL_OnEmission' State=FALSE ;%{PE}%R 8.5.19,%MKUKATPBASIS,%COUT,%VOUTX,%P 2:3, 3:QL_OnEmission, 5:FALSE, 6:
+      $OUT[3]=FALSE
+   ;ENDFOLD
+END
