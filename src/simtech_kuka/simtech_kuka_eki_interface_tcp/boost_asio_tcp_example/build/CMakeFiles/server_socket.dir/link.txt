@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/server_socket.dir/server_socket.cpp.o  -o server_socket -lboost_system 

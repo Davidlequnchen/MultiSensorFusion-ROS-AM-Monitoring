@@ -1,0 +1,30 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <!-- parameter robot model and robot interface(motion and state) nodes and parameters -->
+  <arg name="model" default="$(find microepsilon_workcell)/urdf/workcell_kuka.xacro" />
+
+
+  <!-- define the powder, process, material parameters -->
+  <rosparam command="load" file="$(find motion_planning_kuka)/config/params.yaml" />
+
+  <param name="/use_sim_time" value="$(arg sim)" />
+  
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+  <include file="$(find simtech_kuka_eki_interface_tcp)/launch/simtech_kuka_eki_interface_tcp.launch" unless="$(arg sim)">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <!-- The Qt path panel for loading and executing path command from jason file -->
+  <!-- For testing  -->
+  <node name="path_panel" pkg="motion_planning_kuka" type="qt_path.py" />
+  <!-- For actual implementation: run the path planning automatically  -->
+  <!-- <node name="path_panel" pkg="motion_planning_kuka" type="json_path_planning.py" /> -->
+
+  <!-- disable the rvize during actual implementation  -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find motion_planning_kuka)/config/workcell.rviz" required="true" if="$(arg gui)" />
+  
+</launch>

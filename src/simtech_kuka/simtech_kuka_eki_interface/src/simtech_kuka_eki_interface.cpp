@@ -107,7 +107,7 @@ void KukaEkiHardwareInterface::eki_handle_receive(const boost::system::error_cod
 //   return true;
 // }
 
-bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len)
+bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len, int &routine)
 {
   static boost::array<char, 2048> in_buffer;
 
@@ -139,8 +139,9 @@ bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_positio
   // TiXmlElement* vel = robot_state->FirstChildElement("Vel");
   // TiXmlElement* eff = robot_state->FirstChildElement("Eff");
   TiXmlElement* robot_command = robot_state->FirstChildElement("CommandServer");
+  TiXmlElement* routine_command = robot_state->FirstChildElement("RoutineCommand");
   // if (!pos || !vel || !eff || !robot_command)
-  if (!pos || !robot_command)
+  if (!pos || !robot_command || !routine_command)
     return false;
 
   // Extract axis positions
@@ -161,6 +162,9 @@ bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_positio
 
   // Extract number of command elements buffered on robot
   robot_command->Attribute("Size", &cmd_buff_len);
+
+  // Extract the routine command -- 0:idle, 1:scanning, 2:control, 3:json
+  routine_command->Attribute("State", &routine);
 
   return true;
 }
@@ -264,6 +268,7 @@ void KukaEkiHardwareInterface::init()
         hardware_interface::JointStateHandle(joint_names_[i], &joint_position_[i], &joint_velocity_[i],
                                              &joint_effort_[i]));
 
+
     // Joint position control interface
     // position_joint_interface_.registerHandle(
     //     hardware_interface::JointHandle(joint_state_interface_.getHandle(joint_names_[i]),
@@ -296,7 +301,7 @@ void KukaEkiHardwareInterface::start()
 
   // Initialize joint_position_command_ from initial robot state (avoid bad (null) commands before controllers come up)
   // if (!eki_read_state(joint_position_, joint_velocity_, joint_effort_, eki_cmd_buff_len_))
-  if (!eki_read_state(joint_position_, eki_cmd_buff_len_))
+  if (!eki_read_state(joint_position_, eki_cmd_buff_len_, routine_command_))
   {
     std::string msg = "Failed to read from robot EKI server within alloted time of "
                       + std::to_string(eki_read_state_timeout_) + " seconds.  Make sure eki_hw_interface is running "
@@ -313,7 +318,7 @@ void KukaEkiHardwareInterface::start()
 void KukaEkiHardwareInterface::read(const ros::Time &time, const ros::Duration &period)
 {
   // if (!eki_read_state(joint_position_, joint_velocity_, joint_effort_, eki_cmd_buff_len_))
-  if (!eki_read_state(joint_position_, eki_cmd_buff_len_))
+  if (!eki_read_state(joint_position_, eki_cmd_buff_len_, routine_command_))
   {
     std::string msg = "Failed to read from robot EKI server within alloted time of "
                       + std::to_string(eki_read_state_timeout_) + " seconds.  Make sure eki_hw_interface is running "
@@ -325,7 +330,10 @@ void KukaEkiHardwareInterface::read(const ros::Time &time, const ros::Duration &
 }
 
 
-
+int KukaEkiHardwareInterface::read_routine_command()
+{
+  return this->routine_command_;
+}
 
 // void KukaEkiHardwareInterface::write(const ros::Time &time, const ros::Duration &period)
 // {

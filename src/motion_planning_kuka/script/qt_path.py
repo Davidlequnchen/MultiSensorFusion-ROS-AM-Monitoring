@@ -178,7 +178,7 @@ class QtPath(QtWidgets.QWidget):
             self.btnRunPath.setText('Stop')
             icon = QtGui.QIcon.fromTheme('media-playback-stop')
             self.btnRunPath.setIcon(icon)
-            self.tmrRunPath.start(1000)  # time in ms (originally 100 ms)
+            self.tmrRunPath.start(300)  # time in ms (originally 100 ms)
 
     def btnRunTestClicked(self):
         """Start-Stop sending test commands to robot from the list of commands."""

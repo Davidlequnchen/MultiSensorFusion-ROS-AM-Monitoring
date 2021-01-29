@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+/home/chenlequn/SIMTech_ws/devel/include/auto_control/MsgCommand.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/chenlequn/SIMTech_ws/devel/include/simtech_kuka_eki_interface/SrvRobotCommand.h
 ros/service_traits.h
 -
@@ -396,6 +412,8 @@ simtech_kuka_eki_interface/simtech_kuka_eki_interface.h
 std_msgs/Float64.h
 -
 simtech_kuka_eki_interface/SrvRobotCommand.h
+-
+auto_control/MsgCommand.h
 -
 json.hpp
 /home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_eki_interface/src/json.hpp

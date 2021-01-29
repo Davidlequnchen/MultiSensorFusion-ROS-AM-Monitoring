@@ -1,0 +1,20 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+
+  <arg name="model" default="$(find simtech_kuka_workcell)/urdf/workcell.xacro" />
+  <!-- <arg name="model" default="$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro" /> -->
+
+  <param name="/use_sim_time" value="$(arg sim)" />
+
+  <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro'"/> -->
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+  <include file="$(find simtech_kuka_eki_interface_tcp)/launch/simtech_kuka_eki_interface_tcp.launch" unless="$(arg sim)">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_kuka_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
+</launch>

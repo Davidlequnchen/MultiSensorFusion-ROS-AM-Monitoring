@@ -64,7 +64,7 @@ class NdSubprocessHandler {
           cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
           // subscriber and call back function
           sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/microepsilon/cloud_transformed", 5,  &NdSubprocessHandler::cbPointCloud, this);
-          sub_command = nh.subscribe<scanning_robviz::MsgCommand>("/main_command", 5,  &NdSubprocessHandler::cbCommand, this);
+          sub_command = nh.subscribe<scanning_robviz::MsgCommand>("/routine_command", 5,  &NdSubprocessHandler::cbCommand, this);
 
           }
 

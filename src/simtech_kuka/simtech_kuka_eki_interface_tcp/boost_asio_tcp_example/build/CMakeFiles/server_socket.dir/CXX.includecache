@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_eki_interface_tcp/boost_asio_tcp_example/server_socket.cpp
+iostream
+-
+boost/asio.hpp
+-
+

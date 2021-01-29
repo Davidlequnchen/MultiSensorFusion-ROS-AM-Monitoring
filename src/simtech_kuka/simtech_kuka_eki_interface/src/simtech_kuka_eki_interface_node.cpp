@@ -3,6 +3,7 @@
 #include <simtech_kuka_eki_interface/simtech_kuka_eki_interface.h>
 #include <std_msgs/Float64.h>
 #include <simtech_kuka_eki_interface/SrvRobotCommand.h>
+#include <auto_control/MsgCommand.h>
 
 
 #include "json.hpp"
@@ -18,6 +19,7 @@ class NdKukaRobotInterface {
         ros::NodeHandle nh;
         ros::ServiceServer service_command;
         ros::Subscriber sub_temperature;
+        ros::Publisher pub_routine_command;
 
         // varibales
         // Set up timers
@@ -45,6 +47,8 @@ class NdKukaRobotInterface {
             service_command = nh.advertiseService("robot_send_command", &NdKukaRobotInterface::cb_robot_command, this);
             // ROS subscriber
             sub_temperature = nh.subscribe("temperature", 10, &NdKukaRobotInterface::tempCallBack, this);
+            // ROS pubisher
+            pub_routine_command = nh.advertise<auto_control::MsgCommand>("/routine_command", 10);
 
             // initialize hardwareinterface, register interface handler to be used by controller manager
             // must do this before controller_manager object construction
@@ -101,7 +105,7 @@ class NdKukaRobotInterface {
             {
               // indicate if the json command is completed (send from Qt Gui)
               instruction_code = 3;
-              // convert json object into std::vector, now should be 0 (not complete)/ 1 (complete)
+              // convert json object into std::vector, now should be 0.0 (not complete)/ 1.0 (complete)
               command_parameters = it.value().get<std::vector<double>>();
               // check command
               std::cout << "check the command json complete: " << command_parameters[0] << "\n";
@@ -197,6 +201,15 @@ class NdKukaRobotInterface {
               // check command
               std::cout << "check the command wait value: " << command_parameters[0] << "\n";
             }
+            else if (it.key() == "transmission_complete")
+            {
+              // wait time seconds
+              instruction_code = 15;
+              // convert json object into std::vector
+              command_parameters = it.value().get<std::vector<double>>();
+              // check command
+              std::cout << "check the command transmission_complete value: " << command_parameters[0] << "\n";
+            }
             else{
               std::cout << "Invalid command, check the json again \n";
             }
@@ -245,6 +258,12 @@ class NdKukaRobotInterface {
         {
           // Receive current state from robot
           hardware_interface.read(timestamp, period);
+
+          // read routine command send from EKI server
+          auto_control::MsgCommand routine;
+          int command_received = hardware_interface.read_routine_command();
+          routine.command = float(command_received);
+          pub_routine_command.publish(routine);
 
           // Get current time and elapsed time since last read
           timestamp = ros::Time::now();

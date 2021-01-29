@@ -80,7 +80,7 @@ ScannerNode::ScannerNode ( unsigned int shutter_time, unsigned int idle_time, do
 , frame_ ( frame )
   {
     scan_pub_ = nh_.advertise < PointCloudT > (  topic, 200 );
-    sub_command = nh_.subscribe("/main_command", 5,  &ScannerNode::cbCommand, this);
+    sub_command = nh_.subscribe("/routine_command", 5,  &ScannerNode::cbCommand, this);
     laser_off_ = nh_.advertiseService ( "laser_off", &ScannerNode::laser_off, this );
     laser_on_ = nh_.advertiseService ( "laser_on", &ScannerNode::laser_on, this );
     scanning_switch_ = nh_.advertiseService ("scanning_switch", &ScannerNode::scanning_switch, this);

@@ -32,6 +32,7 @@ private:
   std::vector<double> joint_position_command_;
   std::vector<double> command_parameters; // the parameter list, e.g., X,Y,Z,A,B,C
   int instruction_code; // the unique instruction code
+  int routine_command_; // the routine_command read from eki kuka controller server 
   const int max_parameter = 10;
   float temperature;
 
@@ -61,7 +62,7 @@ private:
                                  boost::system::error_code* out_ec, size_t* out_length);
   // bool eki_read_state(std::vector<double> &joint_position, std::vector<double> &joint_velocity,
   //                     std::vector<double> &joint_effort, int &cmd_buff_len);
-    bool eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len);
+    bool eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len, int &routine);
   // bool eki_write_command(const std::vector<double> &joint_position, const float &temperature);
   
 
@@ -77,7 +78,8 @@ public:
   void writeTemp(const float temp);
   // bool send_command(const int &instruction_code, const std::vector<double> &command_parameters, 
   //                   const float &temperature);
-    bool send_command(const int &instruction_code, const std::vector<double> &command_parameters);
+  bool send_command(const int &instruction_code, const std::vector<double> &command_parameters);
+  int read_routine_command();
 
 };
 
