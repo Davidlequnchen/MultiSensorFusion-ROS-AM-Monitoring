@@ -1,4 +1,4 @@
-&ACCESS RVO4
+&ACCESS RVO
 &PARAM EDITMASK = *
 &PARAM TEMPLATE = C:\KRC\Roboter\Template\submit
 def kuka_eki_command_server()
@@ -56,14 +56,14 @@ def kuka_eki_command_server()
 
       CASE 3
          ; whether motion complete (0/1)
-         if NOT ((n_cartesian_motion - n_cartesian_command == 1) OR (n_cartesian_motion - n_cartesian_command == -98)) then
+         if NOT ((n_cartesian_motion - n_cartesian_command == 1) OR (n_cartesian_motion - n_cartesian_command == -48)) then
             command_type[n_cartesian_command] = 3
             json_motion_complete[n_cartesian_command] = parameters[1] ; json command finished (1.0) or not (0.0)
             n_cartesian_command = n_cartesian_command + 1
             if n_cartesian_command > 49 then
                n_cartesian_command = 1
             endif
-            MsgNotify("motion complete set",,,,)
+            MsgNotify("motion Start/End command received",,,,)
          else 
             MsgNotify("buffer full",,,,)
          endif
@@ -104,7 +104,7 @@ def kuka_eki_command_server()
          
       CASE 15
          if (parameters[1]==1.0) then
-            transmission_complete = True
+            transmission_complete = True ; this will allow server_motion(auto) execute command
          else
             transmission_complete = False
          endif

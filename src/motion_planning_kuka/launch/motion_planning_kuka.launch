@@ -19,7 +19,7 @@
   </include>
 
   <!-- The Qt path panel for loading and executing path command from jason file -->
-  <!-- For testing  -->
+  <!-- For testing，this will launch rvize with panel  -->
   <node name="path_panel" pkg="motion_planning_kuka" type="qt_path.py" />
   <!-- For actual implementation: run the path planning automatically  -->
   <!-- <node name="path_panel" pkg="motion_planning_kuka" type="json_path_planning.py" /> -->

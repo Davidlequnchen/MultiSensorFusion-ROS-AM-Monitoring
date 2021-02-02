@@ -1,4 +1,4 @@
-&ACCESS RVO4
+&ACCESS RVO
 def motion_autocontrol()
 end
 
@@ -9,7 +9,7 @@ global def server_motion_auto()
    n_cartesian_motion = 1
    
    while path_finished == False
-      if (n_cartesian_command <> n_cartesian_motion) then
+      if ((n_cartesian_command <> n_cartesian_motion) AND transmission_complete == True) then
          SWITCH (command_type[n_cartesian_motion])
          CASE 1
             LIN cartesian_target[n_cartesian_motion]
@@ -20,7 +20,7 @@ global def server_motion_auto()
                path_finished = False                          ; reparing tool path not finished
             endif
             if json_motion_complete[n_cartesian_motion] == 1.0 then
-               path_finished = TRUE                           ; reparing tool path finished, this will let jump out of while loop
+               path_finished = TRUE                           ; reparing tool path finished, jump out of while loop
             endif 
          CASE 14
             wait sec wait_time  

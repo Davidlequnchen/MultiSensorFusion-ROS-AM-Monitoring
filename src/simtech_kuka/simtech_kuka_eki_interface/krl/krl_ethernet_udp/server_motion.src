@@ -55,7 +55,7 @@ def initialize()
    
    $TOOL=TOOL_DATA[1] ; "LASER"
    ;$TOOL={X -5.25,Y -259.33,Z 286.75,A 0.0,B 0.0,C 0.0}
-   $BASE={X 1225.64, Y -1435.72, Z 1291.70, A 0, B 0, C 0}  ; user-defined BASE frame
+   $BASE={X 431.06, Y -1049.71, Z 1378.21, A 0, B 0, C 0}  ; user-defined BASE frame
    ;$BASE=BASE_DATA[3] ; user-defined BASE frame
    ;$BASE=BASE_DATA[1] ; "LK_BASE (TurnTable)"
    ;$BASE={X 1622.85,Y -1582.69,Z 15.62,A 0.14,B 0.07,C 0.25}
