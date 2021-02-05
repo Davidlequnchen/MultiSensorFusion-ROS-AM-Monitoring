@@ -18,10 +18,10 @@
 
     <!-- open the JSON motion planning launch (1) the ROS-abb interface (command server and state server), (2) qt_path -->
     <include file="$(find motion_planning_kuka)/launch/motion_planning_kuka.launch"/>
-    
 
-    
-
+    <!-- point_cloud_analysis node: (1) receive command to tell if point cloud is ready for analysis -->
+    <!--(2) publish info about scanned plane -->
+    <node name="point_cloud_analysis" pkg="point_cloud_analysis" type="nd_point_cloud_analysis" respawn="true" />
     
 
 

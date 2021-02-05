@@ -1046,6 +1046,7 @@ main (int argc, char** argv)
   pcl::console::parse_argument (argc, argv, "-load", loadfilename);
   pcl::console::parse_argument (argc, argv, "-save", savefilename);
   pcl::console::parse_argument (argc, argv, "-savePointToPlaneDistance", PointToPlaneDistance_filename);
+  pcl::console::parse_argument (argc, argv, "-saveCoefficientPlaneName", plane_coefficient_filename);
   pcl::console::parse_argument (argc, argv, "-leafsize", leafsize);
   pcl::console::parse_argument (argc, argv, "-Stddev", StddevMulThresh);
   pcl::console::parse_argument (argc, argv, "-DistanceThre", DistanceThreshold);
@@ -1174,6 +1175,7 @@ main (int argc, char** argv)
   {
     pass_through_segmentation(basic_cloud_ptr);
     savePointFile(savefilename, cloud_filtered);
+    saveCoefficientPlane (plane_coefficient_filename, plane_coefficient_top);
   }
   else if (EuclideanExtraction)
   {

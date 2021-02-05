@@ -1,7 +1,0 @@
-set(point_cloud_scanning_SETUP_PY_SETUP_MODULE "distutils.core")
-set(point_cloud_scanning_SETUP_PY_VERSION "0.1.0")
-set(point_cloud_scanning_SETUP_PY_SCRIPTS "")
-set(point_cloud_scanning_SETUP_PY_PACKAGES "cloud")
-set(point_cloud_scanning_SETUP_PY_PACKAGE_DIRS "src/cloud")
-set(point_cloud_scanning_SETUP_PY_MODULES "")
-set(point_cloud_scanning_SETUP_PY_MODULE_DIRS "")

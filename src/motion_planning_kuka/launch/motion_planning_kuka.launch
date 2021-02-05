@@ -24,7 +24,7 @@
   <!-- For actual implementation: run the path planning automatically  -->
   <!-- <node name="path_panel" pkg="motion_planning_kuka" type="json_path_planning.py" /> -->
 
-  <!-- disable the rvize during actual implementation  -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find motion_planning_kuka)/config/workcell.rviz" required="true" if="$(arg gui)" />
+  <!-- disable the rvize during actual implementation　(when runing auto-control package)  -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find motion_planning_kuka)/config/workcell.rviz" required="true" if="$(arg gui)" /> -->
   
 </launch>

@@ -9,9 +9,10 @@
   </xacro:property>
 
   <xacro:property name="workobject_frame">
-    <origin xyz="-1.47225 -1.27396 0.23348" rpy="0 0 0" />
+    <!-- <origin xyz="-1.47225 -1.27396 0.23348" rpy="0 0 0" /> -->
+    <origin xyz="0.43106 -1.04971 1.37821" rpy="0 0 0" />
+
     <!--origin xyz="0 0 0" rpy="0 0 0" /-->
-    <!--<origin xyz="-0.19128875 0.19347143 0.10301394" rpy="-0.005628050440181059 0.005713681035339754 -1.5507089198045247" />-->
   </xacro:property>
 
   <!-- xacro:property name="camera_frame"-->
@@ -33,7 +34,8 @@
   <joint name="head0" type="fixed">
     <parent link="tool0"/>
     <child link="head0"/>
-    <origin xyz="0.14633243 -0.083423 0.172" rpy="${radians(0)} ${radians(180)} 0" />
+    <!-- <origin xyz="0.14633243 -0.083423 0.172" rpy="${radians(0)} ${radians(180)} 0" /> -->
+    <origin xyz="0.14633243 -0.083423 0.172" rpy="${radians(0)} ${radians(0)} 0" />
     <axis xyz="0 0 1"/>
   </joint>
 

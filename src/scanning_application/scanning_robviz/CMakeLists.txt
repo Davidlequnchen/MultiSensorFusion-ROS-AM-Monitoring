@@ -33,6 +33,7 @@ find_package(PCL 1.7.2 REQUIRED)
 add_message_files(
   FILES
   MsgCommand.msg
+  MsgPointCloudScan.msg
 )
 generate_messages(
   DEPENDENCIES

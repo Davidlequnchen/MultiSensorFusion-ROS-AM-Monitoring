@@ -27,6 +27,8 @@ DEF Cube_15X30X10_auto ( )
 
    PTP $POS_ACT ; $POS_ACT is a system variable of structure type E6POS and contains the current Cartesian robot position(XYZABC).
 
+   ; start scannig to record the substrate plane
+   scanning_substrate() ; call the scanning routine funciton
 
    routine_command = 2 ; change mode to 2 (laser control)
    
@@ -623,11 +625,18 @@ def trap_scanning_path ()
    ;// move to the point where scanning start
    LIN {X 0.0, Y 0.0, Z 90} 
 
+   wait sec 1           ; wait 1 sec to let ROS get ready
+
    routine_command = 1  ; tell ROS current state is 1: scanning
-   wait sec 5           ; wait 5 sec to let ROS get ready
+   $VEL.CP = 0.015      ; set default linear speed m/s
+   wait sec 1
+
    ;// scanning start
    LIN {X 0.0, Y 120.0, Z 90}
+   wait sec 3
+
    routine_command = 0  ; idle mode
+   $VEL.CP = 0.03       ; set back printing linear speed m/s
 
    wait sec 5           ; wait for ML and point cloud processing result
    ;// defects identification result send from ROS
@@ -645,6 +654,25 @@ def trap_scanning_path ()
    LIN {X 1.600, Y 27.000, Z 0.000, A -137.15, B -0.56, C 173.10, S 22, T 18} 
 
    routine_command = 2 ; laser control mode 
+end
 
+def scanning_substrate ()
+   routine_command = 0  ; tell ROS current state is 0: idle
+   ;// move to the point where scanning start
+   LIN {X 0.0, Y 0.0, Z 90} 
 
+   wait sec 2           ; wait 5 sec to let ROS get ready
+
+   routine_command = 1  ; tell ROS current state is 1: scanning
+   $VEL.CP = 0.015      ; set default linear speed m/s
+   wait sec 1
+
+   ;// scanning start
+   LIN {X 0.0, Y 120.0, Z 90}
+   wait sec 2
+
+   routine_command = 0  ; idle mode
+   $VEL.CP = 0.03       ; set back printing linear speed m/s
+
+   routine_command = 2 ; laser control mode 
 end

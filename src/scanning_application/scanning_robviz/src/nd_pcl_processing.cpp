@@ -18,6 +18,7 @@
 #include <pcl_ros/transforms.h>
 
 #include <scanning_robviz/MsgCommand.h>    // added
+#include <scanning_robviz/MsgPointCloudScan.h>
 
 #include <ctime>
 #include <sstream>
@@ -35,7 +36,6 @@ bool is_active;
 
 
 std::string path = ros::package::getPath("scanning_robviz");
-//std::string path = "/home/david/SIMTech_ws/src/RT_monitoring_application/scanning_robviz";
 
 typedef pcl::PointXYZ Point;
 typedef pcl::PointCloud<Point> PointCloud;
@@ -46,6 +46,7 @@ class NdSubprocessHandler {
         ros::NodeHandle nh;
         ros::Subscriber sub_cloud;
         ros::Subscriber sub_command;
+        ros::Publisher pub_point_cloud_scan;
         std_msgs::Float32MultiArray msg_point_distance;
         
         //ros::Time stamp; //get the current time when initialization
@@ -54,6 +55,9 @@ class NdSubprocessHandler {
         std::string pcd_filename;
         std::string pcd_segmented_filename;
         std::string pcd_plane_distance_file;
+        std::string pcd_coefficient_plane_file;
+
+        int scanning_count = 0; //number of scanning
       
       
     public:
@@ -66,6 +70,8 @@ class NdSubprocessHandler {
           sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/microepsilon/cloud_transformed", 5,  &NdSubprocessHandler::cbPointCloud, this);
           sub_command = nh.subscribe<scanning_robviz::MsgCommand>("/routine_command", 5,  &NdSubprocessHandler::cbCommand, this);
 
+          // ROS publisher
+          pub_point_cloud_scan = nh.advertise<scanning_robviz::MsgPointCloudScan>("/PointCloudScan_info", 10);
           }
 
         //destructor
@@ -88,9 +94,9 @@ class NdSubprocessHandler {
         {
             PointCloud cloud; //temporary cloud
             double current_stamp = ros::Time::now().toSec(); // local variable for the current time when receiving current message
-            this->pcd_filename = std::to_string(this->stamp) + ".pcd";
-            this->pcd_segmented_filename = std::to_string(this->stamp) + "segmented.pcd";
-            this->pcd_plane_distance_file = std::to_string(this->stamp) + "distance.txt";
+            // this->pcd_filename = std::to_string(this->stamp) + ".pcd";
+            // this->pcd_segmented_filename = std::to_string(this->stamp) + "segmented.pcd";
+            // this->pcd_plane_distance_file = std::to_string(this->stamp) + "distance.txt";
             
 
 
@@ -98,6 +104,13 @@ class NdSubprocessHandler {
             {   
                 pcl::fromROSMsg(*cloud_msg, cloud); // convert pointcloud2 message to point cloud object
                 *cloud_stored += cloud; // store(append) the temporary cloud into the cloud_stored pointer
+
+                //--------------point cloud analysis not ready--------------------
+                // read routine command send from EKI server
+                scanning_robviz::MsgPointCloudScan point_cloud_scan;
+                point_cloud_scan.ready = false;
+                point_cloud_scan.scanning_count = this->scanning_count;
+                pub_point_cloud_scan.publish(point_cloud_scan);
             }
             else 
             {
@@ -107,6 +120,12 @@ class NdSubprocessHandler {
                     // fs::path dir (path);
                     // fs::path file(this->pcd_filename);
                     // fs::path full_path = dir / file;
+
+                    this->pcd_filename = std::to_string(this->scanning_count) + ".pcd";
+                    this->pcd_segmented_filename = "segmentedCloud_" + std::to_string(this->scanning_count) + ".pcd";
+                    this->pcd_plane_distance_file = "localDistance_" + std::to_string(this->scanning_count) + ".txt";
+                    this->pcd_coefficient_plane_file = "coefficientPlane_" + std::to_string(this->scanning_count) + ".txt";
+
                     std::string full_path = path + "/pcl/" + this->pcd_filename;
                     std::cout << "saved to path: " << full_path << std::endl;
                     // save cloud_stored into a pcd file
@@ -129,12 +148,13 @@ class NdSubprocessHandler {
                     std::string option = " -passThroughSeg"; //other options: -multiPlannarSeg, -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
                     std::string loadfile = " -load " + path + "/pcl/" + this->pcd_filename;
                     std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
-                    // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/RT_monitoring_application/scanning_robviz/distance/distance.txt";
+                    // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/scanning_application/scanning_robviz/distance/distance.txt";
                     std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
+                    std::string saveCoefficientPlane = " -saveCoefficientPlaneName " + path + "/coefficientPlane/" + this->pcd_coefficient_plane_file;
                     std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.00018 -zmin -0.9 -zmax 0";
                     // std::string parameters = " ";
                     // Initialize String Array
-                    std::string command_line = executable + option + loadfile + savefile + savePointDistance + parameters;
+                    std::string command_line = executable + option + loadfile + savefile + saveCoefficientPlane + savePointDistance + parameters;
 
                     auto p = sp::call({command_line});
                     //--------------------subprocess end------------------------
@@ -146,17 +166,22 @@ class NdSubprocessHandler {
 
                         // pcl::PointCloud<pcl::PointXYZ>::Ptr seg_cloud = NdSubprocessHandler::LoadPointFile(pcdFile);
 
+                        //--------subprocess for visualizing the segmented cloud in Rviz--------------------------------------
                         std::string interval = " 0.1 "; //publish 10 times a second, If <interval> is zero or not specified the message is published once. 
                         std::string frame = "_frame_id:=/workobject";
-
-                        //--------subprocess for visualizing the segmented cloud--------------------------------------
                         // command line call the pcd_to_pointcloud node: $ rosrun pcl_ros pcd_to_pointcloud <file.pcd> [ <interval> ]
                         // Initialize String Array
                         std::string command_line = "rosrun pcl_ros pcd_to_pointcloud " + pcdFile  + interval + frame; 
                         auto s = sp::Popen({command_line});
                         // auto s = sp::Popen({command_line});
                         //------------subprocess end---------------------------------------------------
-                    
+                        
+                        //--------------publish the point cloud scan info to let analysis begin--------------------
+                        // read routine command send from EKI server
+                        scanning_robviz::MsgPointCloudScan point_cloud_scan;
+                        point_cloud_scan.ready = true;
+                        point_cloud_scan.scanning_count = this->scanning_count;
+                        pub_point_cloud_scan.publish(point_cloud_scan);
 
                         // --------------subprocess for defects prediction---------------------------------
                         std::string prediction_python_exe = path + "/defects_prediction/Plane_defect_machine_learning.py";
@@ -173,7 +198,7 @@ class NdSubprocessHandler {
                         // std::cout << "Data len: " << obuf.length << std::endl;
                         // --------------------------------------------------------------------------------
                         
-                    
+                        this->scanning_count = this->scanning_count + 1;
                     
                         cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
                         this->stamp = ros::Time::now().toSec();  // update the stamp
@@ -195,6 +220,14 @@ class NdSubprocessHandler {
                         auto s = sp::Popen({command_line});
                         //------------subprocess end---------------------------------------------------
 
+                        //--------------point cloud analysis not ready--------------------
+                        // read routine command send from EKI server
+                        scanning_robviz::MsgPointCloudScan point_cloud_scan;
+                        point_cloud_scan.ready = false;
+                        point_cloud_scan.scanning_count = this->scanning_count;
+                        pub_point_cloud_scan.publish(point_cloud_scan);
+
+
                         // --------------subprocess for defects prediction---------------------------------
                         std::string prediction_python_exe = path + "/defects_prediction/Plane_defect_machine_learning.py";
                         std::string DecisionTree_Model_file = path + "/config/DTC.pkl";
@@ -203,7 +236,8 @@ class NdSubprocessHandler {
                         auto predict = sp::Popen({prediction_exe});
                         // --------------------------------------------------------------------------------
 
-                        
+                        this->scanning_count = this->scanning_count + 1;
+
                         cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
                         this->stamp = ros::Time::now().toSec();  // update the stamp
                     }
