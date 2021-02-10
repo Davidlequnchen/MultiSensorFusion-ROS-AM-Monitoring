@@ -17,7 +17,7 @@ from camera_measures.msg import MsgVelocityStatus
 from qt_scan import QtScan
 #from qt_param import QtParam
 #from qt_part import QtPart
-from qt_path import QtPath
+from qt_path_robviz import QtPath
 
 
 path = rospkg.RosPack().get_path('scanning_robviz')
@@ -104,22 +104,15 @@ class Robviz(QtWidgets.QMainWindow):
 
         self.boxPlot.addWidget(MyViz())
 
-        #self.qtData = QtData(self)
-        #self.qtParam = QtParam(self)
         self.qtScan = QtScan(self)
-        #self.qtPart = QtPart(self)
         self.qtPath = QtPath(self)
 
-        #self.tabWidget.addTab(self.qtData, 'Data')
-        #self.tabWidget.addTab(self.qtParam, 'Params')
-        self.tabWidget.addTab(self.qtScan, 'Scan')
-        #self.tabWidget.addTab(self.qtPart, 'Part')
         self.tabWidget.addTab(self.qtPath, 'Path')
+        self.tabWidget.addTab(self.qtScan, 'Scan')
 
-        #self.qtData.accepted.connect(self.qtDataAccepted)
-        #self.qtParam.accepted.connect(self.qtParamAccepted)
+        
         self.qtScan.accepted.connect(self.qtScanAccepted)
-        #self.qtPart.accepted.connect(self.qtPartAccepted)
+ 
 
         self.btnQuit.setIcon(QtGui.QIcon.fromTheme('application-exit'))
         self.btnQuit.clicked.connect(self.btnQuitClicked)

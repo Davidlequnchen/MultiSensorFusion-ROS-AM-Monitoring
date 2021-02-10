@@ -1,4 +1,0 @@
-eki_B:
-  robot_address: "172.31.1.148"
-  robot_port: "54600"
-  socket_timeout: 10

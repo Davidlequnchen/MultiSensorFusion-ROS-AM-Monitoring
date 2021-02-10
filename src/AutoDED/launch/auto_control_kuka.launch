@@ -3,9 +3,10 @@
     <arg name="gui" default="true" />
     <arg name="sim" default="false" />
 
+    <!--whether auto control-->
+    <arg name="auto_control" default="true"/>
 
     <!-- open/closed the microepsilon robviz (the microepsilon driver + visualization GUI + cloud transform) -->
-    <!-- this file is irrelevent to ABB or Kuka, can be used by both -->
     <include file="$(find scanning_robviz)/launch/robviz_microepsilon_autocontrol.launch"/>
 
     <!-- open the pid-vrft auto control algorithm -->
@@ -17,7 +18,9 @@
 
 
     <!-- open the JSON motion planning launch (1) the ROS-abb interface (command server and state server), (2) qt_path -->
-    <include file="$(find motion_planning_kuka)/launch/motion_planning_kuka.launch"/>
+    <include file="$(find motion_planning_kuka)/launch/motion_planning_kuka.launch">
+        <arg name="auto_control" value="$(arg auto_control)" />
+    </include>
 
     <!-- point_cloud_analysis node: (1) receive command to tell if point cloud is ready for analysis -->
     <!--(2) publish info about scanned plane -->

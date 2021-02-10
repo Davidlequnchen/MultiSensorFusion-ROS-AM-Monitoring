@@ -3,7 +3,7 @@
     <property name="pi" value="3.141592654"/>
 
     <!-- Robot -->
-    <xacro:include filename="$(find simtech_kuka_workcell)/urdf/kr120r2500pro_macro.xacro"/>
+    <xacro:include filename="$(find simtech_kuka_robot_support)/urdf/kr120r2500pro_macro.xacro"/>
     <xacro:kuka_kr120r2500pro prefix=""/>
 
     <joint name="kr120r2500pro" type="fixed">

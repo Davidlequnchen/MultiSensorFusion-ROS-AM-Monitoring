@@ -4,10 +4,10 @@
 
     <link name="world"/>
 
-    <!-- Robot -->
-    <xacro:include filename="$(find simtech_kuka_workcell)/urdf/kuka_robot_simulation.xacro"/>
+    <!-- Robot (with table) -->
+    <xacro:include filename="$(find simtech_kuka_workcell)/urdf/workcell.xacro"/>
 
-    <joint name="kuka_robot" type="fixed">
+    <joint name="workcell" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>
         <origin xyz="0 0 0.067" rpy="0 0 0"/>

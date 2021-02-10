@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+    <arg name="model" default="$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+    <!-- Load ethernate connection interface rosparameter server -->
+    <rosparam file="$(find simtech_kuka_eki_interfaceB)/config/interface_paramsB.yaml" command="load" />
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find simtech_kuka_eki_interfaceB)/config/hardware_controllers.yaml" command="load"/>
+    <!-- Load standard kuka controller joint names from YAML file to parameter server -->
+    <rosparam file="$(find simtech_kuka_eki_interfaceB)/config/controller_joint_names.yaml" command="load"/>
+
+    <!-- Load controllers -->
+    <!-- node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+        args="position_trajectory_controller joint_state_controller"/-->
+    <node name="controller_spawnerB" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+        args="joint_state_controllerB --shutdown-timeout 1"/>
+      
+    <!-- Start EKI interface -->
+    <node name="simtech_kuka_eki_interfaceB" pkg="simtech_kuka_eki_interfaceB"
+      type="simtech_kuka_eki_interfaceB_node" respawn="false"
+      output="screen"
+      required="true"/>
+
+    <!-- Load robot state publisher -->
+    <node name="robot_state_publisherB" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find industrial_robot_client)/config/robot_state_visualize.rviz" required="true" /> -->
+</launch>

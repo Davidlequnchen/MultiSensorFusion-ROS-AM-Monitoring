@@ -151,7 +151,7 @@ class NdSubprocessHandler {
                     // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/scanning_application/scanning_robviz/distance/distance.txt";
                     std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
                     std::string saveCoefficientPlane = " -saveCoefficientPlaneName " + path + "/coefficientPlane/" + this->pcd_coefficient_plane_file;
-                    std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.00018 -zmin -0.9 -zmax 0";
+                    std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.00018 -zmin 0.0 -zmax 1.0";
                     // std::string parameters = " ";
                     // Initialize String Array
                     std::string command_line = executable + option + loadfile + savefile + saveCoefficientPlane + savePointDistance + parameters;
@@ -241,6 +241,13 @@ class NdSubprocessHandler {
                         cloud_stored.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
                         this->stamp = ros::Time::now().toSec();  // update the stamp
                     }
+                }
+                else{
+                    // read routine command send from EKI server
+                    scanning_robviz::MsgPointCloudScan point_cloud_scan;
+                    point_cloud_scan.ready = false;
+                    point_cloud_scan.scanning_count = this->scanning_count;
+                    pub_point_cloud_scan.publish(point_cloud_scan);
                 }
             }
       }

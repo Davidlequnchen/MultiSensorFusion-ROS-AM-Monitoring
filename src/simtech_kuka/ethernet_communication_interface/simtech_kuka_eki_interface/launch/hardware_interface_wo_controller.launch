@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro'"/>
+
+    <rosparam file="$(find kuka_eki_hw_interface)/config/interface_params.yaml" command="load" />
+      
+    <!-- Start EKI interface -->
+    <node name="kuka_eki_hardware_interface" pkg="kuka_eki_hw_interface"
+      type="kuka_eki_hw_interface_node" respawn="false"
+      output="screen"
+      required="true"/>
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find kuka_eki_hw_interface)/config/hardware_controllers.yaml" command="load"/>
+    <!-- Load standard kuka controller joint names from YAML file to parameter server -->
+    <rosparam file="$(find kuka_eki_hw_interface)/config/controller_joint_names.yaml" command="load"/>
+
+    <!-- Load robot state publisher -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+</launch>

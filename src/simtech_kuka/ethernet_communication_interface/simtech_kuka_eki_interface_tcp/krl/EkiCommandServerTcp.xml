@@ -1,0 +1,78 @@
+<ETHERNETKRL>
+   <CONFIGURATION>
+      <EXTERNAL>
+         <TYPE>Client</TYPE>                  <!-- Users connect as clients -->
+      </EXTERNAL>
+      <INTERNAL>
+         <ENVIRONMENT>Submit</ENVIRONMENT>    <!-- Server run via robot interpreter/submit/system level -->
+         <BUFFERING Mode="FIFO" Limit="512"/> <!-- Allow buffering of up to 512 messages (system max), Mode: FIFO/LIFO, Default value: FIFO -->
+         <BUFFSIZE Limit="65534" />           <!-- Maximum number of bytes which can be received without being interpreted -->
+         <ALIVE Set_Flag="2" />               <!-- Use $flag[2] to indicate alive/good connection status -->
+         <IP>172.31.1.147</IP>                <!-- IP address for EKI interface on robot controller (KRC) -->
+         <PORT>54601</PORT>                   <!-- Port of EKI interface on robot controller (in [54600, 54615]) -->
+         <PROTOCOL>TCP</PROTOCOL>             <!-- Use UDP protocol, can also use TCP -->
+      </INTERNAL>
+   </CONFIGURATION>
+
+   <!-- Configured XML structure for data reception (external client to robot)
+        <CommandServer>
+           <Pos A1="..." A2="..." A3="..." A4="..." A5="..." A6="...">
+           </Pos>
+        </CommandServer>
+   -->
+   <RECEIVE>
+      <XML>
+         <!-- command -->
+         <ELEMENT Tag="CommandServer/@InstructionCode" Type="INT" />
+         <ELEMENT Tag="CommandServer/Parameters/@P1" Type="REAL" />
+         <ELEMENT Tag="CommandServer/Parameters/@P2" Type="REAL" />
+         <ELEMENT Tag="CommandServer/Parameters/@P3" Type="REAL" />
+         <ELEMENT Tag="CommandServer/Parameters/@P4" Type="REAL" />
+         <ELEMENT Tag="CommandServer/Parameters/@P5" Type="REAL" />
+         <ELEMENT Tag="CommandServer/Parameters/@P6" Type="REAL" />
+         <!-- Temperature command -->
+         <ELEMENT Tag="CommandServer/Temp/@Laser" Type="REAL" />
+      </XML>
+   </RECEIVE>
+
+
+   <!-- Configured XML structure for data transmission (robot to external client)
+        <RobotState>
+           <Pos A1="..." A2="..." A3="..." A4="..." A5="..." A6="...">
+           </Pos>
+           <Vel A1="..." A2="..." A3="..." A4="..." A5="..." A6="...">
+           </Vel>
+           <Eff A1="..." A2="..." A3="..." A4="..." A5="..." A6="...">
+           </Eff>
+        </RobotState>
+   -->
+   <SEND>
+      <XML>
+         <!-- Joint state positions -->
+         <ELEMENT Tag="RobotState/Pos/@A1"/>
+         <ELEMENT Tag="RobotState/Pos/@A2"/>
+         <ELEMENT Tag="RobotState/Pos/@A3"/>
+         <ELEMENT Tag="RobotState/Pos/@A4"/>
+         <ELEMENT Tag="RobotState/Pos/@A5"/>
+         <ELEMENT Tag="RobotState/Pos/@A6"/>
+         <!-- Joint state velocities -->
+         <ELEMENT Tag="RobotState/Vel/@A1"/>
+         <ELEMENT Tag="RobotState/Vel/@A2"/>
+         <ELEMENT Tag="RobotState/Vel/@A3"/>
+         <ELEMENT Tag="RobotState/Vel/@A4"/>
+         <ELEMENT Tag="RobotState/Vel/@A5"/>
+         <ELEMENT Tag="RobotState/Vel/@A6"/>
+         <!-- Joint state efforts (torques) -->
+         <ELEMENT Tag="RobotState/Eff/@A1"/>
+         <ELEMENT Tag="RobotState/Eff/@A2"/>
+         <ELEMENT Tag="RobotState/Eff/@A3"/>
+         <ELEMENT Tag="RobotState/Eff/@A4"/>
+         <ELEMENT Tag="RobotState/Eff/@A5"/>
+         <ELEMENT Tag="RobotState/Eff/@A6"/>
+         <!-- Interface state -->
+         <ELEMENT Tag="RobotState/CommandServer/@Size"/>  <!-- Number of elements currently in command buffer -->
+         <!-- send routine command ０:idle, 1: scanning, 2:control, 3:json repairing path -->
+         <ELEMENT Tag="RobotState/RoutineCommand/@State"/>
+      </XML>
+   </SEND>
+</ETHERNETKRL>

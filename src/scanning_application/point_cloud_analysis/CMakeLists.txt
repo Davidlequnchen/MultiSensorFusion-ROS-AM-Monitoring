@@ -53,3 +53,6 @@ add_definitions     (${PCL_DEFINITIONS})
 
 add_executable(nd_point_cloud_analysis src/nd_point_cloud_analysis.cpp)
 target_link_libraries(nd_point_cloud_analysis ${catkin_LIBRARIES})
+
+add_executable(test_publish_height src/test_publish_height.cpp)
+target_link_libraries(test_publish_height ${catkin_LIBRARIES})

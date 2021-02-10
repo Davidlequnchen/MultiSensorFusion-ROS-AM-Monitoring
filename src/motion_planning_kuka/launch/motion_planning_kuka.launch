@@ -1,30 +1,42 @@
 <launch>
   <arg name="gui" default="true" />
   <arg name="sim" default="false" />
-
+  <!--whether auto control-->
+  <arg name="auto_control" default="false"/>
   <!-- parameter robot model and robot interface(motion and state) nodes and parameters -->
   <arg name="model" default="$(find microepsilon_workcell)/urdf/workcell_kuka.xacro" />
 
 
   <!-- define the powder, process, material parameters -->
-  <rosparam command="load" file="$(find motion_planning_kuka)/config/params.yaml" />
+  <!-- <rosparam command="load" file="$(find motion_planning_kuka)/config/params.yaml" /> -->
 
+  <!-- Robot -->
   <param name="/use_sim_time" value="$(arg sim)" />
-  
-
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
 
-  <include file="$(find simtech_kuka_eki_interface)/launch/simtech_kuka_eki_interface.launch" unless="$(arg sim)">
+  <include file="$(find simtech_kuka_workcell)/launch/workcell.launch" unless="$(arg sim)">
     <arg name="model" value="$(arg model)" />
+    <arg name="rviz" value="false" />
   </include>
 
-  <!-- The Qt path panel for loading and executing path command from jason file -->
-  <!-- For testing，this will launch rvize with panel  -->
-  <node name="path_panel" pkg="motion_planning_kuka" type="qt_path.py" />
-  <!-- For actual implementation: run the path planning automatically  -->
-  <!-- <node name="path_panel" pkg="motion_planning_kuka" type="json_path_planning.py" /> -->
 
-  <!-- disable the rvize during actual implementation　(when runing auto-control package)  -->
-  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find motion_planning_kuka)/config/workcell.rviz" required="true" if="$(arg gui)" /> -->
+  <!-- RVIZ and path panel -->
+  <!-- <group if="$(arg auto_control)"> -->
+    <!-- For actual auto_control implementation: run the path planning automatically  -->
+    <!-- <node name="path_panel" pkg="motion_planning_kuka" type="json_path_planning.py" /> -->
+  <!-- </group> -->
+
+  <group unless="$(arg auto_control)">
+    <!-- The Qt path panel for loading and executing path command from jason file -->
+    <!-- For testing，this will launch rvize with panel  -->
+    <node name="path_panel" pkg="motion_planning_kuka" type="qt_path.py" />
+  </group>
+  
+
+  <group unless="$(arg auto_control)">
+   <!-- disable the rvize during actual implementation　(when runing auto-control package)  -->
+   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find motion_planning_kuka)/config/workcell.rviz" required="true" if="$(arg gui)" />
+  </group>
+
   
 </launch>

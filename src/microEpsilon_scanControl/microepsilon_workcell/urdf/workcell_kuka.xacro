@@ -2,8 +2,8 @@
 <robot name="microepsilon_workcell" xmlns:xacro="http://ros.org/wiki/xacro">
   
   <!-- Robot cell with working head and camera-->
-  <xacro:include filename="$(find scanning_workcell)/urdf/workcell_kuka.xacro"/>
-  <joint name="scanning_workcell" type="fixed">
+  <xacro:include filename="$(find simtech_kuka_workcell)/urdf/workcell.xacro"/>
+  <joint name="simtech_kuka_workcell" type="fixed">
     <parent link="world"/>
     <child link="base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0" />
@@ -12,8 +12,10 @@
   <!-- Microepsilon 2950-50 sensor -->
   <xacro:include filename="$(find microepsilon_workcell)/urdf/scanCONTROL_2900-50_macro.urdf.xacro" />
   <!-- sensor -->
-  <xacro:scanCONTROL_2900-50 prefix="scanCONTROL_2900-50_" parent="tool0">
-    <origin xyz="0.10135 0.2 0.15" rpy="${radians(-90)} ${radians(0)} ${radians(90)}" />
+  <xacro:scanCONTROL_2900-50 prefix="scanCONTROL_2900-50_" parent="tcp_link">
+    <!-- relative to the tool0 (6 axix/flange) -->
+    <!-- <origin xyz="0.10135 0.2 0.15" rpy="${radians(-90)} ${radians(0)} ${radians(90)}" />  -->
+    <origin xyz="0 -0.2 -0.15" rpy="${radians(90)} ${radians(180)} 0" />
   </xacro:scanCONTROL_2900-50>
 
  

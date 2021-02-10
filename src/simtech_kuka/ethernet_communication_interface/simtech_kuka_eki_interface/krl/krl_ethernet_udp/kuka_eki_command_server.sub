@@ -1,0 +1,224 @@
+&ACCESS RVO
+&PARAM EDITMASK = *
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\submit
+def kuka_eki_command_server()
+   ;FOLD DECLARATIONS
+   ;FOLD USER DECL
+   ; local vairable declarations
+   decl int elements_read
+
+   cancel_motion = false
+
+   eki_hw_iface_init() ; socket connection
+  
+   loop
+      instruction_code = 0 ; reset instruction code to default
+      elements_read = eki_hw_iface_get()  ; Get new command from buffer 
+                           
+      SWITCH (instruction_code)
+      CASE 1
+         ; cartesian motion XYZ command, phrase parameters into global variable cartesian_target
+         if NOT ((n_cartesian_motion - n_cartesian_command == 1) OR (n_cartesian_motion - n_cartesian_command == -48)) then
+               command_type[n_cartesian_command] = 1 ; set corresponding command type
+               cartesian_target[n_cartesian_command] = initial_frame
+               cartesian_target[n_cartesian_command].X = parameters[1]
+               cartesian_target[n_cartesian_command].Y = parameters[2]
+               cartesian_target[n_cartesian_command].Z = parameters[3]
+               n_cartesian_command = n_cartesian_command +1
+               if n_cartesian_command > 49 then
+                  n_cartesian_command = 1
+               endif
+               MsgNotify("Cartesian target xyz command received and set",,,,)
+         else 
+               MsgNotify("buffer full",,,,)
+         endif
+         
+
+      CASE 2
+         ; cartesian motion XYZABC command
+         if NOT ((n_cartesian_motion - n_cartesian_command == 1) OR (n_cartesian_motion - n_cartesian_command == -48)) then
+            command_type[n_cartesian_command] = 2
+            cartesian_target[n_cartesian_command] = initial_frame
+            cartesian_target[n_cartesian_command].X = parameters[1]
+            cartesian_target[n_cartesian_command].Y = parameters[2]
+            cartesian_target[n_cartesian_command].Z = parameters[3]
+            cartesian_target[n_cartesian_command].A = parameters[4]
+            cartesian_target[n_cartesian_command].B = parameters[5]
+            cartesian_target[n_cartesian_command].C = parameters[6]
+            n_cartesian_command = n_cartesian_command +1
+            if n_cartesian_command > 49 then
+               n_cartesian_command = 1
+            endif
+            MsgNotify("Cartesian target frame command received and set",,,,)
+         else 
+            MsgNotify("buffer full",,,,)
+         endif
+
+      CASE 3
+         ; whether motion complete (0/1)
+         if NOT ((n_cartesian_motion - n_cartesian_command == 1) OR (n_cartesian_motion - n_cartesian_command == -48)) then
+            command_type[n_cartesian_command] = 3
+            json_motion_complete[n_cartesian_command] = parameters[1] ; json command finished (1.0) or not (0.0)
+            n_cartesian_command = n_cartesian_command + 1
+            if n_cartesian_command > 49 then
+               n_cartesian_command = 1
+            endif
+            MsgNotify("motion Start/End command received",,,,)
+         else 
+            MsgNotify("buffer full",,,,)
+         endif
+
+      CASE 4
+         ; set linear velocity
+         ;$VEL.CP = parameters[1]
+
+      CASE 5
+         ; set swivel velocity
+         ;$VEL.ORI1 = parameters[1] 
+
+      CASE 6
+         ; set swivel velocity
+         ;$VEL.ORI2 = parameters[1]
+
+      CASE 7
+         LaserOff()
+      CASE 8
+         LaserOn()
+      CASE 9
+         LaserEnd()
+      CASE 10
+         LaserStart()
+      CASE 11
+         ;$ANOUT[1] = parameters[1] ; set laser power
+      CASE 12
+         ; $TOOL=TOOL_DATA[parameters[1]] ; set tool
+      CASE 13 
+         ; $BASE.X = parameters[1]
+         ; $BASE.Y = parameters[2]
+         ; $BASE.Z = parameters[3]
+         ; $BASE.A = parameters[4]
+         ; $BASE.B = parameters[5]
+         ; $BASE.C = parameters[6]
+      CASE 14
+         wait_time = parameters[1]
+         
+      CASE 15
+         if (parameters[1]==1.0) then
+            transmission_complete = True ; this will allow server_motion(auto) execute command
+         else
+            transmission_complete = False
+         endif
+         
+
+      DEFAULT
+      ENDSWITCH
+   endloop
+
+
+end
+
+
+
+def eki_hw_iface_init()
+   decl eki_status eki_ret
+   
+   ; initialization of vairable
+   n_cartesian_command = 1
+   n_cartesian_motion = 1
+   
+   parameters[1] = $POS_ACT.X
+   parameters[2] = $POS_ACT.Y
+   parameters[3] = $POS_ACT.Z
+   parameters[4] = $POS_ACT.A
+   parameters[5] = $POS_ACT.B
+   parameters[6] = $POS_ACT.C
+   
+   ; Setup interrupts
+   ; Interrupt 15 - Connection cleanup on client disconnect
+   global interrupt decl 15 when $flag[1]==false do eki_hw_iface_reset()
+   interrupt on 15
+   ; Interrupt 16 - Timer interrupt for periodic state transmission
+   global interrupt decl 16 when $timer_flag[1]==true do eki_hw_iface_send()
+   interrupt on 16
+   wait sec 0.012          ; Wait for next interpolation cycle
+   $timer[1] = -200        ; Time in [ms] before first interrupt call
+   $timer_stop[1] = false  ; Start timer 1
+
+   ; Create and open EKI interface
+   eki_ret = eki_init("EkiCommandServer")
+   eki_ret = eki_open("EkiCommandServer")
+   
+   MsgNotify("ROS connection established",,,,)
+end
+
+
+
+def eki_hw_iface_send()
+   decl eki_status eki_ret
+
+   if $flag[1] then  ; If connection alive
+      ; Load state values into xml structure
+      ; position
+      eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A1", $axis_act_meas.a1)
+      eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A2", $axis_act_meas.a2)
+      eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A3", $axis_act_meas.a3)
+      eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A4", $axis_act_meas.a4)
+      eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A5", $axis_act_meas.a5)
+      eki_ret = eki_setreal("EkiCommandServer", "RobotState/Pos/@A6", $axis_act_meas.a6)
+      ; interface state
+      eki_ret = eki_checkbuffer("EkiCommandServer", "CommandServer/@InstructionCode")
+      eki_ret = eki_setint("EkiCommandServer", "RobotState/CommandServer/@Size", eki_ret.buff)
+      ; routine command sent to ROS. 0:idle, 1:scanning, 2:control, 3: json repairing path execution
+      eki_ret = eki_setint("EkiCommandServer", "RobotState/RoutineCommand/@State", routine_command)
+
+      ; Send xml structure
+      if $flag[1] then  ; Make sure connection hasn't died while updating xml structure
+         eki_ret = eki_send("EkiCommandServer", "RobotState")
+      endif
+   endif
+
+   ; Set timer for next interrupt [ms]
+   $timer[1] = -10  ; ~10 ms for above send + 10 ms interrupt timer -> ~50 Hz state transmission
+end
+
+
+; eki_hw_iface_get: phrase command
+; Tries to read most recent message from buffer. q left unchanged if empty.
+; Returns number of elements read.
+deffct int eki_hw_iface_get()
+   decl eki_status eki_ret
+
+   if not $flag[1] then
+      return 0
+   endif
+
+   eki_ret = eki_checkbuffer("EkiCommandServer", "CommandServer/@InstructionCode")
+   if eki_ret.buff <= 0 then
+     return 0
+   endif
+
+   eki_ret = eki_getint("EkiCommandServer", "CommandServer/@InstructionCode", instruction_code)
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P1", parameters[1])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P2", parameters[2])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P3", parameters[3])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P4", parameters[4])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P5", parameters[5])
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Parameters/@P6", parameters[6])
+   
+   return 1
+endfct
+
+
+def eki_hw_iface_reset()
+   decl eki_status eki_ret
+   if cancel_motion == True then
+      cancel_motion = false
+   endif
+   n_cartesian_command = n_cartesian_motion
+   cancel_motion = true
+
+   eki_ret = eki_clear("EkiCommandServer")
+   eki_ret = eki_init("EkiCommandServer")
+   eki_ret = eki_open("EkiCommandServer")
+end
+
