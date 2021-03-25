@@ -89,7 +89,7 @@ y_hole_4=slice_y_4(k_4)';
 xc=[xd,NaN,x_hole_1,NaN,x_hole_2,NaN,x_hole_3,NaN,x_hole_4];
 yc=[yd,NaN,y_hole_1,NaN,y_hole_2,NaN,y_hole_3,NaN,y_hole_4];
 
-% Diagonal lines£¬change the scan direction
+% Diagonal linesï¿½ï¿½change the scan direction
 dx = 1;
 dy = 1000;
 nl = 150; % Could probably calculate this

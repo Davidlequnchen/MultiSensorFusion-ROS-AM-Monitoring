@@ -95,6 +95,12 @@ class QtPath(QtWidgets.QWidget):
         self.Maxmin_diff = 0
         self.tilt_angle = 0
         
+        self.layer_height = 0
+        
+        self.build_status = ['underbuid', 'overbuild','normal']
+        self.nominal_height = 0
+        
+        
 
 
         self.jason = Jason()
@@ -107,7 +113,32 @@ class QtPath(QtWidgets.QWidget):
         self.tmrRunPath = QtCore.QTimer(self)
         self.tmrRunPath.timeout.connect(self.timeRunPathEvent)
         
+        self.tmrHeightStatus = QtCore.QTimer(self)
+        self.tmrHeightStatus.timeout.connect(self.updateHeightStatus)
+        self.tmrHeightStatus.start(100)
         
+    def updateHeightStatus(self):
+        self.layer_height = self.doubleSpinBox_layerheight.value() # read the value from user input
+        self.nominal_height = self.layer_height * self.height_id
+        self.label_nominal_height_value.setText("%.4f" % (self.nominal_height)) ## update the GUI for nominal height (mm)
+        height_error = self.nominal_height - (self.height_mean) * 1000 # value in mm  
+        
+        if height_error > self.layer_height :
+            self.label_build_height_status_value.setText("Over-build")
+            self.label_build_height_status_value.setStyleSheet(
+                 "background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); font-weight: bold")
+        elif height_error < -self.layer_height :
+            self.label_build_height_status_value.setText("Under-build")
+            self.label_build_height_status_value.setStyleSheet(
+                 "background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); font-weight: bold")
+        else:
+            self.label_build_height_status_value.setText("Normal height")
+            self.label_build_height_status_value.setStyleSheet(
+                 "background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); font-weight: bold")
+    
+    
+    
+    
     def cb_height_info(self, msg_height_info):
         self.height_id = msg_height_info.plane_id
         self.height_std = msg_height_info.height_std
@@ -115,11 +146,12 @@ class QtPath(QtWidgets.QWidget):
         self.Maxmin_diff = msg_height_info.heighest_max_min_difference
         self.tilt_angle = msg_height_info.tilt_angle
         
-        self.label_id.setText("Height ID: %.5f" % (self.height_id))
-        self.label_angle.setText("Angle tilt: %.5f" % (self.tilt_angle))
-        self.label_std.setText("Height std: %.5f" % (self.height_std))
-        self.label_mean.setText("Height mean: %.5f" % (self.height_mean))
-        self.label_maxmin.setText("Max Min diff: %.5f" % (self.Maxmin_diff))
+        self.label_id_value.setText("%.1f" % (self.height_id))
+        self.label_angle_value.setText("%.5f" % (self.tilt_angle))
+        self.label_std_value.setText("%.5f" % (self.height_std))
+        self.label_mean_value.setText("%.5f" % (self.height_mean))
+        self.label_mean_value.setFont.setStyleSheet("font-weight: bold")
+        self.label_maxmin_value.setText("%.5f" % (self.Maxmin_diff))
         
 
     def insertPose(self, pose):

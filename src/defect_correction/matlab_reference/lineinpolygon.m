@@ -40,7 +40,7 @@ function [anyIn, inSegment, outSegment] = lineinpolygon(x1, y1, x2, y2, xv, yv)
 isLeftToRight = x1 < x2;
 
 if iscell(xv)
-    [xv, yv] = polyjoin(xv, yv);
+    [xv, yv] = polyjoin(xv, yv);  % Convert line or polygon parts from cell arrays to vector form
 end
 
 %-----------------------------

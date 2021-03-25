@@ -122,9 +122,9 @@ class Robviz(QtWidgets.QMainWindow):
         self.running = False
         #self.laser_on = False
 
-        tmrInfo = QtCore.QTimer(self)
-        tmrInfo.timeout.connect(self.updateStatus)
-        tmrInfo.start(100)
+        # tmrInfo = QtCore.QTimer(self)
+        # tmrInfo.timeout.connect(self.updateStatus)
+        # tmrInfo.start(100)
 
     def cbStatus(self, msg_status):
         self.running = msg_status.running
@@ -132,27 +132,27 @@ class Robviz(QtWidgets.QMainWindow):
         self.speed = msg_status.speed
         #self.power = msg_status.power
 
-    def updateStatus(self):
-        self.lblSpeed.setText("Speed: %.1f mm/s" % (self.speed))
-        #self.lblPower.setText("Power: %i W" % (self.power))
-        if self.running:
-            self.lblStatus.setText('Running')
-            self.lblStatus.setStyleSheet(
-                "background-color: rgb(0, 255, 0); color: rgb(0, 0, 0);")
-        else:
-            self.lblStatus.setText('Stopped')
-            self.lblStatus.setStyleSheet(
-                "background-color: rgb(255, 0, 0); color: rgb(0, 0, 0);")
-        '''
-        if self.laser_on:
-            self.lblLaser.setText('Laser ON')
-            self.lblLaser.setStyleSheet(
-                "background-color: rgb(255, 255, 0); color: rgb(0, 0, 0);")
-        else:
-            self.lblLaser.setText('Laser OFF')
-            self.lblLaser.setStyleSheet(
-                "background-color: rgb(0, 0, 255); color: rgb(0, 0, 0);")
-        '''
+    # def updateStatus(self):
+    #     self.lblSpeed.setText("Speed: %.1f mm/s" % (self.speed))
+    #     #self.lblPower.setText("Power: %i W" % (self.power))
+    #     if self.running:
+    #         self.lblStatus.setText('Running')
+    #         self.lblStatus.setStyleSheet(
+    #             "background-color: rgb(0, 255, 0); color: rgb(0, 0, 0);")
+    #     else:
+    #         self.lblStatus.setText('Stopped')
+    #         self.lblStatus.setStyleSheet(
+    #             "background-color: rgb(255, 0, 0); color: rgb(0, 0, 0);")
+    #     '''
+    #     if self.laser_on:
+    #         self.lblLaser.setText('Laser ON')
+    #         self.lblLaser.setStyleSheet(
+    #             "background-color: rgb(255, 255, 0); color: rgb(0, 0, 0);")
+    #     else:
+    #         self.lblLaser.setText('Laser OFF')
+    #         self.lblLaser.setStyleSheet(
+    #             "background-color: rgb(0, 0, 255); color: rgb(0, 0, 0);")
+    #     '''
 
     def qtDataAccepted(self):
         self.tabWidget.setCurrentWidget(self.qtParam)

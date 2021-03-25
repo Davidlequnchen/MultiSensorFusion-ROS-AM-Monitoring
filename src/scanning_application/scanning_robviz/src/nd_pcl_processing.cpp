@@ -131,33 +131,66 @@ class NdSubprocessHandler {
                     // save cloud_stored into a pcd file
                     NdSubprocessHandler::savePointFile(full_path, cloud_stored);
 
+                    if (this->scanning_count == 0){
+                        // -------------------subprocess start(segmentation process)----------------------
+                        //define the executable program and set all the parameters here
+                        //Usage: ./PCL_segmentation [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]
+                        // fs::path dir (path + "/PCL_segmentation/build");
+                        // fs::path file("PCL_segmentation");
+                        // fs::path full_path = dir / file;
+                        // EXAMPLE ------------------------------------------------------------------------------------
+                        // ./PCL_segmentation -passThroughSeg -load Q1.pcd -save Q1_seg.pcd -saveCoefficientPlaneName coefficient_Q1.txt 
+                        // -savePointToPlaneDistance distance_Q1.txt -saveNormalEstimation normalEstimation_Q1.txt -DistanceThre 0.003 
+                        // -Stddev 1.2 -leafsize 0.00018 -zmin -0.236 -zmax 0
+                        // However, normalEstimation and saveCoefficientPlaneName can be ommited
+                        //--------------------------------------------------------------------------------------------
+                        std::string executable = path + "/PCL_segmentation/build/PCL_segmentation";
+                        std::string option = " -passThroughSeg"; //other options: -multiPlannarSeg, -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
+                        std::string loadfile = " -load " + path + "/pcl/" + this->pcd_filename;
+                        std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
+                        // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/scanning_application/scanning_robviz/distance/distance.txt";
+                        std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
+                        std::string saveCoefficientPlane = " -saveCoefficientPlaneName " + path + "/coefficientPlane/" + this->pcd_coefficient_plane_file;
+                        std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.0003 -zmin 0.318 -zmax 10";
+                        // std::string parameters = " ";
+                        // Initialize String Array
+                        std::string command_line = executable + option + loadfile + savefile + saveCoefficientPlane + savePointDistance + parameters;
 
-                    // -------------------subprocess start(segmentation process)----------------------
-                    //define the executable program and set all the parameters here
-                    //Usage: ./PCL_segmentation [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]
-                    // fs::path dir (path + "/PCL_segmentation/build");
-                    // fs::path file("PCL_segmentation");
-                    // fs::path full_path = dir / file;
-                    // EXAMPLE ------------------------------------------------------------------------------------
-                    // ./PCL_segmentation -passThroughSeg -load Q1.pcd -save Q1_seg.pcd -saveCoefficientPlaneName coefficient_Q1.txt 
-                    // -savePointToPlaneDistance distance_Q1.txt -saveNormalEstimation normalEstimation_Q1.txt -DistanceThre 0.003 
-                    // -Stddev 1.2 -leafsize 0.00018 -zmin -0.236 -zmax 0
-                    // However, normalEstimation and saveCoefficientPlaneName can be ommited
-                    //--------------------------------------------------------------------------------------------
-                    std::string executable = path + "/PCL_segmentation/build/PCL_segmentation";
-                    std::string option = " -passThroughSeg"; //other options: -multiPlannarSeg, -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
-                    std::string loadfile = " -load " + path + "/pcl/" + this->pcd_filename;
-                    std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
-                    // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/scanning_application/scanning_robviz/distance/distance.txt";
-                    std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
-                    std::string saveCoefficientPlane = " -saveCoefficientPlaneName " + path + "/coefficientPlane/" + this->pcd_coefficient_plane_file;
-                    std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.00018 -zmin 0.0 -zmax 1.0";
-                    // std::string parameters = " ";
-                    // Initialize String Array
-                    std::string command_line = executable + option + loadfile + savefile + saveCoefficientPlane + savePointDistance + parameters;
+                        auto p = sp::call({command_line});
+                        //--------------------subprocess end------------------------
 
-                    auto p = sp::call({command_line});
-                    //--------------------subprocess end------------------------
+                    }
+
+                    else{
+                        // -------------------subprocess start(segmentation process)----------------------
+                        //define the executable program and set all the parameters here
+                        //Usage: ./PCL_segmentation [options] [-load filename] [-save filename] [-leafsize /float] [-DistanceThre /float] [-Stddev /float]
+                        // fs::path dir (path + "/PCL_segmentation/build");
+                        // fs::path file("PCL_segmentation");
+                        // fs::path full_path = dir / file;
+                        // EXAMPLE ------------------------------------------------------------------------------------
+                        // ./PCL_segmentation -passThroughSeg -load Q1.pcd -save Q1_seg.pcd -saveCoefficientPlaneName coefficient_Q1.txt 
+                        // -savePointToPlaneDistance distance_Q1.txt -saveNormalEstimation normalEstimation_Q1.txt -DistanceThre 0.003 
+                        // -Stddev 1.2 -leafsize 0.00018 -zmin -0.236 -zmax 0
+                        // However, normalEstimation and saveCoefficientPlaneName can be ommited
+                        //--------------------------------------------------------------------------------------------
+                        std::string executable = path + "/PCL_segmentation/build/PCL_segmentation";
+                        std::string option = " -passThroughSeg"; //other options: -multiPlannarSeg, -NormalSegmentation, -largestPlane, -ShapeSeg, ,-multiPlannarSeg, -sfilter, curveSeg
+                        std::string loadfile = " -load " + path + "/pcl/" + this->pcd_filename;
+                        std::string savefile = " -save " + path + "/pcl/" + this->pcd_segmented_filename;
+                        // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/scanning_application/scanning_robviz/distance/distance.txt";
+                        std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
+                        std::string saveCoefficientPlane = " -saveCoefficientPlaneName " + path + "/coefficientPlane/" + this->pcd_coefficient_plane_file;
+                        std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.0003 -zmin 0.322 -zmax 10";
+                        // std::string parameters = " ";
+                        // Initialize String Array
+                        std::string command_line = executable + option + loadfile + savefile + saveCoefficientPlane + savePointDistance + parameters;
+
+                        auto p = sp::call({command_line});
+                        //--------------------subprocess end------------------------
+
+                    }
+                    
 
 
                     try{
