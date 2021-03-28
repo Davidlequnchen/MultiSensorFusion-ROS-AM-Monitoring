@@ -31,7 +31,7 @@ public:
 
   NdCloud() {
     // sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/usb_cam/cloud", 5,  &NdCloud::cbPointCloud, this);
-    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/microepsilon/laser_scan", 5,  &NdCloud::cbPointCloud, this);
+    sub_cloud = nh.subscribe<sensor_msgs::PointCloud2>("/microepsilon/laser_scan_filtered", 5,  &NdCloud::cbPointCloud, this);
 
     pub_cloud = nh.advertise<sensor_msgs::PointCloud2>("/microepsilon/cloud_transformed", 10);
 

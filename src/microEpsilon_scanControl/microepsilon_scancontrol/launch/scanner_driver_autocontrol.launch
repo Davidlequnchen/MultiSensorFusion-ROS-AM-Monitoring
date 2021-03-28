@@ -21,5 +21,48 @@
   </node>
 
   <!-- <node name="laser_scan_transformed" pkg="microepsilon_scancontrol" type="cloud_transformation_node" respawn="true" />  -->
+  <node name="passthrough"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/PassThrough">
+    <remap from="~input" to="/microepsilon/laser_scan" />
+    <remap from="~output" to="/microepsilon/laser_scan_filtered" />
+    <rosparam>
+      filter_field_name: y
+      filter_limit_min: 0.08
+      filter_limit_max: 0.097
+    </rosparam>
+  </node>
+
+  <!-- <test test-name="test_passthrough"
+        name="test_passthrough"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /microepsilon/laser_scan_filtered
+      hz: 30
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test> -->
+
+  <!-- <node name="statistical_outlier_removal"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/StatisticalOutlierRemoval">
+    <remap from="~input" to="voxel_grid/output" />
+    <rosparam>
+      mean_k: 10
+      stddev: 1.0
+    </rosparam>
+  </node>
+
+  <test test-name="test_statistical_outlier_removal"
+        name="test_statistical_outlier_removal"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /statistical_outlier_removal/output
+      hz: 20
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test> -->
 
 </launch>

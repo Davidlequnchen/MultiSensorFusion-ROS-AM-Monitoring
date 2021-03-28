@@ -100,15 +100,18 @@ class NdPointCloudAnalysis {
 
         // the file contains each points' height relative to the substrate
         std::string plane_height_file;     
+        double reference_plane_z_height;
         
       
     public:
         // temp variable for extracting the point cloud from file
         pcl::PointCloud<pcl::PointXYZ>::Ptr plane_cloud_seg;
+        pcl::PointCloud<pcl::PointXYZ>::Ptr reference_plane_seg;
 
         // class constructor
         NdPointCloudAnalysis() {
           plane_cloud_seg.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
+          reference_plane_seg.reset (new pcl::PointCloud<pcl::PointXYZ>);// reset the stored cloud
           // subscriber and call back function
           sub_point_cloud_scan_info = nh.subscribe<point_cloud_analysis::MsgPointCloudScan>("/PointCloudScan_info", 5,  &NdPointCloudAnalysis::cbScanInfo, this);
           // ROS pubisher
@@ -132,9 +135,13 @@ class NdPointCloudAnalysis {
                     this->reference_plane_pcd_file = std::to_string(msg->scanning_count) + ".pcd";
                     this->reference_plane_pcd_segmented_file = "segmentedCloud_" + std::to_string(msg->scanning_count) + ".pcd";
                     this->reference_plane_coefficient_file = "coefficientPlane_" + std::to_string(msg->scanning_count) + ".txt";
-                    // the full path of the file (reference plane coefficient file )
+                    // ----------------------------------get the full path for each full --------------------------------
+                    std::string path_reference_plane_pcd_seg = path_robviz + "/pcl/" + this->reference_plane_pcd_segmented_file;
                     std::string path_reference_plane_coefficient = path_robviz + "/coefficientPlane/" + this->reference_plane_coefficient_file;
-                    
+
+                    // ------------------------load the point cloud segmented file, store into a pointer -----------------------------
+                    reference_plane_seg = NdPointCloudAnalysis::LoadPointFile(path_reference_plane_pcd_seg);
+            
                     // -------------------------------- extract reference plane coefficient-----------------------------------
                     // stored the reference coefficient into an vector
                     bool result = convertFileToVector(path_reference_plane_coefficient, reference_plane_coefficient);
@@ -148,7 +155,20 @@ class NdPointCloudAnalysis {
                     else{
                         std::cout << "error! failed to extract reference plane coefficient" << std::endl;
                     }
-            
+                    //------------------------get the mean z-height of the reference plane-----------------------------------
+                    this->reference_plane_z_height = calculate_z_height(reference_plane_seg);
+
+                    // ---------------------publish height monitoring informationm-----------------------------------------------
+                    point_cloud_analysis::MsgHeightMonitoring height_info;
+
+                    height_info.plane_id = msg->scanning_count;
+                    height_info.height_std = 0;
+                    height_info.height_mean = 0;
+                    height_info.heighest_max_min_difference = 0;
+                    height_info.tilt_angle = 0;
+                    
+                    pub_height_monitoring_info.publish(height_info);
+                 
                 }
                 else{
                     // in-process scanning result
@@ -177,6 +197,8 @@ class NdPointCloudAnalysis {
                         std::cout << "error! failed to extract plane " << msg->scanning_count << " coefficient!" << std::endl;
                     }
 
+                
+                    
                     std::vector < double > point_to_reference_height = calculate_height(plane_cloud_seg);
                     savePointToPlaneDistance(path_height_file, point_to_reference_height);
                     
@@ -193,6 +215,16 @@ class NdPointCloudAnalysis {
                     double stdev = std::sqrt(sq_sum / point_to_reference_height.size());
                     auto minmax = std::minmax_element(point_to_reference_height.begin(), point_to_reference_height.end());
 
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ////////////////-------------------better method for height calculation---------------------------/////////////////
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    double scanning_height = calculate_z_height(plane_cloud_seg);
+                    float height_difference = scanning_height - this->reference_plane_z_height;
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ////////////////-------------------better method for height calculation---------------------------/////////////////
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
                     // ----------------calculate the normal vector angle difference between reference plane and scanning plane 
                     double angle = calculate_angle_difference(scanning_plane_coefficient, reference_plane_coefficient);
 
@@ -201,7 +233,7 @@ class NdPointCloudAnalysis {
 
                     height_info.plane_id = msg->scanning_count;
                     height_info.height_std = stdev;
-                    height_info.height_mean = mean;
+                    height_info.height_mean = height_difference;
                     height_info.heighest_max_min_difference = *minmax.second - *minmax.first;
                     height_info.tilt_angle = angle;
                     
@@ -317,12 +349,13 @@ class NdPointCloudAnalysis {
             std::copy(distance.begin(), distance.end(), output_iterator);
         }
         
+        
+        std::vector < double > calculate_height (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+        {
         /* calculate the point to reference plane height
         Input: the point cloud pointer
         Output: a vector of doubles
         */
-        std::vector < double > calculate_height (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
-        {
             std::vector < double > point_to_plane_distance_vector;
 
             int i = 0;
@@ -338,6 +371,25 @@ class NdPointCloudAnalysis {
                 i++;
             }
             return point_to_plane_distance_vector;
+        }
+
+
+        double calculate_z_height (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+        {
+            /* calculate the point to work object frame height, i.e, the average z value of the point cloud
+            Input: the point cloud pointer
+            Output: a vector of doubles
+            */
+            int i = 0;
+            double sum;
+            while (i < cloud->points.size () ) // loop to sum
+            {
+                sum = sum + cloud->points[i].z;
+                i++;
+            }
+            double mean = sum / cloud->points.size();
+
+            return mean;
         }
 
 };

@@ -180,7 +180,7 @@
         <item>
          <widget class="QLabel" name="label_mean">
           <property name="text">
-           <string>Height mean:</string>
+           <string>Height scan:</string>
           </property>
          </widget>
         </item>

@@ -7,7 +7,7 @@
   <arg name="frame" default="scanCONTROL_2900-50_scanner_laser_link"/>
   <arg name="dense" default="false"/>
   <arg name="serial_number" default="218120116"/>
-  <arg name="path_to_device_properties" default="~/SIMTech_ws/src/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/misc"/>
+  <arg name="path_to_device_properties" default="~/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/misc"/>
   <arg name="ns" default="microepsilon"/>
   <node ns = "$(arg ns)" name="microepsilon_scancontrol_node" pkg="microepsilon_scancontrol" type="microepsilon_scancontrol_node" cwd="node" respawn="true" output="screen">
     <param name="shutter_time" type="int" value="$(arg shutter_time)"/>
@@ -21,5 +21,48 @@
   </node>
 
   <!-- <node name="laser_scan_transformed" pkg="microepsilon_scancontrol" type="cloud_transformation_node" respawn="true" />  -->
+  <node name="passthrough"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/PassThrough">
+    <remap from="~input" to="/microepsilon/laser_scan" />
+    <remap from="~output" to="/microepsilon/laser_scan_filtered" />
+    <rosparam>
+      filter_field_name: y
+      filter_limit_min: 0.08
+      filter_limit_max: 0.098
+    </rosparam>
+  </node>
+
+  <!-- <test test-name="test_passthrough"
+        name="test_passthrough"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /microepsilon/laser_scan_filtered
+      hz: 30
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test> -->
+
+  <!-- <node name="statistical_outlier_removal"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/StatisticalOutlierRemoval">
+    <remap from="~input" to="voxel_grid/output" />
+    <rosparam>
+      mean_k: 10
+      stddev: 1.0
+    </rosparam>
+  </node>
+
+  <test test-name="test_statistical_outlier_removal"
+        name="test_statistical_outlier_removal"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /statistical_outlier_removal/output
+      hz: 20
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test> -->
 
 </launch>

@@ -151,7 +151,7 @@ class NdSubprocessHandler {
                         // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/scanning_application/scanning_robviz/distance/distance.txt";
                         std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
                         std::string saveCoefficientPlane = " -saveCoefficientPlaneName " + path + "/coefficientPlane/" + this->pcd_coefficient_plane_file;
-                        std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.0003 -zmin 0.318 -zmax 10";
+                        std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.0003 -zmin 0.280 -zmax 10"; // z (with clamp) 0.318
                         // std::string parameters = " ";
                         // Initialize String Array
                         std::string command_line = executable + option + loadfile + savefile + saveCoefficientPlane + savePointDistance + parameters;
@@ -181,7 +181,7 @@ class NdSubprocessHandler {
                         // std::string savePointDistance = " -savePointToPlaneDistance ~/SIMTech_ws/src/scanning_application/scanning_robviz/distance/distance.txt";
                         std::string savePointDistance = " -savePointToPlaneDistance " + path + "/distance/" + this->pcd_plane_distance_file;
                         std::string saveCoefficientPlane = " -saveCoefficientPlaneName " + path + "/coefficientPlane/" + this->pcd_coefficient_plane_file;
-                        std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.0003 -zmin 0.322 -zmax 10";
+                        std::string parameters = " -DistanceThre 0.003 -Stddev 1.2 -leafsize 0.0003 -zmin 0.2825 -zmax 10"; // z (with clamp) 0.311
                         // std::string parameters = " ";
                         // Initialize String Array
                         std::string command_line = executable + option + loadfile + savefile + saveCoefficientPlane + savePointDistance + parameters;
