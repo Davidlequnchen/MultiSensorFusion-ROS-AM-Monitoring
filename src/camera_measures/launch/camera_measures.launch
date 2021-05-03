@@ -31,7 +31,8 @@
   <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis" if="$(arg gui)" />
 
   <!-- publish tool0 velocity message by using data from tf transform -->
-  <node name="velocity" pkg="camera_measures" type="nd_velocity.py" respawn="true"/>
+  <!-- <node name="velocity" pkg="camera_measures" type="nd_velocity.py" respawn="true"/> -->
+  <node name="velocity" pkg="camera_measures" type="nd_velocity_kuka.py" respawn="true"/>
 
   <!-- supervise the laser power and speed, tell if the laser is on and if the robot is running -->
   <node name="supervisor" pkg="camera_measures" type="nd_supervisor.py" respawn="true" />

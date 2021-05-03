@@ -160,14 +160,14 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QLabel" name="label_std">
+         <widget class="QLabel" name="label_mean">
           <property name="text">
-           <string>Height std:</string>
+           <string>Height mean:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_std_value">
+         <widget class="QLabel" name="label_mean_value">
           <property name="text">
            <string>-</string>
           </property>
@@ -178,14 +178,14 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QLabel" name="label_mean">
+         <widget class="QLabel" name="label_std">
           <property name="text">
-           <string>Height scan:</string>
+           <string>Height std:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_mean_value">
+         <widget class="QLabel" name="label_std_value">
           <property name="text">
            <string>-</string>
           </property>

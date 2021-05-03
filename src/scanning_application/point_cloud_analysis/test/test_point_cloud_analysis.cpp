@@ -33,6 +33,7 @@ typedef pcl::PointCloud<Point> PointCloud;
 
 
 
+
  // calculate the angle difference between two normal vector 
 double calculate_angle_difference (std::vector< double > & a, std::vector< double > & b)
 {
@@ -159,6 +160,46 @@ Output: a vector of doubles
 }
 
 
+double min_max_z_value (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+{
+/* get the min and max z height value from the point cloud
+Input: the point cloud pointer
+Output: min and max z value (double)
+*/
+    int i = 0;
+    std::vector< double >  vector_z_value;
+
+    while (i < cloud->points.size () ) // loop to sum
+    {
+        vector_z_value.push_back (cloud->points[i].z);
+        i++;
+    }
+
+    auto minmax = minmax_element(std::begin(vector_z_value), std::end(vector_z_value));
+
+    std::cout << "minimum height value: " << *minmax.first << std::endl;
+    std::cout << "maximum height value: " << *minmax.second << std::endl;
+    double difference = *minmax.second - *minmax.first;
+
+}
+
+
+// double min_max_z_value (std::vector< double > & local_distance_vector)
+// {
+//     /* get the min and max z height value from the point cloud
+//     Input: the point cloud local distance to reference plane (vector)
+//     Output: min and max z value (double)
+//     */
+//     int i = 0;
+
+//     auto minmax = minmax_element(std::begin(local_distance_vector), std::end(local_distance_vector));
+
+//     std::cout << "minimum height value: " << *minmax.first << std::endl;
+//     std::cout << "maximum height value: " << *minmax.second << std::endl;
+//     double difference = *minmax.second - *minmax.first;
+
+// }
+
        
 
 int main (int argc, char** argv) {
@@ -180,9 +221,51 @@ int main (int argc, char** argv) {
     double scanning2_height = calculate_z_height(scanning2_point_cloud_pointer);
     double scanning3_height = calculate_z_height(scanning3_point_cloud_pointer);
 
-    float height_difference01 = scanning1_height - reference_plate_height;
-    float height_difference02 = scanning2_height - reference_plate_height;
-    float height_difference03 = scanning3_height - reference_plate_height;
+    // std::string path_localDistance_file0 = "localDistance_0.txt";
+    // std::string path_localDistance_file1 = "localDistance_1.txt";
+    // std::string path_localDistance_file2 = "localDistance_2.txt";
+    // std::vector< double > local_distance_vector_0;
+    // std::vector< double > local_distance_vector_1;
+    // std::vector< double > local_distance_vector_2;
+    
+
+    // convertFileToVector(path_localDistance_file0, local_distance_vector_0);
+    // convertFileToVector(path_localDistance_file1, local_distance_vector_1);
+    // convertFileToVector(path_localDistance_file2, local_distance_vector_2);
+
+
+    // double min_max_difference0 = min_max_z_value (local_distance_vector_0);
+    // double min_max_difference1 = min_max_z_value (local_distance_vector_1);
+    // double min_max_difference2 = min_max_z_value (local_distance_vector_2);
+    // std::cout << "min_max_difference_0: " << min_max_difference0 * 1000 << std::endl;
+    // std::cout << "min_max_difference_1: " << min_max_difference1 * 1000 << std::endl;
+    // std::cout << "min_max_difference_2: " << min_max_difference2 * 1000 << std::endl;
+
+    // double sq_sum = std::inner_product(local_distance_vector_2.begin(), local_distance_vector_2.end(), 
+    //                                     local_distance_vector_2.begin(), 0.0);
+    // double stdev = std::sqrt(sq_sum / local_distance_vector_2.size());
+
+    // std::cout << "stddev_2: " << stdev * 1000 << std::endl;
+
+
+
+    double min_max_difference1 = min_max_z_value (scanning1_point_cloud_pointer);
+    double min_max_difference2 = min_max_z_value (scanning2_point_cloud_pointer);
+    double min_max_difference3 = min_max_z_value (scanning3_point_cloud_pointer);
+    std::cout << "min_max_difference_1: " << min_max_difference1 * 1000 << std::endl;
+    std::cout << "min_max_difference_2: " << min_max_difference2 * 1000 << std::endl;
+    std::cout << "min_max_difference_3: " << min_max_difference3 * 1000 << std::endl;
+
+    // double sq_sum = std::inner_product(local_distance_vector_2.begin(), local_distance_vector_2.end(), 
+    //                                     local_distance_vector_2.begin(), 0.0);
+    // double stdev = std::sqrt(sq_sum / local_distance_vector_2.size());
+
+    // std::cout << "stddev_2: " << stdev * 1000 << std::endl;
+
+
+    float height_difference01 = (scanning1_height - reference_plate_height) * 1000;
+    float height_difference02 = (scanning2_height - reference_plate_height) * 1000;
+    float height_difference03 = (scanning3_height - reference_plate_height) * 1000;
 
     std::cout << "height_difference01: " << height_difference01 << std::endl;
     std::cout << "height_difference02: " << height_difference02 << std::endl;

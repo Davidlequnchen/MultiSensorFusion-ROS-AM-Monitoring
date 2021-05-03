@@ -147,11 +147,11 @@ class QtPath(QtWidgets.QWidget):
         self.tilt_angle = msg_height_info.tilt_angle
         
         self.label_id_value.setText("%.1f" % (self.height_id))
-        self.label_angle_value.setText("%.5f" % (self.tilt_angle))
-        self.label_std_value.setText("%.5f" % (self.height_std))
-        self.label_mean_value.setText("%.5f" % (self.height_mean))
+        self.label_angle_value.setText("%.4f" % (self.tilt_angle))
+        self.label_std_value.setText("%.4f" % (self.height_std))
+        self.label_mean_value.setText("%.4f" % (self.height_mean))
         self.label_mean_value.setFont.setStyleSheet("font-weight: bold")
-        self.label_maxmin_value.setText("%.5f" % (self.Maxmin_diff))
+        self.label_maxmin_value.setText("%.4f" % (self.Maxmin_diff))
         
 
     def insertPose(self, pose):

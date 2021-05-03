@@ -1,0 +1,47 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <!-- define the powder, process, material parameters -->
+  <rosparam command="load" file="$(find simtech_robot_laser_control)/config/params.yaml" />
+
+
+  <include file="$(find simtech_kuka_workcell)/launch/workcell.launch">
+    <arg name="gui" value="false" />
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="model" default="$(find microepsilon_workcell)/urdf/workcell_kuka.xacro" />
+  </include>
+
+
+
+  <!-- contains nd_supervisor(MsgStatus), nd_velocity, nd_geometry.py(image processing), nd_moments.py, usb_cam_node,image_view -->
+  <include file="$(find camera_measures)/launch/camera_measures.launch">
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+
+
+
+
+  <!-- laser control -->
+  <rosparam command="load" file="$(find simtech_robot_laser_control)/config/control_parameters.yaml" />
+
+  <!-- received processed image and published controlled power value-->
+  <!-- <node name="control" pkg="simtech_robot_laser_control" type="nd_control.py">
+    <param name="power_min" type="double" value="0" />
+    <param name="power_max" type="double" value="5" />
+  </node> -->
+
+  <node name="control_panel" pkg="simtech_robot_laser_control" type="qt_control.py" if="$(arg gui)" />
+
+
+  <!-- laser socket will subscribe controlled power value and send to robot(laser socket server) via tcp/ip -->
+  <!-- <node name="laser_socket" pkg="simtech_robot_laser_control" type="nd_laser_socket.py" /> -->
+
+  <!-- pid parameter calculation -->
+  <!-- load rosparam for adapitive pid calculation -->
+  <!-- <rosparam command="load" file="$(find simtech_robot_laser_control)/config/adaptive_calculation.yaml" /> -->
+  <!-- <node name="pid_calculation" pkg="simtech_robot_laser_control" type="nd_adaptive_pid_calculation.py" /> -->
+
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_robot_laser_control)/config/workcell_kuka.rviz" required="true" if="$(arg gui)" />
+</launch>
