@@ -46,7 +46,7 @@ class NdKukaRobotInterface {
             // the ROS service client is qt_path, which waits for server service creation
             service_command = nh.advertiseService("robot_send_command", &NdKukaRobotInterface::cb_robot_command, this);
             // ROS subscriber
-            sub_temperature = nh.subscribe("temperature", 10, &NdKukaRobotInterface::tempCallBack, this);
+            sub_temperature = nh.subscribe("/temperature", 10, &NdKukaRobotInterface::tempCallBack, this);
             // ROS pubisher
             pub_routine_command = nh.advertise<auto_control::MsgCommand>("/routine_command", 10);
 
@@ -222,7 +222,7 @@ class NdKukaRobotInterface {
 
         void tempCallBack(const std_msgs::Float64 &temp)
         {
-          temperature = temp.data;
+          this->temperature = temp.data;
         }
 
 
@@ -275,7 +275,8 @@ class NdKukaRobotInterface {
           controller_manager->update(timestamp, period);
 
           // Send new setpoint to robot (not used by simtech program)
-          // hardware_interface.writeTemp(temperature);
+          hardware_interface.writeTemp(temperature);
+          hardware_interface.send_thermocouple_temperature_command (temperature);
           // hardware_interface.write(timestamp, period);
         }
 

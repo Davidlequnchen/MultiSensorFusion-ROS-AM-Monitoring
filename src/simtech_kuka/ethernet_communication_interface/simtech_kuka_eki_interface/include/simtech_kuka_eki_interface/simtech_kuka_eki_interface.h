@@ -76,9 +76,14 @@ public:
   void read(const ros::Time &time, const ros::Duration &period);
   // void write(const ros::Time &time, const ros::Duration &period);
   void writeTemp(const float temp);
+  // void writeTemp(const float C)
+  // {
+  //  temperature = C;
+  //  }
   // bool send_command(const int &instruction_code, const std::vector<double> &command_parameters, 
   //                   const float &temperature);
   bool send_command(const int &instruction_code, const std::vector<double> &command_parameters);
+  bool send_thermocouple_temperature_command (const float &temperature);
   int read_routine_command();
 
 };

@@ -1,0 +1,4 @@
+usb/fw/UsbDio32hsFpga.lo: usb/fw/UsbDio32hsFpga.c \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

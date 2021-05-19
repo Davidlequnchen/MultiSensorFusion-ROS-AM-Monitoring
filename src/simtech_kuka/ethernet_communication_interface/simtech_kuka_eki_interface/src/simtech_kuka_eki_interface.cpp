@@ -195,6 +195,35 @@ bool KukaEkiHardwareInterface::send_command(const int &instruction_code, const s
   // temp->SetDoubleAttribute("Laser", temperature);
   xml_out.LinkEndChild(robot_command_server);
 
+  // for thermocouple reading, send to the robot controller
+  // char laser[] = "Laser";
+  // temp->SetDoubleAttribute(laser, temperature);
+  // xml_out.LinkEndChild(robot_command_server);
+
+  TiXmlPrinter xml_printer;
+  xml_printer.SetStreamPrinting();  // no linebreaks
+  xml_out.Accept(&xml_printer);
+
+  size_t len = eki_server_socket_.send_to(boost::asio::buffer(xml_printer.CStr(), xml_printer.Size()),
+                                          eki_server_endpoint_);
+
+  return true;
+}
+
+
+bool KukaEkiHardwareInterface::send_thermocouple_temperature_command (const float &temperature)
+{
+  TiXmlDocument xml_out;
+  TiXmlElement* robot_command_server = new TiXmlElement("CommandServer");
+  TiXmlElement* temp = new TiXmlElement("Temp");
+  TiXmlText* empty_text = new TiXmlText("");
+  robot_command_server->LinkEndChild(temp);
+  
+  // for thermocouple reading, send to the robot controller
+  char laser[] = "Laser";
+  temp->SetDoubleAttribute(laser, temperature);
+  xml_out.LinkEndChild(robot_command_server);
+
   TiXmlPrinter xml_printer;
   xml_printer.SetStreamPrinting();  // no linebreaks
   xml_out.Accept(&xml_printer);
@@ -356,7 +385,7 @@ int KukaEkiHardwareInterface::read_routine_command()
 
 void KukaEkiHardwareInterface::writeTemp(const float temp)
 {
-   temperature = temp;
+   this->temperature = temp;
 }
 
 

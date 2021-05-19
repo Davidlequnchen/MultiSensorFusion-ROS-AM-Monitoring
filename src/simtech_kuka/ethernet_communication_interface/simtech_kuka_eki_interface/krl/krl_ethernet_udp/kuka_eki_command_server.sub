@@ -7,9 +7,13 @@ def kuka_eki_command_server()
    ; local vairable declarations
    decl int elements_read
 
+   decl real laser_temp
+
    cancel_motion = false
 
    eki_hw_iface_init() ; socket connection
+
+   laser_temp = 0
   
    loop
       instruction_code = 0 ; reset instruction code to default
@@ -112,6 +116,14 @@ def kuka_eki_command_server()
 
       DEFAULT
       ENDSWITCH
+
+      elements_read = eki_get_temperature(laser_temp)
+      if laser_temp>23 then
+      $OUT[3]=FALSE
+      $OUT[1]=FALSE
+      endif
+
+
    endloop
 
 
@@ -207,6 +219,25 @@ deffct int eki_hw_iface_get()
    
    return 1
 endfct
+
+
+deffct int eki_get_temperature(temp :out)
+   decl eki_status eki_ret
+   decl real temp
+
+   if not $flag[1] then
+      return 0
+   endif
+
+   eki_ret = eki_checkbuffer("EkiCommandServer", "CommandServer/Temp/@Laser")
+   if eki_ret.buff <= 0 then
+     return 0
+   endif
+
+   eki_ret = eki_getreal("EkiCommandServer", "CommandServer/Temp/@Laser", temp)
+   return 1
+endfct
+
 
 
 def eki_hw_iface_reset()

@@ -1,0 +1,6 @@
+usb/fw/DT9837A_FW.lo: usb/fw/DT9837A_FW.c /usr/include/stdc-predef.h \
+ usb/fw/IntelHexRec.h
+
+/usr/include/stdc-predef.h:
+
+usb/fw/IntelHexRec.h:

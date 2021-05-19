@@ -51,12 +51,12 @@ class NdVelocity():
         try:
             stamp = rospy.Time.now()
             self.listener.waitForTransform(
-                "/tcp_link", "/world", stamp, rospy.Duration(1.0))
+                "/tool0", "/world", stamp, rospy.Duration(1.0))
             position, quaternion = self.listener.lookupTransform(
-                "/tcp_link", "/world", stamp)
+                "/tool0", "/world", stamp)
 
             linear_velocity, angular_velocity = self.listener.lookupTwist(
-                "/tcp_link", "/world", stamp, rospy.Duration(0.033))
+                "/tool0", "/world", stamp, rospy.Duration(0.033))
             
             # publishing the twist (linear velocity)
             self.twist_speed = np.sqrt(linear_velocity[0] * linear_velocity[0] 

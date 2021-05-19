@@ -1,0 +1,3 @@
+usb/fw/Usb2020Fpga.lo: usb/fw/Usb2020Fpga.c /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

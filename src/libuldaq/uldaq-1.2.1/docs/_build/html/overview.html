@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introduction &mdash; UL for Linux Python API 1.2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python API Reference" href="api.html" />
+    <link rel="prev" title="UL for Linux Python API documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> UL for Linux Python API
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-python-program">Creating a Python program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-programs">Example programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-hardware">Supported hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support">Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Python API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hwov.html">Hardware Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UL for Linux Python API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The Python API for Linux allows users to access and control supported Measurement Computing
+hardware using the Python language over the Linux platform. Python 2.7 and 3.4+ are supported.</p>
+<p>The Python package name is <strong>uldaq</strong>. The uldaq package is implemented in Python as an interface
+to the UL shared object library.</p>
+<p>The UL for Linux API provides structures and enumerations to manage connected devices,
+obtain information about device capabilities, and configure hardware settings.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For performance reasons, data is returned in the Python API as arrays instead of lists.</p>
+</div>
+<p>The uldaq package is available on <a class="reference external" href="https://github.com/mccdaq">GitHub</a>.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the <a class="reference external" href="https://github.com/mccdaq/uldaq">README file</a> for
+information about how to download the UL for Linux package and install the API.</p>
+</div>
+<div class="section" id="creating-a-python-program">
+<h2>Creating a Python program<a class="headerlink" href="#creating-a-python-program" title="Permalink to this headline">¶</a></h2>
+<p>When creating a UL for Linux program in Python, import the uldaq package to use in your
+code:  <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">uldaq</span></code></p>
+<p>Refer to the example programs and the API documentation in the <em>Python API Reference</em>
+for more information.</p>
+</div>
+<div class="section" id="example-programs">
+<h2>Example programs<a class="headerlink" href="#example-programs" title="Permalink to this headline">¶</a></h2>
+<p>UL for Linux example programs are available to run with MCC hardware. Refer to the
+<a class="reference external" href="https://github.com/mccdaq/uldaq">README file</a> for
+information about how to download and extract the examples.</p>
+<p>Connect a supported Measurement Computing DAQ device to your system before
+running an example. Complete these steps to run a UL for Linux example:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Open a terminal window in the UL for Linux examples folder directory.</p></li>
+<li><p>Enter <cite>./file_name.py</cite>.
+For example, enter <cite>./a_in.py</cite> to run the analog input example.</p></li>
+</ol>
+</div></blockquote>
+<p>Users can also choose to import the example code into an IDE, such as PyCharm or Eclipse, and run the examples
+from that environment.</p>
+<p>The example download file includes the following example programs:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Method</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>a_in</p></td>
+<td><p>Reads an A/D input channel.
+Demonstrates <a class="reference internal" href="api.html#uldaq.AiDevice.a_in" title="uldaq.AiDevice.a_in"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_in()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>a_in_scan</p></td>
+<td><p>Scans a range of A/D input channels, and stores
+the data in an array. Demonstrates
+<a class="reference internal" href="api.html#uldaq.AiDevice.a_in_scan" title="uldaq.AiDevice.a_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_in_scan()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.AiDevice.scan_stop" title="uldaq.AiDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>a_in_scan_with_events</p></td>
+<td><p>Performs an A/D scan using events to determine
+the data in an array. Demonstrates
+when data is available or when the acquisition
+is complete. The example also demonstrates how
+to retrieve the data when it becomes available.
+Demonstrates <a class="reference internal" href="api.html#uldaq.DaqDevice.enable_event" title="uldaq.DaqDevice.enable_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_event()</span></code></a>,
+<a class="reference internal" href="api.html#uldaq.AiDevice.scan_wait" title="uldaq.AiDevice.scan_wait"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_wait()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.AiDevice.scan_stop" title="uldaq.AiDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>a_in_scan_with_queue</p></td>
+<td><p>Creates a queue that sets individual channel
+ranges for an A/D scan. Demonstrates
+<a class="reference internal" href="api.html#uldaq.AiDevice.a_in_load_queue" title="uldaq.AiDevice.a_in_load_queue"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_in_load_queue()</span></code></a>,
+<a class="reference internal" href="api.html#uldaq.AiDevice.a_in_scan" title="uldaq.AiDevice.a_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_in_scan()</span></code></a>,
+and <a class="reference internal" href="api.html#uldaq.AiDevice.scan_stop" title="uldaq.AiDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>a_in_scan_with_trigger</p></td>
+<td><p>Scans a range of A/D channels when a trigger
+is received, and stores the data in an array.
+This example shows how to obtain and configure
+trigger options. Demonstrates
+<a class="reference internal" href="api.html#uldaq.AiDevice.a_in_scan" title="uldaq.AiDevice.a_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_in_scan()</span></code></a>
+and <a class="reference internal" href="api.html#uldaq.AiDevice.scan_stop" title="uldaq.AiDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>a_in_scan_iepe</p></td>
+<td><p>Enables IEPE mode for a range of A/D channels,
+and scans the specified A/D channels.
+Demonstrates <a class="reference internal" href="api.html#uldaq.AiDevice.a_in_scan" title="uldaq.AiDevice.a_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_in_scan()</span></code></a>
+and <a class="reference internal" href="api.html#uldaq.AiDevice.scan_stop" title="uldaq.AiDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>a_out</p></td>
+<td><p>Writes a specified value to a D/A output
+channel. Demonstrates <a class="reference internal" href="api.html#uldaq.AoDevice.a_out" title="uldaq.AoDevice.a_out"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_out()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>a_out_scan</p></td>
+<td><p>Performs a D/A scan. Data can be viewed with
+an oscilloscope or meter. Demonstrates
+<a class="reference internal" href="api.html#uldaq.AoDevice.a_out_scan" title="uldaq.AoDevice.a_out_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">a_out_scan()</span></code></a> and <a class="reference internal" href="api.html#uldaq.AoDevice.scan_stop" title="uldaq.AoDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>c_in</p></td>
+<td><p>Sets the initial value of a counter and counts
+events. Demonstrates <a class="reference internal" href="api.html#uldaq.CtrDevice.c_in" title="uldaq.CtrDevice.c_in"><code class="xref py py-func docutils literal notranslate"><span class="pre">c_in()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.CtrDevice.c_clear" title="uldaq.CtrDevice.c_clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">c_clear()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>c_in_scan</p></td>
+<td><p>Scans a range of counter channels. Demonstrates
+<a class="reference internal" href="api.html#uldaq.CtrDevice.c_in_scan" title="uldaq.CtrDevice.c_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">c_in_scan()</span></code></a>, <a class="reference internal" href="api.html#uldaq.CtrDevice.c_load" title="uldaq.CtrDevice.c_load"><code class="xref py py-func docutils literal notranslate"><span class="pre">c_load()</span></code></a>
+and <a class="reference internal" href="api.html#uldaq.CtrDevice.scan_stop" title="uldaq.CtrDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>c_in_scan_with_encoder</p></td>
+<td><p>Scans a range of encoder channels. Demonstrates
+<a class="reference internal" href="api.html#uldaq.CtrDevice.c_in_scan" title="uldaq.CtrDevice.c_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">c_in_scan()</span></code></a>,
+<a class="reference internal" href="api.html#uldaq.CtrDevice.c_config_scan" title="uldaq.CtrDevice.c_config_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">c_config_scan()</span></code></a>, and
+<a class="reference internal" href="api.html#uldaq.CtrDevice.scan_stop" title="uldaq.CtrDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>daq_in_scan</p></td>
+<td><p>Simultaneously acquires analog, digital, and
+counter data. Demonstrates
+<a class="reference internal" href="api.html#uldaq.DaqiDevice.daq_in_scan" title="uldaq.DaqiDevice.daq_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">daq_in_scan()</span></code></a>
+and  <a class="reference internal" href="api.html#uldaq.DaqiDevice.scan_stop" title="uldaq.DaqiDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>daq_in_scan_with_trigger</p></td>
+<td><p>Sets up a trigger function, and simultaneously
+acquires analog, digital, and counter data
+when the trigger is received. Demonstrates
+<a class="reference internal" href="api.html#uldaq.DaqiDevice.daq_in_scan" title="uldaq.DaqiDevice.daq_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">daq_in_scan()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.DaqiDevice.scan_stop" title="uldaq.DaqiDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>daq_out_scan</p></td>
+<td><p>Simultaneously outputs analog and digital
+data. Demonstrates <a class="reference internal" href="api.html#uldaq.DaqoDevice.daq_out_scan" title="uldaq.DaqoDevice.daq_out_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">daq_out_scan()</span></code></a>
+and <a class="reference internal" href="api.html#uldaq.DaqoDevice.scan_stop" title="uldaq.DaqoDevice.scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>d_bit_in</p></td>
+<td><p>Configures multiple digital bits for input,
+and reads the bit values. Demonstrates
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_config_bit" title="uldaq.DioDevice.d_config_bit"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_config_bit()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_bit_in" title="uldaq.DioDevice.d_bit_in"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_bit_in()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_bit_out</p></td>
+<td><p>Writes a specified value to multiple digital
+output bits. Demonstrates <a class="reference internal" href="api.html#uldaq.DioDevice.d_config_bit" title="uldaq.DioDevice.d_config_bit"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_config_bit()</span></code></a>
+and <a class="reference internal" href="api.html#uldaq.DioDevice.d_bit_out" title="uldaq.DioDevice.d_bit_out"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_bit_out()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>d_in</p></td>
+<td><p>Configures a port for input and reads the port
+value. Demonstrates <a class="reference internal" href="api.html#uldaq.DioDevice.d_config_port" title="uldaq.DioDevice.d_config_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_config_port()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_in" title="uldaq.DioDevice.d_in"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_in()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_in_scan</p></td>
+<td><p>Configures a port for input and continuously
+reads it. Demonstrates <a class="reference internal" href="api.html#uldaq.DioDevice.d_config_port" title="uldaq.DioDevice.d_config_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_config_port()</span></code></a>,
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_in_scan" title="uldaq.DioDevice.d_in_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_in_scan()</span></code></a>, and
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_in_scan_stop" title="uldaq.DioDevice.d_in_scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_in_scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>d_out</p></td>
+<td><p>Configures a port for output and writes a
+specified value. Demonstrates
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_config_port" title="uldaq.DioDevice.d_config_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_config_port()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_out" title="uldaq.DioDevice.d_out"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_out()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_out_scan</p></td>
+<td><p>Configures the port direction and outputs
+digital data. Demonstrates
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_config_port" title="uldaq.DioDevice.d_config_port"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_config_port()</span></code></a>,
+<a class="reference internal" href="api.html#uldaq.DioDevice.d_out_scan" title="uldaq.DioDevice.d_out_scan"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_out_scan()</span></code></a>,
+and <a class="reference internal" href="api.html#uldaq.DioDevice.d_out_scan_stop" title="uldaq.DioDevice.d_out_scan_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">d_out_scan_stop()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>remote_discovery</p></td>
+<td><p>Discovers remote Ethernet DAQ devices. Demonstrates
+<a class="reference internal" href="api.html#uldaq.get_net_daq_device_descriptor" title="uldaq.get_net_daq_device_descriptor"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_net_daq_device_descriptor()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_in</p></td>
+<td><p>Reads a temperature channel.
+Demonstrates <a class="reference internal" href="api.html#uldaq.AiDevice.t_in" title="uldaq.AiDevice.t_in"><code class="xref py py-func docutils literal notranslate"><span class="pre">t_in()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>tmr_pulse_out</p></td>
+<td><p>Generates an output pulse at a specified
+duty cycle and frequency. Demonstrates
+<a class="reference internal" href="api.html#uldaq.TmrDevice.pulse_out_start" title="uldaq.TmrDevice.pulse_out_start"><code class="xref py py-func docutils literal notranslate"><span class="pre">pulse_out_start()</span></code></a> and
+<a class="reference internal" href="api.html#uldaq.TmrDevice.pulse_out_stop" title="uldaq.TmrDevice.pulse_out_stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pulse_out_stop()</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="supported-hardware">
+<h2>Supported hardware<a class="headerlink" href="#supported-hardware" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the <a class="reference internal" href="hwov.html#hwref"><span class="std std-ref">Hardware Reference</span></a> section for a list of all supported Measurement Computing
+devices with links to supported UL for Linux capabilities.</p>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Measurement Computing Corporation</div>
+<div class="line">508-946-5100</div>
+<div class="line">Technical Support: <a class="reference external" href="https://www.mccdaq.com/Support.aspx">www.mccdaq.com/support</a></div>
+<div class="line">Knowledgebase: <a class="reference external" href="http://kb.mccdaq.com">kb.mccdaq.com</a></div>
+<div class="line"><a class="reference external" href="https://www.mccdaq.com">www.mccdaq.com</a></div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="api.html" class="btn btn-neutral float-right" title="Python API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="UL for Linux Python API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Measurement Computing Corporation.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -126,6 +126,13 @@ def eki_hw_iface_send()
       eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Pos/@A4", $axis_act_meas.a4)
       eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Pos/@A5", $axis_act_meas.a5)
       eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Pos/@A6", $axis_act_meas.a6)
+      
+      eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Eff/@A1", $torque_axis_act[1])
+      eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Eff/@A2", $torque_axis_act[2])
+      eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Eff/@A3", $torque_axis_act[3])
+      eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Eff/@A4", $torque_axis_act[4])
+      eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Eff/@A5", $torque_axis_act[5])
+      eki_ret = eki_setreal("EkiCommandServerB", "RobotState/Eff/@A6", $torque_axis_act[6])
       ; interface state
       eki_ret = eki_checkbuffer("EkiCommandServerB", "CommandServer/@InstructionCode")
       eki_ret = eki_setint("EkiCommandServerB", "RobotState/CommandServer/@Size", eki_ret.buff)

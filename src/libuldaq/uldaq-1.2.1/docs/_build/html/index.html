@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>UL for Linux Python API documentation &mdash; UL for Linux Python API 1.2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> UL for Linux Python API
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Python API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hwov.html">Hardware Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">UL for Linux Python API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>UL for Linux Python API documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ul-for-linux-python-api-documentation">
+<h1>UL for Linux Python API documentation<a class="headerlink" href="#ul-for-linux-python-api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#creating-a-python-program">Creating a Python program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#example-programs">Example programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#supported-hardware">Supported hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#support">Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Python API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#device-discovery">Device Discovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#device-management">Device Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#daqdevice-class">DaqDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#daqdeviceinfo-class">DaqDeviceInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id1">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#daqdeviceconfig-class">DaqDeviceConfig class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id2">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#devmeminfo-class">DevMemInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id3">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#analog-input-subsystem">Analog Input Subsystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#aidevice-class">AiDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id4">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#aiinfo-class">AiInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id5">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#aiconfig-class">AiConfig class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id6">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#analog-output-subsystem">Analog Output Subsystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#aodevice-class">AoDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id7">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#aoinfo-class">AoInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id8">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#aoconfig-class">AoConfig class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id9">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#digital-i-o-subsystem">Digital I/O Subsystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#diodevice-class">DioDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id10">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#dioinfo-class">DioInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id11">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#dioconfig-class">DioConfig class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id12">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#counter-subsystem">Counter Subsystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#ctrdevice-class">CtrDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id13">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#ctrinfo-class">CtrInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id14">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#ctrconfig-class">CtrConfig class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id15">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#timer-subsystem">Timer Subsystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tmrdevice-class">TmrDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id16">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#tmrinfo-class">TmrInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id17">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#daq-input-subsystem">Daq Input Subsystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#daqidevice-class">DaqiDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id18">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#daqiinfo-class">DaqiInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id19">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#daq-output-subsystem">Daq Output Subsystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#daqodevice-class">DaqoDevice class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id20">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#daqoinfo-class">DaqoInfo class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#id21">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#global-methods">Global Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#buffer-management">Buffer Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#ulexception-class">ULException class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#events">Events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#types">Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hwov.html">Hardware Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1808-series">USB-1808 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#analog-input">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#analog-output">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#digital-i-o">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#counter">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#timer">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#daqi">DAQI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#daqo">DAQO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#events">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#device">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1608g-series">USB-1608G Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id2">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id3">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id4">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id5">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id6">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id7">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id8">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1208hs-series">USB-1208HS Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id9">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id10">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id11">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id12">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id13">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id14">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id15">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-2600-series">USB-2600 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id17">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#analog-output-usb-2627-and-usb-2637">Analog Output (USB-2627 and USB-2637)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id18">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id19">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id20">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id21">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id22">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1608fs-plus">USB-1608FS-Plus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id23">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id24">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id25">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id26">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id27">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1208fs-plus">USB-1208FS-Plus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id29">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id30">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id31">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id32">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id33">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id34">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1408fs-plus">USB-1408FS-Plus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id36">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id37">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id38">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id39">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id40">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id41">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-200-series">USB-200 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id43">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#analog-output-usb-202-and-usb-205">Analog Output (USB-202 and USB-205)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id44">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id45">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id46">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id47">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-2020">USB-2020</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id49">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id50">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id51">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id52">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-2408-series">USB-2408 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id54">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id55">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id56">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id57">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id58">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id59">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-2416-series">USB-2416 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id61">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id62">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id63">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id64">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id65">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id66">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1608hs-series">USB-1608HS Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id68">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id69">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id70">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id71">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id72">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id73">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-dio32hs">USB-DIO32HS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id74">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id75">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id76">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-ctr-series">USB-CTR Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id77">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id78">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id79">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id80">DAQI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id81">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id82">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-quad08">USB-QUAD08</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id83">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id84">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id85">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id86">DAQI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id87">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id88">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-1024ls-series">USB-1024LS Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id90">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id91">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id92">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-dio24-series">USB-DIO24 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id93">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id94">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id95">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-dio96h-series">USB-DIO96H Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id96">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#counter-usb-dio96h-only">Counter (USB-DIO96H only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id97">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-erb-series">USB-ERB Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id98">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id99">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-ssr-series">USB-SSR Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id100">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id101">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id102">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-pdiso8-series">USB-PDISO8 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id103">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id104">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-3100-series">USB-3100 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id106">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id107">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id108">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id109">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-2001-tc">USB-2001-TC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id110">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id111">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-tc">USB-TC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id113">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id114">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id115">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-temp">USB-TEMP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id116">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id117">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id118">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id119">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-tc-ai">USB-TC-AI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id120">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id121">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id122">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id123">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#usb-temp-ai">USB-TEMP-AI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id124">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id125">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id126">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id127">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#sc-1608g-series">SC-1608G Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#dt9837-series">DT9837 Series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id128">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#analog-output-dt9837a-and-dt9837c-only">Analog Output (DT9837A and DT9837C only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#counter-dt9837a-and-dt9837b-only">Counter (DT9837A and DT9837B only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id130">DAQI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id131">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id132">Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#e-1608">E-1608</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id133">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id134">Analog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id135">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id136">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id137">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id138">Device</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hwov.html#settings-memory-map">Settings memory map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#e-dio24">E-DIO24</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id139">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id140">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id141">Device</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hwov.html#id142">Settings memory map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#e-tc">E-TC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id143">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id144">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id145">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id146">Device</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hwov.html#id147">Settings memory map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hwov.html#tc-32">TC-32</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id148">Analog Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id149">Digital I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id150">Counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hwov.html#id151">Device</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hwov.html#id152">Settings memory map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="index">
+<h1>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="overview.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Measurement Computing Corporation.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -61,7 +61,7 @@ private:
                                  boost::system::error_code* out_ec, size_t* out_length);
   // bool eki_read_state(std::vector<double> &joint_position, std::vector<double> &joint_velocity,
   //                     std::vector<double> &joint_effort, int &cmd_buff_len);
-    bool eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len);
+    bool eki_read_state(std::vector<double> &joint_position,std::vector<double> &joint_effort, int &cmd_buff_len);
   // bool eki_write_command(const std::vector<double> &joint_position, const float &temperature);
   
 

@@ -1,0 +1,3 @@
+usb/fw/Usb1808Fpga.lo: usb/fw/Usb1808Fpga.c /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

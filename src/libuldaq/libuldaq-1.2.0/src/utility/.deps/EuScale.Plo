@@ -1,0 +1,8 @@
+utility/EuScale.lo: utility/EuScale.cpp /usr/include/stdc-predef.h \
+ utility/EuScale.h utility/../uldaq.h
+
+/usr/include/stdc-predef.h:
+
+utility/EuScale.h:
+
+utility/../uldaq.h:

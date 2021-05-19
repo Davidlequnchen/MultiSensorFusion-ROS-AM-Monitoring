@@ -1,0 +1,6 @@
+usb/fw/FX2LDR_FW.lo: usb/fw/FX2LDR_FW.c /usr/include/stdc-predef.h \
+ usb/fw/IntelHexRec.h
+
+/usr/include/stdc-predef.h:
+
+usb/fw/IntelHexRec.h:
