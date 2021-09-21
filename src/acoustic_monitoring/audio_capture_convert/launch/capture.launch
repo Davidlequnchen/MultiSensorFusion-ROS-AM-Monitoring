@@ -1,0 +1,8 @@
+<launch>
+    <arg name="audio_topic" default="audio"/>
+    <arg name="output"      default="screen"/>
+	<node name="audio_converter" pkg="audio_capture_convert" type="converter_node.py" output="$(arg output)">
+        <remap from="audio" to="$(arg audio_topic)" />
+    </node>
+    <include file="$(find audio_capture)/launch/capture_wave.launch" />
+</launch>

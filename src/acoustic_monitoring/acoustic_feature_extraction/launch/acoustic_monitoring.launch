@@ -1,0 +1,35 @@
+<launch>
+  <!-- parameter definition -->
+  <arg name="gui" default="true" />
+  <arg name="device" default="" />
+  <arg name="audio_topic" default="/audio"/>
+  <arg name="output"      default="screen"/>
+  
+
+  <!-- publish audio data as wav format (raw signal) -->
+  <node name="audio_capture" pkg="audio_capture" type="audio_capture" output="screen">
+    <param name="device" value="" />
+    <param name="format" value="wave" />
+    <param name="channels" value="1" />
+    <param name="depth" value="16" />
+    <param name="sample_rate" value="16000" />
+    <param name="device" value="$(arg device)" />
+  </node>
+
+  <!-- convert the raw signal to msg with header stamps -->
+  <node name="audio_converter" pkg="audio_capture_convert" type="converter_node.py" output="$(arg output)">
+        <remap from="audio" to="$(arg audio_topic)" />
+    </node>
+
+  <!-- noise filtering node, based on frequnecy  -->
+  <node name="audio_filter" pkg="acoustic_feature_extraction" type="filter_node.py" output="$(arg output)" />
+
+  <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction.py"/>
+
+  <!-- data visualisation  -->
+  <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
+  <!-- <node name="plot_acoustic_signature" pkg="rqt_plot" type="rqt_plot" args="/acoustic_feature"/> -->
+  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/
+  <!-- <node name="plot_acoustic_signature" pkg="rqt_multiplot" type="rqt_multiplot" /> -->
+
+</launch>

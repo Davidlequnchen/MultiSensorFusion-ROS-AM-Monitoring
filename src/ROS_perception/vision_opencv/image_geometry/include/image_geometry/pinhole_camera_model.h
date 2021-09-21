@@ -2,9 +2,8 @@
 #define IMAGE_GEOMETRY_PINHOLE_CAMERA_MODEL_H
 
 #include <sensor_msgs/CameraInfo.h>
-#include <opencv2/core/core.hpp>
+#include <opencv2/core/mat.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/calib3d/calib3d.hpp>
 #include <stdexcept>
 #include <string>
 #include "exports.h"
@@ -108,6 +107,7 @@ public:
    * \return 3d ray passing through (u,v)
    */
   cv::Point3d projectPixelTo3dRay(const cv::Point2d& uv_rect) const;
+  cv::Point3d projectPixelTo3dRay(const cv::Point2d& uv_rect, const cv::Matx34d& P) const;
 
   /**
    * \brief Rectify a raw camera image.
@@ -125,11 +125,13 @@ public:
    * \brief Compute the rectified image coordinates of a pixel in the raw image.
    */
   cv::Point2d rectifyPoint(const cv::Point2d& uv_raw) const;
+  cv::Point2d rectifyPoint(const cv::Point2d& uv_raw, const cv::Matx33d& K, const cv::Matx34d& P) const;
 
   /**
    * \brief Compute the raw image coordinates of a pixel in the rectified image.
    */
   cv::Point2d unrectifyPoint(const cv::Point2d& uv_rect) const;
+  cv::Point2d unrectifyPoint(const cv::Point2d& uv_rect, const cv::Matx33d& K, const cv::Matx34d& P) const;
 
   /**
    * \brief Compute the rectified ROI best fitting a raw ROI.
@@ -279,6 +281,7 @@ protected:
 #endif
 
   void initRectificationMaps() const;
+  void initUnrectificationMaps() const;
 
   friend class StereoCameraModel;
 };

@@ -14,5 +14,5 @@
     <param name="use_gui" value="true"/>
   </node>
 
-  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
 </launch>
