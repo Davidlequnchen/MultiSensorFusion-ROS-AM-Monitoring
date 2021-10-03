@@ -18,7 +18,7 @@ from acoustic_monitoring_msgs.msg import (
     MsgAcousticFeature,
 )
 
-# librosa default frame sie and ho length: 2048 and 512 samples
+# librosa default frame sie and hop length: 2048 and 512 samples
 # for our ROS application - each chunck is 1/30 seconds, which contains around 533 data points
 
 FRAME_SIZE = 256
