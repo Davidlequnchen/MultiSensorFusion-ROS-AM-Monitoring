@@ -4,7 +4,7 @@
     
     <rosparam command="load" file="$(find scanning_robviz)/config/params.yaml" />
 
-    <include file="$(find microepsilon_workcell)/launch/workcell_autocontrol.launch">
+    <include file="$(find microepsilon_workcell)/launch/kuka_LAAM_workcell_autocontrol.launch">
       <arg name="gui"  value="false" />
       <arg name="sim" value="$(arg sim)" />
     </include>
