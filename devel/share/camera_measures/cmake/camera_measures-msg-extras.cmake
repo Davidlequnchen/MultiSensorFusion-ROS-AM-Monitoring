@@ -1,0 +1,2 @@
+set(camera_measures_MESSAGE_FILES "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg;/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg;/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgStatus.msg;/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg;/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg;/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg;/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgAcceleration.msg")
+set(camera_measures_SERVICE_FILES "")

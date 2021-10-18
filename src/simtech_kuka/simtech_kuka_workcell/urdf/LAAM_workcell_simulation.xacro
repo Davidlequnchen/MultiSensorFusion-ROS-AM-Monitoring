@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<robot name="simtech_kuka_workcell" xmlns:xacro="http://ros.org/wiki/xacro">
+    <property name="pi" value="3.141592654"/>
+
+    <link name="world"/>
+
+   
+    <!-- Robot (without table) -->
+    <xacro:include filename="$(find simtech_kuka_workcell)/urdf/kuka_LAAM_robot_simulation.xacro"/>
+
+    <joint name="LAAM_workcell" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0.067" rpy="0 0 0"/>
+    </joint>
+   
+    <!-- Table -->
+    <!-- <link name="table0">
+        <visual>
+            <geometry>
+                <mesh filename="package://simtech_kuka_workcell/meshes/table/table.stl"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.4 0.4 0.4 0.8"/>
+            </material>
+        </visual>
+    </link> -->
+
+    <!-- <joint name="table0" type="fixed">
+        <parent link="${prefix}tool0"/>
+        <child link="table0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint> -->
+
+
+</robot>

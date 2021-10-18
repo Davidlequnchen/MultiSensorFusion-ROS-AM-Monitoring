@@ -1,0 +1,23 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <!--whether to open rviz -->
+  <arg name="rviz" default="true"/>
+
+  <arg name="model" default="$(find simtech_kuka_workcell)/urdf/LAAM_workcell.xacro" />
+
+  <param name="/use_sim_time" value="$(arg sim)" />
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+  <!-- Kuka robot ethernet udp interface (get joint state and send commands) -->
+  <include file="$(find simtech_kuka_eki_interface)/launch/simtech_kuka_eki_interface.launch" unless="$(arg sim)">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <group if="$(arg rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_kuka_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
+  </group>
+
+</launch>

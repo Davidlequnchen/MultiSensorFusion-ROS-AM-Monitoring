@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<robot name="simtech_kuka_workcell" xmlns:xacro="http://ros.org/wiki/xacro">
+  <property name="pi" value="3.141592654" />
+
+  <link name="world"/>
+
+  <xacro:property name="tcp_frame">
+    <!-- from data sheet -->
+    <origin xyz="-0.0109374151 -0.25882666 0.286677063" rpy="0 0.0 -${pi/2}" />
+  </xacro:property>
+
+  <xacro:property name="workobject_frame">
+      <!-- from datasheet -->
+    <!-- <origin xyz="1.14256 -1.59023279 0.0157544041" rpy="0 0 0" /> -->
+    <origin xyz="1.3 0 0.4157544041" rpy="0 0 0" />
+  </xacro:property>
+
+  <xacro:property name="camera_frame">
+    <!-- origin xyz="0.2879 -0.0399 0.1267" rpy="1.55420 0.00225 1.59185" /-->
+    <origin xyz="0.2328 0.181 -0.0168" rpy="0.0016279188408910522 -0.009261168793408879 -0.05185504283900785" />
+  </xacro:property>
+
+
+  <!-- Robot -->
+  <xacro:include filename="$(find simtech_kuka_workcell)/urdf/kuka_LAAM_robot.xacro"/>
+
+  <joint name="kuka_robot" type="fixed">
+      <parent link="world"/>
+      <child link="base_link"/>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Head -->
+  <xacro:include filename="$(find simtech_kuka_workcell)/urdf/head.xacro"/>
+
+  <joint name="laser_head" type="fixed">
+    <parent link="tool0"/>
+    <child link="laser_head_link"/>
+    <!-- <origin xyz="0.14633243 -0.083423 0.172" rpy="${radians(0)} ${radians(180)} 0" /> -->
+    <origin xyz="-0.14633243 0.083423 0.172" rpy="${radians(0)} ${radians(180)} ${radians(180)}" />
+    <!-- <origin xyz="0.14633243 -0.083423 0.172" rpy="${radians(0)} ${radians(0)} 0" /> -->
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- TCP -->
+  <!-- tool0 is $FLANGE in KUKA KRC controllers. -->
+  <link name="tcp_link"/>
+  <joint name="tcp_joint" type="fixed">
+    <parent link="tool0"/>
+    <child link="tcp_link"/>
+    <xacro:insert_block name="tcp_frame" />
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Workobject -->
+  <link name="workobject" />
+
+  <joint name="workobject" type="fixed">
+    <parent link="base_link" />
+    <child link="workobject" />
+    <xacro:insert_block name="workobject_frame" />
+    <!--<axis xyz="0 0 1"/>-->
+  </joint>
+
+   <!-- Camera -->
+   <link name="camera0" />
+
+   <joint name="tool0-camera0" type="fixed">
+     <parent link="tool0"/>
+     <child link="camera0"/>
+     <xacro:insert_block name="camera_frame" />
+   </joint>
+
+</robot>

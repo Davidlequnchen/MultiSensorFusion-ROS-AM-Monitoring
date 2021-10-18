@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<robot name="microepsilon_workcell" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <!-- Robot cell with working head and camera-->
+  <xacro:include filename="$(find scanning_workcell)/urdf/kuka_LAAM_workcell_simulation.xacro"/>
+  <joint name="scanning_workcell" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <!-- Microepsilon 2950-50 sensor -->
+  <xacro:include filename="$(find microepsilon_workcell)/urdf/scanCONTROL_2900-50_macro.urdf.xacro" />
+  <!-- sensor -->
+  <xacro:scanCONTROL_2900-50 prefix="scanCONTROL_2900-50_" parent="tool0">
+    <origin xyz="0.10135 0.2 0.15" rpy="${radians(-90)} ${radians(0)} ${radians(90)}" />
+  </xacro:scanCONTROL_2900-50>
+
+ 
+
+</robot>

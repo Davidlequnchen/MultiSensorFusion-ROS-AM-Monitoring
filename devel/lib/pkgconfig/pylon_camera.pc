@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: pylon_camera
+Description: Description of pylon_camera
+Version: 0.16.4
+Cflags: -I/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/pylon_camera/include
+Libs: -L${prefix}/lib -lpylon_camera
+Requires: actionlib camera_control_msgs camera_info_manager cv_bridge diagnostic_updater image_geometry image_transport roscpp roslaunch sensor_msgs

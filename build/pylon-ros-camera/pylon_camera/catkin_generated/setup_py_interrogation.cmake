@@ -1,0 +1,7 @@
+set(pylon_camera_SETUP_PY_SETUP_MODULE "distutils.core")
+set(pylon_camera_SETUP_PY_VERSION "0.16.4")
+set(pylon_camera_SETUP_PY_SCRIPTS "")
+set(pylon_camera_SETUP_PY_PACKAGES "")
+set(pylon_camera_SETUP_PY_PACKAGE_DIRS "")
+set(pylon_camera_SETUP_PY_MODULES "")
+set(pylon_camera_SETUP_PY_MODULE_DIRS "")

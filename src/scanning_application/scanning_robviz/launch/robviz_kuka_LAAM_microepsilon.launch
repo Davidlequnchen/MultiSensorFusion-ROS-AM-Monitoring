@@ -1,0 +1,27 @@
+<launch>
+    <arg name="gui" default="true" />
+    <arg name="sim" default="false" /> 
+    
+    <rosparam command="load" file="$(find scanning_robviz)/config/params.yaml" />
+
+    <include file="$(find microepsilon_workcell)/launch/kuka_LAAM_microepsilon_workcell.launch">
+      <arg name="gui"  value="false" />
+      <arg name="sim" value="$(arg sim)" />
+    </include>
+
+    <node name="cloud_transform" pkg="point_cloud_scanning" type="nd_cloud" respawn="true" />
+    <!-- <node name="height" pkg="point_cloud_scanning" type="nd_height" respawn="true" /> -->
+
+
+    <node name="robviz" pkg="scanning_robviz" type="rob_scanning_visualization.py"/>
+    
+    <!--node name="pcl_subprocessing" pkg="scanning_robviz" type="pcl_subprocess_handler.py"/-->
+    <!-- the subprocess handler makes everything very slow -->
+    <!-- <node name="pcl_subprocessing" pkg="scanning_robviz" type="nd_subprocess_handler" respawn="true" /> -->
+
+    <include file="$(find camera_measures)/launch/velocity_measures.launch">
+    <arg name="gui" value="$(arg gui)" />
+    </include>
+
+
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: audio_capture
+Description: Description of audio_capture
+Version: 0.3.12
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

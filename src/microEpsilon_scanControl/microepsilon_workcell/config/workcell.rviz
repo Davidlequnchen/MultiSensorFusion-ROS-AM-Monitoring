@@ -28,7 +28,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -59,7 +59,7 @@ Visualization Manager:
       Collision Enabled: false
       Enabled: true
       Links:
-        All Links Enabled: false
+        All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -73,11 +73,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        laser_head_link:
+        camera0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+        head0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         link_1:
           Alpha: 1
           Show Axes: false
@@ -110,14 +114,14 @@ Visualization Manager:
           Value: true
         scanCONTROL_2900-50_scanner_laser_link:
           Alpha: 1
-          Show Axes: false
-          Show Trail: false
+          Show Axes: true
+          Show Trail: true
         scanCONTROL_2900-50_scanner_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
-        tcp_link:
+          Value: true
+        tcp0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -148,8 +152,10 @@ Visualization Manager:
           Value: false
         base_link:
           Value: false
-        laser_head_link:
-          Value: false
+        camera0:
+          Value: true
+        head0:
+          Value: true
         link_1:
           Value: false
         link_2:
@@ -166,8 +172,8 @@ Visualization Manager:
           Value: true
         scanCONTROL_2900-50_scanner_link:
           Value: false
-        tcp_link:
-          Value: false
+        tcp0:
+          Value: true
         tool0:
           Value: false
         workobject:
@@ -191,12 +197,15 @@ Visualization Manager:
                     link_5:
                       link_6:
                         tool0:
-                          laser_head_link:
+                          camera0:
                             {}
-                          tcp_link:
-                            scanCONTROL_2900-50_scanner_link:
-                              scanCONTROL_2900-50_scanner_laser_link:
-                                {}
+                          head0:
+                            {}
+                          scanCONTROL_2900-50_scanner_link:
+                            scanCONTROL_2900-50_scanner_laser_link:
+                              {}
+                          tcp0:
+                            {}
             workobject:
               {}
       Update Interval: 0
@@ -216,9 +225,7 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 4096
       Min Color: 0; 0; 0
-      Min Intensity: 0
       Name: PointCloud2
       Position Transformer: XYZ
       Queue Size: 10
@@ -261,7 +268,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.9589614868164062
+      Distance: 8.547914505004883
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1

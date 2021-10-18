@@ -1,0 +1,7 @@
+set(auto_control_SETUP_PY_SETUP_MODULE "distutils.core")
+set(auto_control_SETUP_PY_VERSION "1.2.3")
+set(auto_control_SETUP_PY_SCRIPTS "")
+set(auto_control_SETUP_PY_PACKAGES "control_connection")
+set(auto_control_SETUP_PY_PACKAGE_DIRS "src/control_connection")
+set(auto_control_SETUP_PY_MODULES "")
+set(auto_control_SETUP_PY_MODULE_DIRS "")
