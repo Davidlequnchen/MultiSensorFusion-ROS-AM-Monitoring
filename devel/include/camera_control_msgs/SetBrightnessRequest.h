@@ -105,22 +105,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::SetBrightnessRequest_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::SetBrightnessRequest_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::SetBrightnessRequest_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::SetBrightnessRequest_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::SetBrightnessRequest_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::SetBrightnessRequest_<ContainerAllocator> const>
   : TrueType
   { };
 

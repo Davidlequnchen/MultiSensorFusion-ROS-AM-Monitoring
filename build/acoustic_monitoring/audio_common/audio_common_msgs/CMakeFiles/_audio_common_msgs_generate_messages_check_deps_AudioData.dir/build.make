@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/_audio_common_msgs_generate_messages_check_deps_AudioData.dir/progress.make
 
 acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/_audio_common_msgs_generate_messages_check_deps_AudioData:
-	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/audio_common_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py audio_common_msgs /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg 
+	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/audio_common_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py audio_common_msgs /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg 
 
 _audio_common_msgs_generate_messages_check_deps_AudioData: acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/_audio_common_msgs_generate_messages_check_deps_AudioData
 _audio_common_msgs_generate_messages_check_deps_AudioData: acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/_audio_common_msgs_generate_messages_check_deps_AudioData.dir/build.make

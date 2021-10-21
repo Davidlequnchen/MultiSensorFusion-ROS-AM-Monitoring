@@ -93,22 +93,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::SetExposureResponse_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::SetExposureResponse_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::SetExposureResponse_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::SetExposureResponse_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::SetExposureResponse_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::SetExposureResponse_<ContainerAllocator> const>
   : TrueType
   { };
 

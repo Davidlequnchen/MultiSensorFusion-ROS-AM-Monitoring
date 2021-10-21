@@ -53,23 +53,23 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/audio_common_msgs_generate_messages_lisp.dir/progress.make
 
-acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/audio_common_msgs_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp
 acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/audio_common_msgs_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioInfo.lisp
+acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/audio_common_msgs_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp
 
-
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp: /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from audio_common_msgs/AudioData.msg"
-	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/audio_common_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg -Iaudio_common_msgs:/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg -p audio_common_msgs -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioInfo.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioInfo.lisp: /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from audio_common_msgs/AudioInfo.msg"
-	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/audio_common_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg -Iaudio_common_msgs:/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg -p audio_common_msgs -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from audio_common_msgs/AudioInfo.msg"
+	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/audio_common_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg -Iaudio_common_msgs:/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg -p audio_common_msgs -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp: /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from audio_common_msgs/AudioData.msg"
+	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/audio_common_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg -Iaudio_common_msgs:/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg -p audio_common_msgs -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg
 
 audio_common_msgs_generate_messages_lisp: acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/audio_common_msgs_generate_messages_lisp
-audio_common_msgs_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp
 audio_common_msgs_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioInfo.lisp
+audio_common_msgs_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp
 audio_common_msgs_generate_messages_lisp: acoustic_monitoring/audio_common/audio_common_msgs/CMakeFiles/audio_common_msgs_generate_messages_lisp.dir/build.make
 
 .PHONY : audio_common_msgs_generate_messages_lisp

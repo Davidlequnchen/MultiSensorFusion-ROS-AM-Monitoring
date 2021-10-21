@@ -60,11 +60,11 @@ motion_planning_kuka/CMakeFiles/motion_planning_kuka_generate_messages_eus: /hom
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/srv/SrvRobotCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/srv/SrvRobotCommand.l: /home/chenlequn/SIMTech_ws/src/motion_planning_kuka/srv/SrvRobotCommand.srv
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from motion_planning_kuka/SrvRobotCommand.srv"
-	cd /home/chenlequn/SIMTech_ws/build/motion_planning_kuka && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/motion_planning_kuka/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p motion_planning_kuka -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/srv
+	cd /home/chenlequn/SIMTech_ws/build/motion_planning_kuka && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/motion_planning_kuka/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p motion_planning_kuka -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/srv
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for motion_planning_kuka"
-	cd /home/chenlequn/SIMTech_ws/build/motion_planning_kuka && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka motion_planning_kuka std_msgs
+	cd /home/chenlequn/SIMTech_ws/build/motion_planning_kuka && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka motion_planning_kuka std_msgs
 
 motion_planning_kuka_generate_messages_eus: motion_planning_kuka/CMakeFiles/motion_planning_kuka_generate_messages_eus
 motion_planning_kuka_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_kuka/srv/SrvRobotCommand.l

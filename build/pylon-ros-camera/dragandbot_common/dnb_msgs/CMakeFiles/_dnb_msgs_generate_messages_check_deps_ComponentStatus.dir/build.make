@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus.dir/progress.make
 
 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus:
-	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py dnb_msgs /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg 
+	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py dnb_msgs /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg 
 
 _dnb_msgs_generate_messages_check_deps_ComponentStatus: pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus
 _dnb_msgs_generate_messages_check_deps_ComponentStatus: pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus.dir/build.make

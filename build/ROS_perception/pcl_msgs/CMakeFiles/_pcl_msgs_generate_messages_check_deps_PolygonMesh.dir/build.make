@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_PolygonMesh.dir/progress.make
 
 ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_PolygonMesh:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py pcl_msgs /home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/PolygonMesh.msg std_msgs/Header:sensor_msgs/PointField:sensor_msgs/PointCloud2:pcl_msgs/Vertices
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py pcl_msgs /home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/PolygonMesh.msg pcl_msgs/Vertices:sensor_msgs/PointCloud2:sensor_msgs/PointField:std_msgs/Header
 
 _pcl_msgs_generate_messages_check_deps_PolygonMesh: ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_PolygonMesh
 _pcl_msgs_generate_messages_check_deps_PolygonMesh: ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_PolygonMesh.dir/build.make

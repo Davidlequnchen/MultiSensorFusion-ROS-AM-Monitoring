@@ -87,16 +87,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::audio_common_msgs::AudioData_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::audio_common_msgs::AudioData_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::audio_common_msgs::AudioData_<ContainerAllocator> >
   : FalseType
   { };
@@ -104,6 +94,16 @@ struct IsFixedSize< ::audio_common_msgs::AudioData_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::audio_common_msgs::AudioData_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::audio_common_msgs::AudioData_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::audio_common_msgs::AudioData_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

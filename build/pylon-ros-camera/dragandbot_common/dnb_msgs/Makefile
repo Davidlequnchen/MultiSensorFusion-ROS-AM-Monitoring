@@ -77,6 +77,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -88,17 +99,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # Special rule for the target install
 install: preinstall
@@ -213,21 +213,6 @@ _dnb_msgs_generate_messages_check_deps_StringMultiArray/fast:
 .PHONY : _dnb_msgs_generate_messages_check_deps_StringMultiArray/fast
 
 # Convenience name for target.
-pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule
-.PHONY : pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule
-
-# Convenience name for target.
-_dnb_msgs_generate_messages_check_deps_SetString: pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule
-
-.PHONY : _dnb_msgs_generate_messages_check_deps_SetString
-
-# fast build rule for target.
-_dnb_msgs_generate_messages_check_deps_SetString/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/build.make pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/build
-.PHONY : _dnb_msgs_generate_messages_check_deps_SetString/fast
-
-# Convenience name for target.
 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus.dir/rule
 .PHONY : pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus.dir/rule
@@ -241,6 +226,21 @@ _dnb_msgs_generate_messages_check_deps_ComponentStatus: pylon-ros-camera/dragand
 _dnb_msgs_generate_messages_check_deps_ComponentStatus/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus.dir/build.make pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_ComponentStatus.dir/build
 .PHONY : _dnb_msgs_generate_messages_check_deps_ComponentStatus/fast
+
+# Convenience name for target.
+pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule
+.PHONY : pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule
+
+# Convenience name for target.
+_dnb_msgs_generate_messages_check_deps_SetString: pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/rule
+
+.PHONY : _dnb_msgs_generate_messages_check_deps_SetString
+
+# fast build rule for target.
+_dnb_msgs_generate_messages_check_deps_SetString/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/build.make pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/_dnb_msgs_generate_messages_check_deps_SetString.dir/build
+.PHONY : _dnb_msgs_generate_messages_check_deps_SetString/fast
 
 # Convenience name for target.
 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages.dir/rule:
@@ -388,10 +388,10 @@ help:
 	@echo "... dnb_msgs_generate_messages_cpp"
 	@echo "... edit_cache"
 	@echo "... _dnb_msgs_generate_messages_check_deps_StringMultiArray"
+	@echo "... _dnb_msgs_generate_messages_check_deps_ComponentStatus"
+	@echo "... test"
 	@echo "... install/local"
 	@echo "... _dnb_msgs_generate_messages_check_deps_SetString"
-	@echo "... test"
-	@echo "... _dnb_msgs_generate_messages_check_deps_ComponentStatus"
 	@echo "... dnb_msgs_generate_messages"
 	@echo "... dnb_msgs_generate_messages_eus"
 	@echo "... dnb_msgs_generate_messages_lisp"

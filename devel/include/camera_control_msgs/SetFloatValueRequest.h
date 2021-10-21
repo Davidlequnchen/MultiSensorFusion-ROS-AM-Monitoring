@@ -87,22 +87,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::SetFloatValueRequest_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::SetFloatValueRequest_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::SetFloatValueRequest_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::SetFloatValueRequest_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::SetFloatValueRequest_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::SetFloatValueRequest_<ContainerAllocator> const>
   : TrueType
   { };
 

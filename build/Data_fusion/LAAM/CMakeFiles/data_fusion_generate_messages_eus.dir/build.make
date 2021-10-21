@@ -58,7 +58,7 @@ Data_fusion/LAAM/CMakeFiles/data_fusion_generate_messages_eus: /home/chenlequn/S
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/data_fusion/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp manifest code for data_fusion"
-	cd /home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/data_fusion data_fusion std_msgs
+	cd /home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/data_fusion data_fusion std_msgs
 
 data_fusion_generate_messages_eus: Data_fusion/LAAM/CMakeFiles/data_fusion_generate_messages_eus
 data_fusion_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/data_fusion/manifest.l

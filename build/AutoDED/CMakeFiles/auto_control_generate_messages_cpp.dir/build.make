@@ -60,7 +60,7 @@ AutoDED/CMakeFiles/auto_control_generate_messages_cpp: /home/chenlequn/SIMTech_w
 /home/chenlequn/SIMTech_ws/devel/include/auto_control/MsgCommand.h: /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg
 /home/chenlequn/SIMTech_ws/devel/include/auto_control/MsgCommand.h: /opt/ros/melodic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from auto_control/MsgCommand.msg"
-	cd /home/chenlequn/SIMTech_ws/src/AutoDED && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg -Iauto_control:/home/chenlequn/SIMTech_ws/src/AutoDED/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p auto_control -o /home/chenlequn/SIMTech_ws/devel/include/auto_control -e /opt/ros/melodic/share/gencpp/cmake/..
+	cd /home/chenlequn/SIMTech_ws/src/AutoDED && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg -Iauto_control:/home/chenlequn/SIMTech_ws/src/AutoDED/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p auto_control -o /home/chenlequn/SIMTech_ws/devel/include/auto_control -e /opt/ros/melodic/share/gencpp/cmake/..
 
 auto_control_generate_messages_cpp: AutoDED/CMakeFiles/auto_control_generate_messages_cpp
 auto_control_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/auto_control/MsgCommand.h

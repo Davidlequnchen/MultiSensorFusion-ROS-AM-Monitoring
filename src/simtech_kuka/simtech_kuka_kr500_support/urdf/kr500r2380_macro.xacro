@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find kuka_resources)/urdf/common_constants.xacro"/>
+  <xacro:include filename="$(find kuka_resources)/urdf/common_materials.xacro"/>
+
+  <xacro:macro name="kuka_kr500r2380" params="prefix">
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/visual/base_link.stl" />
+        </geometry>
+        <xacro:material_kuka_pedestal />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/collision/base_link.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/visual/link_1.stl" />
+        </geometry>
+        <xacro:material_kuka_orange />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/collision/link_1.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_2">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/visual/link_2.stl"/>
+        </geometry>
+        <xacro:material_kuka_orange />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/collision/link_2.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_3">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/visual/link_3.stl" />
+        </geometry>
+        <xacro:material_kuka_orange />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/collision/link_3.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_4">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/visual/link_4.stl" />
+        </geometry>
+        <xacro:material_kuka_orange />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/collision/link_4.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_5">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/visual/link_5.stl" />
+        </geometry>
+        <xacro:material_kuka_orange />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/collision/link_5.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}link_6">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/visual/link_6.stl" />
+        </geometry>
+        <xacro:material_kuka_pedestal />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr500_support/meshes/kr500r2380/collision/link_6.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <!-- This frame corresponds to the $FLANGE coordinate system in KUKA KRC controllers. -->
+    <link name="${prefix}tool0"/>
+
+    <joint name="${prefix}joint_a1" type="revolute">
+      <origin xyz="0 0 1.045" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}link_1"/>
+      <axis xyz="0 0 -1"/>
+      <limit effort="0" lower="${-DEG2RAD * 185}" upper="${DEG2RAD * 185}" velocity="${DEG2RAD * 90}"/>
+    </joint>
+    <joint name="${prefix}joint_a2" type="revolute">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_1"/>
+      <child link="${prefix}link_2"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="0" lower="${-DEG2RAD * 130}" upper="${DEG2RAD * 20}" velocity="${DEG2RAD * 80}"/>
+    </joint>
+    <joint name="${prefix}joint_a3" type="revolute">
+      <origin xyz="1.3 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_2"/>
+      <child link="${prefix}link_3"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="0" lower="${-DEG2RAD * 100}" upper="${DEG2RAD * 144}" velocity="${DEG2RAD * 75}"/>
+    </joint>
+    <joint name="${prefix}joint_a4" type="revolute">
+      <origin xyz="1.025 0 -0.055" rpy="0 0 0"/>
+      <parent link="${prefix}link_3"/>
+      <child link="${prefix}link_4"/>
+      <axis xyz="-1 0 0"/>
+      <limit effort="0" lower="${-DEG2RAD * 350}" upper="${DEG2RAD * 350}" velocity="${DEG2RAD * 90}"/>
+    </joint>
+    <joint name="${prefix}joint_a5" type="revolute">
+      <origin xyz="0 0 0" rpy="${DEG2RAD * 90} 0 0"/>
+      <parent link="${prefix}link_4"/>
+      <child link="${prefix}link_5"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="0" lower="${-DEG2RAD * 120}" upper="${DEG2RAD * 120}" velocity="${DEG2RAD * 83}"/>
+    </joint>
+    <joint name="${prefix}joint_a6" type="revolute">
+      <origin xyz="0.290 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}link_5"/>
+      <child link="${prefix}link_6"/>
+      <axis xyz="-1 0 0"/>
+      <limit effort="0" lower="${-DEG2RAD * 350}" upper="${DEG2RAD * 350}" velocity="${DEG2RAD * 130}"/>
+    </joint>
+    <joint name="${prefix}joint_a6-tool0" type="fixed">
+      <parent link="${prefix}link_6"/>
+      <child link="${prefix}tool0"/>
+      <origin xyz="0 0 0" rpy="0 ${DEG2RAD * 90} 0"/>
+    </joint>
+
+    <!-- ROS base_link to KUKA $ROBROOT coordinate system transform -->
+    <link name="${prefix}base" />
+    <joint name="${prefix}base_link-base" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}base"/>
+    </joint>
+  </xacro:macro>
+</robot>

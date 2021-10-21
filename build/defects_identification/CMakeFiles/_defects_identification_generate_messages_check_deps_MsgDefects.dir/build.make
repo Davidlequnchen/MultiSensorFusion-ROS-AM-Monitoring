@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include defects_identification/CMakeFiles/_defects_identification_generate_messages_check_deps_MsgDefects.dir/progress.make
 
 defects_identification/CMakeFiles/_defects_identification_generate_messages_check_deps_MsgDefects:
-	cd /home/chenlequn/SIMTech_ws/build/defects_identification && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py defects_identification /home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg std_msgs/Header
+	cd /home/chenlequn/SIMTech_ws/build/defects_identification && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py defects_identification /home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg std_msgs/Header
 
 _defects_identification_generate_messages_check_deps_MsgDefects: defects_identification/CMakeFiles/_defects_identification_generate_messages_check_deps_MsgDefects
 _defects_identification_generate_messages_check_deps_MsgDefects: defects_identification/CMakeFiles/_defects_identification_generate_messages_check_deps_MsgDefects.dir/build.make

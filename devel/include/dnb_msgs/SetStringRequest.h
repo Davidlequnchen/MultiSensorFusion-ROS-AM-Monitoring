@@ -87,16 +87,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::dnb_msgs::SetStringRequest_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::dnb_msgs::SetStringRequest_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::dnb_msgs::SetStringRequest_<ContainerAllocator> >
   : FalseType
   { };
@@ -104,6 +94,16 @@ struct IsFixedSize< ::dnb_msgs::SetStringRequest_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::dnb_msgs::SetStringRequest_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::dnb_msgs::SetStringRequest_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::dnb_msgs::SetStringRequest_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

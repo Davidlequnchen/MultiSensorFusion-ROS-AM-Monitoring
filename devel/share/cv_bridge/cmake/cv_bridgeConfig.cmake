@@ -67,7 +67,7 @@ set(cv_bridge_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(cv_bridge_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge)
+  set(cv_bridge_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/cv_bridge)
   set(cv_bridge_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
   set(cv_bridge_INSTALL_PREFIX "")
   set(cv_bridge_PREFIX ${cv_bridge_DEVEL_PREFIX})
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(cv_bridge_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge/include;/usr/local/include/opencv4 " STREQUAL " ")
+if(NOT "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/cv_bridge/include;/usr/include;/usr/include/opencv " STREQUAL " ")
   set(cv_bridge_INCLUDE_DIRS "")
-  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge/include;/usr/local/include/opencv4")
+  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/cv_bridge/include;/usr/include;/usr/include/opencv")
   if(NOT "https://github.com/ros-perception/vision_opencv/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-perception/vision_opencv/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://www.ros.org/wiki/cv_bridge " STREQUAL " ")
@@ -110,13 +110,13 @@ if(NOT "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge/in
         message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/cv_bridge/${idir}'.  ${_report}")
     endif()
     _list_append_unique(cv_bridge_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "cv_bridge;/usr/local/lib/libopencv_calib3d.so.4.3.0;/usr/local/lib/libopencv_dnn.so.4.3.0;/usr/local/lib/libopencv_features2d.so.4.3.0;/usr/local/lib/libopencv_flann.so.4.3.0;/usr/local/lib/libopencv_gapi.so.4.3.0;/usr/local/lib/libopencv_highgui.so.4.3.0;/usr/local/lib/libopencv_ml.so.4.3.0;/usr/local/lib/libopencv_objdetect.so.4.3.0;/usr/local/lib/libopencv_photo.so.4.3.0;/usr/local/lib/libopencv_stitching.so.4.3.0;/usr/local/lib/libopencv_video.so.4.3.0;/usr/local/lib/libopencv_videoio.so.4.3.0;/usr/local/lib/libopencv_core.so.4.3.0;/usr/local/lib/libopencv_imgproc.so.4.3.0;/usr/local/lib/libopencv_imgcodecs.so.4.3.0")
+set(libraries "cv_bridge;/usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0;/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0;/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")

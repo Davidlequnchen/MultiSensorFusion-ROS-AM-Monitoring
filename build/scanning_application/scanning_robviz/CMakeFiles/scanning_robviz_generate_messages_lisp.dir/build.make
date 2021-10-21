@@ -53,23 +53,23 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_lisp.dir/progress.make
 
-scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp
 scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgPointCloudScan.lisp
+scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp
 
-
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp: /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from scanning_robviz/MsgCommand.msg"
-	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgPointCloudScan.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgPointCloudScan.lisp: /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from scanning_robviz/MsgPointCloudScan.msg"
-	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from scanning_robviz/MsgPointCloudScan.msg"
+	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp: /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from scanning_robviz/MsgCommand.msg"
+	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg
 
 scanning_robviz_generate_messages_lisp: scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_lisp
-scanning_robviz_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp
 scanning_robviz_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgPointCloudScan.lisp
+scanning_robviz_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp
 scanning_robviz_generate_messages_lisp: scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_lisp.dir/build.make
 
 .PHONY : scanning_robviz_generate_messages_lisp

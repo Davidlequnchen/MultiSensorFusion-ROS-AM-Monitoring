@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/clean_test_results_pcl_conversions.dir/progress.make
 
 ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/clean_test_results_pcl_conversions:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_conversions && /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/pcl_conversions
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_conversions && /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/pcl_conversions
 
 clean_test_results_pcl_conversions: ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/clean_test_results_pcl_conversions
 clean_test_results_pcl_conversions: ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/clean_test_results_pcl_conversions.dir/build.make

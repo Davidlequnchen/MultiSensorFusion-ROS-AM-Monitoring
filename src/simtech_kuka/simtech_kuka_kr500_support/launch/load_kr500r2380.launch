@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find simtech_kuka_kr500_support)/urdf/kr500r2380.xacro'"/>
+</launch>

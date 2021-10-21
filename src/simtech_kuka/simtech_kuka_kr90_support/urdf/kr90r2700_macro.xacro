@@ -8,14 +8,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/visual/base_link.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/visual/base_link.stl" />
         </geometry>
         <xacro:material_kuka_pedestal />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/collision/base_link.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/collision/base_link.stl" />
         </geometry>
       </collision>
     </link>
@@ -23,14 +23,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/visual/link_1.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/visual/link_1.stl" />
         </geometry>
         <xacro:material_kuka_orange />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/collision/link_1.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/collision/link_1.stl" />
         </geometry>
       </collision>
     </link>
@@ -38,14 +38,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/visual/link_2.stl"/>
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/visual/link_2.stl"/>
         </geometry>
         <xacro:material_kuka_orange />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/collision/link_2.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/collision/link_2.stl" />
         </geometry>
       </collision>
     </link>
@@ -53,14 +53,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="1 1 1" filename="package://kuka_kr90_support/meshes/kr90r2700/visual/link_3.stl" />
+          <mesh scale="1 1 1" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/visual/link_3.stl" />
         </geometry>
         <xacro:material_kuka_orange />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/collision/link_3.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/collision/link_3.stl" />
         </geometry>
       </collision>
     </link>
@@ -68,14 +68,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/visual/link_4.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/visual/link_4.stl" />
         </geometry>
         <xacro:material_kuka_orange />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/collision/link_4.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/collision/link_4.stl" />
         </geometry>
       </collision>
     </link>
@@ -83,14 +83,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/visual/link_5.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/visual/link_5.stl" />
         </geometry>
         <xacro:material_kuka_orange />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/collision/link_5.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/collision/link_5.stl" />
         </geometry>
       </collision>
     </link>
@@ -98,14 +98,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/visual/link_6.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/visual/link_6.stl" />
         </geometry>
         <xacro:material_kuka_pedestal />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh scale="0.001 0.001 0.001" filename="package://kuka_kr90_support/meshes/kr90r2700/collision/link_6.stl" />
+          <mesh scale="0.001 0.001 0.001" filename="package://simtech_kuka_kr90_support/meshes/kr90r2700/collision/link_6.stl" />
         </geometry>
       </collision>
     </link>

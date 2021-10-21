@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/run_tests_image_geometry_gtest_image_geometry-utest.dir/progress.make
 
 ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/run_tests_image_geometry_gtest_image_geometry-utest:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/vision_opencv/image_geometry/test && ../../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/chenlequn/SIMTech_ws/build/test_results/image_geometry/gtest-image_geometry-utest.xml "/home/chenlequn/SIMTech_ws/devel/lib/image_geometry/image_geometry-utest --gtest_output=xml:/home/chenlequn/SIMTech_ws/build/test_results/image_geometry/gtest-image_geometry-utest.xml"
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/vision_opencv/image_geometry/test && ../../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/chenlequn/SIMTech_ws/build/test_results/image_geometry/gtest-image_geometry-utest.xml "/home/chenlequn/SIMTech_ws/devel/lib/image_geometry/image_geometry-utest --gtest_output=xml:/home/chenlequn/SIMTech_ws/build/test_results/image_geometry/gtest-image_geometry-utest.xml"
 
 run_tests_image_geometry_gtest_image_geometry-utest: ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/run_tests_image_geometry_gtest_image_geometry-utest
 run_tests_image_geometry_gtest_image_geometry-utest: ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/run_tests_image_geometry_gtest_image_geometry-utest.dir/build.make

@@ -17,9 +17,9 @@ add_custom_target(camera_measures_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
 add_custom_target(_camera_measures_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "camera_measures" "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "camera_measures" "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg" NAME_WE)
@@ -37,9 +37,9 @@ add_custom_target(_camera_measures_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "camera_measures" "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
 add_custom_target(_camera_measures_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "camera_measures" "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "camera_measures" "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg" NAME_WE)
@@ -59,13 +59,13 @@ add_custom_target(_camera_measures_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/camera_measures
 )
 _generate_msg_cpp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/camera_measures
@@ -77,13 +77,13 @@ _generate_msg_cpp(camera_measures
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/camera_measures
 )
 _generate_msg_cpp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/camera_measures
 )
 _generate_msg_cpp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/camera_measures
@@ -115,7 +115,7 @@ add_custom_target(camera_measures_generate_messages_cpp
 add_dependencies(camera_measures_generate_messages camera_measures_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_cpp _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_cpp _camera_measures_generate_messages_check_deps_${_filename})
@@ -123,7 +123,7 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures
 add_dependencies(camera_measures_generate_messages_cpp _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_cpp _camera_measures_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_cpp _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_cpp _camera_measures_generate_messages_check_deps_${_filename})
@@ -140,13 +140,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS camera_measures_generate_messages_c
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/camera_measures
 )
 _generate_msg_eus(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/camera_measures
@@ -158,13 +158,13 @@ _generate_msg_eus(camera_measures
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/camera_measures
 )
 _generate_msg_eus(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/camera_measures
 )
 _generate_msg_eus(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/camera_measures
@@ -196,7 +196,7 @@ add_custom_target(camera_measures_generate_messages_eus
 add_dependencies(camera_measures_generate_messages camera_measures_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_eus _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_eus _camera_measures_generate_messages_check_deps_${_filename})
@@ -204,7 +204,7 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures
 add_dependencies(camera_measures_generate_messages_eus _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_eus _camera_measures_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_eus _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_eus _camera_measures_generate_messages_check_deps_${_filename})
@@ -221,13 +221,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS camera_measures_generate_messages_e
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/camera_measures
 )
 _generate_msg_lisp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/camera_measures
@@ -239,13 +239,13 @@ _generate_msg_lisp(camera_measures
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/camera_measures
 )
 _generate_msg_lisp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/camera_measures
 )
 _generate_msg_lisp(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/camera_measures
@@ -277,7 +277,7 @@ add_custom_target(camera_measures_generate_messages_lisp
 add_dependencies(camera_measures_generate_messages camera_measures_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_lisp _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_lisp _camera_measures_generate_messages_check_deps_${_filename})
@@ -285,7 +285,7 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures
 add_dependencies(camera_measures_generate_messages_lisp _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_lisp _camera_measures_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_lisp _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_lisp _camera_measures_generate_messages_check_deps_${_filename})
@@ -302,13 +302,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS camera_measures_generate_messages_l
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/camera_measures
 )
 _generate_msg_nodejs(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/camera_measures
@@ -320,13 +320,13 @@ _generate_msg_nodejs(camera_measures
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/camera_measures
 )
 _generate_msg_nodejs(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/camera_measures
 )
 _generate_msg_nodejs(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/camera_measures
@@ -358,7 +358,7 @@ add_custom_target(camera_measures_generate_messages_nodejs
 add_dependencies(camera_measures_generate_messages camera_measures_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_nodejs _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_nodejs _camera_measures_generate_messages_check_deps_${_filename})
@@ -366,7 +366,7 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures
 add_dependencies(camera_measures_generate_messages_nodejs _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_nodejs _camera_measures_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_nodejs _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_nodejs _camera_measures_generate_messages_check_deps_${_filename})
@@ -383,13 +383,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS camera_measures_generate_messages_n
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures
 )
 _generate_msg_py(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures
@@ -401,13 +401,13 @@ _generate_msg_py(camera_measures
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures
 )
 _generate_msg_py(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures
 )
 _generate_msg_py(camera_measures
-  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg"
+  "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures
@@ -439,7 +439,7 @@ add_custom_target(camera_measures_generate_messages_py
 add_dependencies(camera_measures_generate_messages camera_measures_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_py _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_py _camera_measures_generate_messages_check_deps_${_filename})
@@ -447,7 +447,7 @@ get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures
 add_dependencies(camera_measures_generate_messages_py _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_py _camera_measures_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_py _camera_measures_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg" NAME_WE)
 add_dependencies(camera_measures_generate_messages_py _camera_measures_generate_messages_check_deps_${_filename})
@@ -508,7 +508,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/camera_measures

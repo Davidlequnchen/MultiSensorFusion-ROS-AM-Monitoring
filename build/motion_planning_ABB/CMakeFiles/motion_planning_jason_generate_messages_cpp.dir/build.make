@@ -61,7 +61,7 @@ motion_planning_ABB/CMakeFiles/motion_planning_jason_generate_messages_cpp: /hom
 /home/chenlequn/SIMTech_ws/devel/include/motion_planning_jason/SrvRobotCommand.h: /opt/ros/melodic/share/gencpp/msg.h.template
 /home/chenlequn/SIMTech_ws/devel/include/motion_planning_jason/SrvRobotCommand.h: /opt/ros/melodic/share/gencpp/srv.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from motion_planning_jason/SrvRobotCommand.srv"
-	cd /home/chenlequn/SIMTech_ws/src/motion_planning_ABB && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/motion_planning_ABB/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p motion_planning_jason -o /home/chenlequn/SIMTech_ws/devel/include/motion_planning_jason -e /opt/ros/melodic/share/gencpp/cmake/..
+	cd /home/chenlequn/SIMTech_ws/src/motion_planning_ABB && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/motion_planning_ABB/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p motion_planning_jason -o /home/chenlequn/SIMTech_ws/devel/include/motion_planning_jason -e /opt/ros/melodic/share/gencpp/cmake/..
 
 motion_planning_jason_generate_messages_cpp: motion_planning_ABB/CMakeFiles/motion_planning_jason_generate_messages_cpp
 motion_planning_jason_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/motion_planning_jason/SrvRobotCommand.h

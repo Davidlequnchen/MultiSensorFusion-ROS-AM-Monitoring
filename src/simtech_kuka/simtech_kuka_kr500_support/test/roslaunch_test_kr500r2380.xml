@@ -1,0 +1,9 @@
+<launch>
+  <group ns="load_kr500r2380__">
+    <include file="$(find simtech_kuka_kr500_support)/launch/load_kr500r2380.launch"/>
+  </group>
+
+  <group ns="test_kr500r2380__">
+    <include file="$(find simtech_kuka_kr500_support)/launch/test_kr500r2380.launch"/>
+  </group>
+</launch>

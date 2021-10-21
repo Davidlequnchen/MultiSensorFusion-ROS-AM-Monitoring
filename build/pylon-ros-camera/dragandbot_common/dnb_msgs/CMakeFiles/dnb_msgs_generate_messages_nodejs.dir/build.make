@@ -53,31 +53,31 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages_nodejs.dir/progress.make
 
-pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js
 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/StringMultiArray.js
+pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js
 pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/srv/SetString.js
 
 
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js: /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from dnb_msgs/ComponentStatus.msg"
-	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg -Idnb_msgs:/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p dnb_msgs -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg
-
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/StringMultiArray.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/StringMultiArray.js: /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/StringMultiArray.js: /opt/ros/melodic/share/std_msgs/msg/MultiArrayDimension.msg
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/StringMultiArray.js: /opt/ros/melodic/share/std_msgs/msg/MultiArrayLayout.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from dnb_msgs/StringMultiArray.msg"
-	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg -Idnb_msgs:/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p dnb_msgs -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/StringMultiArray.js: /opt/ros/melodic/share/std_msgs/msg/MultiArrayDimension.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from dnb_msgs/StringMultiArray.msg"
+	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg -Idnb_msgs:/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p dnb_msgs -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js: /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from dnb_msgs/ComponentStatus.msg"
+	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg -Idnb_msgs:/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p dnb_msgs -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/srv/SetString.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/srv/SetString.js: /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from dnb_msgs/SetString.srv"
-	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv -Idnb_msgs:/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p dnb_msgs -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/srv
+	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/dragandbot_common/dnb_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv -Idnb_msgs:/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p dnb_msgs -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/srv
 
 dnb_msgs_generate_messages_nodejs: pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages_nodejs
-dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js
 dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/StringMultiArray.js
+dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/msg/ComponentStatus.js
 dnb_msgs_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/srv/SetString.js
 dnb_msgs_generate_messages_nodejs: pylon-ros-camera/dragandbot_common/dnb_msgs/CMakeFiles/dnb_msgs_generate_messages_nodejs.dir/build.make
 

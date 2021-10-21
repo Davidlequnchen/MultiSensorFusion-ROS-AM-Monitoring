@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include motion_planning_ABB/CMakeFiles/_motion_planning_jason_generate_messages_check_deps_SrvRobotCommand.dir/progress.make
 
 motion_planning_ABB/CMakeFiles/_motion_planning_jason_generate_messages_check_deps_SrvRobotCommand:
-	cd /home/chenlequn/SIMTech_ws/build/motion_planning_ABB && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py motion_planning_jason /home/chenlequn/SIMTech_ws/src/motion_planning_ABB/srv/SrvRobotCommand.srv 
+	cd /home/chenlequn/SIMTech_ws/build/motion_planning_ABB && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py motion_planning_jason /home/chenlequn/SIMTech_ws/src/motion_planning_ABB/srv/SrvRobotCommand.srv 
 
 _motion_planning_jason_generate_messages_check_deps_SrvRobotCommand: motion_planning_ABB/CMakeFiles/_motion_planning_jason_generate_messages_check_deps_SrvRobotCommand
 _motion_planning_jason_generate_messages_check_deps_SrvRobotCommand: motion_planning_ABB/CMakeFiles/_motion_planning_jason_generate_messages_check_deps_SrvRobotCommand.dir/build.make

@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan.dir/progress.make
 
 scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan:
-	cd /home/chenlequn/SIMTech_ws/build/scanning_application/point_cloud_analysis && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py point_cloud_analysis /home/chenlequn/SIMTech_ws/src/scanning_application/point_cloud_analysis/msg/MsgPointCloudScan.msg 
+	cd /home/chenlequn/SIMTech_ws/build/scanning_application/point_cloud_analysis && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py point_cloud_analysis /home/chenlequn/SIMTech_ws/src/scanning_application/point_cloud_analysis/msg/MsgPointCloudScan.msg 
 
 _point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan: scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan
 _point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan: scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan.dir/build.make

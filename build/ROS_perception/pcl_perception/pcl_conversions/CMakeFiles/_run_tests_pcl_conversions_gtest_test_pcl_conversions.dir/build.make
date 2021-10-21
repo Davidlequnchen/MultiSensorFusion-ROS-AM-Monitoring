@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/_run_tests_pcl_conversions_gtest_test_pcl_conversions.dir/progress.make
 
 ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/_run_tests_pcl_conversions_gtest_test_pcl_conversions:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_conversions && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/chenlequn/SIMTech_ws/build/test_results/pcl_conversions/gtest-test_pcl_conversions.xml "/home/chenlequn/SIMTech_ws/devel/lib/pcl_conversions/test_pcl_conversions --gtest_output=xml:/home/chenlequn/SIMTech_ws/build/test_results/pcl_conversions/gtest-test_pcl_conversions.xml"
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_conversions && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/chenlequn/SIMTech_ws/build/test_results/pcl_conversions/gtest-test_pcl_conversions.xml "/home/chenlequn/SIMTech_ws/devel/lib/pcl_conversions/test_pcl_conversions --gtest_output=xml:/home/chenlequn/SIMTech_ws/build/test_results/pcl_conversions/gtest-test_pcl_conversions.xml"
 
 _run_tests_pcl_conversions_gtest_test_pcl_conversions: ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/_run_tests_pcl_conversions_gtest_test_pcl_conversions
 _run_tests_pcl_conversions_gtest_test_pcl_conversions: ROS_perception/pcl_perception/pcl_conversions/CMakeFiles/_run_tests_pcl_conversions_gtest_test_pcl_conversions.dir/build.make

@@ -59,7 +59,7 @@ AutoDED/CMakeFiles/auto_control_generate_messages_nodejs: /home/chenlequn/SIMTec
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/auto_control/msg/MsgCommand.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/auto_control/msg/MsgCommand.js: /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from auto_control/MsgCommand.msg"
-	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg -Iauto_control:/home/chenlequn/SIMTech_ws/src/AutoDED/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p auto_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/auto_control/msg
+	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg -Iauto_control:/home/chenlequn/SIMTech_ws/src/AutoDED/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p auto_control -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/auto_control/msg
 
 auto_control_generate_messages_nodejs: AutoDED/CMakeFiles/auto_control_generate_messages_nodejs
 auto_control_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/auto_control/msg/MsgCommand.js

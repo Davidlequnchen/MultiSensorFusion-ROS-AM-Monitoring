@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
-
-Name: acoustic_monitoring_abb
-Description: Description of acoustic_monitoring_abb
-Version: 0.4.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: message_runtime

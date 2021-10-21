@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/acoustic_monitoring_msgs_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/acoustic_monitoring_msgs/MsgAcousticFeature.h"
   "/home/chenlequn/SIMTech_ws/devel/include/acoustic_monitoring_msgs/AudioDataStamped.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/acoustic_monitoring_msgs/MsgAcousticFeature.h"
 )
 
 # Per-language clean rules from dependency scanning.

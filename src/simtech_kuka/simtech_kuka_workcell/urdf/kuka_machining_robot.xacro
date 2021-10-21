@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<robot name="kuka_machining_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+    <property name="pi" value="3.141592654"/>
+
+    <!-- Robot -->
+    <xacro:include filename="$(find simtech_kuka_kr500_support)/urdf/kr500r2380_macro.xacro"/>
+    <xacro:kuka_kr500r2380 prefix=""/>
+
+    <joint name="kuka_kr500r2380" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0.067" rpy="0 0 0"/>
+    </joint>
+
+  
+
+</robot>

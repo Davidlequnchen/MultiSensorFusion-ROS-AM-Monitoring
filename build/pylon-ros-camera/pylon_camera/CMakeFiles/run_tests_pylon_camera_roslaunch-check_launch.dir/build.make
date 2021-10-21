@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include pylon-ros-camera/pylon_camera/CMakeFiles/run_tests_pylon_camera_roslaunch-check_launch.dir/progress.make
 
 pylon-ros-camera/pylon_camera/CMakeFiles/run_tests_pylon_camera_roslaunch-check_launch:
-	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/pylon_camera && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/chenlequn/SIMTech_ws/build/test_results/pylon_camera/roslaunch-check_launch.xml "/usr/bin/cmake -E make_directory /home/chenlequn/SIMTech_ws/build/test_results/pylon_camera" "/opt/ros/melodic/share/roslaunch/cmake/../scripts/roslaunch-check -o \"/home/chenlequn/SIMTech_ws/build/test_results/pylon_camera/roslaunch-check_launch.xml\" \"/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/pylon_camera/launch\" "
+	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/pylon_camera && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/run_tests.py /home/chenlequn/SIMTech_ws/build/test_results/pylon_camera/roslaunch-check_launch.xml "/usr/bin/cmake -E make_directory /home/chenlequn/SIMTech_ws/build/test_results/pylon_camera" "/opt/ros/melodic/share/roslaunch/cmake/../scripts/roslaunch-check -o \"/home/chenlequn/SIMTech_ws/build/test_results/pylon_camera/roslaunch-check_launch.xml\" \"/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/pylon_camera/launch\" "
 
 run_tests_pylon_camera_roslaunch-check_launch: pylon-ros-camera/pylon_camera/CMakeFiles/run_tests_pylon_camera_roslaunch-check_launch
 run_tests_pylon_camera_roslaunch-check_launch: pylon-ros-camera/pylon_camera/CMakeFiles/run_tests_pylon_camera_roslaunch-check_launch.dir/build.make

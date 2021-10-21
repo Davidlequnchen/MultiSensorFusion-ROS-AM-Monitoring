@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgEmission.dir/progress.make
 
 simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgEmission:
-	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py simtech_robot_laser_control /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg 
+	cd /home/chenlequn/SIMTech_ws/build/simtech_robot_laser_control && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py simtech_robot_laser_control /home/chenlequn/SIMTech_ws/src/simtech_robot_laser_control/msg/MsgEmission.msg 
 
 _simtech_robot_laser_control_generate_messages_check_deps_MsgEmission: simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgEmission
 _simtech_robot_laser_control_generate_messages_check_deps_MsgEmission: simtech_robot_laser_control/CMakeFiles/_simtech_robot_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make

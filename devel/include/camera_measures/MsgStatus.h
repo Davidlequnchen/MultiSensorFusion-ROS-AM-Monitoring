@@ -105,22 +105,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::camera_measures::MsgStatus_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::camera_measures::MsgStatus_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::camera_measures::MsgStatus_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::camera_measures::MsgStatus_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_measures::MsgStatus_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_measures::MsgStatus_<ContainerAllocator> const>
   : TrueType
   { };
 

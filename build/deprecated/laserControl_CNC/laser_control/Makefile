@@ -258,21 +258,6 @@ laser_control_generate_messages/fast:
 .PHONY : laser_control_generate_messages/fast
 
 # Convenience name for target.
-deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
-.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
-
-# Convenience name for target.
-_laser_control_generate_messages_check_deps_MsgStart: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
-
-.PHONY : _laser_control_generate_messages_check_deps_MsgStart
-
-# fast build rule for target.
-_laser_control_generate_messages_check_deps_MsgStart/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build
-.PHONY : _laser_control_generate_messages_check_deps_MsgStart/fast
-
-# Convenience name for target.
 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule
 .PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/rule
@@ -286,6 +271,21 @@ _laser_control_generate_messages_check_deps_MsgPower: deprecated/laserControl_CN
 _laser_control_generate_messages_check_deps_MsgPower/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgPower.dir/build
 .PHONY : _laser_control_generate_messages_check_deps_MsgPower/fast
+
+# Convenience name for target.
+deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
+.PHONY : deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
+
+# Convenience name for target.
+_laser_control_generate_messages_check_deps_MsgStart: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/rule
+
+.PHONY : _laser_control_generate_messages_check_deps_MsgStart
+
+# fast build rule for target.
+_laser_control_generate_messages_check_deps_MsgStart/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build.make deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgStart.dir/build
+.PHONY : _laser_control_generate_messages_check_deps_MsgStart/fast
 
 # Convenience name for target.
 deprecated/laserControl_CNC/laser_control/CMakeFiles/laser_control_generate_messages_cpp.dir/rule:
@@ -423,8 +423,8 @@ help:
 	@echo "... laser_control_generate_messages_py"
 	@echo "... _laser_control_generate_messages_check_deps_MsgControl"
 	@echo "... laser_control_generate_messages"
-	@echo "... _laser_control_generate_messages_check_deps_MsgStart"
 	@echo "... _laser_control_generate_messages_check_deps_MsgPower"
+	@echo "... _laser_control_generate_messages_check_deps_MsgStart"
 	@echo "... install/strip"
 	@echo "... laser_control_generate_messages_cpp"
 	@echo "... laser_control_genpy"

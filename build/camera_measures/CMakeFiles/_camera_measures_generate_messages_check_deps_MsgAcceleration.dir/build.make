@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgAcceleration.dir/progress.make
 
 camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgAcceleration:
-	cd /home/chenlequn/SIMTech_ws/build/camera_measures && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py camera_measures /home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgAcceleration.msg std_msgs/Header
+	cd /home/chenlequn/SIMTech_ws/build/camera_measures && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py camera_measures /home/chenlequn/SIMTech_ws/src/camera_measures/msg/MsgAcceleration.msg std_msgs/Header
 
 _camera_measures_generate_messages_check_deps_MsgAcceleration: camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgAcceleration
 _camera_measures_generate_messages_check_deps_MsgAcceleration: camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgAcceleration.dir/build.make

@@ -102,16 +102,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::sound_play::SoundRequestActionGoal_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::sound_play::SoundRequestActionGoal_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::sound_play::SoundRequestActionGoal_<ContainerAllocator> >
   : FalseType
   { };
@@ -119,6 +109,16 @@ struct IsFixedSize< ::sound_play::SoundRequestActionGoal_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::sound_play::SoundRequestActionGoal_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::sound_play::SoundRequestActionGoal_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::sound_play::SoundRequestActionGoal_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

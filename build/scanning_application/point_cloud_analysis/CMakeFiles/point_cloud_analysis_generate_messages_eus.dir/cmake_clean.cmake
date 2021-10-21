@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/point_cloud_analysis_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/point_cloud_analysis/msg/MsgPointCloudScan.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/point_cloud_analysis/msg/MsgHeightMonitoring.l"
+  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/point_cloud_analysis/msg/MsgPointCloudScan.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/point_cloud_analysis/manifest.l"
 )
 

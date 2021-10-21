@@ -11,7 +11,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PYTHON3"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"cv_bridge\""
@@ -23,8 +22,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/opencv4"
   "/opt/ros/melodic/include"
   "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge/src/."
-  "/usr/include/python3.6m"
-  "/home/chenlequn/.local/lib/python3.7/site-packages/numpy/core/include"
+  "/usr/include/python2.7"
+  "/home/chenlequn/.local/lib/python2.7/site-packages/numpy/core/include"
   )
 
 # Targets to which this target links.

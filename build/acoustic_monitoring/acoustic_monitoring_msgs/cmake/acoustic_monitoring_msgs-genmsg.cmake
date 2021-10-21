@@ -17,14 +17,14 @@ add_custom_target(acoustic_monitoring_msgs_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
-add_custom_target(_acoustic_monitoring_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "acoustic_monitoring_msgs" "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" "std_msgs/Header"
-)
-
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg" NAME_WE)
 add_custom_target(_acoustic_monitoring_msgs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "acoustic_monitoring_msgs" "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg" "std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
+add_custom_target(_acoustic_monitoring_msgs_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "acoustic_monitoring_msgs" "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" "std_msgs/Header"
 )
 
 #
@@ -34,13 +34,13 @@ add_custom_target(_acoustic_monitoring_msgs_generate_messages_check_deps_${_file
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/acoustic_monitoring_msgs
 )
 _generate_msg_cpp(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/acoustic_monitoring_msgs
@@ -60,9 +60,9 @@ add_custom_target(acoustic_monitoring_msgs_generate_messages_cpp
 add_dependencies(acoustic_monitoring_msgs_generate_messages acoustic_monitoring_msgs_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
-add_dependencies(acoustic_monitoring_msgs_generate_messages_cpp _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg" NAME_WE)
+add_dependencies(acoustic_monitoring_msgs_generate_messages_cpp _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
 add_dependencies(acoustic_monitoring_msgs_generate_messages_cpp _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -75,13 +75,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS acoustic_monitoring_msgs_generate_m
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/acoustic_monitoring_msgs
 )
 _generate_msg_eus(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/acoustic_monitoring_msgs
@@ -101,9 +101,9 @@ add_custom_target(acoustic_monitoring_msgs_generate_messages_eus
 add_dependencies(acoustic_monitoring_msgs_generate_messages acoustic_monitoring_msgs_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
-add_dependencies(acoustic_monitoring_msgs_generate_messages_eus _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg" NAME_WE)
+add_dependencies(acoustic_monitoring_msgs_generate_messages_eus _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
 add_dependencies(acoustic_monitoring_msgs_generate_messages_eus _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -116,13 +116,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS acoustic_monitoring_msgs_generate_m
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/acoustic_monitoring_msgs
 )
 _generate_msg_lisp(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/acoustic_monitoring_msgs
@@ -142,9 +142,9 @@ add_custom_target(acoustic_monitoring_msgs_generate_messages_lisp
 add_dependencies(acoustic_monitoring_msgs_generate_messages acoustic_monitoring_msgs_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
-add_dependencies(acoustic_monitoring_msgs_generate_messages_lisp _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg" NAME_WE)
+add_dependencies(acoustic_monitoring_msgs_generate_messages_lisp _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
 add_dependencies(acoustic_monitoring_msgs_generate_messages_lisp _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -157,13 +157,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS acoustic_monitoring_msgs_generate_m
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/acoustic_monitoring_msgs
 )
 _generate_msg_nodejs(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/acoustic_monitoring_msgs
@@ -183,9 +183,9 @@ add_custom_target(acoustic_monitoring_msgs_generate_messages_nodejs
 add_dependencies(acoustic_monitoring_msgs_generate_messages acoustic_monitoring_msgs_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
-add_dependencies(acoustic_monitoring_msgs_generate_messages_nodejs _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg" NAME_WE)
+add_dependencies(acoustic_monitoring_msgs_generate_messages_nodejs _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
 add_dependencies(acoustic_monitoring_msgs_generate_messages_nodejs _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -198,13 +198,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS acoustic_monitoring_msgs_generate_m
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/acoustic_monitoring_msgs
 )
 _generate_msg_py(acoustic_monitoring_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg"
+  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/acoustic_monitoring_msgs
@@ -224,9 +224,9 @@ add_custom_target(acoustic_monitoring_msgs_generate_messages_py
 add_dependencies(acoustic_monitoring_msgs_generate_messages acoustic_monitoring_msgs_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
-add_dependencies(acoustic_monitoring_msgs_generate_messages_py _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/AudioDataStamped.msg" NAME_WE)
+add_dependencies(acoustic_monitoring_msgs_generate_messages_py _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg" NAME_WE)
 add_dependencies(acoustic_monitoring_msgs_generate_messages_py _acoustic_monitoring_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -283,7 +283,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/acoustic_monitoring_msgs)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/acoustic_monitoring_msgs\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/acoustic_monitoring_msgs\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/acoustic_monitoring_msgs

@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand.dir/progress.make
 
 microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand:
-	cd /home/chenlequn/SIMTech_ws/build/microEpsilon_scanControl/microepsilon_scancontrol && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py microepsilon_scancontrol /home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/msg/MsgCommand.msg 
+	cd /home/chenlequn/SIMTech_ws/build/microEpsilon_scanControl/microepsilon_scancontrol && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py microepsilon_scancontrol /home/chenlequn/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/msg/MsgCommand.msg 
 
 _microepsilon_scancontrol_generate_messages_check_deps_MsgCommand: microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand
 _microepsilon_scancontrol_generate_messages_check_deps_MsgCommand: microEpsilon_scanControl/microepsilon_scancontrol/CMakeFiles/_microepsilon_scancontrol_generate_messages_check_deps_MsgCommand.dir/build.make

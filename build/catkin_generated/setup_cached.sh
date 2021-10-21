@@ -8,4 +8,4 @@
 
 # modified environment variables
 export PWD='/home/chenlequn/SIMTech_ws/build'
-export PYTHONPATH='/home/chenlequn/SIMTech_ws/devel/lib/python3/dist-packages:/home/chenlequn/catkin_ws/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages'
+export PYTHONPATH='/home/chenlequn/catkin_ws/devel/lib/python2.7/dist-packages:/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages:/home/chenlequn/SIMTech_ws/devel/lib/python3/dist-packages'

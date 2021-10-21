@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include pylon-ros-camera/pylon_camera/CMakeFiles/clean_test_results_pylon_camera.dir/progress.make
 
 pylon-ros-camera/pylon_camera/CMakeFiles/clean_test_results_pylon_camera:
-	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/pylon_camera && /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/pylon_camera
+	cd /home/chenlequn/SIMTech_ws/build/pylon-ros-camera/pylon_camera && /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/pylon_camera
 
 clean_test_results_pylon_camera: pylon-ros-camera/pylon_camera/CMakeFiles/clean_test_results_pylon_camera
 clean_test_results_pylon_camera: pylon-ros-camera/pylon_camera/CMakeFiles/clean_test_results_pylon_camera.dir/build.make

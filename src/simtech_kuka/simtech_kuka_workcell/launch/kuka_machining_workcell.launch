@@ -3,17 +3,17 @@
   <arg name="sim" default="false" />
 
 
-  <arg name="model" default="$(find simtech_kuka_workcell)/urdf/workcellB.xacro" />
+  <arg name="model" default="$(find simtech_kuka_workcell)/urdf/machining_workcell.xacro" />
   <!-- <arg name="model" default="$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro" /> -->
 
   <param name="/use_sim_time" value="$(arg sim)" />
 
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
 
-  <include file="$(find simtech_kuka_eki_interfaceB)/launch/simtech_kuka_eki_interfaceB.launch" unless="$(arg sim)">
+  <include file="$(find simtech_kuka_eki_interface)/launch/simtech_kuka_eki_interface.launch" unless="$(arg sim)">
     <arg name="model" value="$(arg model)" />
   </include>
 
 
-  <node name="rviz_B" pkg="rviz" type="rviz" args="-d $(find simtech_kuka_workcell)/config/workcellB.rviz" required="true" if="$(arg gui)" />
+  <node name="rviz_B" pkg="rviz" type="rviz" args="-d $(find simtech_kuka_workcell)/config/machining_workcell.rviz" required="true" if="$(arg gui)" />
 </launch>

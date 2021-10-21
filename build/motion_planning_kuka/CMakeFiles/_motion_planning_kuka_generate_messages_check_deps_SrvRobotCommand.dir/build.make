@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include motion_planning_kuka/CMakeFiles/_motion_planning_kuka_generate_messages_check_deps_SrvRobotCommand.dir/progress.make
 
 motion_planning_kuka/CMakeFiles/_motion_planning_kuka_generate_messages_check_deps_SrvRobotCommand:
-	cd /home/chenlequn/SIMTech_ws/build/motion_planning_kuka && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py motion_planning_kuka /home/chenlequn/SIMTech_ws/src/motion_planning_kuka/srv/SrvRobotCommand.srv 
+	cd /home/chenlequn/SIMTech_ws/build/motion_planning_kuka && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py motion_planning_kuka /home/chenlequn/SIMTech_ws/src/motion_planning_kuka/srv/SrvRobotCommand.srv 
 
 _motion_planning_kuka_generate_messages_check_deps_SrvRobotCommand: motion_planning_kuka/CMakeFiles/_motion_planning_kuka_generate_messages_check_deps_SrvRobotCommand
 _motion_planning_kuka_generate_messages_check_deps_SrvRobotCommand: motion_planning_kuka/CMakeFiles/_motion_planning_kuka_generate_messages_check_deps_SrvRobotCommand.dir/build.make

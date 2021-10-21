@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/install
-
-Name: SIMTech_kuka_kr90_support
-Description: Description of SIMTech_kuka_kr90_support
-Version: 0.1.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

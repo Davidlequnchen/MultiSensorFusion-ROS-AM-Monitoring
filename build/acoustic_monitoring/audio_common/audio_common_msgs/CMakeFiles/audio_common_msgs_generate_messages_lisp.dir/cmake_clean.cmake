@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/audio_common_msgs_generate_messages_lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioInfo.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/audio_common_msgs/msg/AudioData.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

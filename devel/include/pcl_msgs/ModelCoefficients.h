@@ -94,16 +94,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::pcl_msgs::ModelCoefficients_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::pcl_msgs::ModelCoefficients_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::pcl_msgs::ModelCoefficients_<ContainerAllocator> >
   : FalseType
   { };
@@ -111,6 +101,16 @@ struct IsFixedSize< ::pcl_msgs::ModelCoefficients_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::pcl_msgs::ModelCoefficients_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::pcl_msgs::ModelCoefficients_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::pcl_msgs::ModelCoefficients_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

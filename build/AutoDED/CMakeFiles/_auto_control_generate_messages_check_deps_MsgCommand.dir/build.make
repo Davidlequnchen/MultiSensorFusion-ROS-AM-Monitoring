@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include AutoDED/CMakeFiles/_auto_control_generate_messages_check_deps_MsgCommand.dir/progress.make
 
 AutoDED/CMakeFiles/_auto_control_generate_messages_check_deps_MsgCommand:
-	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py auto_control /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg 
+	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py auto_control /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg 
 
 _auto_control_generate_messages_check_deps_MsgCommand: AutoDED/CMakeFiles/_auto_control_generate_messages_check_deps_MsgCommand
 _auto_control_generate_messages_check_deps_MsgCommand: AutoDED/CMakeFiles/_auto_control_generate_messages_check_deps_MsgCommand.dir/build.make

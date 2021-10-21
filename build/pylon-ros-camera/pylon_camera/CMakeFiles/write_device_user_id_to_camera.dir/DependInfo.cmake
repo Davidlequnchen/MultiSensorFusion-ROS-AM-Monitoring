@@ -19,11 +19,11 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/pylon_camera/include"
   "/home/chenlequn/SIMTech_ws/devel/include"
-  "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/cv_bridge/include"
-  "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv/image_geometry/include"
+  "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/cv_bridge/include"
+  "/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/image_geometry/include"
   "/opt/ros/melodic/include"
   "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/usr/local/include/opencv4"
+  "/usr/include/opencv"
   "/opt/pylon/include"
   )
 

@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/vision_opencv/cv_bridge/test/CMakeFiles/clean_test_results_cv_bridge.dir/progress.make
 
 ROS_perception/vision_opencv/cv_bridge/test/CMakeFiles/clean_test_results_cv_bridge:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/vision_opencv/cv_bridge/test && /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/cv_bridge
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/vision_opencv/cv_bridge/test && /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/cv_bridge
 
 clean_test_results_cv_bridge: ROS_perception/vision_opencv/cv_bridge/test/CMakeFiles/clean_test_results_cv_bridge
 clean_test_results_cv_bridge: ROS_perception/vision_opencv/cv_bridge/test/CMakeFiles/clean_test_results_cv_bridge.dir/build.make

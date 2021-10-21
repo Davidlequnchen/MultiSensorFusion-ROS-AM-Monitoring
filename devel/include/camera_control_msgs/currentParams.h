@@ -280,16 +280,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::currentParams_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::currentParams_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::currentParams_<ContainerAllocator> >
   : FalseType
   { };
@@ -297,6 +287,16 @@ struct IsFixedSize< ::camera_control_msgs::currentParams_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::currentParams_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::currentParams_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::currentParams_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/acoustic_monitoring_msgs_generate_messages_lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/acoustic_monitoring_msgs/msg/MsgAcousticFeature.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/acoustic_monitoring_msgs/msg/AudioDataStamped.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/acoustic_monitoring_msgs/msg/MsgAcousticFeature.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

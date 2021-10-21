@@ -87,22 +87,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::microepsilon_scancontrol::MsgCommand_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::microepsilon_scancontrol::MsgCommand_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::microepsilon_scancontrol::MsgCommand_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::microepsilon_scancontrol::MsgCommand_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::microepsilon_scancontrol::MsgCommand_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::microepsilon_scancontrol::MsgCommand_<ContainerAllocator> const>
   : TrueType
   { };
 

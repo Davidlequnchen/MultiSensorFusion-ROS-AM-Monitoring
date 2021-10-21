@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequestActionGoal.dir/progress.make
 
 acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequestActionGoal:
-	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py sound_play /home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionGoal.msg actionlib_msgs/GoalID:std_msgs/Header:sound_play/SoundRequest:sound_play/SoundRequestGoal
+	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py sound_play /home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionGoal.msg actionlib_msgs/GoalID:sound_play/SoundRequest:sound_play/SoundRequestGoal:std_msgs/Header
 
 _sound_play_generate_messages_check_deps_SoundRequestActionGoal: acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequestActionGoal
 _sound_play_generate_messages_check_deps_SoundRequestActionGoal: acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequestActionGoal.dir/build.make

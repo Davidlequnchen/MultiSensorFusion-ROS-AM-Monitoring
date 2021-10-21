@@ -543,21 +543,6 @@ camera_measures_generate_messages/fast:
 .PHONY : camera_measures_generate_messages/fast
 
 # Convenience name for target.
-camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
-.PHONY : camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
-
-# Convenience name for target.
-_camera_measures_generate_messages_check_deps_MsgGeometry: camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
-
-.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry
-
-# fast build rule for target.
-_camera_measures_generate_messages_check_deps_MsgGeometry/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build.make camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build
-.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry/fast
-
-# Convenience name for target.
 camera_measures/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_measures/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
 .PHONY : camera_measures/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
@@ -586,6 +571,21 @@ _camera_measures_generate_messages_check_deps_MsgStatus: camera_measures/CMakeFi
 _camera_measures_generate_messages_check_deps_MsgStatus/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgStatus.dir/build.make camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgStatus.dir/build
 .PHONY : _camera_measures_generate_messages_check_deps_MsgStatus/fast
+
+# Convenience name for target.
+camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
+.PHONY : camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
+
+# Convenience name for target.
+_camera_measures_generate_messages_check_deps_MsgGeometry: camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/rule
+
+.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry
+
+# fast build rule for target.
+_camera_measures_generate_messages_check_deps_MsgGeometry/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build.make camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build
+.PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry/fast
 
 # Help Target
 help:
@@ -624,10 +624,10 @@ help:
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... camera_measures_generate_messages"
-	@echo "... _camera_measures_generate_messages_check_deps_MsgGeometry"
 	@echo "... install/strip"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... _camera_measures_generate_messages_check_deps_MsgStatus"
+	@echo "... _camera_measures_generate_messages_check_deps_MsgGeometry"
 .PHONY : help
 
 

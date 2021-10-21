@@ -60,11 +60,11 @@ AutoDED/CMakeFiles/auto_control_generate_messages_eus: /home/chenlequn/SIMTech_w
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control/msg/MsgCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control/msg/MsgCommand.l: /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from auto_control/MsgCommand.msg"
-	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg -Iauto_control:/home/chenlequn/SIMTech_ws/src/AutoDED/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p auto_control -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control/msg
+	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/AutoDED/msg/MsgCommand.msg -Iauto_control:/home/chenlequn/SIMTech_ws/src/AutoDED/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p auto_control -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for auto_control"
-	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control auto_control std_msgs
+	cd /home/chenlequn/SIMTech_ws/build/AutoDED && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control auto_control std_msgs
 
 auto_control_generate_messages_eus: AutoDED/CMakeFiles/auto_control_generate_messages_eus
 auto_control_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/auto_control/msg/MsgCommand.l

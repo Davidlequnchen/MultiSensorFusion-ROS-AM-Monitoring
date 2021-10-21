@@ -60,11 +60,11 @@ simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/simtech_driver_genera
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv/SrvRobotCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv/SrvRobotCommand.l: /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_driver_deprecated_reference/srv/SrvRobotCommand.srv
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from simtech_driver/SrvRobotCommand.srv"
-	cd /home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_driver_deprecated_reference && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_driver_deprecated_reference/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_driver -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv
+	cd /home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_driver_deprecated_reference && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_driver_deprecated_reference/srv/SrvRobotCommand.srv -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p simtech_driver -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for simtech_driver"
-	cd /home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_driver_deprecated_reference && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver simtech_driver std_msgs
+	cd /home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_driver_deprecated_reference && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver simtech_driver std_msgs
 
 simtech_driver_generate_messages_eus: simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/simtech_driver_generate_messages_eus
 simtech_driver_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/simtech_driver/srv/SrvRobotCommand.l

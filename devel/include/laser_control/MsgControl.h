@@ -93,22 +93,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::laser_control::MsgControl_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::laser_control::MsgControl_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::laser_control::MsgControl_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::laser_control::MsgControl_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::laser_control::MsgControl_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::laser_control::MsgControl_<ContainerAllocator> const>
   : TrueType
   { };
 

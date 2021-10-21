@@ -17,19 +17,19 @@ add_custom_target(dnb_msgs_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
 add_custom_target(_dnb_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dnb_msgs" "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dnb_msgs" "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" ""
 )
 
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" NAME_WE)
 add_custom_target(_dnb_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dnb_msgs" "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" "std_msgs/MultiArrayDimension:std_msgs/MultiArrayLayout"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dnb_msgs" "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" "std_msgs/MultiArrayLayout:std_msgs/MultiArrayDimension"
 )
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
 add_custom_target(_dnb_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dnb_msgs" "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dnb_msgs" "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" ""
 )
 
 #
@@ -39,15 +39,15 @@ add_custom_target(_dnb_msgs_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/dnb_msgs
 )
 _generate_msg_cpp(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/dnb_msgs
 )
 
@@ -71,11 +71,11 @@ add_custom_target(dnb_msgs_generate_messages_cpp
 add_dependencies(dnb_msgs_generate_messages dnb_msgs_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_cpp _dnb_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_cpp _dnb_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_cpp _dnb_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -88,15 +88,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS dnb_msgs_generate_messages_cpp)
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/dnb_msgs
 )
 _generate_msg_eus(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/dnb_msgs
 )
 
@@ -120,11 +120,11 @@ add_custom_target(dnb_msgs_generate_messages_eus
 add_dependencies(dnb_msgs_generate_messages dnb_msgs_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_eus _dnb_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_eus _dnb_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_eus _dnb_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -137,15 +137,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS dnb_msgs_generate_messages_eus)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/dnb_msgs
 )
 _generate_msg_lisp(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/dnb_msgs
 )
 
@@ -169,11 +169,11 @@ add_custom_target(dnb_msgs_generate_messages_lisp
 add_dependencies(dnb_msgs_generate_messages dnb_msgs_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_lisp _dnb_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_lisp _dnb_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_lisp _dnb_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -186,15 +186,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS dnb_msgs_generate_messages_lisp)
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/dnb_msgs
 )
 _generate_msg_nodejs(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/dnb_msgs
 )
 
@@ -218,11 +218,11 @@ add_custom_target(dnb_msgs_generate_messages_nodejs
 add_dependencies(dnb_msgs_generate_messages dnb_msgs_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_nodejs _dnb_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_nodejs _dnb_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_nodejs _dnb_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -235,15 +235,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS dnb_msgs_generate_messages_nodejs)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dnb_msgs
 )
 _generate_msg_py(dnb_msgs
-  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg"
+  "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayDimension.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/MultiArrayLayout.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dnb_msgs
 )
 
@@ -267,11 +267,11 @@ add_custom_target(dnb_msgs_generate_messages_py
 add_dependencies(dnb_msgs_generate_messages dnb_msgs_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_py _dnb_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/StringMultiArray.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_py _dnb_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/srv/SetString.srv" NAME_WE)
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/dragandbot_common/dnb_msgs/msg/ComponentStatus.msg" NAME_WE)
 add_dependencies(dnb_msgs_generate_messages_py _dnb_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -328,7 +328,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dnb_msgs)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dnb_msgs\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dnb_msgs\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dnb_msgs

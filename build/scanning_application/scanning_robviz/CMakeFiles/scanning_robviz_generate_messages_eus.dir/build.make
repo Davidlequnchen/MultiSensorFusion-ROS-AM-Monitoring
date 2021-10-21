@@ -53,28 +53,28 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus.dir/progress.make
 
-scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l
 scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgPointCloudScan.l
+scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l
 scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/manifest.l
 
 
-/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l: /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from scanning_robviz/MsgCommand.msg"
-	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg
-
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgPointCloudScan.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgPointCloudScan.l: /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from scanning_robviz/MsgPointCloudScan.msg"
-	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from scanning_robviz/MsgPointCloudScan.msg"
+	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l: /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from scanning_robviz/MsgCommand.msg"
+	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg -Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p scanning_robviz -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for scanning_robviz"
-	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz scanning_robviz std_msgs
+	cd /home/chenlequn/SIMTech_ws/build/scanning_application/scanning_robviz && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz scanning_robviz std_msgs
 
 scanning_robviz_generate_messages_eus: scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus
-scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l
 scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgPointCloudScan.l
+scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/msg/MsgCommand.l
 scanning_robviz_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/scanning_robviz/manifest.l
 scanning_robviz_generate_messages_eus: scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages_eus.dir/build.make
 

@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/progress.make
 
 deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission:
-	cd /home/chenlequn/SIMTech_ws/build/deprecated/laserControl_CNC/laser_control && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py laser_control /home/chenlequn/SIMTech_ws/src/deprecated/laserControl_CNC/laser_control/msg/MsgEmission.msg 
+	cd /home/chenlequn/SIMTech_ws/build/deprecated/laserControl_CNC/laser_control && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py laser_control /home/chenlequn/SIMTech_ws/src/deprecated/laserControl_CNC/laser_control/msg/MsgEmission.msg 
 
 _laser_control_generate_messages_check_deps_MsgEmission: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission
 _laser_control_generate_messages_check_deps_MsgEmission: deprecated/laserControl_CNC/laser_control/CMakeFiles/_laser_control_generate_messages_check_deps_MsgEmission.dir/build.make

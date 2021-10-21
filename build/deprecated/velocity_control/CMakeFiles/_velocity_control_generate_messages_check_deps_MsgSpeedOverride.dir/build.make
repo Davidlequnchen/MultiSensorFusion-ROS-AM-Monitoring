@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/progress.make
 
 deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride:
-	cd /home/chenlequn/SIMTech_ws/build/deprecated/velocity_control && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py velocity_control /home/chenlequn/SIMTech_ws/src/deprecated/velocity_control/msg/MsgSpeedOverride.msg std_msgs/Header
+	cd /home/chenlequn/SIMTech_ws/build/deprecated/velocity_control && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py velocity_control /home/chenlequn/SIMTech_ws/src/deprecated/velocity_control/msg/MsgSpeedOverride.msg std_msgs/Header
 
 _velocity_control_generate_messages_check_deps_MsgSpeedOverride: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride
 _velocity_control_generate_messages_check_deps_MsgSpeedOverride: deprecated/velocity_control/CMakeFiles/_velocity_control_generate_messages_check_deps_MsgSpeedOverride.dir/build.make

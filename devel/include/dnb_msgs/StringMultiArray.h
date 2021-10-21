@@ -94,16 +94,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::dnb_msgs::StringMultiArray_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::dnb_msgs::StringMultiArray_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::dnb_msgs::StringMultiArray_<ContainerAllocator> >
   : FalseType
   { };
@@ -111,6 +101,16 @@ struct IsFixedSize< ::dnb_msgs::StringMultiArray_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::dnb_msgs::StringMultiArray_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::dnb_msgs::StringMultiArray_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::dnb_msgs::StringMultiArray_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

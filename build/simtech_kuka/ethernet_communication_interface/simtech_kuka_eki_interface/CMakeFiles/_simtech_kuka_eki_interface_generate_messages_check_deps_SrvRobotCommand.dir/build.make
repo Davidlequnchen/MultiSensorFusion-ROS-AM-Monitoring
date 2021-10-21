@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/CMakeFiles/_simtech_kuka_eki_interface_generate_messages_check_deps_SrvRobotCommand.dir/progress.make
 
 simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/CMakeFiles/_simtech_kuka_eki_interface_generate_messages_check_deps_SrvRobotCommand:
-	cd /home/chenlequn/SIMTech_ws/build/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py simtech_kuka_eki_interface /home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/srv/SrvRobotCommand.srv 
+	cd /home/chenlequn/SIMTech_ws/build/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py simtech_kuka_eki_interface /home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/srv/SrvRobotCommand.srv 
 
 _simtech_kuka_eki_interface_generate_messages_check_deps_SrvRobotCommand: simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/CMakeFiles/_simtech_kuka_eki_interface_generate_messages_check_deps_SrvRobotCommand
 _simtech_kuka_eki_interface_generate_messages_check_deps_SrvRobotCommand: simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/CMakeFiles/_simtech_kuka_eki_interface_generate_messages_check_deps_SrvRobotCommand.dir/build.make

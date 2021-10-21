@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dnb_msgs_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/dnb_msgs/ComponentStatus.h"
   "/home/chenlequn/SIMTech_ws/devel/include/dnb_msgs/StringMultiArray.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/dnb_msgs/ComponentStatus.h"
   "/home/chenlequn/SIMTech_ws/devel/include/dnb_msgs/SetString.h"
 )
 

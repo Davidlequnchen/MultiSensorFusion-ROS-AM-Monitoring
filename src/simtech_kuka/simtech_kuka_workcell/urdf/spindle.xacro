@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot name="machining_spindle" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="spindle_head_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://simtech_kuka_workcell/meshes/spindle/visual/spindle.stl" scale = "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark_gray">
+        <!-- <color rgba="0.3 0.4 0.3 1"/> -->
+        <color rgba="${175/255} ${175/255} ${169/255} 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://simtech_kuka_workcell/meshes/spindle/collision/spindle.stl" scale = "0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="0 1 1 1" />
+      </material>
+    </collision>
+  </link>
+</robot>

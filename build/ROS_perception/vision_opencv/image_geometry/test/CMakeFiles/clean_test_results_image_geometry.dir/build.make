@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/clean_test_results_image_geometry.dir/progress.make
 
 ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/clean_test_results_image_geometry:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/vision_opencv/image_geometry/test && /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/image_geometry
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/vision_opencv/image_geometry/test && /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/chenlequn/SIMTech_ws/build/test_results/image_geometry
 
 clean_test_results_image_geometry: ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/clean_test_results_image_geometry
 clean_test_results_image_geometry: ROS_perception/vision_opencv/image_geometry/test/CMakeFiles/clean_test_results_image_geometry.dir/build.make

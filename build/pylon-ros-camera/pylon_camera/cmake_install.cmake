@@ -83,15 +83,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpylon_camera.so")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpylon_camera.so"
-         RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/lib")
+         RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib")
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/chenlequn/SIMTech_ws/devel/lib/libpylon_camera.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpylon_camera.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpylon_camera.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpylon_camera.so"
-         OLD_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/lib:"
-         NEW_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/lib")
+         OLD_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:"
+         NEW_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpylon_camera.so")
     endif()
@@ -103,15 +103,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pylon_camera/pylon_camera_node")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pylon_camera/pylon_camera_node"
-         RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/lib")
+         RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib")
   endif()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pylon_camera" TYPE EXECUTABLE FILES "/home/chenlequn/SIMTech_ws/devel/lib/pylon_camera/pylon_camera_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pylon_camera/pylon_camera_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pylon_camera/pylon_camera_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pylon_camera/pylon_camera_node"
-         OLD_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/lib:"
-         NEW_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:/usr/local/lib")
+         OLD_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib:"
+         NEW_RPATH "/opt/pylon/lib:/home/chenlequn/SIMTech_ws/devel/lib:/opt/ros/melodic/lib")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pylon_camera/pylon_camera_node")
     endif()

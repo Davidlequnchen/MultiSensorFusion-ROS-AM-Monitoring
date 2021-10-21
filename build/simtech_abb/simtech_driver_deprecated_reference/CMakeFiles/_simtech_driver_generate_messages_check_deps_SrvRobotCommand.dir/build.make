@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/_simtech_driver_generate_messages_check_deps_SrvRobotCommand.dir/progress.make
 
 simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/_simtech_driver_generate_messages_check_deps_SrvRobotCommand:
-	cd /home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_driver_deprecated_reference && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py simtech_driver /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_driver_deprecated_reference/srv/SrvRobotCommand.srv 
+	cd /home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_driver_deprecated_reference && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py simtech_driver /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_driver_deprecated_reference/srv/SrvRobotCommand.srv 
 
 _simtech_driver_generate_messages_check_deps_SrvRobotCommand: simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/_simtech_driver_generate_messages_check_deps_SrvRobotCommand
 _simtech_driver_generate_messages_check_deps_SrvRobotCommand: simtech_abb/simtech_driver_deprecated_reference/CMakeFiles/_simtech_driver_generate_messages_check_deps_SrvRobotCommand.dir/build.make

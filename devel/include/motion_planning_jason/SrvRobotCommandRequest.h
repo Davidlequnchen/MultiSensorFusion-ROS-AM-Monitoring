@@ -87,16 +87,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::motion_planning_jason::SrvRobotCommandRequest_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::motion_planning_jason::SrvRobotCommandRequest_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::motion_planning_jason::SrvRobotCommandRequest_<ContainerAllocator> >
   : FalseType
   { };
@@ -104,6 +94,16 @@ struct IsFixedSize< ::motion_planning_jason::SrvRobotCommandRequest_<ContainerAl
 template <class ContainerAllocator>
 struct IsFixedSize< ::motion_planning_jason::SrvRobotCommandRequest_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::motion_planning_jason::SrvRobotCommandRequest_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::motion_planning_jason::SrvRobotCommandRequest_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

@@ -93,22 +93,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::sound_play::SoundRequestFeedback_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::sound_play::SoundRequestFeedback_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::sound_play::SoundRequestFeedback_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::sound_play::SoundRequestFeedback_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::sound_play::SoundRequestFeedback_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::sound_play::SoundRequestFeedback_<ContainerAllocator> const>
   : TrueType
   { };
 

@@ -87,22 +87,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::scanning_robviz::MsgCommand_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::scanning_robviz::MsgCommand_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::scanning_robviz::MsgCommand_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::scanning_robviz::MsgCommand_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::scanning_robviz::MsgCommand_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::scanning_robviz::MsgCommand_<ContainerAllocator> const>
   : TrueType
   { };
 

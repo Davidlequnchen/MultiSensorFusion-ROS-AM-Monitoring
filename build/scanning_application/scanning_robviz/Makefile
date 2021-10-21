@@ -213,36 +213,6 @@ scanning_robviz_gennodejs/fast:
 .PHONY : scanning_robviz_gennodejs/fast
 
 # Convenience name for target.
-scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule
-.PHONY : scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule
-
-# Convenience name for target.
-scanning_robviz_generate_messages: scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule
-
-.PHONY : scanning_robviz_generate_messages
-
-# fast build rule for target.
-scanning_robviz_generate_messages/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/build.make scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/build
-.PHONY : scanning_robviz_generate_messages/fast
-
-# Convenience name for target.
-scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule
-.PHONY : scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule
-
-# Convenience name for target.
-_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan: scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule
-
-.PHONY : _scanning_robviz_generate_messages_check_deps_MsgPointCloudScan
-
-# fast build rule for target.
-_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/build.make scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/build
-.PHONY : _scanning_robviz_generate_messages_check_deps_MsgPointCloudScan/fast
-
-# Convenience name for target.
 scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgCommand.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgCommand.dir/rule
 .PHONY : scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgCommand.dir/rule
@@ -286,6 +256,36 @@ scanning_robviz_genpy: scanning_application/scanning_robviz/CMakeFiles/scanning_
 scanning_robviz_genpy/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_genpy.dir/build.make scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_genpy.dir/build
 .PHONY : scanning_robviz_genpy/fast
+
+# Convenience name for target.
+scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule
+.PHONY : scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule
+
+# Convenience name for target.
+scanning_robviz_generate_messages: scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/rule
+
+.PHONY : scanning_robviz_generate_messages
+
+# fast build rule for target.
+scanning_robviz_generate_messages/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/build.make scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_generate_messages.dir/build
+.PHONY : scanning_robviz_generate_messages/fast
+
+# Convenience name for target.
+scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule
+.PHONY : scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule
+
+# Convenience name for target.
+_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan: scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/rule
+
+.PHONY : _scanning_robviz_generate_messages_check_deps_MsgPointCloudScan
+
+# fast build rule for target.
+_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/build.make scanning_application/scanning_robviz/CMakeFiles/_scanning_robviz_generate_messages_check_deps_MsgPointCloudScan.dir/build
+.PHONY : _scanning_robviz_generate_messages_check_deps_MsgPointCloudScan/fast
 
 # Convenience name for target.
 scanning_application/scanning_robviz/CMakeFiles/scanning_robviz_geneus.dir/rule:
@@ -459,12 +459,12 @@ help:
 	@echo "... scanning_robviz_generate_messages_eus"
 	@echo "... scanning_robviz_gencpp"
 	@echo "... scanning_robviz_gennodejs"
-	@echo "... scanning_robviz_generate_messages"
-	@echo "... edit_cache"
-	@echo "... _scanning_robviz_generate_messages_check_deps_MsgPointCloudScan"
 	@echo "... _scanning_robviz_generate_messages_check_deps_MsgCommand"
 	@echo "... scanning_robviz_generate_messages_nodejs"
 	@echo "... scanning_robviz_genpy"
+	@echo "... scanning_robviz_generate_messages"
+	@echo "... edit_cache"
+	@echo "... _scanning_robviz_generate_messages_check_deps_MsgPointCloudScan"
 	@echo "... scanning_robviz_geneus"
 	@echo "... scanning_robviz_generate_messages_lisp"
 	@echo "... scanning_robviz_generate_messages_cpp"

@@ -94,16 +94,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::velocity_control::MsgSpeedOverride_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::velocity_control::MsgSpeedOverride_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::velocity_control::MsgSpeedOverride_<ContainerAllocator> >
   : FalseType
   { };
@@ -111,6 +101,16 @@ struct IsFixedSize< ::velocity_control::MsgSpeedOverride_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::velocity_control::MsgSpeedOverride_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::velocity_control::MsgSpeedOverride_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::velocity_control::MsgSpeedOverride_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

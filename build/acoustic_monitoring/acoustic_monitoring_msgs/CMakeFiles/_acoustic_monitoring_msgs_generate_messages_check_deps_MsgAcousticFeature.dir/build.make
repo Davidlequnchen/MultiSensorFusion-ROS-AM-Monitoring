@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include acoustic_monitoring/acoustic_monitoring_msgs/CMakeFiles/_acoustic_monitoring_msgs_generate_messages_check_deps_MsgAcousticFeature.dir/progress.make
 
 acoustic_monitoring/acoustic_monitoring_msgs/CMakeFiles/_acoustic_monitoring_msgs_generate_messages_check_deps_MsgAcousticFeature:
-	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_monitoring_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py acoustic_monitoring_msgs /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg std_msgs/Header
+	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_monitoring_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py acoustic_monitoring_msgs /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_monitoring_msgs/msg/MsgAcousticFeature.msg std_msgs/Header
 
 _acoustic_monitoring_msgs_generate_messages_check_deps_MsgAcousticFeature: acoustic_monitoring/acoustic_monitoring_msgs/CMakeFiles/_acoustic_monitoring_msgs_generate_messages_check_deps_MsgAcousticFeature
 _acoustic_monitoring_msgs_generate_messages_check_deps_MsgAcousticFeature: acoustic_monitoring/acoustic_monitoring_msgs/CMakeFiles/_acoustic_monitoring_msgs_generate_messages_check_deps_MsgAcousticFeature.dir/build.make

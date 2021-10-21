@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequest.dir/progress.make
 
 acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequest:
-	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py sound_play /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/msg/SoundRequest.msg 
+	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py sound_play /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/msg/SoundRequest.msg 
 
 _sound_play_generate_messages_check_deps_SoundRequest: acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequest
 _sound_play_generate_messages_check_deps_SoundRequest: acoustic_monitoring/audio_common/sound_play/CMakeFiles/_sound_play_generate_messages_check_deps_SoundRequest.dir/build.make

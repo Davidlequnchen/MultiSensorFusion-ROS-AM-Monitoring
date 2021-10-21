@@ -58,7 +58,7 @@ acoustic_monitoring/acoustic_feature_extraction/CMakeFiles/acoustic_feature_extr
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp manifest code for acoustic_feature_extraction"
-	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction acoustic_feature_extraction std_msgs
+	cd /home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction acoustic_feature_extraction std_msgs
 
 acoustic_feature_extraction_generate_messages_eus: acoustic_monitoring/acoustic_feature_extraction/CMakeFiles/acoustic_feature_extraction_generate_messages_eus
 acoustic_feature_extraction_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction/manifest.l

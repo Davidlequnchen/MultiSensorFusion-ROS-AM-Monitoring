@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule
+.PHONY : scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule
+
+# Convenience name for target.
+point_cloud_analysis_generate_messages: scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule
+
+.PHONY : point_cloud_analysis_generate_messages
+
+# fast build rule for target.
+point_cloud_analysis_generate_messages/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/build.make scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/build
+.PHONY : point_cloud_analysis_generate_messages/fast
+
+# Convenience name for target.
 scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_cpp.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_cpp.dir/rule
 .PHONY : scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_cpp.dir/rule
@@ -211,21 +226,6 @@ point_cloud_analysis_generate_messages_py: scanning_application/point_cloud_anal
 point_cloud_analysis_generate_messages_py/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_py.dir/build.make scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_py.dir/build
 .PHONY : point_cloud_analysis_generate_messages_py/fast
-
-# Convenience name for target.
-scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule
-.PHONY : scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule
-
-# Convenience name for target.
-point_cloud_analysis_generate_messages: scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/rule
-
-.PHONY : point_cloud_analysis_generate_messages
-
-# fast build rule for target.
-point_cloud_analysis_generate_messages/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/build.make scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages.dir/build
-.PHONY : point_cloud_analysis_generate_messages/fast
 
 # Convenience name for target.
 scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgHeightMonitoring.dir/rule:
@@ -288,21 +288,6 @@ point_cloud_analysis_genlisp/fast:
 .PHONY : point_cloud_analysis_genlisp/fast
 
 # Convenience name for target.
-scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule
-.PHONY : scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-point_cloud_analysis_generate_messages_eus: scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule
-
-.PHONY : point_cloud_analysis_generate_messages_eus
-
-# fast build rule for target.
-point_cloud_analysis_generate_messages_eus/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/build.make scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/build
-.PHONY : point_cloud_analysis_generate_messages_eus/fast
-
-# Convenience name for target.
 scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan.dir/rule
 .PHONY : scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan.dir/rule
@@ -316,6 +301,21 @@ _point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan: scanning_a
 _point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan.dir/build.make scanning_application/point_cloud_analysis/CMakeFiles/_point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan.dir/build
 .PHONY : _point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan/fast
+
+# Convenience name for target.
+scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule
+.PHONY : scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+point_cloud_analysis_generate_messages_eus: scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/rule
+
+.PHONY : point_cloud_analysis_generate_messages_eus
+
+# fast build rule for target.
+point_cloud_analysis_generate_messages_eus/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/build.make scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_eus.dir/build
+.PHONY : point_cloud_analysis_generate_messages_eus/fast
 
 # Convenience name for target.
 scanning_application/point_cloud_analysis/CMakeFiles/point_cloud_analysis_generate_messages_nodejs.dir/rule:
@@ -456,18 +456,18 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... point_cloud_analysis_generate_messages"
 	@echo "... point_cloud_analysis_generate_messages_cpp"
 	@echo "... point_cloud_analysis_generate_messages_lisp"
 	@echo "... point_cloud_analysis_generate_messages_py"
-	@echo "... point_cloud_analysis_generate_messages"
 	@echo "... install/local"
 	@echo "... _point_cloud_analysis_generate_messages_check_deps_MsgHeightMonitoring"
 	@echo "... nd_point_cloud_analysis"
 	@echo "... point_cloud_analysis_geneus"
 	@echo "... point_cloud_analysis_genlisp"
 	@echo "... edit_cache"
-	@echo "... point_cloud_analysis_generate_messages_eus"
 	@echo "... _point_cloud_analysis_generate_messages_check_deps_MsgPointCloudScan"
+	@echo "... point_cloud_analysis_generate_messages_eus"
 	@echo "... point_cloud_analysis_generate_messages_nodejs"
 	@echo "... test_publish_height"
 	@echo "... point_cloud_analysis_gencpp"

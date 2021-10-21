@@ -87,16 +87,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::simtech_robot_laser_control::SrvRobotCommandRequest_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::simtech_robot_laser_control::SrvRobotCommandRequest_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::simtech_robot_laser_control::SrvRobotCommandRequest_<ContainerAllocator> >
   : FalseType
   { };
@@ -104,6 +94,16 @@ struct IsFixedSize< ::simtech_robot_laser_control::SrvRobotCommandRequest_<Conta
 template <class ContainerAllocator>
 struct IsFixedSize< ::simtech_robot_laser_control::SrvRobotCommandRequest_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::simtech_robot_laser_control::SrvRobotCommandRequest_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::simtech_robot_laser_control::SrvRobotCommandRequest_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>

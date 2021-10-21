@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_Vertices.dir/progress.make
 
 ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_Vertices:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py pcl_msgs /home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/Vertices.msg 
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py pcl_msgs /home/chenlequn/SIMTech_ws/src/ROS_perception/pcl_msgs/msg/Vertices.msg 
 
 _pcl_msgs_generate_messages_check_deps_Vertices: ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_Vertices
 _pcl_msgs_generate_messages_check_deps_Vertices: ROS_perception/pcl_msgs/CMakeFiles/_pcl_msgs_generate_messages_check_deps_Vertices.dir/build.make

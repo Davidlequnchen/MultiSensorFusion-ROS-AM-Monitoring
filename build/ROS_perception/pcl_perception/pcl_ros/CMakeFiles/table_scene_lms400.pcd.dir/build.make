@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 include ROS_perception/pcl_perception/pcl_ros/CMakeFiles/table_scene_lms400.pcd.dir/progress.make
 
 ROS_perception/pcl_perception/pcl_ros/CMakeFiles/table_scene_lms400.pcd:
-	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_ros && /usr/bin/python3 /opt/ros/melodic/share/catkin/cmake/test/download_checkmd5.py http://download.ros.org/data/pcl/table_scene_lms400.pcd /home/chenlequn/SIMTech_ws/devel/share/pcl_ros/samples/data/table_scene_lms400.pcd 546b5b4822fb1de21b0cf83d41ad6683 --ignore-error
+	cd /home/chenlequn/SIMTech_ws/build/ROS_perception/pcl_perception/pcl_ros && /usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/download_checkmd5.py http://download.ros.org/data/pcl/table_scene_lms400.pcd /home/chenlequn/SIMTech_ws/devel/share/pcl_ros/samples/data/table_scene_lms400.pcd 546b5b4822fb1de21b0cf83d41ad6683 --ignore-error
 
 table_scene_lms400.pcd: ROS_perception/pcl_perception/pcl_ros/CMakeFiles/table_scene_lms400.pcd
 table_scene_lms400.pcd: ROS_perception/pcl_perception/pcl_ros/CMakeFiles/table_scene_lms400.pcd.dir/build.make

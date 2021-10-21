@@ -102,16 +102,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::GrabAndSaveImageActionFeedback_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsMessage< ::camera_control_msgs::GrabAndSaveImageActionFeedback_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::GrabAndSaveImageActionFeedback_<ContainerAllocator> >
   : FalseType
   { };
@@ -119,6 +109,16 @@ struct IsFixedSize< ::camera_control_msgs::GrabAndSaveImageActionFeedback_<Conta
 template <class ContainerAllocator>
 struct IsFixedSize< ::camera_control_msgs::GrabAndSaveImageActionFeedback_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::GrabAndSaveImageActionFeedback_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::camera_control_msgs::GrabAndSaveImageActionFeedback_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>
