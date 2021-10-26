@@ -23,7 +23,10 @@
       required="true"/>
 
     <!-- Load robot state publisher -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="kuka_robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+        <param name="publish_frequency" value="100" />
+        <!-- <param name="rate" value="100" /> -->
+    </node>
 
     <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find industrial_robot_client)/config/robot_state_visualize.rviz" required="true" /> -->
 </launch>

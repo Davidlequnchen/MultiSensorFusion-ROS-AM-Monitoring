@@ -56,7 +56,7 @@ class NdVelocity():
                 "/tcp0", "/world", stamp)
 
             linear_velocity, angular_velocity = self.listener.lookupTwist(
-                "/tcp0", "/world", stamp, rospy.Duration(0.033))
+                "/tcp0", "/world", stamp, rospy.Duration(0.01))
             
             # publishing the twist (linear velocity)
             self.twist_speed = np.sqrt(linear_velocity[0] * linear_velocity[0] 

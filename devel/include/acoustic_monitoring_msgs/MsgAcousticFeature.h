@@ -29,20 +29,24 @@ struct MsgAcousticFeature_
     , rms_energy(0.0)
     , amplitude_envelope(0.0)
     , zero_crossing_rate(0.0)
-    , mfccs_mean(0.0)
-    , mfccs_variance(0.0)
-    , spectral_centroids(0.0)
-    , spectral_rolloff(0.0)  {
+    , mel_spectrogram()
+    , mfccs()
+    , ber()
+    , spectral_centroids()
+    , spectral_rolloff()
+    , spectral_bandwidth()  {
     }
   MsgAcousticFeature_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , rms_energy(0.0)
     , amplitude_envelope(0.0)
     , zero_crossing_rate(0.0)
-    , mfccs_mean(0.0)
-    , mfccs_variance(0.0)
-    , spectral_centroids(0.0)
-    , spectral_rolloff(0.0)  {
+    , mel_spectrogram(_alloc)
+    , mfccs(_alloc)
+    , ber(_alloc)
+    , spectral_centroids(_alloc)
+    , spectral_rolloff(_alloc)
+    , spectral_bandwidth(_alloc)  {
   (void)_alloc;
     }
 
@@ -60,17 +64,23 @@ struct MsgAcousticFeature_
    typedef float _zero_crossing_rate_type;
   _zero_crossing_rate_type zero_crossing_rate;
 
-   typedef float _mfccs_mean_type;
-  _mfccs_mean_type mfccs_mean;
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _mel_spectrogram_type;
+  _mel_spectrogram_type mel_spectrogram;
 
-   typedef float _mfccs_variance_type;
-  _mfccs_variance_type mfccs_variance;
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _mfccs_type;
+  _mfccs_type mfccs;
 
-   typedef float _spectral_centroids_type;
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _ber_type;
+  _ber_type ber;
+
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _spectral_centroids_type;
   _spectral_centroids_type spectral_centroids;
 
-   typedef float _spectral_rolloff_type;
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _spectral_rolloff_type;
   _spectral_rolloff_type spectral_rolloff;
+
+   typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _spectral_bandwidth_type;
+  _spectral_bandwidth_type spectral_bandwidth;
 
 
 
@@ -105,10 +115,12 @@ bool operator==(const ::acoustic_monitoring_msgs::MsgAcousticFeature_<ContainerA
     lhs.rms_energy == rhs.rms_energy &&
     lhs.amplitude_envelope == rhs.amplitude_envelope &&
     lhs.zero_crossing_rate == rhs.zero_crossing_rate &&
-    lhs.mfccs_mean == rhs.mfccs_mean &&
-    lhs.mfccs_variance == rhs.mfccs_variance &&
+    lhs.mel_spectrogram == rhs.mel_spectrogram &&
+    lhs.mfccs == rhs.mfccs &&
+    lhs.ber == rhs.ber &&
     lhs.spectral_centroids == rhs.spectral_centroids &&
-    lhs.spectral_rolloff == rhs.spectral_rolloff;
+    lhs.spectral_rolloff == rhs.spectral_rolloff &&
+    lhs.spectral_bandwidth == rhs.spectral_bandwidth;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -165,12 +177,12 @@ struct MD5Sum< ::acoustic_monitoring_msgs::MsgAcousticFeature_<ContainerAllocato
 {
   static const char* value()
   {
-    return "c14a16b80445b9cad4c6f29ce8f94aa6";
+    return "4b576cc1badb7a08f91e1c17437e04f1";
   }
 
   static const char* value(const ::acoustic_monitoring_msgs::MsgAcousticFeature_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xc14a16b80445b9caULL;
-  static const uint64_t static_value2 = 0xd4c6f29ce8f94aa6ULL;
+  static const uint64_t static_value1 = 0x4b576cc1badb7a08ULL;
+  static const uint64_t static_value2 = 0xf91e1c17437e04f1ULL;
 };
 
 template<class ContainerAllocator>
@@ -195,12 +207,12 @@ struct Definition< ::acoustic_monitoring_msgs::MsgAcousticFeature_<ContainerAllo
 "float32 amplitude_envelope\n"
 "float32 zero_crossing_rate\n"
 "# frequency-domain features\n"
-"# float32 mfccs\n"
-"float32 mfccs_mean\n"
-"float32 mfccs_variance\n"
-"float32 spectral_centroids\n"
-"float32 spectral_rolloff\n"
-"\n"
+"float32[] mel_spectrogram\n"
+"float32[] mfccs\n"
+"float32[] ber\n"
+"float32[] spectral_centroids\n"
+"float32[] spectral_rolloff\n"
+"float32[] spectral_bandwidth\n"
 "\n"
 "# spectral_centroid computes the \"average\" frequency at each frame, where frequencies are weighted relatively by their energy.\n"
 "# spectral_bandwidth similar to centroid, but for variance (or other moments).\n"
@@ -244,10 +256,12 @@ namespace serialization
       stream.next(m.rms_energy);
       stream.next(m.amplitude_envelope);
       stream.next(m.zero_crossing_rate);
-      stream.next(m.mfccs_mean);
-      stream.next(m.mfccs_variance);
+      stream.next(m.mel_spectrogram);
+      stream.next(m.mfccs);
+      stream.next(m.ber);
       stream.next(m.spectral_centroids);
       stream.next(m.spectral_rolloff);
+      stream.next(m.spectral_bandwidth);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -275,14 +289,42 @@ struct Printer< ::acoustic_monitoring_msgs::MsgAcousticFeature_<ContainerAllocat
     Printer<float>::stream(s, indent + "  ", v.amplitude_envelope);
     s << indent << "zero_crossing_rate: ";
     Printer<float>::stream(s, indent + "  ", v.zero_crossing_rate);
-    s << indent << "mfccs_mean: ";
-    Printer<float>::stream(s, indent + "  ", v.mfccs_mean);
-    s << indent << "mfccs_variance: ";
-    Printer<float>::stream(s, indent + "  ", v.mfccs_variance);
-    s << indent << "spectral_centroids: ";
-    Printer<float>::stream(s, indent + "  ", v.spectral_centroids);
-    s << indent << "spectral_rolloff: ";
-    Printer<float>::stream(s, indent + "  ", v.spectral_rolloff);
+    s << indent << "mel_spectrogram[]" << std::endl;
+    for (size_t i = 0; i < v.mel_spectrogram.size(); ++i)
+    {
+      s << indent << "  mel_spectrogram[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.mel_spectrogram[i]);
+    }
+    s << indent << "mfccs[]" << std::endl;
+    for (size_t i = 0; i < v.mfccs.size(); ++i)
+    {
+      s << indent << "  mfccs[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.mfccs[i]);
+    }
+    s << indent << "ber[]" << std::endl;
+    for (size_t i = 0; i < v.ber.size(); ++i)
+    {
+      s << indent << "  ber[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.ber[i]);
+    }
+    s << indent << "spectral_centroids[]" << std::endl;
+    for (size_t i = 0; i < v.spectral_centroids.size(); ++i)
+    {
+      s << indent << "  spectral_centroids[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.spectral_centroids[i]);
+    }
+    s << indent << "spectral_rolloff[]" << std::endl;
+    for (size_t i = 0; i < v.spectral_rolloff.size(); ++i)
+    {
+      s << indent << "  spectral_rolloff[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.spectral_rolloff[i]);
+    }
+    s << indent << "spectral_bandwidth[]" << std::endl;
+    for (size_t i = 0; i < v.spectral_bandwidth.size(); ++i)
+    {
+      s << indent << "  spectral_bandwidth[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.spectral_bandwidth[i]);
+    }
   }
 };
 

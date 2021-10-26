@@ -289,7 +289,7 @@ int main(int argc, char** argv)
 
   NdKukaRobotInterface nd_kuka_robot_interface;
 
-  ros::AsyncSpinner spinner(2);
+  ros::AsyncSpinner spinner(8);
   spinner.start();
 
 

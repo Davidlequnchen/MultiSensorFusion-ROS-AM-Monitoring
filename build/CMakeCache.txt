@@ -68,12 +68,6 @@ Boost_LIBRARY_DIR_DEBUG:PATH=/usr/lib/x86_64-linux-gnu
 //Boost library directory RELEASE
 Boost_LIBRARY_DIR_RELEASE:PATH=/usr/lib/x86_64-linux-gnu
 
-//Boost python3 library (debug)
-Boost_PYTHON3_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libboost_python3.so
-
-//Boost python3 library (release)
-Boost_PYTHON3_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libboost_python3.so
-
 //Boost python library (debug)
 Boost_PYTHON_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libboost_python.so
 
@@ -1174,15 +1168,6 @@ simtech_kuka_eki_interface_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libco
 simtech_kuka_eki_interface_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface
 
 //Value Computed by CMake
-simtech_kuka_eki_interface_machining_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_machining
-
-//Dependencies for the target
-simtech_kuka_eki_interface_machining_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libcontroller_manager.so;general;/opt/ros/melodic/lib/liburdf.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/librosconsole_bridge.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;
-
-//Value Computed by CMake
-simtech_kuka_eki_interface_machining_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_machining
-
-//Value Computed by CMake
 simtech_kuka_eki_interface_tcp_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp
 
 //Dependencies for the target
@@ -1363,10 +1348,6 @@ Boost_IOSTREAMS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 Boost_LIBRARY_DIR_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_LIBRARY_DIR_RELEASE
 Boost_LIBRARY_DIR_RELEASE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_PYTHON3_LIBRARY_DEBUG
-Boost_PYTHON3_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_PYTHON3_LIBRARY_RELEASE
-Boost_PYTHON3_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_PYTHON_LIBRARY_DEBUG
 Boost_PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_PYTHON_LIBRARY_RELEASE
@@ -1978,7 +1959,7 @@ TinyXML_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: TinyXML_LIBRARY
 TinyXML_LIBRARY-ADVANCED:INTERNAL=1
 //Components requested for this build tree.
-_Boost_COMPONENTS_SEARCHED:INTERNAL=atomic;chrono;date_time;filesystem;iostreams;python;python3;regex;serialization;system;thread
+_Boost_COMPONENTS_SEARCHED:INTERNAL=atomic;chrono;date_time;filesystem;iostreams;python;regex;serialization;system;thread
 //Last used Boost_INCLUDE_DIR value.
 _Boost_INCLUDE_DIR_LAST:INTERNAL=/usr/include
 //Last used Boost_LIBRARY_DIR_DEBUG value.

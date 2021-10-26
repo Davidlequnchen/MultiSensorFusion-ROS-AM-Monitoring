@@ -1,2 +1,0 @@
-set(simtech_kuka_eki_interface_machining_MESSAGE_FILES "")
-set(simtech_kuka_eki_interface_machining_SERVICE_FILES "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_machining/srv/SrvRobotCommand.srv")

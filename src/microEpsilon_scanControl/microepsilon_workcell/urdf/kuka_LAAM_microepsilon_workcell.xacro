@@ -2,7 +2,7 @@
 <robot name="microepsilon_workcell" xmlns:xacro="http://ros.org/wiki/xacro">
   
   <!-- Robot cell with working head and camera-->
-  <xacro:include filename="$(find simtech_kuka_workcell)/urdf/kuka_laam_workcell.xacro"/>
+  <xacro:include filename="$(find simtech_kuka_workcell)/urdf/LAAM_workcell.xacro"/>
   <joint name="simtech_kuka_workcell" type="fixed">
     <parent link="world"/>
     <child link="base_link"/>

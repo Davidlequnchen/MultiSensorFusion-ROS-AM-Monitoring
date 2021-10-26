@@ -8,11 +8,15 @@
 
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="kuka_robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+    <!-- <param name="publish_frequency" value="100" /> -->
+    <!-- <param name="rate" value="100" /> -->
+  </node>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
     <param name="use_gui" value="true"/>
+    <param name="rate" value="50"/>
   </node>
 
-  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_kuka_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_kuka_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
 </launch>

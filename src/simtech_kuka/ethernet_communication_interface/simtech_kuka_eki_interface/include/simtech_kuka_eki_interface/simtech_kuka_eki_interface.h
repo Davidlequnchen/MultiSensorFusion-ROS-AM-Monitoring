@@ -52,7 +52,7 @@ private:
   // hardware_interface::PositionJointInterface position_joint_interface_;
 
   // EKI socket read/write
-  int eki_read_state_timeout_ = 10;  // [s]; settable by parameter (default = 5)
+  int eki_read_state_timeout_ = 5;  // [s]; settable by parameter (default = 5)
   boost::asio::io_service ios_;
   boost::asio::deadline_timer deadline_;
   boost::asio::ip::udp::endpoint eki_server_endpoint_;
@@ -62,7 +62,8 @@ private:
                                  boost::system::error_code* out_ec, size_t* out_length);
   // bool eki_read_state(std::vector<double> &joint_position, std::vector<double> &joint_velocity,
   //                     std::vector<double> &joint_effort, int &cmd_buff_len);
-    bool eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len, int &routine);
+  bool eki_read_state(std::vector<double> &joint_position, std::vector<double> &joint_velocity,
+                      int &cmd_buff_len, int &routine);
   // bool eki_write_command(const std::vector<double> &joint_position, const float &temperature);
   
 

@@ -7,12 +7,16 @@
           AMPLITUDE_ENVELOPE
           ZERO_CROSSING_RATE-VAL
           ZERO_CROSSING_RATE
-          MFCCS_MEAN-VAL
-          MFCCS_MEAN
-          MFCCS_VARIANCE-VAL
-          MFCCS_VARIANCE
+          MEL_SPECTROGRAM-VAL
+          MEL_SPECTROGRAM
+          MFCCS-VAL
+          MFCCS
+          BER-VAL
+          BER
           SPECTRAL_CENTROIDS-VAL
           SPECTRAL_CENTROIDS
           SPECTRAL_ROLLOFF-VAL
           SPECTRAL_ROLLOFF
+          SPECTRAL_BANDWIDTH-VAL
+          SPECTRAL_BANDWIDTH
 ))

@@ -23,10 +23,12 @@ class MsgAcousticFeature {
       this.rms_energy = null;
       this.amplitude_envelope = null;
       this.zero_crossing_rate = null;
-      this.mfccs_mean = null;
-      this.mfccs_variance = null;
+      this.mel_spectrogram = null;
+      this.mfccs = null;
+      this.ber = null;
       this.spectral_centroids = null;
       this.spectral_rolloff = null;
+      this.spectral_bandwidth = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -53,29 +55,41 @@ class MsgAcousticFeature {
       else {
         this.zero_crossing_rate = 0.0;
       }
-      if (initObj.hasOwnProperty('mfccs_mean')) {
-        this.mfccs_mean = initObj.mfccs_mean
+      if (initObj.hasOwnProperty('mel_spectrogram')) {
+        this.mel_spectrogram = initObj.mel_spectrogram
       }
       else {
-        this.mfccs_mean = 0.0;
+        this.mel_spectrogram = [];
       }
-      if (initObj.hasOwnProperty('mfccs_variance')) {
-        this.mfccs_variance = initObj.mfccs_variance
+      if (initObj.hasOwnProperty('mfccs')) {
+        this.mfccs = initObj.mfccs
       }
       else {
-        this.mfccs_variance = 0.0;
+        this.mfccs = [];
+      }
+      if (initObj.hasOwnProperty('ber')) {
+        this.ber = initObj.ber
+      }
+      else {
+        this.ber = [];
       }
       if (initObj.hasOwnProperty('spectral_centroids')) {
         this.spectral_centroids = initObj.spectral_centroids
       }
       else {
-        this.spectral_centroids = 0.0;
+        this.spectral_centroids = [];
       }
       if (initObj.hasOwnProperty('spectral_rolloff')) {
         this.spectral_rolloff = initObj.spectral_rolloff
       }
       else {
-        this.spectral_rolloff = 0.0;
+        this.spectral_rolloff = [];
+      }
+      if (initObj.hasOwnProperty('spectral_bandwidth')) {
+        this.spectral_bandwidth = initObj.spectral_bandwidth
+      }
+      else {
+        this.spectral_bandwidth = [];
       }
     }
   }
@@ -90,14 +104,18 @@ class MsgAcousticFeature {
     bufferOffset = _serializer.float32(obj.amplitude_envelope, buffer, bufferOffset);
     // Serialize message field [zero_crossing_rate]
     bufferOffset = _serializer.float32(obj.zero_crossing_rate, buffer, bufferOffset);
-    // Serialize message field [mfccs_mean]
-    bufferOffset = _serializer.float32(obj.mfccs_mean, buffer, bufferOffset);
-    // Serialize message field [mfccs_variance]
-    bufferOffset = _serializer.float32(obj.mfccs_variance, buffer, bufferOffset);
+    // Serialize message field [mel_spectrogram]
+    bufferOffset = _arraySerializer.float32(obj.mel_spectrogram, buffer, bufferOffset, null);
+    // Serialize message field [mfccs]
+    bufferOffset = _arraySerializer.float32(obj.mfccs, buffer, bufferOffset, null);
+    // Serialize message field [ber]
+    bufferOffset = _arraySerializer.float32(obj.ber, buffer, bufferOffset, null);
     // Serialize message field [spectral_centroids]
-    bufferOffset = _serializer.float32(obj.spectral_centroids, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float32(obj.spectral_centroids, buffer, bufferOffset, null);
     // Serialize message field [spectral_rolloff]
-    bufferOffset = _serializer.float32(obj.spectral_rolloff, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float32(obj.spectral_rolloff, buffer, bufferOffset, null);
+    // Serialize message field [spectral_bandwidth]
+    bufferOffset = _arraySerializer.float32(obj.spectral_bandwidth, buffer, bufferOffset, null);
     return bufferOffset;
   }
 
@@ -113,21 +131,31 @@ class MsgAcousticFeature {
     data.amplitude_envelope = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [zero_crossing_rate]
     data.zero_crossing_rate = _deserializer.float32(buffer, bufferOffset);
-    // Deserialize message field [mfccs_mean]
-    data.mfccs_mean = _deserializer.float32(buffer, bufferOffset);
-    // Deserialize message field [mfccs_variance]
-    data.mfccs_variance = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [mel_spectrogram]
+    data.mel_spectrogram = _arrayDeserializer.float32(buffer, bufferOffset, null)
+    // Deserialize message field [mfccs]
+    data.mfccs = _arrayDeserializer.float32(buffer, bufferOffset, null)
+    // Deserialize message field [ber]
+    data.ber = _arrayDeserializer.float32(buffer, bufferOffset, null)
     // Deserialize message field [spectral_centroids]
-    data.spectral_centroids = _deserializer.float32(buffer, bufferOffset);
+    data.spectral_centroids = _arrayDeserializer.float32(buffer, bufferOffset, null)
     // Deserialize message field [spectral_rolloff]
-    data.spectral_rolloff = _deserializer.float32(buffer, bufferOffset);
+    data.spectral_rolloff = _arrayDeserializer.float32(buffer, bufferOffset, null)
+    // Deserialize message field [spectral_bandwidth]
+    data.spectral_bandwidth = _arrayDeserializer.float32(buffer, bufferOffset, null)
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 28;
+    length += 4 * object.mel_spectrogram.length;
+    length += 4 * object.mfccs.length;
+    length += 4 * object.ber.length;
+    length += 4 * object.spectral_centroids.length;
+    length += 4 * object.spectral_rolloff.length;
+    length += 4 * object.spectral_bandwidth.length;
+    return length + 36;
   }
 
   static datatype() {
@@ -137,7 +165,7 @@ class MsgAcousticFeature {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'c14a16b80445b9cad4c6f29ce8f94aa6';
+    return '4b576cc1badb7a08f91e1c17437e04f1';
   }
 
   static messageDefinition() {
@@ -149,12 +177,12 @@ class MsgAcousticFeature {
     float32 amplitude_envelope
     float32 zero_crossing_rate
     # frequency-domain features
-    # float32 mfccs
-    float32 mfccs_mean
-    float32 mfccs_variance
-    float32 spectral_centroids
-    float32 spectral_rolloff
-    
+    float32[] mel_spectrogram
+    float32[] mfccs
+    float32[] ber
+    float32[] spectral_centroids
+    float32[] spectral_rolloff
+    float32[] spectral_bandwidth
     
     # spectral_centroid computes the "average" frequency at each frame, where frequencies are weighted relatively by their energy.
     # spectral_bandwidth similar to centroid, but for variance (or other moments).
@@ -214,32 +242,46 @@ class MsgAcousticFeature {
       resolved.zero_crossing_rate = 0.0
     }
 
-    if (msg.mfccs_mean !== undefined) {
-      resolved.mfccs_mean = msg.mfccs_mean;
+    if (msg.mel_spectrogram !== undefined) {
+      resolved.mel_spectrogram = msg.mel_spectrogram;
     }
     else {
-      resolved.mfccs_mean = 0.0
+      resolved.mel_spectrogram = []
     }
 
-    if (msg.mfccs_variance !== undefined) {
-      resolved.mfccs_variance = msg.mfccs_variance;
+    if (msg.mfccs !== undefined) {
+      resolved.mfccs = msg.mfccs;
     }
     else {
-      resolved.mfccs_variance = 0.0
+      resolved.mfccs = []
+    }
+
+    if (msg.ber !== undefined) {
+      resolved.ber = msg.ber;
+    }
+    else {
+      resolved.ber = []
     }
 
     if (msg.spectral_centroids !== undefined) {
       resolved.spectral_centroids = msg.spectral_centroids;
     }
     else {
-      resolved.spectral_centroids = 0.0
+      resolved.spectral_centroids = []
     }
 
     if (msg.spectral_rolloff !== undefined) {
       resolved.spectral_rolloff = msg.spectral_rolloff;
     }
     else {
-      resolved.spectral_rolloff = 0.0
+      resolved.spectral_rolloff = []
+    }
+
+    if (msg.spectral_bandwidth !== undefined) {
+      resolved.spectral_bandwidth = msg.spectral_bandwidth;
+    }
+    else {
+      resolved.spectral_bandwidth = []
     }
 
     return resolved;

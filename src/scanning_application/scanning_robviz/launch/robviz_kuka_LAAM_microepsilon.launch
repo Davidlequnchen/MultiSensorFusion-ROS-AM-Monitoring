@@ -19,7 +19,7 @@
     <!-- the subprocess handler makes everything very slow -->
     <!-- <node name="pcl_subprocessing" pkg="scanning_robviz" type="nd_subprocess_handler" respawn="true" /> -->
 
-    <include file="$(find camera_measures)/launch/velocity_measures.launch">
+    <include file="$(find camera_measures)/launch/velocity_measures_kuka.launch">
     <arg name="gui" value="$(arg gui)" />
     </include>
 

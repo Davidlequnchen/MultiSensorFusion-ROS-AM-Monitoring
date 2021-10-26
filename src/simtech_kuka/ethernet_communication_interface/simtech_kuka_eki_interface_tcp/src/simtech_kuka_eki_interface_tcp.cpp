@@ -51,7 +51,7 @@ void KukaEkiHardwareInterface::eki_handle_receive(const boost::system::error_cod
 
 bool KukaEkiHardwareInterface::eki_read_state(std::vector<double> &joint_position, int &cmd_buff_len, int &routine)
 {
-  static boost::array<char, 2048> in_buffer;
+  static boost::array<char, 4096> in_buffer;
 
   // Read socket buffer (with timeout)
   // Based off of Boost documentation example: doc/html/boost_asio/example/timeouts/blocking_udp_client.cpp

@@ -18,22 +18,22 @@ class NdVelocity():
         
         self.position_pub = rospy.Publisher(
             '/position', MsgPosition, queue_size=10)
- 
-        self.twist_pub = rospy.Publisher(
-            '/twist', MsgTwist, queue_size=10)
-        
+
         self.acceleration_pub = rospy.Publisher(
             '/acceleration', MsgAcceleration, queue_size=10)
+ 
+        # self.twist_pub = rospy.Publisher(
+        #     '/twist', MsgTwist, queue_size=10)
         
-        self.twist_acceleration_pub = rospy.Publisher(
-            '/twist_acceleration', MsgAcceleration, queue_size=10)
+        # self.twist_acceleration_pub = rospy.Publisher(
+        #     '/twist_acceleration', MsgAcceleration, queue_size=10)
 
         self.velocity = Velocity()
         self.msg_velocity = MsgVelocity()
         self.msg_position = MsgPosition()
         self.msg_acceleration = MsgAcceleration()
-        self.msg_twist_acceleration = MsgAcceleration()
-        self.msg_twist = MsgTwist()
+        # self.msg_twist_acceleration = MsgAcceleration()
+        # self.msg_twist = MsgTwist()
         self.listener = tf.TransformListener()
         
         self.twist_speed = 0
@@ -42,7 +42,7 @@ class NdVelocity():
         self.twist_speed_list = []
         self.averaged_twist_speed = 0
 
-        r = rospy.Rate(30)
+        r = rospy.Rate(50)
         while not rospy.is_shutdown():
             self.pub_velocity()
             r.sleep()
@@ -55,6 +55,7 @@ class NdVelocity():
             position, quaternion = self.listener.lookupTransform(
                 "/tool0", "/world", stamp)
 
+            '''
             linear_velocity, angular_velocity = self.listener.lookupTwist(
                 "/tool0", "/world", stamp, rospy.Duration(0.033))
             
@@ -72,6 +73,7 @@ class NdVelocity():
             self.twist_pub.publish(self.msg_twist)
             
             
+            
             # calculate the acceleration calculated by twist change
             # twist_acceleration = self.velocity.twist_acceleration(
             #     stamp.to_sec(), self.twist_speed)
@@ -82,7 +84,7 @@ class NdVelocity():
             self.acceleration_moving_average(twist_acceleration)
             self.msg_twist_acceleration.acceleration_averaged = self.averaged_twist_acceleration
             self.twist_acceleration_pub.publish (self.msg_twist_acceleration)
-
+            '''
 
             #position[0] = self.velocity.truncate(position[0], 2)
             #position[1] = self.velocity.truncate(position[1], 2)

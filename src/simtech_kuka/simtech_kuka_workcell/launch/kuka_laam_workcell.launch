@@ -12,7 +12,7 @@
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
 
   <!-- Kuka robot ethernet udp interface (get joint state and send commands) -->
-  <include file="$(find simtech_kuka_eki_interface)/launch/simtech_kuka_eki_interface.launch" unless="$(arg sim)">
+  <include file="$(find simtech_kuka_eki_interface_tcp)/launch/simtech_kuka_eki_interface_tcp.launch" unless="$(arg sim)">
     <arg name="model" value="$(arg model)" />
   </include>
 

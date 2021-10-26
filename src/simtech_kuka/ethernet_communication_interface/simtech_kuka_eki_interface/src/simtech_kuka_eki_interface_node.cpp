@@ -223,6 +223,7 @@ class NdKukaRobotInterface {
         void tempCallBack(const std_msgs::Float64 &temp)
         {
           this->temperature = temp.data;
+          // this->robot_state_refresh();
         }
 
 
@@ -250,6 +251,8 @@ class NdKukaRobotInterface {
             } catch (...){
                 res.response = "NOK";
             }
+
+            // ros::Duration().sleep();
 
             return true;
         }
@@ -290,14 +293,25 @@ int main(int argc, char** argv)
 
   NdKukaRobotInterface nd_kuka_robot_interface;
 
-  ros::AsyncSpinner spinner(2);
+  //Sets the loop to publish at a rate of 90Hz
+  // ros::Rate rate(100);
+
+  ros::AsyncSpinner spinner(6);
   spinner.start();
+
+  // ros::MultiThreadedSpinner spinner(8); // 8 = 4 per controller
+  // spinner.spin();
 
 
   while (ros::ok())
   {
     nd_kuka_robot_interface.robot_state_refresh();
+    //Delays until it is time to send another message
+    // ros::spinOnce();
+    // rate.sleep();
   }
+  
+  // ros::spin();
 
   spinner.stop();
   ROS_INFO_STREAM_NAMED("simtech_kuka_eki_interface", "Shutting down.");

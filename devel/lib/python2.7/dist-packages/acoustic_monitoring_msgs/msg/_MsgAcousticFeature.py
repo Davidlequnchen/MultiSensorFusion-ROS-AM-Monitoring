@@ -9,7 +9,7 @@ import struct
 import std_msgs.msg
 
 class MsgAcousticFeature(genpy.Message):
-  _md5sum = "c14a16b80445b9cad4c6f29ce8f94aa6"
+  _md5sum = "4b576cc1badb7a08f91e1c17437e04f1"
   _type = "acoustic_monitoring_msgs/MsgAcousticFeature"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """Header header
@@ -18,12 +18,12 @@ float32 rms_energy
 float32 amplitude_envelope
 float32 zero_crossing_rate
 # frequency-domain features
-# float32 mfccs
-float32 mfccs_mean
-float32 mfccs_variance
-float32 spectral_centroids
-float32 spectral_rolloff
-
+float32[] mel_spectrogram
+float32[] mfccs
+float32[] ber
+float32[] spectral_centroids
+float32[] spectral_rolloff
+float32[] spectral_bandwidth
 
 # spectral_centroid computes the "average" frequency at each frame, where frequencies are weighted relatively by their energy.
 # spectral_bandwidth similar to centroid, but for variance (or other moments).
@@ -46,8 +46,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','rms_energy','amplitude_envelope','zero_crossing_rate','mfccs_mean','mfccs_variance','spectral_centroids','spectral_rolloff']
-  _slot_types = ['std_msgs/Header','float32','float32','float32','float32','float32','float32','float32']
+  __slots__ = ['header','rms_energy','amplitude_envelope','zero_crossing_rate','mel_spectrogram','mfccs','ber','spectral_centroids','spectral_rolloff','spectral_bandwidth']
+  _slot_types = ['std_msgs/Header','float32','float32','float32','float32[]','float32[]','float32[]','float32[]','float32[]','float32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -57,7 +57,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,rms_energy,amplitude_envelope,zero_crossing_rate,mfccs_mean,mfccs_variance,spectral_centroids,spectral_rolloff
+       header,rms_energy,amplitude_envelope,zero_crossing_rate,mel_spectrogram,mfccs,ber,spectral_centroids,spectral_rolloff,spectral_bandwidth
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -74,23 +74,29 @@ string frame_id
         self.amplitude_envelope = 0.
       if self.zero_crossing_rate is None:
         self.zero_crossing_rate = 0.
-      if self.mfccs_mean is None:
-        self.mfccs_mean = 0.
-      if self.mfccs_variance is None:
-        self.mfccs_variance = 0.
+      if self.mel_spectrogram is None:
+        self.mel_spectrogram = []
+      if self.mfccs is None:
+        self.mfccs = []
+      if self.ber is None:
+        self.ber = []
       if self.spectral_centroids is None:
-        self.spectral_centroids = 0.
+        self.spectral_centroids = []
       if self.spectral_rolloff is None:
-        self.spectral_rolloff = 0.
+        self.spectral_rolloff = []
+      if self.spectral_bandwidth is None:
+        self.spectral_bandwidth = []
     else:
       self.header = std_msgs.msg.Header()
       self.rms_energy = 0.
       self.amplitude_envelope = 0.
       self.zero_crossing_rate = 0.
-      self.mfccs_mean = 0.
-      self.mfccs_variance = 0.
-      self.spectral_centroids = 0.
-      self.spectral_rolloff = 0.
+      self.mel_spectrogram = []
+      self.mfccs = []
+      self.ber = []
+      self.spectral_centroids = []
+      self.spectral_rolloff = []
+      self.spectral_bandwidth = []
 
   def _get_types(self):
     """
@@ -113,7 +119,31 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_7f().pack(_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate, _x.mfccs_mean, _x.mfccs_variance, _x.spectral_centroids, _x.spectral_rolloff))
+      buff.write(_get_struct_3f().pack(_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate))
+      length = len(self.mel_spectrogram)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(struct.Struct(pattern).pack(*self.mel_spectrogram))
+      length = len(self.mfccs)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(struct.Struct(pattern).pack(*self.mfccs))
+      length = len(self.ber)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(struct.Struct(pattern).pack(*self.ber))
+      length = len(self.spectral_centroids)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(struct.Struct(pattern).pack(*self.spectral_centroids))
+      length = len(self.spectral_rolloff)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(struct.Struct(pattern).pack(*self.spectral_rolloff))
+      length = len(self.spectral_bandwidth)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(struct.Struct(pattern).pack(*self.spectral_bandwidth))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -143,8 +173,56 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 28
-      (_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate, _x.mfccs_mean, _x.mfccs_variance, _x.spectral_centroids, _x.spectral_rolloff,) = _get_struct_7f().unpack(str[start:end])
+      end += 12
+      (_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate,) = _get_struct_3f().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.mel_spectrogram = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.mfccs = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.ber = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.spectral_centroids = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.spectral_rolloff = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.spectral_bandwidth = s.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -166,7 +244,31 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_7f().pack(_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate, _x.mfccs_mean, _x.mfccs_variance, _x.spectral_centroids, _x.spectral_rolloff))
+      buff.write(_get_struct_3f().pack(_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate))
+      length = len(self.mel_spectrogram)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(self.mel_spectrogram.tostring())
+      length = len(self.mfccs)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(self.mfccs.tostring())
+      length = len(self.ber)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(self.ber.tostring())
+      length = len(self.spectral_centroids)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(self.spectral_centroids.tostring())
+      length = len(self.spectral_rolloff)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(self.spectral_rolloff.tostring())
+      length = len(self.spectral_bandwidth)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sf'%length
+      buff.write(self.spectral_bandwidth.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -197,8 +299,56 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 28
-      (_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate, _x.mfccs_mean, _x.mfccs_variance, _x.spectral_centroids, _x.spectral_rolloff,) = _get_struct_7f().unpack(str[start:end])
+      end += 12
+      (_x.rms_energy, _x.amplitude_envelope, _x.zero_crossing_rate,) = _get_struct_3f().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.mel_spectrogram = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.mfccs = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.ber = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.spectral_centroids = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.spectral_rolloff = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sf'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.spectral_bandwidth = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=length)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -213,9 +363,9 @@ def _get_struct_3I():
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
-_struct_7f = None
-def _get_struct_7f():
-    global _struct_7f
-    if _struct_7f is None:
-        _struct_7f = struct.Struct("<7f")
-    return _struct_7f
+_struct_3f = None
+def _get_struct_3f():
+    global _struct_3f
+    if _struct_3f is None:
+        _struct_3f = struct.Struct("<3f")
+    return _struct_3f
