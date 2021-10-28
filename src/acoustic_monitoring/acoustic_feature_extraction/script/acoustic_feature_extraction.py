@@ -23,8 +23,8 @@ from acoustic_monitoring_msgs.msg import (
 # librosa default frame sie and hop length: 2048 and 512 samples
 # for our ROS application - each chunck is 1/30 seconds, which contains around 533 data points
 
-FRAME_SIZE = 512
-HOP_LENGTH = 256
+FRAME_SIZE = 1024
+HOP_LENGTH = 512
 
 
 
@@ -42,8 +42,10 @@ class NdAudioSignal():
         self.pub_acoustic_feature = rospy.Publisher('/acoustic_feature',
                                                     MsgAcousticFeature, queue_size = 5)
 
-
         rospy.spin()
+        # rate = rospy.Rate(10) # 10hz
+        # while not rospy.is_shutdown():
+        #     rate.sleep()
 
 
     def cb_audio_info(self, msg_audio_info):
@@ -107,7 +109,6 @@ class NdAudioSignal():
         ## -------------------------------Time-domain feature extraction-------------------------------------------
         # rms_energy = librosa.feature.rms(audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
         ae = self.amplitude_envelope(audio_data_numpy, FRAME_SIZE, HOP_LENGTH)
-        # ae = self.amplitude_envelope(audio_data_numpy)
         rms_energy = librosa.feature.rms(audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
         zero_crossing_rate = sum(librosa.zero_crossings(audio_data_numpy, pad=False))
 
@@ -128,16 +129,19 @@ class NdAudioSignal():
        
         ## Band-Energy Ratio: based on spectrogram (Short time FT)
         # 1D numpy array 
-        ber = self.band_energy_ratio(S_audio_data, split_frequency=1000, sample_rate=self.sampling_rate )
-
+        ber = self.band_energy_ratio(S_audio_data, split_frequency=2000, sample_rate=self.sampling_rate)
+        # ber_normalized = self.normalize(ber)
+        
+        ## spectral centroid 
         spectral_centroids = librosa.feature.spectral_centroid(y=audio_data_numpy, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0] 
-        spectral_rolloff = librosa.feature.spectral_rolloff(y=audio_data_numpy+0.01, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
-        spectral_bandwidth = librosa.feature.spectral_bandwidth(y=audio_data_numpy, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
-
-
-
-        # spectral_centroids = self.spectral_centroid(audio_data_numpy) # using numpy method
         # spectral_centroids_normalized = self.normalize(spectral_centroids)
+        ## spectral rolloff
+        spectral_rolloff = librosa.feature.spectral_rolloff(y=audio_data_numpy+0.01, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
+        # spectral_rolloff_normalized = self.normalize(spectral_rolloff)
+        ## spectral bandwidth
+        spectral_bandwidth = librosa.feature.spectral_bandwidth(y=audio_data_numpy, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
+        # spectral_bandwidth_normalized = self.normalize(spectral_bandwidth)
+
         
         # initialise the message objects
         msg_acoustic_feature = MsgAcousticFeature()
@@ -148,7 +152,7 @@ class NdAudioSignal():
         # frequency-domain feature
         msg_acoustic_feature.mel_spectrogram = mel_spectrogram
         msg_acoustic_feature.mfccs = mfccs
-        msg_acoustic_feature.ber =  ber
+        msg_acoustic_feature.ber = ber
         msg_acoustic_feature.spectral_centroids = spectral_centroids
         msg_acoustic_feature.spectral_rolloff = spectral_rolloff
         msg_acoustic_feature.spectral_bandwidth = spectral_bandwidth

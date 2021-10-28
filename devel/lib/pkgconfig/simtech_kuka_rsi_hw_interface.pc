@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: simtech_kuka_rsi_hw_interface
+Description: Description of simtech_kuka_rsi_hw_interface
+Version: 0.1.0
+Cflags: -I/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include -I/usr/include
+Libs: -L${prefix}/lib -lsimtech_kuka_rsi_hw_interface /usr/lib/x86_64-linux-gnu/libtinyxml.so
+Requires: controller_manager hardware_interface joint_limits_interface roscpp std_msgs

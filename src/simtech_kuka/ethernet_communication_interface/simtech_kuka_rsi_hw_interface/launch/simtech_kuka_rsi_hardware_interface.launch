@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+    <arg name="model" default="$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find simtech_kuka_rsi_hw_interface)/config/hardware_controllers.yaml" command="load"/>
+    <!-- Load standard kuka controller joint names from YAML file to parameter server -->
+    <rosparam file="$(find simtech_kuka_rsi_hw_interface)/config/controller_joint_names.yaml" command="load"/>
+    <!-- Load ethernate connection interface rosparameter server -->
+    <rosparam file="$(find simtech_kuka_rsi_hw_interface)/config/rsi_interface_params.yaml" command="load"/>
+
+    <!-- Load controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+        args="position_trajectory_controller joint_state_controller"/>    
+
+
+    <!-- Start node without FT sensor -->
+    <node name="simtech_kuka_rsi_hw_interface" pkg="simtech_kuka_rsi_hw_interface"
+      type="simtech_kuka_rsi_hw_interface_node" respawn="false"
+      output="screen"
+      required="true"/>
+
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+</launch>
