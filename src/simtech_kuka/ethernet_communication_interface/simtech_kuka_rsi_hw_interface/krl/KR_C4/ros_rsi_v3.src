@@ -66,8 +66,7 @@ DECL INT CONTID	; ContainerID
 ;ENDFOLD (INI)
 
 ; Move to start position
-;PTP {A1 0, A2 -90, A3 90, A4 0, A5 90, A6 0}
- PTP $axis_act_meas
+PTP $axis_act_meas
 
 ; Create RSI Context 
 ret = RSI_CREATE("ros_rsi",CONTID,TRUE)
@@ -82,7 +81,8 @@ IF (ret <> RSIOK) THEN
 ENDIF
 
 ; Sensor guided movement
-RSI_MOVECORR()
+; RSI_MOVECORR()
+; WAIT SEC 10
 
 ; Turn off RSI 
 ret = RSI_OFF()
@@ -90,6 +90,6 @@ IF (ret <> RSIOK) THEN
   HALT
 ENDIF
 
-;PTP {A1 0, A2 -90, A3 90, A4 0, A5 90, A6 0}
+PTP $axis_act_meas
 
 END
