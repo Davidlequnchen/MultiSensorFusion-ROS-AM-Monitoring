@@ -1,0 +1,252 @@
+&ACCESS RVO
+&REL 176
+&PARAM DISKPATH = KRC:\R1\Program\WF_test_AM
+DEF  multilayer_EXT_XY_FLIP ( )
+   
+   DECL E6POS LayerStartPt
+   DECL E6POS LayerStartPt2
+   DECL E6POS XP2
+   DECL E6POS XP3
+   DECL E6POS XP4
+   DECL REAL stepover
+   DECL REAL xLength
+   DECL REAL yWidth
+   DECL REAL layerHt
+   DECL INT YSTEP
+   DECL INT YSTEP_MAX
+   DECL INT XSTEP
+   DECL INT XSTEP_MAX
+   DECL INT nLayers ;  the total number of layers
+   DECL INT layer ; the current layer number
+   DECL REAL power
+   DECL BOOL FLIP ; flip the direction of rastering (left-to-right flip to right-to-left; top-to-bottom flip to bottom-to-top)
+   
+   
+   ; Declaration of KRL variables
+   DECL INT ret	; Return value for RSI commands
+   DECL INT CONTID	; ContainerID
+
+
+   ;FOLD INI;%{PE}
+      ;FOLD BASISTECH INI
+         GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+         INTERRUPT ON 3 
+         BAS (#INITMOV,0 )
+      ;ENDFOLD (BASISTECH INI)
+      ;FOLD USER INI
+         ;Make your modifications here
+         
+      ;ENDFOLD (USER INI)
+   ;ENDFOLD (INI)
+   
+   ptp $POS_ACT
+   
+   ret = RSI_CREATE("ros_rsi",CONTID,TRUE)
+   IF (ret <> RSIOK) THEN
+     HALT
+   ENDIF
+   
+   ; Start RSI execution
+   ret = RSI_ON(#ABSOLUTE)
+   IF (ret <> RSIOK) THEN
+     HALT
+   ENDIF
+   
+   WAIT SEC 0.01
+   
+   ;FOLD LIN P1 Vel=0.02 m/s CPDAT1 Tool[1]:LASER Base[0] ;%{PE}
+      ;FOLD Parameters ;%{h}
+         ;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.old; Kuka.IsGlobalPoint=False; Kuka.PointName=P1; Kuka.BlendingEnabled=False; Kuka.MoveDataName=CPDAT1; Kuka.VelocityPath=0.02; Kuka.CurrentCDSetIndex=0; Kuka.MovementParameterFieldEnabled=True; IlfCommand=LIN
+      ;ENDFOLD
+      $BWDSTART = FALSE
+      LDAT_ACT = LCPDAT1
+      FDAT_ACT = FP1
+      BAS(#CP_PARAMS, 0.02)
+      SET_CD_PARAMS (0)
+      LIN XP1
+   ;ENDFOLD
+   
+   BAS(#VEL_PTP, 100) ; first make sure the max. vel and acceleration is used.
+   BAS(#ACC_PTP, 100)
+   $ACC.CP = 9.9
+   
+   ;--------------Process variables-----------------
+   stepover = 0.6 ;mm
+   xLength = 20.0 ;mm
+   yWidth = 20.0 ;mm
+   layerHt = 0.15 ;mm
+   nLayers = 2
+   
+   $VEL.CP=0.025 ; feed rate in m/s
+   power = 0.14 ; laser power in x10 voltage [Extenal control]
+   $APO.CDIS = 0.2 ; mm ; equivalent to Zone data in ABB (Z0)
+   
+   FLIP = FALSE
+   ;-------------------------------------------------
+   
+   LaserOff_Ext()
+   WAIT SEC 1.0
+   
+   LaserOn_Ext()
+   $ANOUT[1]=power ; laser power in voltage
+   
+   FOR layer = 1 TO nLayers STEP 1
+      
+      IF (layer/2) <> (layer/2.0) THEN
+         
+         ; Odd layers         
+         
+         IF NOT FLIP THEN  ; left-to-right
+            
+            LayerStartPt = XP1
+            LayerStartPt.Z = XP1.Z + layerHt * (layer - 1)
+            
+            YSTEP_MAX = yWidth / stepover
+            YSTEP_MAX = YSTEP_MAX / 2
+            
+            LayerStartPt.Y = LayerStartPt.Y - stepover * 2
+            
+            ;LaserStart()
+            
+            FOR YSTEP = 1 TO YSTEP_MAX 
+               LayerStartPt.Y = LayerStartPt.Y + stepover * 2
+               XP2 = LayerStartPt
+               XP2.X = LayerStartPt.X + xLength
+               XP3 = XP2
+               XP3.Y = XP2.Y + stepover
+               XP4 = XP3
+               XP4.X = XP3.X - xLength
+               
+               LIN LayerStartPt             
+               LaserStart_Ext()          
+               LIN XP2
+               LaserEnd_Ext()
+               LIN XP3 
+               LaserStart_Ext()
+               LIN XP4 
+               LaserEnd_Ext()
+            ENDFOR
+            
+         ELSE  ; right-to-left
+            LayerStartPt = XP1
+            LayerStartPt.Y = XP1.Y + yWidth
+            LayerStartPt.Z = XP1.Z + layerHt * (layer - 1)
+            
+            YSTEP_MAX = yWidth / stepover
+            YSTEP_MAX = YSTEP_MAX / 2
+            
+            LayerStartPt.Y = LayerStartPt.Y + stepover * 2
+            
+            ;LaserStart()
+            
+            FOR YSTEP = 1 TO YSTEP_MAX 
+               LayerStartPt.Y = LayerStartPt.Y - stepover * 2
+               XP2 = LayerStartPt
+               XP2.X = LayerStartPt.X + xLength
+               XP3 = XP2
+               XP3.Y = XP2.Y - stepover
+               XP4 = XP3
+               XP4.X = XP3.X - xLength
+               
+               LIN LayerStartPt             
+               LaserStart_Ext()          
+               LIN XP2
+               LaserEnd_Ext()
+               LIN XP3 
+               LaserStart_Ext()
+               LIN XP4 
+               LaserEnd_Ext()
+            ENDFOR
+            
+         ENDIF
+         
+         ;LIN_REL {Y -0.8} C_DIS ; xLength
+         ;LaserStart()
+         ;LIN_REL {X 50} C_DIS ; xLength
+         ;LaserEnd()
+         ;LaserEnd()
+      ELSE
+         
+         ; Even layers
+         
+         IF NOT FLIP THEN  ; top-to-bottom
+            
+            LayerStartPt2 = XP1
+            LayerStartPt2.Z = XP1.Z + layerHt * (layer - 1)
+            
+            XSTEP_MAX = xLength / stepover
+            
+            XSTEP_MAX = XSTEP_MAX/2
+            
+            LayerStartPt2.X = LayerStartPt2.X - stepover * 2
+            
+            FOR XSTEP = 1 to XSTEP_MAX
+               LayerStartPt2.X = LayerStartPt2.X + stepover * 2
+               XP2 = LayerStartPt2
+               XP2.Y = LayerStartPt2.Y + yWidth
+               XP3 = XP2
+               XP3.X = XP2.X + stepover
+               XP4 = XP3
+               XP4.Y = XP3.Y - yWidth
+               
+               ;
+               LIN LayerStartPt2
+               LaserStart_Ext()
+               LIN XP2
+               LaserEnd_Ext()
+               LIN XP3
+               LaserStart_Ext()
+               LIN XP4
+               LaserEnd_Ext()
+            ENDFOR
+            
+            FLIP = TRUE
+            
+         ELSE ; bottom-to-top
+            
+            LayerStartPt2 = XP1
+            LayerStartPt2.X = XP1.X + xLength
+            LayerStartPt2.Z = XP1.Z + layerHt * (layer - 1)
+            
+            XSTEP_MAX = xLength / stepover
+            
+            XSTEP_MAX = XSTEP_MAX/2
+            
+            LayerStartPt2.X = LayerStartPt2.X + stepover * 2
+            
+            FOR XSTEP = 1 to XSTEP_MAX
+               LayerStartPt2.X = LayerStartPt2.X - stepover * 2
+               XP2 = LayerStartPt2
+               XP2.Y = LayerStartPt2.Y + yWidth
+               XP3 = XP2
+               XP3.X = XP2.X - stepover
+               XP4 = XP3
+               XP4.Y = XP3.Y - yWidth
+               
+               ;
+               LIN LayerStartPt2
+               LaserStart_Ext()
+               LIN XP2
+               LaserEnd_Ext()
+               LIN XP3
+               LaserStart_Ext()
+               LIN XP4
+               LaserEnd_Ext()
+            ENDFOR
+            
+            FLIP = FALSE
+            
+         ENDIF
+         
+         ;LIN_REL {Y 0.8} C_DIS ; xLength
+         ;LaserStart()
+         ;LIN_REL {X -50} C_DIS ; xLength
+         ;LaserEnd()
+         
+      ENDIF
+      
+   ENDFOR
+   
+   LaserOff_Ext()
+   
+END

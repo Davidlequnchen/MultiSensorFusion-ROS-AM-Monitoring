@@ -42,7 +42,7 @@ class NdVelocity():
         self.twist_speed_list = []
         self.averaged_twist_speed = 0
 
-        r = rospy.Rate(50)
+        r = rospy.Rate(100)
         while not rospy.is_shutdown():
             self.pub_velocity()
             r.sleep()

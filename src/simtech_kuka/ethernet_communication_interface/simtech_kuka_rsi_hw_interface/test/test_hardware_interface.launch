@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
     <arg name="sim" default="true" />
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find kuka_kr120_support)/urdf/kr120r2500pro.xacro'"/>
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find simtech_kuka_workcell)/urdf/LAAM_workcell.xacro'"/>
     <rosparam file="$(find simtech_kuka_rsi_hw_interface)/test/test_params_sim.yaml" command="load" if="$(arg sim)"/>
     <rosparam file="$(find simtech_kuka_rsi_hw_interface)/test/test_params.yaml" command="load" unless="$(arg sim)"/>
 
     <!-- Start node without FT sensor -->
+    
     <node name="simtech_kuka_rsi_hw_interface" pkg="simtech_kuka_rsi_hw_interface"
       type="simtech_kuka_rsi_hw_interface_node" respawn="false"
       output="screen"
-      required="true"/>
+      required="true"
+      launch-prefix="nice -n -20"/>
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find simtech_kuka_rsi_hw_interface)/config/hardware_controllers.yaml" command="load"/>
