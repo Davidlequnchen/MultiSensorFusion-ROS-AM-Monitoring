@@ -1,0 +1,2 @@
+set(simtech_kuka_rsi_hw_interface_MESSAGE_FILES "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg")
+set(simtech_kuka_rsi_hw_interface_SERVICE_FILES "")

@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(simtech_kuka_rsi_hw_interface_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include;/usr/include " STREQUAL " ")
+if(NOT "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include;/usr/include " STREQUAL " ")
   set(simtech_kuka_rsi_hw_interface_INCLUDE_DIRS "")
-  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include;/usr/include")
+  set(_include_dirs "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include;/usr/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(simtech_kuka_rsi_hw_interface_EXPORTED_TARGETS "")
+set(simtech_kuka_rsi_hw_interface_EXPORTED_TARGETS "simtech_kuka_rsi_hw_interface_generate_messages_cpp;simtech_kuka_rsi_hw_interface_generate_messages_eus;simtech_kuka_rsi_hw_interface_generate_messages_lisp;simtech_kuka_rsi_hw_interface_generate_messages_nodejs;simtech_kuka_rsi_hw_interface_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${simtech_kuka_rsi_hw_interface_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${simtech_kuka_rsi_hw_interface_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "controller_manager;hardware_interface;joint_limits_interface;roscpp;std_msgs")
+set(depends "controller_manager;hardware_interface;joint_limits_interface;roscpp;std_msgs;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   list(APPEND simtech_kuka_rsi_hw_interface_EXPORTED_TARGETS ${${simtech_kuka_rsi_hw_interface_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "simtech_kuka_rsi_hw_interface-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${simtech_kuka_rsi_hw_interface_DIR}/${extra})

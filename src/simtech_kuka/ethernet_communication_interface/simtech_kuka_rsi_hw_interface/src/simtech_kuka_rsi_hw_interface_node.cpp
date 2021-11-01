@@ -40,6 +40,7 @@
 
 #include <simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface.h>
 
+
 int main(int argc, char** argv)
 {
   ROS_INFO_STREAM_NAMED("hardware_interface", "Starting hardware interface...");
@@ -50,6 +51,9 @@ int main(int argc, char** argv)
   spinner.start();
 
   ros::NodeHandle nh;
+
+  // ROS publisher
+  ros::Publisher pub_cartesian_position = nh.advertise<simtech_kuka_rsi_hw_interface::MsgCartPosition>("/cartesian_position", 10);
 
   simtech_kuka_rsi_hw_interface::KukaHardwareInterface simtech_kuka_rsi_hw_interface;
   simtech_kuka_rsi_hw_interface.configure();
@@ -80,6 +84,16 @@ int main(int argc, char** argv)
       ROS_FATAL_NAMED("kuka_hardware_interface", "Failed to read state from robot. Shutting down!");
       ros::shutdown();
     }
+    // cart_position_ = simtech_kuka_rsi_hw_interface.cart_position_;
+    simtech_kuka_rsi_hw_interface::MsgCartPosition cartesian_position_msg;
+    cartesian_position_msg.X = simtech_kuka_rsi_hw_interface.cart_position_[0];
+    cartesian_position_msg.Y = simtech_kuka_rsi_hw_interface.cart_position_[1];
+    cartesian_position_msg.Z = simtech_kuka_rsi_hw_interface.cart_position_[2];
+    cartesian_position_msg.A = simtech_kuka_rsi_hw_interface.cart_position_[3];
+    cartesian_position_msg.B = simtech_kuka_rsi_hw_interface.cart_position_[4];
+    cartesian_position_msg.C = simtech_kuka_rsi_hw_interface.cart_position_[5];
+
+    pub_cartesian_position.publish(cartesian_position_msg);
 
     // Get current time and elapsed time since last read
     timestamp = ros::Time::now();

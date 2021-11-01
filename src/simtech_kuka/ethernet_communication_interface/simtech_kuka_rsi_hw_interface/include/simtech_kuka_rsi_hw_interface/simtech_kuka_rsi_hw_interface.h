@@ -48,6 +48,8 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 
+// message
+#include <simtech_kuka_rsi_hw_interface/MsgCartPosition.h>
 
 // ros_control
 #include <realtime_tools/realtime_publisher.h>
@@ -126,7 +128,7 @@ public:
   void configure();
   bool read(const ros::Time time, const ros::Duration period);
   bool write(const ros::Time time, const ros::Duration period);
-
+  std::vector<double> cart_position_;
 };
 
 } // namespace simtech_kuka_rsi_hw_interface

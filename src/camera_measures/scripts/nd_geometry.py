@@ -45,8 +45,6 @@ class NdGeometry():
         # self.projection = Projection(config)
         self.minor_axis_list = []
         self.averaged_minor_axis = 0
-        
-        
 
         rospy.spin()
 

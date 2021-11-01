@@ -27,6 +27,8 @@ ros/ros.h
 -
 std_msgs/String.h
 -
+simtech_kuka_rsi_hw_interface/MsgCartPosition.h
+-
 realtime_tools/realtime_publisher.h
 -
 controller_manager/controller_manager.h
