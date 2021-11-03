@@ -7,4 +7,10 @@
           Y
           Z-VAL
           Z
+          R-VAL
+          R
+          P-VAL
+          P
+          Y-VAL
+          Y
 ))

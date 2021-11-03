@@ -9,13 +9,16 @@ import struct
 import std_msgs.msg
 
 class MsgPosition(genpy.Message):
-  _md5sum = "75f40115cb5a29c0ceea66f491a5e1a3"
+  _md5sum = "a33e61886c7dde7e01a026357f37c92e"
   _type = "camera_measures/MsgPosition"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """Header header
 float32 x
 float32 y
 float32 z
+float32 R
+float32 P
+float32 Y
 
 ================================================================================
 MSG: std_msgs/Header
@@ -33,8 +36,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','x','y','z']
-  _slot_types = ['std_msgs/Header','float32','float32','float32']
+  __slots__ = ['header','x','y','z','R','P','Y']
+  _slot_types = ['std_msgs/Header','float32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -44,7 +47,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,x,y,z
+       header,x,y,z,R,P,Y
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -61,11 +64,20 @@ string frame_id
         self.y = 0.
       if self.z is None:
         self.z = 0.
+      if self.R is None:
+        self.R = 0.
+      if self.P is None:
+        self.P = 0.
+      if self.Y is None:
+        self.Y = 0.
     else:
       self.header = std_msgs.msg.Header()
       self.x = 0.
       self.y = 0.
       self.z = 0.
+      self.R = 0.
+      self.P = 0.
+      self.Y = 0.
 
   def _get_types(self):
     """
@@ -88,7 +100,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_3f().pack(_x.x, _x.y, _x.z))
+      buff.write(_get_struct_6f().pack(_x.x, _x.y, _x.z, _x.R, _x.P, _x.Y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -118,8 +130,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 12
-      (_x.x, _x.y, _x.z,) = _get_struct_3f().unpack(str[start:end])
+      end += 24
+      (_x.x, _x.y, _x.z, _x.R, _x.P, _x.Y,) = _get_struct_6f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -141,7 +153,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_3f().pack(_x.x, _x.y, _x.z))
+      buff.write(_get_struct_6f().pack(_x.x, _x.y, _x.z, _x.R, _x.P, _x.Y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -172,8 +184,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 12
-      (_x.x, _x.y, _x.z,) = _get_struct_3f().unpack(str[start:end])
+      end += 24
+      (_x.x, _x.y, _x.z, _x.R, _x.P, _x.Y,) = _get_struct_6f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -188,9 +200,9 @@ def _get_struct_3I():
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
-_struct_3f = None
-def _get_struct_3f():
-    global _struct_3f
-    if _struct_3f is None:
-        _struct_3f = struct.Struct("<3f")
-    return _struct_3f
+_struct_6f = None
+def _get_struct_6f():
+    global _struct_6f
+    if _struct_6f is None:
+        _struct_6f = struct.Struct("<6f")
+    return _struct_6f

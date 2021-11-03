@@ -1218,6 +1218,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "camera_measures/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
   "camera_measures/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "camera_measures/CMakeFiles/tf2_msgs_generate_messages_py.dir/DependInfo.cmake"
+  "camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/DependInfo.cmake"
   "camera_measures/CMakeFiles/camera_measures_generate_messages.dir/DependInfo.cmake"
   "camera_measures/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/DependInfo.cmake"
   "camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgStatus.dir/DependInfo.cmake"

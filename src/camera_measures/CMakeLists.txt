@@ -32,6 +32,11 @@ catkin_package(
   CATKIN_DEPENDS message_runtime
 )
 
+
+add_executable(kuka_velocity_measures_node src/kuka_velocity_measures_node.cpp)
+target_link_libraries(kuka_velocity_measures_node ${catkin_LIBRARIES})
+add_dependencies(kuka_velocity_measures_node ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )

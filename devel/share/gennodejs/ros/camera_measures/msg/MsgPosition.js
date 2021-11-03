@@ -23,6 +23,9 @@ class MsgPosition {
       this.x = null;
       this.y = null;
       this.z = null;
+      this.R = null;
+      this.P = null;
+      this.Y = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -49,6 +52,24 @@ class MsgPosition {
       else {
         this.z = 0.0;
       }
+      if (initObj.hasOwnProperty('R')) {
+        this.R = initObj.R
+      }
+      else {
+        this.R = 0.0;
+      }
+      if (initObj.hasOwnProperty('P')) {
+        this.P = initObj.P
+      }
+      else {
+        this.P = 0.0;
+      }
+      if (initObj.hasOwnProperty('Y')) {
+        this.Y = initObj.Y
+      }
+      else {
+        this.Y = 0.0;
+      }
     }
   }
 
@@ -62,6 +83,12 @@ class MsgPosition {
     bufferOffset = _serializer.float32(obj.y, buffer, bufferOffset);
     // Serialize message field [z]
     bufferOffset = _serializer.float32(obj.z, buffer, bufferOffset);
+    // Serialize message field [R]
+    bufferOffset = _serializer.float32(obj.R, buffer, bufferOffset);
+    // Serialize message field [P]
+    bufferOffset = _serializer.float32(obj.P, buffer, bufferOffset);
+    // Serialize message field [Y]
+    bufferOffset = _serializer.float32(obj.Y, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -77,13 +104,19 @@ class MsgPosition {
     data.y = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [z]
     data.z = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [R]
+    data.R = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [P]
+    data.P = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [Y]
+    data.Y = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 12;
+    return length + 24;
   }
 
   static datatype() {
@@ -93,7 +126,7 @@ class MsgPosition {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '75f40115cb5a29c0ceea66f491a5e1a3';
+    return 'a33e61886c7dde7e01a026357f37c92e';
   }
 
   static messageDefinition() {
@@ -103,6 +136,9 @@ class MsgPosition {
     float32 x
     float32 y
     float32 z
+    float32 R
+    float32 P
+    float32 Y
     
     ================================================================================
     MSG: std_msgs/Header
@@ -155,6 +191,27 @@ class MsgPosition {
     }
     else {
       resolved.z = 0.0
+    }
+
+    if (msg.R !== undefined) {
+      resolved.R = msg.R;
+    }
+    else {
+      resolved.R = 0.0
+    }
+
+    if (msg.P !== undefined) {
+      resolved.P = msg.P;
+    }
+    else {
+      resolved.P = 0.0
+    }
+
+    if (msg.Y !== undefined) {
+      resolved.Y = msg.Y;
+    }
+    else {
+      resolved.Y = 0.0
     }
 
     return resolved;

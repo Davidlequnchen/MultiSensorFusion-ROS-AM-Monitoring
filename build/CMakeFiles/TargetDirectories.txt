@@ -718,6 +718,7 @@
 /home/chenlequn/SIMTech_ws/build/camera_measures/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir
 /home/chenlequn/SIMTech_ws/build/camera_measures/CMakeFiles/tf2_msgs_generate_messages_lisp.dir
 /home/chenlequn/SIMTech_ws/build/camera_measures/CMakeFiles/tf2_msgs_generate_messages_py.dir
+/home/chenlequn/SIMTech_ws/build/camera_measures/CMakeFiles/kuka_velocity_measures_node.dir
 /home/chenlequn/SIMTech_ws/build/camera_measures/CMakeFiles/camera_measures_generate_messages.dir
 /home/chenlequn/SIMTech_ws/build/camera_measures/CMakeFiles/install/strip.dir
 /home/chenlequn/SIMTech_ws/build/camera_measures/CMakeFiles/tf2_msgs_generate_messages_cpp.dir

@@ -528,6 +528,21 @@ tf2_msgs_generate_messages_py/fast:
 .PHONY : tf2_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/rule
+.PHONY : camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/rule
+
+# Convenience name for target.
+kuka_velocity_measures_node: camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/rule
+
+.PHONY : kuka_velocity_measures_node
+
+# fast build rule for target.
+kuka_velocity_measures_node/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/build.make camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/build
+.PHONY : kuka_velocity_measures_node/fast
+
+# Convenience name for target.
 camera_measures/CMakeFiles/camera_measures_generate_messages.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_measures/CMakeFiles/camera_measures_generate_messages.dir/rule
 .PHONY : camera_measures/CMakeFiles/camera_measures_generate_messages.dir/rule
@@ -587,6 +602,33 @@ _camera_measures_generate_messages_check_deps_MsgGeometry/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build.make camera_measures/CMakeFiles/_camera_measures_generate_messages_check_deps_MsgGeometry.dir/build
 .PHONY : _camera_measures_generate_messages_check_deps_MsgGeometry/fast
 
+src/kuka_velocity_measures_node.o: src/kuka_velocity_measures_node.cpp.o
+
+.PHONY : src/kuka_velocity_measures_node.o
+
+# target to build an object file
+src/kuka_velocity_measures_node.cpp.o:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/build.make camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/src/kuka_velocity_measures_node.cpp.o
+.PHONY : src/kuka_velocity_measures_node.cpp.o
+
+src/kuka_velocity_measures_node.i: src/kuka_velocity_measures_node.cpp.i
+
+.PHONY : src/kuka_velocity_measures_node.i
+
+# target to preprocess a source file
+src/kuka_velocity_measures_node.cpp.i:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/build.make camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/src/kuka_velocity_measures_node.cpp.i
+.PHONY : src/kuka_velocity_measures_node.cpp.i
+
+src/kuka_velocity_measures_node.s: src/kuka_velocity_measures_node.cpp.s
+
+.PHONY : src/kuka_velocity_measures_node.s
+
+# target to generate assembly for a file
+src/kuka_velocity_measures_node.cpp.s:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/build.make camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/src/kuka_velocity_measures_node.cpp.s
+.PHONY : src/kuka_velocity_measures_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -623,11 +665,15 @@ help:
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_py"
+	@echo "... kuka_velocity_measures_node"
 	@echo "... camera_measures_generate_messages"
 	@echo "... install/strip"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... _camera_measures_generate_messages_check_deps_MsgStatus"
 	@echo "... _camera_measures_generate_messages_check_deps_MsgGeometry"
+	@echo "... src/kuka_velocity_measures_node.o"
+	@echo "... src/kuka_velocity_measures_node.i"
+	@echo "... src/kuka_velocity_measures_node.s"
 .PHONY : help
 
 

@@ -39,6 +39,8 @@
  */
 
 #include <simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface.h>
+// message
+#include <simtech_kuka_rsi_hw_interface/MsgCartPosition.h>
 
 
 int main(int argc, char** argv)

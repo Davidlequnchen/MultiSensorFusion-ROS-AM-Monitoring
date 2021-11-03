@@ -28,13 +28,19 @@ struct MsgPosition_
     : header()
     , x(0.0)
     , y(0.0)
-    , z(0.0)  {
+    , z(0.0)
+    , R(0.0)
+    , P(0.0)
+    , Y(0.0)  {
     }
   MsgPosition_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , x(0.0)
     , y(0.0)
-    , z(0.0)  {
+    , z(0.0)
+    , R(0.0)
+    , P(0.0)
+    , Y(0.0)  {
   (void)_alloc;
     }
 
@@ -51,6 +57,15 @@ struct MsgPosition_
 
    typedef float _z_type;
   _z_type z;
+
+   typedef float _R_type;
+  _R_type R;
+
+   typedef float _P_type;
+  _P_type P;
+
+   typedef float _Y_type;
+  _Y_type Y;
 
 
 
@@ -84,7 +99,10 @@ bool operator==(const ::camera_measures::MsgPosition_<ContainerAllocator1> & lhs
   return lhs.header == rhs.header &&
     lhs.x == rhs.x &&
     lhs.y == rhs.y &&
-    lhs.z == rhs.z;
+    lhs.z == rhs.z &&
+    lhs.R == rhs.R &&
+    lhs.P == rhs.P &&
+    lhs.Y == rhs.Y;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -141,12 +159,12 @@ struct MD5Sum< ::camera_measures::MsgPosition_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "75f40115cb5a29c0ceea66f491a5e1a3";
+    return "a33e61886c7dde7e01a026357f37c92e";
   }
 
   static const char* value(const ::camera_measures::MsgPosition_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x75f40115cb5a29c0ULL;
-  static const uint64_t static_value2 = 0xceea66f491a5e1a3ULL;
+  static const uint64_t static_value1 = 0xa33e61886c7dde7eULL;
+  static const uint64_t static_value2 = 0x01a026357f37c92eULL;
 };
 
 template<class ContainerAllocator>
@@ -169,6 +187,9 @@ struct Definition< ::camera_measures::MsgPosition_<ContainerAllocator> >
 "float32 x\n"
 "float32 y\n"
 "float32 z\n"
+"float32 R\n"
+"float32 P\n"
+"float32 Y\n"
 "\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
@@ -207,6 +228,9 @@ namespace serialization
       stream.next(m.x);
       stream.next(m.y);
       stream.next(m.z);
+      stream.next(m.R);
+      stream.next(m.P);
+      stream.next(m.Y);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -234,6 +258,12 @@ struct Printer< ::camera_measures::MsgPosition_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.y);
     s << indent << "z: ";
     Printer<float>::stream(s, indent + "  ", v.z);
+    s << indent << "R: ";
+    Printer<float>::stream(s, indent + "  ", v.R);
+    s << indent << "P: ";
+    Printer<float>::stream(s, indent + "  ", v.P);
+    s << indent << "Y: ";
+    Printer<float>::stream(s, indent + "  ", v.Y);
   }
 };
 

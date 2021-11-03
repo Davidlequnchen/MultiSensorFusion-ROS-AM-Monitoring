@@ -16,7 +16,7 @@
 
 (defclass camera_measures::MsgPosition
   :super ros::object
-  :slots (_header _x _y _z ))
+  :slots (_header _x _y _z _R _P _Y ))
 
 (defmethod camera_measures::MsgPosition
   (:init
@@ -25,12 +25,18 @@
     ((:x __x) 0.0)
     ((:y __y) 0.0)
     ((:z __z) 0.0)
+    ((:R __R) 0.0)
+    ((:P __P) 0.0)
+    ((:Y __Y) 0.0)
     )
    (send-super :init)
    (setq _header __header)
    (setq _x (float __x))
    (setq _y (float __y))
    (setq _z (float __z))
+   (setq _R (float __R))
+   (setq _P (float __P))
+   (setq _Y (float __Y))
    self)
   (:header
    (&rest __header)
@@ -48,6 +54,15 @@
   (:z
    (&optional __z)
    (if __z (setq _z __z)) _z)
+  (:R
+   (&optional __R)
+   (if __R (setq _R __R)) _R)
+  (:P
+   (&optional __P)
+   (if __P (setq _P __P)) _P)
+  (:Y
+   (&optional __Y)
+   (if __Y (setq _Y __Y)) _Y)
   (:serialization-length
    ()
    (+
@@ -58,6 +73,12 @@
     ;; float32 _y
     4
     ;; float32 _z
+    4
+    ;; float32 _R
+    4
+    ;; float32 _P
+    4
+    ;; float32 _Y
     4
     ))
   (:serialize
@@ -72,6 +93,12 @@
        (sys::poke _y (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _z
        (sys::poke _z (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _R
+       (sys::poke _R (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _P
+       (sys::poke _P (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _Y
+       (sys::poke _Y (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -84,17 +111,26 @@
      (setq _y (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _z
      (setq _z (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _R
+     (setq _R (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _P
+     (setq _P (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _Y
+     (setq _Y (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get camera_measures::MsgPosition :md5sum-) "75f40115cb5a29c0ceea66f491a5e1a3")
+(setf (get camera_measures::MsgPosition :md5sum-) "a33e61886c7dde7e01a026357f37c92e")
 (setf (get camera_measures::MsgPosition :datatype-) "camera_measures/MsgPosition")
 (setf (get camera_measures::MsgPosition :definition-)
       "Header header
 float32 x
 float32 y
 float32 z
+float32 R
+float32 P
+float32 Y
 
 ================================================================================
 MSG: std_msgs/Header
@@ -116,6 +152,6 @@ string frame_id
 
 
 
-(provide :camera_measures/MsgPosition "75f40115cb5a29c0ceea66f491a5e1a3")
+(provide :camera_measures/MsgPosition "a33e61886c7dde7e01a026357f37c92e")
 
 

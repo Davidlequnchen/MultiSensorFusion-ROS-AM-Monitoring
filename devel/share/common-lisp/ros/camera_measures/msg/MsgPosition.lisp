@@ -26,6 +26,21 @@
     :reader z
     :initarg :z
     :type cl:float
+    :initform 0.0)
+   (R
+    :reader R
+    :initarg :R
+    :type cl:float
+    :initform 0.0)
+   (P
+    :reader P
+    :initarg :P
+    :type cl:float
+    :initform 0.0)
+   (Y
+    :reader Y
+    :initarg :Y
+    :type cl:float
     :initform 0.0))
 )
 
@@ -56,6 +71,21 @@
 (cl:defmethod z-val ((m <MsgPosition>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:z-val is deprecated.  Use camera_measures-msg:z instead.")
   (z m))
+
+(cl:ensure-generic-function 'R-val :lambda-list '(m))
+(cl:defmethod R-val ((m <MsgPosition>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:R-val is deprecated.  Use camera_measures-msg:R instead.")
+  (R m))
+
+(cl:ensure-generic-function 'P-val :lambda-list '(m))
+(cl:defmethod P-val ((m <MsgPosition>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:P-val is deprecated.  Use camera_measures-msg:P instead.")
+  (P m))
+
+(cl:ensure-generic-function 'Y-val :lambda-list '(m))
+(cl:defmethod Y-val ((m <MsgPosition>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader camera_measures-msg:Y-val is deprecated.  Use camera_measures-msg:Y instead.")
+  (Y m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <MsgPosition>) ostream)
   "Serializes a message object of type '<MsgPosition>"
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'header) ostream)
@@ -70,6 +100,21 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'z))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'R))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'P))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'Y))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -96,6 +141,24 @@
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'z) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'R) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'P) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'Y) (roslisp-utils:decode-single-float-bits bits)))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<MsgPosition>)))
@@ -106,19 +169,22 @@
   "camera_measures/MsgPosition")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<MsgPosition>)))
   "Returns md5sum for a message object of type '<MsgPosition>"
-  "75f40115cb5a29c0ceea66f491a5e1a3")
+  "a33e61886c7dde7e01a026357f37c92e")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'MsgPosition)))
   "Returns md5sum for a message object of type 'MsgPosition"
-  "75f40115cb5a29c0ceea66f491a5e1a3")
+  "a33e61886c7dde7e01a026357f37c92e")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<MsgPosition>)))
   "Returns full string definition for message of type '<MsgPosition>"
-  (cl:format cl:nil "Header header~%float32 x~%float32 y~%float32 z~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float32 x~%float32 y~%float32 z~%float32 R~%float32 P~%float32 Y~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'MsgPosition)))
   "Returns full string definition for message of type 'MsgPosition"
-  (cl:format cl:nil "Header header~%float32 x~%float32 y~%float32 z~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float32 x~%float32 y~%float32 z~%float32 R~%float32 P~%float32 Y~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <MsgPosition>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
+     4
+     4
+     4
      4
      4
      4
@@ -130,4 +196,7 @@
     (cl:cons ':x (x msg))
     (cl:cons ':y (y msg))
     (cl:cons ':z (z msg))
+    (cl:cons ':R (R msg))
+    (cl:cons ':P (P msg))
+    (cl:cons ':Y (Y msg))
 ))

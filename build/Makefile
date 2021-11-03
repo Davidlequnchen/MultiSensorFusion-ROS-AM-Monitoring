@@ -4991,6 +4991,19 @@ tf2_msgs_generate_messages_py/fast:
 .PHONY : tf2_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named kuka_velocity_measures_node
+
+# Build rule for target.
+kuka_velocity_measures_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kuka_velocity_measures_node
+.PHONY : kuka_velocity_measures_node
+
+# fast build rule for target.
+kuka_velocity_measures_node/fast:
+	$(MAKE) -f camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/build.make camera_measures/CMakeFiles/kuka_velocity_measures_node.dir/build
+.PHONY : kuka_velocity_measures_node/fast
+
+#=============================================================================
 # Target rules for targets named camera_measures_generate_messages
 
 # Build rule for target.
@@ -7714,6 +7727,7 @@ help:
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_py"
+	@echo "... kuka_velocity_measures_node"
 	@echo "... camera_measures_generate_messages"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... _camera_measures_generate_messages_check_deps_MsgStatus"

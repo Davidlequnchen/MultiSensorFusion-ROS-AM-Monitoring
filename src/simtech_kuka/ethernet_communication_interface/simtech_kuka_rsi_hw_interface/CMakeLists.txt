@@ -14,6 +14,10 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
+find_package(Boost REQUIRED COMPONENTS system)
+find_package(TinyXML REQUIRED)
+
+
 add_message_files(FILES
                   MsgCartPosition.msg)
 
@@ -21,10 +25,6 @@ generate_messages(
                   DEPENDENCIES
                   std_msgs
 )
-
-find_package(Boost REQUIRED COMPONENTS system)
-find_package(TinyXML REQUIRED)
-
 
 catkin_package(
   INCLUDE_DIRS
@@ -67,6 +67,8 @@ add_executable(simtech_kuka_rsi_hw_interface_node
 target_link_libraries(simtech_kuka_rsi_hw_interface_node
 simtech_kuka_rsi_hw_interface
 )
+
+add_dependencies(simtech_kuka_rsi_hw_interface_node ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
 install(
   TARGETS simtech_kuka_rsi_hw_interface

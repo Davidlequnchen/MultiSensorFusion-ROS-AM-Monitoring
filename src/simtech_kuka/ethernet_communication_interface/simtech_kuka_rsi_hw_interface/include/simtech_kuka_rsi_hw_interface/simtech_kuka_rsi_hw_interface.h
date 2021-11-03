@@ -48,8 +48,6 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 
-// message
-#include <simtech_kuka_rsi_hw_interface/MsgCartPosition.h>
 
 // ros_control
 #include <realtime_tools/realtime_publisher.h>
