@@ -7,4 +7,6 @@
   :components ((:file "_package")
     (:file "MsgCartPosition" :depends-on ("_package_MsgCartPosition"))
     (:file "_package_MsgCartPosition" :depends-on ("_package"))
+    (:file "MsgCartVelocity" :depends-on ("_package_MsgCartVelocity"))
+    (:file "_package_MsgCartVelocity" :depends-on ("_package"))
   ))

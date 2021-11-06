@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "simtech_kuka_rsi_hw_interface: 1 messages, 0 services")
+message(STATUS "simtech_kuka_rsi_hw_interface: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Isimtech_kuka_rsi_hw_interface:/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_kuka_rsi_hw_interface" "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg" "std_msgs/Header"
 )
 
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg" NAME_WE)
+add_custom_target(_simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_kuka_rsi_hw_interface" "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg" "std_msgs/Header"
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${
 ### Generating Messages
 _generate_msg_cpp(simtech_kuka_rsi_hw_interface
   "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
+)
+_generate_msg_cpp(simtech_kuka_rsi_hw_interface
+  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
@@ -51,6 +62,8 @@ add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages simtech_kuka_rs
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg" NAME_WE)
 add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_cpp _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg" NAME_WE)
+add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_cpp _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(simtech_kuka_rsi_hw_interface_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_rsi_hw_interface_gener
 ### Generating Messages
 _generate_msg_eus(simtech_kuka_rsi_hw_interface
   "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
+)
+_generate_msg_eus(simtech_kuka_rsi_hw_interface
+  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
@@ -84,6 +103,8 @@ add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages simtech_kuka_rs
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg" NAME_WE)
 add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_eus _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg" NAME_WE)
+add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_eus _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(simtech_kuka_rsi_hw_interface_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_rsi_hw_interface_gener
 ### Generating Messages
 _generate_msg_lisp(simtech_kuka_rsi_hw_interface
   "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
+)
+_generate_msg_lisp(simtech_kuka_rsi_hw_interface
+  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
@@ -117,6 +144,8 @@ add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages simtech_kuka_rs
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg" NAME_WE)
 add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_lisp _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg" NAME_WE)
+add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_lisp _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(simtech_kuka_rsi_hw_interface_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_rsi_hw_interface_gener
 ### Generating Messages
 _generate_msg_nodejs(simtech_kuka_rsi_hw_interface
   "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
+)
+_generate_msg_nodejs(simtech_kuka_rsi_hw_interface
+  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
@@ -150,6 +185,8 @@ add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages simtech_kuka_rs
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg" NAME_WE)
 add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_nodejs _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg" NAME_WE)
+add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_nodejs _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(simtech_kuka_rsi_hw_interface_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_rsi_hw_interface_gener
 ### Generating Messages
 _generate_msg_py(simtech_kuka_rsi_hw_interface
   "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
+)
+_generate_msg_py(simtech_kuka_rsi_hw_interface
+  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_kuka_rsi_hw_interface
@@ -182,6 +225,8 @@ add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages simtech_kuka_rs
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg" NAME_WE)
+add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_py _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg" NAME_WE)
 add_dependencies(simtech_kuka_rsi_hw_interface_generate_messages_py _simtech_kuka_rsi_hw_interface_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

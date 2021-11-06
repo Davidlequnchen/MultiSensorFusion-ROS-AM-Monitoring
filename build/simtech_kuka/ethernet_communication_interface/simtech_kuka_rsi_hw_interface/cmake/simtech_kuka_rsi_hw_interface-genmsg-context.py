@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg"
+messages_str = "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg;/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg"
 services_str = ""
 pkg_name = "simtech_kuka_rsi_hw_interface"
 dependencies_str = "std_msgs"

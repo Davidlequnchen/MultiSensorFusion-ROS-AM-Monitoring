@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simtech_kuka_rsi_hw_interface_generate_messages_cpp"
   "/home/chenlequn/SIMTech_ws/devel/include/simtech_kuka_rsi_hw_interface/MsgCartPosition.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/simtech_kuka_rsi_hw_interface/MsgCartVelocity.h"
 )
 
 # Per-language clean rules from dependency scanning.

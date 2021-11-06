@@ -38,7 +38,6 @@
  */
 
 #include <simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface.h>
-
 #include <stdexcept>
 
 
@@ -46,7 +45,8 @@ namespace simtech_kuka_rsi_hw_interface
 {
 
 KukaHardwareInterface::KukaHardwareInterface() :
-    joint_position_(6, 0.0), joint_velocity_(6, 0.0), cart_position_(6,0.0), joint_effort_(6, 0.0), joint_position_command_(6, 0.0), joint_velocity_command_(
+    joint_position_(6, 0.0), joint_velocity_(6, 0.0), cart_position_(6,0.0),cart_velocity_(4,0.0), cart_position_list(1, cart_position_),time_list(1,0), 
+     joint_effort_(6, 0.0), joint_position_command_(6, 0.0), joint_velocity_command_(
         6, 0.0), joint_effort_command_(6, 0.0), joint_names_(6), rsi_initial_joint_positions_(6, 0.0), rsi_joint_position_corrections_(
         6, 0.0), ipoc_(0), n_dof_(6)
 {
@@ -179,6 +179,40 @@ void KukaHardwareInterface::configure()
     throw std::runtime_error(msg);
   }
   rt_rsi_pub_.reset(new realtime_tools::RealtimePublisher<std_msgs::String>(nh_, "rsi_xml_doc", 3));
+}
+
+
+
+void KukaHardwareInterface::calculate_cart_velocity(double time, std::vector<double> cart_position)
+{ /* Python equivalent code, adopted from nd_velocity node in camera measures package
+  if len(self.positions) < self.len:
+      vel = np.array([0, 0, 0])
+      speed = 0
+  else:
+      vel = (position - self.positions.pop()) / (time - self.times.pop())
+      speed = np.sqrt(np.sum(vel * vel))
+  self.times.insert(0, time)
+  self.positions.insert(0, position)
+  return np.around(speed, decimals=4), np.around(vel, decimals=5)
+  */
+
+  // if there are no position data in the list
+  if (cart_position_list.size() < 1){
+    cart_velocity_[0] = 0;
+    cart_velocity_[1] = 0;
+    cart_velocity_[2] = 0;
+    cart_velocity_[3] = 0;
+  }
+  else{
+    cart_velocity_[0] = (cart_position[0] - cart_position_list.front()[0])/(time - time_list.front()); // Vx
+    cart_velocity_[1] = (cart_position[1] - cart_position_list.front()[1])/(time - time_list.front()); // Vy
+    cart_velocity_[2] = (cart_position[2] - cart_position_list.front()[2])/(time - time_list.front()); // Vz
+    cart_velocity_[3] = std::sqrt(std::pow(cart_velocity_[0],2) + std::pow(cart_velocity_[1],2) + std::pow(cart_velocity_[2],2));
+    cart_position_list.erase(cart_position_list.begin());;
+    time_list.erase(time_list.begin());;
+    cart_position_list.insert ( cart_position_list.begin() , cart_position );
+    time_list.insert ( time_list.begin() , time );
+  }
 }
 
 } // namespace kuka_rsi_hardware_interface

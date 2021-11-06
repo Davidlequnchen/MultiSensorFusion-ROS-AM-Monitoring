@@ -1,0 +1,7 @@
+set(infratec_ros_driver_SETUP_PY_SETUP_MODULE "distutils.core")
+set(infratec_ros_driver_SETUP_PY_VERSION "0.3.6")
+set(infratec_ros_driver_SETUP_PY_SCRIPTS "")
+set(infratec_ros_driver_SETUP_PY_PACKAGES "infratec")
+set(infratec_ros_driver_SETUP_PY_PACKAGE_DIRS "src/infratec")
+set(infratec_ros_driver_SETUP_PY_MODULES "")
+set(infratec_ros_driver_SETUP_PY_MODULE_DIRS "")

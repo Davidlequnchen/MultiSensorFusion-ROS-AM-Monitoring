@@ -3,5 +3,7 @@
   (:export
    "<MSGCARTPOSITION>"
    "MSGCARTPOSITION"
+   "<MSGCARTVELOCITY>"
+   "MSGCARTVELOCITY"
   ))
 

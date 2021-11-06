@@ -1,0 +1,6 @@
+<launch>
+  <arg name="gui" default="true" />
+
+  <node name="infratec_driver" pkg="infratec_ros_driver" type="qt_infratec.py" respawn="true" />
+  
+</launch>

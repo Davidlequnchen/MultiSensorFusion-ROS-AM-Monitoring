@@ -19,7 +19,8 @@ find_package(TinyXML REQUIRED)
 
 
 add_message_files(FILES
-                  MsgCartPosition.msg)
+                  MsgCartPosition.msg
+                  MsgCartVelocity.msg)
 
 generate_messages(
                   DEPENDENCIES

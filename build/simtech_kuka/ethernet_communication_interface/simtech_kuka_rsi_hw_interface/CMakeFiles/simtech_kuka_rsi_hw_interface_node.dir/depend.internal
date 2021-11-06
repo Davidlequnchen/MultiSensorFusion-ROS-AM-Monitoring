@@ -3,6 +3,7 @@
 
 simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/CMakeFiles/simtech_kuka_rsi_hw_interface_node.dir/src/simtech_kuka_rsi_hw_interface_node.cpp.o
  /home/chenlequn/SIMTech_ws/devel/include/simtech_kuka_rsi_hw_interface/MsgCartPosition.h
+ /home/chenlequn/SIMTech_ws/devel/include/simtech_kuka_rsi_hw_interface/MsgCartVelocity.h
  /home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include/simtech_kuka_rsi_hw_interface/rsi_command.h
  /home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include/simtech_kuka_rsi_hw_interface/rsi_state.h
  /home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/include/simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface.h

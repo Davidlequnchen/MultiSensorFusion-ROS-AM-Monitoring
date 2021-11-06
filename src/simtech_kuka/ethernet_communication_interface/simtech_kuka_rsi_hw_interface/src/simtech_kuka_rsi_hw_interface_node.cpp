@@ -41,7 +41,7 @@
 #include <simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface.h>
 // message
 #include <simtech_kuka_rsi_hw_interface/MsgCartPosition.h>
-
+#include <simtech_kuka_rsi_hw_interface/MsgCartVelocity.h>
 
 int main(int argc, char** argv)
 {
@@ -56,6 +56,7 @@ int main(int argc, char** argv)
 
   // ROS publisher
   ros::Publisher pub_cartesian_position = nh.advertise<simtech_kuka_rsi_hw_interface::MsgCartPosition>("/cartesian_position", 10);
+  ros::Publisher pub_cartesian_velocity = nh.advertise<simtech_kuka_rsi_hw_interface::MsgCartVelocity>("/cartesian_velocity", 10);
 
   simtech_kuka_rsi_hw_interface::KukaHardwareInterface simtech_kuka_rsi_hw_interface;
   simtech_kuka_rsi_hw_interface.configure();
@@ -86,7 +87,7 @@ int main(int argc, char** argv)
       ROS_FATAL_NAMED("kuka_hardware_interface", "Failed to read state from robot. Shutting down!");
       ros::shutdown();
     }
-    // cart_position_ = simtech_kuka_rsi_hw_interface.cart_position_;
+    // publish cartesian position read directly from the rsi interface
     simtech_kuka_rsi_hw_interface::MsgCartPosition cartesian_position_msg;
     cartesian_position_msg.X = simtech_kuka_rsi_hw_interface.cart_position_[0];
     cartesian_position_msg.Y = simtech_kuka_rsi_hw_interface.cart_position_[1];
@@ -94,8 +95,27 @@ int main(int argc, char** argv)
     cartesian_position_msg.A = simtech_kuka_rsi_hw_interface.cart_position_[3];
     cartesian_position_msg.B = simtech_kuka_rsi_hw_interface.cart_position_[4];
     cartesian_position_msg.C = simtech_kuka_rsi_hw_interface.cart_position_[5];
-
     pub_cartesian_position.publish(cartesian_position_msg);
+
+    /* Python reference code, adopted from the nd_velocity node in camera measures package
+    speed, velocity = self.velocity.instantaneous(
+        stamp.to_sec(), np.array(position))
+    self.msg_velocity.header.stamp = stamp
+    self.msg_velocity.speed = speed
+    self.msg_velocity.vx = velocity[0]
+    self.msg_velocity.vy = velocity[1]
+    self.msg_velocity.vz = velocity[2]
+    self.velocity_pub.publish(self.msg_velocity)
+    */
+    // calculate and publish the cartesian velocity based on the cartesian position
+    simtech_kuka_rsi_hw_interface::MsgCartVelocity cartesian_velocity_msg;
+    simtech_kuka_rsi_hw_interface.calculate_cart_velocity(timestamp.toSec(), simtech_kuka_rsi_hw_interface.cart_position_);
+    cartesian_velocity_msg.Vx = simtech_kuka_rsi_hw_interface.cart_velocity_[0];
+    cartesian_velocity_msg.Vy = simtech_kuka_rsi_hw_interface.cart_velocity_[1];
+    cartesian_velocity_msg.Vz = simtech_kuka_rsi_hw_interface.cart_velocity_[2];
+    cartesian_velocity_msg.Speed = simtech_kuka_rsi_hw_interface.cart_velocity_[3];
+    pub_cartesian_velocity.publish(cartesian_velocity_msg);
+
 
     // Get current time and elapsed time since last read
     timestamp = ros::Time::now();

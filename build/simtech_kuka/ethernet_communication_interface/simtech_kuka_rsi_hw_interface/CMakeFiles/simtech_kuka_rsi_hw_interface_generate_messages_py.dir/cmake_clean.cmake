@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simtech_kuka_rsi_hw_interface_generate_messages_py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_kuka_rsi_hw_interface/msg/_MsgCartPosition.py"
+  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_kuka_rsi_hw_interface/msg/_MsgCartVelocity.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_kuka_rsi_hw_interface/msg/__init__.py"
 )
 

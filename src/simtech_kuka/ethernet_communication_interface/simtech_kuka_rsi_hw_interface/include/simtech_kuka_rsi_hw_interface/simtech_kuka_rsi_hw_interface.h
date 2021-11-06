@@ -43,6 +43,8 @@
 // STL
 #include <vector>
 #include <string>
+#include <cmath>
+ 
 
 // ROS
 #include <ros/ros.h>
@@ -124,9 +126,13 @@ public:
 
   void start();
   void configure();
+  void calculate_cart_velocity(double time, std::vector<double> cart_position);
   bool read(const ros::Time time, const ros::Duration period);
   bool write(const ros::Time time, const ros::Duration period);
   std::vector<double> cart_position_;
+  std::vector<double> cart_velocity_;
+  std::vector<std::vector<double>> cart_position_list;
+  std::vector<double> time_list;
 };
 
 } // namespace simtech_kuka_rsi_hw_interface

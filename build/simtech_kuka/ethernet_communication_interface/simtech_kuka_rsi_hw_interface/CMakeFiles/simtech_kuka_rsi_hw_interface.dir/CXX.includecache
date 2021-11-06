@@ -23,6 +23,8 @@ vector
 -
 string
 -
+cmath
+-
 ros/ros.h
 -
 std_msgs/String.h

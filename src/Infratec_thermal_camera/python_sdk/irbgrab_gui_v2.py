@@ -291,7 +291,11 @@ class irbgrab_demo(QMainWindow):
             if lock.acquire(False):
                 if visible and (t-tLive) > 0.04: # 0.04                        
                     if self.autolevel_checked_val: self.image.setImage(res[1], autoRange=False)
-                    else: self.image.setImage(res[1], autoRange=False, autoLevels=False)
+                    else: 
+                        self.image.setImage(res[1], autoRange=False, autoLevels=False)
+                        print(res[1])
+                        # cv2.imshow("image", res[1])   #---------------------------------------------------added for opencv function -----------
+                        # cv2.waitKey()
                     tLive=t
                 if dosaveirb:
                     if not ev_has_fname.wait(0.1): # wait until main thread has written the sfilename
@@ -329,6 +333,7 @@ class irbgrab_demo(QMainWindow):
                 res=self.irbgrab_object.get_data_easy(2)
                 if hirb.TIRBG_RetDef[res[0]]=='Success':
                     self.image.setImage(res[1],autoRange=True)
+                    print(res[1])
                 lock.release()
             visible=True
         else: 
