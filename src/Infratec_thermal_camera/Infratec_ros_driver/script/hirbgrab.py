@@ -9,29 +9,29 @@ import ctypes as ct
 import os
 #from _ctypes import FreeLibrary
 
-'Parameter für SET/GETPARAM'
+'Parameter for SET/GETPARAM'
 IRBG_PARAM_OnNewFrame           = 103# IRBG_DATATYPE_CALLBACK Mit diesen Parameter wird die CallBack für neue Bilder übergeben. Der Aufbau der Callback-Funktion ist in Kapitel 2.2.1 onNewFrame (IRBG_PARAM_OnNewFrame) beschrieben.
 IRBG_PARAM_RemoteWindow         = 111# Int32 mit IRBG_WINDOW_xxx (Kapitel 1.2.2)
 IRBG_PARAM_LiveWindow           = 113# Int32 mit IRBG_WINDOW_xxx (Kapitel 1.2.2)
-IRBG_PARAM_Calib_FlipH          = 114# DATATYPE_INT32 as Boolean (nur get) IRBG_PARAM_Calib_FlipV = 115# DATATYPE_INT32 as Boolean (nur get)
-IRBG_PARAM_Calib_Window         = 116# IRBG_WindowMode (nur get)
-IRBG_PARAM_Calib_MaxFrameRate   = 117# IRBG_DATATYPE_SINGLE [Hz] (nur get)
+IRBG_PARAM_Calib_FlipH          = 114# DATATYPE_INT32 as Boolean (just get) IRBG_PARAM_Calib_FlipV = 115# DATATYPE_INT32 as Boolean (just get)
+IRBG_PARAM_Calib_Window         = 116# IRBG_WindowMode (just get)
+IRBG_PARAM_Calib_MaxFrameRate   = 117# IRBG_DATATYPE_SINGLE [Hz] (just get)
 IRBG_PARAM_Calib_Changed        = 118# keine Parameter
-IRBG_PARAM_Calib_Count          = 119# IRBG_DATATYPE_INT32 (nur get)
+IRBG_PARAM_Calib_Count          = 119# IRBG_DATATYPE_INT32 (just get)
 IRBG_PARAM_Calib_Index          = 120# IRBG_DATATYPE_INT32 oder IRBG_DATATYPE_IDXINT32 set/get Calib
 IRBG_PARAM_Calib_Name           = 121# IRBG_DATATYPE_IDXString
 IRBG_PARAM_Calib_InvalidCount   = 122# IRBG_DATATYPE_INT32 Falls beim Laden der Kalibrierung inkonsistenzen aufgetreten sind, kann die Anzahl der Fehler mit diesen Paramter abgerufen warden.
 IRBG_PARAM_Calib_InvalidName    = 123# IRBG_DATATYPE_IDXString Mit diesen Paramter wird der Fehler näher beschrieben. [0 <= Index < IRBG_PARAM_CALIB_InvalidCount]
-IRBG_PARAM_Calib_Framerate      = 127# IRBG_DATATYPE_INT32 as Boolean Bei True wird bei Calib-Wechsel die in der Calib-Datei hinterlegte Frequenz gesetzt
-IRBG_PARAM_SDK_SpeedTest        = 180# IRBG_DATATYPE_INT32 as Boolean Wenn der Wert auf TRUE steht wird kein Image an die CallBack-Funktion übergeben. ShowWindow zeigt die mögliche Bildrate ohne Einfluss des Nutzerprogramms.
+IRBG_PARAM_Calib_Framerate      = 127# IRBG_DATATYPE_INT32 as Boolean If True, the frequency stored in the calib file is set when changing calibs
+IRBG_PARAM_SDK_SpeedTest        = 180# IRBG_DATATYPE_INT32 as Boolean If the value is TRUE, no image is transferred to the CallBack function. ShowWindow shows the possible frame rate without any influence from the user program.
 IRBG_PARAM_SDK_NeedBitmap32     = 181# IRBG_DATATYPE_INT32 as Boolean Should be set to TRUE if IRBG_MEMOBJ_BITMAP32 is needed.
 
-IRBG_PARAM_CameraDevice_Count       = 200# IRBG_DATATYPE_INT32 (nur get)
+IRBG_PARAM_CameraDevice_Count       = 200# IRBG_DATATYPE_INT32 (just get)
 IRBG_PARAM_CameraDevice_Info        = 201# IRBG_DATATYPE_IDXString [0 <= Index < IRBG_PARAM_CameraDevice_Count] Der String-Wert enthält die Kamerainformationen.
-IRBG_PARAM_CameraDevice_ConnectStr  = 202# IRBG_DATATYPE_IDXString (nur get) Kann bei der Funktion irbgrab_dev_connect (Kapitel 2.3.5) als Parameter übergeben werden.
-IRBG_PARAM_CameraName               = 203# IRBG_DATATYPE_String (nur get)
-IRBG_PARAM_Camera_Connected         = 210# IRBG_DATATYPE_INT32 as Boolean (nur get)
-IRBG_PARAM_Camera_SerialNum         = 211# IRBG_DATATYPE_INT64 (nur get)
+IRBG_PARAM_CameraDevice_ConnectStr  = 202# IRBG_DATATYPE_IDXString (just get) Kann bei der Funktion irbgrab_dev_connect (Kapitel 2.3.5) als Parameter übergeben werden.
+IRBG_PARAM_CameraName               = 203# IRBG_DATATYPE_String (just get)
+IRBG_PARAM_Camera_Connected         = 210# IRBG_DATATYPE_INT32 as Boolean (just get)
+IRBG_PARAM_Camera_SerialNum         = 211# IRBG_DATATYPE_INT64 (just get)
 IRBG_PARAM_Camera_State             = 212# IRBG_DATATYPE_INT32
 IRBG_PARAM_Camera_Temperature       = 213# IRBG_DATATYPE_IDXSingle [Kelvin]
 IRBG_PARAM_Camera_Temperature_Name  = 214# IRBG_DATATYPE_IDXSingle
@@ -151,15 +151,15 @@ IRBG_PARAM_IRBcorr_SimpleTau       = 707# IRBG_DATATYPE_IDXSingle idx = 0 --> Gl
 IRBG_PARAM_IRBcorr_SimpleEnvTemp   = 708# IRBG_DATATYPE_IDXSingle idx = 0 --> Global Corr else CorrShape
 IRBG_PARAM_IRBcorr_SimplePathTemp  = 709# IRBG_DATATYPE_IDXSingle idx = 0 --> Global Corr else CorrShape
 
-'Temperatur-Einheit Konstanten'
+'Temperature unit constants'
 IRBG_TEMPUNIT_Kelvin        = 1#
 IRBG_TEMPUNIT_Celsius       = 2#
 IRBG_TEMPUNIT_Fahrenheit    = 3#
 IRBG_TEMPUNIT_DigitalValue  = 9#
 IRBG_TEMPUNIT_MilliKelvin   = 10#
 
-'Kamera-Status Konstanten'
-IRBG_STATE_Unknown              = 0#  Nutzerdefiniert
+'Camera status constants'
+IRBG_STATE_Unknown              = 0#  User defined
 IRBG_STATE_Cooling              = 1#  Kamera befindet sich im Einkühlen
 IRBG_STATE_Standby              = 2#  Kamera befindet sich im StandBy
 IRBG_STATE_Initialization       = 3#  Kamera befindet sich in der Initialisierung
@@ -171,10 +171,10 @@ IRBG_STATE_notFound             = 8#  Kamera wurde nicht gefunden
 IRBG_STATE_invalidCalibration   = 9#  Kalibrierung ist ungültig
 
 'DLL-Temperature range modes constants'
-IRBG_TEMP_RNG_MODE_USER         = 0#  Nutzerdefiniert
-IRBG_TEMP_RNG_MODE_AutoImg      = 1#  einmaliges ObjectTemp
-IRBG_TEMP_RNG_MODE_ObjTemp      = 2#  kontinuierliche Spreizung über Min/Max der Szene
-IRBG_TEMP_RNG_MODE_RangeShot    = 3#  wie es auf der Kamera aufgenommen wurde
+IRBG_TEMP_RNG_MODE_USER         = 0#  User defined
+IRBG_TEMP_RNG_MODE_AutoImg      = 1#  unique ObjectTemp
+IRBG_TEMP_RNG_MODE_ObjTemp      = 2#  continuous spread over min / max of the scene
+IRBG_TEMP_RNG_MODE_RangeShot    = 3#  as it was captured on the camera
 
 'Storage object constants'
 IRBG_MEMOBJ_NONE                = 0#
@@ -184,7 +184,7 @@ IRBG_MEMOBJ_TEMPERATURES        = 3# IR-Bild mit Kelvin(Single) pro Pixel
 IRBG_MEMOBJ_8BITDATA            = 4# 8Bit-Daten (0 = minTemp # 255 = maxTemp)
 IRBG_MEMOBJ_FLIPV               = 0x01000000# mirrors the frame vertically (y = height-y) Only works with ORed IRBG_MEMOBJ_BITMAP32
 
-'DLL-Fenster Konstanten'
+'DLL-Window constants'
 IRBG_WINDOW_CLOSE               = -1# close the window
 IRBG_WINDOW_TOGGLE              = 0# changes the status (closed  is opened, opened  is closed)
 IRBG_WINDOW_SHOW                = 1# open the window
@@ -368,7 +368,7 @@ class  TIRBG_2IdxString(ct.Structure):
   _fields_ = [	("val1", TIRBG_IdxString),
 					("val2", TIRBG_IdxString)]
   
-'andere Datentypen'
+'other data types'
 class TIRBG_CallBack(ct.Structure):
     _pack_ = 1
     _fields_ = [("FuncPtr", IRBG_CALLBACK_FUNC),
@@ -378,7 +378,7 @@ class TIRBG_MemInfo(ct.Structure):
     _pack_ = 1
     _fields_ = [("StructSize", ct.c_int),
                 ("Triggered", ct.c_int), #<> 0 --> getriggert
-                ("TimeStamp", ct.c_double), #relative Millisekunden
+                ("TimeStamp", ct.c_double), #relative milliseconds
                 ("ImageNum", ct.c_int64),
                 ("MissedPackets", ct.c_int)]
 class TIRBG_HeaderInfo(ct.Structure):
@@ -417,7 +417,7 @@ class TIRBG_SaveStruct(ct.Structure):
         ('MinDriveSizeMB', ct.c_int64),
             ]
   
-'Datentyp Konstanten'
+'Datentyp constant'
 IRBG_TYPE_RAW               = 0x00000000
 IRBG_TYPE_POINTER           = 0x10000000
 IRBG_TYPE_INT8              = 0x20000000

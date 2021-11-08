@@ -69,6 +69,8 @@ class irbgrab_demo(QtWidgets.QWidget):
         self.RemoteButton.clicked.connect(self.show_remote_window) # equivalent to self.set_param(0,113,1)
         self.StreamingButton.clicked.connect(self.StreamingButtonClicked)
         self.ROSPubButton.clicked.connect(self.ROSPubButtonClicked)
+        self.AcceptParamButton.clicked.connect(self.AcceptParamButtonClicked)
+        self.AcceptEpsButton.clicked.connect(self.AcceptEpsButtonClicked)
         # self.show_realtime_image()
 
 
@@ -76,6 +78,21 @@ class irbgrab_demo(QtWidgets.QWidget):
         # self.timer = QtCore.QTimer()
         # self.timer.timeout.connect(self.updateImage)
         # self.timer.start(10) # refresh every xxx miliseconds (0.001 seconds)
+    
+    '''
+    def show_realtime_image(self):
+        self.plot_window=QtWidgets.QWidget()
+        # self.plot_window=QtGui.QWidget(self,Qt.Window) ##self,QtCore.Window
+        self.realtime_image = pg.ImageView(self.plot_window)
+        # self.plot_window.setTitle("Thermal Camera Live")
+        self.plot_window.setWindowTitle('IRBGrab - ShowLive')
+        self.plot_window.show()
+        res=self.irbgrab_object.get_data_easy(3) 
+        if hirb.TIRBG_RetDef[res[0]]=='Success':
+            self.realtime_image.setImage(res[1],autoRange=True)
+            self.msg_infratec_image.data = res[1]
+            self.pub_image.publish(self.msg_infratec_image)
+            # print(res[1])
 
     def updateImage(self):
         #handle every image
@@ -90,12 +107,13 @@ class irbgrab_demo(QtWidgets.QWidget):
             # cv2.waitKey(0) # waits until a key is pressed
             # cv2.destroyAllWindows() # destroys the window showing image
             self.irbgrab_object.free_mem()
+    '''
 
     def StartButtonClicked(self):
         self.load_dll()
         self.create_device()
         self.connect()
-        self.lblStatus.setText('Done! Camera Connected!')
+        self.lblStatus.setText('Camera Status: Camera Connected!')
         self.lblStatus.setStyleSheet(
                 "background-color: rgb(0, 200, 0); color: rgb(255, 255, 255);")
 
@@ -104,16 +122,11 @@ class irbgrab_demo(QtWidgets.QWidget):
         self.disconnect()
         self.free_device()
         self.free_dll()
-        self.lblStatus.setText('Done, Disconect Camera!')
+        self.lblStatus.setText('Camera Status: Done, Disconect Camera!')
         self.lblStatus.setStyleSheet(
                 "background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);")
 
     def StreamingButtonClicked(self):
-        # self.show_realtime_image()
-        # # start the timer
-        # self.timer = QtCore.QTimer()
-        # self.timer.timeout.connect(self.updateImage)
-        # self.timer.start(10) # refresh every xxx miliseconds (0.001 seconds)
         demo.show_live_stream = True
         demo.show_live()
 
@@ -131,7 +144,7 @@ class irbgrab_demo(QtWidgets.QWidget):
 
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.updateData)
-        self.timer.start(10) #milisecond, 0.001 second
+        self.timer.start(30) #unit: milisecond, 0.001 second
     
     def updateData(self):
         res=self.irbgrab_object.get_data_easy_noFree(3)
@@ -139,8 +152,6 @@ class irbgrab_demo(QtWidgets.QWidget):
         bridge = CvBridge()
         imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8,mono8
         self.pub_image.publish(imgMsg)
-
-    
 
     def load_dll(self):
         self.irbgrab_dll = irbg.getDLLHandle()
@@ -207,21 +218,6 @@ class irbgrab_demo(QtWidgets.QWidget):
             else: print('connect error: '+hirb.TIRBG_RetDef[res])
         else: print('state error: '+hirb.TIRBG_RetDef[res]) 
 
-    def show_realtime_image(self):
-        self.plot_window=QtWidgets.QWidget()
-        # self.plot_window=QtGui.QWidget(self,Qt.Window) ##self,QtCore.Window
-        self.realtime_image = pg.ImageView(self.plot_window)
-        # self.plot_window.setTitle("Thermal Camera Live")
-        self.plot_window.setWindowTitle('IRBGrab - ShowLive')
-        self.plot_window.show()
-        res=self.irbgrab_object.get_data_easy(3) 
-        if hirb.TIRBG_RetDef[res[0]]=='Success':
-            self.realtime_image.setImage(res[1],autoRange=True)
-            self.msg_infratec_image.data = res[1]
-            self.pub_image.publish(self.msg_infratec_image)
-            # print(res[1])
-
-
     def set_image(self):
         global t
         global tLive
@@ -240,11 +236,6 @@ class irbgrab_demo(QtWidgets.QWidget):
                         # print(res[1])
                     else: 
                         self.image.setImage(res[1], autoRange=False, autoLevels=False)
-                        # self.msg_infratec_image.data = res[1]
-                        # self.pub_image.publish(self.msg_infratec_image)
-                        # cv2.imshow('CV2 window', res[1])
-                        # cv2.waitKey(0) # waits until a key is pressed
-                        # cv2.destroyAllWindows() # destroys the window showing image
                     tLive=t
                 if dosaveirb:
                     if not ev_has_fname.wait(0.1): # wait until main thread has written the sfilename
@@ -300,7 +291,6 @@ class irbgrab_demo(QtWidgets.QWidget):
             #         raise e
             visible=False
 
-
     def show_remote_window(self):
         #self.plotw=pg.plot('tatile')
         res=self.irbgrab_object.show_remote(True)
@@ -314,14 +304,16 @@ class irbgrab_demo(QtWidgets.QWidget):
         res=self.irbgrab_object.get_data_easy(3)
         print(res)
 
-    def set_param(self, index, param_nr, param_value):
+    def AcceptParamButtonClicked(self):
         # index: 0,1,5 int, 2,3 - float, 4, 6-string
+        # index, param_nr, param_value
+        index = self.datatypeCombox.currentIndex()
         try: 
-            param_nr=int(param_nr)
-            if index==0 or index==1 or index==5: param_val_int=int(param_value)
-            elif index==2 or index==3: param_val_float=float(param_value)
-            else: param_val_str=str(param_value)
-            # if index==5 or index==6: param_index=int(self.control_list[18][0].text())
+            param_nr=int(self.ParmNumEdit.text())
+            if index==0 or index==1 or index==5: param_val_int=int(self.ParmValueEdit.text())
+            elif index==2 or index==3: param_val_float=float(self.ParmValueEdit.text())
+            else: param_val_str=str(self.ParmValueEdit.text())
+            if index==5 or index==6: param_index=int(self.control_list[18][0].text())
         except: 
             print('parameter format incorrect, close')
             return
@@ -341,9 +333,26 @@ class irbgrab_demo(QtWidgets.QWidget):
         elif index==6:
             res=self.irbgrab_object.setparam_idx_string(param_nr,param_index,param_val_str)
         if hirb.TIRBG_RetDef[res]=='Success':
-            print('Done! Succesfully set the parameter and value instruction') 
-        else: print('setparam error: '+hirb.TIRBG_RetDef[res]) 
-            
+            self.lblStatus.setText('Status: Succesfully set parameter!')
+            self.lblStatus.setStyleSheet(
+                "background-color: rgb(0, 200, 0); color: rgb(255, 255, 255);") 
+        else: 
+            self.lblStatus.setText('Set parameter error: '+ str(hirb.TIRBG_RetDef[res]))
+            self.lblStatus.setStyleSheet(
+                "background-color: rgb(200, 0, 0); color: rgb(255, 255, 255);")  
+    
+    def AcceptEpsButtonClicked(self):
+        self.global_emissivity = float(self.SetGlobalEps.text())
+        res=self.irbgrab_object.setparam_single(hirb.IRBG_PARAM_IRBcorr_ObjEps, self.global_emissivity)
+        if hirb.TIRBG_RetDef[res]=='Success':
+            self.lblStatus.setText('Status: Succesfully set emissivity value!')
+            self.lblStatus.setStyleSheet(
+                "background-color: rgb(0, 200, 0); color: rgb(255, 255, 255);") 
+        else: 
+            self.lblStatus.setText('Set emissivity error: '+ str(hirb.TIRBG_RetDef[res]))
+            self.lblStatus.setStyleSheet(
+                "background-color: rgb(200, 0, 0); color: rgb(255, 255, 255);") 
+
     def disconnect(self):
         res=self.irbgrab_object.stopgrab(0)
         if hirb.TIRBG_RetDef[res]=='Success':

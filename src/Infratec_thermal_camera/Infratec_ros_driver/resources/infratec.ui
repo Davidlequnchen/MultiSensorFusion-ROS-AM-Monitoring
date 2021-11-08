@@ -6,22 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>643</width>
-    <height>779</height>
+    <width>663</width>
+    <height>875</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Infratec Thermal Camera</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2" stretch="3,8">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="3,7">
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string>Camera Control Panel</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
          <widget class="QPushButton" name="StartButton">
           <property name="text">
@@ -46,72 +46,113 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="3,3,4">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,2,4">
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="label_4">
           <property name="text">
            <string>Parameter Number:</string>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
+         <widget class="QLineEdit" name="ParmNumEdit"/>
         </item>
         <item>
-         <widget class="QLineEdit" name="ParmNumEdit"/>
+         <widget class="QComboBox" name="datatypeCombox">
+          <item>
+           <property name="text">
+            <string>Int32</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Int64</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Single</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Double</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>String</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>IdxInt32</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>IdxString</string>
+           </property>
+          </item>
+         </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,3,4">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="4,2,4">
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="label_5">
           <property name="text">
            <string>Parameter Value:</string>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
+         <widget class="QLineEdit" name="ParmValueEdit"/>
         </item>
         <item>
-         <widget class="QLineEdit" name="ParmValueEdit"/>
+         <widget class="QPushButton" name="AcceptParamButton">
+          <property name="text">
+           <string>Accept Param</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="4,2,4">
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Set Global Emissivity (Eps):</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="SetGlobalEps"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="AcceptEpsButton">
+          <property name="text">
+           <string>Accept Emissivity</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
          <widget class="QPushButton" name="RemoteButton">
           <property name="text">
-           <string>Remote Panel</string>
+           <string>Calibration Panel</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="StreamingButton">
           <property name="text">
-           <string>Streaming</string>
+           <string>Streaming Window</string>
           </property>
          </widget>
         </item>
@@ -135,7 +176,16 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="ImageWidget" native="true"/>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Streaming Window</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QWidget" name="ImageWidget" native="true"/>
+      </item>
+     </layout>
+    </widget>
    </item>
   </layout>
  </widget>
