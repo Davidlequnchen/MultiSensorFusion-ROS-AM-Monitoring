@@ -12,7 +12,7 @@ from cv_bridge import CvBridge
 import numpy as np
 
 ### Qt Packages
-# from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt
 # from PyQt5.QtWidgets import (QPushButton,QGridLayout,QCheckBox,
 #                              QWidget,QApplication,QMainWindow,
 #                              QComboBox,QLabel,QLineEdit,QFrame,
@@ -117,7 +117,6 @@ class irbgrab_demo(QtWidgets.QWidget):
         self.lblStatus.setStyleSheet(
                 "background-color: rgb(0, 200, 0); color: rgb(255, 255, 255);")
 
-
     def StopButtonClicked(self):
         self.disconnect()
         self.free_device()
@@ -127,20 +126,21 @@ class irbgrab_demo(QtWidgets.QWidget):
                 "background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);")
 
     def StreamingButtonClicked(self):
-        demo.show_live_stream = True
-        demo.show_live()
+        self.show_live_stream = True
+        self.show_live()
 
     def ROSPubButtonClicked(self):
-        res=self.irbgrab_object.get_data_easy_noFree(3) ### rect[3] is numpy array
+        res=self.irbgrab_object.get_data_easy(3) ### rect[3] is numpy array
         # h,w = res[1].shape
         # vis2 = cv2.CreateMat(h, w, cv.CV_32FC3)
         # vis0 = cv2.fromarray(vis)
         # cv.CvtColor(vis0, vis2, cv.CV_GRAY2BGR)
-        # new_image = res[1].astype(np.uint8)
-        bridge = CvBridge()
-        imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8
-        self.pub_image.publish(imgMsg)
-        self.lblStatus.setText(str(res[1]))
+        if hirb.TIRBG_RetDef[res[0]]=='Success':
+            # new_image = res[1].astype(np.uint8)
+            bridge = CvBridge()
+            imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8
+            self.pub_image.publish(imgMsg)
+            self.lblStatus.setText(str(res[1]))
 
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.updateData)
@@ -148,17 +148,18 @@ class irbgrab_demo(QtWidgets.QWidget):
     
     def updateData(self):
         res=self.irbgrab_object.get_data_easy_noFree(3)
-        # new_image = res[1].astype(np.uint8)
-        bridge = CvBridge()
-        imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8,mono8
-        self.pub_image.publish(imgMsg)
+        if hirb.TIRBG_RetDef[res[0]]=='Success':
+            # new_image = res[1].astype(np.uint8)
+            bridge = CvBridge()
+            imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8,mono8, or directly res[1] (float number)
+            self.pub_image.publish(imgMsg)
+            # self.lblStatus.setText(str(res[1]))
 
     def load_dll(self):
         self.irbgrab_dll = irbg.getDLLHandle()
         self.irbgrab_object=irbg.irbgrab_obj(self.irbgrab_dll)
         inits=self.irbgrab_object.isinit()
         if inits!=0:   
-            #verfügbare geräte anzeigen
             res=self.irbgrab_object.availabledevices()
             print('available devices: {}'.format(res))
             if res[0]=='0x10000001': 
@@ -186,7 +187,7 @@ class irbgrab_demo(QtWidgets.QWidget):
                             print ("Add search string " + i)
                     else: 
                         print('No Device Available!')
-                elif hirb.TIRBG_RetDef[res[0]]=='NotSupported': success=True #für Simulator                   
+                elif hirb.TIRBG_RetDef[res[0]]=='NotSupported': success=True                 
                 else: 
                     print('search error: '+hirb.TIRBG_RetDef[res[0]])
                 if success:
@@ -236,6 +237,12 @@ class irbgrab_demo(QtWidgets.QWidget):
                         # print(res[1])
                     else: 
                         self.image.setImage(res[1], autoRange=False, autoLevels=False)
+                    '''
+                    new_image = res[1].astype(np.uint8)
+                    bridge = CvBridge()
+                    imgMsg = bridge.cv2_to_imgmsg(new_image) ##can be rgb8,mono8, or directly res[1] (float number)
+                    self.pub_image.publish(imgMsg)
+                    '''
                     tLive=t
                 if dosaveirb:
                     if not ev_has_fname.wait(0.1): # wait until main thread has written the sfilename
@@ -263,23 +270,34 @@ class irbgrab_demo(QtWidgets.QWidget):
 
     def show_live(self):  
         global visible
-        if self.show_live_stream == True:     
+        if self.show_live_stream == True:    
+            # -----------method 1 pop up window----------------
             # self.plotwindow=QtGui.QWidget(self,Qt.Window)
             # self.plotwindow=QtWidgets.QWidget()
-            # Add image widget
-            self.plotwindow = QtGui.QVBoxLayout(self.ImageWidget)
-            self.image = pg.ImageView()
-            self.plotwindow.addWidget(self.image)
-            # self.plotwindow = self.ImageWidget
             # self.image=pg.ImageView(self.plotwindow)
             # self.plotwindow.setWindowTitle('IRBGrab Demo - ShowLive')
             # self.plotwindow.show()
+            #-------------------------------------------------
+            # Add image widget
+            #------- Method 2: add widget to the ui fie window---------
+            self.plotwindow = QtGui.QVBoxLayout(self.ImageWidget)
+            self.image = pg.ImageView()
+            self.plotwindow.addWidget(self.image)
+            #---------------------------------------------------------
+
             if lock.acquire(blocking=True, timeout=2):
                 res=self.irbgrab_object.get_data_easy(3) 
                 # print(res[1]) 
                 if hirb.TIRBG_RetDef[res[0]]=='Success':
                     self.image.setImage(res[1],autoRange=True)
-                    print(res[1])
+                    # print(res[1])
+                    '''
+                    new_image = res[1].astype(np.uint8)
+                    bridge = CvBridge()
+                    imgMsg = bridge.cv2_to_imgmsg(new_image) ##can be rgb8
+                    self.pub_image.publish(imgMsg)
+                    self.lblStatus.setText(str(new_image))
+                    '''
                 lock.release()
             visible=True
         else: 
@@ -343,7 +361,7 @@ class irbgrab_demo(QtWidgets.QWidget):
     
     def AcceptEpsButtonClicked(self):
         self.global_emissivity = float(self.SetGlobalEps.text())
-        res=self.irbgrab_object.setparam_single(hirb.IRBG_PARAM_IRBcorr_ObjEps, self.global_emissivity)
+        res=self.irbgrab_object.setparam_single(hirb.IRBG_PARAM_IRBcorr_SimpleEps, self.global_emissivity)
         if hirb.TIRBG_RetDef[res]=='Success':
             self.lblStatus.setText('Status: Succesfully set emissivity value!')
             self.lblStatus.setStyleSheet(

@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"pylon_camera\"
 
-CXX_INCLUDES = -I/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/pylon_camera/include -I/home/chenlequn/SIMTech_ws/devel/include -I/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/cv_bridge/include -I/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/image_geometry/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/opencv -I/opt/pylon/include 
+CXX_INCLUDES = -I/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/pylon_camera/include -I/home/chenlequn/SIMTech_ws/devel/include -I/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-melodic/cv_bridge/include -I/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-melodic/image_geometry/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/opencv -I/opt/pylon/include 
 

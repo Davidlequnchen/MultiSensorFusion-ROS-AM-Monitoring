@@ -6,7 +6,7 @@ from os import path as os_path
 from pkgutil import extend_path
 from sys import path as sys_path
 
-__extended_path = '/home/chenlequn/SIMTech_ws/src/ROS_perception/vision_opencv-melodic/image_geometry/src'.split(';')
+__extended_path = '/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-melodic/image_geometry/src'.split(';')
 for p in reversed(__extended_path):
     sys_path.insert(0, p)
     del p

@@ -1,0 +1,7 @@
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_PACKAGE_NAME="rqt_multiplot"
+-DROSCONSOLE_BACKEND_LOG4CXX
+-o
+/home/chenlequn/SIMTech_ws/build/rqt_multiplot_plugin/include/rqt_multiplot/moc_MultiplotWidget.cpp
+/home/chenlequn/SIMTech_ws/src/rqt_multiplot_plugin/include/rqt_multiplot/MultiplotWidget.h

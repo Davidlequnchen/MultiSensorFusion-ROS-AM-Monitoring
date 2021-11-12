@@ -170,7 +170,8 @@ class irbgrab_obj(object):
         if res==hirb.IRBG_RET_SUCCESS: return (hex(res),number.value)
         else: return (hex(res),)
         
-    def get_search_strings(self): #listet alle Search_strings zu den verfügbaren Kameras auf
+    def get_search_strings(self): 
+        #listet alle Search_strings zu den verfügbaren Kameras auf
         ret_arr=[]
         i=0
         res=self.getparam_idx_string(202,i)

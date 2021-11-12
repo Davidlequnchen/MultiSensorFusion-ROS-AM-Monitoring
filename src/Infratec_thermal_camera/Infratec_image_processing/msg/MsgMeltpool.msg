@@ -1,0 +1,3 @@
+Header header
+float32 melt_pool_size
+float32 heat_affected_zone

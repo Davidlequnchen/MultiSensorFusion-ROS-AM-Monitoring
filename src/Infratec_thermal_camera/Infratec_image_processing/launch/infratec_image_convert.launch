@@ -1,0 +1,59 @@
+<launch>
+  <arg name="gui" default="true" />
+
+  <!-- <node name="infratec_image_convert_mono" pkg="infratec_image_processing" type="irb_image_convert_mono.py" output="screen" >
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+  </node> -->
+
+  <!-- <node name="infratec_image_convert_rgb" pkg="infratec_image_processing" type="irb_image_convert_rgb.py" output="screen" >
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+  </node> -->
+
+  <node name="infratec_image_binarize" pkg="infratec_image_processing" type="irb_image_binarize.py" output="screen" >
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+  </node>
+
+  <node name="qt_image_visualize" pkg="infratec_ros_driver" type="qt_image_visualize.py" output="screen" >
+  </node>
+
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/infratec/image_raw"/>
+    <param name="autosize" value="true" />
+  </node>
+
+  <node name="image_view2" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/infratec/image_meltpool"/>
+    <param name="autosize" value="true" />
+  </node>
+
+  
+
+  <!-- <node name="image_view3" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/infratec/image_converted_rgb"/>
+    <param name="autosize" value="true" />
+  </node> -->
+
+  <!-- Publish: contours (opencv_apps/ContourArrayStamped) -Detected contours. Each contour is stored as a vector of point -->
+  <!-- <include file="$(find opencv_apps)/launch/find_contours.launch">
+    <arg name="image"  value="/infratec/image_converted_mono" />
+  </include> -->
+
+  <!-- Publish: image (sensor_msgs/Image) Ouptut edge image. -->
+  <!-- <include file="$(find opencv_apps)/launch/edge_detection.launch">
+    <arg name="image"  value="/infratec/image_converted_mono" />
+  </include> -->
+
+   <!-- Publish: hulls (opencv_apps/ContourArrayStamped) - Detected convex hulls of contours. Each contour is stored as a vector of point -->
+  <!-- <include file="$(find opencv_apps)/launch/convex_hull.launch">
+    <arg name="image"  value="/infratec/image_converted_mono" />
+  </include> -->
+
+  <!-- <include file="$(find opencv_apps)/launch/general_contours.launch">
+    <arg name="image"  value="/infratec/image_converted_mono" />
+  </include> -->
+
+
+
+  <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
+
+</launch>

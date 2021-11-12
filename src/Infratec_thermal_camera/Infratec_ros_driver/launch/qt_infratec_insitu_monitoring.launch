@@ -1,0 +1,8 @@
+<launch>
+  <arg name="gui" default="true" />
+
+  <!-- <node name="infratec_driver" pkg="infratec_ros_driver" type="qt_infratec.py" respawn="true" /> -->
+
+  <node name="infratec_insit_monitoring" pkg="infratec_ros_driver" type="infratec_insitu_monitoring.py" respawn="true" />
+  
+</launch>
