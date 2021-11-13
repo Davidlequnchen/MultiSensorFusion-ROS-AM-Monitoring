@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>ROS Image Topic Visualizer</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="3,7">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="2,8">
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
@@ -21,55 +21,239 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,2,4">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,0,0">
         <item>
          <widget class="QLabel" name="label_4">
           <property name="text">
-           <string>Parameter Number:</string>
+           <string>Melt Pool Temperature Threshold (Kelvin):</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="ParmNumEdit"/>
+         <widget class="QLineEdit" name="MeltpoolThreshold"/>
         </item>
         <item>
-         <widget class="QComboBox" name="datatypeCombox">
-          <item>
-           <property name="text">
-            <string>Int32</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Int64</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Single</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Double</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>String</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>IdxInt32</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>IdxString</string>
-           </property>
-          </item>
+         <widget class="QPushButton" name="MeltPoolThresholdAcceptButton">
+          <property name="text">
+           <string>Accept</string>
+          </property>
          </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Melt Pool Size (Pixles):</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1" rowspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Camera Lens selection:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="CameraLensCombox">
+            <item>
+             <property name="text">
+              <string>Int32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Int64</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Single</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Double</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>String</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IdxInt32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IdxString</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0" rowspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Process Status (Laser On/Off): </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblControl_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Laser Off</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Camera Lens selection:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="CameraLensCombox_2">
+            <item>
+             <property name="text">
+              <string>Int32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Int64</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Single</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Double</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>String</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IdxInt32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IdxString</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Robot Motion Status: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblControl">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Stopped</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Camera Lens selection:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="CameraLensCombox_3">
+            <item>
+             <property name="text">
+              <string>Int32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Int64</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Single</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Double</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>String</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IdxInt32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IdxString</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -79,11 +263,39 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Image Topic Visualizer</string>
+      <string>ROI Segmentation</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,5,5">
       <item>
-       <widget class="QWidget" name="ImageWidget" native="true"/>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Melt Pool Binary Image</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>Melt Pool Contour Identify</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QWidget" name="ImageWidget" native="true"/>
+        </item>
+        <item>
+         <widget class="QWidget" name="ImageWidget_2" native="true"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QWidget" name="MPSPlotWidget" native="true"/>
       </item>
      </layout>
     </widget>

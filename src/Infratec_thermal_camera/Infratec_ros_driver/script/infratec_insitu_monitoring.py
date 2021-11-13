@@ -13,6 +13,7 @@ from python_qt_binding import QtCore
 from python_qt_binding import QtWidgets 
 
 from qt_infratec import irbgrab_demo
+from qt_image_visualize import ros_image_visualizer
 
 path = rospkg.RosPack().get_path('infratec_ros_driver')
 
@@ -24,12 +25,14 @@ class ThermalViz(QtWidgets.QMainWindow):
 
         loadUi(os.path.join(path, 'resources', 'infratec_insitu_viz.ui'), self)
 
-        rospy.Subscriber('/infratec/image_raw', Image, self.cbRawImage, queue_size=2)
-        rospy.Subscriber('/infratec/heat_affected_zone', Image, self.cbHeatAffectedZone, queue_size=2)
+        # rospy.Subscriber('/infratec/image_raw', Image, self.cbRawImage, queue_size=2)
+        # rospy.Subscriber('/infratec/heat_affected_zone', Image, self.cbHeatAffectedZone, queue_size=2)
 
         self.qtInfratec = irbgrab_demo(self)
+        self.qtROSImageVisualizer = ros_image_visualizer(self)
 
         self.tabWidget.addTab(self.qtInfratec, 'Infratec Camera')
+        self.tabWidget2.addTab(self.qtROSImageVisualizer, 'ROS Image Visualizer')
         
         # self.qtInfratec.accepted.connect(self.qtInfratecAccepted)
  

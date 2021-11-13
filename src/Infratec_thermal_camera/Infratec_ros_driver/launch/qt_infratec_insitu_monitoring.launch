@@ -4,5 +4,12 @@
   <!-- <node name="infratec_driver" pkg="infratec_ros_driver" type="qt_infratec.py" respawn="true" /> -->
 
   <node name="infratec_insit_monitoring" pkg="infratec_ros_driver" type="infratec_insitu_monitoring.py" respawn="true" />
+
+  <node name="infratec_image_binarize" pkg="infratec_image_processing" type="irb_image_binarize.py" output="screen" >
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+  </node>
+
+   <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/infratec/meltpool_size" if="$(arg gui)" /> -->
+
   
 </launch>

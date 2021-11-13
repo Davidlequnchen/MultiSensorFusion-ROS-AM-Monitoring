@@ -23,7 +23,7 @@ class NdThermalImageBin():
         self.meltpool_threshold = 300
         # rospy.Subscriber('/infratec/HAZ_threshold', MsgThreshold, self.cb_HAZ_threshold, queue_size=1)
         # publisher 
-        self.pub_bin_meltpool_image = rospy.Publisher('/infratec/image_meltpool', Image, queue_size=10)
+        self.pub_bin_meltpool_image = rospy.Publisher('/infratec/image_meltpool_bin', Image, queue_size=10)
         self.pub_meltpool_size = rospy.Publisher('/infratec/meltpool_size', MsgROISize, queue_size=10)
         self.pub_HAZ_size = rospy.Publisher('/infratec/HAZ_size', MsgROISize, queue_size=10)
 
