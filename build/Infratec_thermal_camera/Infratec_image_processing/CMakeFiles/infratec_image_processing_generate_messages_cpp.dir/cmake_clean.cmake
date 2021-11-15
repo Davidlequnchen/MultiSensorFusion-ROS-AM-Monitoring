@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/infratec_image_processing_generate_messages_cpp"
+  "/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h"
   "/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h"
   "/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h"
   "/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgHistogram.h"

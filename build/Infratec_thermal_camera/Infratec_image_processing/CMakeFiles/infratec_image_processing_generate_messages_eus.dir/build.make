@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_eus.dir/progress.make
 
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l
@@ -60,35 +61,42 @@ Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_proc
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/manifest.l
 
 
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from infratec_image_processing/MsgMeltpoolWidth.msg"
+	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg
+
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from infratec_image_processing/MsgMeltpool.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from infratec_image_processing/MsgMeltpool.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from infratec_image_processing/MsgROISize.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from infratec_image_processing/MsgROISize.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgHistogram.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from infratec_image_processing/MsgHistogram.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from infratec_image_processing/MsgHistogram.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgHistogram.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgThreshold.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgThreshold.l: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgThreshold.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgThreshold.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from infratec_image_processing/MsgThreshold.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from infratec_image_processing/MsgThreshold.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgThreshold.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp manifest code for infratec_image_processing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp manifest code for infratec_image_processing"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing infratec_image_processing std_msgs
 
 infratec_image_processing_generate_messages_eus: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_eus
+infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l
 infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l
 infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l
 infratec_image_processing_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l

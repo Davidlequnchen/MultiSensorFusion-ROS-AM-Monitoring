@@ -154,7 +154,7 @@ struct Definition< ::infratec_image_processing::MsgThreshold_<ContainerAllocator
   static const char* value()
   {
     return "Header header\n"
-"float32 threshold\n"
+"float32 threshold #Kelvin\n"
 "\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"

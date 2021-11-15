@@ -43,6 +43,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgHistogram.msg"
     "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg"
     "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgThreshold.msg"
+    "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg"
     )
 endif()
 

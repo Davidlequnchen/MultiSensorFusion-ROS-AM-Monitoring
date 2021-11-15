@@ -13,7 +13,7 @@ class MsgThreshold(genpy.Message):
   _type = "infratec_image_processing/MsgThreshold"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """Header header
-float32 threshold
+float32 threshold #Kelvin
 
 ================================================================================
 MSG: std_msgs/Header

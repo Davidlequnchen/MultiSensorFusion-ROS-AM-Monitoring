@@ -78,7 +78,7 @@ class MsgThreshold {
     // Returns full string definition for message
     return `
     Header header
-    float32 threshold
+    float32 threshold #Kelvin
     
     ================================================================================
     MSG: std_msgs/Header

@@ -91,6 +91,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -123,17 +134,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,19 +168,49 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule
-.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule
+.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule
 
 # Convenience name for target.
-infratec_image_processing_generate_messages_cpp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule
+_infratec_image_processing_generate_messages_check_deps_MsgROISize: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule
 
-.PHONY : infratec_image_processing_generate_messages_cpp
+.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgROISize
 
 # fast build rule for target.
-infratec_image_processing_generate_messages_cpp/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/build
-.PHONY : infratec_image_processing_generate_messages_cpp/fast
+_infratec_image_processing_generate_messages_check_deps_MsgROISize/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/build
+.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgROISize/fast
+
+# Convenience name for target.
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule
+.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule
+
+# Convenience name for target.
+_infratec_image_processing_generate_messages_check_deps_MsgThreshold: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule
+
+.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgThreshold
+
+# fast build rule for target.
+_infratec_image_processing_generate_messages_check_deps_MsgThreshold/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/build
+.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgThreshold/fast
+
+# Convenience name for target.
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule
+.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule
+
+# Convenience name for target.
+infratec_image_processing_genlisp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule
+
+.PHONY : infratec_image_processing_genlisp
+
+# fast build rule for target.
+infratec_image_processing_genlisp/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/build
+.PHONY : infratec_image_processing_genlisp/fast
 
 # Convenience name for target.
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpool.dir/rule:
@@ -198,19 +228,19 @@ _infratec_image_processing_generate_messages_check_deps_MsgMeltpool/fast:
 .PHONY : _infratec_image_processing_generate_messages_check_deps_MsgMeltpool/fast
 
 # Convenience name for target.
-Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule
-.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule
+.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-_infratec_image_processing_generate_messages_check_deps_MsgROISize: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/rule
+infratec_image_processing_generate_messages_cpp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/rule
 
-.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgROISize
+.PHONY : infratec_image_processing_generate_messages_cpp
 
 # fast build rule for target.
-_infratec_image_processing_generate_messages_check_deps_MsgROISize/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize.dir/build
-.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgROISize/fast
+infratec_image_processing_generate_messages_cpp/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/build
+.PHONY : infratec_image_processing_generate_messages_cpp/fast
 
 # Convenience name for target.
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgHistogram.dir/rule:
@@ -258,6 +288,21 @@ infratec_image_processing_generate_messages/fast:
 .PHONY : infratec_image_processing_generate_messages/fast
 
 # Convenience name for target.
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth.dir/rule
+.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth.dir/rule
+
+# Convenience name for target.
+_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth.dir/rule
+
+.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth
+
+# fast build rule for target.
+_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth.dir/build
+.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth/fast
+
+# Convenience name for target.
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_gennodejs.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_gennodejs.dir/rule
 .PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_gennodejs.dir/rule
@@ -271,36 +316,6 @@ infratec_image_processing_gennodejs: Infratec_thermal_camera/Infratec_image_proc
 infratec_image_processing_gennodejs/fast:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_gennodejs.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_gennodejs.dir/build
 .PHONY : infratec_image_processing_gennodejs/fast
-
-# Convenience name for target.
-Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule
-.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule
-
-# Convenience name for target.
-_infratec_image_processing_generate_messages_check_deps_MsgThreshold: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/rule
-
-.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgThreshold
-
-# fast build rule for target.
-_infratec_image_processing_generate_messages_check_deps_MsgThreshold/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold.dir/build
-.PHONY : _infratec_image_processing_generate_messages_check_deps_MsgThreshold/fast
-
-# Convenience name for target.
-Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule
-.PHONY : Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule
-
-# Convenience name for target.
-infratec_image_processing_genlisp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/rule
-
-.PHONY : infratec_image_processing_genlisp
-
-# fast build rule for target.
-infratec_image_processing_genlisp/fast:
-	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/build.make Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_genlisp.dir/build
-.PHONY : infratec_image_processing_genlisp/fast
 
 # Convenience name for target.
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_gencpp.dir/rule:
@@ -401,17 +416,19 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... edit_cache"
-	@echo "... infratec_image_processing_generate_messages_cpp"
+	@echo "... test"
+	@echo "... _infratec_image_processing_generate_messages_check_deps_MsgROISize"
+	@echo "... _infratec_image_processing_generate_messages_check_deps_MsgThreshold"
+	@echo "... infratec_image_processing_genlisp"
 	@echo "... install"
 	@echo "... _infratec_image_processing_generate_messages_check_deps_MsgMeltpool"
-	@echo "... _infratec_image_processing_generate_messages_check_deps_MsgROISize"
+	@echo "... infratec_image_processing_generate_messages_cpp"
 	@echo "... list_install_components"
 	@echo "... _infratec_image_processing_generate_messages_check_deps_MsgHistogram"
 	@echo "... infratec_image_processing_genpy"
 	@echo "... infratec_image_processing_generate_messages"
+	@echo "... _infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth"
 	@echo "... infratec_image_processing_gennodejs"
-	@echo "... _infratec_image_processing_generate_messages_check_deps_MsgThreshold"
-	@echo "... infratec_image_processing_genlisp"
 	@echo "... infratec_image_processing_gencpp"
 	@echo "... rebuild_cache"
 	@echo "... infratec_image_processing_generate_messages_eus"
@@ -419,7 +436,6 @@ help:
 	@echo "... infratec_image_processing_generate_messages_py"
 	@echo "... infratec_image_processing_generate_messages_lisp"
 	@echo "... infratec_image_processing_generate_messages_nodejs"
-	@echo "... test"
 .PHONY : help
 
 

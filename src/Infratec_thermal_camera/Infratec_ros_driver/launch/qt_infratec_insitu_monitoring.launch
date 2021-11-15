@@ -9,6 +9,9 @@
     <param name="thermal_image" type="str" value="/infratec/image_raw"/>
   </node>
 
+  <include file="$(find infratec_image_processing)/launch/infratec_image_find_contours.launch">
+  </include>
+
    <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/infratec/meltpool_size" if="$(arg gui)" /> -->
 
   

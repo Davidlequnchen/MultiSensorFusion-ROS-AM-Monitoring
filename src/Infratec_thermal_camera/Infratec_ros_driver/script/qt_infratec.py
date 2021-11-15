@@ -59,9 +59,7 @@ class irbgrab_demo(QtWidgets.QWidget):
         self.autolevel_checked_val=False
         self.show_live_stream = False
 
-        self.pub_image = rospy.Publisher(
-            '/infratec/image_raw', Image, queue_size=10)
-        self.msg_infratec_image = Image()
+        self.pub_image = rospy.Publisher('/infratec/image_raw', Image, queue_size=10)
 
         self.StartButton.clicked.connect(self.StartButtonClicked)
         self.StopButton.clicked.connect(self.StopButtonClicked)
@@ -73,41 +71,6 @@ class irbgrab_demo(QtWidgets.QWidget):
         self.AcceptEpsButton.clicked.connect(self.AcceptEpsButtonClicked)
         # self.show_realtime_image()
 
-
-        # start the timer
-        # self.timer = QtCore.QTimer()
-        # self.timer.timeout.connect(self.updateImage)
-        # self.timer.start(10) # refresh every xxx miliseconds (0.001 seconds)
-    
-    '''
-    def show_realtime_image(self):
-        self.plot_window=QtWidgets.QWidget()
-        # self.plot_window=QtGui.QWidget(self,Qt.Window) ##self,QtCore.Window
-        self.realtime_image = pg.ImageView(self.plot_window)
-        # self.plot_window.setTitle("Thermal Camera Live")
-        self.plot_window.setWindowTitle('IRBGrab - ShowLive')
-        self.plot_window.show()
-        res=self.irbgrab_object.get_data_easy(3) 
-        if hirb.TIRBG_RetDef[res[0]]=='Success':
-            self.realtime_image.setImage(res[1],autoRange=True)
-            self.msg_infratec_image.data = res[1]
-            self.pub_image.publish(self.msg_infratec_image)
-            # print(res[1])
-
-    def updateImage(self):
-        #handle every image
-        res=self.irbgrab_object.get_data_easy_noFree(3)
-        #display live image
-        if hirb.TIRBG_RetDef[res[0]]=='Success':
-            self.realtime_image.setImage(res[1], autoRange=False, autoLevels=False)
-            self.msg_infratec_image.data = res[1]
-            self.pub_image.publish(self.msg_infratec_image)
-            # print(res[1])
-            # cv2.imshow('CV2 window', res[1])
-            # cv2.waitKey(0) # waits until a key is pressed
-            # cv2.destroyAllWindows() # destroys the window showing image
-            self.irbgrab_object.free_mem()
-    '''
 
     def StartButtonClicked(self):
         self.load_dll()

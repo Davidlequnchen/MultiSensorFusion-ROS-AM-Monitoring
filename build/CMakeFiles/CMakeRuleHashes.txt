@@ -50,6 +50,7 @@ bfec19d1d6da338d8ee8e1c3077c2807 /home/chenlequn/SIMTech_ws/devel/include/dnb_ms
 abff9b81b01e94dd85f8e1b57f3dcfa2 /home/chenlequn/SIMTech_ws/devel/include/dnb_msgs/StringMultiArray.h
 f6112cd2a590f1b2bd9dca3a814f1920 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgHistogram.h
 5ae0895fce4698f519f79de15f874ebe /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h
+d42ef1d8e32ca3aaab84b2f7342738c4 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h
 d32209b1de01a426e6ba7bc18a0c44bd /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h
 760d744c2a91a2e2f58604f47476c23e /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgThreshold.h
 bb02fee3240dc6449eab3f5438ee0ba2 /home/chenlequn/SIMTech_ws/devel/include/laser_control/MsgControl.h
@@ -220,6 +221,7 @@ e4c360fcfa17d9957213337c2ea4f736 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/
 286942398ac2de7e0b4e8e1c5890a6d4 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/dnb_msgs/srv/__init__.py
 cd8eab1bf6e3a0cc78dd1541d6e6728a /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/infratec_image_processing/msg/_MsgHistogram.py
 42cfcbce54d57275e10fcbf2592ce3b2 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/infratec_image_processing/msg/_MsgMeltpool.py
+3dc2722478d1f0f086648b56968b7b9b /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/infratec_image_processing/msg/_MsgMeltpoolWidth.py
 1a655bd4b77bf87d87931af451466fb1 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/infratec_image_processing/msg/_MsgROISize.py
 2d1b7180c6ad40a5213d6e4ed8adcfac /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/infratec_image_processing/msg/_MsgThreshold.py
 1fc2a0875096eb19cb1e57907741f0ae /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/infratec_image_processing/msg/__init__.py
@@ -362,6 +364,7 @@ db23f530ad02b4f75fd86eaaa0d8d70e /home/chenlequn/SIMTech_ws/devel/share/common-l
 08f6ea91199978061727412dd0999bb6 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/dnb_msgs/srv/SetString.lisp
 3ca4d552dd59c15fccd2ca2f654c4771 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgHistogram.lisp
 2eb4332f707a33933b7c9c173d2a23c4 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpool.lisp
+8fab2cf0daa8c49adc413f971b83eb99 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp
 e31e3170624b6f71ada454cff1d94d69 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgROISize.lisp
 b2f8e8b0e6e4d33b0b7ba14ddea37d98 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgThreshold.lisp
 5f316fcf47b6b75f7ff2dcf36d9b6372 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/laser_control/msg/MsgControl.lisp
@@ -485,6 +488,7 @@ c658edf338251ec712f7a713dcab3854 /home/chenlequn/SIMTech_ws/devel/share/gennodej
 0b8cec7e8f05ec35160a19ea6ad8021b /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/dnb_msgs/srv/SetString.js
 b33e8f2ebb983d677bb4710b6a4db469 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgHistogram.js
 cb84bf10bce6c36fe4830c159cb0adac /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpool.js
+ffdef6bd659f7af05e5576b96cdf0b24 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js
 fe07509de3def85b30b3a2ce81ad7af2 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgROISize.js
 98b9e738f5d2de36cc157d79aaa8ef70 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgThreshold.js
 54fa6d8e05ef6acb59ee991f65a8364b /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/laser_control/msg/MsgControl.js
@@ -618,6 +622,7 @@ cb78923d9fdfe19d35b03ea3c182e12d /home/chenlequn/SIMTech_ws/devel/share/roseus/r
 d26b9ef1634d9d69da6f1dda288ebb3d /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/manifest.l
 bb316bbcad6666fe508b2aa9c89e00b2 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l
 8e928998b9d5fe5fab6d9250f66766a9 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l
+4a87634fed425ea58b336ba2b6b8dfd6 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l
 88107ec90bf8c84966c393da691e09b8 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l
 54b47b6f173f3414c6c1176359d5a5f8 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgThreshold.l
 d9e576e11b97a1105b25432b24d73056 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/laser_control/manifest.l
@@ -715,6 +720,7 @@ da42da546f8bb584fbbc365cb8c0abab AutoDED/CMakeFiles/auto_control_generate_messag
 1d5942bf83249940b459039cdd63c4ae Data_fusion/LAAM/CMakeFiles/data_fusion_generate_messages_eus
 c5f4859d6170cb1fdd039489af7b4bd8 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgHistogram
 69e576c44414fcb2218bc46222a680ca Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpool
+18d3bc3ea3c83ebb166933b34bb83448 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgMeltpoolWidth
 b7baa9b15a3a8aed5ace5fb7eaf4ae51 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgROISize
 2b1b70319bd63f538a852564f3c9c7ab Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/_infratec_image_processing_generate_messages_check_deps_MsgThreshold
 578d3eccf7a692ccf78efc9dbfe89315 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp

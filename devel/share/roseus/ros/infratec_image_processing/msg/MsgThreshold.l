@@ -70,7 +70,7 @@
 (setf (get infratec_image_processing::MsgThreshold :datatype-) "infratec_image_processing/MsgThreshold")
 (setf (get infratec_image_processing::MsgThreshold :definition-)
       "Header header
-float32 threshold
+float32 threshold #Kelvin
 
 ================================================================================
 MSG: std_msgs/Header

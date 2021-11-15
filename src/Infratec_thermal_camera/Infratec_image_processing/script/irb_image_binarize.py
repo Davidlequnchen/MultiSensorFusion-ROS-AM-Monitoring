@@ -19,19 +19,22 @@ class NdThermalImageBin():
 
         # subscribe the image topic and use callback function for further process
         rospy.Subscriber(image_topic, Image, self.cb_thermal_image, queue_size=1)
-        # rospy.Subscriber('/infratec/meltpool_threshold', MsgThreshold, self.cb_meltpool_threshold, queue_size=1)
-        self.meltpool_threshold = 300
+        rospy.Subscriber('/infratec/meltpool_threshold', MsgThreshold, self.cb_meltpool_threshold, queue_size=1)
+        
         # rospy.Subscriber('/infratec/HAZ_threshold', MsgThreshold, self.cb_HAZ_threshold, queue_size=1)
         # publisher 
         self.pub_bin_meltpool_image = rospy.Publisher('/infratec/image_meltpool_bin', Image, queue_size=10)
         self.pub_meltpool_size = rospy.Publisher('/infratec/meltpool_size', MsgROISize, queue_size=10)
-        self.pub_HAZ_size = rospy.Publisher('/infratec/HAZ_size', MsgROISize, queue_size=10)
+        # self.pub_HAZ_size = rospy.Publisher('/infratec/HAZ_size', MsgROISize, queue_size=10)
 
 
         self.bridge = CvBridge()
         self.msg_histogram = MsgHistogram()
         self.msg_meltpool_size = MsgROISize()
         self.msg_haz_size = MsgROISize()
+
+        # initialize default value 
+        self.meltpool_threshold = 300
         
         rospy.spin()
 
@@ -55,16 +58,6 @@ class NdThermalImageBin():
             frame_uint = thresh_img.astype(np.uint8)    
             converted_msg = self.bridge.cv2_to_imgmsg(frame_uint, "mono8") # convert back to mono scale
             self.pub_bin_meltpool_image.publish(converted_msg)
-
-
-            # cv2.namedWindow('binary', cv2.WINDOW_NORMAL)
-            # cv2.imshow('binary',thresh_img)
-            # k = cv2.waitKey(10)
-            # if k == 27:         # wait for ESC key to exit
-            #     cv2.destroyAllWindows()
-            # elif k == ord('s'): # wait for 's' key to save and exit
-            #     cv2.destroyAllWindows()
-
 
 
         except CvBridgeError as e:

@@ -25,9 +25,6 @@ class ThermalViz(QtWidgets.QMainWindow):
 
         loadUi(os.path.join(path, 'resources', 'infratec_insitu_viz.ui'), self)
 
-        # rospy.Subscriber('/infratec/image_raw', Image, self.cbRawImage, queue_size=2)
-        # rospy.Subscriber('/infratec/heat_affected_zone', Image, self.cbHeatAffectedZone, queue_size=2)
-
         self.qtInfratec = irbgrab_demo(self)
         self.qtROSImageVisualizer = ros_image_visualizer(self)
 

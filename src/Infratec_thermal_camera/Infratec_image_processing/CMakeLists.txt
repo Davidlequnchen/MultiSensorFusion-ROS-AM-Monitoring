@@ -11,7 +11,8 @@ add_message_files(FILES
                   MsgMeltpool.msg
                   MsgHistogram.msg
                   MsgROISize.msg
-                  MsgThreshold.msg)
+                  MsgThreshold.msg
+                  MsgMeltpoolWidth.msg)
 
 ## pkg-config libraries
 # find_package(PkgConfig REQUIRED)

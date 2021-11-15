@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "infratec_image_processing: 4 messages, 0 services")
+message(STATUS "infratec_image_processing: 5 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -16,6 +16,11 @@ add_custom_target(infratec_image_processing_generate_messages ALL)
 # verify that message/service dependencies have not changed since configure
 
 
+
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg" NAME_WE)
+add_custom_target(_infratec_image_processing_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "infratec_image_processing" "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg" "std_msgs/Header"
+)
 
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg" NAME_WE)
 add_custom_target(_infratec_image_processing_generate_messages_check_deps_${_filename}
@@ -43,6 +48,12 @@ add_custom_target(_infratec_image_processing_generate_messages_check_deps_${_fil
 
 ### Section generating for lang: gencpp
 ### Generating Messages
+_generate_msg_cpp(infratec_image_processing
+  "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/infratec_image_processing
+)
 _generate_msg_cpp(infratec_image_processing
   "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg"
   "${MSG_I_FLAGS}"
@@ -82,6 +93,8 @@ add_custom_target(infratec_image_processing_generate_messages_cpp
 add_dependencies(infratec_image_processing_generate_messages infratec_image_processing_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg" NAME_WE)
+add_dependencies(infratec_image_processing_generate_messages_cpp _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg" NAME_WE)
 add_dependencies(infratec_image_processing_generate_messages_cpp _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg" NAME_WE)
@@ -100,6 +113,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS infratec_image_processing_generate_
 
 ### Section generating for lang: geneus
 ### Generating Messages
+_generate_msg_eus(infratec_image_processing
+  "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/infratec_image_processing
+)
 _generate_msg_eus(infratec_image_processing
   "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg"
   "${MSG_I_FLAGS}"
@@ -139,6 +158,8 @@ add_custom_target(infratec_image_processing_generate_messages_eus
 add_dependencies(infratec_image_processing_generate_messages infratec_image_processing_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg" NAME_WE)
+add_dependencies(infratec_image_processing_generate_messages_eus _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg" NAME_WE)
 add_dependencies(infratec_image_processing_generate_messages_eus _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg" NAME_WE)
@@ -157,6 +178,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS infratec_image_processing_generate_
 
 ### Section generating for lang: genlisp
 ### Generating Messages
+_generate_msg_lisp(infratec_image_processing
+  "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/infratec_image_processing
+)
 _generate_msg_lisp(infratec_image_processing
   "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg"
   "${MSG_I_FLAGS}"
@@ -196,6 +223,8 @@ add_custom_target(infratec_image_processing_generate_messages_lisp
 add_dependencies(infratec_image_processing_generate_messages infratec_image_processing_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg" NAME_WE)
+add_dependencies(infratec_image_processing_generate_messages_lisp _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg" NAME_WE)
 add_dependencies(infratec_image_processing_generate_messages_lisp _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg" NAME_WE)
@@ -214,6 +243,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS infratec_image_processing_generate_
 
 ### Section generating for lang: gennodejs
 ### Generating Messages
+_generate_msg_nodejs(infratec_image_processing
+  "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/infratec_image_processing
+)
 _generate_msg_nodejs(infratec_image_processing
   "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg"
   "${MSG_I_FLAGS}"
@@ -253,6 +288,8 @@ add_custom_target(infratec_image_processing_generate_messages_nodejs
 add_dependencies(infratec_image_processing_generate_messages infratec_image_processing_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg" NAME_WE)
+add_dependencies(infratec_image_processing_generate_messages_nodejs _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg" NAME_WE)
 add_dependencies(infratec_image_processing_generate_messages_nodejs _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg" NAME_WE)
@@ -271,6 +308,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS infratec_image_processing_generate_
 
 ### Section generating for lang: genpy
 ### Generating Messages
+_generate_msg_py(infratec_image_processing
+  "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/infratec_image_processing
+)
 _generate_msg_py(infratec_image_processing
   "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg"
   "${MSG_I_FLAGS}"
@@ -310,6 +353,8 @@ add_custom_target(infratec_image_processing_generate_messages_py
 add_dependencies(infratec_image_processing_generate_messages infratec_image_processing_generate_messages_py)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg" NAME_WE)
+add_dependencies(infratec_image_processing_generate_messages_py _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg" NAME_WE)
 add_dependencies(infratec_image_processing_generate_messages_py _infratec_image_processing_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg" NAME_WE)

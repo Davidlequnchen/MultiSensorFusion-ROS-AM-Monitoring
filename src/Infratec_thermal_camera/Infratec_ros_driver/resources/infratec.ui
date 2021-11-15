@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>781</width>
+    <width>744</width>
     <height>904</height>
    </rect>
   </property>
@@ -50,7 +50,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,3,3">
             <item>
              <widget class="QLabel" name="label_4">
               <property name="text">
@@ -103,7 +103,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="3,3,3">
             <item>
              <widget class="QLabel" name="label_5">
               <property name="text">
@@ -124,11 +124,11 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,3,3">
             <item>
              <widget class="QLabel" name="label_6">
               <property name="text">
-               <string>Set Global Emissivity (Eps):</string>
+               <string>Set Global Emissivity:</string>
               </property>
              </widget>
             </item>
