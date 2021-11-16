@@ -7,11 +7,8 @@
    <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
    <maintainer email="shingogo.5511@gmail.com">Shingo Kitagawa</maintainer>
    <author>Blaise Gassend</author>
-   <license>BSD</license>  
-   <url type="website">http://ros.org/wiki/audio_common</url>
-   <url type="repository">https://github.com/ros-drivers/audio_common</url>
-   <url type="bugtracker">https://github.com/ros-drivers/audio_common/issues</url>
-
+   <license>NA</license>  
+  
    <buildtool_depend>catkin</buildtool_depend>
 
    <run_depend>audio_capture</run_depend>
