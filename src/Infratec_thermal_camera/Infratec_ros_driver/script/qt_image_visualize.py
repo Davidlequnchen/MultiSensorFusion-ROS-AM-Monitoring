@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 '''
 Some reference from website: https://www.geeksforgeeks.org/pyqtgraph-roi-clicked-signal-of-image-view/
 '''
@@ -109,26 +109,6 @@ class ros_image_visualizer(QtWidgets.QWidget):
         #                             max=10000)  # maximum Y value
         self.mpw_plotwidget.setBackground('w') ## white
         self.mpw_plotwidget.showGrid(x=True, y=True)
-
-        
-        
-        #---------------------------------------------------------------------------------------------
-        # self.mpw_plotwindow = QtGui.QVBoxLayout(self.MPWPlotWidget)
-        '''
-        self.mpw_plotwidget = pg.PlotWidget()
-        self.mpw_plotwidget.setTitle("Melt Pool Width Plot",color='008080',size='12pt')
-        self.mpw_plotwidget.setLabel("right","Melt Pool Width [mm]")
-        # self.mpw_plotwidget.setLabel("bottom","Time [sec]")
-        # self.mps_plotwidget.setYRange(min=0, # minimum Y value
-        #                             max=10000)  # maximum Y value
-        self.mpw_plotwidget.setBackground('w') ## white
-        self.mpw_plotwidget.showGrid(x=True, y=True)
-        '''
-        # self.mpw_curve_plot = self.mps_plotwidget.plot(
-        #              pen=pg.mkPen('r', width=2) # colour of the plot
-        #             )
-        # self.mpw_plotwindow.addWidget(self.mpw_plotwidget)
-        # self.plotwindow.addWidget(self.mpw_plotwidget)
         #------------------------------------------------------------------------------------------------
         self.mps = 0
         self.mpw = 0
@@ -150,9 +130,9 @@ class ros_image_visualizer(QtWidgets.QWidget):
         self.mpw_list = []
 
         # ----------------------------start the timer for updating the pyqtgraphs----------------------------
-        self.timer = QtCore.QTimer()
-        self.timer.timeout.connect(self.updateImage)
-        self.timer.start(30) # refresh every xxx miliseconds (0.001 seconds)
+        # self.timer = QtCore.QTimer()
+        # self.timer.timeout.connect(self.updateImage)
+        # self.timer.start(30) # refresh every xxx miliseconds (0.001 seconds)
         # start the timer
         self.mps_timer = QtCore.QTimer()
         self.mps_timer.timeout.connect(self.updateMPSPlot)
@@ -190,6 +170,8 @@ class ros_image_visualizer(QtWidgets.QWidget):
             self.image.ui.roiPlot.hide()
             self.image.ui.normGroup.hide()
             self.image.ui.menuBtn.setVisible(False)
+            self.timer_image = threading.Thread(target=self.updateImage,daemon=True)
+            self.timer_image.start()
  
         except CvBridgeError as e:
             rospy.loginfo("CvBridge Exception")

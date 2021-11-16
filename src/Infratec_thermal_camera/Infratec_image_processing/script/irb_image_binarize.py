@@ -49,9 +49,9 @@ class NdThermalImageBin():
             stamp = msg_image.header.stamp
             # convert the ros image to OpenCV image for processing
             frame = self.bridge.imgmsg_to_cv2(msg_image) # right now it is 32FC1 type
-            
+            # binarize the image based on the threshold
             ret,thresh_img=cv2.threshold(frame,self.meltpool_threshold,255,cv2.THRESH_BINARY)
-            self.msg_meltpool_size.pixels =  cv2.countNonZero(thresh_img)
+            self.msg_meltpool_size.pixels = cv2.countNonZero(thresh_img)
             self.msg_meltpool_size.header.stamp = stamp
             self.pub_meltpool_size.publish(self.msg_meltpool_size)
 
