@@ -1,0 +1,15 @@
+<launch>
+  <arg name="gui" default="true" />
+
+  <!-- <include file="$(find infratec_ros_driver)/launch/qt_infratec_insitu_monitoring.launch">
+  </include> -->
+  <include file="$(find infratec_ros_driver)/launch/infratec_driver_image_convert.launch">
+  </include>
+
+  <include file="$(find simtech_kuka_workcell)/launch/kuka_laam_rsi_workcell.launch">
+      <arg name="rviz" default="true"/>
+  </include>
+
+
+  
+</launch>
