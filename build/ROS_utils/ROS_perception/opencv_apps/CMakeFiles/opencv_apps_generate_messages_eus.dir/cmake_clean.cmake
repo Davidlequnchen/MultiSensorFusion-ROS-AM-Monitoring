@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Point2DArrayStamped.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Point2DArray.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FlowStamped.l"
+  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/ContourArea.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/ContourArray.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Rect.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RectArrayStamped.l"

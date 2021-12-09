@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Point2DArrayStamped.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Point2DArray.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FlowStamped.js"
+  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/ContourArea.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/ContourArray.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Rect.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RectArrayStamped.js"

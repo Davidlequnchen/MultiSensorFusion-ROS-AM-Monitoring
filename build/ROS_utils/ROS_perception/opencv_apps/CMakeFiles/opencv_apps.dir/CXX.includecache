@@ -116,6 +116,24 @@ ros/message_operations.h
 opencv_apps/Point2D.h
 -
 
+/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArea.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArray.h
 string
 -
@@ -1079,6 +1097,8 @@ opencv_apps/ContourArray.h
 /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/ContourArray.h
 opencv_apps/ContourArrayStamped.h
 /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/ContourArrayStamped.h
+opencv_apps/ContourArea.h
+/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/ContourArea.h
 pluginlib/class_list_macros.h
 -
 
@@ -1231,6 +1251,8 @@ opencv_apps/RotatedRectArray.h
 /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/RotatedRectArray.h
 opencv_apps/RotatedRectArrayStamped.h
 /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/RotatedRectArrayStamped.h
+opencv_apps/ContourArea.h
+/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/ContourArea.h
 pluginlib/class_list_macros.h
 -
 

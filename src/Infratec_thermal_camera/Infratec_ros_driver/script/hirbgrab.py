@@ -133,12 +133,12 @@ IRBG_PARAM_ProcIO_AnalogOutChFreq       = 496# IRBG_DATATYPE_IDXSingle
 IRBG_PARAM_ProcIO_AnalogOutChVolt       = 497# IRBG_DATATYPE_IDXSingle
 
 IRBG_PARAM_ScaleForm_TempUnit       = 600# IRBG_DATATYPE_INT32 setzt/holt die Temperatureinheit (siehe IRBG_TEMPUNIT_XXX)
-IRBG_PARAM_ScaleForm_TempRangeMode  = 601# IRBG_DATATYPE_INT32 setzt/holt den Temperaturbereichsmodus (siehe IRBG_TEMP_RNG_MODE_XXX)
-IRBG_PARAM_ScaleForm_TempRangeTill  = 602# IRBG_DATATYPE_DOUBLE setzt/holt die obere Temperatur der Palette
-IRBG_PARAM_ScaleForm_TempRangeFrom  = 603# IRBG_DATATYPE_DOUBLE setzt/holt die untere Temperatur der Palette
-IRBG_PARAM_ScaleForm_PaletteCount   = 604# IRBG_DATATYPE_INT32 holt die Anzahl der verfügbaren Paletten
-IRBG_PARAM_ScaleForm_PaletteName    = 605# IRBG_DATATYPE_IDXString holt den Namen der Palette über Index
-IRBG_PARAM_ScaleForm_PaletteIdx     = 606# IRBG_DATATYPE_INT32 setzt/holt den Index der Palette
+IRBG_PARAM_ScaleForm_TempRangeMode  = 601# IRBG_DATATYPE_INT32 sets / gets the temperature range mode (see IRBG_TEMP_RNG_MODE_XXX)
+IRBG_PARAM_ScaleForm_TempRangeTill  = 602# IRBG_DATATYPE_DOUBLE sets / fetches the upper temperature of the pallet
+IRBG_PARAM_ScaleForm_TempRangeFrom  = 603# IRBG_DATATYPE_DOUBLE sets / fetches the lower temperature of the pallet
+IRBG_PARAM_ScaleForm_PaletteCount   = 604# IRBG_DATATYPE_INT32 gets the number of available pallets
+IRBG_PARAM_ScaleForm_PaletteName    = 605# IRBG_DATATYPE_IDXString gets the name of the pallet via index
+IRBG_PARAM_ScaleForm_PaletteIdx     = 606# IRBG_DATATYPE_INT32 sets / fetches the index of the pallet
 
 IRBG_PARAM_IRBcorr_ObjEps           = 700# IRBG_DATATYPE_IDXSingle idxLoWord = 0 --> Global Corr
 IRBG_PARAM_IRBcorr_ObjTau           = 701# IRBG_DATATYPE_IDXSingle idxHiWord = 0 --> Global Corr
@@ -179,8 +179,8 @@ IRBG_TEMP_RNG_MODE_RangeShot    = 3#  as it was captured on the camera
 'Storage object constants'
 IRBG_MEMOBJ_NONE                = 0#
 IRBG_MEMOBJ_BITMAP32            = 1# Bitmap with 32Bit per pixel (A, R, G, B) Only works if LiveWindow is active or IRBG_PARAM_SDK_NeedBitmap32 (= 181) switched on
-IRBG_MEMOBJ_IR_DIGITFRAME       = 2# IR-Bild mit RAW 16Bit pro Pixel
-IRBG_MEMOBJ_TEMPERATURES        = 3# IR-Bild mit Kelvin(Single) pro Pixel
+IRBG_MEMOBJ_IR_DIGITFRAME       = 2# IR image with RAW 16 bits per pixel
+IRBG_MEMOBJ_TEMPERATURES        = 3# IR image with Kelvin (single) per pixel
 IRBG_MEMOBJ_8BITDATA            = 4# 8Bit-Daten (0 = minTemp # 255 = maxTemp)
 IRBG_MEMOBJ_FLIPV               = 0x01000000# mirrors the frame vertically (y = height-y) Only works with ORed IRBG_MEMOBJ_BITMAP32
 

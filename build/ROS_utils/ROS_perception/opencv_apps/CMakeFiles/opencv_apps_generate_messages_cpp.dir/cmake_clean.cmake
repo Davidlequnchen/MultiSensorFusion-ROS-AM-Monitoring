@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Point2DArrayStamped.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Point2DArray.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FlowStamped.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArea.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArray.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Rect.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RectArrayStamped.h"

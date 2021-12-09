@@ -825,10 +825,10 @@ dnb_msgs_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/pylon-ros-camera/draga
 dynamic_reconfigure_DIR:PATH=/opt/ros/melodic/share/dynamic_reconfigure/cmake
 
 //Value Computed by CMake
-experiment_data_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/Experiment_temp
+experiment_data_BINARY_DIR:STATIC=/home/chenlequn/SIMTech_ws/build/experiment_data
 
 //Value Computed by CMake
-experiment_data_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/Experiment_temp
+experiment_data_SOURCE_DIR:STATIC=/home/chenlequn/SIMTech_ws/src/experiment_data
 
 //The directory containing a CMake configuration file for flann.
 flann_DIR:PATH=flann_DIR-NOTFOUND

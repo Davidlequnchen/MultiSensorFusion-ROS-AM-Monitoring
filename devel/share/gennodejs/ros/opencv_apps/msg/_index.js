@@ -15,6 +15,7 @@ let Moment = require('./Moment.js');
 let RotatedRect = require('./RotatedRect.js');
 let Point2DStamped = require('./Point2DStamped.js');
 let Contour = require('./Contour.js');
+let ContourArea = require('./ContourArea.js');
 let MomentArray = require('./MomentArray.js');
 let Point2DArray = require('./Point2DArray.js');
 let FlowArrayStamped = require('./FlowArrayStamped.js');
@@ -48,6 +49,7 @@ module.exports = {
   RotatedRect: RotatedRect,
   Point2DStamped: Point2DStamped,
   Contour: Contour,
+  ContourArea: ContourArea,
   MomentArray: MomentArray,
   Point2DArray: Point2DArray,
   FlowArrayStamped: FlowArrayStamped,

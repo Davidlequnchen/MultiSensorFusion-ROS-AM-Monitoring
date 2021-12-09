@@ -2,6 +2,7 @@ from ._Circle import *
 from ._CircleArray import *
 from ._CircleArrayStamped import *
 from ._Contour import *
+from ._ContourArea import *
 from ._ContourArray import *
 from ._ContourArrayStamped import *
 from ._Face import *

@@ -101,6 +101,7 @@ class irbgrab_demo(QtWidgets.QWidget):
         if hirb.TIRBG_RetDef[res[0]]=='Success':
             # new_image = res[1].astype(np.uint8)
             bridge = CvBridge()
+            # imgMsg = bridge.cv2_to_imgmsg(res[1],encoding="rgb8") ##can be rgb8
             imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8
             self.pub_image.publish(imgMsg)
             self.lblStatus.setText(str(res[1]))
@@ -114,7 +115,7 @@ class irbgrab_demo(QtWidgets.QWidget):
         if hirb.TIRBG_RetDef[res[0]]=='Success':
             # new_image = res[1].astype(np.uint8)
             bridge = CvBridge()
-            imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8,mono8, or directly res[1] (float number)
+            imgMsg = bridge.cv2_to_imgmsg(res[1]) ##can be rgb8, mono8, or directly res[1] (float number)
             self.pub_image.publish(imgMsg)
             # self.lblStatus.setText(str(res[1]))
 

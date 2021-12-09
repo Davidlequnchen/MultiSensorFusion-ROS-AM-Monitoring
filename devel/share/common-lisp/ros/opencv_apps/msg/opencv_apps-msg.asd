@@ -13,6 +13,8 @@
     (:file "_package_CircleArrayStamped" :depends-on ("_package"))
     (:file "Contour" :depends-on ("_package_Contour"))
     (:file "_package_Contour" :depends-on ("_package"))
+    (:file "ContourArea" :depends-on ("_package_ContourArea"))
+    (:file "_package_ContourArea" :depends-on ("_package"))
     (:file "ContourArray" :depends-on ("_package_ContourArray"))
     (:file "_package_ContourArray" :depends-on ("_package"))
     (:file "ContourArrayStamped" :depends-on ("_package_ContourArrayStamped"))

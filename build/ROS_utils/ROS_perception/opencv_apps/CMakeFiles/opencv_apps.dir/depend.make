@@ -435,6 +435,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/cont
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/contour_moments_nodelet.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
 
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/convex_hull_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Contour.h
+ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/convex_hull_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArea.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/convex_hull_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArray.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/convex_hull_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArrayStamped.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/convex_hull_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ConvexHullConfig.h
@@ -1063,6 +1064,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/find
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/find_contours_nodelet.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/find_contours_nodelet.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
 
+ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArea.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/GeneralContoursConfig.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Point2D.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRect.h

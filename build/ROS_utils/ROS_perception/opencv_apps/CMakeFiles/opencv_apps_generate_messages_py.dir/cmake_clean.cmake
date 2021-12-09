@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Point2DArrayStamped.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Point2DArray.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FlowStamped.py"
+  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_ContourArea.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_ContourArray.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Rect.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RectArrayStamped.py"

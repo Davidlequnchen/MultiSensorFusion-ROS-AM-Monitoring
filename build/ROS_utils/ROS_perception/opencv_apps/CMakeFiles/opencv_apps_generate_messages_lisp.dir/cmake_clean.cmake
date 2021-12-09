@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/Point2DArrayStamped.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/Point2DArray.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/FlowStamped.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/ContourArea.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/ContourArray.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/Rect.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/RectArrayStamped.lisp"

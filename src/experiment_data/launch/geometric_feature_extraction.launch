@@ -1,0 +1,36 @@
+<launch>
+  <arg name="apply_otsu" default="false" doc="Decide applying Otsu's algotirhm threshold. If this value is true, threshold value will be ignored" />
+  <arg name="threshold_type" default="0" doc="Specify threshold types. 0: Binary threshold, 1: Binary inverted threshold, 2: Threshold truncated, 3: Threshold to zero, 4: Threshold to zero inverted" />
+  <arg name="threshold" default="40" doc="threshold value"/>
+  <arg name="image_topic_raw"  value="/infratec/image_raw" />
+  <arg name="image_topic_converted"  value="/infratec/image_converted_mono" />
+  <arg name="canny_low_threshold" default="100" doc="Canny Edge low Threshold"/>
+
+  <!-- playback the experiment recording -->
+  <include file="$(find experiment_data)/launch/play_back.launch">
+  </include>
+
+  <!-- Binarization: with thresholding algorithm (otsu/hard-thresholding) -->
+  <include file="$(find opencv_apps)/launch/threshold.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="apply_otsu" value="$(arg apply_otsu)" />
+  </include>
+
+  <!-- Publish: hulls (opencv_apps/ContourArrayStamped) & Hull Areas - Detected convex hulls of contours. Each contour is stored as a vector of point -->
+  <include file="$(find opencv_apps)/launch/convex_hull.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+  </include>
+
+  <!-- Publish: ellipse, rectangle, area(pixels) -->
+  <include file="$(find opencv_apps)/launch/general_contours.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+  </include>
+
+  <include file="$(find opencv_apps)/launch/contour_moments.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="canny_low_threshold" value="$(arg canny_low_threshold)" />
+  </include>
+  
+</launch>
