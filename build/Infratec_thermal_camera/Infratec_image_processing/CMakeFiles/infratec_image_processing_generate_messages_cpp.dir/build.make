@@ -53,33 +53,34 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/progress.make
 
-Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/TemperatureFeature.h
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgHistogram.h
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgThreshold.h
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h
 
-
-/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
-/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg
-/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from infratec_image_processing/MsgMeltpoolWidth.msg"
-	cd /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from infratec_image_processing/MsgMeltpool.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from infratec_image_processing/MsgMeltpool.msg"
 	cd /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from infratec_image_processing/MsgROISize.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from infratec_image_processing/MsgROISize.msg"
 	cd /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/TemperatureFeature.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/TemperatureFeature.h: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/TemperatureFeature.msg
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/TemperatureFeature.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/TemperatureFeature.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from infratec_image_processing/TemperatureFeature.msg"
+	cd /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/TemperatureFeature.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgHistogram.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgHistogram.h: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgHistogram.msg
@@ -95,12 +96,20 @@ Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_proc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from infratec_image_processing/MsgThreshold.msg"
 	cd /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgThreshold.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from infratec_image_processing/MsgMeltpoolWidth.msg"
+	cd /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing -e /opt/ros/melodic/share/gencpp/cmake/..
+
 infratec_image_processing_generate_messages_cpp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp
-infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h
 infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpool.h
 infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgROISize.h
+infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/TemperatureFeature.h
 infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgHistogram.h
 infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgThreshold.h
+infratec_image_processing_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/infratec_image_processing/MsgMeltpoolWidth.h
 infratec_image_processing_generate_messages_cpp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_cpp.dir/build.make
 
 .PHONY : infratec_image_processing_generate_messages_cpp

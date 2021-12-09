@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="thermal_feature_extract" pkg="infratec_image_processing" type="thermal_feature_extract.py" output="screen" >
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+  </node>
+
+</launch>

@@ -53,30 +53,31 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs.dir/progress.make
 
-Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpool.js
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgROISize.js
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/TemperatureFeature.js
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgHistogram.js
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgThreshold.js
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js
 
-
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg
-/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from infratec_image_processing/MsgMeltpoolWidth.msg"
-	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpool.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpool.js: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpool.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from infratec_image_processing/MsgMeltpool.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from infratec_image_processing/MsgMeltpool.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgROISize.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgROISize.js: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgROISize.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from infratec_image_processing/MsgROISize.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from infratec_image_processing/MsgROISize.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/TemperatureFeature.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/TemperatureFeature.js: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/TemperatureFeature.msg
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/TemperatureFeature.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from infratec_image_processing/TemperatureFeature.msg"
+	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/TemperatureFeature.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgHistogram.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgHistogram.js: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgHistogram.msg
@@ -90,12 +91,19 @@ Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_proc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from infratec_image_processing/MsgThreshold.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgThreshold.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg
 
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg
+/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from infratec_image_processing/MsgMeltpoolWidth.msg"
+	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg
+
 infratec_image_processing_generate_messages_nodejs: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs
-infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js
 infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpool.js
 infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgROISize.js
+infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/TemperatureFeature.js
 infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgHistogram.js
 infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgThreshold.js
+infratec_image_processing_generate_messages_nodejs: /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/infratec_image_processing/msg/MsgMeltpoolWidth.js
 infratec_image_processing_generate_messages_nodejs: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_nodejs.dir/build.make
 
 .PHONY : infratec_image_processing_generate_messages_nodejs

@@ -12,7 +12,8 @@ add_message_files(FILES
                   MsgHistogram.msg
                   MsgROISize.msg
                   MsgThreshold.msg
-                  MsgMeltpoolWidth.msg)
+                  MsgMeltpoolWidth.msg
+                  TemperatureFeature.msg)
 
 ## pkg-config libraries
 # find_package(PkgConfig REQUIRED)

@@ -53,30 +53,31 @@ CMAKE_BINARY_DIR = /home/chenlequn/SIMTech_ws/build
 # Include the progress variables for this target.
 include Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp.dir/progress.make
 
-Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpool.lisp
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgROISize.lisp
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/TemperatureFeature.lisp
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgHistogram.lisp
 Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgThreshold.lisp
+Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp
 
-
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg
-/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from infratec_image_processing/MsgMeltpoolWidth.msg"
-	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpool.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpool.lisp: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpool.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from infratec_image_processing/MsgMeltpool.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from infratec_image_processing/MsgMeltpool.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpool.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgROISize.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgROISize.lisp: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgROISize.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from infratec_image_processing/MsgROISize.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from infratec_image_processing/MsgROISize.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgROISize.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg
+
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/TemperatureFeature.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/TemperatureFeature.lisp: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/TemperatureFeature.msg
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/TemperatureFeature.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from infratec_image_processing/TemperatureFeature.msg"
+	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/TemperatureFeature.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgHistogram.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgHistogram.lisp: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgHistogram.msg
@@ -90,12 +91,19 @@ Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_proc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from infratec_image_processing/MsgThreshold.msg"
 	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgThreshold.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg
 
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg
+/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Lisp code from infratec_image_processing/MsgMeltpoolWidth.msg"
+	cd /home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg/MsgMeltpoolWidth.msg -Iinfratec_image_processing:/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_image_processing/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p infratec_image_processing -o /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg
+
 infratec_image_processing_generate_messages_lisp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp
-infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp
 infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpool.lisp
 infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgROISize.lisp
+infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/TemperatureFeature.lisp
 infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgHistogram.lisp
 infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgThreshold.lisp
+infratec_image_processing_generate_messages_lisp: /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/infratec_image_processing/msg/MsgMeltpoolWidth.lisp
 infratec_image_processing_generate_messages_lisp: Infratec_thermal_camera/Infratec_image_processing/CMakeFiles/infratec_image_processing_generate_messages_lisp.dir/build.make
 
 .PHONY : infratec_image_processing_generate_messages_lisp

@@ -99,7 +99,7 @@ if(NOT "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/
   elseif(NOT " " STREQUAL " ")
     set(_report "Check the website '' for information and consider reporting the problem.")
   else()
-    set(_report "Report the problem to the maintainer 'Kei Okada <kei.okada@gmail.com>' and request to fix the problem.")
+    set(_report "Report the problem to the maintainer 'Chen Lequn <chen1189@e.ntu.edu.sg>' and request to fix the problem.")
   endif()
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})

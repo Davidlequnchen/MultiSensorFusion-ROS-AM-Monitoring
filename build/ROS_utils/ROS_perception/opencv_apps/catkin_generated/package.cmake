@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "opencv_apps")
 set(opencv_apps_VERSION "2.0.2")
-set(opencv_apps_MAINTAINER "Kei Okada <kei.okada@gmail.com>")
+set(opencv_apps_MAINTAINER "Chen Lequn <chen1189@e.ntu.edu.sg>")
 set(opencv_apps_PACKAGE_FORMAT "1")
 set(opencv_apps_BUILD_DEPENDS "cv_bridge" "dynamic_reconfigure" "g++-static" "image_transport" "message_generation" "nodelet" "roscpp" "sensor_msgs" "std_msgs" "std_srvs")
 set(opencv_apps_BUILD_EXPORT_DEPENDS "cv_bridge" "dynamic_reconfigure" "image_transport" "image_view" "message_runtime" "nodelet" "roscpp" "sensor_msgs" "std_msgs" "std_srvs")

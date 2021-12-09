@@ -15,4 +15,6 @@
     (:file "_package_MsgROISize" :depends-on ("_package"))
     (:file "MsgThreshold" :depends-on ("_package_MsgThreshold"))
     (:file "_package_MsgThreshold" :depends-on ("_package"))
+    (:file "TemperatureFeature" :depends-on ("_package_TemperatureFeature"))
+    (:file "_package_TemperatureFeature" :depends-on ("_package"))
   ))
