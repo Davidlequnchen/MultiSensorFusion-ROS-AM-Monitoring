@@ -1,14 +1,18 @@
 <launch>
-  <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find experiment_data)/3/data/3.bag"/>
+  <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find experiment_data)/data/13_Dec_DSO_printing/4.bag"/>
   
   <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
-    <remap from="image" to="/infratec/image_converted_mono"/>
+    <remap from="image" to="/infratec/image_converted_mono8"/>
     <param name="autosize" value="true" />
   </node>
 
   <node name="image_view2" pkg="image_view" type="image_view" respawn="false" output="screen">
     <remap from="image" to="/infratec/image_raw"/>
     <param name="autosize" value="true" />
+  </node>
+
+  <node name="irb_image_convert_mono16" pkg="infratec_image_processing" type="irb_image_convert_mono.py" output="screen" >
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
   </node>
   
 </launch>

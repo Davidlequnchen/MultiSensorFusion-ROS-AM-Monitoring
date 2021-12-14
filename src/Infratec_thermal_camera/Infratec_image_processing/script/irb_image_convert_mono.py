@@ -24,8 +24,8 @@ class NdThermalImage():
         # publisher 
         # self.pub_melt_pool = rospy.Publisher("/infratec/melt_pool", MsgMeltpool, queue_size=10)
         # self.pub_thermal_image_colour = rospy.Publisher('/infratec/image_colour', Image, queue_size=10)
-        self.pub_histogram = rospy.Publisher('/infratec/image_converted_mono/histogram', MsgHistogram, queue_size=10)
-        self.pub_thermal_image_converted = rospy.Publisher('/infratec/image_converted_mono', Image, queue_size=10)
+        # self.pub_histogram = rospy.Publisher('/infratec/image_converted_mono/histogram', MsgHistogram, queue_size=10)
+        self.pub_thermal_image_converted = rospy.Publisher('/infratec/image_converted_mono8', Image, queue_size=10)
         self.pub_bin_image = rospy.Publisher('/infratec/image_bin', Image, queue_size=10)
         
         rospy.spin()
@@ -41,17 +41,17 @@ class NdThermalImage():
             # frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256**2
             # frame_uint = (frame*25).astype(np.uint8)
 
-            # frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256
-            # frame_uint = frame_normalized.astype(np.uint8)    
-            frame_uint = frame.astype(np.uint8)
+            frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256
+            frame_uint = frame_normalized.astype(np.uint8)    
+            # frame_uint = frame.astype(np.uint8)
             converted_msg = self.bridge.cv2_to_imgmsg(frame_uint, "mono8") # convert back to mono scale
             self.pub_thermal_image_converted.publish(converted_msg)
 
             # calculate frequency of pixels in range 0-255
-            histg = cv2.calcHist([frame_uint],[0],None,[255],[0,255]) 
-            self.msg_histogram.header.stamp = stamp
-            self.msg_histogram.histogram = histg
-            self.pub_histogram.publish(self.msg_histogram)
+            # histg = cv2.calcHist([frame_uint],[0],None,[255],[0,255]) 
+            # self.msg_histogram.header.stamp = stamp
+            # self.msg_histogram.histogram = histg
+            # self.pub_histogram.publish(self.msg_histogram)
 
 
 
