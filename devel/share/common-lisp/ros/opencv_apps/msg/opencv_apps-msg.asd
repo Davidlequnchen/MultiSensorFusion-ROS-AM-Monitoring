@@ -39,6 +39,8 @@
     (:file "_package_LineArray" :depends-on ("_package"))
     (:file "LineArrayStamped" :depends-on ("_package_LineArrayStamped"))
     (:file "_package_LineArrayStamped" :depends-on ("_package"))
+    (:file "MaxContourArea" :depends-on ("_package_MaxContourArea"))
+    (:file "_package_MaxContourArea" :depends-on ("_package"))
     (:file "Moment" :depends-on ("_package_Moment"))
     (:file "_package_Moment" :depends-on ("_package"))
     (:file "MomentArray" :depends-on ("_package_MomentArray"))

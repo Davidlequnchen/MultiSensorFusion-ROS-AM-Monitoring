@@ -69,10 +69,10 @@
     4
     ;; float32 _variance
     4
-    ;; float32 _kurtosis
-    4
-    ;; float32 _skewness
-    4
+    ;; float64 _kurtosis
+    8
+    ;; float64 _skewness
+    8
     ))
   (:serialize
    (&optional strm)
@@ -86,10 +86,10 @@
        (sys::poke _lowest (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _variance
        (sys::poke _variance (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
-     ;; float32 _kurtosis
-       (sys::poke _kurtosis (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
-     ;; float32 _skewness
-       (sys::poke _skewness (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float64 _kurtosis
+       (sys::poke _kurtosis (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _skewness
+       (sys::poke _skewness (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -102,23 +102,23 @@
      (setq _lowest (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _variance
      (setq _variance (sys::peek buf ptr- :float)) (incf ptr- 4)
-   ;; float32 _kurtosis
-     (setq _kurtosis (sys::peek buf ptr- :float)) (incf ptr- 4)
-   ;; float32 _skewness
-     (setq _skewness (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float64 _kurtosis
+     (setq _kurtosis (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _skewness
+     (setq _skewness (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
 
-(setf (get infratec_image_processing::TemperatureFeature :md5sum-) "76aadf0f49fea5fc61b3a9625bed0842")
+(setf (get infratec_image_processing::TemperatureFeature :md5sum-) "25f0a9823d69014b82344a62ef84f03d")
 (setf (get infratec_image_processing::TemperatureFeature :datatype-) "infratec_image_processing/TemperatureFeature")
 (setf (get infratec_image_processing::TemperatureFeature :definition-)
       "Header header
 float32 highest
 float32 lowest
 float32 variance # measure of the spread of a distribution
-float32 kurtosis # measure of non-guassianity
-float32 skewness
+float64 kurtosis # measure of non-guassianity
+float64 skewness
 # skewness = 0 : normally distributed.
 # skewness > 0 : more weight in the left tail of the distribution.
 # skewness < 0 : more weight in the right tail of the distribution. 
@@ -144,6 +144,6 @@ string frame_id
 
 
 
-(provide :infratec_image_processing/TemperatureFeature "76aadf0f49fea5fc61b3a9625bed0842")
+(provide :infratec_image_processing/TemperatureFeature "25f0a9823d69014b82344a62ef84f03d")
 
 

@@ -653,6 +653,7 @@
 /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_FlowArrayStamped.dir
 /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps/CMakeFiles/hough_circles_exe.dir
 /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MomentArray.dir
+/home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir
 /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_FaceArrayStamped.dir
 /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_CircleArray.dir
 /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps/CMakeFiles/install.dir

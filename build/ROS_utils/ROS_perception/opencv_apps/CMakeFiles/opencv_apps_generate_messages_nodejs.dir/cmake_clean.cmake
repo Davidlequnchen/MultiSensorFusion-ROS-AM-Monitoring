@@ -25,6 +25,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FlowArrayStamped.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RotatedRect.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RotatedRectArray.js"
+  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/MaxContourArea.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FaceArrayStamped.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/CircleArray.js"
   "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RotatedRectStamped.js"

@@ -155,35 +155,60 @@ class ConvexHullNodelet : public opencv_apps::Nodelet
       /// Find contours
       cv::findContours(threshold_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 
-      /// Find the convex hull object for each contour
-      std::vector<std::vector<cv::Point> > hull(contours.size());
-      // Find the bounding convex hull area for each contour
-      std::vector<double> hull_area(contours.size());
+      //-------------empty drawing---------------------
+         cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
 
-      for (size_t i = 0; i < contours.size(); i++)
+      /// --------- do the following only if there is a contour --------------
+      if (!contours.empty())
       {
-        cv::convexHull(cv::Mat(contours[i]), hull[i], false);
-        hull_area[i] = cv::contourArea(cv::Mat(hull[i]));
-      }
+        /// Find the convex hull object for each contour
+        std::vector<std::vector<cv::Point> > hull(contours.size());
+        // Find the bounding convex hull area for each contour
+        std::vector<double> hull_area(contours.size());
 
-      /// Draw contours + hull results
-      cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
-      for (size_t i = 0; i < contours.size(); i++)
-      {
-        cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-        cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
-        cv::drawContours(drawing, hull, (int)i, color, 4, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
-
-        opencv_apps::Contour contour_msg;
-        for (const cv::Point& j : hull[i])
+        for (size_t i = 0; i < contours.size(); i++)
         {
-          opencv_apps::Point2D point_msg;
-          point_msg.x = j.x;
-          point_msg.y = j.y;
-          contour_msg.points.push_back(point_msg);
+          cv::convexHull(cv::Mat(contours[i]), hull[i], false);
+          hull_area[i] = cv::contourArea(cv::Mat(hull[i]));
         }
+
+        /// Draw contours + hull results
+        // cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
+        for (size_t i = 0; i < contours.size(); i++)
+        {
+          cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+          cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+          cv::drawContours(drawing, hull, (int)i, color, 4, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+
+          opencv_apps::Contour contour_msg;
+          for (const cv::Point& j : hull[i])
+          {
+            opencv_apps::Point2D point_msg;
+            point_msg.x = j.x;
+            point_msg.y = j.y;
+            contour_msg.points.push_back(point_msg);
+          }
+          contours_msg.contours.push_back(contour_msg);
+          // areas_msg.area.push_back(hull_area[i]);
+        }
+        
+
+        /// Get the max contour area, and its corresponding ellipse and rectangle
+        int max_contour_area_index = std::max_element(hull_area.begin(),hull_area.end()) - hull_area.begin();
+        areas_msg.area.push_back(hull_area[max_contour_area_index]);
+
+        // msg_pub_.publish(contours_msg);
+        // areas_pub_.publish(areas_msg);
+      }
+      else{
+        // ---- if no contour detected, just publish idle (zero)------
+        opencv_apps::Contour contour_msg;
+        opencv_apps::Point2D point_msg;
+        point_msg.x = 0;
+        point_msg.y = 0;
+        contour_msg.points.push_back(point_msg);
         contours_msg.contours.push_back(contour_msg);
-        areas_msg.area.push_back(hull_area[i]);
+        areas_msg.area.push_back(0);
       }
 
       /// Create a Trackbar for user to enter threshold
@@ -201,12 +226,13 @@ class ConvexHullNodelet : public opencv_apps::Nodelet
         int c = cv::waitKey(1);
       }
 
+      msg_pub_.publish(contours_msg);
+      areas_pub_.publish(areas_msg);
       // Publish the image.
       sensor_msgs::Image::Ptr out_img =
           cv_bridge::CvImage(msg->header, sensor_msgs::image_encodings::BGR8, drawing).toImageMsg();
       img_pub_.publish(out_img);
-      msg_pub_.publish(contours_msg);
-      areas_pub_.publish(areas_msg);
+
     }
     catch (cv::Exception& e)
     {

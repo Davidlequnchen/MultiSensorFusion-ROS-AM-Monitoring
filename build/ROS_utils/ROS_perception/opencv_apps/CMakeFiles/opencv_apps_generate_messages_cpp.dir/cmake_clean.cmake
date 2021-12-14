@@ -25,6 +25,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FlowArrayStamped.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRect.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectArray.h"
+  "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/CircleArray.h"
   "/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectStamped.h"

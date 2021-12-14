@@ -78,6 +78,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cp
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FlowArrayStamped.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRect.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectArray.h
+ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/CircleArray.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectStamped.h
@@ -284,13 +285,20 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating C++ code from opencv_apps/RotatedRectArray.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRectArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg
+/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating C++ code from opencv_apps/MaxContourArea.msg"
+	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
+
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating C++ code from opencv_apps/FaceArrayStamped.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating C++ code from opencv_apps/FaceArrayStamped.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/CircleArray.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -298,7 +306,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cp
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/CircleArray.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Circle.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/CircleArray.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/CircleArray.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating C++ code from opencv_apps/CircleArray.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating C++ code from opencv_apps/CircleArray.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/CircleArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectStamped.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -308,7 +316,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cp
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectStamped.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectStamped.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectStamped.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating C++ code from opencv_apps/RotatedRectStamped.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating C++ code from opencv_apps/RotatedRectStamped.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRectStamped.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/LineArray.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -316,7 +324,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cp
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/LineArray.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Line.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/LineArray.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/LineArray.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating C++ code from opencv_apps/LineArray.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating C++ code from opencv_apps/LineArray.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/LineArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArray.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -324,21 +332,21 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cp
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArray.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArray.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArray.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating C++ code from opencv_apps/FaceArray.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating C++ code from opencv_apps/FaceArray.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Moment.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Moment.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Moment.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Moment.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Moment.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating C++ code from opencv_apps/Moment.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating C++ code from opencv_apps/Moment.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Moment.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Circle.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Circle.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Circle.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Circle.h: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Circle.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating C++ code from opencv_apps/Circle.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating C++ code from opencv_apps/Circle.msg"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Circle.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceRecognitionTrain.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -348,7 +356,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cp
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceRecognitionTrain.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceRecognitionTrain.h: /opt/ros/melodic/share/gencpp/msg.h.template
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceRecognitionTrain.h: /opt/ros/melodic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating C++ code from opencv_apps/FaceRecognitionTrain.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating C++ code from opencv_apps/FaceRecognitionTrain.srv"
 	cd /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps && /home/chenlequn/SIMTech_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/srv/FaceRecognitionTrain.srv -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/include/opencv_apps -e /opt/ros/melodic/share/gencpp/cmake/..
 
 opencv_apps_generate_messages_cpp: ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_cpp
@@ -377,6 +385,7 @@ opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/open
 opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FlowArrayStamped.h
 opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRect.h
 opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectArray.h
+opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h
 opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/FaceArrayStamped.h
 opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/CircleArray.h
 opencv_apps_generate_messages_cpp: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectStamped.h

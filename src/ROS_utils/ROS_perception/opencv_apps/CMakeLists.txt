@@ -102,6 +102,7 @@ add_message_files(
    ContourArray.msg
    ContourArrayStamped.msg
    ContourArea.msg
+   MaxContourArea.msg
 )
 
 add_service_files(

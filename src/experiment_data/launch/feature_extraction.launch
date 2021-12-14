@@ -8,9 +8,9 @@
   <include file="$(find experiment_data)/launch/temperature_feature_extraction.launch">
   </include>
 
-  <!-- <node pkg="rosbag" type="record" name="rosbag_record_features"
-       args="record -O /media/chenlequn/Lequn_HD/Research Projects/Thermal_camera_monitoring/13_Dec_DSO_printing/features/4 
+  <node pkg="rosbag" type="record" name="rosbag_record_features"
+       args="record -O /media/chenlequn/Lequn_HD/feature_extracted /general_contours/max_contour_area
        /contour_moments/moments /convex_hull/hull_area /general_contours/contour_area /general_contours/ellipses /general_contours/rectangles 
-       /infratec/temperature_feature"/> -->
+       /infratec/temperature_feature"/>
 
 </launch>

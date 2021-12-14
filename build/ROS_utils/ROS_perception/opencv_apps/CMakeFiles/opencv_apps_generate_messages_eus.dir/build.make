@@ -78,6 +78,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eu
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FlowArrayStamped.l
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRect.l
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectArray.l
+ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MaxContourArea.l
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/CircleArray.l
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectStamped.l
@@ -260,19 +261,25 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eu
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating EusLisp code from opencv_apps/RotatedRectArray.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRectArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MaxContourArea.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MaxContourArea.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg
+/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MaxContourArea.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating EusLisp code from opencv_apps/MaxContourArea.msg"
+	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
+
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating EusLisp code from opencv_apps/FaceArrayStamped.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating EusLisp code from opencv_apps/FaceArrayStamped.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/CircleArray.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/CircleArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/CircleArray.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/CircleArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Circle.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/CircleArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating EusLisp code from opencv_apps/CircleArray.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating EusLisp code from opencv_apps/CircleArray.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/CircleArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectStamped.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -281,33 +288,33 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eu
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectStamped.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Size.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectStamped.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectStamped.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating EusLisp code from opencv_apps/RotatedRectStamped.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating EusLisp code from opencv_apps/RotatedRectStamped.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRectStamped.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/LineArray.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/LineArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/LineArray.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/LineArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Line.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/LineArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating EusLisp code from opencv_apps/LineArray.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating EusLisp code from opencv_apps/LineArray.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/LineArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArray.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArray.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArray.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating EusLisp code from opencv_apps/FaceArray.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating EusLisp code from opencv_apps/FaceArray.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArray.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Moment.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Moment.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Moment.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Moment.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating EusLisp code from opencv_apps/Moment.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating EusLisp code from opencv_apps/Moment.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Moment.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Circle.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Circle.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Circle.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Circle.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Point2D.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating EusLisp code from opencv_apps/Circle.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating EusLisp code from opencv_apps/Circle.msg"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Circle.msg -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/srv/FaceRecognitionTrain.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -315,11 +322,11 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eu
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/srv/FaceRecognitionTrain.l: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/srv/FaceRecognitionTrain.l: /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/srv/FaceRecognitionTrain.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating EusLisp code from opencv_apps/FaceRecognitionTrain.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating EusLisp code from opencv_apps/FaceRecognitionTrain.srv"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/srv/FaceRecognitionTrain.srv -Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -p opencv_apps -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/srv
 
 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating EusLisp manifest code for opencv_apps"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/chenlequn/SIMTech_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Generating EusLisp manifest code for opencv_apps"
 	cd /home/chenlequn/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps && ../../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps opencv_apps sensor_msgs std_msgs
 
 opencv_apps_generate_messages_eus: ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps_generate_messages_eus
@@ -348,6 +355,7 @@ opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus
 opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FlowArrayStamped.l
 opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRect.l
 opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectArray.l
+opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MaxContourArea.l
 opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l
 opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/CircleArray.l
 opencv_apps_generate_messages_eus: /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectStamped.l

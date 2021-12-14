@@ -9,15 +9,15 @@ import struct
 import std_msgs.msg
 
 class TemperatureFeature(genpy.Message):
-  _md5sum = "76aadf0f49fea5fc61b3a9625bed0842"
+  _md5sum = "25f0a9823d69014b82344a62ef84f03d"
   _type = "infratec_image_processing/TemperatureFeature"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """Header header
 float32 highest
 float32 lowest
 float32 variance # measure of the spread of a distribution
-float32 kurtosis # measure of non-guassianity
-float32 skewness
+float64 kurtosis # measure of non-guassianity
+float64 skewness
 # skewness = 0 : normally distributed.
 # skewness > 0 : more weight in the left tail of the distribution.
 # skewness < 0 : more weight in the right tail of the distribution. 
@@ -40,7 +40,7 @@ time stamp
 string frame_id
 """
   __slots__ = ['header','highest','lowest','variance','kurtosis','skewness']
-  _slot_types = ['std_msgs/Header','float32','float32','float32','float32','float32']
+  _slot_types = ['std_msgs/Header','float32','float32','float32','float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -100,7 +100,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_5f().pack(_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness))
+      buff.write(_get_struct_3f2d().pack(_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -130,8 +130,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 20
-      (_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness,) = _get_struct_5f().unpack(str[start:end])
+      end += 28
+      (_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness,) = _get_struct_3f2d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -153,7 +153,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_5f().pack(_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness))
+      buff.write(_get_struct_3f2d().pack(_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -184,8 +184,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 20
-      (_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness,) = _get_struct_5f().unpack(str[start:end])
+      end += 28
+      (_x.highest, _x.lowest, _x.variance, _x.kurtosis, _x.skewness,) = _get_struct_3f2d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -200,9 +200,9 @@ def _get_struct_3I():
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
-_struct_5f = None
-def _get_struct_5f():
-    global _struct_5f
-    if _struct_5f is None:
-        _struct_5f = struct.Struct("<5f")
-    return _struct_5f
+_struct_3f2d = None
+def _get_struct_3f2d():
+    global _struct_3f2d
+    if _struct_3f2d is None:
+        _struct_3f2d = struct.Struct("<3f2d")
+    return _struct_3f2d

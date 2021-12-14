@@ -56,10 +56,10 @@ struct TemperatureFeature_
    typedef float _variance_type;
   _variance_type variance;
 
-   typedef float _kurtosis_type;
+   typedef double _kurtosis_type;
   _kurtosis_type kurtosis;
 
-   typedef float _skewness_type;
+   typedef double _skewness_type;
   _skewness_type skewness;
 
 
@@ -153,12 +153,12 @@ struct MD5Sum< ::infratec_image_processing::TemperatureFeature_<ContainerAllocat
 {
   static const char* value()
   {
-    return "76aadf0f49fea5fc61b3a9625bed0842";
+    return "25f0a9823d69014b82344a62ef84f03d";
   }
 
   static const char* value(const ::infratec_image_processing::TemperatureFeature_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x76aadf0f49fea5fcULL;
-  static const uint64_t static_value2 = 0x61b3a9625bed0842ULL;
+  static const uint64_t static_value1 = 0x25f0a9823d69014bULL;
+  static const uint64_t static_value2 = 0x82344a62ef84f03dULL;
 };
 
 template<class ContainerAllocator>
@@ -181,8 +181,8 @@ struct Definition< ::infratec_image_processing::TemperatureFeature_<ContainerAll
 "float32 highest\n"
 "float32 lowest\n"
 "float32 variance # measure of the spread of a distribution\n"
-"float32 kurtosis # measure of non-guassianity\n"
-"float32 skewness\n"
+"float64 kurtosis # measure of non-guassianity\n"
+"float64 skewness\n"
 "# skewness = 0 : normally distributed.\n"
 "# skewness > 0 : more weight in the left tail of the distribution.\n"
 "# skewness < 0 : more weight in the right tail of the distribution. \n"
@@ -255,9 +255,9 @@ struct Printer< ::infratec_image_processing::TemperatureFeature_<ContainerAlloca
     s << indent << "variance: ";
     Printer<float>::stream(s, indent + "  ", v.variance);
     s << indent << "kurtosis: ";
-    Printer<float>::stream(s, indent + "  ", v.kurtosis);
+    Printer<double>::stream(s, indent + "  ", v.kurtosis);
     s << indent << "skewness: ";
-    Printer<float>::stream(s, indent + "  ", v.skewness);
+    Printer<double>::stream(s, indent + "  ", v.skewness);
   }
 };
 

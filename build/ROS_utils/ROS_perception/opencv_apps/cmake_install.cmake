@@ -183,6 +183,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/ContourArray.msg"
     "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/ContourArrayStamped.msg"
     "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/ContourArea.msg"
+    "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg"
     )
 endif()
 

@@ -1,0 +1,12 @@
+Header header
+float64 meltpool_contour_area
+float64 ellipse_angle
+float64 ellipse_x
+float64 ellipse_y
+float64 ellipse_width
+float64 ellipse_height
+float64 rectangle_angle
+float64 rectangle_x
+float64 rectangle_y
+float64 rectangle_width
+float64 rectangle_height

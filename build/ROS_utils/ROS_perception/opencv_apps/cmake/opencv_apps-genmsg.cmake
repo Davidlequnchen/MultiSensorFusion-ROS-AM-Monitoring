@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "opencv_apps: 32 messages, 1 services")
+message(STATUS "opencv_apps: 33 messages, 1 services")
 
 set(MSG_I_FLAGS "-Iopencv_apps:/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg;-Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg")
 
@@ -145,6 +145,11 @@ add_custom_target(_opencv_apps_generate_messages_check_deps_${_filename}
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MomentArray.msg" NAME_WE)
 add_custom_target(_opencv_apps_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "opencv_apps" "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MomentArray.msg" "opencv_apps/Point2D:opencv_apps/Moment"
+)
+
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg" NAME_WE)
+add_custom_target(_opencv_apps_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "opencv_apps" "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg" NAME_WE)
@@ -339,6 +344,12 @@ _generate_msg_cpp(opencv_apps
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/opencv_apps
 )
 _generate_msg_cpp(opencv_apps
+  "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/opencv_apps
+)
+_generate_msg_cpp(opencv_apps
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg"
   "${MSG_I_FLAGS}"
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg;/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -452,6 +463,8 @@ add_dependencies(opencv_apps_generate_messages_cpp _opencv_apps_generate_message
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRect.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_cpp _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MomentArray.msg" NAME_WE)
+add_dependencies(opencv_apps_generate_messages_cpp _opencv_apps_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_cpp _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_cpp _opencv_apps_generate_messages_check_deps_${_filename})
@@ -628,6 +641,12 @@ _generate_msg_eus(opencv_apps
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/opencv_apps
 )
 _generate_msg_eus(opencv_apps
+  "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/opencv_apps
+)
+_generate_msg_eus(opencv_apps
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg"
   "${MSG_I_FLAGS}"
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg;/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -741,6 +760,8 @@ add_dependencies(opencv_apps_generate_messages_eus _opencv_apps_generate_message
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRect.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_eus _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MomentArray.msg" NAME_WE)
+add_dependencies(opencv_apps_generate_messages_eus _opencv_apps_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_eus _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_eus _opencv_apps_generate_messages_check_deps_${_filename})
@@ -917,6 +938,12 @@ _generate_msg_lisp(opencv_apps
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/opencv_apps
 )
 _generate_msg_lisp(opencv_apps
+  "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/opencv_apps
+)
+_generate_msg_lisp(opencv_apps
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg"
   "${MSG_I_FLAGS}"
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg;/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -1030,6 +1057,8 @@ add_dependencies(opencv_apps_generate_messages_lisp _opencv_apps_generate_messag
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRect.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_lisp _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MomentArray.msg" NAME_WE)
+add_dependencies(opencv_apps_generate_messages_lisp _opencv_apps_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_lisp _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_lisp _opencv_apps_generate_messages_check_deps_${_filename})
@@ -1206,6 +1235,12 @@ _generate_msg_nodejs(opencv_apps
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/opencv_apps
 )
 _generate_msg_nodejs(opencv_apps
+  "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/opencv_apps
+)
+_generate_msg_nodejs(opencv_apps
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg"
   "${MSG_I_FLAGS}"
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg;/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -1319,6 +1354,8 @@ add_dependencies(opencv_apps_generate_messages_nodejs _opencv_apps_generate_mess
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRect.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_nodejs _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MomentArray.msg" NAME_WE)
+add_dependencies(opencv_apps_generate_messages_nodejs _opencv_apps_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_nodejs _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_nodejs _opencv_apps_generate_messages_check_deps_${_filename})
@@ -1495,6 +1532,12 @@ _generate_msg_py(opencv_apps
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/opencv_apps
 )
 _generate_msg_py(opencv_apps
+  "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/opencv_apps
+)
+_generate_msg_py(opencv_apps
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg"
   "${MSG_I_FLAGS}"
   "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Face.msg;/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/Rect.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -1608,6 +1651,8 @@ add_dependencies(opencv_apps_generate_messages_py _opencv_apps_generate_messages
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/RotatedRect.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_py _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MomentArray.msg" NAME_WE)
+add_dependencies(opencv_apps_generate_messages_py _opencv_apps_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/MaxContourArea.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_py _opencv_apps_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/msg/FaceArrayStamped.msg" NAME_WE)
 add_dependencies(opencv_apps_generate_messages_py _opencv_apps_generate_messages_check_deps_${_filename})

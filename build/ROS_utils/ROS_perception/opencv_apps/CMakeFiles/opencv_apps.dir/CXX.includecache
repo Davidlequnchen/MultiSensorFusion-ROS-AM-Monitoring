@@ -522,6 +522,24 @@ std_msgs/Header.h
 opencv_apps/Line.h
 -
 
+/home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+
 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Moment.h
 string
 -
@@ -1253,6 +1271,8 @@ opencv_apps/RotatedRectArrayStamped.h
 /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/RotatedRectArrayStamped.h
 opencv_apps/ContourArea.h
 /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/ContourArea.h
+opencv_apps/MaxContourArea.h
+/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/src/nodelet/opencv_apps/MaxContourArea.h
 pluginlib/class_list_macros.h
 -
 

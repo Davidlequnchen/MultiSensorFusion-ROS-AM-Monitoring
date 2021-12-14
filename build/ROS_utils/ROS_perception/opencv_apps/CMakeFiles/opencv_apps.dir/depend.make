@@ -1066,6 +1066,7 @@ ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/find
 
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/ContourArea.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/GeneralContoursConfig.h
+ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Point2D.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRect.h
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/opencv_apps.dir/src/nodelet/general_contours_nodelet.cpp.o: /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/RotatedRectArray.h

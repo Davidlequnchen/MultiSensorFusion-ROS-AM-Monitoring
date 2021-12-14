@@ -25,6 +25,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FlowArrayStamped.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRect.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectArray.l"
+  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MaxContourArea.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/FaceArrayStamped.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/CircleArray.l"
   "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/RotatedRectStamped.l"

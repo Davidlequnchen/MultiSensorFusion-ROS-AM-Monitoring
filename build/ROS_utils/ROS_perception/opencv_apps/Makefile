@@ -1233,6 +1233,21 @@ _opencv_apps_generate_messages_check_deps_MomentArray/fast:
 .PHONY : _opencv_apps_generate_messages_check_deps_MomentArray/fast
 
 # Convenience name for target.
+ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/rule:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/rule
+.PHONY : ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/rule
+
+# Convenience name for target.
+_opencv_apps_generate_messages_check_deps_MaxContourArea: ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/rule
+
+.PHONY : _opencv_apps_generate_messages_check_deps_MaxContourArea
+
+# fast build rule for target.
+_opencv_apps_generate_messages_check_deps_MaxContourArea/fast:
+	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/build.make ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/build
+.PHONY : _opencv_apps_generate_messages_check_deps_MaxContourArea/fast
+
+# Convenience name for target.
 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_FaceArrayStamped.dir/rule:
 	cd /home/chenlequn/SIMTech_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_FaceArrayStamped.dir/rule
 .PHONY : ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_FaceArrayStamped.dir/rule
@@ -3015,6 +3030,7 @@ help:
 	@echo "... _opencv_apps_generate_messages_check_deps_FlowArrayStamped"
 	@echo "... hough_circles_exe"
 	@echo "... _opencv_apps_generate_messages_check_deps_MomentArray"
+	@echo "... _opencv_apps_generate_messages_check_deps_MaxContourArea"
 	@echo "... _opencv_apps_generate_messages_check_deps_FaceArrayStamped"
 	@echo "... _opencv_apps_generate_messages_check_deps_CircleArray"
 	@echo "... install"

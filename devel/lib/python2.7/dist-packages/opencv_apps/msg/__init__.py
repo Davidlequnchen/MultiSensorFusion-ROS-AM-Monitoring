@@ -15,6 +15,7 @@ from ._FlowStamped import *
 from ._Line import *
 from ._LineArray import *
 from ._LineArrayStamped import *
+from ._MaxContourArea import *
 from ._Moment import *
 from ._MomentArray import *
 from ._MomentArrayStamped import *

@@ -25,6 +25,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/FlowArrayStamped.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/RotatedRect.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/RotatedRectArray.lisp"
+  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/MaxContourArea.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/FaceArrayStamped.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/CircleArray.lisp"
   "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/RotatedRectStamped.lisp"

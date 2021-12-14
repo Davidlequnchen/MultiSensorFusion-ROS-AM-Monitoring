@@ -4432,6 +4432,19 @@ _opencv_apps_generate_messages_check_deps_MomentArray/fast:
 .PHONY : _opencv_apps_generate_messages_check_deps_MomentArray/fast
 
 #=============================================================================
+# Target rules for targets named _opencv_apps_generate_messages_check_deps_MaxContourArea
+
+# Build rule for target.
+_opencv_apps_generate_messages_check_deps_MaxContourArea: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _opencv_apps_generate_messages_check_deps_MaxContourArea
+.PHONY : _opencv_apps_generate_messages_check_deps_MaxContourArea
+
+# fast build rule for target.
+_opencv_apps_generate_messages_check_deps_MaxContourArea/fast:
+	$(MAKE) -f ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/build.make ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea.dir/build
+.PHONY : _opencv_apps_generate_messages_check_deps_MaxContourArea/fast
+
+#=============================================================================
 # Target rules for targets named _opencv_apps_generate_messages_check_deps_FaceArrayStamped
 
 # Build rule for target.
@@ -9140,6 +9153,7 @@ help:
 	@echo "... _opencv_apps_generate_messages_check_deps_FlowArrayStamped"
 	@echo "... hough_circles_exe"
 	@echo "... _opencv_apps_generate_messages_check_deps_MomentArray"
+	@echo "... _opencv_apps_generate_messages_check_deps_MaxContourArea"
 	@echo "... _opencv_apps_generate_messages_check_deps_FaceArrayStamped"
 	@echo "... _opencv_apps_generate_messages_check_deps_CircleArray"
 	@echo "... corner_harris_exe"

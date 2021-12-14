@@ -158,75 +158,159 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
       cv::findContours(canny_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 
       /// Draw contours
-      cv::Mat drawing;
-      if (debug_view_)
-      {
-        drawing = cv::Mat::zeros(canny_output.size(), CV_8UC3);
-      }
-
-      /// Calculate the area with the moments 00 and compare with the result of the OpenCV function
-      NODELET_INFO("\t Info: Area and Contour Length");
-
-      // https://stackoverflow.com/questions/13495207/opencv-c-sorting-contours-by-their-contourarea
-      std::sort(contours.begin(), contours.end(), compareContourAreas);
-
-      std::vector<cv::Moments> mu(contours.size());
-      std::vector<cv::Point2f> mc(contours.size());
-      for (size_t i = 0; i < contours.size(); i++)
-      {
-        /// Get the moments
-        for (size_t i = 0; i < contours.size(); i++)
-        {
-          mu[i] = moments(contours[i], false);
-        }
-
-        ///  Get the mass centers:
-        for (size_t i = 0; i < contours.size(); i++)
-        {
-          mc[i] = cv::Point2f(static_cast<float>(mu[i].m10 / mu[i].m00), static_cast<float>(mu[i].m01 / mu[i].m00));
-        }
-
+        cv::Mat drawing;
         if (debug_view_)
         {
-          cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-          cv::drawContours(drawing, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point());
-          cv::circle(drawing, mc[i], 4, color, -1, 8, 0);
+          drawing = cv::Mat::zeros(canny_output.size(), CV_8UC3);
         }
-        NODELET_INFO(" * Contour[%d] - Area (M_00) = %.2f - Area OpenCV: %.2f - Length: %.2f - Center (%.2f, %.2f)",
-                     (int)i, mu[i].m00, cv::contourArea(contours[i]), cv::arcLength(contours[i], true), mc[i].x,
-                     mc[i].y);
 
-        opencv_apps::Moment moment_msg;
-        moment_msg.m00 = mu[i].m00;
-        moment_msg.m10 = mu[i].m10;
-        moment_msg.m01 = mu[i].m01;
-        moment_msg.m20 = mu[i].m20;
-        moment_msg.m11 = mu[i].m11;
-        moment_msg.m02 = mu[i].m02;
-        moment_msg.m30 = mu[i].m30;
-        moment_msg.m21 = mu[i].m21;
-        moment_msg.m12 = mu[i].m12;
-        moment_msg.m03 = mu[i].m03;
-        moment_msg.mu20 = mu[i].mu20;
-        moment_msg.mu11 = mu[i].mu11;
-        moment_msg.mu02 = mu[i].mu02;
-        moment_msg.mu30 = mu[i].mu30;
-        moment_msg.mu21 = mu[i].mu21;
-        moment_msg.mu12 = mu[i].mu12;
-        moment_msg.mu03 = mu[i].mu03;
-        moment_msg.nu20 = mu[i].nu20;
-        moment_msg.nu11 = mu[i].nu11;
-        moment_msg.nu02 = mu[i].nu02;
-        moment_msg.nu30 = mu[i].nu30;
-        moment_msg.nu21 = mu[i].nu21;
-        moment_msg.nu12 = mu[i].nu12;
-        moment_msg.nu03 = mu[i].nu03;
+      opencv_apps::Moment moment_msg;
+
+      /// -------do the following only if the contour exists--------------
+      if (!contours.empty()){
+      
+        /// Calculate the area with the moments 00 and compare with the result of the OpenCV function
+        NODELET_INFO("\t Info: Area and Contour Length");
+
+        // https://stackoverflow.com/questions/13495207/opencv-c-sorting-contours-by-their-contourarea
+        std::sort(contours.begin(), contours.end(), compareContourAreas);
+
+        std::vector<cv::Moments> mu(contours.size());
+        std::vector<cv::Point2f> mc(contours.size());
+        for (size_t i = 0; i < contours.size(); i++)
+        {
+          /// Get the moments
+          for (size_t i = 0; i < contours.size(); i++)
+          {
+            mu[i] = moments(contours[i], false);
+          }
+
+          ///  Get the mass centers:
+          for (size_t i = 0; i < contours.size(); i++)
+          {
+            mc[i] = cv::Point2f(static_cast<float>(mu[i].m10 / mu[i].m00), static_cast<float>(mu[i].m01 / mu[i].m00));
+          }
+
+          if (debug_view_)
+          {
+            cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+            cv::drawContours(drawing, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point());
+            cv::circle(drawing, mc[i], 4, color, -1, 8, 0);
+          }
+          NODELET_INFO(" * Contour[%d] - Area (M_00) = %.2f - Area OpenCV: %.2f - Length: %.2f - Center (%.2f, %.2f)",
+                      (int)i, mu[i].m00, cv::contourArea(contours[i]), cv::arcLength(contours[i], true), mc[i].x,
+                      mc[i].y);
+
+          // opencv_apps::Moment moment_msg;
+          // moment_msg.m00 = mu[i].m00;
+          // moment_msg.m10 = mu[i].m10;
+          // moment_msg.m01 = mu[i].m01;
+          // moment_msg.m20 = mu[i].m20;
+          // moment_msg.m11 = mu[i].m11;
+          // moment_msg.m02 = mu[i].m02;
+          // moment_msg.m30 = mu[i].m30;
+          // moment_msg.m21 = mu[i].m21;
+          // moment_msg.m12 = mu[i].m12;
+          // moment_msg.m03 = mu[i].m03;
+          // moment_msg.mu20 = mu[i].mu20;
+          // moment_msg.mu11 = mu[i].mu11;
+          // moment_msg.mu02 = mu[i].mu02;
+          // moment_msg.mu30 = mu[i].mu30;
+          // moment_msg.mu21 = mu[i].mu21;
+          // moment_msg.mu12 = mu[i].mu12;
+          // moment_msg.mu03 = mu[i].mu03;
+          // moment_msg.nu20 = mu[i].nu20;
+          // moment_msg.nu11 = mu[i].nu11;
+          // moment_msg.nu02 = mu[i].nu02;
+          // moment_msg.nu30 = mu[i].nu30;
+          // moment_msg.nu21 = mu[i].nu21;
+          // moment_msg.nu12 = mu[i].nu12;
+          // moment_msg.nu03 = mu[i].nu03;
+          // opencv_apps::Point2D center_msg;
+          // center_msg.x = mc[i].x;
+          // center_msg.y = mc[i].y;
+          // moment_msg.center = center_msg;
+          // moment_msg.area = cv::contourArea(contours[i]);
+          // moment_msg.length = cv::arcLength(contours[i], true);
+          // moments_msg.moments.push_back(moment_msg);
+        }
+        // --------------select only the max contour area to compute the moment------------
+        //--------------------------------------------------------------------------------
+        // int index = std::max_element(hull_area.begin(),hull_area.end()) - hull_area.begin();
+        int index = contours.size()-1; // the area has already been sorted, 0-smallest, contours.size()-1: largest area
+        moment_msg.m00 = mu[index].m00;
+        moment_msg.m10 = mu[index].m10;
+        moment_msg.m01 = mu[index].m01;
+        moment_msg.m20 = mu[index].m20;
+        moment_msg.m11 = mu[index].m11;
+        moment_msg.m02 = mu[index].m02;
+        moment_msg.m30 = mu[index].m30;
+        moment_msg.m21 = mu[index].m21;
+        moment_msg.m12 = mu[index].m12;
+        moment_msg.m03 = mu[index].m03;
+        moment_msg.mu20 = mu[index].mu20;
+        moment_msg.mu11 = mu[index].mu11;
+        moment_msg.mu02 = mu[index].mu02;
+        moment_msg.mu30 = mu[index].mu30;
+        moment_msg.mu21 = mu[index].mu21;
+        moment_msg.mu12 = mu[index].mu12;
+        moment_msg.mu03 = mu[index].mu03;
+        moment_msg.nu20 = mu[index].nu20;
+        moment_msg.nu11 = mu[index].nu11;
+        moment_msg.nu02 = mu[index].nu02;
+        moment_msg.nu30 = mu[index].nu30;
+        moment_msg.nu21 = mu[index].nu21;
+        moment_msg.nu12 = mu[index].nu12;
+        moment_msg.nu03 = mu[index].nu03;
         opencv_apps::Point2D center_msg;
-        center_msg.x = mc[i].x;
-        center_msg.y = mc[i].y;
+        center_msg.x = mc[index].x;
+        center_msg.y = mc[index].y;
         moment_msg.center = center_msg;
-        moment_msg.area = cv::contourArea(contours[i]);
-        moment_msg.length = cv::arcLength(contours[i], true);
+        moment_msg.area = cv::contourArea(contours[index]);
+        moment_msg.length = cv::arcLength(contours[index], true);
+        moments_msg.moments.push_back(moment_msg);
+        // Update the OpenCV image view
+        // if (debug_view_)
+        // {
+        //   cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+        //   cv::drawContours(drawing, contours[index], (int)0, color, 2, 8, hierarchy, 0, cv::Point());
+        //   cv::circle(drawing, mc[index], 4, color, -1, 8, 0);
+        // }
+
+    
+      }
+      else {
+        // If no contour detected, just publish Null message (i,e., zero)
+        moment_msg.m00 = 0;
+        moment_msg.m10 = 0;
+        moment_msg.m01 = 0;
+        moment_msg.m20 = 0;
+        moment_msg.m11 = 0;
+        moment_msg.m02 = 0;
+        moment_msg.m30 = 0;
+        moment_msg.m21 = 0;
+        moment_msg.m12 = 0;
+        moment_msg.m03 = 0;
+        moment_msg.mu20 =0;
+        moment_msg.mu11 = 0;
+        moment_msg.mu02 = 0;
+        moment_msg.mu30 = 0;
+        moment_msg.mu21 = 0;
+        moment_msg.mu12 = 0;
+        moment_msg.mu03 = 0;
+        moment_msg.nu20 = 0;
+        moment_msg.nu11 = 0;
+        moment_msg.nu02 = 0;
+        moment_msg.nu30 = 0;
+        moment_msg.nu21 = 0;
+        moment_msg.nu12 = 0;
+        moment_msg.nu03 = 0;
+        opencv_apps::Point2D center_msg;
+        center_msg.x = 0;
+        center_msg.y = 0;
+        moment_msg.center = center_msg;
+        moment_msg.area = 0;
+        moment_msg.length = 0;
         moments_msg.moments.push_back(moment_msg);
       }
 
@@ -239,7 +323,10 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
       // Publish the image.
       sensor_msgs::Image::Ptr out_img = cv_bridge::CvImage(msg->header, "bgr8", drawing).toImageMsg();
       img_pub_.publish(out_img);
+      // Publish moment message
       msg_pub_.publish(moments_msg);
+
+        
     }
     catch (cv::Exception& e)
     {

@@ -96,6 +96,7 @@ cfe6444a6b7307c4923ca99265a953f4 /home/chenlequn/SIMTech_ws/devel/include/opencv
 b32f9e1240b86d2b6bf197d305a0858b /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Line.h
 9cff010936ca1f6188b0780cac9f4497 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/LineArray.h
 1634e8cdc854781c08d153cf03d7ecdc /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/LineArrayStamped.h
+906b606d28781b6e5e6d90c91d348704 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MaxContourArea.h
 7c1eaa0951b6b5c7f6dff4940af07a67 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/Moment.h
 f9dcb43423a9b93268f073bf04145d89 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MomentArray.h
 37e556ef4c7d5c032d2fa18d7de7e4a0 /home/chenlequn/SIMTech_ws/devel/include/opencv_apps/MomentArrayStamped.h
@@ -257,6 +258,7 @@ b59d74159d9d57fb6be14af4cc9c61c9 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/
 59feda261b4f94a4031c425cd5c774b9 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Line.py
 d1337b6a16372e861b2fa566fbb419bf /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_LineArray.py
 98de8ee250689ff2ce0c0453c8192345 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_LineArrayStamped.py
+bce3e7f94d7a0812d91eaf8cd4a755fd /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_MaxContourArea.py
 18f999b430d3276672a3fdc3de2f3970 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Moment.py
 f27eceeab830d6e816ccf80a3a4ca3c9 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_MomentArray.py
 14338e9076fee8d2fdecf0cd56c2a048 /home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_MomentArrayStamped.py
@@ -397,6 +399,7 @@ ec32dfa660486a9e1af62ef35474e6e5 /home/chenlequn/SIMTech_ws/devel/share/common-l
 28a566db5a0d9cae45a382f88c161fff /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/Line.lisp
 ff69235fe319512057b5f2632f855c89 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/LineArray.lisp
 07d65cefa0ef53754c7b81260741c32d /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/LineArrayStamped.lisp
+a5f2aaa0184d2094dda6582510c56f31 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/MaxContourArea.lisp
 bf6315508095dfb9d1f7f43f22997fdd /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/Moment.lisp
 86ddfe0a85c817850c53f30cd773ec02 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/MomentArray.lisp
 9a19a0e10f1062855f0075439c622334 /home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/opencv_apps/msg/MomentArrayStamped.lisp
@@ -523,6 +526,7 @@ f7e7d5ea0b30b31f4bbf2a70a5620402 /home/chenlequn/SIMTech_ws/devel/share/gennodej
 311b4733bb9396a111dc3fc187198e85 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Line.js
 1f15b3459868c226b42195afe5cf5d64 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/LineArray.js
 d4379d7db731fda6c8e16638579d68f8 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/LineArrayStamped.js
+a9564f2b371221b139c0732f2fac2ceb /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/MaxContourArea.js
 00a43ef9e5c7c40e44a370946eb7081b /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Moment.js
 577761949717570e6d0561cb04c370fb /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/MomentArray.js
 6181241d0c310b77bfb98498f6508795 /home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/MomentArrayStamped.js
@@ -664,6 +668,7 @@ a01519d0f6ae3dc5db9b58f5d3de5175 /home/chenlequn/SIMTech_ws/devel/share/roseus/r
 4495e55b84c505d1c6fb388972c7a922 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Line.l
 239afd129206a99f0dda28b3002e20f9 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/LineArray.l
 b3b04bd3f540cb20191efc6ab27be72e /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/LineArrayStamped.l
+d9a0a99fdc1e5707eee2f7e5abea61a6 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MaxContourArea.l
 b949d0e10e5d00445922bb2b783756a5 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/Moment.l
 7d793c8020d8c306c78ff384dfda4987 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MomentArray.l
 ffa1eb863718c732aa1c5b3ed77c3e14 /home/chenlequn/SIMTech_ws/devel/share/roseus/ros/opencv_apps/msg/MomentArrayStamped.l
@@ -757,6 +762,7 @@ da56d70290df9538f84f8a8a9aedfd0d ROS_utils/ROS_perception/opencv_apps/CMakeFiles
 1ba632fe21550c81c8df4e02f53623fd ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_Line
 1c2594e1c69ef11fb2f0b86820b30f14 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_LineArray
 53db3805ccaa455a5ac71d142ccf4080 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_LineArrayStamped
+17773d13d10e984280e75a99e572fb20 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MaxContourArea
 ebdd9f92ee240026845a5eaf59c6429b ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_Moment
 7be12a18813e8aeb65c5f33becb37001 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MomentArray
 408494e4caf0f5a306af6d569f3f4935 ROS_utils/ROS_perception/opencv_apps/CMakeFiles/_opencv_apps_generate_messages_check_deps_MomentArrayStamped

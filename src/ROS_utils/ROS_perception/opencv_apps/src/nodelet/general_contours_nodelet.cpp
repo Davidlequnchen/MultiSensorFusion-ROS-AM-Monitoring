@@ -55,6 +55,7 @@
 #include "opencv_apps/RotatedRectArray.h"
 #include "opencv_apps/RotatedRectArrayStamped.h"
 #include "opencv_apps/ContourArea.h"
+#include "opencv_apps/MaxContourArea.h"
 
 
 namespace opencv_apps
@@ -64,7 +65,7 @@ class GeneralContoursNodelet : public opencv_apps::Nodelet
   image_transport::Publisher img_pub_;
   image_transport::Subscriber img_sub_;
   image_transport::CameraSubscriber cam_sub_;
-  ros::Publisher rects_pub_, ellipses_pub_, areas_pub_;
+  ros::Publisher rects_pub_, ellipses_pub_, areas_pub_, max_contour_pub_;
 
   boost::shared_ptr<image_transport::ImageTransport> it_;
 
@@ -121,9 +122,11 @@ class GeneralContoursNodelet : public opencv_apps::Nodelet
       // Messages
       opencv_apps::RotatedRectArrayStamped rects_msg, ellipses_msg;
       opencv_apps::ContourArea areas_msg;
+      opencv_apps::MaxContourArea max_area_msg;
       rects_msg.header = msg->header;
       ellipses_msg.header = msg->header;
       areas_msg.header = msg->header;
+      max_area_msg.header = msg->header;
 
       // Do the work
       cv::Mat src_gray;
@@ -157,67 +160,133 @@ class GeneralContoursNodelet : public opencv_apps::Nodelet
       /// Find contours, note the ouput "contours" is a vector of points
       cv::findContours(threshold_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 
-
-      /// Find the rotated rectangles and ellipses for each contour
-      std::vector<cv::RotatedRect> min_rect(contours.size());
-      std::vector<cv::RotatedRect> min_ellipse(contours.size());
-      std::vector<double> contour_area(contours.size());
-
-      for (size_t i = 0; i < contours.size(); i++)
-      {
-        min_rect[i] = cv::minAreaRect(cv::Mat(contours[i]));
-        contour_area[i] = cv::contourArea	(cv::Mat(contours[i]));
-        
-        if (contours[i].size() > 5)
-        {
-          // areas = [cv2.contourArea(contour) for contour in contours]
-          // if np.max(areas) > 5:
-          //     cnt = contours[np.argmax(areas)]
-          min_ellipse[i] = cv::fitEllipse(cv::Mat(contours[i]));
-        } 
-        
-      }
-
-      /// Draw contours + rotated rects + ellipses
+      // ------------empty drawing----------------------------------
       cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
-      for (size_t i = 0; i < contours.size(); i++)
-      {
-        cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-        // contour
-        cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
-        // ellipse
-        cv::ellipse(drawing, min_ellipse[i], color, 2, 8);
-        // rotated rectangle
-        cv::Point2f rect_points[4];
-        min_rect[i].points(rect_points);
-        for (int j = 0; j < 4; j++)
-          cv::line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
 
+      //------ do the following only if the contour exists
+      if (!contours.empty())
+      {
+        /// Find the rotated rectangles and ellipses for each contour
+        std::vector<cv::RotatedRect> min_rect(contours.size());
+        std::vector<cv::RotatedRect> min_ellipse(contours.size());
+        std::vector<double> contour_area(contours.size());
+
+        for (size_t i = 0; i < contours.size(); i++)
+        {
+          min_rect[i] = cv::minAreaRect(cv::Mat(contours[i]));
+          contour_area[i] = cv::contourArea	(cv::Mat(contours[i]));
+          
+          if (contours[i].size() > 5)
+          {
+            // areas = [cv2.contourArea(contour) for contour in contours]
+            // if np.max(areas) > 5:
+            //     cnt = contours[np.argmax(areas)]
+            min_ellipse[i] = cv::fitEllipse(cv::Mat(contours[i]));
+          } 
+          
+        }
+
+        /// Draw contours + rotated rects + ellipses
+        // cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
+        for (size_t i = 0; i < contours.size(); i++)
+        {
+          cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+          // contour
+          cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+          // ellipse
+          cv::ellipse(drawing, min_ellipse[i], color, 2, 8);
+          // rotated rectangle
+          cv::Point2f rect_points[4];
+          min_rect[i].points(rect_points);
+          for (int j = 0; j < 4; j++)
+            cv::line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
+
+          opencv_apps::RotatedRect rect_msg;
+          opencv_apps::Point2D rect_center;
+          opencv_apps::Size rect_size;
+          rect_center.x = min_rect[i].center.x;
+          rect_center.y = min_rect[i].center.y;
+          rect_size.width = min_rect[i].size.width;
+          rect_size.height = min_rect[i].size.height;
+          rect_msg.center = rect_center;
+          rect_msg.size = rect_size;
+          rect_msg.angle = min_rect[i].angle;
+          opencv_apps::RotatedRect ellipse_msg;
+          opencv_apps::Point2D ellipse_center;
+          opencv_apps::Size ellipse_size;
+          ellipse_center.x = min_ellipse[i].center.x;
+          ellipse_center.y = min_ellipse[i].center.y;
+          ellipse_size.width = min_ellipse[i].size.width;
+          ellipse_size.height = min_ellipse[i].size.height;
+          ellipse_msg.center = ellipse_center;
+          ellipse_msg.size = ellipse_size;
+          ellipse_msg.angle = min_ellipse[i].angle;
+
+          rects_msg.rects.push_back(rect_msg);
+          ellipses_msg.rects.push_back(ellipse_msg);
+          areas_msg.area.push_back(contour_area[i]);
+        
+        }
+
+        
+        /// Get the max contour area, and its corresponding ellipse and rectangle
+        int max_contour_area_index = std::max_element(contour_area.begin(),contour_area.end()) - contour_area.begin();
+        float max_contour_area = *std::max_element(contour_area.begin(), contour_area.end());
+
+        max_area_msg.meltpool_contour_area = max_contour_area;
+        max_area_msg.rectangle_angle = min_rect[max_contour_area_index].angle;
+        max_area_msg.rectangle_x = min_rect[max_contour_area_index].center.x;
+        max_area_msg.rectangle_y = min_rect[max_contour_area_index].center.y;
+        max_area_msg.rectangle_width = min_rect[max_contour_area_index].size.width;
+        max_area_msg.rectangle_height= min_rect[max_contour_area_index].size.height;
+
+        max_area_msg.ellipse_angle = min_ellipse[max_contour_area_index].angle;
+        max_area_msg.ellipse_x = min_ellipse[max_contour_area_index].center.x;
+        max_area_msg.ellipse_y = min_ellipse[max_contour_area_index].center.y;
+        max_area_msg.ellipse_width = min_ellipse[max_contour_area_index].size.width;
+        max_area_msg.ellipse_height= min_ellipse[max_contour_area_index].size.height;
+
+        // rects_pub_.publish(rects_msg);
+        // ellipses_pub_.publish(ellipses_msg);
+        // areas_pub_.publish(areas_msg);
+        // max_contour_pub_.publish(max_area_msg);
+      }
+      else{
+        // ---------------------publish zero or NaN---------------------
         opencv_apps::RotatedRect rect_msg;
         opencv_apps::Point2D rect_center;
         opencv_apps::Size rect_size;
-        rect_center.x = min_rect[i].center.x;
-        rect_center.y = min_rect[i].center.y;
-        rect_size.width = min_rect[i].size.width;
-        rect_size.height = min_rect[i].size.height;
+        rect_center.x = 0;
+        rect_center.y = 0;
+        rect_size.width = 0;
+        rect_size.height = 0;
         rect_msg.center = rect_center;
         rect_msg.size = rect_size;
-        rect_msg.angle = min_rect[i].angle;
+        rect_msg.angle = 0;
         opencv_apps::RotatedRect ellipse_msg;
         opencv_apps::Point2D ellipse_center;
         opencv_apps::Size ellipse_size;
-        ellipse_center.x = min_ellipse[i].center.x;
-        ellipse_center.y = min_ellipse[i].center.y;
-        ellipse_size.width = min_ellipse[i].size.width;
-        ellipse_size.height = min_ellipse[i].size.height;
+        ellipse_center.x = 0;
+        ellipse_center.y = 0;
+        ellipse_size.width =0;
+        ellipse_size.height = 0;
         ellipse_msg.center = ellipse_center;
         ellipse_msg.size = ellipse_size;
-        ellipse_msg.angle = min_ellipse[i].angle;
-
+        ellipse_msg.angle = 0;
         rects_msg.rects.push_back(rect_msg);
         ellipses_msg.rects.push_back(ellipse_msg);
-        areas_msg.area.push_back(contour_area[i]);
-       
+        areas_msg.area.push_back(0);
+        max_area_msg.meltpool_contour_area = 0;
+        max_area_msg.rectangle_angle = 0;
+        max_area_msg.rectangle_x = 0;
+        max_area_msg.rectangle_y = 0;
+        max_area_msg.rectangle_width = 0;
+        max_area_msg.rectangle_height= 0;
+        max_area_msg.ellipse_angle = 0;
+        max_area_msg.ellipse_x = 0;
+        max_area_msg.ellipse_y = 0;
+        max_area_msg.ellipse_width = 0;
+        max_area_msg.ellipse_height= 0;
       }
 
       /// Create a Trackbar for user to enter threshold
@@ -234,14 +303,15 @@ class GeneralContoursNodelet : public opencv_apps::Nodelet
         cv::imshow(window_name_, drawing);
         int c = cv::waitKey(1);
       }
-
       // Publish the image.
       sensor_msgs::Image::Ptr out_img =
           cv_bridge::CvImage(msg->header, sensor_msgs::image_encodings::BGR8, drawing).toImageMsg();
       img_pub_.publish(out_img);
+
       rects_pub_.publish(rects_msg);
       ellipses_pub_.publish(ellipses_msg);
       areas_pub_.publish(areas_msg);
+      max_contour_pub_.publish(max_area_msg);
     }
     catch (cv::Exception& e)
     {
@@ -293,6 +363,7 @@ public:
     rects_pub_ = advertise<opencv_apps::RotatedRectArrayStamped>(*pnh_, "rectangles", 1);
     ellipses_pub_ = advertise<opencv_apps::RotatedRectArrayStamped>(*pnh_, "ellipses", 1);
     areas_pub_ = advertise<opencv_apps::ContourArea>(*pnh_, "contour_area", 1);
+    max_contour_pub_ = advertise<opencv_apps::MaxContourArea>(*pnh_, "max_contour_area", 1);
 
     onInitPostProcess();
   }

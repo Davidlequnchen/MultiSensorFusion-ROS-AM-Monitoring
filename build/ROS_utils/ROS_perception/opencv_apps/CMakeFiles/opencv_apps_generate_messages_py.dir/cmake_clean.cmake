@@ -25,6 +25,7 @@ file(REMOVE_RECURSE
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FlowArrayStamped.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RotatedRect.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RotatedRectArray.py"
+  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_MaxContourArea.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FaceArrayStamped.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_CircleArray.py"
   "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RotatedRectStamped.py"

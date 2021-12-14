@@ -41,7 +41,8 @@ class NdThermalImage():
             # frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256**2
             # frame_uint = (frame*25).astype(np.uint8)
 
-            frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256
+            # frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256
+            frame_normalized = (frame-0)/(1800-0)*256
             frame_uint = frame_normalized.astype(np.uint8)    
             # frame_uint = frame.astype(np.uint8)
             converted_msg = self.bridge.cv2_to_imgmsg(frame_uint, "mono8") # convert back to mono scale

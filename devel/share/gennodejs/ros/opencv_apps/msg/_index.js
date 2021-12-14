@@ -3,6 +3,7 @@
 
 let RotatedRectStamped = require('./RotatedRectStamped.js');
 let FaceArrayStamped = require('./FaceArrayStamped.js');
+let MaxContourArea = require('./MaxContourArea.js');
 let Point2D = require('./Point2D.js');
 let Point2DArrayStamped = require('./Point2DArrayStamped.js');
 let RotatedRectArray = require('./RotatedRectArray.js');
@@ -37,6 +38,7 @@ let ContourArrayStamped = require('./ContourArrayStamped.js');
 module.exports = {
   RotatedRectStamped: RotatedRectStamped,
   FaceArrayStamped: FaceArrayStamped,
+  MaxContourArea: MaxContourArea,
   Point2D: Point2D,
   Point2DArrayStamped: Point2DArrayStamped,
   RotatedRectArray: RotatedRectArray,

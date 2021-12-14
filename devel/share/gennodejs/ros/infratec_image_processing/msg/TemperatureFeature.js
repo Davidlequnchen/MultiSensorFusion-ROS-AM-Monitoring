@@ -77,9 +77,9 @@ class TemperatureFeature {
     // Serialize message field [variance]
     bufferOffset = _serializer.float32(obj.variance, buffer, bufferOffset);
     // Serialize message field [kurtosis]
-    bufferOffset = _serializer.float32(obj.kurtosis, buffer, bufferOffset);
+    bufferOffset = _serializer.float64(obj.kurtosis, buffer, bufferOffset);
     // Serialize message field [skewness]
-    bufferOffset = _serializer.float32(obj.skewness, buffer, bufferOffset);
+    bufferOffset = _serializer.float64(obj.skewness, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -96,16 +96,16 @@ class TemperatureFeature {
     // Deserialize message field [variance]
     data.variance = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [kurtosis]
-    data.kurtosis = _deserializer.float32(buffer, bufferOffset);
+    data.kurtosis = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [skewness]
-    data.skewness = _deserializer.float32(buffer, bufferOffset);
+    data.skewness = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 20;
+    return length + 28;
   }
 
   static datatype() {
@@ -115,7 +115,7 @@ class TemperatureFeature {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '76aadf0f49fea5fc61b3a9625bed0842';
+    return '25f0a9823d69014b82344a62ef84f03d';
   }
 
   static messageDefinition() {
@@ -125,8 +125,8 @@ class TemperatureFeature {
     float32 highest
     float32 lowest
     float32 variance # measure of the spread of a distribution
-    float32 kurtosis # measure of non-guassianity
-    float32 skewness
+    float64 kurtosis # measure of non-guassianity
+    float64 skewness
     # skewness = 0 : normally distributed.
     # skewness > 0 : more weight in the left tail of the distribution.
     # skewness < 0 : more weight in the right tail of the distribution. 
