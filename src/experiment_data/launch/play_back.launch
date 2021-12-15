@@ -1,4 +1,11 @@
 <launch>
+  <arg name="temperature_threshold_1" default="800" doc="in Kelvin. The segmentation line for Heat affected zone"/>
+  <arg name="temperature_threshold_2" default="1000" doc="in Kelvin. The segmentation line for liquid state metal"/>
+  <arg name="temperature_threshold_3" default="1300" doc="in Kelvin. The segmentation line for liquid metal"/>
+  <arg name="max_temp" default="1800" doc="in Kelvin. Maximum temperature in the scale bar"/>
+  <arg name="min_temp" default="0" doc="in Kelvin. Minimum temperature in the scale bar"/>
+
+
   <!-- <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find experiment_data)/data/13_Dec_DSO_printing/4.bag"/> -->
   <node pkg="rosbag" type="play" name="rosbag" required="true" args="/media/chenlequn/Lequn_HD/Research_Projects/Thermal_camera_monitoring/13_Dec_DSO_printing/bags/4.bag"/>
   
@@ -12,8 +19,22 @@
     <param name="autosize" value="true" />
   </node>
 
+  <node name="image_view3" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/infratec/image_converted_mono_distribution"/>
+    <param name="autosize" value="true" />
+  </node>
+
   <node name="irb_image_convert_mono" pkg="infratec_image_processing" type="irb_image_convert_mono.py" output="screen" >
     <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+  </node>
+
+  <node name="irb_image_convert_distribution" pkg="infratec_image_processing" type="irb_image_convert_distribution.py" output="screen" >
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+    <param name="temperature_threshold_1" value="$(arg temperature_threshold_1)" />
+    <param name="temperature_threshold_2" value="$(arg temperature_threshold_2)" />
+    <param name="temperature_threshold_3" value="$(arg temperature_threshold_3)" />
+    <param name="max_temp" value="$(arg max_temp)" />
+    <param name="min_temp" value="$(arg min_temp)" />
   </node>
   
 </launch>

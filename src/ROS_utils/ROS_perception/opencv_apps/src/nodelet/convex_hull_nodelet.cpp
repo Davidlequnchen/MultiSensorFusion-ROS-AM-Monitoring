@@ -156,7 +156,7 @@ class ConvexHullNodelet : public opencv_apps::Nodelet
       cv::findContours(threshold_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 
       //-------------empty drawing---------------------
-         cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
+      cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
 
       /// --------- do the following only if there is a contour --------------
       if (!contours.empty())

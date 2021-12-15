@@ -238,11 +238,13 @@ class DEFAULT
 
         if("use_camera_info"==(*_i)->name){use_camera_info = boost::any_cast<bool>(val);}
         if("canny_low_threshold"==(*_i)->name){canny_low_threshold = boost::any_cast<int>(val);}
+        if("threshold"==(*_i)->name){threshold = boost::any_cast<int>(val);}
       }
     }
 
     bool use_camera_info;
 int canny_low_threshold;
+int threshold;
 
     bool state;
     std::string name;
@@ -256,6 +258,8 @@ int canny_low_threshold;
       bool use_camera_info;
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       int canny_low_threshold;
+//#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      int threshold;
 //#line 228 "/opt/ros/melodic/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
 
     bool __fromMessage__(dynamic_reconfigure::Config &msg)
@@ -414,6 +418,16 @@ ContourMomentsConfig::GroupDescription<ContourMomentsConfig::DEFAULT, ContourMom
       Default.abstract_parameters.push_back(ContourMomentsConfig::AbstractParamDescriptionConstPtr(new ContourMomentsConfig::ParamDescription<int>("canny_low_threshold", "int", 0, "Canny Edge low Threshold", "", &ContourMomentsConfig::canny_low_threshold)));
 //#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(ContourMomentsConfig::AbstractParamDescriptionConstPtr(new ContourMomentsConfig::ParamDescription<int>("canny_low_threshold", "int", 0, "Canny Edge low Threshold", "", &ContourMomentsConfig::canny_low_threshold)));
+//#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __min__.threshold = 1;
+//#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __max__.threshold = 255;
+//#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __default__.threshold = 100;
+//#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      Default.abstract_parameters.push_back(ContourMomentsConfig::AbstractParamDescriptionConstPtr(new ContourMomentsConfig::ParamDescription<int>("threshold", "int", 0, "Detect edges using Threshold", "", &ContourMomentsConfig::threshold)));
+//#line 291 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __param_descriptions__.push_back(ContourMomentsConfig::AbstractParamDescriptionConstPtr(new ContourMomentsConfig::ParamDescription<int>("threshold", "int", 0, "Detect edges using Threshold", "", &ContourMomentsConfig::threshold)));
 //#line 246 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.convertParams();
 //#line 246 "/opt/ros/melodic/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"

@@ -84,6 +84,7 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
   ros::Time prev_stamp_;
 
   int low_threshold_;
+  int threshold_;
 
   std::string window_name_;
   static bool need_config_update_;
@@ -92,6 +93,7 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
   {
     config_ = new_config;
     low_threshold_ = config_.canny_low_threshold;
+    threshold_ = config_.threshold;
   }
 
   const std::string& frameWithDefault(const std::string& frame, const std::string& image_frame)
@@ -148,20 +150,30 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
       }
 
       cv::Mat canny_output;
+      cv::Mat threshold_output;
+      int max_thresh = 255;
       std::vector<std::vector<cv::Point> > contours;
       std::vector<cv::Vec4i> hierarchy;
       cv::RNG rng(12345);
 
-      /// Detect edges using canny
-      cv::Canny(src_gray, canny_output, low_threshold_, low_threshold_ * 2, 3);
+      // /// Detect edges using canny
+      // cv::Canny(src_gray, canny_output, low_threshold_, low_threshold_ * 2, 3);
+
+      /// Detect edges using Threshold
+      cv::threshold(src_gray, threshold_output, threshold_, 255, cv::THRESH_BINARY);
+
+
       /// Find contours
-      cv::findContours(canny_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
+      cv::findContours(threshold_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
+      // cv::findContours(canny_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 
       /// Draw contours
         cv::Mat drawing;
         if (debug_view_)
         {
-          drawing = cv::Mat::zeros(canny_output.size(), CV_8UC3);
+          // drawing = cv::Mat::zeros(canny_output.size(), CV_8UC3);
+          drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
+          
         }
 
       opencv_apps::Moment moment_msg;
@@ -237,6 +249,7 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
         // --------------select only the max contour area to compute the moment------------
         //--------------------------------------------------------------------------------
         // int index = std::max_element(hull_area.begin(),hull_area.end()) - hull_area.begin();
+        // contours.size()-1: max contour area; 0 - minimum contour area
         int index = contours.size()-1; // the area has already been sorted, 0-smallest, contours.size()-1: largest area
         moment_msg.m00 = mu[index].m00;
         moment_msg.m10 = mu[index].m10;
@@ -314,8 +327,18 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
         moments_msg.moments.push_back(moment_msg);
       }
 
+
+      /// Create a Trackbar for user to enter threshold
       if (debug_view_)
       {
+        if (need_config_update_)
+        {
+          config_.threshold = threshold_;
+          reconfigure_server_->updateConfig(config_);
+          need_config_update_ = false;
+        }
+        cv::createTrackbar("Threshold:", window_name_, &threshold_, max_thresh, trackbarCallback);
+
         cv::imshow(window_name_, drawing);
         int c = cv::waitKey(1);
       }
@@ -368,6 +391,7 @@ public:
 
     window_name_ = "Contours_moments";
     low_threshold_ = 100;  // only for canny
+    threshold_ = 100; // for hard binarization
 
     reconfigure_server_ = boost::make_shared<dynamic_reconfigure::Server<Config> >(*pnh_);
     dynamic_reconfigure::Server<Config>::CallbackType f =

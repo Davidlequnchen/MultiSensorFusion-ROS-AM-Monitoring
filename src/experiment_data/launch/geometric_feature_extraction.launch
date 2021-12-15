@@ -4,33 +4,63 @@
   <arg name="threshold" default="140" doc="threshold value"/>
   <arg name="image_topic_raw"  value="/infratec/image_raw" />
   <arg name="image_topic_converted"  value="/infratec/image_converted_mono8" />
-  <arg name="canny_low_threshold" default="55" doc="Canny Edge low Threshold"/>
+  <arg name="canny_low_threshold" default="120" doc="Canny Edge low Threshold"/>
+  <arg name="scale" default="8" doc="Specify the scale factor to calculate optical flow." />
+  <arg name="quality_level" default="0.01" doc="Parameter characterizing the minimal acceptance quality of image corners." />
+  <arg name="min_distance" default="10"  doc="Minimum possible Euclidean distance between the returned corners."/>
+  <arg name="block_size" default="3" doc="Size of an average block for computing a derivative covariation matrix over each pixel neighborhood."/>
+  <arg name="harris_k" default="0.04" doc="Free parameter of the Harris detector"/>
 
   <!-- playback the experiment recording -->
   <include file="$(find experiment_data)/launch/play_back.launch">
   </include>
 
   <!-- Binarization: with thresholding algorithm (otsu/hard-thresholding) -->
-  <include file="$(find opencv_apps)/launch/threshold.launch">
+  <!-- <include file="$(find opencv_apps)/launch/threshold.launch">
     <arg name="image"  value="$(arg image_topic_converted)" />
     <arg name="apply_otsu" value="$(arg apply_otsu)" />
-  </include>
+  </include> -->
 
   <!-- Publish: hulls (opencv_apps/ContourArrayStamped) & Hull Areas - Detected convex hulls of contours. Each contour is stored as a vector of point -->
-  <include file="$(find opencv_apps)/launch/convex_hull.launch">
+  <!-- <include file="$(find opencv_apps)/launch/convex_hull.launch">
     <arg name="image"  value="$(arg image_topic_converted)" />
     <arg name="threshold" value="$(arg threshold)" />
-  </include>
+  </include> -->
 
   <!-- Publish: ellipse, rectangle, area(pixels) -->
-  <include file="$(find opencv_apps)/launch/general_contours.launch">
+  <!-- <include file="$(find opencv_apps)/launch/general_contours.launch">
     <arg name="image"  value="$(arg image_topic_converted)" />
     <arg name="threshold" value="$(arg threshold)" />
-  </include>
+  </include> -->
 
   <include file="$(find opencv_apps)/launch/contour_moments.launch">
     <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
     <arg name="canny_low_threshold" value="$(arg canny_low_threshold)" />
   </include>
+
+  <!-- <include file="$(find opencv_apps)/launch/simple_flow.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="scale" value="$(arg scale)" />
+  </include> -->
+
+
+  <!-- <include file="$(find opencv_apps)/launch/lk_flow.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="quality_level" value="$(arg quality_level)" />
+    <arg name="min_distance" value="$(arg min_distance)" />
+    <arg name="block_size" value="$(arg block_size)" />
+    <arg name="harris_k" value="$(arg harris_k)" />
+  </include> -->
+
+  <!-- <include file="$(find opencv_apps)/launch/phase_corr.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+  </include> -->
+
+  <!-- <include file="$(find opencv_apps)/launch/fback_flow.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+  </include> -->
+
+
   
 </launch>
