@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/devel
+
+Name: depth_image_proc
+Description: Description of depth_image_proc
+Version: 1.15.1
+Cflags: -I/home/chenlequn/SIMTech_ws/src/ROS_utils/imag_pipline/depth_image_proc/include
+Libs: -L${prefix}/lib -ldepth_image_proc
+Requires: 

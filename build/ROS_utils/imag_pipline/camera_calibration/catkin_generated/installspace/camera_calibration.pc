@@ -1,0 +1,8 @@
+prefix=/home/chenlequn/SIMTech_ws/install
+
+Name: camera_calibration
+Description: Description of camera_calibration
+Version: 1.15.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
