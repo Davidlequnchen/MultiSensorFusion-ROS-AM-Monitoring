@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
 
 Name: infratec_ros_driver
 Description: Description of infratec_ros_driver

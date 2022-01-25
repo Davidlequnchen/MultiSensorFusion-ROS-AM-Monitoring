@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/scanning_robviz/MsgCommand.h"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/scanning_robviz/MsgPointCloudScan.h"
   "CMakeFiles/scanning_robviz_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/scanning_robviz/MsgPointCloudScan.h"
-  "/home/chenlequn/SIMTech_ws/devel/include/scanning_robviz/MsgCommand.h"
 )
 
 # Per-language clean rules from dependency scanning.

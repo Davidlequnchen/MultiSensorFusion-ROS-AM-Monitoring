@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction/manifest.l"
   "CMakeFiles/acoustic_feature_extraction_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

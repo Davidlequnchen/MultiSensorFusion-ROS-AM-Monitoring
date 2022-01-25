@@ -67,14 +67,14 @@ set(kuka_rsi_simulator_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(kuka_rsi_simulator_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/kuka_rsi_simulator)
-  set(kuka_rsi_simulator_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(kuka_rsi_simulator_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/kuka_rsi_simulator)
+  set(kuka_rsi_simulator_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(kuka_rsi_simulator_INSTALL_PREFIX "")
   set(kuka_rsi_simulator_PREFIX ${kuka_rsi_simulator_DEVEL_PREFIX})
 else()
   set(kuka_rsi_simulator_SOURCE_PREFIX "")
   set(kuka_rsi_simulator_DEVEL_PREFIX "")
-  set(kuka_rsi_simulator_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(kuka_rsi_simulator_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(kuka_rsi_simulator_PREFIX ${kuka_rsi_simulator_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(kuka_rsi_simulator_LIBRARIES ${kuka_rsi_simulator_LIBRARIES})
 
   _list_append_unique(kuka_rsi_simulator_LIBRARY_DIRS ${${kuka_rsi_simulator_dep}_LIBRARY_DIRS})
-  list(APPEND kuka_rsi_simulator_EXPORTED_TARGETS ${${kuka_rsi_simulator_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(kuka_rsi_simulator_EXPORTED_TARGETS ${${kuka_rsi_simulator_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

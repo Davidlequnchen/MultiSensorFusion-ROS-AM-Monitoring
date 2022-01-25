@@ -67,14 +67,14 @@ set(ros_numpy_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ros_numpy_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/ROS_utils/ros_numpy)
-  set(ros_numpy_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(ros_numpy_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ros_numpy)
+  set(ros_numpy_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(ros_numpy_INSTALL_PREFIX "")
   set(ros_numpy_PREFIX ${ros_numpy_DEVEL_PREFIX})
 else()
   set(ros_numpy_SOURCE_PREFIX "")
   set(ros_numpy_DEVEL_PREFIX "")
-  set(ros_numpy_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(ros_numpy_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(ros_numpy_PREFIX ${ros_numpy_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(ros_numpy_LIBRARIES ${ros_numpy_LIBRARIES})
 
   _list_append_unique(ros_numpy_LIBRARY_DIRS ${${ros_numpy_dep}_LIBRARY_DIRS})
-  list(APPEND ros_numpy_EXPORTED_TARGETS ${${ros_numpy_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(ros_numpy_EXPORTED_TARGETS ${${ros_numpy_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

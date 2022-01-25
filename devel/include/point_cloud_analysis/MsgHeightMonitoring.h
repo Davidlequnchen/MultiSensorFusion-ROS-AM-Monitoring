@@ -111,22 +111,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::point_cloud_analysis::MsgHeightMonitoring_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::point_cloud_analysis::MsgHeightMonitoring_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::point_cloud_analysis::MsgHeightMonitoring_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::point_cloud_analysis::MsgHeightMonitoring_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::point_cloud_analysis::MsgHeightMonitoring_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::point_cloud_analysis::MsgHeightMonitoring_<ContainerAllocator> const>
   : TrueType
   { };
 

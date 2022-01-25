@@ -22,7 +22,7 @@
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:points __points) (let (r) (dotimes (i 0) (push (instance opencv_apps::Point2D :init) r)) r))
+    ((:points __points) ())
     )
    (send-super :init)
    (setq _header __header)

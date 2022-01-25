@@ -3,20 +3,20 @@
 
 let SoundRequestActionFeedback = require('./SoundRequestActionFeedback.js');
 let SoundRequestActionResult = require('./SoundRequestActionResult.js');
-let SoundRequestFeedback = require('./SoundRequestFeedback.js');
 let SoundRequestAction = require('./SoundRequestAction.js');
-let SoundRequestGoal = require('./SoundRequestGoal.js');
 let SoundRequestActionGoal = require('./SoundRequestActionGoal.js');
+let SoundRequestGoal = require('./SoundRequestGoal.js');
+let SoundRequestFeedback = require('./SoundRequestFeedback.js');
 let SoundRequestResult = require('./SoundRequestResult.js');
 let SoundRequest = require('./SoundRequest.js');
 
 module.exports = {
   SoundRequestActionFeedback: SoundRequestActionFeedback,
   SoundRequestActionResult: SoundRequestActionResult,
-  SoundRequestFeedback: SoundRequestFeedback,
   SoundRequestAction: SoundRequestAction,
-  SoundRequestGoal: SoundRequestGoal,
   SoundRequestActionGoal: SoundRequestActionGoal,
+  SoundRequestGoal: SoundRequestGoal,
+  SoundRequestFeedback: SoundRequestFeedback,
   SoundRequestResult: SoundRequestResult,
   SoundRequest: SoundRequest,
 };

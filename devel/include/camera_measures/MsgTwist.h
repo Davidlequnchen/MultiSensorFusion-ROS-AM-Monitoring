@@ -118,16 +118,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::camera_measures::MsgTwist_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::camera_measures::MsgTwist_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::camera_measures::MsgTwist_<ContainerAllocator> >
   : TrueType
   { };
@@ -135,6 +125,16 @@ struct IsMessage< ::camera_measures::MsgTwist_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::camera_measures::MsgTwist_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::camera_measures::MsgTwist_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::camera_measures::MsgTwist_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

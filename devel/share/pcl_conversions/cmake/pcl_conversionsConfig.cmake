@@ -67,14 +67,14 @@ set(pcl_conversions_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(pcl_conversions_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions)
-  set(pcl_conversions_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(pcl_conversions_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions)
+  set(pcl_conversions_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(pcl_conversions_INSTALL_PREFIX "")
   set(pcl_conversions_PREFIX ${pcl_conversions_DEVEL_PREFIX})
 else()
   set(pcl_conversions_SOURCE_PREFIX "")
   set(pcl_conversions_DEVEL_PREFIX "")
-  set(pcl_conversions_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(pcl_conversions_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(pcl_conversions_PREFIX ${pcl_conversions_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(pcl_conversions_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions/include;/usr/include/eigen3;/usr/local/include/pcl-1.10;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/local/include/vtk-7.1 " STREQUAL " ")
+if(NOT "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions/include;/usr/include/eigen3;/usr/include/pcl-1.10;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/include/vtk-7.1;/usr/include/freetype2;/usr/include/x86_64-linux-gnu " STREQUAL " ")
   set(pcl_conversions_INCLUDE_DIRS "")
-  set(_include_dirs "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions/include;/usr/include/eigen3;/usr/local/include/pcl-1.10;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/local/include/vtk-7.1")
+  set(_include_dirs "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions/include;/usr/include/eigen3;/usr/include/pcl-1.10;/usr/include;/usr/include/ni;/usr/include/openni2;/usr/include/vtk-7.1;/usr/include/freetype2;/usr/include/x86_64-linux-gnu")
   if(NOT "https://github.com/ros-perception/perception_pcl/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-perception/perception_pcl/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://wiki.ros.org/pcl_conversions " STREQUAL " ")
@@ -110,13 +110,13 @@ if(NOT "/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/p
         message(FATAL_ERROR "Project 'pcl_conversions' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'pcl_conversions' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'pcl_conversions' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_perception/pcl_conversions/${idir}'.  ${_report}")
     endif()
     _list_append_unique(pcl_conversions_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "/usr/local/lib/libpcl_common.so;/usr/local/lib/libpcl_octree.so;/usr/local/lib/libpcl_io.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;/usr/local/lib/libvtkChartsCore-7.1.so.1;/usr/local/lib/libvtkCommonColor-7.1.so.1;/usr/local/lib/libvtkCommonCore-7.1.so.1;/usr/local/lib/libvtksys-7.1.so.1;/usr/local/lib/libvtkCommonDataModel-7.1.so.1;/usr/local/lib/libvtkCommonMath-7.1.so.1;/usr/local/lib/libvtkCommonMisc-7.1.so.1;/usr/local/lib/libvtkCommonSystem-7.1.so.1;/usr/local/lib/libvtkCommonTransforms-7.1.so.1;/usr/local/lib/libvtkCommonExecutionModel-7.1.so.1;/usr/local/lib/libvtkFiltersGeneral-7.1.so.1;/usr/local/lib/libvtkCommonComputationalGeometry-7.1.so.1;/usr/local/lib/libvtkFiltersCore-7.1.so.1;/usr/local/lib/libvtkInfovisCore-7.1.so.1;/usr/local/lib/libvtkFiltersExtraction-7.1.so.1;/usr/local/lib/libvtkFiltersStatistics-7.1.so.1;/usr/local/lib/libvtkImagingFourier-7.1.so.1;/usr/local/lib/libvtkImagingCore-7.1.so.1;/usr/local/lib/libvtkalglib-7.1.so.1;/usr/local/lib/libvtkRenderingContext2D-7.1.so.1;/usr/local/lib/libvtkRenderingCore-7.1.so.1;/usr/local/lib/libvtkFiltersGeometry-7.1.so.1;/usr/local/lib/libvtkFiltersSources-7.1.so.1;/usr/local/lib/libvtkRenderingFreeType-7.1.so.1;/usr/local/lib/libvtkfreetype-7.1.so.1;/usr/local/lib/libvtkzlib-7.1.so.1;/usr/local/lib/libvtkFiltersModeling-7.1.so.1;/usr/local/lib/libvtkImagingSources-7.1.so.1;/usr/local/lib/libvtkInteractionStyle-7.1.so.1;/usr/local/lib/libvtkInteractionWidgets-7.1.so.1;/usr/local/lib/libvtkFiltersHybrid-7.1.so.1;/usr/local/lib/libvtkImagingColor-7.1.so.1;/usr/local/lib/libvtkImagingGeneral-7.1.so.1;/usr/local/lib/libvtkImagingHybrid-7.1.so.1;/usr/local/lib/libvtkIOImage-7.1.so.1;/usr/local/lib/libvtkDICOMParser-7.1.so.1;/usr/local/lib/libvtkmetaio-7.1.so.1;/usr/local/lib/libvtkjpeg-7.1.so.1;/usr/local/lib/libvtkpng-7.1.so.1;/usr/local/lib/libvtktiff-7.1.so.1;/usr/local/lib/libvtkRenderingAnnotation-7.1.so.1;/usr/local/lib/libvtkRenderingVolume-7.1.so.1;/usr/local/lib/libvtkIOXML-7.1.so.1;/usr/local/lib/libvtkIOCore-7.1.so.1;/usr/local/lib/libvtkIOXMLParser-7.1.so.1;/usr/local/lib/libvtkexpat-7.1.so.1;/usr/local/lib/libvtkIOGeometry-7.1.so.1;/usr/local/lib/libvtkIOLegacy-7.1.so.1;/usr/local/lib/libvtkIOPLY-7.1.so.1;/usr/local/lib/libvtkRenderingLOD-7.1.so.1;/usr/local/lib/libvtkViewsContext2D-7.1.so.1;/usr/local/lib/libvtkViewsCore-7.1.so.1;/usr/local/lib/libvtkRenderingContextOpenGL2-7.1.so.1;/usr/local/lib/libvtkRenderingOpenGL2-7.1.so.1;/usr/local/lib/libvtkglew-7.1.so.1")
+set(libraries "/usr/lib/x86_64-linux-gnu/libpcl_common.so;/usr/lib/x86_64-linux-gnu/libpcl_octree.so;/usr/lib/x86_64-linux-gnu/libpcl_io.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;/usr/lib/x86_64-linux-gnu/libvtkChartsCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonColor-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtksys-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonDataModel-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonMath-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonMisc-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonSystem-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonTransforms-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonExecutionModel-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkFiltersGeneral-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkCommonComputationalGeometry-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkFiltersCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkInfovisCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkFiltersExtraction-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkFiltersStatistics-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkImagingFourier-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkImagingCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkalglib-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkRenderingContext2D-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkRenderingCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkFiltersGeometry-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkFiltersSources-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkRenderingFreeType-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libvtkFiltersModeling-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkImagingSources-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkInteractionStyle-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkInteractionWidgets-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkFiltersHybrid-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkImagingColor-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkImagingGeneral-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkImagingHybrid-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkIOImage-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkDICOMParser-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkmetaio-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;/usr/lib/x86_64-linux-gnu/libvtkRenderingAnnotation-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkRenderingVolume-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkIOXML-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkIOCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkIOXMLParser-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libexpat.so;/usr/lib/x86_64-linux-gnu/libvtkIOGeometry-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkIOLegacy-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkIOPLY-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkRenderingLOD-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkViewsContext2D-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkViewsCore-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkRenderingContextOpenGL2-7.1.so.7.1p.1;/usr/lib/x86_64-linux-gnu/libvtkRenderingOpenGL2-7.1.so.7.1p.1")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(pcl_conversions_LIBRARIES ${pcl_conversions_LIBRARIES})
 
   _list_append_unique(pcl_conversions_LIBRARY_DIRS ${${pcl_conversions_dep}_LIBRARY_DIRS})
-  list(APPEND pcl_conversions_EXPORTED_TARGETS ${${pcl_conversions_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(pcl_conversions_EXPORTED_TARGETS ${${pcl_conversions_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/scanning_application/scanning_workcell
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_workcell
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/scanning_application/scanning_workcell/catkin_generated/installspace/scanning_workcell.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/scanning_application/scanning_workcell/catkin_generated/installspace/scanning_workcell.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/scanning_workcell/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/scanning_application/scanning_workcell/catkin_generated/installspace/scanning_workcellConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/scanning_application/scanning_workcell/catkin_generated/installspace/scanning_workcellConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/scanning_application/scanning_workcell/catkin_generated/installspace/scanning_workcellConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/scanning_application/scanning_workcell/catkin_generated/installspace/scanning_workcellConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/scanning_workcell" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_workcell/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/scanning_workcell" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_workcell/package.xml")
 endif()
 

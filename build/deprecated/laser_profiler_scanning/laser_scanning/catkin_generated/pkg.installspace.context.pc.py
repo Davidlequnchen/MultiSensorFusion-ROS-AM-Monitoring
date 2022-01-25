@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "laser_scanning"
-PROJECT_SPACE_DIR = "/home/chenlequn/SIMTech_ws/install"
+PROJECT_SPACE_DIR = "/home/lequn/Documents/GitHub/SIMTech_ws/install"
 PROJECT_VERSION = "0.4.5"

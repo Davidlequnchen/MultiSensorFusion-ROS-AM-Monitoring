@@ -19,7 +19,7 @@
 (defmethod opencv_apps::LineArray
   (:init
    (&key
-    ((:lines __lines) (let (r) (dotimes (i 0) (push (instance opencv_apps::Line :init) r)) r))
+    ((:lines __lines) ())
     )
    (send-super :init)
    (setq _lines __lines)

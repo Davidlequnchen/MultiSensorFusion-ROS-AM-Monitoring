@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.js"
   "CMakeFiles/simtech_kuka_eki_interface_tcp_generate_messages_nodejs"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.js"
 )
 
 # Per-language clean rules from dependency scanning.

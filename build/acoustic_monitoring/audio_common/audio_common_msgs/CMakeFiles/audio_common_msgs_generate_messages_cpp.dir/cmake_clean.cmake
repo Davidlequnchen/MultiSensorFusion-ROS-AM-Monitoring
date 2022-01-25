@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/audio_common_msgs/AudioData.h"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/audio_common_msgs/AudioInfo.h"
   "CMakeFiles/audio_common_msgs_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/audio_common_msgs/AudioInfo.h"
-  "/home/chenlequn/SIMTech_ws/devel/include/audio_common_msgs/AudioData.h"
 )
 
 # Per-language clean rules from dependency scanning.

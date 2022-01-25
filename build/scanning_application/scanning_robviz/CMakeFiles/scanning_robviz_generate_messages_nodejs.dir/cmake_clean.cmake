@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/scanning_robviz/msg/MsgCommand.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/scanning_robviz/msg/MsgPointCloudScan.js"
   "CMakeFiles/scanning_robviz_generate_messages_nodejs"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/scanning_robviz/msg/MsgPointCloudScan.js"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/scanning_robviz/msg/MsgCommand.js"
 )
 
 # Per-language clean rules from dependency scanning.

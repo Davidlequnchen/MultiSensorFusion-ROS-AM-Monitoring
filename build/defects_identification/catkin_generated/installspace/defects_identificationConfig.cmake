@@ -67,14 +67,14 @@ set(defects_identification_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(defects_identification_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/defects_identification)
-  set(defects_identification_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(defects_identification_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification)
+  set(defects_identification_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(defects_identification_INSTALL_PREFIX "")
   set(defects_identification_PREFIX ${defects_identification_DEVEL_PREFIX})
 else()
   set(defects_identification_SOURCE_PREFIX "")
   set(defects_identification_DEVEL_PREFIX "")
-  set(defects_identification_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(defects_identification_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(defects_identification_PREFIX ${defects_identification_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(defects_identification_LIBRARIES ${defects_identification_LIBRARIES})
 
   _list_append_unique(defects_identification_LIBRARY_DIRS ${${defects_identification_dep}_LIBRARY_DIRS})
-  list(APPEND defects_identification_EXPORTED_TARGETS ${${defects_identification_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(defects_identification_EXPORTED_TARGETS ${${defects_identification_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "defects_identification-msg-extras.cmake")

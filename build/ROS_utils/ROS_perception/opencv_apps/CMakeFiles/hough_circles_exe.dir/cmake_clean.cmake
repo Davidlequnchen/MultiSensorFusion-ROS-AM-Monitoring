@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/hough_circles"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/hough_circles.pdb"
   "CMakeFiles/hough_circles_exe.dir/hough_circles.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/hough_circles.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/hough_circles"
 )
 
 # Per-language clean rules from dependency scanning.

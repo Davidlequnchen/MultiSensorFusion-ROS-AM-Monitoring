@@ -1,10 +1,10 @@
 
 "use strict";
 
-let MsgCartPosition = require('./MsgCartPosition.js');
 let MsgCartVelocity = require('./MsgCartVelocity.js');
+let MsgCartPosition = require('./MsgCartPosition.js');
 
 module.exports = {
-  MsgCartPosition: MsgCartPosition,
   MsgCartVelocity: MsgCartVelocity,
+  MsgCartPosition: MsgCartPosition,
 };

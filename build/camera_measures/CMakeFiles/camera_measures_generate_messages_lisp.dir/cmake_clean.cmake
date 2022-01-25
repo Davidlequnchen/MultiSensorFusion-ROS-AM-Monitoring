@@ -1,12 +1,12 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgAcceleration.lisp"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgGeometry.lisp"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgPosition.lisp"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgStatus.lisp"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocityStatus.lisp"
   "CMakeFiles/camera_measures_generate_messages_lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgTwist.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgPosition.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgStatus.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocity.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgGeometry.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgVelocityStatus.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/camera_measures/msg/MsgAcceleration.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

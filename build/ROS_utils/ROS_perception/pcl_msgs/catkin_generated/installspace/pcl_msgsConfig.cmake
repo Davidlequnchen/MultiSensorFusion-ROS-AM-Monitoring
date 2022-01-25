@@ -67,14 +67,14 @@ set(pcl_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(pcl_msgs_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_msgs)
-  set(pcl_msgs_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(pcl_msgs_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_msgs)
+  set(pcl_msgs_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(pcl_msgs_INSTALL_PREFIX "")
   set(pcl_msgs_PREFIX ${pcl_msgs_DEVEL_PREFIX})
 else()
   set(pcl_msgs_SOURCE_PREFIX "")
   set(pcl_msgs_DEVEL_PREFIX "")
-  set(pcl_msgs_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(pcl_msgs_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(pcl_msgs_PREFIX ${pcl_msgs_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(pcl_msgs_LIBRARIES ${pcl_msgs_LIBRARIES})
 
   _list_append_unique(pcl_msgs_LIBRARY_DIRS ${${pcl_msgs_dep}_LIBRARY_DIRS})
-  list(APPEND pcl_msgs_EXPORTED_TARGETS ${${pcl_msgs_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(pcl_msgs_EXPORTED_TARGETS ${${pcl_msgs_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "pcl_msgs-msg-extras.cmake")

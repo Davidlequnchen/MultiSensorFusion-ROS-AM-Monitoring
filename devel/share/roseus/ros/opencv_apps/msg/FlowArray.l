@@ -19,7 +19,7 @@
 (defmethod opencv_apps::FlowArray
   (:init
    (&key
-    ((:flow __flow) (let (r) (dotimes (i 0) (push (instance opencv_apps::Flow :init) r)) r))
+    ((:flow __flow) ())
     )
    (send-super :init)
    (setq _flow __flow)

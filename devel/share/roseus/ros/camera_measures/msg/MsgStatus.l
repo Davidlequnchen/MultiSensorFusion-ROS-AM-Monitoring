@@ -31,11 +31,11 @@
    (setq _power (float __power))
    self)
   (:running
-   (&optional __running)
-   (if __running (setq _running __running)) _running)
+   (&optional (__running :null))
+   (if (not (eq __running :null)) (setq _running __running)) _running)
   (:laser_on
-   (&optional __laser_on)
-   (if __laser_on (setq _laser_on __laser_on)) _laser_on)
+   (&optional (__laser_on :null))
+   (if (not (eq __laser_on :null)) (setq _laser_on __laser_on)) _laser_on)
   (:speed
    (&optional __speed)
    (if __speed (setq _speed __speed)) _speed)

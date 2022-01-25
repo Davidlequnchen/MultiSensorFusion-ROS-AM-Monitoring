@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/point_cloud_analysis/MsgHeightMonitoring.h"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/point_cloud_analysis/MsgPointCloudScan.h"
   "CMakeFiles/point_cloud_analysis_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/point_cloud_analysis/MsgHeightMonitoring.h"
-  "/home/chenlequn/SIMTech_ws/devel/include/point_cloud_analysis/MsgPointCloudScan.h"
 )
 
 # Per-language clean rules from dependency scanning.

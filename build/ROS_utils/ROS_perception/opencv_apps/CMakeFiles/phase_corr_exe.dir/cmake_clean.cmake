@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/phase_corr"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/phase_corr.pdb"
   "CMakeFiles/phase_corr_exe.dir/phase_corr.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/phase_corr.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/phase_corr"
 )
 
 # Per-language clean rules from dependency scanning.

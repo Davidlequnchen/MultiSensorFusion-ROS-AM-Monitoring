@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_abb/simtech
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/simtech_abb/simtech/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_abb/simtech/package.xml")
 endif()
 

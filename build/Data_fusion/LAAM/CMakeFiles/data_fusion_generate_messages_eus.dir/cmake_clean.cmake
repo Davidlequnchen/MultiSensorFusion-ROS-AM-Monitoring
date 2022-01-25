@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/data_fusion/manifest.l"
   "CMakeFiles/data_fusion_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/data_fusion/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

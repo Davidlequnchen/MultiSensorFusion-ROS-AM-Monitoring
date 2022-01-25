@@ -112,16 +112,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::simtech_kuka_rsi_hw_interface::MsgCartVelocity_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::simtech_kuka_rsi_hw_interface::MsgCartVelocity_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::simtech_kuka_rsi_hw_interface::MsgCartVelocity_<ContainerAllocator> >
   : TrueType
   { };
@@ -129,6 +119,16 @@ struct IsMessage< ::simtech_kuka_rsi_hw_interface::MsgCartVelocity_<ContainerAll
 template <class ContainerAllocator>
 struct IsMessage< ::simtech_kuka_rsi_hw_interface::MsgCartVelocity_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::simtech_kuka_rsi_hw_interface::MsgCartVelocity_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::simtech_kuka_rsi_hw_interface::MsgCartVelocity_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

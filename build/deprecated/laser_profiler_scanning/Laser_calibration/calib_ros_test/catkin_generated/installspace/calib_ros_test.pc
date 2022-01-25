@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/install
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
 
 Name: calib_ros_test
 Description: Description of calib_ros_test

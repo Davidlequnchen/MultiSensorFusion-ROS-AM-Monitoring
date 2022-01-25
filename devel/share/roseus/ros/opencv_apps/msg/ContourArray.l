@@ -19,7 +19,7 @@
 (defmethod opencv_apps::ContourArray
   (:init
    (&key
-    ((:contours __contours) (let (r) (dotimes (i 0) (push (instance opencv_apps::Contour :init) r)) r))
+    ((:contours __contours) ())
     )
    (send-super :init)
    (setq _contours __contours)

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/goodfeature_track"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/goodfeature_track.pdb"
   "CMakeFiles/goodfeature_track_exe.dir/goodfeature_track.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/goodfeature_track.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/goodfeature_track"
 )
 
 # Per-language clean rules from dependency scanning.

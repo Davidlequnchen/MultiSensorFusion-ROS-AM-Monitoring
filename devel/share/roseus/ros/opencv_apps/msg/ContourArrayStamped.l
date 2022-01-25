@@ -22,7 +22,7 @@
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:contours __contours) (let (r) (dotimes (i 0) (push (instance opencv_apps::Contour :init) r)) r))
+    ((:contours __contours) ())
     )
    (send-super :init)
    (setq _header __header)

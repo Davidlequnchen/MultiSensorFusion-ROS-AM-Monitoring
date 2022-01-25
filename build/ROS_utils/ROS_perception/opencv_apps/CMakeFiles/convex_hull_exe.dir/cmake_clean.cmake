@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/convex_hull"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/convex_hull.pdb"
   "CMakeFiles/convex_hull_exe.dir/convex_hull.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/convex_hull.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/convex_hull"
 )
 
 # Per-language clean rules from dependency scanning.

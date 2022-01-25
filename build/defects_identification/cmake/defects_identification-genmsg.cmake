@@ -2,7 +2,7 @@
 
 message(STATUS "defects_identification: 1 messages, 0 services")
 
-set(MSG_I_FLAGS "-Idefects_identification:/home/chenlequn/SIMTech_ws/src/defects_identification/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Idefects_identification:/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(defects_identification_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
 add_custom_target(_defects_identification_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "defects_identification" "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "defects_identification" "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" "std_msgs/Header"
 )
 
 #
@@ -29,9 +29,9 @@ add_custom_target(_defects_identification_generate_messages_check_deps_${_filena
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(defects_identification
-  "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/defects_identification
 )
 
@@ -49,7 +49,7 @@ add_custom_target(defects_identification_generate_messages_cpp
 add_dependencies(defects_identification_generate_messages defects_identification_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
 add_dependencies(defects_identification_generate_messages_cpp _defects_identification_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,9 +62,9 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS defects_identification_generate_mes
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(defects_identification
-  "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/defects_identification
 )
 
@@ -82,7 +82,7 @@ add_custom_target(defects_identification_generate_messages_eus
 add_dependencies(defects_identification_generate_messages defects_identification_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
 add_dependencies(defects_identification_generate_messages_eus _defects_identification_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,9 +95,9 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS defects_identification_generate_mes
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(defects_identification
-  "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/defects_identification
 )
 
@@ -115,7 +115,7 @@ add_custom_target(defects_identification_generate_messages_lisp
 add_dependencies(defects_identification_generate_messages defects_identification_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
 add_dependencies(defects_identification_generate_messages_lisp _defects_identification_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -128,9 +128,9 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS defects_identification_generate_mes
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(defects_identification
-  "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/defects_identification
 )
 
@@ -148,7 +148,7 @@ add_custom_target(defects_identification_generate_messages_nodejs
 add_dependencies(defects_identification_generate_messages defects_identification_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
 add_dependencies(defects_identification_generate_messages_nodejs _defects_identification_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,9 +161,9 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS defects_identification_generate_mes
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(defects_identification
-  "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/defects_identification
 )
 
@@ -181,7 +181,7 @@ add_custom_target(defects_identification_generate_messages_py
 add_dependencies(defects_identification_generate_messages defects_identification_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/defects_identification/msg/MsgDefects.msg" NAME_WE)
 add_dependencies(defects_identification_generate_messages_py _defects_identification_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -238,7 +238,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/defects_identification)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/defects_identification\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/defects_identification\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/defects_identification

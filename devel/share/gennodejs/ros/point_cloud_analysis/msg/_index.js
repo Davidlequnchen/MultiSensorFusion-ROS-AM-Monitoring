@@ -1,10 +1,10 @@
 
 "use strict";
 
-let MsgHeightMonitoring = require('./MsgHeightMonitoring.js');
 let MsgPointCloudScan = require('./MsgPointCloudScan.js');
+let MsgHeightMonitoring = require('./MsgHeightMonitoring.js');
 
 module.exports = {
-  MsgHeightMonitoring: MsgHeightMonitoring,
   MsgPointCloudScan: MsgPointCloudScan,
+  MsgHeightMonitoring: MsgHeightMonitoring,
 };

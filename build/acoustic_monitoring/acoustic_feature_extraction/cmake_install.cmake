@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_feature_extraction
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/acoustic_feature_extraction
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,37 +38,37 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/acoustic_feature_extraction/cmake" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extraction-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/acoustic_feature_extraction/cmake" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extraction-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/acoustic_feature_extraction")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/acoustic_feature_extraction")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/acoustic_feature_extraction")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/acoustic_feature_extraction")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/acoustic_feature_extraction")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extraction.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extraction.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/acoustic_feature_extraction/cmake" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extraction-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/acoustic_feature_extraction/cmake" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extraction-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/acoustic_feature_extraction/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extractionConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extractionConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extractionConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction/catkin_generated/installspace/acoustic_feature_extractionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/acoustic_feature_extraction" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/acoustic_feature_extraction/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/acoustic_feature_extraction" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/acoustic_feature_extraction/package.xml")
 endif()
 

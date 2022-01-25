@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "rospy;std_msgs;message_runtime".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "auto_control"
-PROJECT_SPACE_DIR = "/home/chenlequn/SIMTech_ws/install"
+PROJECT_SPACE_DIR = "/home/lequn/Documents/GitHub/SIMTech_ws/install"
 PROJECT_VERSION = "1.2.3"

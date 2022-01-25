@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/audio_common_msgs/manifest.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/audio_common_msgs/msg/AudioData.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/audio_common_msgs/msg/AudioInfo.l"
   "CMakeFiles/audio_common_msgs_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/audio_common_msgs/msg/AudioInfo.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/audio_common_msgs/msg/AudioData.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/audio_common_msgs/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

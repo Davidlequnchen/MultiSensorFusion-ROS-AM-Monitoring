@@ -19,7 +19,7 @@
 (defmethod opencv_apps::MomentArray
   (:init
    (&key
-    ((:moments __moments) (let (r) (dotimes (i 0) (push (instance opencv_apps::Moment :init) r)) r))
+    ((:moments __moments) ())
     )
    (send-super :init)
    (setq _moments __moments)

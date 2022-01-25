@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libusb_cam.pdb"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libusb_cam.so"
   "CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libusb_cam.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libusb_cam.so"
 )
 
 # Per-language clean rules from dependency scanning.

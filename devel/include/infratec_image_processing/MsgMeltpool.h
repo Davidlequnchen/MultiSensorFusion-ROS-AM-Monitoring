@@ -100,16 +100,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::infratec_image_processing::MsgMeltpool_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::infratec_image_processing::MsgMeltpool_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::infratec_image_processing::MsgMeltpool_<ContainerAllocator> >
   : TrueType
   { };
@@ -117,6 +107,16 @@ struct IsMessage< ::infratec_image_processing::MsgMeltpool_<ContainerAllocator> 
 template <class ContainerAllocator>
 struct IsMessage< ::infratec_image_processing::MsgMeltpool_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::infratec_image_processing::MsgMeltpool_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::infratec_image_processing::MsgMeltpool_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/point_cloud_analysis/msg/MsgHeightMonitoring.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/point_cloud_analysis/msg/MsgPointCloudScan.js"
   "CMakeFiles/point_cloud_analysis_generate_messages_nodejs"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/point_cloud_analysis/msg/MsgHeightMonitoring.js"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/point_cloud_analysis/msg/MsgPointCloudScan.js"
 )
 
 # Per-language clean rules from dependency scanning.

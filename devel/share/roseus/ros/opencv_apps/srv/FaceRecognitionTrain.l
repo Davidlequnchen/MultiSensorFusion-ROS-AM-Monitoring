@@ -27,8 +27,8 @@
 (defmethod opencv_apps::FaceRecognitionTrainRequest
   (:init
    (&key
-    ((:images __images) (let (r) (dotimes (i 0) (push (instance sensor_msgs::Image :init) r)) r))
-    ((:rects __rects) (let (r) (dotimes (i 0) (push (instance opencv_apps::Rect :init) r)) r))
+    ((:images __images) ())
+    ((:rects __rects) ())
     ((:labels __labels) (let (r) (dotimes (i 0) (push "" r)) r))
     )
    (send-super :init)
@@ -126,8 +126,8 @@
    (setq _error (string __error))
    self)
   (:ok
-   (&optional __ok)
-   (if __ok (setq _ok __ok)) _ok)
+   (&optional (__ok :null))
+   (if (not (eq __ok :null)) (setq _ok __ok)) _ok)
   (:error
    (&optional __error)
    (if __error (setq _error __error)) _error)

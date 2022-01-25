@@ -67,14 +67,14 @@ set(audio_play_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(audio_play_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_play)
-  set(audio_play_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(audio_play_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_play)
+  set(audio_play_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(audio_play_INSTALL_PREFIX "")
   set(audio_play_PREFIX ${audio_play_DEVEL_PREFIX})
 else()
   set(audio_play_SOURCE_PREFIX "")
   set(audio_play_DEVEL_PREFIX "")
-  set(audio_play_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(audio_play_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(audio_play_PREFIX ${audio_play_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(audio_play_LIBRARIES ${audio_play_LIBRARIES})
 
   _list_append_unique(audio_play_LIBRARY_DIRS ${${audio_play_dep}_LIBRARY_DIRS})
-  list(APPEND audio_play_EXPORTED_TARGETS ${${audio_play_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(audio_play_EXPORTED_TARGETS ${${audio_play_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

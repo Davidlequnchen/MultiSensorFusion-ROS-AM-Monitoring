@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/velocity_control/msg/MsgSpeedOverride.lisp"
   "CMakeFiles/velocity_control_generate_messages_lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/velocity_control/msg/MsgSpeedOverride.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

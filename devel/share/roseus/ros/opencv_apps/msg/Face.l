@@ -20,7 +20,7 @@
   (:init
    (&key
     ((:face __face) (instance opencv_apps::Rect :init))
-    ((:eyes __eyes) (let (r) (dotimes (i 0) (push (instance opencv_apps::Rect :init) r)) r))
+    ((:eyes __eyes) ())
     ((:label __label) "")
     ((:confidence __confidence) 0.0)
     )

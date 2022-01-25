@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
+
+Name: image_publisher
+Description: Description of image_publisher
+Version: 1.16.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/install
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
 
 Name: simtech_kuka_eki_interface
 Description: Description of simtech_kuka_eki_interface

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud.pdb"
   "CMakeFiles/nd_cloud.dir/src/nd_cloud.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud"
 )
 
 # Per-language clean rules from dependency scanning.

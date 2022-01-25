@@ -67,14 +67,14 @@ set(simtech_kuka_eki_interface_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(simtech_kuka_eki_interface_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface)
-  set(simtech_kuka_eki_interface_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(simtech_kuka_eki_interface_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface)
+  set(simtech_kuka_eki_interface_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(simtech_kuka_eki_interface_INSTALL_PREFIX "")
   set(simtech_kuka_eki_interface_PREFIX ${simtech_kuka_eki_interface_DEVEL_PREFIX})
 else()
   set(simtech_kuka_eki_interface_SOURCE_PREFIX "")
   set(simtech_kuka_eki_interface_DEVEL_PREFIX "")
-  set(simtech_kuka_eki_interface_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(simtech_kuka_eki_interface_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(simtech_kuka_eki_interface_PREFIX ${simtech_kuka_eki_interface_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(simtech_kuka_eki_interface_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/include;/usr/include " STREQUAL " ")
+if(NOT "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include;/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/include;/usr/include " STREQUAL " ")
   set(simtech_kuka_eki_interface_INCLUDE_DIRS "")
-  set(_include_dirs "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/include;/usr/include")
+  set(_include_dirs "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include;/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/include;/usr/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/
         message(FATAL_ERROR "Project 'simtech_kuka_eki_interface' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'simtech_kuka_eki_interface' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'simtech_kuka_eki_interface' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface/${idir}'.  ${_report}")
     endif()
     _list_append_unique(simtech_kuka_eki_interface_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(simtech_kuka_eki_interface_LIBRARIES ${simtech_kuka_eki_interface_LIBRARIES})
 
   _list_append_unique(simtech_kuka_eki_interface_LIBRARY_DIRS ${${simtech_kuka_eki_interface_dep}_LIBRARY_DIRS})
-  list(APPEND simtech_kuka_eki_interface_EXPORTED_TARGETS ${${simtech_kuka_eki_interface_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(simtech_kuka_eki_interface_EXPORTED_TARGETS ${${simtech_kuka_eki_interface_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "simtech_kuka_eki_interface-msg-extras.cmake")

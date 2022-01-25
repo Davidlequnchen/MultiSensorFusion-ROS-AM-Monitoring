@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/hls_color_filter"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/hls_color_filter.pdb"
   "CMakeFiles/hls_color_filter_exe.dir/hls_color_filter.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/hls_color_filter.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/hls_color_filter"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/scanning_robviz/nd_subprocess_handler"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/scanning_robviz/nd_subprocess_handler.pdb"
   "CMakeFiles/nd_subprocess_handler.dir/src/nd_subprocess_handler.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/scanning_robviz/nd_subprocess_handler.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/scanning_robviz/nd_subprocess_handler"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -102,16 +102,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::pcl_msgs::PolygonMesh_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::pcl_msgs::PolygonMesh_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::pcl_msgs::PolygonMesh_<ContainerAllocator> >
   : TrueType
   { };
@@ -119,6 +109,16 @@ struct IsMessage< ::pcl_msgs::PolygonMesh_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::pcl_msgs::PolygonMesh_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::pcl_msgs::PolygonMesh_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::pcl_msgs::PolygonMesh_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

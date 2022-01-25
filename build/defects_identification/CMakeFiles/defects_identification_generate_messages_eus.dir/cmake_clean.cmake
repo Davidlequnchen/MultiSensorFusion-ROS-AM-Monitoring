@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/defects_identification/manifest.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/defects_identification/msg/MsgDefects.l"
   "CMakeFiles/defects_identification_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/defects_identification/msg/MsgDefects.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/defects_identification/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

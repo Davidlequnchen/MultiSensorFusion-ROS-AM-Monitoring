@@ -92,7 +92,7 @@ class Face {
   static getMessageSize(object) {
     let length = 0;
     length += 32 * object.eyes.length;
-    length += object.label.length;
+    length += _getByteLength(object.label);
     return length + 48;
   }
 

@@ -92,8 +92,8 @@ class SoundRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.arg.length;
-    length += object.arg2.length;
+    length += _getByteLength(object.arg);
+    length += _getByteLength(object.arg2);
     return length + 14;
   }
 

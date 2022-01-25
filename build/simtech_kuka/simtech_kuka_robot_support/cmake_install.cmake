@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_robot_support
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_robot_support
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_robot_support/catkin_generated/installspace/simtech_kuka_robot_support.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_kuka/simtech_kuka_robot_support/catkin_generated/installspace/simtech_kuka_robot_support.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_kuka_robot_support/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_robot_support/catkin_generated/installspace/simtech_kuka_robot_supportConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_robot_support/catkin_generated/installspace/simtech_kuka_robot_supportConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_kuka/simtech_kuka_robot_support/catkin_generated/installspace/simtech_kuka_robot_supportConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_kuka/simtech_kuka_robot_support/catkin_generated/installspace/simtech_kuka_robot_supportConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_kuka_robot_support" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_robot_support/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_kuka_robot_support" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_robot_support/package.xml")
 endif()
 

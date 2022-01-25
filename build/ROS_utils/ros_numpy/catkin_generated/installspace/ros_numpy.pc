@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/install
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
 
 Name: ros_numpy
 Description: Description of ros_numpy

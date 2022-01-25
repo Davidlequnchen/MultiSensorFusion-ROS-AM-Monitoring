@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/auto_control/MsgCommand.h"
   "CMakeFiles/auto_control_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/auto_control/MsgCommand.h"
 )
 
 # Per-language clean rules from dependency scanning.

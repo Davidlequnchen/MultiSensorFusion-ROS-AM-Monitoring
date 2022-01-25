@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_ros_driver
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/Infratec_thermal_camera/Infratec_ros_driver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,21 +38,21 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/safe_execute_install.cmake")
+  include("/home/lequn/Documents/GitHub/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/installspace/infratec_ros_driver.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/installspace/infratec_ros_driver.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/infratec_ros_driver/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/installspace/infratec_ros_driverConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/installspace/infratec_ros_driverConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/installspace/infratec_ros_driverConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/Infratec_thermal_camera/Infratec_ros_driver/catkin_generated/installspace/infratec_ros_driverConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/infratec_ros_driver" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_ros_driver/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/infratec_ros_driver" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/Infratec_thermal_camera/Infratec_ros_driver/package.xml")
 endif()
 

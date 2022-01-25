@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
 
 Name: kuka_rsi_simulator
 Description: Description of kuka_rsi_simulator

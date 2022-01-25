@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/deprecated/laser_profiler_scanning/laser_scanning
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/deprecated/laser_profiler_scanning/laser_scanning
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,21 +38,21 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/chenlequn/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/safe_execute_install.cmake")
+  include("/home/lequn/Documents/GitHub/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/installspace/laser_scanning.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/installspace/laser_scanning.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/laser_scanning/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/installspace/laser_scanningConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/installspace/laser_scanningConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/installspace/laser_scanningConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/deprecated/laser_profiler_scanning/laser_scanning/catkin_generated/installspace/laser_scanningConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/laser_scanning" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/deprecated/laser_profiler_scanning/laser_scanning/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/laser_scanning" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/deprecated/laser_profiler_scanning/laser_scanning/package.xml")
 endif()
 

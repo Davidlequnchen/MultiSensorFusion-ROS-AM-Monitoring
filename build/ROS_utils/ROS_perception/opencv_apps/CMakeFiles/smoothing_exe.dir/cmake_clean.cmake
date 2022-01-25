@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/smoothing"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/smoothing.pdb"
   "CMakeFiles/smoothing_exe.dir/smoothing.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/smoothing.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/smoothing"
 )
 
 # Per-language clean rules from dependency scanning.

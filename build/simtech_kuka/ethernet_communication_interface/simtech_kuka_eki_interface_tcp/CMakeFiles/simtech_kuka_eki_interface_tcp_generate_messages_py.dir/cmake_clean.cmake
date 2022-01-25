@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/simtech_kuka_eki_interface_tcp/srv/_SrvRobotCommand.py"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/simtech_kuka_eki_interface_tcp/srv/__init__.py"
   "CMakeFiles/simtech_kuka_eki_interface_tcp_generate_messages_py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_kuka_eki_interface_tcp/srv/_SrvRobotCommand.py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/simtech_kuka_eki_interface_tcp/srv/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

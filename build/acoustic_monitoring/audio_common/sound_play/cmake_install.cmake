@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,120 +38,120 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/action" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/action/SoundRequest.action")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/action" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/action/SoundRequest.action")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/msg" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestAction.msg"
-    "/home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionGoal.msg"
-    "/home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionResult.msg"
-    "/home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionFeedback.msg"
-    "/home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestGoal.msg"
-    "/home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestResult.msg"
-    "/home/chenlequn/SIMTech_ws/devel/share/sound_play/msg/SoundRequestFeedback.msg"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/sound_play/msg/SoundRequestAction.msg"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionGoal.msg"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionResult.msg"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/sound_play/msg/SoundRequestActionFeedback.msg"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/sound_play/msg/SoundRequestGoal.msg"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/sound_play/msg/SoundRequestResult.msg"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/sound_play/msg/SoundRequestFeedback.msg"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/msg" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/msg/SoundRequest.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/msg" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/msg/SoundRequest.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/safe_execute_install.cmake")
+  include("/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/cmake" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_play-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/cmake" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_play-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/include/sound_play")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/sound_play")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/sound_play")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/sound_play")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/sound_play")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/sound_play")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/sound_play")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/sound_play")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/sound_play")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/sound_play")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/sound_play" REGEX "/\\_\\_init\\_\\_\\.py$" EXCLUDE REGEX "/\\_\\_init\\_\\_\\.pyc$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/sound_play" REGEX "/\\_\\_init\\_\\_\\.py$" EXCLUDE REGEX "/\\_\\_init\\_\\_\\.pyc$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/sound_play" FILES_MATCHING REGEX "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/sound_play/.+/__init__.pyc?$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/sound_play" FILES_MATCHING REGEX "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/sound_play/.+/__init__.pyc?$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_play.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_play.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/cmake" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_play-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/cmake" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_play-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_playConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_playConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_playConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/sound_playConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/playbuiltin.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/playbuiltin.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/play.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/play.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/say.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/say.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/shutup.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/shutup.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/soundplay_node.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/soundplay_node.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/test.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/test.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/test_actionlib_client.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sound_play" TYPE PROGRAM FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_common/sound_play/catkin_generated/installspace/test_actionlib_client.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/soundplay_node.launch"
-    "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/test.launch"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/soundplay_node.launch"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/test.launch"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/sound_play" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/include/sound_play/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/sound_play" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/include/sound_play/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/sounds")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sound_play" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/sounds")
 endif()
 

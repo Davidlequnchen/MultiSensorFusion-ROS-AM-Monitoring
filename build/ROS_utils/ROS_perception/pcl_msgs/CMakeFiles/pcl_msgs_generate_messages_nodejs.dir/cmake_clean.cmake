@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/ModelCoefficients.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/PointIndices.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/PolygonMesh.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/Vertices.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/srv/UpdateFilename.js"
   "CMakeFiles/pcl_msgs_generate_messages_nodejs"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/PointIndices.js"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/PolygonMesh.js"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/ModelCoefficients.js"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/msg/Vertices.js"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/pcl_msgs/srv/UpdateFilename.js"
 )
 
 # Per-language clean rules from dependency scanning.

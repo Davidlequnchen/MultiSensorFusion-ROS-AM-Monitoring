@@ -67,14 +67,14 @@ set(sound_play_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(sound_play_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play)
-  set(sound_play_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(sound_play_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play)
+  set(sound_play_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(sound_play_INSTALL_PREFIX "")
   set(sound_play_PREFIX ${sound_play_DEVEL_PREFIX})
 else()
   set(sound_play_SOURCE_PREFIX "")
   set(sound_play_DEVEL_PREFIX "")
-  set(sound_play_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(sound_play_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(sound_play_PREFIX ${sound_play_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(sound_play_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/include " STREQUAL " ")
+if(NOT "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include;/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/include " STREQUAL " ")
   set(sound_play_INCLUDE_DIRS "")
-  set(_include_dirs "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/include")
+  set(_include_dirs "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include;/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/include")
   if(NOT "https://github.com/ros-drivers/audio_common/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-drivers/audio_common/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/sound_play " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/chenlequn/SIMTech_ws/devel/include;/home/chenlequn/SIMTech_ws/src/
         message(FATAL_ERROR "Project 'sound_play' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'sound_play' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'sound_play' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/sound_play/${idir}'.  ${_report}")
     endif()
     _list_append_unique(sound_play_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/devel/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(sound_play_LIBRARIES ${sound_play_LIBRARIES})
 
   _list_append_unique(sound_play_LIBRARY_DIRS ${${sound_play_dep}_LIBRARY_DIRS})
-  list(APPEND sound_play_EXPORTED_TARGETS ${${sound_play_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(sound_play_EXPORTED_TARGETS ${${sound_play_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "sound_play-msg-extras.cmake")

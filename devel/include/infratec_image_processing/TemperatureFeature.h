@@ -118,16 +118,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::infratec_image_processing::TemperatureFeature_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::infratec_image_processing::TemperatureFeature_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::infratec_image_processing::TemperatureFeature_<ContainerAllocator> >
   : TrueType
   { };
@@ -135,6 +125,16 @@ struct IsMessage< ::infratec_image_processing::TemperatureFeature_<ContainerAllo
 template <class ContainerAllocator>
 struct IsMessage< ::infratec_image_processing::TemperatureFeature_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::infratec_image_processing::TemperatureFeature_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::infratec_image_processing::TemperatureFeature_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

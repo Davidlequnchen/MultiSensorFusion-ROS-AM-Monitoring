@@ -2,7 +2,7 @@
 
 message(STATUS "scanning_robviz: 2 messages, 0 services")
 
-set(MSG_I_FLAGS "-Iscanning_robviz:/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Iscanning_robviz:/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,14 +17,14 @@ add_custom_target(scanning_robviz_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
 add_custom_target(_scanning_robviz_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "scanning_robviz" "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "scanning_robviz" "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" ""
 )
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
 add_custom_target(_scanning_robviz_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "scanning_robviz" "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "scanning_robviz" "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" ""
 )
 
 #
@@ -34,13 +34,13 @@ add_custom_target(_scanning_robviz_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/scanning_robviz
 )
 _generate_msg_cpp(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/scanning_robviz
@@ -60,9 +60,9 @@ add_custom_target(scanning_robviz_generate_messages_cpp
 add_dependencies(scanning_robviz_generate_messages scanning_robviz_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_cpp _scanning_robviz_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_cpp _scanning_robviz_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -75,13 +75,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS scanning_robviz_generate_messages_c
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/scanning_robviz
 )
 _generate_msg_eus(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/scanning_robviz
@@ -101,9 +101,9 @@ add_custom_target(scanning_robviz_generate_messages_eus
 add_dependencies(scanning_robviz_generate_messages scanning_robviz_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_eus _scanning_robviz_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_eus _scanning_robviz_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -116,13 +116,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS scanning_robviz_generate_messages_e
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/scanning_robviz
 )
 _generate_msg_lisp(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/scanning_robviz
@@ -142,9 +142,9 @@ add_custom_target(scanning_robviz_generate_messages_lisp
 add_dependencies(scanning_robviz_generate_messages scanning_robviz_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_lisp _scanning_robviz_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_lisp _scanning_robviz_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -157,13 +157,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS scanning_robviz_generate_messages_l
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/scanning_robviz
 )
 _generate_msg_nodejs(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/scanning_robviz
@@ -183,9 +183,9 @@ add_custom_target(scanning_robviz_generate_messages_nodejs
 add_dependencies(scanning_robviz_generate_messages scanning_robviz_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_nodejs _scanning_robviz_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_nodejs _scanning_robviz_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -198,13 +198,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS scanning_robviz_generate_messages_n
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/scanning_robviz
 )
 _generate_msg_py(scanning_robviz
-  "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/scanning_robviz
@@ -224,9 +224,9 @@ add_custom_target(scanning_robviz_generate_messages_py
 add_dependencies(scanning_robviz_generate_messages scanning_robviz_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_py _scanning_robviz_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/scanning_application/scanning_robviz/msg/MsgPointCloudScan.msg" NAME_WE)
 add_dependencies(scanning_robviz_generate_messages_py _scanning_robviz_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -283,7 +283,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/scanning_robviz)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/scanning_robviz\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/scanning_robviz\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/scanning_robviz

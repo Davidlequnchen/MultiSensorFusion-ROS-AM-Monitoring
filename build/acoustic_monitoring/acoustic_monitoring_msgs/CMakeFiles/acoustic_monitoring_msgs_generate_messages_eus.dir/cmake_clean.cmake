@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/acoustic_monitoring_msgs/manifest.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/acoustic_monitoring_msgs/msg/AudioDataStamped.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/acoustic_monitoring_msgs/msg/MsgAcousticFeature.l"
   "CMakeFiles/acoustic_monitoring_msgs_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_monitoring_msgs/msg/AudioDataStamped.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_monitoring_msgs/msg/MsgAcousticFeature.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/acoustic_monitoring_msgs/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/pcl_conversions/test_pcl_conversions"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/pcl_conversions/test_pcl_conversions.pdb"
   "CMakeFiles/test_pcl_conversions.dir/test/test_pcl_conversions.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/pcl_conversions/test_pcl_conversions.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/pcl_conversions/test_pcl_conversions"
 )
 
 # Per-language clean rules from dependency scanning.

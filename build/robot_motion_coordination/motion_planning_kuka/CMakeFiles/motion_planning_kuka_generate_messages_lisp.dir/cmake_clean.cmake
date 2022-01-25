@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_kuka/srv/SrvRobotCommand.lisp"
   "CMakeFiles/motion_planning_kuka_generate_messages_lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/motion_planning_kuka/srv/SrvRobotCommand.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

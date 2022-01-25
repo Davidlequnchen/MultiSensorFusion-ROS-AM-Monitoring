@@ -87,16 +87,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::simtech_kuka_eki_interface_tcp::SrvRobotCommandResponse_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::simtech_kuka_eki_interface_tcp::SrvRobotCommandResponse_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::simtech_kuka_eki_interface_tcp::SrvRobotCommandResponse_<ContainerAllocator> >
   : TrueType
   { };
@@ -104,6 +94,16 @@ struct IsMessage< ::simtech_kuka_eki_interface_tcp::SrvRobotCommandResponse_<Con
 template <class ContainerAllocator>
 struct IsMessage< ::simtech_kuka_eki_interface_tcp::SrvRobotCommandResponse_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::simtech_kuka_eki_interface_tcp::SrvRobotCommandResponse_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::simtech_kuka_eki_interface_tcp::SrvRobotCommandResponse_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

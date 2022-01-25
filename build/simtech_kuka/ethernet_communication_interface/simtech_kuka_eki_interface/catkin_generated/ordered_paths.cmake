@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/opt/ros/melodic/lib")
+set(ORDERED_PATHS "/home/lequn/tesseract_ws/devel/.private/rosconsole_bridge/lib;/opt/ros/noetic/lib")

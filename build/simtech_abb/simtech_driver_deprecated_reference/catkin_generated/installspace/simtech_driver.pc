@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/install
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
 
 Name: simtech_driver
 Description: Description of simtech_driver

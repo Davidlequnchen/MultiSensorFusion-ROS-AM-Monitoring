@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgPointCloudScan.lisp"
   "CMakeFiles/scanning_robviz_generate_messages_lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgPointCloudScan.lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/scanning_robviz/msg/MsgCommand.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

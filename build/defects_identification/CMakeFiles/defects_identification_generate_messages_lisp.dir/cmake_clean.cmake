@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/common-lisp/ros/defects_identification/msg/MsgDefects.lisp"
   "CMakeFiles/defects_identification_generate_messages_lisp"
-  "/home/chenlequn/SIMTech_ws/devel/share/common-lisp/ros/defects_identification/msg/MsgDefects.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

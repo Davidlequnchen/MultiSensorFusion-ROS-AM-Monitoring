@@ -72,7 +72,7 @@ class MsgInfo {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    length += object.time.length;
+    length += _getByteLength(object.time);
     return length + 8;
   }
 

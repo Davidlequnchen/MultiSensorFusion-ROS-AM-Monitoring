@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/scanning_robviz/msg/_MsgCommand.py"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/scanning_robviz/msg/_MsgPointCloudScan.py"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/scanning_robviz/msg/__init__.py"
   "CMakeFiles/scanning_robviz_generate_messages_py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/scanning_robviz/msg/_MsgPointCloudScan.py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/scanning_robviz/msg/_MsgCommand.py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/scanning_robviz/msg/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

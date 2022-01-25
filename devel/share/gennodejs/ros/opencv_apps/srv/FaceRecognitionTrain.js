@@ -98,7 +98,7 @@ class FaceRecognitionTrainRequest {
     });
     length += 32 * object.rects.length;
     object.labels.forEach((val) => {
-      length += 4 + val.length;
+      length += 4 + _getByteLength(val);
     });
     return length + 12;
   }
@@ -260,7 +260,7 @@ class FaceRecognitionTrainResponse {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.error.length;
+    length += _getByteLength(object.error);
     return length + 5;
   }
 

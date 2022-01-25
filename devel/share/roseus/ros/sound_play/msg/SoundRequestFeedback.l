@@ -27,8 +27,8 @@
    (setq _stamp __stamp)
    self)
   (:playing
-   (&optional __playing)
-   (if __playing (setq _playing __playing)) _playing)
+   (&optional (__playing :null))
+   (if (not (eq __playing :null)) (setq _playing __playing)) _playing)
   (:stamp
    (&optional __stamp)
    (if __stamp (setq _stamp __stamp)) _stamp)

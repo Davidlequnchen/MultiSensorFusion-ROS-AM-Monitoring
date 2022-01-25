@@ -27,8 +27,8 @@
    (setq _scanning_count (round __scanning_count))
    self)
   (:ready
-   (&optional __ready)
-   (if __ready (setq _ready __ready)) _ready)
+   (&optional (__ready :null))
+   (if (not (eq __ready :null)) (setq _ready __ready)) _ready)
   (:scanning_count
    (&optional __scanning_count)
    (if __scanning_count (setq _scanning_count __scanning_count)) _scanning_count)

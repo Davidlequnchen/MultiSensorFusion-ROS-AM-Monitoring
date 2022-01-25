@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/discrete_fourier_transform"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/discrete_fourier_transform.pdb"
   "CMakeFiles/discrete_fourier_transform_exe.dir/discrete_fourier_transform.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/discrete_fourier_transform.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/discrete_fourier_transform"
 )
 
 # Per-language clean rules from dependency scanning.

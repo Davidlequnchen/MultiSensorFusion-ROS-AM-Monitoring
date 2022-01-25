@@ -1,10 +1,10 @@
 
 "use strict";
 
-let AudioInfo = require('./AudioInfo.js');
 let AudioData = require('./AudioData.js');
+let AudioInfo = require('./AudioInfo.js');
 
 module.exports = {
-  AudioInfo: AudioInfo,
   AudioData: AudioData,
+  AudioInfo: AudioInfo,
 };

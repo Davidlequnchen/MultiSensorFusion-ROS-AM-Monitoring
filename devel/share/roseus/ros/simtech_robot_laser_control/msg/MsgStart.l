@@ -27,8 +27,8 @@
    (setq _setpoint (float __setpoint))
    self)
   (:control
-   (&optional __control)
-   (if __control (setq _control __control)) _control)
+   (&optional (__control :null))
+   (if (not (eq __control :null)) (setq _control __control)) _control)
   (:setpoint
    (&optional __setpoint)
    (if __setpoint (setq _setpoint __setpoint)) _setpoint)

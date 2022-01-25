@@ -1,12 +1,12 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/manifest.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgThreshold.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/TemperatureFeature.l"
   "CMakeFiles/infratec_image_processing_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpool.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgROISize.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/TemperatureFeature.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgHistogram.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgThreshold.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/msg/MsgMeltpoolWidth.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/infratec_image_processing/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

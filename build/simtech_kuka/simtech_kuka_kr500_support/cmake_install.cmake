@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,26 +38,26 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_kr500_support/catkin_generated/installspace/simtech_kuka_kr500_support.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_kuka/simtech_kuka_kr500_support/catkin_generated/installspace/simtech_kuka_kr500_support.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_kuka_kr500_support/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_kr500_support/catkin_generated/installspace/simtech_kuka_kr500_supportConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/simtech_kuka/simtech_kuka_kr500_support/catkin_generated/installspace/simtech_kuka_kr500_supportConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_kuka/simtech_kuka_kr500_support/catkin_generated/installspace/simtech_kuka_kr500_supportConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_kuka/simtech_kuka_kr500_support/catkin_generated/installspace/simtech_kuka_kr500_supportConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_kuka_kr500_support" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_kuka_kr500_support" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_kuka_kr500_support" TYPE DIRECTORY FILES
-    "/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/config"
-    "/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/launch"
-    "/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/meshes"
-    "/home/chenlequn/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/urdf"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/config"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/launch"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/meshes"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr500_support/urdf"
     )
 endif()
 

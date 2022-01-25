@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/manifest.l"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv/SrvRobotCommand.l"
   "CMakeFiles/motion_planning_jason_generate_messages_eus"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/srv/SrvRobotCommand.l"
-  "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/motion_planning_jason/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

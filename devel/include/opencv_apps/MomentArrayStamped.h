@@ -95,16 +95,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::opencv_apps::MomentArrayStamped_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::opencv_apps::MomentArrayStamped_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::opencv_apps::MomentArrayStamped_<ContainerAllocator> >
   : TrueType
   { };
@@ -112,6 +102,16 @@ struct IsMessage< ::opencv_apps::MomentArrayStamped_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::opencv_apps::MomentArrayStamped_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::opencv_apps::MomentArrayStamped_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::opencv_apps::MomentArrayStamped_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

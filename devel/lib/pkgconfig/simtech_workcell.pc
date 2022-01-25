@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
 
 Name: simtech_workcell
 Description: Description of simtech_workcell

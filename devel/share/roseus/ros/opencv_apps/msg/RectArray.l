@@ -19,7 +19,7 @@
 (defmethod opencv_apps::RectArray
   (:init
    (&key
-    ((:rects __rects) (let (r) (dotimes (i 0) (push (instance opencv_apps::Rect :init) r)) r))
+    ((:rects __rects) ())
     )
    (send-super :init)
    (setq _rects __rects)

@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_capture_convert
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_capture_convert
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_capture_convert/catkin_generated/installspace/audio_capture_convert.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_capture_convert/catkin_generated/installspace/audio_capture_convert.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/audio_capture_convert/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_capture_convert/catkin_generated/installspace/audio_capture_convertConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/acoustic_monitoring/audio_capture_convert/catkin_generated/installspace/audio_capture_convertConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_capture_convert/catkin_generated/installspace/audio_capture_convertConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/acoustic_monitoring/audio_capture_convert/catkin_generated/installspace/audio_capture_convertConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/audio_capture_convert" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_capture_convert/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/audio_capture_convert" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_capture_convert/package.xml")
 endif()
 

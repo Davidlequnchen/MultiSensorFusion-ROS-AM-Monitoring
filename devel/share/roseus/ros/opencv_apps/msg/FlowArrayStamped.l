@@ -22,7 +22,7 @@
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:flow __flow) (let (r) (dotimes (i 0) (push (instance opencv_apps::Flow :init) r)) r))
+    ((:flow __flow) ())
     )
    (send-super :init)
    (setq _header __header)

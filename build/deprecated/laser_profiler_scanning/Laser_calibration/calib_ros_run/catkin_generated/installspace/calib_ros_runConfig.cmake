@@ -67,14 +67,14 @@ set(calib_ros_run_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(calib_ros_run_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run)
-  set(calib_ros_run_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(calib_ros_run_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/deprecated/laser_profiler_scanning/Laser_calibration/calib_ros_run)
+  set(calib_ros_run_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(calib_ros_run_INSTALL_PREFIX "")
   set(calib_ros_run_PREFIX ${calib_ros_run_DEVEL_PREFIX})
 else()
   set(calib_ros_run_SOURCE_PREFIX "")
   set(calib_ros_run_DEVEL_PREFIX "")
-  set(calib_ros_run_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(calib_ros_run_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(calib_ros_run_PREFIX ${calib_ros_run_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(calib_ros_run_LIBRARIES ${calib_ros_run_LIBRARIES})
 
   _list_append_unique(calib_ros_run_LIBRARY_DIRS ${${calib_ros_run_dep}_LIBRARY_DIRS})
-  list(APPEND calib_ros_run_EXPORTED_TARGETS ${${calib_ros_run_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(calib_ros_run_EXPORTED_TARGETS ${${calib_ros_run_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

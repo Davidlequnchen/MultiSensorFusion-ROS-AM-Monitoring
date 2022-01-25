@@ -51,7 +51,7 @@ class SrvRobotCommandRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.command.length;
+    length += _getByteLength(object.command);
     return length + 4;
   }
 
@@ -124,7 +124,7 @@ class SrvRobotCommandResponse {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.response.length;
+    length += _getByteLength(object.response);
     return length + 4;
   }
 

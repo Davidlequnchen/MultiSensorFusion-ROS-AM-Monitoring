@@ -1,5 +1,0 @@
-# ninja log v5
-0	226	1580440260	mescan@sha/src_mescan_basic.c.o	cdfabde1ef2051e4
-1	259	1580440260	mescan@sha/src_mescan_adv.c.o	31b8021de97caf4
-259	297	1580440261	libmescan.so.0.2.3	e5b38dafcc7032d2
-2	283	0	meson-install	b9c6c97cb22875bc

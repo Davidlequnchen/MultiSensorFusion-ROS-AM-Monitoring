@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/velocity_control/msg/MsgSpeedOverride.js"
   "CMakeFiles/velocity_control_generate_messages_nodejs"
-  "/home/chenlequn/SIMTech_ws/devel/share/gennodejs/ros/velocity_control/msg/MsgSpeedOverride.js"
 )
 
 # Per-language clean rules from dependency scanning.

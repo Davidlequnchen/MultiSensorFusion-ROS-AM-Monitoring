@@ -19,7 +19,7 @@
 (defmethod opencv_apps::CircleArray
   (:init
    (&key
-    ((:circles __circles) (let (r) (dotimes (i 0) (push (instance opencv_apps::Circle :init) r)) r))
+    ((:circles __circles) ())
     )
    (send-super :init)
    (setq _circles __circles)

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/lk_flow"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/lk_flow.pdb"
   "CMakeFiles/lk_flow_exe.dir/lk_flow.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/lk_flow.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/lk_flow"
 )
 
 # Per-language clean rules from dependency scanning.

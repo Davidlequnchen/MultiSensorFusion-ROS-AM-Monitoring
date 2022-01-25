@@ -19,7 +19,7 @@
 (defmethod opencv_apps::Point2DArray
   (:init
    (&key
-    ((:points __points) (let (r) (dotimes (i 0) (push (instance opencv_apps::Point2D :init) r)) r))
+    ((:points __points) ())
     )
    (send-super :init)
    (setq _points __points)

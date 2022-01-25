@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/motion_planning_jason/SrvRobotCommand.h"
   "CMakeFiles/motion_planning_jason_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/motion_planning_jason/SrvRobotCommand.h"
 )
 
 # Per-language clean rules from dependency scanning.

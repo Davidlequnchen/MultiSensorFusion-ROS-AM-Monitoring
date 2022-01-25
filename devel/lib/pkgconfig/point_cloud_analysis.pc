@@ -1,8 +1,8 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
 
 Name: point_cloud_analysis
 Description: Description of point_cloud_analysis
 Version: 0.3.0
-Cflags: -I/home/chenlequn/SIMTech_ws/devel/include
+Cflags: -I/home/lequn/Documents/GitHub/SIMTech_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: roscpp sensor_msgs std_msgs message_runtime

@@ -67,14 +67,14 @@ set(laser_scanning_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(laser_scanning_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/deprecated/laser_profiler_scanning/laser_scanning)
-  set(laser_scanning_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(laser_scanning_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/deprecated/laser_profiler_scanning/laser_scanning)
+  set(laser_scanning_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(laser_scanning_INSTALL_PREFIX "")
   set(laser_scanning_PREFIX ${laser_scanning_DEVEL_PREFIX})
 else()
   set(laser_scanning_SOURCE_PREFIX "")
   set(laser_scanning_DEVEL_PREFIX "")
-  set(laser_scanning_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(laser_scanning_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(laser_scanning_PREFIX ${laser_scanning_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(laser_scanning_LIBRARIES ${laser_scanning_LIBRARIES})
 
   _list_append_unique(laser_scanning_LIBRARY_DIRS ${${laser_scanning_dep}_LIBRARY_DIRS})
-  list(APPEND laser_scanning_EXPORTED_TARGETS ${${laser_scanning_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(laser_scanning_EXPORTED_TARGETS ${${laser_scanning_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

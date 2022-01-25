@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/find_contours"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/find_contours.pdb"
   "CMakeFiles/find_contours_exe.dir/find_contours.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/find_contours.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/find_contours"
 )
 
 # Per-language clean rules from dependency scanning.

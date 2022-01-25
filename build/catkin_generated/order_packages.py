@@ -1,5 +1,5 @@
 # generated from catkin/cmake/template/order_packages.context.py.in
-source_root_dir = '/home/chenlequn/SIMTech_ws/src'
+source_root_dir = '/home/lequn/Documents/GitHub/SIMTech_ws/src'
 whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/home/chenlequn/catkin_ws/devel;/home/chenlequn/SIMTech_ws/devel;/opt/ros/melodic'.split(';') if '/home/chenlequn/catkin_ws/devel;/home/chenlequn/SIMTech_ws/devel;/opt/ros/melodic' != '' else []
+underlay_workspaces = '/home/lequn/tesseract_ws/devel;/opt/ros/noetic'.split(';') if '/home/lequn/tesseract_ws/devel;/opt/ros/noetic' != '' else []

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libsimtech_kuka_eki_interface_tcp.pdb"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libsimtech_kuka_eki_interface_tcp.so"
   "CMakeFiles/simtech_kuka_eki_interface_tcp.dir/src/simtech_kuka_eki_interface_tcp.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libsimtech_kuka_eki_interface_tcp.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libsimtech_kuka_eki_interface_tcp.so"
 )
 
 # Per-language clean rules from dependency scanning.

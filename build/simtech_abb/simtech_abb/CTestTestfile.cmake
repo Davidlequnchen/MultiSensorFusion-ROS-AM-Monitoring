@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_abb
-# Build directory: /home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_abb
+# Source directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_abb/simtech_abb
+# Build directory: /home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_abb/simtech_abb
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

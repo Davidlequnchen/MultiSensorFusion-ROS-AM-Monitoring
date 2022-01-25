@@ -2,7 +2,7 @@
 
 message(STATUS "audio_common_msgs: 2 messages, 0 services")
 
-set(MSG_I_FLAGS "-Iaudio_common_msgs:/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg")
+set(MSG_I_FLAGS "-Iaudio_common_msgs:/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,14 +17,14 @@ add_custom_target(audio_common_msgs_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
 add_custom_target(_audio_common_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "audio_common_msgs" "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "audio_common_msgs" "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" ""
 )
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
 add_custom_target(_audio_common_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "audio_common_msgs" "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "audio_common_msgs" "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" ""
 )
 
 #
@@ -34,13 +34,13 @@ add_custom_target(_audio_common_msgs_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/audio_common_msgs
 )
 _generate_msg_cpp(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/audio_common_msgs
@@ -60,9 +60,9 @@ add_custom_target(audio_common_msgs_generate_messages_cpp
 add_dependencies(audio_common_msgs_generate_messages audio_common_msgs_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_cpp _audio_common_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_cpp _audio_common_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -75,13 +75,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS audio_common_msgs_generate_messages
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/audio_common_msgs
 )
 _generate_msg_eus(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/audio_common_msgs
@@ -101,9 +101,9 @@ add_custom_target(audio_common_msgs_generate_messages_eus
 add_dependencies(audio_common_msgs_generate_messages audio_common_msgs_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_eus _audio_common_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_eus _audio_common_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -116,13 +116,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS audio_common_msgs_generate_messages
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/audio_common_msgs
 )
 _generate_msg_lisp(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/audio_common_msgs
@@ -142,9 +142,9 @@ add_custom_target(audio_common_msgs_generate_messages_lisp
 add_dependencies(audio_common_msgs_generate_messages audio_common_msgs_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_lisp _audio_common_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_lisp _audio_common_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -157,13 +157,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS audio_common_msgs_generate_messages
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/audio_common_msgs
 )
 _generate_msg_nodejs(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/audio_common_msgs
@@ -183,9 +183,9 @@ add_custom_target(audio_common_msgs_generate_messages_nodejs
 add_dependencies(audio_common_msgs_generate_messages audio_common_msgs_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_nodejs _audio_common_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_nodejs _audio_common_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -198,13 +198,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS audio_common_msgs_generate_messages
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/audio_common_msgs
 )
 _generate_msg_py(audio_common_msgs
-  "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/audio_common_msgs
@@ -224,9 +224,9 @@ add_custom_target(audio_common_msgs_generate_messages_py
 add_dependencies(audio_common_msgs_generate_messages audio_common_msgs_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_py _audio_common_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioData.msg" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/acoustic_monitoring/audio_common/audio_common_msgs/msg/AudioInfo.msg" NAME_WE)
 add_dependencies(audio_common_msgs_generate_messages_py _audio_common_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -271,7 +271,7 @@ if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_D
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/audio_common_msgs)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/audio_common_msgs\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/audio_common_msgs\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/audio_common_msgs

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface_node"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface_node.pdb"
   "CMakeFiles/simtech_kuka_rsi_hw_interface_node.dir/src/simtech_kuka_rsi_hw_interface_node.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface_node.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/simtech_kuka_rsi_hw_interface/simtech_kuka_rsi_hw_interface_node"
 )
 
 # Per-language clean rules from dependency scanning.

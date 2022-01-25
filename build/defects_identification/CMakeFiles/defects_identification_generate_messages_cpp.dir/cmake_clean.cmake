@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include/defects_identification/MsgDefects.h"
   "CMakeFiles/defects_identification_generate_messages_cpp"
-  "/home/chenlequn/SIMTech_ws/devel/include/defects_identification/MsgDefects.h"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_abb
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_abb/simtech_abb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_abb/catkin_generated/installspace/simtech_abb.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_abb/simtech_abb/catkin_generated/installspace/simtech_abb.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_abb/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_abb/catkin_generated/installspace/simtech_abbConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/simtech_abb/simtech_abb/catkin_generated/installspace/simtech_abbConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_abb/simtech_abb/catkin_generated/installspace/simtech_abbConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/simtech_abb/simtech_abb/catkin_generated/installspace/simtech_abbConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_abb" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/simtech_abb/simtech_abb/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simtech_abb" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_abb/simtech_abb/package.xml")
 endif()
 

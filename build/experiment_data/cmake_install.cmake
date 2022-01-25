@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/experiment_data
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/experiment_data
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/experiment_data/catkin_generated/installspace/experiment_data.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/experiment_data/catkin_generated/installspace/experiment_data.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/experiment_data/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/experiment_data/catkin_generated/installspace/experiment_dataConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/experiment_data/catkin_generated/installspace/experiment_dataConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/experiment_data/catkin_generated/installspace/experiment_dataConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/experiment_data/catkin_generated/installspace/experiment_dataConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/experiment_data" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/experiment_data/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/experiment_data" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/experiment_data/package.xml")
 endif()
 

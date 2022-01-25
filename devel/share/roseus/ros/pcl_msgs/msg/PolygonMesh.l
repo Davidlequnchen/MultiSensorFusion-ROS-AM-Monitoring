@@ -25,7 +25,7 @@
    (&key
     ((:header __header) (instance std_msgs::Header :init))
     ((:cloud __cloud) (instance sensor_msgs::PointCloud2 :init))
-    ((:polygons __polygons) (let (r) (dotimes (i 0) (push (instance pcl_msgs::Vertices :init) r)) r))
+    ((:polygons __polygons) ())
     )
    (send-super :init)
    (setq _header __header)

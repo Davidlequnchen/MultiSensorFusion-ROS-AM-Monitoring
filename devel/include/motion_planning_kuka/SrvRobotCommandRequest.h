@@ -87,16 +87,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::motion_planning_kuka::SrvRobotCommandRequest_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::motion_planning_kuka::SrvRobotCommandRequest_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::motion_planning_kuka::SrvRobotCommandRequest_<ContainerAllocator> >
   : TrueType
   { };
@@ -104,6 +94,16 @@ struct IsMessage< ::motion_planning_kuka::SrvRobotCommandRequest_<ContainerAlloc
 template <class ContainerAllocator>
 struct IsMessage< ::motion_planning_kuka::SrvRobotCommandRequest_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::motion_planning_kuka::SrvRobotCommandRequest_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::motion_planning_kuka::SrvRobotCommandRequest_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

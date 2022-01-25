@@ -67,14 +67,14 @@ set(experiment_data_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(experiment_data_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/experiment_data)
-  set(experiment_data_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(experiment_data_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/experiment_data)
+  set(experiment_data_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(experiment_data_INSTALL_PREFIX "")
   set(experiment_data_PREFIX ${experiment_data_DEVEL_PREFIX})
 else()
   set(experiment_data_SOURCE_PREFIX "")
   set(experiment_data_DEVEL_PREFIX "")
-  set(experiment_data_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(experiment_data_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(experiment_data_PREFIX ${experiment_data_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(experiment_data_LIBRARIES ${experiment_data_LIBRARIES})
 
   _list_append_unique(experiment_data_LIBRARY_DIRS ${${experiment_data_dep}_LIBRARY_DIRS})
-  list(APPEND experiment_data_EXPORTED_TARGETS ${${experiment_data_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(experiment_data_EXPORTED_TARGETS ${${experiment_data_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

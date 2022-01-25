@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/scanning_robviz/nd_pcl_processing"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/scanning_robviz/nd_pcl_processing.pdb"
   "CMakeFiles/nd_pcl_processing.dir/src/nd_pcl_processing.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/scanning_robviz/nd_pcl_processing.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/scanning_robviz/nd_pcl_processing"
 )
 
 # Per-language clean rules from dependency scanning.

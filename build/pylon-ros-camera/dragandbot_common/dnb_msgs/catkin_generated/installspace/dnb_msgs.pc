@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/install
-
-Name: dnb_msgs
-Description: Description of dnb_msgs
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime std_msgs

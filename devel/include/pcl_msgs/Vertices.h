@@ -87,16 +87,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::pcl_msgs::Vertices_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::pcl_msgs::Vertices_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::pcl_msgs::Vertices_<ContainerAllocator> >
   : TrueType
   { };
@@ -104,6 +94,16 @@ struct IsMessage< ::pcl_msgs::Vertices_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::pcl_msgs::Vertices_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::pcl_msgs::Vertices_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::pcl_msgs::Vertices_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

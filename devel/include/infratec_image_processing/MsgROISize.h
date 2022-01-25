@@ -94,16 +94,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::infratec_image_processing::MsgROISize_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::infratec_image_processing::MsgROISize_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::infratec_image_processing::MsgROISize_<ContainerAllocator> >
   : TrueType
   { };
@@ -111,6 +101,16 @@ struct IsMessage< ::infratec_image_processing::MsgROISize_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::infratec_image_processing::MsgROISize_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::infratec_image_processing::MsgROISize_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::infratec_image_processing::MsgROISize_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

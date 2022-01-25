@@ -88,16 +88,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::opencv_apps::RotatedRectArray_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::opencv_apps::RotatedRectArray_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::opencv_apps::RotatedRectArray_<ContainerAllocator> >
   : TrueType
   { };
@@ -105,6 +95,16 @@ struct IsMessage< ::opencv_apps::RotatedRectArray_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::opencv_apps::RotatedRectArray_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::opencv_apps::RotatedRectArray_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::opencv_apps::RotatedRectArray_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

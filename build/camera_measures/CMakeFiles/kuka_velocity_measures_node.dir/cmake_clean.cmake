@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/camera_measures/kuka_velocity_measures_node"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/camera_measures/kuka_velocity_measures_node.pdb"
   "CMakeFiles/kuka_velocity_measures_node.dir/src/kuka_velocity_measures_node.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/camera_measures/kuka_velocity_measures_node.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/camera_measures/kuka_velocity_measures_node"
 )
 
 # Per-language clean rules from dependency scanning.

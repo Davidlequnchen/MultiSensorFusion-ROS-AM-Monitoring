@@ -19,7 +19,7 @@
 (defmethod opencv_apps::FaceArray
   (:init
    (&key
-    ((:faces __faces) (let (r) (dotimes (i 0) (push (instance opencv_apps::Face :init) r)) r))
+    ((:faces __faces) ())
     )
    (send-super :init)
    (setq _faces __faces)

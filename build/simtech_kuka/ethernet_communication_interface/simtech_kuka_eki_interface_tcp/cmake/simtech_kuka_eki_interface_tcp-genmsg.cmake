@@ -2,7 +2,7 @@
 
 message(STATUS "simtech_kuka_eki_interface_tcp: 0 messages, 1 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(simtech_kuka_eki_interface_tcp_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
 add_custom_target(_simtech_kuka_eki_interface_tcp_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_kuka_eki_interface_tcp" "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "simtech_kuka_eki_interface_tcp" "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" ""
 )
 
 #
@@ -31,7 +31,7 @@ add_custom_target(_simtech_kuka_eki_interface_tcp_generate_messages_check_deps_$
 
 ### Generating Services
 _generate_srv_cpp(simtech_kuka_eki_interface_tcp
-  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/simtech_kuka_eki_interface_tcp
@@ -49,7 +49,7 @@ add_custom_target(simtech_kuka_eki_interface_tcp_generate_messages_cpp
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages simtech_kuka_eki_interface_tcp_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages_cpp _simtech_kuka_eki_interface_tcp_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -64,7 +64,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_eki_interface_tcp_gene
 
 ### Generating Services
 _generate_srv_eus(simtech_kuka_eki_interface_tcp
-  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/simtech_kuka_eki_interface_tcp
@@ -82,7 +82,7 @@ add_custom_target(simtech_kuka_eki_interface_tcp_generate_messages_eus
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages simtech_kuka_eki_interface_tcp_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages_eus _simtech_kuka_eki_interface_tcp_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -97,7 +97,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_eki_interface_tcp_gene
 
 ### Generating Services
 _generate_srv_lisp(simtech_kuka_eki_interface_tcp
-  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/simtech_kuka_eki_interface_tcp
@@ -115,7 +115,7 @@ add_custom_target(simtech_kuka_eki_interface_tcp_generate_messages_lisp
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages simtech_kuka_eki_interface_tcp_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages_lisp _simtech_kuka_eki_interface_tcp_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -130,7 +130,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_eki_interface_tcp_gene
 
 ### Generating Services
 _generate_srv_nodejs(simtech_kuka_eki_interface_tcp
-  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/simtech_kuka_eki_interface_tcp
@@ -148,7 +148,7 @@ add_custom_target(simtech_kuka_eki_interface_tcp_generate_messages_nodejs
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages simtech_kuka_eki_interface_tcp_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages_nodejs _simtech_kuka_eki_interface_tcp_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -163,7 +163,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS simtech_kuka_eki_interface_tcp_gene
 
 ### Generating Services
 _generate_srv_py(simtech_kuka_eki_interface_tcp
-  "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_kuka_eki_interface_tcp
@@ -181,7 +181,7 @@ add_custom_target(simtech_kuka_eki_interface_tcp_generate_messages_py
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages simtech_kuka_eki_interface_tcp_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chenlequn/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
+get_filename_component(_filename "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/srv/SrvRobotCommand.srv" NAME_WE)
 add_dependencies(simtech_kuka_eki_interface_tcp_generate_messages_py _simtech_kuka_eki_interface_tcp_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -238,7 +238,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_kuka_eki_interface_tcp)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_kuka_eki_interface_tcp\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_kuka_eki_interface_tcp\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/simtech_kuka_eki_interface_tcp

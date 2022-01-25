@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/threshold"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/threshold.pdb"
   "CMakeFiles/threshold_exe.dir/threshold.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/threshold.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/threshold"
 )
 
 # Per-language clean rules from dependency scanning.

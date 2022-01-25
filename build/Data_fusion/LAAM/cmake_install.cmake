@@ -1,8 +1,8 @@
-# Install script for directory: /home/chenlequn/SIMTech_ws/src/Data_fusion/LAAM
+# Install script for directory: /home/lequn/Documents/GitHub/SIMTech_ws/src/Data_fusion/LAAM
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/chenlequn/SIMTech_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lequn/Documents/GitHub/SIMTech_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,41 +38,41 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/safe_execute_install.cmake")
+  include("/home/lequn/Documents/GitHub/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/data_fusion/cmake" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusion-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/data_fusion/cmake" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusion-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/share/roseus/ros/data_fusion")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/roseus/ros/data_fusion")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/data_fusion")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/data_fusion")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/data_fusion")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/data_fusion")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusion.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusion.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/data_fusion/cmake" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusion-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/data_fusion/cmake" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusion-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/data_fusion/cmake" TYPE FILE FILES
-    "/home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusionConfig.cmake"
-    "/home/chenlequn/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusionConfig-version.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusionConfig.cmake"
+    "/home/lequn/Documents/GitHub/SIMTech_ws/build/Data_fusion/LAAM/catkin_generated/installspace/data_fusionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/data_fusion" TYPE FILE FILES "/home/chenlequn/SIMTech_ws/src/Data_fusion/LAAM/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/data_fusion" TYPE FILE FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/Data_fusion/LAAM/package.xml")
 endif()
 

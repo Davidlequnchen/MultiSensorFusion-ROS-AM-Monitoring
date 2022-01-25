@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/pcl_ros_surface.dir/src/pcl_ros/surface/surface.cpp.o"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libpcl_ros_surface.pdb"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libpcl_ros_surface.so"
   "CMakeFiles/pcl_ros_surface.dir/src/pcl_ros/surface/convex_hull.cpp.o"
   "CMakeFiles/pcl_ros_surface.dir/src/pcl_ros/surface/moving_least_squares.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libpcl_ros_surface.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libpcl_ros_surface.so"
+  "CMakeFiles/pcl_ros_surface.dir/src/pcl_ros/surface/surface.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

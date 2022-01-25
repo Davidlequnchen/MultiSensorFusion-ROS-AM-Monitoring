@@ -45,6 +45,22 @@
 (intern "*PLAY_START*" (find-package "SOUND_PLAY::SOUNDREQUEST"))
 (shadow '*PLAY_START* (find-package "SOUND_PLAY::SOUNDREQUEST"))
 (defconstant sound_play::SoundRequest::*PLAY_START* 2)
+
+(defun sound_play::SoundRequest-to-symbol (const)
+  (cond
+        ((= const 1) 'sound_play::SoundRequest::*BACKINGUP*)
+        ((= const 2) 'sound_play::SoundRequest::*NEEDS_UNPLUGGING*)
+        ((= const 3) 'sound_play::SoundRequest::*NEEDS_PLUGGING*)
+        ((= const 4) 'sound_play::SoundRequest::*NEEDS_UNPLUGGING_BADLY*)
+        ((= const 5) 'sound_play::SoundRequest::*NEEDS_PLUGGING_BADLY*)
+        ((= const -1) 'sound_play::SoundRequest::*ALL*)
+        ((= const -2) 'sound_play::SoundRequest::*PLAY_FILE*)
+        ((= const -3) 'sound_play::SoundRequest::*SAY*)
+        ((= const 0) 'sound_play::SoundRequest::*PLAY_STOP*)
+        ((= const 1) 'sound_play::SoundRequest::*PLAY_ONCE*)
+        ((= const 2) 'sound_play::SoundRequest::*PLAY_START*)
+        (t nil)))
+
 (defclass sound_play::SoundRequest
   :super ros::object
   :slots (_sound _command _volume _arg _arg2 ))

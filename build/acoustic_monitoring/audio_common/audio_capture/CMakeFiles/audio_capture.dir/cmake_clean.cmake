@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/audio_capture/audio_capture"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/audio_capture/audio_capture.pdb"
   "CMakeFiles/audio_capture.dir/src/audio_capture.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/audio_capture/audio_capture.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/audio_capture/audio_capture"
 )
 
 # Per-language clean rules from dependency scanning.

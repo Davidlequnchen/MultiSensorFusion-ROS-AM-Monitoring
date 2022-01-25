@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libpcl_ros_tf.pdb"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libpcl_ros_tf.so"
   "CMakeFiles/pcl_ros_tf.dir/src/transforms.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libpcl_ros_tf.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/libpcl_ros_tf.so"
 )
 
 # Per-language clean rules from dependency scanning.

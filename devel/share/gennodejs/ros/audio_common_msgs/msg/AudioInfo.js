@@ -92,8 +92,8 @@ class AudioInfo {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.sample_format.length;
-    length += object.coding_format.length;
+    length += _getByteLength(object.sample_format);
+    length += _getByteLength(object.coding_format);
     return length + 17;
   }
 

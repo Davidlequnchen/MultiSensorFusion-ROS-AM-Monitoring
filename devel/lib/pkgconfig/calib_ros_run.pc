@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
 
 Name: calib_ros_run
 Description: Description of calib_ros_run

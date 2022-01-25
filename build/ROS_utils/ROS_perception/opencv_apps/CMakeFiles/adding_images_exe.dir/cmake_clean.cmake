@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/adding_images"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/adding_images.pdb"
   "CMakeFiles/adding_images_exe.dir/adding_images.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/adding_images.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/adding_images"
 )
 
 # Per-language clean rules from dependency scanning.

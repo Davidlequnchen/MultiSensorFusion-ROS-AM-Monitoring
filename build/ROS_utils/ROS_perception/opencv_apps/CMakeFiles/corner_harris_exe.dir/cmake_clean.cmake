@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/corner_harris"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/corner_harris.pdb"
   "CMakeFiles/corner_harris_exe.dir/corner_harris.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/corner_harris.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/corner_harris"
 )
 
 # Per-language clean rules from dependency scanning.

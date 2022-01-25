@@ -1,4 +1,4 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
 
 Name: audio_capture_convert
 Description: Description of audio_capture_convert

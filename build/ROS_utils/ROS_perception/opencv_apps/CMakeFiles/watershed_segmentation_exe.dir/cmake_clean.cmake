@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/watershed_segmentation"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/opencv_apps/watershed_segmentation.pdb"
   "CMakeFiles/watershed_segmentation_exe.dir/watershed_segmentation.cpp.o"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/watershed_segmentation.pdb"
-  "/home/chenlequn/SIMTech_ws/devel/lib/opencv_apps/watershed_segmentation"
 )
 
 # Per-language clean rules from dependency scanning.

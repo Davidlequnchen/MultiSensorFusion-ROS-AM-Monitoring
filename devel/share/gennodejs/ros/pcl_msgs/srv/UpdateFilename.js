@@ -51,7 +51,7 @@ class UpdateFilenameRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.filename.length;
+    length += _getByteLength(object.filename);
     return length + 4;
   }
 

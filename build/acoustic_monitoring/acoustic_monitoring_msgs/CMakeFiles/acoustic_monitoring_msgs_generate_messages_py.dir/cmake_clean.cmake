@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/acoustic_monitoring_msgs/msg/_AudioDataStamped.py"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/acoustic_monitoring_msgs/msg/_MsgAcousticFeature.py"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/python3/dist-packages/acoustic_monitoring_msgs/msg/__init__.py"
   "CMakeFiles/acoustic_monitoring_msgs_generate_messages_py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/acoustic_monitoring_msgs/msg/_AudioDataStamped.py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/acoustic_monitoring_msgs/msg/_MsgAcousticFeature.py"
-  "/home/chenlequn/SIMTech_ws/devel/lib/python2.7/dist-packages/acoustic_monitoring_msgs/msg/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

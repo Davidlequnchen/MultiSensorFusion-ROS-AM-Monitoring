@@ -67,14 +67,14 @@ set(infratec_ros_driver_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(infratec_ros_driver_SOURCE_PREFIX /home/chenlequn/SIMTech_ws/src/Infratec_thermal_camera/Infratec_ros_driver)
-  set(infratec_ros_driver_DEVEL_PREFIX /home/chenlequn/SIMTech_ws/devel)
+  set(infratec_ros_driver_SOURCE_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/src/Infratec_thermal_camera/Infratec_ros_driver)
+  set(infratec_ros_driver_DEVEL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/devel)
   set(infratec_ros_driver_INSTALL_PREFIX "")
   set(infratec_ros_driver_PREFIX ${infratec_ros_driver_DEVEL_PREFIX})
 else()
   set(infratec_ros_driver_SOURCE_PREFIX "")
   set(infratec_ros_driver_DEVEL_PREFIX "")
-  set(infratec_ros_driver_INSTALL_PREFIX /home/chenlequn/SIMTech_ws/install)
+  set(infratec_ros_driver_INSTALL_PREFIX /home/lequn/Documents/GitHub/SIMTech_ws/install)
   set(infratec_ros_driver_PREFIX ${infratec_ros_driver_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/chenlequn/SIMTech_ws/install/lib;/home/chenlequn/catkin_ws/devel/lib;/home/chenlequn/SIMTech_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lequn/Documents/GitHub/SIMTech_ws/install/lib;/home/lequn/tesseract_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(infratec_ros_driver_LIBRARIES ${infratec_ros_driver_LIBRARIES})
 
   _list_append_unique(infratec_ros_driver_LIBRARY_DIRS ${${infratec_ros_driver_dep}_LIBRARY_DIRS})
-  list(APPEND infratec_ros_driver_EXPORTED_TARGETS ${${infratec_ros_driver_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(infratec_ros_driver_EXPORTED_TARGETS ${${infratec_ros_driver_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")
