@@ -32,8 +32,8 @@
 
   <!-- data visualisation  -->
   <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
-  <node name="plot_acoustic_signature" pkg="rqt_plot" type="rqt_plot" args="/acoustic_feature/amplitude_envelope /acoustic_feature/rms_energy" if="$(arg gui)"/>
-  <!-- <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/ -->
+  <!-- <node name="plot_acoustic" pkg="rqt_plot" type="rqt_plot" args="/acoustic_feature/rms_energy" if="$(arg gui)"/> -->
+  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/
   <!-- <node name="plot_acoustic_signature" pkg="rqt_multiplot" type="rqt_multiplot" /> -->
 
 </launch>
