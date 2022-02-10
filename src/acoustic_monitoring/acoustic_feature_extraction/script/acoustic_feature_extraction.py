@@ -113,7 +113,6 @@ class NdAudioSignal():
         zero_crossing_rate = sum(librosa.zero_crossings(audio_data_numpy, pad=False))
 
         ## -------------------------------Frequency-domain feature extraction-------------------------------------
-        
         ## Short-time FFT
         S_audio_data = librosa.stft(audio_data_numpy, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)
         Y_audio_data = np.abs(S_audio_data) ** 2 # calculation of power spectrogram (convert from complex number to real number), should be (r,c)

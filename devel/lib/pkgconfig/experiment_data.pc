@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
-
-Name: experiment_data
-Description: Description of experiment_data
-Version: 0.4.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

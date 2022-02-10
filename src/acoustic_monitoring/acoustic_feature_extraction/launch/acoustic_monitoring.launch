@@ -12,7 +12,7 @@
     <param name="format" value="wave" />
     <param name="channels" value="1" />
     <param name="depth" value="16" />
-    <param name="sample_rate" value="22050" />
+    <param name="sample_rate" value="50000" />
     <param name="device" value="$(arg device)" />
   </node>
 
@@ -27,13 +27,13 @@
   <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction.py"/>
 
   <include file="$(find audio_capture)/launch/capture_to_file.launch">
-    <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/recording_AM1.wav"/>
+    <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/recording_test_Feb_09.wav"/>
   </include>
 
   <!-- data visualisation  -->
   <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
-  <!-- <node name="plot_acoustic_signature" pkg="rqt_plot" type="rqt_plot" args="/acoustic_feature" if="$(arg gui)"/> -->
-  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/
+  <node name="plot_acoustic_signature" pkg="rqt_plot" type="rqt_plot" args="/acoustic_feature/amplitude_envelope /acoustic_feature/rms_energy" if="$(arg gui)"/>
+  <!-- <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/ -->
   <!-- <node name="plot_acoustic_signature" pkg="rqt_multiplot" type="rqt_multiplot" /> -->
 
 </launch>

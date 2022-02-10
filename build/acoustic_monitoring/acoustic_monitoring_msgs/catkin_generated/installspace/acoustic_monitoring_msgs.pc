@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/install
-
-Name: acoustic_monitoring_msgs
-Description: Description of acoustic_monitoring_msgs
-Version: 0.4.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
-
-Name: camera_control_msgs
-Description: Description of camera_control_msgs
-Version: 0.2.4
-Cflags: -I/home/chenlequn/SIMTech_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: actionlib_msgs sensor_msgs message_runtime

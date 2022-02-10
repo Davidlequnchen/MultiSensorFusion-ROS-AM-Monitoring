@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/devel
-
-Name: kuka_rsi_simulator
-Description: Description of kuka_rsi_simulator
-Version: 0.1.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

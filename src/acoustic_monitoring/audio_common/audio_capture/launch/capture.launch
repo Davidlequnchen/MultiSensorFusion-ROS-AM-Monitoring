@@ -5,7 +5,7 @@
   <arg name="device" default=""/>
   <arg name="bitrate" default="128"/>
   <arg name="channels" default="1"/>
-  <arg name="sample_rate" default="16000"/>
+  <arg name="sample_rate" default="50000"/>
   <arg name="format" default="mp3"/>
   <arg name="sample_format" default="S16LE"/>
   <arg name="ns" default="audio"/>

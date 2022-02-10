@@ -3,7 +3,7 @@ Header header
 float32 rms_energy
 float32 amplitude_envelope
 float32 zero_crossing_rate
-# frequency-domain features
+# time-frequency features
 float32[] mel_spectrogram
 float32[] mfccs
 float32[] ber

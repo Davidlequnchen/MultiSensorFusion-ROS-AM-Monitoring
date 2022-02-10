@@ -1,8 +1,0 @@
-prefix=/home/chenlequn/SIMTech_ws/install
-
-Name: point_cloud_analysis
-Description: Description of point_cloud_analysis
-Version: 0.3.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: roscpp sensor_msgs std_msgs message_runtime
