@@ -12,7 +12,7 @@
     <param name="format" value="wave" />
     <param name="channels" value="1" />
     <param name="depth" value="16" />
-    <param name="sample_rate" value="50000" />
+    <param name="sample_rate" value="20000" />
     <param name="device" value="$(arg device)" />
   </node>
 
@@ -27,7 +27,7 @@
   <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction.py"/>
 
   <include file="$(find audio_capture)/launch/capture_to_file.launch">
-    <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/recording_test_Feb_09.wav"/>
+    <!-- <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/recording_test_Feb_09.wav"/> -->
   </include>
 
   <!-- data visualisation  -->

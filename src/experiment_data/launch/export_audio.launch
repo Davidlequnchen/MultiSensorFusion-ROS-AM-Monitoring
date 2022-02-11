@@ -1,8 +1,15 @@
 <launch>
+  <node pkg="rosbag" type="play" name="rosbag" required="true" args="/media/chenlequn/Lequn_HD/Research_Projects/Acoustic_monitoring/data/11_Feb_test/test.bag"/>
+  
+
+  <!-- <node name="bag_to_wave" pkg="audio_utils" type="raw_file_writer_node_simtech.py">
+    <param name="output_path" value="/media/chenlequn/Lequn_HD/Research_Projects/Acoustic_monitoring/data/11_Feb_test/test.wav" /> 
+  </node> -->
+
   <arg name="device" default=""/>
   <arg name="ns" default="audio"/>
   <!-- <arg name="dst" default="alsasink"/> -->
-  <arg name="dst" default="test.wave"/>
+  <arg name="dst" default="~/audio.wav"/>
   <arg name="do_timestamp" default="false"/>
   <arg name="format" default="wave"/>
   <arg name="channels" default="1"/>
@@ -20,4 +27,6 @@
     <param name="sample_format" value="$(arg sample_format)"/>
   </node>
   </group>
+
+   
 </launch>

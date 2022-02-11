@@ -1,0 +1,4 @@
+Navigate to this folder
+
+Export ROS bag to wav file
+rosrun audio_convert bag2wav --input=audio.bag --output=audio.wav --input-audio-topic=/audio

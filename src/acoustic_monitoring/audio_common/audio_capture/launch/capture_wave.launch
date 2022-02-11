@@ -7,7 +7,7 @@
     <param name="format" value="wave" />
     <param name="channels" value="1" />
     <param name="depth" value="16" />
-    <param name="sample_rate" value="50000" />
+    <param name="sample_rate" value="44100" />
     <param name="device" value="$(arg device)" />
     <param name="sample_format" value="S16LE"/>
   </node>
