@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
- <tabbed_widget parent="main_window" name="Main Window">
+ <tabbed_widget name="Main Window" parent="main_window">
   <Tab tab_name="acoustic feature monitoring" containers="1">
    <Container>
-    <DockSplitter count="1" orientation="-" sizes="1">
-     <DockSplitter count="2" orientation="|" sizes="0.424474;0.575526">
-      <DockSplitter count="2" orientation="-" sizes="0.500557;0.499443">
+    <DockSplitter sizes="1" orientation="-" count="1">
+     <DockSplitter sizes="0.490758;0.509242" orientation="|" count="2">
+      <DockSplitter sizes="0.250279;0.250279;0.249162;0.250279" orientation="-" count="4">
        <DockArea name="Frequncy-domain Feature Visualization">
         <plot style="LinesAndDots" mode="TimeSeries">
-         <range left="2.775591" right="8.674594" bottom="479.113770" top="13818.933105"/>
+         <range right="23.959117" left="17.981622" top="4186.819702" bottom="1016.173462"/>
          <limitY/>
          <curve color="#d62728" name="/acoustic_feature/spectral_rolloff.0"/>
          <curve color="#1ac938" name="/acoustic_feature/spectral_centroids.0"/>
@@ -17,17 +17,43 @@
        </DockArea>
        <DockArea name="Time-domain Feature Monitoring">
         <plot style="Lines" mode="TimeSeries">
-         <range left="2.775591" right="8.674594" bottom="-0.004111" top="0.135214"/>
+         <range right="23.959117" left="17.981622" top="0.162269" bottom="0.018402"/>
          <limitY/>
          <curve color="#1f77b4" name="/acoustic_feature/amplitude_envelope"/>
          <curve color="#f14cc1" name="/acoustic_feature/rms_energy"/>
         </plot>
        </DockArea>
+       <DockArea name="Acoustic MFCC Feature">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="23.959117" left="17.981622" top="146.062060" bottom="-240.739108"/>
+         <limitY/>
+         <curve color="#ff7f0e" name="/acoustic_feature/mfccs.0"/>
+         <curve color="#f14cc1" name="/acoustic_feature/mfccs.1"/>
+         <curve color="#9467bd" name="/acoustic_feature/mfccs.3"/>
+         <curve color="#17becf" name="/acoustic_feature/mfccs.2"/>
+         <curve color="#bcbd22" name="/acoustic_feature/mfccs.4"/>
+         <curve color="#1f77b4" name="/acoustic_feature/mfccs.5"/>
+         <curve color="#d62728" name="/acoustic_feature/mfccs.6"/>
+         <curve color="#1ac938" name="/acoustic_feature/mfccs.7"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Acoustic Mel-Spectrogram Features">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="23.959117" left="17.981622" top="2.940644" bottom="-0.064793"/>
+         <limitY/>
+         <curve color="#ff7f0e" name="/acoustic_feature/mel_spectrogram.0"/>
+         <curve color="#f14cc1" name="/acoustic_feature/mel_spectrogram.1"/>
+         <curve color="#9467bd" name="/acoustic_feature/mel_spectrogram.2"/>
+         <curve color="#17becf" name="/acoustic_feature/mel_spectrogram.3"/>
+         <curve color="#bcbd22" name="/acoustic_feature/mel_spectrogram.4"/>
+         <curve color="#1f77b4" name="/acoustic_feature/mel_spectrogram.5"/>
+        </plot>
+       </DockArea>
       </DockSplitter>
-      <DockSplitter count="3" orientation="-" sizes="0.333705;0.332589;0.333705">
+      <DockSplitter sizes="0.332589;0.334821;0.332589" orientation="-" count="3">
        <DockArea name="Melt-pool Feature Monitoring">
         <plot style="Lines" mode="TimeSeries">
-         <range left="2.690786" right="8.666258" bottom="165.123368" top="242.621078"/>
+         <range right="23.994195" left="18.008617" top="223.431031" bottom="172.290939"/>
          <limitY/>
          <curve color="#bd8167" name="/usb_cam/geometry/major_axis"/>
          <curve color="#17becf" name="/usb_cam/geometry/minor_axis"/>
@@ -36,33 +62,33 @@
        </DockArea>
        <DockArea name="Robot Motion Monitoring">
         <plot style="Lines" mode="TimeSeries">
-         <range left="2.722122" right="8.674709" bottom="-0.011993" top="0.019650"/>
+         <range right="23.956321" left="18.002820" top="0.048870" bottom="-0.045230"/>
          <limitY/>
          <curve color="#1f77b4" name="/velocity/speed"/>
          <curve color="#d62728" name="/acceleration/acceleration"/>
          <curve color="#1ac938" name="/twist/linear_speed"/>
         </plot>
        </DockArea>
-       <DockSplitter count="3" orientation="|" sizes="0.332963;0.357381;0.309656">
+       <DockSplitter sizes="0.332497;0.358846;0.308657" orientation="|" count="3">
         <DockArea name="X-Y Position">
          <plot style="Lines" mode="XYPlot">
-          <range left="-1.257472" right="-1.257398" bottom="-0.688574" top="-0.688540"/>
+          <range right="-1.265398" left="-1.265640" top="-0.718355" bottom="-0.718614"/>
           <limitY/>
-          <curve curve_y="/position/y" curve_x="/position/x" color="#1f77b4" name="/position/[x;y]"/>
+          <curve color="#1f77b4" curve_x="/position/x" name="/position/[x;y]" curve_y="/position/y"/>
          </plot>
         </DockArea>
         <DockArea name="X-Z Position">
          <plot style="Lines" mode="XYPlot">
-          <range left="-1.257472" right="-1.257398" bottom="-1.039044" top="-1.038990"/>
+          <range right="-1.265398" left="-1.265640" top="-1.050275" bottom="-1.050444"/>
           <limitY/>
-          <curve curve_y="/position/z" curve_x="/position/x" color="#d62728" name="/position/[x;z]"/>
+          <curve color="#d62728" curve_x="/position/x" name="/position/[x;z]" curve_y="/position/z"/>
          </plot>
         </DockArea>
         <DockArea name="Y-Z Position">
          <plot style="Lines" mode="XYPlot">
-          <range left="-0.688574" right="-0.688540" bottom="-1.039044" top="-1.038990"/>
+          <range right="-0.718355" left="-0.718614" top="-1.050275" bottom="-1.050444"/>
           <limitY/>
-          <curve curve_y="/position/z" curve_x="/position/y" color="#f14cc1" name="/position/[y;z]"/>
+          <curve color="#f14cc1" curve_x="/position/y" name="/position/[y;z]" curve_y="/position/z"/>
          </plot>
         </DockArea>
        </DockSplitter>
@@ -78,7 +104,7 @@
  <!-- - - - - - - - - - - - - - - -->
  <Plugins>
   <plugin ID="DataLoad CSV">
-   <default time_axis="" delimiter="0"/>
+   <default delimiter="0" time_axis=""/>
   </plugin>
   <plugin ID="DataLoad ROS bags">
    <use_header_stamp value="false"/>
@@ -95,9 +121,9 @@
   </plugin>
   <plugin ID="UDP Server"/>
   <plugin ID="WebSocket Server"/>
-  <plugin ID="CSV Exporter" status="idle"/>
-  <plugin ID="ROS /rosout Visualization" status="idle"/>
-  <plugin ID="ROS Topic Re-Publisher" status="idle"/>
+  <plugin status="idle" ID="CSV Exporter"/>
+  <plugin status="idle" ID="ROS /rosout Visualization"/>
+  <plugin status="idle" ID="ROS Topic Re-Publisher"/>
  </Plugins>
  <!-- - - - - - - - - - - - - - - -->
  <previouslyLoaded_Datafiles/>

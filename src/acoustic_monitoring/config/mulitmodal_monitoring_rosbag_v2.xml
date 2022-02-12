@@ -1,96 +1,96 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
- <tabbed_widget name="Main Window" parent="main_window">
+ <tabbed_widget parent="main_window" name="Main Window">
   <Tab tab_name="Multimodal Monitoring" containers="1">
    <Container>
-    <DockSplitter orientation="-" count="1" sizes="1">
-     <DockSplitter orientation="|" count="2" sizes="0.488846;0.511154">
-      <DockSplitter orientation="-" count="4" sizes="0.250279;0.250279;0.23352;0.265922">
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockSplitter count="2" orientation="|" sizes="0.488846;0.511154">
+      <DockSplitter count="4" orientation="-" sizes="0.250279;0.250279;0.23352;0.265922">
        <DockArea name="Time-domain Acoustic Feature Monitoring">
-        <plot mode="TimeSeries" style="Lines">
-         <range right="61.284506" top="0.223366" bottom="-0.177639" left="0.000000"/>
+        <plot style="Lines" mode="TimeSeries">
+         <range left="0.000000" right="202.089921" bottom="-0.025844" top="1.024989"/>
          <limitY/>
-         <curve color="#1f77b4" name="/acoustic_feature/amplitude_envelope"/>
-         <curve color="#f14cc1" name="/acoustic_feature/rms_energy"/>
+         <curve name="/acoustic_feature/amplitude_envelope" color="#1f77b4"/>
+         <curve name="/acoustic_feature/rms_energy" color="#d62728"/>
         </plot>
        </DockArea>
        <DockArea name="Frequncy-domain Acoustic Feature Visualization">
-        <plot mode="TimeSeries" style="LinesAndDots">
-         <range right="61.284506" top="6173.031006" bottom="136.197510" left="0.000000"/>
+        <plot style="LinesAndDots" mode="TimeSeries">
+         <range left="0.000000" right="202.089921" bottom="854.928867" top="7712.093961"/>
          <limitY/>
-         <curve color="#d62728" name="/acoustic_feature/spectral_rolloff.0"/>
-         <curve color="#1ac938" name="/acoustic_feature/spectral_centroids.0"/>
-         <curve color="#ff7f0e" name="/acoustic_feature/spectral_bandwidth.0"/>
+         <curve name="/acoustic_feature/spectral_bandwidth.0" color="#1ac938"/>
+         <curve name="/acoustic_feature/spectral_centroids.0" color="#ff7f0e"/>
+         <curve name="/acoustic_feature/spectral_rolloff.0" color="#f14cc1"/>
         </plot>
        </DockArea>
        <DockArea name="Acoustic Feature - mel spectrogram">
-        <plot mode="TimeSeries" style="Lines">
-         <range right="61.284506" top="2.281905" bottom="-0.055543" left="0.000000"/>
+        <plot style="Lines" mode="TimeSeries">
+         <range left="0.000000" right="202.089921" bottom="-16.812266" top="689.377957"/>
          <limitY/>
-         <curve color="#ff7f0e" name="/acoustic_feature/mel_spectrogram.0"/>
-         <curve color="#f14cc1" name="/acoustic_feature/mel_spectrogram.1"/>
-         <curve color="#9467bd" name="/acoustic_feature/mel_spectrogram.2"/>
-         <curve color="#17becf" name="/acoustic_feature/mel_spectrogram.3"/>
-         <curve color="#bcbd22" name="/acoustic_feature/mel_spectrogram.4"/>
-         <curve color="#1f77b4" name="/acoustic_feature/mel_spectrogram.5"/>
+         <curve name="/acoustic_feature/mel_spectrogram.0" color="#9467bd"/>
+         <curve name="/acoustic_feature/mel_spectrogram.1" color="#17becf"/>
+         <curve name="/acoustic_feature/mel_spectrogram.2" color="#bcbd22"/>
+         <curve name="/acoustic_feature/mel_spectrogram.3" color="#1f77b4"/>
+         <curve name="/acoustic_feature/mel_spectrogram.4" color="#d62728"/>
+         <curve name="/acoustic_feature/mel_spectrogram.5" color="#1ac938"/>
+         <curve name="/acoustic_feature/mel_spectrogram.6" color="#ff7f0e"/>
+         <curve name="/acoustic_feature/mel_spectrogram.7" color="#f14cc1"/>
         </plot>
        </DockArea>
        <DockArea name="Acoustic Feature - MFCC">
-        <plot mode="TimeSeries" style="Lines">
-         <range right="61.284506" top="217.159703" bottom="-418.219288" left="0.000000"/>
+        <plot style="Lines" mode="TimeSeries">
+         <range left="0.000000" right="202.089921" bottom="-256.652294" top="168.193142"/>
          <limitY/>
-         <curve color="#d62728" name="/acoustic_feature/mfccs.0"/>
-         <curve color="#17becf" name="/acoustic_feature/mfccs.1"/>
-         <curve color="#bcbd22" name="/acoustic_feature/mfccs.2"/>
-         <curve color="#1f77b4" name="/acoustic_feature/mfccs.3"/>
-         <curve color="#d62728" name="/acoustic_feature/mfccs.4"/>
-         <curve color="#1ac938" name="/acoustic_feature/mfccs.5"/>
-         <curve color="#ff7f0e" name="/acoustic_feature/mfccs.6"/>
-         <curve color="#f14cc1" name="/acoustic_feature/mfccs.7"/>
-         <curve color="#9467bd" name="/acoustic_feature/mfccs.8"/>
-         <curve color="#17becf" name="/acoustic_feature/mfccs.9"/>
-         <curve color="#bcbd22" name="/acoustic_feature/mfccs.10"/>
-         <curve color="#1f77b4" name="/acoustic_feature/mfccs.11"/>
+         <curve name="/acoustic_feature/mfccs.0" color="#9467bd"/>
+         <curve name="/acoustic_feature/mfccs.1" color="#17becf"/>
+         <curve name="/acoustic_feature/mfccs.2" color="#bcbd22"/>
+         <curve name="/acoustic_feature/mfccs.3" color="#1f77b4"/>
+         <curve name="/acoustic_feature/mfccs.4" color="#d62728"/>
+         <curve name="/acoustic_feature/mfccs.5" color="#1ac938"/>
+         <curve name="/acoustic_feature/mfccs.6" color="#ff7f0e"/>
+         <curve name="/acoustic_feature/mfccs.7" color="#f14cc1"/>
         </plot>
        </DockArea>
       </DockSplitter>
-      <DockSplitter orientation="-" count="3" sizes="0.332589;0.334821;0.332589">
+      <DockSplitter count="3" orientation="-" sizes="0.332589;0.334821;0.332589">
        <DockArea name="Melt-pool Feature Monitoring">
-        <plot mode="TimeSeries" style="Lines">
-         <range right="61.284506" top="243.644121" bottom="157.809874" left="0.000000"/>
+        <plot style="Lines" mode="TimeSeries">
+         <range left="0.000000" right="202.089921" bottom="-6.264408" top="256.840733"/>
          <limitY/>
-         <curve color="#bd8167" name="/usb_cam/geometry/major_axis"/>
-         <curve color="#17becf" name="/usb_cam/geometry/minor_axis"/>
-         <curve color="#bcbd22" name="/usb_cam/geometry/minor_axis_average"/>
+         <curve name="/usb_cam/geometry/major_axis" color="#ff7f0e"/>
+         <curve name="/usb_cam/geometry/minor_axis" color="#f14cc1"/>
+         <curve name="/usb_cam/geometry/minor_axis_average" color="#9467bd"/>
         </plot>
        </DockArea>
        <DockArea name="Robot Motion Monitoring">
-        <plot mode="TimeSeries" style="Lines">
-         <range right="61.284506" top="0.006663" bottom="-0.000163" left="0.000000"/>
+        <plot style="Lines" mode="TimeSeries">
+         <range left="0.000000" right="202.089921" bottom="-0.004484" top="0.005743"/>
          <limitY/>
-         <curve color="#1f77b4" name="/velocity/speed"/>
+         <curve name="/velocity/speed" color="#1f77b4"/>
+         <curve name="/velocity/vx" color="#d62728"/>
+         <curve name="/velocity/vy" color="#1ac938"/>
         </plot>
        </DockArea>
-       <DockSplitter orientation="|" count="3" sizes="0.3325;0.35875;0.30875">
+       <DockSplitter count="3" orientation="|" sizes="0.3325;0.35875;0.30875">
         <DockArea name="X-Y Position">
-         <plot mode="XYPlot" style="Lines">
-          <range right="-1.247850" top="-0.704906" bottom="-0.736695" left="-1.280479"/>
+         <plot style="Lines" mode="XYPlot">
+          <range left="-1.265698" right="-1.265346" bottom="-0.718643" top="-0.718288"/>
           <limitY/>
-          <curve curve_y="/position/y" color="#1f77b4" name="/position/[x;y]" curve_x="/position/x"/>
+          <curve curve_x="/position/x" name="/position/[x;y]" curve_y="/position/y" color="#9467bd"/>
          </plot>
         </DockArea>
         <DockArea name="X-Z Position">
-         <plot mode="XYPlot" style="Lines">
-          <range right="-1.247850" top="-1.038342" bottom="-1.038451" left="-1.280479"/>
+         <plot style="Lines" mode="XYPlot">
+          <range left="-1.265698" right="-1.265346" bottom="-1.050473" top="-1.050227"/>
           <limitY/>
-          <curve curve_y="/position/z" color="#d62728" name="/position/[x;z]" curve_x="/position/x"/>
+          <curve curve_x="/position/x" name="/position/[x;z]" curve_y="/position/z" color="#17becf"/>
          </plot>
         </DockArea>
         <DockArea name="Y-Z Position">
-         <plot mode="XYPlot" style="Lines">
-          <range right="-0.704906" top="-1.038342" bottom="-1.038451" left="-0.736695"/>
+         <plot style="Lines" mode="XYPlot">
+          <range left="-0.718643" right="-0.718288" bottom="-1.050473" top="-1.050227"/>
           <limitY/>
-          <curve curve_y="/position/z" color="#f14cc1" name="/position/[y;z]" curve_x="/position/y"/>
+          <curve curve_x="/position/y" name="/position/[y;z]" curve_y="/position/z" color="#bcbd22"/>
          </plot>
         </DockArea>
        </DockSplitter>
@@ -128,6 +128,17 @@
   <plugin ID="ROS Topic Re-Publisher" status="idle"/>
  </Plugins>
  <!-- - - - - - - - - - - - - - - -->
+ <previouslyLoaded_Datafiles>
+  <fileInfo filename="../../../../../../media/chenlequn/Lequn_HD/Research_Projects/Acoustic_monitoring/data/12_Feb_experiment/experiment_1.bag" prefix="">
+   <selected_datasources value="/acoustic_feature;/audioStamped;/position;/usb_cam/geometry;/velocity"/>
+   <plugin ID="DataLoad ROS bags">
+    <use_header_stamp value="false"/>
+    <use_renaming_rules value="true"/>
+    <discard_large_arrays value="true"/>
+    <max_array_size value="100"/>
+   </plugin>
+  </fileInfo>
+ </previouslyLoaded_Datafiles>
  <!-- - - - - - - - - - - - - - - -->
  <customMathEquations/>
  <snippets/>
