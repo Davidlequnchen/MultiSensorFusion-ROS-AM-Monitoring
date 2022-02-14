@@ -2,7 +2,7 @@
   <arg name="gui" default="true" />
 
   <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
-    <param name="video_device" value="/dev/video2" />
+    <param name="video_device" value="/dev/video0" />
     <!--param name="image_width" value="1280" /-->
     <!--param name="image_height" value="720" /-->
     <param name="pixel_format" value="yuyv" />
@@ -11,13 +11,13 @@
     <param name="io_method" value="mmap"/>
   </node>
 
-  <!-- <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
     <remap from="image" to="/usb_cam/image_raw"/>
     <param name="autosize" value="true" />
-  </node> -->
+  </node>
 
   <node name="geometry" pkg="camera_measures" type="nd_geometry.py">
-    <param name="threshold" type="int" value="240" />
+    <param name="threshold" type="int" value="120" />
     <param name="image" type="str" value="/usb_cam/image_raw"/>
   </node>
 
@@ -28,11 +28,11 @@
 
 
   <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
-  <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis" if="$(arg gui)" />
+  <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis" if="$(arg gui)" /> -->
 
   <!-- publish tool0 velocity message by using data from tf transform -->
-  <!-- <node name="velocity" pkg="camera_measures" type="nd_velocity.py" respawn="true"/> -->
-  <node name="velocity" pkg="camera_measures" type="nd_velocity_kuka.py" respawn="true"/>
+  <node name="velocity" pkg="camera_measures" type="nd_velocity.py" respawn="true"/>
+  <!-- <node name="velocity" pkg="camera_measures" type="nd_velocity_kuka.py" respawn="true"/> -->
 
   <!-- supervise the laser power and speed, tell if the laser is on and if the robot is running -->
   <node name="supervisor" pkg="camera_measures" type="nd_supervisor.py" respawn="true" />

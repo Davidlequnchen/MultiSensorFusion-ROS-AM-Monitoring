@@ -23,7 +23,7 @@ from acoustic_monitoring_msgs.msg import (
 # librosa default frame sie and hop length: 2048 and 512 samples
 # for our ROS application - each chunck is 1/30 seconds, which contains around 533 data points
 
-FRAME_SIZE = 1024
+FRAME_SIZE = 2048 #1024
 HOP_LENGTH = 512
 
 
@@ -107,7 +107,6 @@ class NdAudioSignal():
         # audio_data_numpy /= 2**(nbits - 1)
 
         ## -------------------------------Time-domain feature extraction-------------------------------------------
-        # rms_energy = librosa.feature.rms(audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
         ae = self.amplitude_envelope(audio_data_numpy, FRAME_SIZE, HOP_LENGTH)
         rms_energy = librosa.feature.rms(audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
         zero_crossing_rate = sum(librosa.zero_crossings(audio_data_numpy, pad=False))

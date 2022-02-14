@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>bag2mat</name>
+  <version>1.0.0</version>
+  <description>Convert rosbag to mat file</description>
+  <maintainer email="shah.vi@northeastern.edu">Vikrant Shah</maintainer>
+  <maintainer email="diddi.m@northeastern.edu">Mithun Diddi</maintainer>
+  <author>Vikrant Shah</author>
+  <license>MIT</license>
+  <url type="website">https://web.northeastern.edu/fieldrobotics</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rosbag</depend>
+  <exec_depend>roslib</exec_depend>
+  <exec_depend>nodelet</exec_depend>  
+  <exec_depend>rospkg</exec_depend>
+</package>
+

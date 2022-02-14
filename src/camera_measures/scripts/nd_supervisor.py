@@ -46,13 +46,13 @@ class NdSupervisor():
         
         if msg_geometry.minor_axis > 30:
             laser_on = True
-            power = rospy.get_param('/control/power')
+            # power = rospy.get_param('/control/power')
         
         # laser_on = True
         # power = rospy.get_param('/control/power')
 
         self.msg_status.laser_on = laser_on
-        self.msg_status.power = power
+        # self.msg_status.power = power
 
     def cb_velocity(self, msg_velocity):
         speed = 0

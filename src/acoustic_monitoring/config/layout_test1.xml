@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget parent="main_window" name="Main Window">
+  <Tab tab_name="acoustic feature monitoring" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockSplitter count="2" orientation="|" sizes="0.424474;0.575526">
+      <DockSplitter count="2" orientation="-" sizes="0.500557;0.499443">
+       <DockArea name="Frequncy-domain Feature Visualization">
+        <plot style="LinesAndDots" mode="TimeSeries">
+         <range left="2.775591" right="8.674594" bottom="479.113770" top="13818.933105"/>
+         <limitY/>
+         <curve color="#d62728" name="/acoustic_feature/spectral_rolloff.0"/>
+         <curve color="#1ac938" name="/acoustic_feature/spectral_centroids.0"/>
+         <curve color="#ff7f0e" name="/acoustic_feature/spectral_bandwidth.0"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Time-domain Feature Monitoring">
+        <plot style="Lines" mode="TimeSeries">
+         <range left="2.775591" right="8.674594" bottom="-0.004111" top="0.135214"/>
+         <limitY/>
+         <curve color="#1f77b4" name="/acoustic_feature/amplitude_envelope"/>
+         <curve color="#f14cc1" name="/acoustic_feature/rms_energy"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter count="3" orientation="-" sizes="0.333705;0.332589;0.333705">
+       <DockArea name="Melt-pool Feature Monitoring">
+        <plot style="Lines" mode="TimeSeries">
+         <range left="2.690786" right="8.666258" bottom="165.123368" top="242.621078"/>
+         <limitY/>
+         <curve color="#bd8167" name="/usb_cam/geometry/major_axis"/>
+         <curve color="#17becf" name="/usb_cam/geometry/minor_axis"/>
+         <curve color="#bcbd22" name="/usb_cam/geometry/minor_axis_average"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Robot Motion Monitoring">
+        <plot style="Lines" mode="TimeSeries">
+         <range left="2.722122" right="8.674709" bottom="-0.011993" top="0.019650"/>
+         <limitY/>
+         <curve color="#1f77b4" name="/velocity/speed"/>
+         <curve color="#d62728" name="/acceleration/acceleration"/>
+         <curve color="#1ac938" name="/twist/linear_speed"/>
+        </plot>
+       </DockArea>
+       <DockSplitter count="3" orientation="|" sizes="0.332963;0.357381;0.309656">
+        <DockArea name="X-Y Position">
+         <plot style="Lines" mode="XYPlot">
+          <range left="-1.257472" right="-1.257398" bottom="-0.688574" top="-0.688540"/>
+          <limitY/>
+          <curve curve_y="/position/y" curve_x="/position/x" color="#1f77b4" name="/position/[x;y]"/>
+         </plot>
+        </DockArea>
+        <DockArea name="X-Z Position">
+         <plot style="Lines" mode="XYPlot">
+          <range left="-1.257472" right="-1.257398" bottom="-1.039044" top="-1.038990"/>
+          <limitY/>
+          <curve curve_y="/position/z" curve_x="/position/x" color="#d62728" name="/position/[x;z]"/>
+         </plot>
+        </DockArea>
+        <DockArea name="Y-Z Position">
+         <plot style="Lines" mode="XYPlot">
+          <range left="-0.688574" right="-0.688540" bottom="-1.039044" top="-1.038990"/>
+          <limitY/>
+          <curve curve_y="/position/z" curve_x="/position/y" color="#f14cc1" name="/position/[y;z]"/>
+         </plot>
+        </DockArea>
+       </DockSplitter>
+      </DockSplitter>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="0"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <default time_axis="" delimiter="0"/>
+  </plugin>
+  <plugin ID="DataLoad ROS bags">
+   <use_header_stamp value="false"/>
+   <use_renaming_rules value="true"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS Topic Subscriber">
+   <use_header_stamp value="false"/>
+   <use_renaming_rules value="true"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+  </plugin>
+  <plugin ID="UDP Server"/>
+  <plugin ID="WebSocket Server"/>
+  <plugin ID="CSV Exporter" status="idle"/>
+  <plugin ID="ROS /rosout Visualization" status="idle"/>
+  <plugin ID="ROS Topic Re-Publisher" status="idle"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - - -->
+ <previouslyLoaded_Datafiles/>
+ <previouslyLoaded_Streamer name="ROS Topic Subscriber"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - - -->
+</root>
+
