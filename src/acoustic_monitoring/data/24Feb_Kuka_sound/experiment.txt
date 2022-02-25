@@ -1,0 +1,5 @@
+- Kuka recording 1-2 are 8 blocks
+- Start from kUKA printing recording 3: Update the volume to 9 blocks
+- Start from KUKA printing recording 4, and the machine gas sound before, made a bit adjustment on the position of the microphone
+
+

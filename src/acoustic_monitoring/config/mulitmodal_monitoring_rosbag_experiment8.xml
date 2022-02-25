@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget parent="main_window" name="Main Window">
+  <Tab containers="1" tab_name="Multimodal Monitoring">
+   <Container>
+    <DockSplitter orientation="-" count="1" sizes="1">
+     <DockSplitter orientation="|" count="2" sizes="0.488846;0.511154">
+      <DockSplitter orientation="-" count="4" sizes="0.250279;0.250279;0.23352;0.265922">
+       <DockArea name="Time-domain Acoustic Feature Monitoring">
+        <plot mode="TimeSeries" style="Lines">
+         <range top="0.309389" right="94.763574" bottom="-0.091891" left="1.149229"/>
+         <limitY/>
+         <curve color="#1f77b4" name="/acoustic_feature/amplitude_envelope"/>
+         <curve color="#d62728" name="/acoustic_feature/rms_energy"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Frequncy-domain Acoustic Feature Visualization">
+        <plot mode="TimeSeries" style="Lines">
+         <range top="12437.039795" right="94.763574" bottom="159.884033" left="1.149229"/>
+         <limitY/>
+         <curve color="#1ac938" name="/acoustic_feature/spectral_bandwidth.0"/>
+         <curve color="#ff7f0e" name="/acoustic_feature/spectral_centroids.0"/>
+         <curve color="#f14cc1" name="/acoustic_feature/spectral_rolloff.0"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Acoustic Feature - mel spectrogram">
+        <plot mode="TimeSeries" style="Lines">
+         <range top="11.812570" right="94.763574" bottom="-0.288110" left="1.149229"/>
+         <limitY/>
+         <curve color="#1f77b4" name="/acoustic_feature/mel_spectrogram.0"/>
+         <curve color="#d62728" name="/acoustic_feature/mel_spectrogram.1"/>
+         <curve color="#1ac938" name="/acoustic_feature/mel_spectrogram.2"/>
+         <curve color="#ff7f0e" name="/acoustic_feature/mel_spectrogram.3"/>
+         <curve color="#f14cc1" name="/acoustic_feature/mel_spectrogram.4"/>
+         <curve color="#9467bd" name="/acoustic_feature/mel_spectrogram.5"/>
+         <curve color="#17becf" name="/acoustic_feature/mel_spectrogram.7"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Acoustic Feature - MFCC">
+        <plot mode="TimeSeries" style="Lines">
+         <range top="228.372261" right="94.763574" bottom="-592.435936" left="1.149229"/>
+         <limitY/>
+         <curve color="#bcbd22" name="/acoustic_feature/mfccs.0"/>
+         <curve color="#1f77b4" name="/acoustic_feature/mfccs.1"/>
+         <curve color="#d62728" name="/acoustic_feature/mfccs.3"/>
+         <curve color="#1ac938" name="/acoustic_feature/mfccs.4"/>
+         <curve color="#ff7f0e" name="/acoustic_feature/mfccs.5"/>
+         <curve color="#f14cc1" name="/acoustic_feature/mfccs.6"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter orientation="-" count="3" sizes="0.332589;0.334821;0.332589">
+       <DockArea name="Melt-pool Feature Monitoring">
+        <plot mode="TimeSeries" style="Lines">
+         <range top="250.598314" right="94.763574" bottom="54.496142" left="1.149229"/>
+         <limitY/>
+         <curve color="#9467bd" name="/usb_cam/geometry/major_axis"/>
+         <curve color="#17becf" name="/usb_cam/geometry/minor_axis"/>
+         <curve color="#bcbd22" name="/usb_cam/geometry/minor_axis_average"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Robot Motion Monitoring">
+        <plot mode="TimeSeries" style="Lines">
+         <range top="0.025809" right="94.763574" bottom="-0.024959" left="1.149229"/>
+         <limitY/>
+         <curve color="#1f77b4" name="/velocity/speed"/>
+         <curve color="#d62728" name="/velocity/vx"/>
+         <curve color="#1ac938" name="/velocity/vy"/>
+         <curve color="#ff7f0e" name="/velocity/vz"/>
+        </plot>
+       </DockArea>
+       <DockSplitter orientation="|" count="3" sizes="0.3325;0.35875;0.30875">
+        <DockArea name="X-Y Position">
+         <plot mode="XYPlot" style="Lines">
+          <range top="-0.701281" right="-1.198479" bottom="-0.722878" left="-1.215993"/>
+          <limitY/>
+          <curve curve_y="/position/y" color="#9467bd" name="/position/[x;y]" curve_x="/position/x"/>
+         </plot>
+        </DockArea>
+        <DockArea name="X-Z Position">
+         <plot mode="XYPlot" style="Lines">
+          <range top="-0.885521" right="-1.198479" bottom="-0.885829" left="-1.215993"/>
+          <limitY/>
+          <curve curve_y="/position/z" color="#17cf54" name="/position/[x;z]" curve_x="/position/x"/>
+         </plot>
+        </DockArea>
+        <DockArea name="Y-Z Position">
+         <plot mode="XYPlot" style="Lines">
+          <range top="-0.885521" right="-0.701281" bottom="-0.885829" left="-0.722878"/>
+          <limitY/>
+          <curve curve_y="/position/z" color="#bcbd22" name="/position/[y;z]" curve_x="/position/y"/>
+         </plot>
+        </DockArea>
+       </DockSplitter>
+      </DockSplitter>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="0"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <default delimiter="0" time_axis=""/>
+  </plugin>
+  <plugin ID="DataLoad ROS bags">
+   <use_header_stamp value="false"/>
+   <use_renaming_rules value="true"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS Topic Subscriber">
+   <use_header_stamp value="false"/>
+   <use_renaming_rules value="true"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+  </plugin>
+  <plugin ID="UDP Server"/>
+  <plugin ID="WebSocket Server"/>
+  <plugin ID="CSV Exporter" status="idle"/>
+  <plugin ID="ROS /rosout Visualization" status="idle"/>
+  <plugin ID="ROS Topic Re-Publisher" status="idle"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - - -->
+ <previouslyLoaded_Datafiles>
+  <fileInfo prefix="" filename="../data/experiment_8.bag">
+   <selected_datasources value="/acoustic_feature;/audioStamped;/position;/usb_cam/geometry;/velocity;/twist"/>
+   <plugin ID="DataLoad ROS bags">
+    <use_header_stamp value="false"/>
+    <use_renaming_rules value="true"/>
+    <discard_large_arrays value="true"/>
+    <max_array_size value="100"/>
+   </plugin>
+  </fileInfo>
+ </previouslyLoaded_Datafiles>
+ <!-- - - - - - - - - - - - - - - -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - - -->
+</root>
+
