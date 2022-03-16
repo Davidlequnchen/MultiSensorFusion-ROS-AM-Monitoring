@@ -1,0 +1,32 @@
+<launch>
+  <!-- parameter definition -->
+  <arg name="audio_topic" default="/audio"/>
+  <arg name="device" default="hw:2,0" />
+  <arg name="abb" default="false" />
+  <arg name="kuka" default="true" />
+  <!-- <arg name="rviz" default="true"/> -->
+  <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.wav"/>
+
+  <!-- launch multimodal monitoring program -->
+  <include file="$(find multimodal_monitoring)/launch/multimodal_monitoring.launch">
+    <arg name="audio_topic" value="$(arg audio_topic)"/>
+    <arg name="device" value="$(arg device)" />
+    <arg name="abb" value="$(arg abb)" />
+    <arg name="kuka" value="$(arg kuka)" />
+    <arg name="rviz" value="$(arg rviz)"/>
+  </include>
+
+
+  <!-- data recording  -->
+  <include file="$(find audio_play)/launch/play.launch">
+    <arg name="dst" default="$(arg dst)"/>
+  </include>
+
+  <node pkg="rosbag" type="record" name="rosbag_record_acoustic_experiment" 
+    args="-O /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.bag 
+    /audio /audioStamped /acoustic_feature " />
+
+  <!-- /position /velocity /twist /usb_cam/geometry" -->
+
+
+</launch>
