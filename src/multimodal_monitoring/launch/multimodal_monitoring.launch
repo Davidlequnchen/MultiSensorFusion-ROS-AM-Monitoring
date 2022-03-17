@@ -23,7 +23,7 @@
   </include>
 
   <!-- Thermal monitoring -->
-  <include file="$(find thermal_monitoring)/launch/thermal_motion_monitoring_simtech.launch" if="$(arg thermal)">
+  <include file="$(find thermal_monitoring)/launch/thermal_monitoring.launch" if="$(arg thermal)">
     <arg name="rviz" value="$(arg rviz)" />
     <arg name="robot_launch" value="$(arg robot_launch)" />
   </include>

@@ -1,20 +1,30 @@
 <launch>
   <arg name="gui" default="true" />
+  <arg name="image_visualize" default="true" />
+  
 
-  <node name="infratec_driver" pkg="infratec_ros_driver" type="qt_infratec.py" respawn="true" />
+  <!-- the basic driver (GUI) -->
+  <node name="infratec_driver" pkg="infratec_ros_driver" type="qt_infratec.py" respawn="true" if="$(arg gui)" />
 
   <node name="infratec_image_convert_mono" pkg="infratec_image_processing" type="irb_image_convert_mono.py" output="screen" >
     <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+    <!-- temperature is in K, this should be commented out as already defined in yaml file -->
+    <!-- <param name="max_temp" type="str" value="320"/>  
+    <param name="min_temp" type="str" value="273"/>
+    <param name="top_left_y" type="str" value="0"/>
+    <param name="top_left_x" type="str" value="0"/>
+    <param name="height" type="str" value="480"/>
+    <param name="width" type="str" value="640"/> -->
   </node>
 
-  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
-    <remap from="image" to="/infratec/image_converted_mono"/>
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen" if="$(arg image_visualize)">
+    <remap from="image" to="/infratec/image_converted_mono8"/>
     <param name="autosize" value="true" />
   </node>
 
-  <node name="image_view2" pkg="image_view" type="image_view" respawn="false" output="screen">
+  <node name="image_view2" pkg="image_view" type="image_view" respawn="false" output="screen" if="$(arg image_visualize)">
     <remap from="image" to="/infratec/image_raw"/>
     <param name="autosize" value="true" />
-  </node>
+  </node> 
   
 </launch>

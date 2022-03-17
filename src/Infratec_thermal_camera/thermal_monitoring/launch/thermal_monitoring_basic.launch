@@ -1,0 +1,29 @@
+<launch>
+  <arg name="gui" default="false" />
+  <arg name="robot_launch" default="false" />
+  <arg name="image_visualize" default="true" />
+
+  <!-- Parameter service, this will overwrite every thing previously defined -->
+  <rosparam command="load" file="$(find thermal_monitoring)/config/thermal_camera_parameter.yaml" />
+
+  <!-- GUI -->
+  <!-- Option 1: launch the customized GUI for infratec camera (underdevelopment, not supported) -->
+  <!-- <include file="$(find infratec_ros_driver)/launch/qt_infratec_insitu_monitoring.launch">
+  </include> -->
+  <!-- Option 2: basic driver (GUI) -->
+  <node name="infratec_driver" pkg="infratec_ros_driver" type="qt_infratec.py" respawn="true" />
+
+
+  <!-- Convert the raw thermal image into mono8 format -->
+  <include file="$(find infratec_ros_driver)/launch/infratec_driver_image_convert.launch">
+    <arg name="image_visualize" value="$(arg image_visualize)" />
+    <!-- wheter to launch the basic GUI -->
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+
+
+  <include file="$(find simtech_kuka_workcell)/launch/kuka_laam_rsi_workcell.launch" if="$(arg robot_launch)">
+    <arg name="rviz" default="true" />
+  </include>
+  
+</launch>
