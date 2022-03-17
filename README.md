@@ -11,16 +11,22 @@
 :x: 
 :red_circle: -->
 
+:exclamation: Important instructions
+:question: Remain unsolved issues, will be developed in the future
+:red_circle: code finished but have not been tested
+:x: code under heavy development.
+:negative_squared_cross_mark: dead end and archived
+:heavy_check_mark: Tested sucessfully
 
 ## Eperiment instructions
 ### 1. Multimodal monitoring 
 #### 1.1 software instruction 
-- launch the monitoring (without experiments) 
+- launch the monitoring (without experiments) :red_circle:
 ```
 roslaunch multimodal_monitoring multimodal_monitoring.launch
 ```
 
-- launch the monitoring for experiments
+- launch the monitoring for experiments (with rosbag recording) :red_circle:
   
 ```
 roslaunch multimodal_monitoring multimodal_monitoring_experiments.launch
@@ -82,15 +88,31 @@ roslaunch infratec_ros_driver qt_infratec_insitu_monitoring.launch
 
 ### 2.1. Acoustic monitoring
 ### 2.1.1 parameters and setup
+- device: `arecord -l` will show available input devices, use the car number as
+  the first number and the subdevice number as the second in a string
+  like hw:1,0
+```
+<arg name="device" default="hw:2,0" />
+```
+- sampling rate: 
+```
+<arg name="sample_rate" default="44100"/>
+```
 
 ### 2.1.2 launch instructions
-
-
+- standalone acoustic monitoring: :heavy_check_mark:
+```
+roslaunch acoustic_feature_extraction acoustic_monitoring.launch
+```
+-  acoustic monitoring with rosbag recording: :heavy_check_mark:
+```
+roslaunch acoustic_feature_extraction acoustic_monitoring_experiment.launch
+```
 
 
 ## 3. Post-experiment offline data processing
 - navigate to `experiment_data` folder
 - execute feature extraction for thermal monitoring modal:
 ```
-roslaunch experiment_data feature_extraction,launch
+roslaunch experiment_data feature_extraction.launch
 ```

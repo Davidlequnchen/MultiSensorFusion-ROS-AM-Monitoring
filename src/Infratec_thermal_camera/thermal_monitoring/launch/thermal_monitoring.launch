@@ -7,6 +7,7 @@
   <arg name="convex_hull_extract" default="true"/>
   <arg name="temperature_extract" default="true"/>
   <arg name="image_processing" default="true"/>
+  <arg name="plotjuggler_viz" default="true"/>
 
   <!-- Parameter service, this will overwrite every thing previously defined -->
   <rosparam command="load" file="$(find thermal_monitoring)/config/thermal_camera_parameter.yaml" />
@@ -38,5 +39,7 @@
     <arg name="convex_hull_extract"  value="$(arg convex_hull_extract)"/>
     <arg name="temperature_extract"  value="$(arg temperature_extract)"/>
   </include>
+
+  <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz)"/>
   
 </launch>

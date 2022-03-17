@@ -13,6 +13,7 @@
   <arg name="sample_format" default="S16LE"/>
   <arg name="ns" default=""/>
   <arg name="audio_topic" default="/audio"/>
+  <arg name="plotjuggler_viz" default="false"/>
  
 
   <!-- publish audio data as wav format (raw signal) to a topic -->
@@ -40,6 +41,6 @@
 
 
   <!-- data visualisation  -->
-  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/
+  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz)"/>
 
 </launch>
