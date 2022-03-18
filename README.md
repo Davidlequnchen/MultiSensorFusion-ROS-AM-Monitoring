@@ -11,22 +11,33 @@
 :x: 
 :red_circle: -->
 
-:exclamation: Important instructions
-:question: Remain unsolved issues, will be developed in the future
-:red_circle: code finished but have not been tested
-:x: code under heavy development.
-:negative_squared_cross_mark: dead end and archived
-:heavy_check_mark: Tested sucessfully
+:exclamation: Important instructions;
+:question: Remain unsolved issues, will be developed in the future;
+:red_circle: code finished but have not been tested;
+:x: code under heavy development;
+:negative_squared_cross_mark: dead end and archived;
+:heavy_check_mark: Tested sucessfully;
 
 ## Eperiment instructions
+### Hardware configuration
+#### Ethernet connections (pictures)
+<!-- ![](./src/doc/Adaptive_PID_VRFT.png?raw=true) -->
+#### Ethernet connections (Ubuntu Linux settings)
+
+- PCI Ethernet port (normal ethernet): Infratec thermal camera
+- Ethernet Connection port (USB-C): RSI (KUKA)
+<!-- ![](./src/doc/Adaptive_PID_VRFT.png?raw=true) -->
+
+
+
 ### 1. Multimodal monitoring 
 #### 1.1 software instruction 
-- launch the monitoring (without experiments) :red_circle:
+- launch the monitoring (without experiments) :heavy_check_mark:
 ```
 roslaunch multimodal_monitoring multimodal_monitoring.launch
 ```
 
-- launch the monitoring for experiments (with rosbag recording) :red_circle:
+- launch the monitoring for experiments (with rosbag recording) :heavy_check_mark:
   
 ```
 roslaunch multimodal_monitoring multimodal_monitoring_experiments.launch
@@ -41,11 +52,55 @@ roslaunch multimodal_monitoring multimodal_monitoring_experiments.launch
 args="-O ~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.bag 
 /audio /audioStamped /acoustic_feature " />
 ```
-#### Important instructions for conducting the experiment
+#### 1.3 Important instructions for conducting the experiment
 - Before experiments, the thermal camera's focus needs to be fine-tuned. Make sure it is focused to the laser spot.
 - After calibrating the focus, the temperature range of the camera needs to be configured to the correct range. (500-2000 degrees)
 - Do a dry run to test the microphone sensor. Make sure it is capturing the acoustic signal rather than using the PC built-in microphone. :exclamation:
+- For KUKA program, need to add RSI communications in the code:
+```
 
+```
+- ping kuka:
+```
+ping 192.168.1.3
+```
+
+#### 1.4 Data recordings
+- General format
+```
+rosbag record -O /media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.bag /audio /audioStamped /acoustic_feature /infratec/image_raw /infratec/image_converted_mono8 /infratec/temperature_feature /general_contours/max_contour_area /convex_hull/hull_area
+```
+- List out the topic to select: `rostopic list` 
+```
+/acoustic_feature
+/audio
+/audioStamped
+/audio_info
+/camera/cloud
+/cartesian_position
+/cartesian_velocity
+/convex_hull/hull_area
+/convex_hull/hulls
+...
+/general_contours/contour_area
+/general_contours/ellipses
+/general_contours/image
+...
+/general_contours/rectangles
+...
+/infratec/image_converted_mono8
+/infratec/image_raw
+/infratec/temperature_feature
+/joint_states
+/position_trajectory_controller/command
+/position_trajectory_controller/follow_joint_trajectory/cancel
+/position_trajectory_controller/follow_joint_trajectory/feedback
+/position_trajectory_controller/follow_joint_trajectory/goal
+/position_trajectory_controller/follow_joint_trajectory/result
+/position_trajectory_controller/follow_joint_trajectory/status
+/position_trajectory_controller/state
+```
+- Change the name of the bag file and its locations :exclamation:
 
 
 
