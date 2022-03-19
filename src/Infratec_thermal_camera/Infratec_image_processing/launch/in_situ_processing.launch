@@ -1,0 +1,45 @@
+<launch>
+  <arg name="apply_otsu" default="true" doc="Decide applying Otsu's algotirhm threshold. If this value is true, threshold value will be ignored" />
+  <arg name="threshold_type" default="0" doc="Specify threshold types. 0: Binary threshold, 1: Binary inverted threshold, 2: Threshold truncated, 3: Threshold to zero, 4: Threshold to zero inverted" />
+  <arg name="threshold" default="140" doc="threshold value"/>
+  <arg name="image_topic_raw"  value="/infratec/image_raw" />
+  <arg name="image_topic_converted"  value="/infratec/image_converted_mono8" />
+  <arg name="canny_low_threshold" default="120" doc="Canny Edge low Threshold"/>
+  <arg name="scale" default="8" doc="Specify the scale factor to calculate optical flow." />
+  <arg name="quality_level" default="0.01" doc="Parameter characterizing the minimal acceptance quality of image corners." />
+  <arg name="min_distance" default="10"  doc="Minimum possible Euclidean distance between the returned corners."/>
+  <arg name="block_size" default="3" doc="Size of an average block for computing a derivative covariation matrix over each pixel neighborhood."/>
+  <arg name="harris_k" default="0.04" doc="Free parameter of the Harris detector"/>
+
+  <arg name="contour_extract" default="true"/>
+  <arg name="convex_hull_extract" default="true"/>
+  <arg name="moment_extract" default="false"/>
+  <arg name="temperature_extract" default="true"/>
+
+
+
+  <!-- Meltpool Geometric Features -->
+  <!-- Publish: ellipse, rectangle, area(pixels) -->
+  <include file="$(find opencv_apps)/launch/general_contours.launch" if="$(arg contour_extract)">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+  </include>
+
+  <!-- Publish: hulls (opencv_apps/ContourArrayStamped) & Hull Areas - Detected convex hulls of contours. Each contour is stored as a vector of point -->
+  <include file="$(find opencv_apps)/launch/convex_hull.launch" if="$(arg convex_hull_extract)">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+  </include>
+
+  <include file="$(find opencv_apps)/launch/contour_moments.launch" if="$(arg moment_extract)">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+    <arg name="canny_low_threshold" value="$(arg canny_low_threshold)" />
+  </include>
+
+  <!-- Temperature features -->
+  <node name="thermal_feature_extract" pkg="infratec_image_processing" type="thermal_feature_extract.py" output="screen" if="$(arg temperature_extract)">
+    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+  </node>
+
+</launch>

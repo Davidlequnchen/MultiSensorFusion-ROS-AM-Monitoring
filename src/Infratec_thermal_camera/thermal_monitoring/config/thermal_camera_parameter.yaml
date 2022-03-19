@@ -1,0 +1,13 @@
+infratec_image_convert_mono: {
+    max_temp: 1800,  #K
+    min_temp: 0, 
+    top_left_y: 0, 
+    top_left_x: 0, 
+    height: 480,   
+    width: 640     
+}
+
+# thermal_parameters: {
+#   temperature: {max_temp: 314, min_temp: 290.0}, #Kelvin: 273.15 + C
+#   frame: {top_left_y: 0, top_left_x: 0, height: 480, width: 640} #100, 350, 160, 200
+# }

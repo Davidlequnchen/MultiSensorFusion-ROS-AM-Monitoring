@@ -1,62 +1,55 @@
 <launch>
-  <!-- parameter definition -->
-  <arg name="gui" default="true" />
-  
-  <!-- arecord -l will show available input devices, use the car number as
-  the first number and the subdevice number as the second in a string
-  like hw:1,0 -->
-  <arg name="device" default="hw:1,0" />
-  <arg name="output"      default="screen"/>
-  <arg name="bitrate" default="128"/>
-  <arg name="channels" default="1"/>
-  <arg name="sample_rate" default="44100"/>
-  <arg name="format" default="wave"/>
-  <arg name="sample_format" default="S16LE"/>
-  <arg name="ns" default=""/>
   <arg name="audio_topic" default="/audio"/>
-  <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/machine_Ar_gas_powder_8.wav"/>
+  <arg name="device" default="hw:2,0" />
+  <arg name="sample_rate" default="44100"/>
+  <arg name="abb" default="false" />
+  <arg name="kuka" default="true" />
+  <arg name="rviz" default="true"/>
+  <arg name="thermal" default="true"/>
+  <arg name="acoustic" default="true"/>
+  <arg name="robot_launch" default="false" />
+  <arg name="image_processing" default="true"/>
+  <arg name="plotjuggler_viz" default="false"/>
+  <arg name="plotjuggler_viz_multimodal" default="false"/>
+  <arg name="dst" default="/media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.wav"/>
   
 
-  <!-- publish audio data as wav format (raw signal) -->
-  <!-- <group ns="$(arg ns)"> -->
-    <node name="audio_capture" pkg="audio_capture" type="audio_capture" output="screen">
-      <param name="depth" value="16" />
-      <param name="device" value="$(arg device)" />
-      <!-- <param name="bitrate" value="$(arg bitrate)"/> -->
-      <param name="channels" value="$(arg channels)"/>
-      <param name="sample_rate" value="$(arg sample_rate)"/>
-      <param name="sample_format" value="$(arg sample_format)"/>
-      <param name="format" value="$(arg format)"/>
-    </node>
-  <!-- </group> -->
 
-  <!-- convert the raw signal to msg with header stamps -->
-  <node name="audio_converter" pkg="audio_capture_convert" type="converter_node.py" output="$(arg output)">
-    <remap from="audio" to="$(arg audio_topic)" />
-  </node>
+  <!-- launch robot: ABB or KuKa -->
+  <include file="$(find simtech_robot_laser_control)/launch/simtech_robot_interface.launch" if="$(arg abb)">
+    <arg name="robot_ip" value="192.168.125.1" />
+    <arg name="J23_coupled" value="true" />
+    <arg name="laser_type" value="ipg" />
+    <arg name="feeder_type" default="powder" />
+  </include>
 
-  <!-- noise filtering node, based on frequnecy  -->
-  <!-- <node name="audio_filter" pkg="acoustic_feature_extraction" type="filter_node.py" output="$(arg output)" /> -->
+  <include file="$(find simtech_kuka_workcell)/launch/kuka_laam_rsi_workcell.launch" if="$(arg kuka)">
+    <arg name="rviz" value="$(arg rviz)" />
+  </include>
 
+  <!-- Thermal monitoring -->
+  <include file="$(find thermal_monitoring)/launch/thermal_monitoring.launch" if="$(arg thermal)">
+    <arg name="rviz" value="$(arg rviz)" />
+    <arg name="robot_launch" value="$(arg robot_launch)" />
+    <arg name="plotjuggler_viz" value="$(arg plotjuggler_viz)" />
+    <arg name="image_processing"  value="$(arg image_processing)"/>
+  </include>
 
-  <include file="$(find audio_play)/launch/play.launch">
+  <!-- acoustic monitoring -->
+  <include file="$(find acoustic_feature_extraction)/launch/acoustic_monitoring.launch" if="$(arg acoustic)">
+    <arg name="audio_topic" value="$(arg audio_topic)"/>
+    <arg name="device" value="$(arg device)" />
+    <arg name="sample_rate" value="$(arg sample_rate)"/>
+    <arg name="plotjuggler_viz" value="$(arg plotjuggler_viz)" />
+  </include>
+
+  <!-- data recording  -->
+  <!-- <include file="$(find audio_play)/launch/play.launch" if="$(arg acoustic)">
     <arg name="dst" default="$(arg dst)"/>
-  </include>
+  </include> -->
 
-  <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction.py"/>
+  <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz_multimodal)"/>
 
 
-  <include file="$(find simtech_robot_laser_control)/launch/robot_laser_pid_control.launch">
-    <!-- <arg name="gui" value="$(arg gui)" /> -->
-  </include>
-
-  <node pkg="rosbag" type="record" name="rosbag_record_multimodal" 
-    args="-O /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/machine_Ar_gas_powder_8.bag /audio /audioStamped /position /velocity /twist /usb_cam/geometry /acoustic_feature"/>
-
-  <!-- data visualisation  -->
-  <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
-  <!-- <node name="plot_acoustic" pkg="rqt_plot" type="rqt_plot" args="/acoustic_feature/rms_energy" if="$(arg gui)"/> -->
-  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/
-  <!-- <node name="plot_acoustic_signature" pkg="rqt_multiplot" type="rqt_multiplot" /> -->
 
 </launch>

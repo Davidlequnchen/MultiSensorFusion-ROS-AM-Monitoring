@@ -1,27 +1,33 @@
 <launch>
-   <!-- arecord -l will show available input devices, use the car number as
-    the first number and the subdevice number as the second in a string
-    like hw:1,0 -->
-    <arg name="device" default="hw:2,0"/>
-    <arg name="bitrate" default="128"/>
-    <arg name="channels" default="1"/>
-    <arg name="sample_rate" default="44100"/>
-    <arg name="format" default="mp3"/>
-    <arg name="sample_format" default="S16LE"/>
-    <arg name="ns" default="audio"/>
-    <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/test.wav"/>
-    
-    <group ns="$(arg ns)">
-      <node name="audio_capture" pkg="audio_capture" type="audio_capture" output="screen">
-        <param name="bitrate" value="$(arg bitrate)"/>
-        <param name="device" value="$(arg device)"/>
-        <param name="channels" value="$(arg channels)"/>
-        <param name="sample_rate" value="$(arg sample_rate)"/>
-        <param name="sample_format" value="$(arg sample_format)"/>
-        <param name="dst" value="$(arg dst)"/>
-        <param name="format" value="$(arg format)"/>
-      </node>
-    </group>
+  <!-- parameter definition -->
+
+  <!-- arecord -l will show available input devices, use the car number as
+  the first number and the subdevice number as the second in a string
+  like hw:1,0 -->
+  <arg name="device" default="hw:2,0" />
+  <arg name="output"      default="screen"/>
+  <arg name="bitrate" default="128"/>
+  <arg name="channels" default="1"/>
+  <arg name="sample_rate" default="44100"/>
+  <arg name="format" default="wave"/>
+  <arg name="sample_format" default="S16LE"/>
+  <arg name="ns" default=""/>
+  <arg name="audio_topic" default="/audio"/>
+  <arg name="plotjuggler_viz" default="false"/>
+ 
+
+  <!-- publish audio data as wav format (raw signal) to a topic -->
+  <!-- <group ns="$(arg ns)"> -->
+  <node name="audio_capture" pkg="audio_capture" type="audio_capture" output="screen">
+    <param name="depth" value="16" />
+    <param name="device" value="$(arg device)" />
+    <!-- <param name="bitrate" value="$(arg bitrate)"/> -->
+    <param name="channels" value="$(arg channels)"/>
+    <param name="sample_rate" value="$(arg sample_rate)"/>
+    <param name="sample_format" value="$(arg sample_format)"/>
+    <param name="format" value="$(arg format)"/>
+  </node>
+  <!-- </group> -->
 
   <!-- convert the raw signal to msg with header stamps -->
   <node name="audio_converter" pkg="audio_capture_convert" type="converter_node.py" output="$(arg output)">
@@ -33,18 +39,8 @@
 
   <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction.py"/>
 
-  <!-- <include file="$(find audio_capture)/launch/capture_to_file.launch">
-    <param name="device" value="hw:2,0" />
-    <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/experiment1.wav"/>
-  </include> -->
-
-  <node pkg="rosbag" type="record" name="rosbag_record_multimodal" 
-    args="-O /home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/experiment_1.bag /audio /audioStamped /position /velocity /usb_cam/geometry /acoustic_feature"/>
 
   <!-- data visualisation  -->
-  <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
-  <!-- <node name="plot_acoustic" pkg="rqt_plot" type="rqt_plot" args="/acoustic_feature/rms_energy" if="$(arg gui)"/> -->
-  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" />/
-  <!-- <node name="plot_acoustic_signature" pkg="rqt_multiplot" type="rqt_multiplot" /> -->
+  <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz)"/>
 
 </launch>

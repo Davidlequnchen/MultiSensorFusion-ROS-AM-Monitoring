@@ -46,7 +46,7 @@ log.addHandler(logging.NullHandler())
 class QtPath(QtWidgets.QWidget):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
-        loadUi(os.path.join(path, 'resources', 'path_robviz.ui'), self)
+        loadUi(os.path.join(path, 'resources', 'path_robviz2.ui'), self)
 
         try:
             rospy.wait_for_service('robot_send_command', timeout=5)
@@ -62,6 +62,7 @@ class QtPath(QtWidgets.QWidget):
         self.pub_marker_array = rospy.Publisher(
             'visualization_marker_array', MarkerArray, queue_size=10)
 
+        #''' for paper
         self.btnLoadPath.clicked.connect(self.btnLoadPathClicked)
         icon = QtGui.QIcon.fromTheme('document-open')
         self.btnLoadPath.setIcon(icon)
@@ -81,6 +82,8 @@ class QtPath(QtWidgets.QWidget):
 
         # self.listWidgetPoses.itemSelectionChanged.connect(self.lstPosesClicked)
         self.listWidgetPoses.itemDoubleClicked.connect(self.qlistDoubleClicked)
+        #'''
+
 
         self.testing = False
         self.ok_command = "OK"
@@ -113,9 +116,11 @@ class QtPath(QtWidgets.QWidget):
         self.tmrRunPath = QtCore.QTimer(self)
         self.tmrRunPath.timeout.connect(self.timeRunPathEvent)
         
+
         self.tmrHeightStatus = QtCore.QTimer(self)
         self.tmrHeightStatus.timeout.connect(self.updateHeightStatus)
         self.tmrHeightStatus.start(100)
+        
         
     def updateHeightStatus(self):
         self.layer_height = self.doubleSpinBox_layerheight.value() # read the value from user input
@@ -132,7 +137,7 @@ class QtPath(QtWidgets.QWidget):
             self.label_build_height_status_value.setStyleSheet(
                  "background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); font-weight: bold")
         else:
-            self.label_build_height_status_value.setText("Normal height")
+            self.label_build_height_status_value.setText("Normal")
             self.label_build_height_status_value.setStyleSheet(
                  "background-color: rgb(0, 255, 0); color: rgb(0, 0, 0); font-weight: bold")
     
