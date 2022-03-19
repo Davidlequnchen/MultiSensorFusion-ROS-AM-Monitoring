@@ -11,6 +11,8 @@
   <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
   <arg name="plotjuggler_viz_multimodal" default="false"/>
+  <arg name="dst" default="/media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.wav"/>
+  
 
 
   <!-- launch robot: ABB or KuKa -->
@@ -40,6 +42,11 @@
     <arg name="sample_rate" value="$(arg sample_rate)"/>
     <arg name="plotjuggler_viz" value="$(arg plotjuggler_viz)" />
   </include>
+
+  <!-- data recording  -->
+  <!-- <include file="$(find audio_play)/launch/play.launch" if="$(arg acoustic)">
+    <arg name="dst" default="$(arg dst)"/>
+  </include> -->
 
   <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz_multimodal)"/>
 
