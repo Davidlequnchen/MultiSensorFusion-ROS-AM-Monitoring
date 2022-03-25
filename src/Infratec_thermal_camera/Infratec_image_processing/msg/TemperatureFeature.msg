@@ -1,5 +1,6 @@
 Header header
 float32 highest
+float32 mean
 float32 lowest
 float32 variance # measure of the spread of a distribution
 float64 kurtosis # measure of non-guassianity

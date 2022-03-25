@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget parent="main_window" name="Main Window">
+  <Tab containers="1" tab_name="multimodal monitoring">
+   <Container>
+    <DockSplitter count="4" orientation="-" sizes="0.250279;0.253631;0.24581;0.250279">
+     <DockSplitter count="2" orientation="|" sizes="0.56979;0.43021">
+      <DockArea name="Time-domain acoustic feature">
+       <plot flip_x="false" mode="TimeSeries" style="Lines" flip_y="false">
+        <range top="1.036190" right="233.182518" bottom="-0.485073" left="0.027050"/>
+        <limitY/>
+        <curve name="/acoustic_feature/amplitude_envelope" color="#1f86b4"/>
+        <curve name="/acoustic_feature/rms_energy" color="#d62728"/>
+        <curve name="/acoustic_feature/ber.0" color="#bcbd22"/>
+       </plot>
+      </DockArea>
+      <DockArea name="Time-frequency acoustic MFCC efficient">
+       <plot flip_x="false" mode="TimeSeries" style="Lines" flip_y="false">
+        <range top="213.905462" right="233.182518" bottom="-485.693808" left="0.027050"/>
+        <limitY/>
+        <curve name="/acoustic_feature/mfccs.0" color="#17becf"/>
+        <curve name="/acoustic_feature/mfccs.1" color="#bcbd22"/>
+        <curve name="/acoustic_feature/mfccs.3" color="#1f77b4"/>
+        <curve name="/acoustic_feature/mfccs.4" color="#d62728"/>
+       </plot>
+      </DockArea>
+     </DockSplitter>
+     <DockSplitter count="2" orientation="|" sizes="0.567878;0.432122">
+      <DockArea name="Peak temperature">
+       <plot flip_x="false" mode="TimeSeries" style="Lines" flip_y="false">
+        <range top="2745.961539" right="233.142904" bottom="557.578378" left="0.022617"/>
+        <limitY/>
+        <curve name="/infratec/temperature_feature/highest" color="#c91a1f"/>
+       </plot>
+      </DockArea>
+      <DockArea name="Acoustic spectrogram coefficient">
+       <plot flip_x="false" mode="TimeSeries" style="Lines" flip_y="false">
+        <range top="42.402962" right="233.182518" bottom="-1.034219" left="0.027050"/>
+        <limitY/>
+        <curve name="/acoustic_feature/mel_spectrogram.0" color="#1ac938"/>
+        <curve name="/acoustic_feature/mel_spectrogram.1" color="#ff7f0e"/>
+        <curve name="/acoustic_feature/mel_spectrogram.2" color="#f14cc1"/>
+        <curve name="/acoustic_feature/mel_spectrogram.3" color="#9467bd"/>
+        <curve name="/acoustic_feature/mel_spectrogram.4" color="#17becf"/>
+        <curve name="/acoustic_feature/ber.0" color="#bcbd22"/>
+       </plot>
+      </DockArea>
+     </DockSplitter>
+     <DockArea name="Temperature distribution">
+      <plot flip_x="false" mode="TimeSeries" style="Lines" flip_y="false">
+       <range top="45383.060185" right="233.142904" bottom="-1107.397269" left="0.022617"/>
+       <limitY/>
+       <curve name="/infratec/temperature_feature/variance" color="#ff7f0e"/>
+       <curve name="/infratec/temperature_feature/skewness" color="#f14cc1"/>
+       <curve name="/infratec/temperature_feature/kurtosis" color="#9467bd"/>
+      </plot>
+     </DockArea>
+     <DockSplitter count="4" orientation="|" sizes="0.429483;0.183791;0.188258;0.198468">
+      <DockArea name="Robot motion">
+       <plot flip_x="false" mode="TimeSeries" style="Lines" flip_y="false">
+        <range top="1226.537518" right="231.739977" bottom="-1136.087323" left="0.000000"/>
+        <limitY/>
+        <curve name="/cartesian_velocity/Speed" color="#d62728"/>
+        <curve name="/cartesian_velocity/Vx" color="#1ac938"/>
+        <curve name="/cartesian_velocity/Vy" color="#0e35ff"/>
+        <curve name="/cartesian_velocity/Vz" color="#f1e84c"/>
+       </plot>
+      </DockArea>
+      <DockArea name="X-Y position">
+       <plot flip_x="false" mode="XYPlot" style="Lines" flip_y="false">
+        <range top="-1297.333759" right="2367.504517" bottom="-1329.109845" left="2332.923218"/>
+        <limitY/>
+        <curve curve_x="/cartesian_position/X" name="/cartesian_position/[X;Y]" color="#67aabd" curve_y="/cartesian_position/Y"/>
+       </plot>
+      </DockArea>
+      <DockArea name="X-Z position">
+       <plot flip_x="false" mode="XYPlot" style="Lines" flip_y="false">
+        <range top="946.254514" right="2367.504517" bottom="942.517093" left="2332.923218"/>
+        <limitY/>
+        <curve curve_x="/cartesian_position/X" name="/cartesian_position/[X;Z]" color="#173fcf" curve_y="/cartesian_position/Z"/>
+       </plot>
+      </DockArea>
+      <DockArea name="Y-Z position">
+       <plot flip_x="false" mode="XYPlot" style="Lines" flip_y="false">
+        <range top="946.254514" right="-1297.333759" bottom="942.517093" left="-1329.109845"/>
+        <limitY/>
+        <curve curve_x="/cartesian_position/Y" name="/cartesian_position/[Y;Z]" color="#bcbd22" curve_y="/cartesian_position/Z"/>
+       </plot>
+      </DockArea>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="0"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <default delimiter="0" time_axis=""/>
+  </plugin>
+  <plugin ID="DataLoad ROS bags">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="true"/>
+   <remove_suffix_from_strings value="true"/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS Topic Subscriber">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="true"/>
+   <remove_suffix_from_strings value="true"/>
+  </plugin>
+  <plugin ID="UDP Server"/>
+  <plugin ID="WebSocket Server"/>
+  <plugin ID="Fast Fourier Transform"/>
+  <plugin ID="Quaternion to RPY"/>
+  <plugin ID="Reactive Script Editor">
+   <library code="--[[ Helper function to create a series from arrays&#xa;&#xa; new_series: a series previously created with ScatterXY.new(name)&#xa; prefix:     prefix of the timeseries, before the index of the array&#xa; suffix_X:   suffix to complete the name of the series containing the X value. If [nil], use the index of the array.&#xa; suffix_Y:   suffix to complete the name of the series containing the Y value&#xa; timestamp:   usually the tracker_time variable&#xa;              &#xa; Example:&#xa; &#xa; Assuming we have multiple series in the form:&#xa; &#xa;   /trajectory/node.{X}/position/x&#xa;   /trajectory/node.{X}/position/y&#xa;   &#xa; where {N} is the index of the array (integer). We can create a reactive series from the array with:&#xa; &#xa;   new_series = ScatterXY.new(&quot;my_trajectory&quot;) &#xa;   CreateSeriesFromArray( new_series, &quot;/trajectory/node&quot;, &quot;position/x&quot;, &quot;position/y&quot;, tracker_time );&#xa;]]--&#xa;&#xa;function CreateSeriesFromArray( new_series, prefix, suffix_X, suffix_Y, timestamp )&#xa;  &#xa;  --- clear previous values&#xa;  new_series:clear()&#xa;  &#xa;  --- Append points to new_series&#xa;  index = 0&#xa;  while(true) do&#xa;&#xa;    x = index;&#xa;    -- if not nil, get the X coordinate from a series&#xa;    if suffix_X ~= nil then &#xa;      series_x = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_X) )&#xa;      if series_x == nil then break end&#xa;      x = series_x:atTime(timestamp)&#x9; &#xa;    end&#xa;    &#xa;    series_y = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_Y) )&#xa;    if series_y == nil then break end &#xa;    y = series_y:atTime(timestamp)&#xa;    &#xa;    new_series:push_back(x,y)&#xa;    index = index+1&#xa;  end&#xa;end&#xa;&#xa;--[[ Similar to the built-in function GetSeriesNames(), but select only the names with a give prefix. ]]--&#xa;&#xa;function GetSeriesNamesByPrefix(prefix)&#xa;  -- GetSeriesNames(9 is a built-in function&#xa;  all_names = GetSeriesNames()&#xa;  filtered_names = {}&#xa;  for i, name in ipairs(all_names)  do&#xa;    -- check the prefix&#xa;    if name:find(prefix, 1, #prefix) then&#xa;      table.insert(filtered_names, name);&#xa;    end&#xa;  end&#xa;  return filtered_names&#xa;end&#xa;&#xa;--[[ Modify an existing series, applying offsets to all their X and Y values&#xa;&#xa; series: an existing timeseries, obtained with TimeseriesView.find(name)&#xa; delta_x: offset to apply to each x value&#xa; delta_y: offset to apply to each y value  &#xa;&#xa;]]--&#xa;&#xa;function ApplyOffsetInPlace(series, delta_x, delta_y)&#xa;  -- use C++ indeces, not Lua indeces&#xa;  for index=0, series:size()-1 do&#xa;    x,y = series:at(index)&#xa;    series:set(index, x + delta_x, y + delta_y)&#xa;  end&#xa;end&#xa;"/>
+   <scripts/>
+  </plugin>
+  <plugin ID="CSV Exporter"/>
+  <plugin ID="ROS /rosout Visualization"/>
+  <plugin ID="ROS Topic Re-Publisher"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - - -->
+</root>
+

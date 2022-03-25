@@ -2,8 +2,8 @@
   <arg name="apply_otsu" default="true" doc="Decide applying Otsu's algotirhm threshold. If this value is true, threshold value will be ignored" />
   <arg name="threshold_type" default="0" doc="Specify threshold types. 0: Binary threshold, 1: Binary inverted threshold, 2: Threshold truncated, 3: Threshold to zero, 4: Threshold to zero inverted" />
   <arg name="threshold" default="140" doc="threshold value"/>
-  <arg name="image_topic_raw"  value="/infratec/image_raw" />
-  <arg name="image_topic_converted"  value="/infratec/image_converted_mono8" />
+  <arg name="image_topic_raw"  default="/infratec/image_raw_calibrated_cropped" />
+  <arg name="image_topic_converted"  default="/infratec/image_converted_mono8" />
   <arg name="canny_low_threshold" default="120" doc="Canny Edge low Threshold"/>
   <arg name="scale" default="8" doc="Specify the scale factor to calculate optical flow." />
   <arg name="quality_level" default="0.01" doc="Parameter characterizing the minimal acceptance quality of image corners." />
@@ -39,7 +39,7 @@
 
   <!-- Temperature features -->
   <node name="thermal_feature_extract" pkg="infratec_image_processing" type="thermal_feature_extract.py" output="screen" if="$(arg temperature_extract)">
-    <param name="thermal_image" type="str" value="/infratec/image_raw"/>
+    <param name="thermal_image" type="str" value="$(arg image_topic_raw)" />
   </node>
 
 </launch>

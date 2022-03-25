@@ -15,24 +15,24 @@ class NdThermalImage():
         rospy.init_node('thermal camera image conversion mono scale')
 
         image_topic = rospy.get_param('~thermal_image', '/infratec/image_raw')
+        publish_image_topic = rospy.get_param('~mono_thermal_image', '/infratec/image_converted_mono8')
         
         ## set the thermal camera parameters------------------------------------------
         if rospy.has_param('/infratec_image_convert_mono'):
             self.set_thermal_camera_parameters(rospy.get_param('/infratec_image_convert_mono'))
-            pass
         else:
             print ("thermal camera image parameter missing, load default")
-            self.max_temperature = float(rospy.get_param('~max_temp', '320'))
-            self.min_temperature = float(rospy.get_param('~min_temp', '290'))
-            self.top_left_y = int(rospy.get_param('~top_left_y', '100'))
-            self.height = int(rospy.get_param('~height', '160'))
-            self.top_left_x = int(rospy.get_param('~top_left_x', '350'))
-            self.width = int(rospy.get_param('~width', '200'))
+            self.max_temperature = float(rospy.get_param('~max_temp', '2700'))
+            self.min_temperature = float(rospy.get_param('~min_temp', '0'))
+            self.top_left_y = int(rospy.get_param('~top_left_y', '173'))
+            self.height = int(rospy.get_param('~height', '69'))
+            self.top_left_x = int(rospy.get_param('~top_left_x', '275'))
+            self.width = int(rospy.get_param('~width', '75'))
         #-----------------------------------------------------------
 
 
         # subscribe the image topic and use callback function for further process
-        rospy.Subscriber(image_topic, Image, self.cb_thermal_image, queue_size=1)
+        rospy.Subscriber(image_topic, Image, self.cb_thermal_image, queue_size=3)
         self.bridge = CvBridge()
         # self.msg_histogram = MsgHistogram()
 
@@ -40,7 +40,7 @@ class NdThermalImage():
         # self.pub_melt_pool = rospy.Publisher("/infratec/melt_pool", MsgMeltpool, queue_size=10)
         # self.pub_thermal_image_colour = rospy.Publisher('/infratec/image_colour', Image, queue_size=10)
         # self.pub_histogram = rospy.Publisher('/infratec/image_converted_mono/histogram', MsgHistogram, queue_size=10)
-        self.pub_thermal_image_converted = rospy.Publisher('/infratec/image_converted_mono8', Image, queue_size=10)
+        self.pub_thermal_image_converted = rospy.Publisher(publish_image_topic, Image, queue_size=10)
         
         
         

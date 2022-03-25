@@ -17,10 +17,10 @@ from infratec_image_processing.msg import TemperatureFeature
 class NdThermalFeature():
     def __init__(self):
         rospy.init_node('extract temperature distrubution features from raw IR thermal images')
-        image_topic = rospy.get_param('~thermal_image', '/infratec/image_raw')
+        image_topic = rospy.get_param('~thermal_image', '/infratec/image_raw_calibrated_cropped')
 
         # subscribe the image topic and use callback function for further process
-        rospy.Subscriber(image_topic, Image, self.cb_thermal_image, queue_size=1)
+        rospy.Subscriber(image_topic, Image, self.cb_thermal_image, queue_size=3)
         self.bridge = CvBridge()
 
         # publisher 
@@ -39,6 +39,7 @@ class NdThermalFeature():
             # convert the ros image to OpenCV image for processing
             # cv_img = self.bridge.imgmsg_to_cv2(msg_image) # right now it is 32FC1 type
             msg_temperature_feature.highest = np.max(np_img)
+            msg_temperature_feature.mean = np.mean(np_img)
             msg_temperature_feature.lowest = np.min(np_img)
             msg_temperature_feature.variance = np.var(np_img)
             msg_temperature_feature.skewness = skew(np_img.flatten())
