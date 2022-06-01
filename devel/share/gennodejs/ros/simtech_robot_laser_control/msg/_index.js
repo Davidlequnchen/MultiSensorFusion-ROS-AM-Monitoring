@@ -1,18 +1,18 @@
 
 "use strict";
 
-let MsgEmission = require('./MsgEmission.js');
-let MsgControl = require('./MsgControl.js');
-let MsgStart = require('./MsgStart.js');
-let MsgInfo = require('./MsgInfo.js');
 let MsgPower = require('./MsgPower.js');
+let MsgInfo = require('./MsgInfo.js');
+let MsgStart = require('./MsgStart.js');
+let MsgEmission = require('./MsgEmission.js');
 let MsgSetpoint = require('./MsgSetpoint.js');
+let MsgControl = require('./MsgControl.js');
 
 module.exports = {
-  MsgEmission: MsgEmission,
-  MsgControl: MsgControl,
-  MsgStart: MsgStart,
-  MsgInfo: MsgInfo,
   MsgPower: MsgPower,
+  MsgInfo: MsgInfo,
+  MsgStart: MsgStart,
+  MsgEmission: MsgEmission,
   MsgSetpoint: MsgSetpoint,
+  MsgControl: MsgControl,
 };

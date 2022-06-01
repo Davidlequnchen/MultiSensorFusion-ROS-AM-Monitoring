@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_PYTHON_DYN_LINK -DPYTHON3 -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"cv_bridge\" -Dcv_bridge_boost_EXPORTS
 
-CXX_INCLUDES = -I/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-noetic/cv_bridge/include -I/opt/ros/noetic/include -I/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-noetic/cv_bridge/src/. -I/usr/include/python3.8 -I/usr/lib/python3/dist-packages/numpy/core/include -isystem /usr/include/opencv4 
+CXX_INCLUDES = -I/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-noetic/cv_bridge/include -I/opt/ros/noetic/include -I/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-noetic/cv_bridge/src/. -I/usr/include/python3.8 -I/home/lequn/.local/lib/python3.8/site-packages/numpy/core/include -isystem /usr/include/opencv4 
 

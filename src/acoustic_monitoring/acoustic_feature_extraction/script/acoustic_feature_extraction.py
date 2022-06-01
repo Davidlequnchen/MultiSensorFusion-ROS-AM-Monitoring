@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import rospy
 import rospkg
 import os
@@ -23,7 +24,7 @@ from acoustic_monitoring_msgs.msg import (
 # librosa default frame sie and hop length: 2048 and 512 samples
 # for our ROS application - each chunck is 1/30 seconds, which contains around 533 data points
 
-FRAME_SIZE = 1024
+FRAME_SIZE = 1024 #1024
 HOP_LENGTH = 512
 
 
@@ -35,12 +36,12 @@ class NdAudioSignal():
         audio_topic_info = rospy.get_param('~audio_topic_info', '/audio_info')
 
         # subscribe the audio topic, and use callback function to visualise and post-process it. topic: filteredAudioStamped
-        rospy.Subscriber('audioStamped', AudioDataStamped, self.cb_acoustic_signal, queue_size=5)
+        rospy.Subscriber('audioStamped', AudioDataStamped, self.cb_acoustic_signal, queue_size=2)
         rospy.Subscriber(audio_topic_info, AudioInfo, self.cb_audio_info, queue_size=1)
 
         # publisher 
         self.pub_acoustic_feature = rospy.Publisher('/acoustic_feature',
-                                                    MsgAcousticFeature, queue_size = 5)
+                                                    MsgAcousticFeature, queue_size = 2)
 
         rospy.spin()
         # rate = rospy.Rate(10) # 10hz
@@ -107,13 +108,11 @@ class NdAudioSignal():
         # audio_data_numpy /= 2**(nbits - 1)
 
         ## -------------------------------Time-domain feature extraction-------------------------------------------
-        # rms_energy = librosa.feature.rms(audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
         ae = self.amplitude_envelope(audio_data_numpy, FRAME_SIZE, HOP_LENGTH)
         rms_energy = librosa.feature.rms(audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
         zero_crossing_rate = sum(librosa.zero_crossings(audio_data_numpy, pad=False))
 
         ## -------------------------------Frequency-domain feature extraction-------------------------------------
-        
         ## Short-time FFT
         S_audio_data = librosa.stft(audio_data_numpy, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)
         Y_audio_data = np.abs(S_audio_data) ** 2 # calculation of power spectrogram (convert from complex number to real number), should be (r,c)
@@ -129,7 +128,7 @@ class NdAudioSignal():
        
         ## Band-Energy Ratio: based on spectrogram (Short time FT)
         # 1D numpy array 
-        ber = self.band_energy_ratio(S_audio_data, split_frequency=2000, sample_rate=self.sampling_rate)
+        ber = self.band_energy_ratio(S_audio_data, split_frequency=200, sample_rate=self.sampling_rate)
         # ber_normalized = self.normalize(ber)
         
         ## spectral centroid 

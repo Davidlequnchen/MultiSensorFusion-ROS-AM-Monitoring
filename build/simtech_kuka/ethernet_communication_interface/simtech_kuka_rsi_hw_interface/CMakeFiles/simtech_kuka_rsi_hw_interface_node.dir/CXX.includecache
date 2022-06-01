@@ -120,14 +120,6 @@ simtech_kuka_rsi_hw_interface/MsgCartPosition.h
 simtech_kuka_rsi_hw_interface/MsgCartVelocity.h
 -
 
-/home/lequn/ros2_foxy/install/console_bridge_vendor/include/console_bridge/console.h
-string
--
-./console_bridge_export.h
-/home/lequn/ros2_foxy/install/console_bridge_vendor/include/console_bridge/console_bridge_export.h
-
-/home/lequn/ros2_foxy/install/console_bridge_vendor/include/console_bridge_export.h
-
 /opt/ros/noetic/include/class_loader/class_loader.hpp
 boost/bind.hpp
 -

@@ -1,10 +1,10 @@
 
 "use strict";
 
-let MsgPointCloudScan = require('./MsgPointCloudScan.js');
 let MsgCommand = require('./MsgCommand.js');
+let MsgPointCloudScan = require('./MsgPointCloudScan.js');
 
 module.exports = {
-  MsgPointCloudScan: MsgPointCloudScan,
   MsgCommand: MsgCommand,
+  MsgPointCloudScan: MsgPointCloudScan,
 };

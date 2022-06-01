@@ -26,7 +26,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/noetic/include"
   "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-noetic/cv_bridge/src/."
   "/usr/include/python3.8"
-  "/usr/lib/python3/dist-packages/numpy/core/include"
+  "/home/lequn/.local/lib/python3.8/site-packages/numpy/core/include"
   "/usr/include/opencv4"
   )
 

@@ -1,16 +1,16 @@
 
 "use strict";
 
+let MsgPower = require('./MsgPower.js');
+let MsgInfo = require('./MsgInfo.js');
+let MsgStart = require('./MsgStart.js');
 let MsgEmission = require('./MsgEmission.js');
 let MsgControl = require('./MsgControl.js');
-let MsgStart = require('./MsgStart.js');
-let MsgInfo = require('./MsgInfo.js');
-let MsgPower = require('./MsgPower.js');
 
 module.exports = {
+  MsgPower: MsgPower,
+  MsgInfo: MsgInfo,
+  MsgStart: MsgStart,
   MsgEmission: MsgEmission,
   MsgControl: MsgControl,
-  MsgStart: MsgStart,
-  MsgInfo: MsgInfo,
-  MsgPower: MsgPower,
 };

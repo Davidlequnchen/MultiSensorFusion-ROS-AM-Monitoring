@@ -17,12 +17,11 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include"
   "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/include"
   "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-noetic/cv_bridge/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include"
-  "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/opencv_apps/BEFORE"
   "/usr/include/opencv4"
   )
 

@@ -142,7 +142,7 @@ image_rotate_exe_EXTERNAL_OBJECTS =
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /usr/lib/liborocos-kdl.so
-/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /home/lequn/ros2_foxy/install/orocos_kdl/lib/liborocos-kdl.so
+/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /usr/lib/liborocos-kdl.so
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /opt/ros/noetic/lib/libtf2_ros.so
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /opt/ros/noetic/lib/libactionlib.so
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/image_rotate/image_rotate: /opt/ros/noetic/lib/libmessage_filters.so

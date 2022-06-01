@@ -100,7 +100,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libsimtech_kuka_eki_interface.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libsimtech_kuka_eki_interface.so"
-         OLD_RPATH "/home/lequn/tesseract_ws/devel/.private/rosconsole_bridge/lib:/opt/ros/noetic/lib:/home/lequn/ros2_foxy/install/console_bridge_vendor/lib:"
+         OLD_RPATH "/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libsimtech_kuka_eki_interface.so")
@@ -123,7 +123,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/simtech_kuka_eki_interface/simtech_kuka_eki_interface_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/simtech_kuka_eki_interface/simtech_kuka_eki_interface_node"
-         OLD_RPATH "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib:/home/lequn/tesseract_ws/devel/.private/rosconsole_bridge/lib:/opt/ros/noetic/lib:/home/lequn/ros2_foxy/install/console_bridge_vendor/lib:"
+         OLD_RPATH "/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib:/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/simtech_kuka_eki_interface/simtech_kuka_eki_interface_node")

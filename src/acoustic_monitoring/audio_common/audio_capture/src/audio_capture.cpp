@@ -28,9 +28,8 @@ namespace audio_transport
 
         // only available for raw data
         ros::param::param<int>("~channels", _channels, 1);
-        // The audio bit depth determines the number of possible amplitude values we can record for each sample -  for quantization
-        ros::param::param<int>("~depth", _depth, 16); // can be 16,32,64
-        ros::param::param<int>("~sample_rate", _sample_rate, 16000); // Hz
+        ros::param::param<int>("~depth", _depth, 16);
+        ros::param::param<int>("~sample_rate", _sample_rate, 16000);
 
         // The destination of the audio
         ros::param::param<std::string>("~dst", dst_type, "appsink");

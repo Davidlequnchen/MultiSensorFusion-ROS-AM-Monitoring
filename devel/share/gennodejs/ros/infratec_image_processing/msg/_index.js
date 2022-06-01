@@ -1,18 +1,18 @@
 
 "use strict";
 
-let MsgHistogram = require('./MsgHistogram.js');
+let MsgMeltpool = require('./MsgMeltpool.js');
 let MsgThreshold = require('./MsgThreshold.js');
 let MsgROISize = require('./MsgROISize.js');
-let TemperatureFeature = require('./TemperatureFeature.js');
-let MsgMeltpool = require('./MsgMeltpool.js');
 let MsgMeltpoolWidth = require('./MsgMeltpoolWidth.js');
+let MsgHistogram = require('./MsgHistogram.js');
+let TemperatureFeature = require('./TemperatureFeature.js');
 
 module.exports = {
-  MsgHistogram: MsgHistogram,
+  MsgMeltpool: MsgMeltpool,
   MsgThreshold: MsgThreshold,
   MsgROISize: MsgROISize,
-  TemperatureFeature: TemperatureFeature,
-  MsgMeltpool: MsgMeltpool,
   MsgMeltpoolWidth: MsgMeltpoolWidth,
+  MsgHistogram: MsgHistogram,
+  TemperatureFeature: TemperatureFeature,
 };

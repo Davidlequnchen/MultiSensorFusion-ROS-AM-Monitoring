@@ -38,14 +38,6 @@ tinyxml.h
 simtech_kuka_eki_interface/simtech_kuka_eki_interface.h
 -
 
-/home/lequn/ros2_foxy/install/console_bridge_vendor/include/console_bridge/console.h
-string
--
-./console_bridge_export.h
-/home/lequn/ros2_foxy/install/console_bridge_vendor/include/console_bridge/console_bridge_export.h
-
-/home/lequn/ros2_foxy/install/console_bridge_vendor/include/console_bridge_export.h
-
 /opt/ros/noetic/include/angles/angles.h
 algorithm
 -

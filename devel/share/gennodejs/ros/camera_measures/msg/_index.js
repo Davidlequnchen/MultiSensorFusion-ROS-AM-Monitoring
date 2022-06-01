@@ -1,20 +1,20 @@
 
 "use strict";
 
-let MsgStatus = require('./MsgStatus.js');
-let MsgVelocity = require('./MsgVelocity.js');
-let MsgGeometry = require('./MsgGeometry.js');
-let MsgVelocityStatus = require('./MsgVelocityStatus.js');
-let MsgTwist = require('./MsgTwist.js');
-let MsgPosition = require('./MsgPosition.js');
 let MsgAcceleration = require('./MsgAcceleration.js');
+let MsgGeometry = require('./MsgGeometry.js');
+let MsgPosition = require('./MsgPosition.js');
+let MsgTwist = require('./MsgTwist.js');
+let MsgVelocity = require('./MsgVelocity.js');
+let MsgStatus = require('./MsgStatus.js');
+let MsgVelocityStatus = require('./MsgVelocityStatus.js');
 
 module.exports = {
-  MsgStatus: MsgStatus,
-  MsgVelocity: MsgVelocity,
-  MsgGeometry: MsgGeometry,
-  MsgVelocityStatus: MsgVelocityStatus,
-  MsgTwist: MsgTwist,
-  MsgPosition: MsgPosition,
   MsgAcceleration: MsgAcceleration,
+  MsgGeometry: MsgGeometry,
+  MsgPosition: MsgPosition,
+  MsgTwist: MsgTwist,
+  MsgVelocity: MsgVelocity,
+  MsgStatus: MsgStatus,
+  MsgVelocityStatus: MsgVelocityStatus,
 };

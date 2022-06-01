@@ -79,8 +79,8 @@ nd_cloud_EXTERNAL_OBJECTS =
 
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: scanning_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir/src/nd_cloud.cpp.o
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: scanning_application/point_cloud_scanning/CMakeFiles/nd_cloud.dir/build.make
-/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: /opt/ros/noetic/lib/liboctomap.so
-/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: /opt/ros/noetic/lib/liboctomath.so
+/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: /usr/lib/x86_64-linux-gnu/liboctomap.so
+/home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: /usr/lib/x86_64-linux-gnu/liboctomath.so
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libpcl_ros_filter.so
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/libpcl_ros_tf.so
 /home/lequn/Documents/GitHub/SIMTech_ws/devel/lib/point_cloud_scanning/nd_cloud: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so

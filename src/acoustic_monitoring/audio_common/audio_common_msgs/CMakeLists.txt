@@ -9,6 +9,4 @@ add_message_files(DIRECTORY msg FILES
   )
 generate_messages()
 
-catkin_package(
-  CATKIN_DEPENDS message_runtime
-)
+catkin_package(CATKIN_DEPENDS message_runtime)

@@ -21,10 +21,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/lequn/Documents/GitHub/SIMTech_ws/devel/include"
   "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_eki_interface_tcp/include"
-  "/home/lequn/tesseract_ws/src/dependencies/rosconsole_bridge-kinetic-devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/home/lequn/ros2_foxy/install/console_bridge_vendor/include"
   )
 
 # Targets to which this target links.

@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "message_runtime;actionlib_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "sound_play"
 PROJECT_SPACE_DIR = "/home/lequn/Documents/GitHub/SIMTech_ws/devel"
-PROJECT_VERSION = "0.3.12"
+PROJECT_VERSION = "0.3.13"
