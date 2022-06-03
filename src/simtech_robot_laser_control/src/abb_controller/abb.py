@@ -79,7 +79,7 @@ class Robot:
                     self.float_joints.append(unpack('ffffff',
                                              raw_data[4:n_joints+4]))
             return True
-        except socket.error, e:
+        except (socket.error):
             return False
 
     def set_units(self, linear, angular):
@@ -530,7 +530,7 @@ def check_quaternions(quat):
     for w in quat:
         d = d + w * w
     if round(d, 3) != 1:
-        print 'Normalize quaternions'
+        print ('Normalize quaternions')
         raise NameError('PARAM_ERROR')
 
 if __name__ == '__main__':

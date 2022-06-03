@@ -1,7 +1,7 @@
 """
 header for the irbgrab dll python wrapper
 """
-#!/usr/bin/env python3
+
 # Filename: hirbgrab.py
 
 #import sys

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import cv2
 import rospy
@@ -9,7 +9,7 @@ from cv_bridge import CvBridge, CvBridgeError
 from camera_measures.msg import MsgGeometry
 
 from measures.geometry import Geometry
-from measures.projection import Projection
+# from measures.projection import Projection
 
 # config_file = "LaserControl.yaml"
 
@@ -122,7 +122,7 @@ class NdGeometry():
 
             # self.save_configuration(os.path.join(path, 'config', 'LaserControl.yaml'))
 
-        except CvBridgeError, e:
+        except CvBridgeError:
             rospy.loginfo("CvBridge Exception")
             
             

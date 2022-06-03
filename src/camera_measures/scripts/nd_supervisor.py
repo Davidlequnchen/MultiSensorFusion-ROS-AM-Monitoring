@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy
 
 from camera_measures.msg import MsgGeometry
@@ -46,7 +46,7 @@ class NdSupervisor():
         
         if msg_geometry.minor_axis > 30:
             laser_on = True
-            power = rospy.get_param('/control/power')
+            # power = rospy.get_param('/control/power')
         
         # laser_on = True
         # power = rospy.get_param('/control/power')

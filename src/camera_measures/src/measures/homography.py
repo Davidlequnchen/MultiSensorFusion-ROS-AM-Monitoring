@@ -55,6 +55,6 @@ if __name__ == '__main__':
     h = Homography()
     hom = h.calculate(pattern_points, image_points)
 
-    print hom, h.scale(hom)
-    print np.around(h.transform(image_points), decimals=4)
-    print np.around(h.project(pattern_points), decimals=4)
+    print (hom, h.scale(hom))
+    print (np.around(h.transform(image_points), decimals=4))
+    print (np.around(h.project(pattern_points), decimals=4))

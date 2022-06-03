@@ -199,7 +199,7 @@ if __name__ == '__main__':
 
     geometry = Geometry(127)
     ellipse = geometry.find_geometry(frame)
-    print ellipse
+    print (ellipse)
 
     img = cv2.resize(img, (frame.shape[0] * 10, frame.shape[1] * 10))
     center = (ellipse[0][0] * 10, ellipse[0][1] * 10)
@@ -211,7 +211,7 @@ if __name__ == '__main__':
     img = cv2.imread('../../data/frame0001.jpg')
     frame = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ellipse = geometry.find_geometry(frame)
-    print ellipse
+    print (ellipse)
 
     frame2 = geometry.draw_geometry(img, ellipse)
 

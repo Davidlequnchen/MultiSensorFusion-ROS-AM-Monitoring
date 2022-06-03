@@ -24,16 +24,16 @@ class Projection():
 
     def transform_ellipse(self, center, axis, angle):
         # TODO: Add box point calculation from ellipse and inverse transform.
-        print '-----'
+        # print '-----'
         _center, _axis, _angle = center, axis, angle
         _angle = np.rad2deg(_angle)
-        print _center, _axis, _angle
+        print (center, _axis, _angle)
         box = np.float32(cv2.cv.BoxPoints((_center, _axis, _angle)))
         _center, _axis, _angle = cv2.minAreaRect(self.hom.transform(box))
         _angle = np.deg2rad(_angle)
-        print _center, _axis, _angle
+        print (center, _axis, _angle)
         #center, axis, angle = _center, _axis, _angle
-        print '-----'
+        print ('-----')
         major_u = axis[0] / 2 * np.cos(angle) + center[0]
         major_v = axis[0] / 2 * np.sin(angle) + center[1]
         minor_u = axis[1] / 2 * np.cos(angle) + center[0]
@@ -46,7 +46,7 @@ class Projection():
         width = 2 * np.sqrt(np.sum(axis[1] * axis[1]))
         angle = np.arctan2(axis[0][1], axis[0][0])
         axis = (length, width)
-        print center, axis, angle
+        print (center, axis, angle)
         return center, axis, angle
 
     def project_image(self, image):
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     plt.figure()
     plt.subplot(121)
     im_NIT = cv2.imread('../../data/nir_focus.jpg')
-    print im_NIT.shape
+    print (im_NIT.shape)
     plt.imshow(cv2.cvtColor(im_NIT, cv2.COLOR_BGR2RGB), interpolation='none')
     plt.axis('off')
     plt.subplot(122)
@@ -75,10 +75,10 @@ if __name__ == '__main__':
 
     center, axis, angle = (12, 10), (7, 3), 0
     center, axis, angle = p_NIT.transform_ellipse(center, axis, angle)
-    print center, axis, angle
+    print (center, axis, angle)
 
     points = np.float32([[-2.5, -2.5], [2.5, -2.5], [-2.5, 2.5], [2.5, 2.5]])
     pixels = np.float32([[8, 7], [25, 6], [9, 24], [25, 23]])
     p_NIT.hom.calculate(points, pixels)
-    print np.around(p_NIT.hom.transform(pixels), decimals=4)
-    print np.around(p_NIT.hom.project(points), decimals=4)
+    print (np.around(p_NIT.hom.transform(pixels), decimals=4))
+    print (np.around(p_NIT.hom.project(points), decimals=4))
