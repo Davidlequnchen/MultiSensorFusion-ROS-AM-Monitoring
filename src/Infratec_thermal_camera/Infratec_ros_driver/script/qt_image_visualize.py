@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 Some reference from website: https://www.geeksforgeeks.org/pyqtgraph-roi-clicked-signal-of-image-view/
 '''
@@ -18,7 +18,7 @@ pg.setConfigOptions(imageAxisOrder='row-major')
 
 
 from python_qt_binding import loadUi
-from python_qt_binding import QtGui
+# from python_qt_binding import QtGui
 from python_qt_binding import QtCore
 from python_qt_binding import QtWidgets
 
@@ -70,19 +70,19 @@ class ros_image_visualizer(QtWidgets.QWidget):
         #-----------------------------------------------------------------------------------------------------------
 
         #------------------------set up plot widget for melt pool binary image------------------------------------
-        self.plotwindow = QtGui.QVBoxLayout(self.ImageWidget)
+        self.plotwindow = QtWidgets.QVBoxLayout(self.ImageWidget)
         self.image = pg.ImageView()
         self.plotwindow.addWidget(self.image)
         self.np_img = np.zeros((640,480))
         #------------------------------- plot widget for melt pool contour image----------------------------------
-        self.plotwindow_contour = QtGui.QVBoxLayout(self.ContourImageWidget)
+        self.plotwindow_contour = QtWidgets.QVBoxLayout(self.ContourImageWidget)
         self.image_contour = pg.ImageView()
         self.plotwindow_contour.addWidget(self.image_contour)
         self.np_img_contour = np.ones((640,480))
         #----------------------------------------------------------------------------------------------------------
 
         #------------------------set up plot widget for melt pool size data--------------------------------------
-        self.plotwindow = QtGui.QVBoxLayout(self.MPSPlotWidget)
+        self.plotwindow = QtWidgets.QVBoxLayout(self.MPSPlotWidget)
         self.mps_plotwidget = pg.PlotWidget()
         self.mpw_plotwidget = pg.PlotWidget()
         self.plotwindow.addWidget(self.mps_plotwidget)
