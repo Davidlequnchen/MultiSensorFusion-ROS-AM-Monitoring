@@ -4,12 +4,13 @@ header for the irbgrab dll python wrapper
 
 # Filename: hirbgrab.py
 
+#!/usr/bin/env python3
 #import sys
 import ctypes as ct
 import os
 #from _ctypes import FreeLibrary
 
-'Parameter für SET/GETPARAM'
+'Parameter for SET/GETPARAM'
 IRBG_PARAM_OnNewFrame           = 103# IRBG_DATATYPE_CALLBACK Mit diesen Parameter wird die CallBack für neue Bilder übergeben. Der Aufbau der Callback-Funktion ist in Kapitel 2.2.1 onNewFrame (IRBG_PARAM_OnNewFrame) beschrieben.
 IRBG_PARAM_RemoteWindow         = 111# Int32 mit IRBG_WINDOW_xxx (Kapitel 1.2.2)
 IRBG_PARAM_LiveWindow           = 113# Int32 mit IRBG_WINDOW_xxx (Kapitel 1.2.2)
@@ -192,7 +193,7 @@ IRBG_WINDOW_MINIMIZE            = 2# minimizes the window
 IRBG_WINDOW_RESTORE             = 3# restores windows after minimizing
 
 
-'Rückgabewert Konstanten'
+'Constant'
 
 TIRBG_RetDef = {  '0x00000000': 'Undef',
                   '0x10000001': 'Success',

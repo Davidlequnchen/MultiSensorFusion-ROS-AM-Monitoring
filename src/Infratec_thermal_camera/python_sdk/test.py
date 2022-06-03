@@ -295,6 +295,8 @@ if __name__ == '__main__':
         app = QApplication(sys.argv)
     else:
         app = QApplication.instance() 
+
+
     demo = irbgrab_demo()
     demo.load_dll()
     demo.create_device()
@@ -307,7 +309,7 @@ if __name__ == '__main__':
     # demo.toggle_live_window(1)  ### this is exactly the same as demo.set_param(0,113,1)
     # demo.set_param(0,113,1)   #### ------ this works well, open the live RGB window automatically
 
-    # demo.show_window()        ### --------this works well, automatically open the remote control window
+    demo.show_window()        ### --------this works well, automatically open the remote control window
 
 
     sys.exit(app.exec_())
