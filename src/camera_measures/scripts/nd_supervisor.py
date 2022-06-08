@@ -52,7 +52,7 @@ class NdSupervisor():
         # power = rospy.get_param('/control/power')
 
         self.msg_status.laser_on = laser_on
-        self.msg_status.power = power
+        # self.msg_status.power = power
 
     def cb_velocity(self, msg_velocity):
         speed = 0

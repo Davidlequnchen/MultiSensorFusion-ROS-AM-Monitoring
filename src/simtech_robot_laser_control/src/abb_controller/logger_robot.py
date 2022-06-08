@@ -1,5 +1,5 @@
 import socket
-from abb import Robot
+from abb_controller.abb_robot import Robot
 
 
 class LoggerRobot(Robot):

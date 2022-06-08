@@ -61,7 +61,9 @@ class irbgrab_demo(QMainWindow):
 
 
     def load_dll(self):
+        print ("geting handle")
         self.irbgrab_dll = irbg.getDLLHandle()
+        print ("get handled...")
         self.irbgrab_object=irbg.irbgrab_obj(self.irbgrab_dll)
         inits=self.irbgrab_object.isinit()
         if inits!=0:   
@@ -295,10 +297,10 @@ if __name__ == '__main__':
         app = QApplication(sys.argv)
     else:
         app = QApplication.instance() 
-
-
     demo = irbgrab_demo()
+    print ("Application launched...")
     demo.load_dll()
+    print ("ddl loaded...")
     demo.create_device()
     demo.connect()
     # demo.irbgrab_object.setparam_int32(113,1)
@@ -309,7 +311,7 @@ if __name__ == '__main__':
     # demo.toggle_live_window(1)  ### this is exactly the same as demo.set_param(0,113,1)
     # demo.set_param(0,113,1)   #### ------ this works well, open the live RGB window automatically
 
-    demo.show_window()        ### --------this works well, automatically open the remote control window
+    # demo.show_window()        ### --------this works well, automatically open the remote control window
 
 
     sys.exit(app.exec_())
