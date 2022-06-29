@@ -176,9 +176,9 @@ class ConvexHullNodelet : public opencv_apps::Nodelet
         // cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
         for (size_t i = 0; i < contours.size(); i++)
         {
-          cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-          cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
-          cv::drawContours(drawing, hull, (int)i, color, 4, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+          // cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+          // cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+          // cv::drawContours(drawing, hull, (int)i, color, 4, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
 
           opencv_apps::Contour contour_msg;
           for (const cv::Point& j : hull[i])
@@ -196,6 +196,11 @@ class ConvexHullNodelet : public opencv_apps::Nodelet
         /// Get the max contour area, and its corresponding ellipse and rectangle
         int max_contour_area_index = std::max_element(hull_area.begin(),hull_area.end()) - hull_area.begin();
         areas_msg.area.push_back(hull_area[max_contour_area_index]);
+
+        cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+        // cv::drawContours(drawing, contours, (int)max_contour_area_index, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+        cv::drawContours(drawing, hull, (int)max_contour_area_index, color, 4, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+
 
         // msg_pub_.publish(contours_msg);
         // areas_pub_.publish(areas_msg);

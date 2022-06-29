@@ -1,0 +1,7 @@
+set(simtech_driver_SETUP_PY_SETUP_MODULE "distutils.core")
+set(simtech_driver_SETUP_PY_VERSION "0.4.0")
+set(simtech_driver_SETUP_PY_SCRIPTS "")
+set(simtech_driver_SETUP_PY_PACKAGES "abb")
+set(simtech_driver_SETUP_PY_PACKAGE_DIRS "src/abb")
+set(simtech_driver_SETUP_PY_MODULES "")
+set(simtech_driver_SETUP_PY_MODULE_DIRS "")

@@ -37,6 +37,7 @@
     <arg name="image_processing"  value="$(arg image_processing)"/>
   </include>
 
+  <!-- Coaxial CCD monitoring -->
   <include file="$(find camera_measures)/launch/coaxial_vision_measures.launch" if="$(arg vision)">
     <arg name="gui" value="true" />
     <arg name="contour_extract" value="true"/>

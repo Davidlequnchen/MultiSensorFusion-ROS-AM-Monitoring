@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>laser_scanning</name>
+  <version>0.4.5</version>
+  <description>The scanning package.</description>
+  
+  <maintainer email="chen1189@e.ntu.edu.sg">Chen Lequn</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>opencv2</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>opencv2</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+</package>

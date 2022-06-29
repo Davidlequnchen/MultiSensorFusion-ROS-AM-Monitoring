@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Circle.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/CircleArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/CircleArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Contour.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/ContourArea.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/ContourArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/ContourArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Face.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FaceArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FaceArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Flow.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FlowArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FlowArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/FlowStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Line.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/LineArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/LineArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/MaxContourArea.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Moment.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/MomentArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/MomentArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Point2D.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Point2DArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Point2DArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Point2DStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Rect.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RectArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RectArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RotatedRect.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RotatedRectArray.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RotatedRectArrayStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/RotatedRectStamped.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/msg/Size.js"
+  "/home/lequn/Documents/GitHub/SIMTech_ws/devel/share/gennodejs/ros/opencv_apps/srv/FaceRecognitionTrain.js"
+  "CMakeFiles/opencv_apps_generate_messages_nodejs"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/opencv_apps_generate_messages_nodejs.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

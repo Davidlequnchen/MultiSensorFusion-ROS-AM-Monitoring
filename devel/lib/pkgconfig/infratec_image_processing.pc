@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
+
+Name: infratec_image_processing
+Description: Description of infratec_image_processing
+Version: 0.3.6
+Cflags: -I/home/lequn/Documents/GitHub/SIMTech_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

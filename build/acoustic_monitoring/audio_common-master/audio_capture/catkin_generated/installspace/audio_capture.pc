@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
+
+Name: audio_capture
+Description: Description of audio_capture
+Version: 0.3.13
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

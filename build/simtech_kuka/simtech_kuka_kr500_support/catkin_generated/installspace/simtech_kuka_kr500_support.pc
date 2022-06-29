@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
+
+Name: simtech_kuka_kr500_support
+Description: Description of simtech_kuka_kr500_support
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

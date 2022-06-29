@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
+
+Name: audio_play
+Description: Description of audio_play
+Version: 0.3.12
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

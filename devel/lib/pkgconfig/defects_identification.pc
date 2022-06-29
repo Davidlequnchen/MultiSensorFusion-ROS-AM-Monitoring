@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
+
+Name: defects_identification
+Description: Description of defects_identification
+Version: 0.3.0
+Cflags: -I/home/lequn/Documents/GitHub/SIMTech_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

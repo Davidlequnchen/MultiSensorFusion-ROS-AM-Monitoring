@@ -14,9 +14,10 @@
   <arg name="contour_extract" default="true"/>
   <arg name="convex_hull_extract" default="true"/>
   <arg name="moment_extract" default="false"/>
+  <arg name="camera_on" default="true"/>
 
   <!-- USB camera driver -->
-  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" if="$(arg camera_on)">
     <param name="video_device" value="/dev/video2" />
     <!--param name="image_width" value="1280" /-->
     <!--param name="image_height" value="720" /-->

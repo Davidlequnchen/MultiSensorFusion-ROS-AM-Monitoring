@@ -1,0 +1,17 @@
+(cl:defpackage infratec_image_processing-msg
+  (:use )
+  (:export
+   "<MSGHISTOGRAM>"
+   "MSGHISTOGRAM"
+   "<MSGMELTPOOL>"
+   "MSGMELTPOOL"
+   "<MSGMELTPOOLWIDTH>"
+   "MSGMELTPOOLWIDTH"
+   "<MSGROISIZE>"
+   "MSGROISIZE"
+   "<MSGTHRESHOLD>"
+   "MSGTHRESHOLD"
+   "<TEMPERATUREFEATURE>"
+   "TEMPERATUREFEATURE"
+  ))
+

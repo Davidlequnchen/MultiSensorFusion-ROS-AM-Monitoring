@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
+
+Name: simtech_kuka_robot_support
+Description: Description of simtech_kuka_robot_support
+Version: 0.4.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

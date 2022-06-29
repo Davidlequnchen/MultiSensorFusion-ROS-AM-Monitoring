@@ -190,16 +190,16 @@ class GeneralContoursNodelet : public opencv_apps::Nodelet
         // cv::Mat drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
         for (size_t i = 0; i < contours.size(); i++)
         {
-          cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-          // contour
-          cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
-          // ellipse
-          cv::ellipse(drawing, min_ellipse[i], color, 2, 8);
-          // rotated rectangle
-          cv::Point2f rect_points[4];
-          min_rect[i].points(rect_points);
-          for (int j = 0; j < 4; j++)
-            cv::line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
+          // cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+          // // contour
+          // cv::drawContours(drawing, contours, (int)i, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+          // // ellipse
+          // cv::ellipse(drawing, min_ellipse[i], color, 2, 8);
+          // // rotated rectangle
+          // cv::Point2f rect_points[4];
+          // min_rect[i].points(rect_points);
+          // for (int j = 0; j < 4; j++)
+          //   cv::line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
 
           opencv_apps::RotatedRect rect_msg;
           opencv_apps::Point2D rect_center;
@@ -245,6 +245,17 @@ class GeneralContoursNodelet : public opencv_apps::Nodelet
         max_area_msg.ellipse_y = min_ellipse[max_contour_area_index].center.y;
         max_area_msg.ellipse_width = min_ellipse[max_contour_area_index].size.width;
         max_area_msg.ellipse_height= min_ellipse[max_contour_area_index].size.height;
+
+        cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+        // contour
+        // cv::drawContours(drawing, contours, (int)max_contour_area_index, color, 1, 8, std::vector<cv::Vec4i>(), 0, cv::Point());
+        // ellipse
+        cv::ellipse(drawing, min_ellipse[max_contour_area_index], color, 2, 8);
+        // rotated rectangle
+        cv::Point2f rect_points[4];
+        min_rect[max_contour_area_index].points(rect_points);
+        for (int j = 0; j < 4; j++)
+          cv::line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
 
         // rects_pub_.publish(rects_msg);
         // ellipses_pub_.publish(ellipses_msg);

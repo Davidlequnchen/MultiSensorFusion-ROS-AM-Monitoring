@@ -1,0 +1,8 @@
+prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
+
+Name: stereo_image_proc
+Description: Description of stereo_image_proc
+Version: 1.16.0
+Cflags: -I/home/lequn/Documents/GitHub/SIMTech_ws/devel/include -I/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/image_pipline_noetic/stereo_image_proc/include
+Libs: -L${prefix}/lib -lstereo_image_proc
+Requires: image_geometry image_proc sensor_msgs stereo_msgs

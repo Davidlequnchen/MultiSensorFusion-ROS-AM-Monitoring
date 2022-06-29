@@ -29,7 +29,12 @@ class NdGeometry():
 
         # declare a publisher for Publishing the Geometry topic that contains info about minor axis.
         self.pub_geo = rospy.Publisher(geo_topic, MsgGeometry, queue_size=10) # the publisher will be used in callback function cb_image
-    
+
+        # declare a publisher for Publishing the Geometry topic that contains info about minor axis.
+        self.pub_mono_image = rospy.Publisher('/usb_cam/masked_binarized', Image, queue_size=10) 
+
+
+
         self.msg_geo = MsgGeometry()
         
         # set defult threshold value that distinguish balck and white
@@ -78,6 +83,9 @@ class NdGeometry():
             # mask the frame into the circlular shape
             frame = self.geometry.mask(frame)
             frame = self.geometry.binarize(frame)
+
+            converted_msg = self.bridge.cv2_to_imgmsg(frame, "mono8") # convert back to mono scale
+            self.pub_mono_image.publish(converted_msg)
             
            
             # circle = center_circle, diameter, radius

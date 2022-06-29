@@ -1,0 +1,10 @@
+(cl:defpackage motion_planning_jason-srv
+  (:use )
+  (:export
+   "SRVROBOTCOMMAND"
+   "<SRVROBOTCOMMAND-REQUEST>"
+   "SRVROBOTCOMMAND-REQUEST"
+   "<SRVROBOTCOMMAND-RESPONSE>"
+   "SRVROBOTCOMMAND-RESPONSE"
+  ))
+

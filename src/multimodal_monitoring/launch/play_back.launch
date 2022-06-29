@@ -1,0 +1,94 @@
+<launch>
+  <arg name="vision" default="true"/>
+  <arg name="threshold_type" default="0" doc="Specify threshold types. 0: Binary threshold, 1: Binary inverted threshold, 2: Threshold truncated, 3: Threshold to zero, 4: Threshold to zero inverted" />
+  <arg name="threshold" default="235" doc="threshold value"/>
+  <arg name="apply_otsu" default="false" doc="Decide applying Otsu's algotirhm threshold. If this value is true, threshold value will be ignored" />
+  <arg name="canny_low_threshold" default="235" doc="Canny Edge low Threshold"/>
+  <arg name="image_raw"  value="/usb_cam/image_raw" />
+  <arg name="image_topic_converted"  value="/usb_cam/masked_binarized" />
+  <arg name="scale" default="8" doc="Specify the scale factor to calculate optical flow." />
+  <arg name="quality_level" default="0.01" doc="Parameter characterizing the minimal acceptance quality of image corners." />
+  <arg name="min_distance" default="2"  doc="Minimum possible Euclidean distance between the returned corners."/>
+  <arg name="block_size" default="3" doc="Size of an average block for computing a derivative covariation matrix over each pixel neighborhood."/>
+  <arg name="harris_k" default="0.04" doc="Free parameter of the Harris detector"/>
+  <arg name="plotjuggler_viz" default="false"/>
+  <arg name="plotjuggler_viz_multimodal" default="true"/>
+  <arg name="camera_on" default="false"/> 
+
+  <!-- <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find experiment_data)/data/13_Dec_DSO_printing/4.bag"/> -->
+  <node pkg="rosbag" type="play" name="rosbag" required="true" 
+        args="/media/lequn/Lequn_HD/Research_Projects/Thermal_camera_monitoring/Multimodal_experiment_June_2022/Powder_single_wall_23_June/ROS/20.bag"/>
+
+  <node name="image_view_2" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/usb_cam/masked_binarized"/>
+    <param name="autosize" value="true" />
+  </node>
+
+  <include file="$(find camera_measures)/launch/coaxial_vision_measures.launch" if="$(arg vision)">
+    <arg name="gui" value="true" />
+    <arg name="contour_extract" value="false"/>
+    <arg name="convex_hull_extract" value="false"/>
+    <arg name="moment_extract" value="false"/>
+    <arg name="camera_on" value="$(arg camera_on)"/>
+  </include>
+
+  <!-- Melt pool Feature extraction -->
+  <!-- Binarization: with thresholding algorithm (otsu/hard-thresholding) -->
+  <include file="$(find opencv_apps)/launch/threshold.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="apply_otsu" value="$(arg apply_otsu)" />
+    <arg name="threshold" value="$(arg threshold)" />
+  </include>
+
+  <!-- Publish: hulls (opencv_apps/ContourArrayStamped) & Hull Areas - Detected convex hulls of contours. Each contour is stored as a vector of point -->
+  <include file="$(find opencv_apps)/launch/convex_hull.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+  </include>
+
+  <!-- Publish: ellipse, rectangle, area(pixels) -->
+  <include file="$(find opencv_apps)/launch/general_contours.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+  </include>
+
+  <include file="$(find opencv_apps)/launch/contour_moments.launch">
+    <arg name="image"  value="$(arg image_topic_converted)" />
+    <arg name="threshold" value="$(arg threshold)" />
+    <arg name="canny_low_threshold" value="$(arg canny_low_threshold)" />
+  </include>
+
+  <!-- <include file="$(find opencv_apps)/launch/simple_flow.launch">
+    <arg name="image"  value="$(arg image_raw)" />
+    <arg name="scale" value="$(arg scale)" />
+  </include> -->
+
+
+  <!-- <include file="$(find opencv_apps)/launch/lk_flow.launch">
+    <arg name="image"  value="$(arg image_raw)" />
+    <arg name="quality_level" value="$(arg quality_level)" />
+    <arg name="min_distance" value="$(arg min_distance)" />
+    <arg name="block_size" value="$(arg block_size)" />
+    <arg name="harris_k" value="$(arg harris_k)" />
+  </include> -->
+
+  <!-- <include file="$(find opencv_apps)/launch/phase_corr.launch">
+    <arg name="image"  value="$(arg image_raw)" />
+  </include> -->
+
+  <!-- <include file="$(find opencv_apps)/launch/fback_flow.launch">
+    <arg name="image"  value="$(arg image_raw)" />
+  </include> -->
+
+
+
+  <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz_multimodal)"/>
+
+  <!-- <node pkg="rosbag" type="record" name="rosbag_record_features"
+       args="record -O /media/lequn/Lequn_HD/Research_Projects/Thermal_camera_monitoring/Multimodal_experiment_June_2022/data_processing/20_features 
+       /contour_moments/moments /convex_hull/hull_area /usb_cam/geometry /general_contours/ellipses 
+       /general_contours/rectangles /general_contours/max_contour_area"/> -->
+
+
+  
+</launch>
