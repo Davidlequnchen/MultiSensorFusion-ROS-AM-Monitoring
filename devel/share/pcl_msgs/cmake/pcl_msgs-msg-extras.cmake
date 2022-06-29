@@ -1,2 +1,0 @@
-set(pcl_msgs_MESSAGE_FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_msgs/msg/ModelCoefficients.msg;/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_msgs/msg/PointIndices.msg;/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_msgs/msg/PolygonMesh.msg;/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_msgs/msg/Vertices.msg")
-set(pcl_msgs_SERVICE_FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/pcl_msgs/srv/UpdateFilename.srv")

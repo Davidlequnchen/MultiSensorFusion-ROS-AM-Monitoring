@@ -6,13 +6,14 @@
   <arg name="kuka" default="true" />
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>
+  <arg name="vision" default="true"/>
   <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
-  <arg name="plotjuggler_viz_multimodal" default="true"/>
+  <arg name="plotjuggler_viz_multimodal" default="false"/>
   <!-- <arg name="dst" default="/media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.wav"/> -->
-  <arg name="dst" default="/home/lequn/temp_data/experiment.wav"/>
+  <arg name="dst" default="/home/lequn/temp_data/40.wav"/>
   
 
 
@@ -34,6 +35,13 @@
     <arg name="robot_launch" value="$(arg robot_launch)" />
     <arg name="plotjuggler_viz" value="$(arg plotjuggler_viz)" />
     <arg name="image_processing"  value="$(arg image_processing)"/>
+  </include>
+
+  <include file="$(find camera_measures)/launch/coaxial_vision_measures.launch" if="$(arg vision)">
+    <arg name="gui" value="true" />
+    <arg name="contour_extract" value="true"/>
+    <arg name="convex_hull_extract" value="true"/>
+    <arg name="moment_extract" value="false"/>
   </include>
 
   <!-- acoustic monitoring -->

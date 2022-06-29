@@ -1,8 +1,0 @@
-prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
-
-Name: audio_capture_convert
-Description: Description of audio_capture_convert
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

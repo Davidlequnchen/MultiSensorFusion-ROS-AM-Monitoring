@@ -1,8 +1,0 @@
-prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
-
-Name: calib_ros_test
-Description: Description of calib_ros_test
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

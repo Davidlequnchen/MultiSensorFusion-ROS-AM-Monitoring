@@ -1,8 +1,0 @@
-prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
-
-Name: ros_numpy
-Description: Description of ros_numpy
-Version: 0.0.5
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

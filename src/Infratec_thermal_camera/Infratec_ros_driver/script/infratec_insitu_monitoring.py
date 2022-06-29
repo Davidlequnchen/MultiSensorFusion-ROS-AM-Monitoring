@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3
 import os
 import sys
 import rospy
@@ -34,7 +34,7 @@ class ThermalViz(QtWidgets.QMainWindow):
         self.tabWidget2.addTab(self.qtROSImageVisualizer, 'ROS Image Visualizer')
         # self.tabWidget2.addTab(self.qtRobviz, "Kuka Robot Visualization")
         
-        # self.qtInfratec.accepted.connect(self.qtInfratecAccepted)
+        self.qtInfratec.accepted.connect(self.qtInfratecAccepted)
  
 
         self.btnQuit.setIcon(QtGui.QIcon.fromTheme('application-exit'))

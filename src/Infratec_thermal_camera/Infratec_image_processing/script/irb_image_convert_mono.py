@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import os
 import cv2
 import rospy
@@ -15,12 +15,21 @@ class NdThermalImage():
         rospy.init_node('thermal camera image conversion mono scale')
 
         image_topic = rospy.get_param('~thermal_image', '/infratec/image_raw')
-        self.max_temperature = float(rospy.get_param('~max_temp', '1800'))
-        self.min_temperature = float(rospy.get_param('~min_temp', '0'))
-        self.top_left_y = int(rospy.get_param('~top_left_y', '100'))
-        self.height = int(rospy.get_param('~height', '160'))
-        self.top_left_x = int(rospy.get_param('~top_left_x', '350'))
-        self.width = int(rospy.get_param('~width', '200'))
+        
+        ## set the thermal camera parameters------------------------------------------
+        if rospy.has_param('/infratec_image_convert_mono'):
+            self.set_thermal_camera_parameters(rospy.get_param('/infratec_image_convert_mono'))
+            pass
+        else:
+            print ("thermal camera image parameter missing, load default")
+            self.max_temperature = float(rospy.get_param('~max_temp', '320'))
+            self.min_temperature = float(rospy.get_param('~min_temp', '290'))
+            self.top_left_y = int(rospy.get_param('~top_left_y', '100'))
+            self.height = int(rospy.get_param('~height', '160'))
+            self.top_left_x = int(rospy.get_param('~top_left_x', '350'))
+            self.width = int(rospy.get_param('~width', '200'))
+        #-----------------------------------------------------------
+
 
         # subscribe the image topic and use callback function for further process
         rospy.Subscriber(image_topic, Image, self.cb_thermal_image, queue_size=1)
@@ -32,7 +41,8 @@ class NdThermalImage():
         # self.pub_thermal_image_colour = rospy.Publisher('/infratec/image_colour', Image, queue_size=10)
         # self.pub_histogram = rospy.Publisher('/infratec/image_converted_mono/histogram', MsgHistogram, queue_size=10)
         self.pub_thermal_image_converted = rospy.Publisher('/infratec/image_converted_mono8', Image, queue_size=10)
-        self.pub_bin_image = rospy.Publisher('/infratec/image_bin', Image, queue_size=10)
+        
+        
         
         rospy.spin()
     
@@ -45,14 +55,13 @@ class NdThermalImage():
             '''Crop the image'''
             frame = frame[self.top_left_y:self.top_left_y+self.height, self.top_left_x:self.top_left_x+self.width]
 
-
             '''convert the float number to usigned int8 (8-bits)'''
             frame = np.squeeze(frame)
             # frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256**2
             # frame_uint = (frame*25).astype(np.uint8)
 
-            # frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256
-            frame_normalized = (frame-self.min_temperature)/(self.max_temperature-self.min_temperature)*256
+            # frame_normalized = (frame-frame.min())/(frame.max()-frame.min())*256   # only do this for testing purpose
+            frame_normalized = (frame-self.min_temperature)/(self.max_temperature-self.min_temperature)*256 # normalize temperature according to max, min
             frame_uint = frame_normalized.astype(np.uint8)    
             # frame_uint = frame.astype(np.uint8)
             converted_msg = self.bridge.cv2_to_imgmsg(frame_uint, "mono8") # convert back to mono scale
@@ -65,14 +74,17 @@ class NdThermalImage():
             # self.pub_histogram.publish(self.msg_histogram)
 
 
-
         except CvBridgeError as e:
             rospy.loginfo(e)
 
-    def binarize(self, frame):
-        img_bin = np.zeros(frame.shape, dtype=np.uint8)
-        img_bin[frame > self.threshold] = 255
-        return img_bin
+    def set_thermal_camera_parameters(self, params):
+        self.max_temperature = float(params['max_temp'])
+        self.min_temperature = float(params['min_temp'])
+        self.top_left_y = int(params['top_left_y'])
+        self.height = int(params['height'])
+        self.top_left_x = int(params['top_left_x'])
+        self.width = int(params['width'])
+        
 
 
 if __name__ == '__main__':

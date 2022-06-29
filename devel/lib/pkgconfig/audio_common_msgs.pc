@@ -1,8 +1,0 @@
-prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
-
-Name: audio_common_msgs
-Description: Description of audio_common_msgs
-Version: 0.3.13
-Cflags: -I/home/lequn/Documents/GitHub/SIMTech_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

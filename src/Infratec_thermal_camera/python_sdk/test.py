@@ -61,9 +61,7 @@ class irbgrab_demo(QMainWindow):
 
 
     def load_dll(self):
-        print ("geting handle")
         self.irbgrab_dll = irbg.getDLLHandle()
-        print ("get handled...")
         self.irbgrab_object=irbg.irbgrab_obj(self.irbgrab_dll)
         inits=self.irbgrab_object.isinit()
         if inits!=0:   
@@ -297,8 +295,9 @@ if __name__ == '__main__':
         app = QApplication(sys.argv)
     else:
         app = QApplication.instance() 
+    print ("application launched...")
     demo = irbgrab_demo()
-    print ("Application launched...")
+    print ("demo loaded...")
     demo.load_dll()
     print ("ddl loaded...")
     demo.create_device()
