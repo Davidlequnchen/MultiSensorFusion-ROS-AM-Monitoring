@@ -34,7 +34,7 @@ class Geometry():
         # Draw a white, filled circle on the mask image
         # cv2.circle(image, center_coordinates, radius, color, thickness)
         # cv2.circle(mask, (382,228), 55, (255, 255, 255),110)
-        cv2.circle(mask, (240,270), 82, (255, 255, 255),164)
+        cv2.circle(mask, (240,272), 82, (255, 255, 255),164)
         # for camera 0
         #cv2.circle(mask, (640,360), 100, (255, 255, 255),200)
 

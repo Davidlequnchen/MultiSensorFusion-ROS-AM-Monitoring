@@ -1,94 +1,94 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
  <tabbed_widget name="Main Window" parent="main_window">
-  <Tab tab_name="Multimodal Monitoring" containers="1">
+  <Tab containers="1" tab_name="Multimodal Monitoring">
    <Container>
-    <DockSplitter sizes="1" count="1" orientation="-">
-     <DockSplitter sizes="0.488491;0.511509" count="2" orientation="|">
-      <DockSplitter sizes="0.250564;0.249436;0.233634;0.266366" count="4" orientation="-">
+    <DockSplitter orientation="-" sizes="1" count="1">
+     <DockSplitter orientation="|" sizes="0.524297;0.475703" count="2">
+      <DockSplitter orientation="-" sizes="0.328072;0.32469;0.347238" count="3">
        <DockArea name="Time-domain Acoustic Feature Monitoring">
-        <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-         <range left="1.912874" right="7.899675" bottom="-0.035938" top="0.208362"/>
+        <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+         <range top="0.194024" left="478.645890" right="484.619309" bottom="-0.044091"/>
          <limitY/>
-         <curve name="/acoustic_feature/amplitude_envelope" color="#1f77b4"/>
-         <curve name="/acoustic_feature/rms_energy" color="#d62728"/>
+         <curve color="#1f77b4" name="/acoustic_feature/amplitude_envelope"/>
+         <curve color="#d62728" name="/acoustic_feature/rms_energy"/>
         </plot>
        </DockArea>
        <DockArea name="Frequncy-domain Acoustic Feature Visualization">
-        <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-         <range left="1.912874" right="7.899675" bottom="2980.442444" top="11706.493591"/>
+        <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+         <range top="11217.420239" left="478.645890" right="484.619309" bottom="3135.770190"/>
          <limitY/>
-         <curve name="/acoustic_feature/spectral_bandwidth.0" color="#1f77b4"/>
-         <curve name="/acoustic_feature/spectral_centroids.0" color="#d62728"/>
-         <curve name="/acoustic_feature/spectral_rolloff.0" color="#1ac938"/>
-        </plot>
-       </DockArea>
-       <DockArea name="Melt pool width and length">
-        <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-         <range left="1.900870" right="7.872331" bottom="-8.187513" top="335.688032"/>
-         <limitY/>
-         <curve name="/usb_cam/geometry/major_axis" color="#0e26ff"/>
-         <curve name="/usb_cam/geometry/minor_axis" color="#f1814c"/>
+         <curve color="#1f77b4" name="/acoustic_feature/spectral_bandwidth.0"/>
+         <curve color="#d62728" name="/acoustic_feature/spectral_centroids.0"/>
+         <curve color="#1ac938" name="/acoustic_feature/spectral_rolloff.0"/>
         </plot>
        </DockArea>
        <DockArea name="Acoustic Feature - MFCC">
-        <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-         <range left="1.912874" right="7.899675" bottom="-344.996842" top="122.701157"/>
+        <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+         <range top="119.453693" left="478.645890" right="484.619309" bottom="-368.311298"/>
          <limitY/>
-         <curve name="/acoustic_feature/mfccs.0" color="#1f77b4"/>
-         <curve name="/acoustic_feature/mfccs.1" color="#d62728"/>
-         <curve name="/acoustic_feature/mfccs.2" color="#1ac938"/>
-         <curve name="/acoustic_feature/mfccs.3" color="#ff7f0e"/>
-         <curve name="/acoustic_feature/mfccs.4" color="#f14cc1"/>
-         <curve name="/acoustic_feature/mfccs.5" color="#9467bd"/>
-         <curve name="/acoustic_feature/mfccs.6" color="#17becf"/>
-         <curve name="/acoustic_feature/mfccs.7" color="#bcbd22"/>
-         <curve name="/acoustic_feature/mfccs.8" color="#1f77b4"/>
+         <curve color="#1f77b4" name="/acoustic_feature/mfccs.0"/>
+         <curve color="#d62728" name="/acoustic_feature/mfccs.1"/>
+         <curve color="#1ac938" name="/acoustic_feature/mfccs.2"/>
+         <curve color="#ff7f0e" name="/acoustic_feature/mfccs.3"/>
+         <curve color="#f14cc1" name="/acoustic_feature/mfccs.4"/>
+         <curve color="#9467bd" name="/acoustic_feature/mfccs.5"/>
+         <curve color="#17becf" name="/acoustic_feature/mfccs.6"/>
+         <curve color="#bcbd22" name="/acoustic_feature/mfccs.7"/>
+         <curve color="#1f77b4" name="/acoustic_feature/mfccs.8"/>
         </plot>
        </DockArea>
       </DockSplitter>
-      <DockSplitter sizes="0.332582;0.334837;0.332582" count="3" orientation="-">
+      <DockSplitter orientation="-" sizes="0.26298;0.25395;0.225734;0.257336" count="4">
        <DockArea name="Melt pool contour">
-        <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-         <range left="1.936079" right="7.899622" bottom="-2085.412500" top="85501.912500"/>
+        <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+         <range top="85501.912500" left="478.602849" right="484.603252" bottom="-2085.412500"/>
          <limitY/>
-         <curve name="/convex_hull/hull_area/area.0" color="#f1514c"/>
-         <curve name="/general_contours/max_contour_area/meltpool_contour_area" color="#00dcff"/>
+         <curve color="#f1514c" name="/convex_hull/hull_area/area.0"/>
+         <curve color="#00dcff" name="/general_contours/max_contour_area/meltpool_contour_area"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Melt pool width and length">
+        <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+         <range top="354.084667" left="478.612176" right="484.611662" bottom="-8.636211"/>
+         <limitY/>
+         <curve color="#0e26ff" name="/usb_cam/geometry/major_axis"/>
+         <curve color="#f1814c" name="/usb_cam/geometry/minor_axis"/>
         </plot>
        </DockArea>
        <DockArea name="Robot Motion Monitoring">
-        <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-         <range left="1.899838" right="7.899664" bottom="-5.327724" top="25.318710"/>
+        <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+         <range top="18.091637" left="478.637521" right="484.634334" bottom="-10.219341"/>
          <limitY/>
-         <curve name="/cartesian_velocity/Speed" color="#bcbd22">
+         <curve color="#bcbd22" name="/cartesian_velocity/Speed">
           <transform name="Moving Average" alias="/cartesian_velocity/Speed[Moving Average]">
            <options compensate_offset="false" value="5"/>
           </transform>
          </curve>
-         <curve name="/cartesian_velocity/Vy" color="#1f77b4"/>
-         <curve name="/cartesian_velocity/Vz" color="#d62728"/>
+         <curve color="#1f77b4" name="/cartesian_velocity/Vy"/>
+         <curve color="#d62728" name="/cartesian_velocity/Vz"/>
         </plot>
        </DockArea>
-       <DockSplitter sizes="0.33208;0.359649;0.308271" count="3" orientation="|">
-        <DockArea name="X-Y Position">
-         <plot style="Lines" mode="XYPlot" flip_y="false" flip_x="false">
-          <range left="2979.695471" right="3070.733240" bottom="-1746.335685" top="-1651.444466"/>
+       <DockSplitter orientation="|" sizes="0.332884;0.358491;0.308625" count="3">
+        <DockArea name="X-Y">
+         <plot mode="XYPlot" flip_x="false" flip_y="false" style="Lines">
+          <range top="-1735.971666" left="3047.249713" right="3079.028363" bottom="-1760.130873"/>
           <limitY/>
-          <curve name="/cartesian_position/[X;Y]" curve_y="/cartesian_position/Y" color="#1f77b4" curve_x="/cartesian_position/X"/>
+          <curve color="#1f77b4" curve_x="/cartesian_position/X" name="/cartesian_position/[X;Y]" curve_y="/cartesian_position/Y"/>
          </plot>
         </DockArea>
-        <DockArea name="X-Z Position">
-         <plot style="Lines" mode="XYPlot" flip_y="false" flip_x="false">
-          <range left="2979.695471" right="3070.733240" bottom="896.633416" top="976.697882"/>
+        <DockArea name="X-Z">
+         <plot mode="XYPlot" flip_x="false" flip_y="false" style="Lines">
+          <range top="934.658279" left="3047.249713" right="3079.028363" bottom="914.307419"/>
           <limitY/>
-          <curve name="/cartesian_position/[X;Z]" curve_y="/cartesian_position/Z" color="#d62728" curve_x="/cartesian_position/X"/>
+          <curve color="#d62728" curve_x="/cartesian_position/X" name="/cartesian_position/[X;Z]" curve_y="/cartesian_position/Z"/>
          </plot>
         </DockArea>
-        <DockArea name="Y-Z Position">
-         <plot style="Lines" mode="XYPlot" flip_y="false" flip_x="false">
-          <range left="-1699.153956" right="-1698.626195" bottom="936.316760" top="937.014539"/>
+        <DockArea name="Y-Z">
+         <plot mode="XYPlot" flip_x="false" flip_y="false" style="Lines">
+          <range top="925.545154" left="-1749.246362" right="-1746.856177" bottom="923.420544"/>
           <limitY/>
-          <curve name="/cartesian_position/[Y;Z]" curve_y="/cartesian_position/Z" color="#1ac938" curve_x="/cartesian_position/Y"/>
+          <curve color="#1ac938" curve_x="/cartesian_position/Y" name="/cartesian_position/[Y;Z]" curve_y="/cartesian_position/Z"/>
          </plot>
         </DockArea>
        </DockSplitter>
@@ -104,7 +104,7 @@
  <!-- - - - - - - - - - - - - - - -->
  <Plugins>
   <plugin ID="DataLoad CSV">
-   <default delimiter="0" time_axis=""/>
+   <default time_axis="" delimiter="0"/>
   </plugin>
   <plugin ID="DataLoad ROS bags">
    <use_header_stamp value="false"/>
@@ -134,8 +134,6 @@
   <plugin ID="ROS Topic Re-Publisher"/>
  </Plugins>
  <!-- - - - - - - - - - - - - - - -->
- <previouslyLoaded_Datafiles/>
- <previouslyLoaded_Streamer name="ROS Topic Subscriber"/>
  <!-- - - - - - - - - - - - - - - -->
  <customMathEquations/>
  <snippets/>

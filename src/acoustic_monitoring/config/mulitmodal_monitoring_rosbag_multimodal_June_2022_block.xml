@@ -3,144 +3,165 @@
  <tabbed_widget name="Main Window" parent="main_window">
   <Tab containers="1" tab_name="Multimodal Monitoring">
    <Container>
-    <DockSplitter sizes="1" count="1" orientation="-">
-     <DockSplitter sizes="0.547355;0.452645" count="2" orientation="|">
-      <DockSplitter sizes="0.250821;0.232202;0.292442;0.224535" count="4" orientation="-">
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockSplitter count="2" sizes="0.484477;0.515523" orientation="|">
+      <DockSplitter count="3" sizes="0.32337;0.342391;0.334239" orientation="-">
        <DockArea name="Time-domain Acoustic Feature Monitoring">
         <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
-         <range bottom="0.007318" right="190.529968" top="0.121510" left="0.013321"/>
+         <range bottom="0.010724" left="0.008634" top="0.126217" right="789.944628"/>
          <limitY/>
          <curve name="/acoustic_feature/amplitude_envelope" color="#1f77b4">
           <transform alias="/acoustic_feature/amplitude_envelope[Moving Average]" name="Moving Average">
-           <options value="20" compensate_offset="false"/>
+           <options value="50" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/rms_energy" color="#d33000">
           <transform alias="/acoustic_feature/rms_energy[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="40" compensate_offset="false"/>
           </transform>
          </curve>
         </plot>
        </DockArea>
        <DockArea name="Frequncy-domain Acoustic Feature Visualization">
         <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
-         <range bottom="1746.873703" right="190.529968" top="10589.543667" left="0.013321"/>
+         <range bottom="492.302856" left="0.008634" top="10564.996948" right="789.944628"/>
          <limitY/>
          <curve name="/acoustic_feature/spectral_bandwidth.0" color="#ff0e2c">
           <transform alias="/acoustic_feature/spectral_bandwidth.0[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="20" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/spectral_centroids.0" color="#ffd90f">
           <transform alias="/acoustic_feature/spectral_centroids.0[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="30" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/spectral_rolloff.0" color="#ab67bd">
           <transform alias="/acoustic_feature/spectral_rolloff.0[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="20" compensate_offset="false"/>
           </transform>
          </curve>
         </plot>
        </DockArea>
        <DockArea name="Acoustic Feature - MFCC">
         <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
-         <range bottom="-450.929191" right="190.529968" top="164.223557" left="0.013321"/>
+         <range bottom="-413.781848" left="0.008634" top="149.856953" right="789.944628"/>
          <limitY/>
-         <curve name="/acoustic_feature/mfccs.0" color="#17becf">
+         <curve name="/acoustic_feature/mfccs.0" color="#cf1a17">
           <transform alias="/acoustic_feature/mfccs.0[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="50" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/mfccs.1" color="#bcbd22">
           <transform alias="/acoustic_feature/mfccs.1[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="20" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/mfccs.2" color="#1f77b4">
           <transform alias="/acoustic_feature/mfccs.2[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="50" compensate_offset="false"/>
           </transform>
          </curve>
-         <curve name="/acoustic_feature/mfccs.3" color="#d62728">
+         <curve name="/acoustic_feature/mfccs.3" color="#27c9d6">
           <transform alias="/acoustic_feature/mfccs.3[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="50" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/mfccs.4" color="#1ac938">
           <transform alias="/acoustic_feature/mfccs.4[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="50" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/mfccs.5" color="#ff7f0e">
           <transform alias="/acoustic_feature/mfccs.5[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="20" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/acoustic_feature/mfccs.6" color="#f14cc1">
           <transform alias="/acoustic_feature/mfccs.6[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="20" compensate_offset="false"/>
+          </transform>
+         </curve>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter count="4" sizes="0.22585;0.236735;0.253061;0.284354" orientation="-">
+       <DockArea name="Melt-pool Feature Monitoring">
+        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
+         <range bottom="-1118.457083" left="764125.056365" top="45856.740417" right="764914.892711"/>
+         <limitY/>
+         <curve name="/contour_moments/moments/moments.0/area" color="#0d58ec">
+          <transform alias="/contour_moments/moments/moments.0/area[Moving Average]" name="Moving Average">
+           <options value="30" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/convex_hull/hull_area/area.0" color="#ff4027">
+          <transform alias="/convex_hull/hull_area/area.0[Moving Average]" name="Moving Average">
+           <options value="40" compensate_offset="false"/>
           </transform>
          </curve>
         </plot>
        </DockArea>
        <DockArea name="Melt pool width and length">
         <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
-         <range bottom="-7.959919" right="611942.940732" top="326.356694" left="611752.696330"/>
+         <range bottom="-5.896071" left="0.022248" top="241.738927" right="789.961310"/>
          <limitY/>
          <curve name="/usb_cam/geometry/minor_axis" color="#ff4900">
           <transform alias="/usb_cam/geometry/minor_axis[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="100" compensate_offset="false"/>
           </transform>
          </curve>
          <curve name="/usb_cam/geometry/major_axis" color="#5e3cee">
           <transform alias="/usb_cam/geometry/major_axis[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
-          </transform>
-         </curve>
-        </plot>
-       </DockArea>
-      </DockSplitter>
-      <DockSplitter sizes="0.333698;0.332604;0.333698" count="3" orientation="-">
-       <DockArea name="Melt-pool Feature Monitoring">
-        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
-         <range bottom="-1822.355556" right="611942.932898" top="74716.577778" left="611752.716370"/>
-         <limitY/>
-         <curve name="/contour_moments/moments/moments.0/area" color="#0d58ec">
-          <transform alias="/contour_moments/moments/moments.0/area[Moving Average]" name="Moving Average">
-           <options value="9" compensate_offset="false"/>
-          </transform>
-         </curve>
-         <curve name="/convex_hull/hull_area/area.0" color="#ff4027">
-          <transform alias="/convex_hull/hull_area/area.0[Moving Average]" name="Moving Average">
-           <options value="10" compensate_offset="false"/>
+           <options value="100" compensate_offset="false"/>
           </transform>
          </curve>
         </plot>
        </DockArea>
        <DockArea name="Robot Motion Monitoring">
         <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
-         <range bottom="-74.207525" right="189.257600" top="85.092180" left="0.000000"/>
+         <range bottom="-29.154555" left="0.000000" top="32.719650" right="788.503036"/>
          <limitY/>
          <curve name="/cartesian_velocity/Speed" color="#cf0113">
           <transform alias="/cartesian_velocity/Speed[Moving Average]" name="Moving Average">
-           <options value="100" compensate_offset="false"/>
+           <options value="300" compensate_offset="true"/>
           </transform>
          </curve>
          <curve name="/cartesian_velocity/Vx" color="#546fff">
           <transform alias="/cartesian_velocity/Vx[Moving Average]" name="Moving Average">
-           <options value="100" compensate_offset="false"/>
+           <options value="300" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/cartesian_velocity/Vy" color="#3dd627">
+          <transform alias="/cartesian_velocity/Vy[Moving Average]" name="Moving Average">
+           <options value="300" compensate_offset="false"/>
           </transform>
          </curve>
         </plot>
        </DockArea>
-       <DockArea name="X-Z Position">
-        <plot style="Lines" flip_x="false" mode="XYPlot" flip_y="false">
-         <range bottom="914.451014" right="3074.741956" top="943.510986" left="2980.261951"/>
-         <limitY min="918.609" max="939.353"/>
-         <curve curve_x="/cartesian_position/X" curve_y="/cartesian_position/Z" name="/cartesian_position/[X;Z]" color="#009dff"/>
-        </plot>
-       </DockArea>
+       <DockSplitter count="3" sizes="0.333863;0.332273;0.333863" orientation="|">
+        <DockArea name="X-Z Position">
+         <plot style="Lines" flip_x="false" mode="XYPlot" flip_y="false">
+          <range bottom="905.078316" left="3038.878441" top="941.270684" right="3087.244606"/>
+          <limitY min="918.81" max="927.539"/>
+          <curve name="/cartesian_position/[X;Z]" color="#009dff" curve_y="/cartesian_position/Z" curve_x="/cartesian_position/X"/>
+         </plot>
+        </DockArea>
+        <DockArea name="X-Y">
+         <plot style="Lines" flip_x="false" mode="XYPlot" flip_y="false">
+          <range bottom="-1769.590702" left="3038.242201" top="-1728.162960" right="3087.880846"/>
+          <limitY/>
+          <curve name="/cartesian_position/[X;Y]" color="#f14cc1" curve_y="/cartesian_position/Y" curve_x="/cartesian_position/X"/>
+         </plot>
+        </DockArea>
+        <DockArea name="...">
+         <plot style="Lines" flip_x="false" mode="XYPlot" flip_y="false">
+          <range bottom="904.447634" left="-1773.659171" top="942.130369" right="-1724.094491"/>
+          <limitY/>
+          <curve name="/cartesian_position/[Y;Z]" color="#bcbd22" curve_y="/cartesian_position/Z" curve_x="/cartesian_position/Y"/>
+         </plot>
+        </DockArea>
+       </DockSplitter>
       </DockSplitter>
      </DockSplitter>
     </DockSplitter>
@@ -153,7 +174,7 @@
  <!-- - - - - - - - - - - - - - - -->
  <Plugins>
   <plugin ID="DataLoad CSV">
-   <default delimiter="0" time_axis=""/>
+   <default time_axis="" delimiter="0"/>
   </plugin>
   <plugin ID="DataLoad ROS bags">
    <use_header_stamp value="false"/>
