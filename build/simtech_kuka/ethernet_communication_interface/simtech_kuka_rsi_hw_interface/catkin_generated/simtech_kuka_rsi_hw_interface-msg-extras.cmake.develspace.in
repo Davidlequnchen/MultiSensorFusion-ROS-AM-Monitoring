@@ -1,2 +1,0 @@
-set(simtech_kuka_rsi_hw_interface_MESSAGE_FILES "/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartPosition.msg;/home/lequn/Documents/GitHub/SIMTech_ws/src/simtech_kuka/ethernet_communication_interface/simtech_kuka_rsi_hw_interface/msg/MsgCartVelocity.msg")
-set(simtech_kuka_rsi_hw_interface_SERVICE_FILES "")

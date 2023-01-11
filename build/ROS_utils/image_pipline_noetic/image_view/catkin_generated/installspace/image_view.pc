@@ -1,8 +1,0 @@
-prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
-
-Name: image_view
-Description: Description of image_view
-Version: 1.16.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: dynamic_reconfigure

@@ -11,13 +11,13 @@
   <arg name="min_distance" default="2"  doc="Minimum possible Euclidean distance between the returned corners."/>
   <arg name="block_size" default="3" doc="Size of an average block for computing a derivative covariation matrix over each pixel neighborhood."/>
   <arg name="harris_k" default="0.04" doc="Free parameter of the Harris detector"/>
-  <arg name="plotjuggler_viz" default="false"/>
-  <arg name="plotjuggler_viz_multimodal" default="false"/>
+  <arg name="plotjuggler_viz" default="true"/>
+  <arg name="plotjuggler_viz_multimodal" default="true"/>
   <arg name="camera_on" default="false"/> 
 
   <!-- <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find experiment_data)/data/13_Dec_DSO_printing/4.bag"/> -->
   <node pkg="rosbag" type="play" name="rosbag" required="true" 
-        args="/media/lequn/Lequn_HD/Research_Projects/Thermal_camera_monitoring/Multimodal_experiment_June_2022/Powder_single_wall_23_June/ROS/23.bag"/>
+        args="/media/lequn/Lequn_HD/Research_Projects/Thermal_camera_monitoring/Multimodal_experiment_June_2022/powder_single_wall_23_June/ROS/21.bag"/>
 
   <node name="image_view_2" pkg="image_view" type="image_view" respawn="false" output="screen">
     <remap from="image" to="/usb_cam/masked_binarized"/>
@@ -84,10 +84,10 @@
 
   <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz_multimodal)"/>
 
-  <node pkg="rosbag" type="record" name="rosbag_record_features"
-       args="record -O /media/lequn/Lequn_HD/Research_Projects/Thermal_camera_monitoring/Multimodal_experiment_June_2022/Powder_single_wall_23_June/ROS_feature_extracted/23_features 
+  <!-- <node pkg="rosbag" type="record" name="rosbag_record_features"
+       args="record -O /media/lequn/Lequn_HD/Research_Projects/Thermal_camera_monitoring/Multimodal_experiment_June_2022/powder_experiment_25/ros_feature_extraction/39_features 
        /contour_moments/moments /convex_hull/hull_area /general_contours/ellipses 
-       /general_contours/rectangles /general_contours/max_contour_area"/>
+       /general_contours/rectangles /general_contours/max_contour_area"/> -->
 
 
   

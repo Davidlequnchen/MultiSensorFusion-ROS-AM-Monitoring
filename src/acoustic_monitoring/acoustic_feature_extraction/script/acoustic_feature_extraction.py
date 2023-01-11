@@ -93,6 +93,23 @@ class NdAudioSignal():
             band_energy_ratio.append(band_energy_ratio_current_frame)
         return np.array(band_energy_ratio)
 
+    def spectral_crest(spectrum):
+        """
+        Compute the spectral crest factor, i.e. the ratio of the maximum of the spectrum to the
+        sum of the spectrum
+        reference:
+        - https://github.com/jsawruk/pymir/blob/master/pymir/Spectrum.py
+        - https://dsp.stackexchange.com/questions/27221/calculating-rms-crest-factor-for-a-stereo-signal
+        """
+        # absSpectrum = abs(spectrum)
+        absSpectrum = np.absolute(spectrum)
+        spectralSum = np.sum(absSpectrum)
+
+        maxFrequencyIndex = np.argmax(absSpectrum)
+        # maxSpectrum = absSpectrum[maxFrequencyIndex]
+        maxSpectrum = np.amax(absSpectrum, axis=0)
+
+        return maxSpectrum / spectralSum
 
 
 
@@ -115,51 +132,55 @@ class NdAudioSignal():
         ## -------------------------------Frequency-domain feature extraction-------------------------------------
         ## Short-time FFT
         S_audio_data = librosa.stft(audio_data_numpy, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)
-        Y_audio_data = np.abs(S_audio_data) ** 2 # calculation of power spectrogram (convert from complex number to real number), should be (r,c)
-        Y_log_audio_data = librosa.power_to_db(Y_audio_data) # convert to log frequency
-
-        ## Mel-spectrogram - mel scale representation
-        # shape (n_mels, xxx)
-        mel_spectrogram = librosa.feature.melspectrogram(audio_data_numpy, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH, n_mels=10)
-
-        ## Mel-Frequency Cepstral Coefficients(MFCCs)
-        # shape (n_mfcc, xxx)
+        S_power, phase = librosa.magphase(S_audio_data)
         mfccs = librosa.feature.mfcc(y=audio_data_numpy, n_mfcc=13, sr=self.sampling_rate)
        
         ## Band-Energy Ratio: based on spectrogram (Short time FT)
         # 1D numpy array 
-        ber = self.band_energy_ratio(S_audio_data, split_frequency=200, sample_rate=self.sampling_rate)
+        # ber = self.band_energy_ratio(S_audio_data, split_frequency=200, sample_rate=self.sampling_rate)
         # ber_normalized = self.normalize(ber)
         
         ## spectral centroid 
         spectral_centroids = librosa.feature.spectral_centroid(y=audio_data_numpy, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0] 
         # spectral_centroids_normalized = self.normalize(spectral_centroids)
         ## spectral rolloff
-        spectral_rolloff = librosa.feature.spectral_rolloff(y=audio_data_numpy+0.01, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
+        spectral_rolloff = librosa.feature.spectral_rolloff(y=audio_data_numpy, sr=self.sampling_rate, roll_percent=0.85)
         # spectral_rolloff_normalized = self.normalize(spectral_rolloff)
         ## spectral bandwidth
         spectral_bandwidth = librosa.feature.spectral_bandwidth(y=audio_data_numpy, sr=self.sampling_rate, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
         # spectral_bandwidth_normalized = self.normalize(spectral_bandwidth)
+        ## spectral flatness
+        spectral_flatness = librosa.feature.spectral_flatness(y = audio_data_numpy, power=2, n_fft=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
+        ## spectral kurtosis
+        spectral_kurtosis = scipy.stats.kurtosis(abs(S_power))
+        ## spectral variance
+        spectral_variance = scipy.stats.variation(abs(S_power))
+        ## spectral crest factor
+        spectral_crest_factor = self.spectral_crest(S_power)
 
         
         # initialise the message objects
         msg_acoustic_feature = MsgAcousticFeature()
         msg_acoustic_feature.header = msg_audio.header
+        ## time-domain features
         msg_acoustic_feature.rms_energy = rms_energy ## without scaling
         msg_acoustic_feature.amplitude_envelope = ae
         msg_acoustic_feature.zero_crossing_rate = zero_crossing_rate
-        # frequency-domain feature
-        msg_acoustic_feature.mel_spectrogram = mel_spectrogram
-        msg_acoustic_feature.mfccs = mfccs
-        msg_acoustic_feature.ber = ber
+        # msg_acoustic_feature.ber = ber
+
+        ## frequency-domain feature
         msg_acoustic_feature.spectral_centroids = spectral_centroids
         msg_acoustic_feature.spectral_rolloff = spectral_rolloff
         msg_acoustic_feature.spectral_bandwidth = spectral_bandwidth
+        msg_acoustic_feature.spectral_kurtosis = spectral_kurtosis
+        msg_acoustic_feature.spectral_flatness = spectral_flatness
+        msg_acoustic_feature.spectral_variance = spectral_variance
+        msg_acoustic_feature.spectral_crest_factor = spectral_crest_factor
+        # msg_acoustic_feature.
 
-        # msg_acoustic_feature.spectral_centroids = spectral_centroids_normalized
-        # msg_acoustic_feature.spectral_rolloff = spectral_rolloff
-        # msg_acoustic_feature.mfccs_variance = mfccs_variance
-        # msg_acoustic_feature.mfccs_mean = mfccs_mean
+        ## time-freqeuncy representations
+        # msg_acoustic_feature.mel_spectrogram = mel_spectrogram
+        msg_acoustic_feature.mfccs = mfccs
 
         self.pub_acoustic_feature.publish(msg_acoustic_feature)
 

@@ -1,8 +1,0 @@
-prefix=/home/lequn/Documents/GitHub/SIMTech_ws/install
-
-Name: audio_convert
-Description: Description of audio_convert
-Version: 0.1.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

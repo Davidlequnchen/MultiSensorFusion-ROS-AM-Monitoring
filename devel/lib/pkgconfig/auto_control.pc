@@ -1,8 +1,0 @@
-prefix=/home/lequn/Documents/GitHub/SIMTech_ws/devel
-
-Name: auto_control
-Description: Description of auto_control
-Version: 1.2.3
-Cflags: -I/home/lequn/Documents/GitHub/SIMTech_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: rospy std_msgs message_runtime
