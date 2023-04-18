@@ -117,14 +117,14 @@ if __name__ == '__main__':
     moments = Moments(127)
     img_bin = moments.binarize(img)
     center, axis, angle = moments.find_ellipse(img_bin)
-    print center, axis, angle
+    print (center, axis, angle)
 
     img_pix = moments.levels(img, 63, 191)
     pellipse = moments.find_ellipse(img_pix)
-    print pellipse
+    print (pellipse)
 
     left, top, right, bottom = moments.bounding_box(img)
-    print right - left, bottom - top
+    print (right - left, bottom - top)
 
     plt.figure()
     plt.subplot(221)

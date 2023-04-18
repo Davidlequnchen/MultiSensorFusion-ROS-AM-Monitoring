@@ -4,7 +4,7 @@ project(scanning_robviz)
 ADD_COMPILE_OPTIONS(-std=c++11 )
 ADD_COMPILE_OPTIONS(-std=c++14 )
 set( CMAKE_CXX_FLAGS "-std=c++11 -O3" )
-# 或不规定cmkae编译带有c++11特性等均可以编译成功。
+
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp

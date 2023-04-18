@@ -1,9 +1,0 @@
-<launch>
-  <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find experiment_data)/3/3.bag"/>
-  <node name="extract" pkg="image_view" type="extract_images" respawn="false" required="true" output="screen" cwd="ROS_HOME">
-    <!-- <remap from="image" to="/infratec/image_raw"/> -->
-    <!-- <param name="filename_format" type="str" value="jpg"/> -->
-    <param name="sec_per_frame" type="double" value="0.1" /> 
-    <remap from="image" to="/infratec/image_converted_mono"/> 
-  </node>
-</launch>

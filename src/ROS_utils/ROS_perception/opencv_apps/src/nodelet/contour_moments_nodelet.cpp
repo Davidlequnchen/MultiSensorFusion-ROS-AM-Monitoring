@@ -203,12 +203,12 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
             mc[i] = cv::Point2f(static_cast<float>(mu[i].m10 / mu[i].m00), static_cast<float>(mu[i].m01 / mu[i].m00));
           }
 
-          if (debug_view_)
-          {
-            cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-            cv::drawContours(drawing, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point());
-            cv::circle(drawing, mc[i], 4, color, -1, 8, 0);
-          }
+          // if (debug_view_)
+          // {
+          //   cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+          //   cv::drawContours(drawing, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point());
+          //   cv::circle(drawing, mc[i], 4, color, -1, 8, 0);
+          // }
           NODELET_INFO(" * Contour[%d] - Area (M_00) = %.2f - Area OpenCV: %.2f - Length: %.2f - Center (%.2f, %.2f)",
                       (int)i, mu[i].m00, cv::contourArea(contours[i]), cv::arcLength(contours[i], true), mc[i].x,
                       mc[i].y);
@@ -250,7 +250,7 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
         //--------------------------------------------------------------------------------
         // int index = std::max_element(hull_area.begin(),hull_area.end()) - hull_area.begin();
         // contours.size()-1: max contour area; 0 - minimum contour area
-        int index = contours.size()-1; // the area has already been sorted, 0-smallest, contours.size()-1: largest area
+        int index = 0; // the area has already been sorted, 0-smallest, contours.size()-1: largest area
         moment_msg.m00 = mu[index].m00;
         moment_msg.m10 = mu[index].m10;
         moment_msg.m01 = mu[index].m01;
@@ -283,12 +283,12 @@ class ContourMomentsNodelet : public opencv_apps::Nodelet
         moment_msg.length = cv::arcLength(contours[index], true);
         moments_msg.moments.push_back(moment_msg);
         // Update the OpenCV image view
-        // if (debug_view_)
-        // {
-        //   cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-        //   cv::drawContours(drawing, contours[index], (int)0, color, 2, 8, hierarchy, 0, cv::Point());
-        //   cv::circle(drawing, mc[index], 4, color, -1, 8, 0);
-        // }
+        if (debug_view_)
+          {
+            cv::Scalar color = cv::Scalar(rng.uniform(0, 150), rng.uniform(0, 255), rng.uniform(0, 255));
+            cv::drawContours(drawing, contours, (int)index, color, 2, 6, hierarchy, 0, cv::Point());
+            cv::circle(drawing, mc[index], 4, color, -1, 8, 0);
+          }
 
     
       }

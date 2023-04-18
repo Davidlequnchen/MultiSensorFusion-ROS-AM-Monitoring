@@ -1,1 +1,1 @@
-class breakCCompiler;int main(int argc, char **argv) { return 0; }
+class breakCCompiler;int main(void) { return 0; }

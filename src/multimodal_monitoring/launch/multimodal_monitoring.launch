@@ -5,13 +5,15 @@
   <arg name="abb" default="false" />
   <arg name="kuka" default="true" />
   <arg name="rviz" default="true"/>
-  <arg name="thermal" default="true"/>
+  <arg name="thermal" default="false"/>
+  <arg name="vision" default="true"/>
   <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
   <arg name="plotjuggler_viz_multimodal" default="false"/>
-  <arg name="dst" default="/media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.wav"/>
+  <!-- <arg name="dst" default="/media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.wav"/> -->
+  <arg name="dst" default="/home/lequn/temp_data/40.wav"/>
   
 
 
@@ -35,6 +37,14 @@
     <arg name="image_processing"  value="$(arg image_processing)"/>
   </include>
 
+  <!-- Coaxial CCD monitoring -->
+  <include file="$(find camera_measures)/launch/coaxial_vision_measures.launch" if="$(arg vision)">
+    <arg name="gui" value="true" />
+    <arg name="contour_extract" value="true"/>
+    <arg name="convex_hull_extract" value="true"/>
+    <arg name="moment_extract" value="false"/>
+  </include>
+
   <!-- acoustic monitoring -->
   <include file="$(find acoustic_feature_extraction)/launch/acoustic_monitoring.launch" if="$(arg acoustic)">
     <arg name="audio_topic" value="$(arg audio_topic)"/>
@@ -44,9 +54,9 @@
   </include>
 
   <!-- data recording  -->
-  <!-- <include file="$(find audio_play)/launch/play.launch" if="$(arg acoustic)">
+  <include file="$(find audio_play)/launch/play.launch" if="$(arg acoustic)">
     <arg name="dst" default="$(arg dst)"/>
-  </include> -->
+  </include>
 
   <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz_multimodal)"/>
 

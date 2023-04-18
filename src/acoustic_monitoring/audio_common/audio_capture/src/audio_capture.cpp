@@ -28,9 +28,8 @@ namespace audio_transport
 
         // only available for raw data
         ros::param::param<int>("~channels", _channels, 1);
-        // The audio bit depth determines the number of possible amplitude values we can record for each sample -  for quantization
-        ros::param::param<int>("~depth", _depth, 16); // can be 16,32,64
-        ros::param::param<int>("~sample_rate", _sample_rate, 44100); // Hz
+        ros::param::param<int>("~depth", _depth, 16);
+        ros::param::param<int>("~sample_rate", _sample_rate, 16000);
 
         // The destination of the audio
         ros::param::param<std::string>("~dst", dst_type, "appsink");
@@ -65,15 +64,6 @@ namespace audio_transport
           ROS_INFO("file sink to %s", dst_type.c_str());
           _sink = gst_element_factory_make("filesink", "sink");
           g_object_set( G_OBJECT(_sink), "location", dst_type.c_str(), NULL);
-          
-          //--------------------added-----------------------
-          // g_object_set(G_OBJECT(_sink), "emit-signals", true, NULL);
-          // _sink_app = gst_element_factory_make("appsink", "sink");
-          // g_object_set(G_OBJECT(_sink_app), "emit-signals", true, NULL);
-          // g_object_set(G_OBJECT(_sink_app), "max-buffers", 100, NULL);
-          // g_signal_connect( G_OBJECT(_sink_app), "new-sample",
-          //                   G_CALLBACK(onNewBuffer), this);
-          //--------------------------------------------
         }
 
         _source = gst_element_factory_make("alsasrc", "source");
@@ -119,10 +109,6 @@ namespace audio_transport
 
           gst_bin_add_many( GST_BIN(_pipeline), _source, _filter, _convert, _encode, _sink, NULL);
           link_ok = gst_element_link_many(_source, _filter, _convert, _encode, _sink, NULL);
-          //----------------------------added---------------------------------
-          // gst_bin_add_many( GST_BIN(_pipeline), _source, _filter, _convert, _encode, _sink_app, NULL);
-          // link_ok = gst_element_link_many(_source, _filter, _convert, _encode, _sink_app, NULL);
-          //----------------------------added---------------------------------
         } else if (_format == "wave") {
           if (dst_type == "appsink") {
             g_object_set( G_OBJECT(_sink), "caps", caps, NULL);
@@ -133,12 +119,6 @@ namespace audio_transport
             _filter = gst_element_factory_make("wavenc", "filter");
             gst_bin_add_many( GST_BIN(_pipeline), _source, _filter, _sink, NULL);
             link_ok = gst_element_link_many( _source, _filter, _sink, NULL);
-            //---------------added----------------------------
-            // g_object_set( G_OBJECT(_sink_app), "caps", caps, NULL);
-            // gst_caps_unref(caps);
-            // gst_bin_add_many( GST_BIN(_pipeline), _source, _sink_app, NULL);
-            // link_ok = gst_element_link_many( _source, _sink_app, NULL);
-            //---------------added----------------------------
           }
         } else {
           ROS_ERROR_STREAM("format must be \"wave\" or \"mp3\"");
@@ -238,7 +218,7 @@ namespace audio_transport
 
       boost::thread _gst_thread;
 
-      GstElement *_pipeline, *_source, *_filter, *_sink, *_convert, *_encode, *_sink_app;
+      GstElement *_pipeline, *_source, *_filter, *_sink, *_convert, *_encode;
       GstBus *_bus;
       int _bitrate, _channels, _depth, _sample_rate;
       GMainLoop *_loop;

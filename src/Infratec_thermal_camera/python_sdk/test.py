@@ -295,8 +295,11 @@ if __name__ == '__main__':
         app = QApplication(sys.argv)
     else:
         app = QApplication.instance() 
+    print ("application launched...")
     demo = irbgrab_demo()
+    print ("demo loaded...")
     demo.load_dll()
+    print ("ddl loaded...")
     demo.create_device()
     demo.connect()
     # demo.irbgrab_object.setparam_int32(113,1)

@@ -33,7 +33,8 @@ class Geometry():
 
         # Draw a white, filled circle on the mask image
         # cv2.circle(image, center_coordinates, radius, color, thickness)
-        cv2.circle(mask, (382,228), 55, (255, 255, 255),110)
+        # cv2.circle(mask, (382,228), 55, (255, 255, 255),110)
+        cv2.circle(mask, (240,272), 82, (255, 255, 255),164)
         # for camera 0
         #cv2.circle(mask, (640,360), 100, (255, 255, 255),200)
 
@@ -199,7 +200,7 @@ if __name__ == '__main__':
 
     geometry = Geometry(127)
     ellipse = geometry.find_geometry(frame)
-    print ellipse
+    print (ellipse)
 
     img = cv2.resize(img, (frame.shape[0] * 10, frame.shape[1] * 10))
     center = (ellipse[0][0] * 10, ellipse[0][1] * 10)
@@ -211,7 +212,7 @@ if __name__ == '__main__':
     img = cv2.imread('../../data/frame0001.jpg')
     frame = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ellipse = geometry.find_geometry(frame)
-    print ellipse
+    print (ellipse)
 
     frame2 = geometry.draw_geometry(img, ellipse)
 

@@ -1,0 +1,9 @@
+prefix=/home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir
+srcdir=/home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+Name: mescan
+Description: Library for operating MICRO-EPSILON scanCONTROL sensors
+Version: 0.2.3
+Libs: -lmescan

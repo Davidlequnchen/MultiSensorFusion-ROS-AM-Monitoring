@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget name="Main Window" parent="main_window">
+  <Tab containers="1" tab_name="Multimodal Monitoring">
+   <Container>
+    <DockSplitter sizes="1" count="1" orientation="-">
+     <DockSplitter sizes="0.547355;0.452645" count="2" orientation="|">
+      <DockSplitter sizes="0.250821;0.232202;0.292442;0.224535" count="4" orientation="-">
+       <DockArea name="Time-domain Acoustic Feature Monitoring">
+        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
+         <range bottom="0.007318" right="190.529968" top="0.121510" left="0.013321"/>
+         <limitY/>
+         <curve name="/acoustic_feature/amplitude_envelope" color="#1f77b4">
+          <transform alias="/acoustic_feature/amplitude_envelope[Moving Average]" name="Moving Average">
+           <options value="20" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/rms_energy" color="#d33000">
+          <transform alias="/acoustic_feature/rms_energy[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+        </plot>
+       </DockArea>
+       <DockArea name="Frequncy-domain Acoustic Feature Visualization">
+        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
+         <range bottom="1746.873703" right="190.529968" top="10589.543667" left="0.013321"/>
+         <limitY/>
+         <curve name="/acoustic_feature/spectral_bandwidth.0" color="#ff0e2c">
+          <transform alias="/acoustic_feature/spectral_bandwidth.0[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/spectral_centroids.0" color="#ffd90f">
+          <transform alias="/acoustic_feature/spectral_centroids.0[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/spectral_rolloff.0" color="#ab67bd">
+          <transform alias="/acoustic_feature/spectral_rolloff.0[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+        </plot>
+       </DockArea>
+       <DockArea name="Acoustic Feature - MFCC">
+        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
+         <range bottom="-450.929191" right="190.529968" top="164.223557" left="0.013321"/>
+         <limitY/>
+         <curve name="/acoustic_feature/mfccs.0" color="#17becf">
+          <transform alias="/acoustic_feature/mfccs.0[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/mfccs.1" color="#bcbd22">
+          <transform alias="/acoustic_feature/mfccs.1[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/mfccs.2" color="#1f77b4">
+          <transform alias="/acoustic_feature/mfccs.2[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/mfccs.3" color="#d62728">
+          <transform alias="/acoustic_feature/mfccs.3[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/mfccs.4" color="#1ac938">
+          <transform alias="/acoustic_feature/mfccs.4[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/mfccs.5" color="#ff7f0e">
+          <transform alias="/acoustic_feature/mfccs.5[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/acoustic_feature/mfccs.6" color="#f14cc1">
+          <transform alias="/acoustic_feature/mfccs.6[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+        </plot>
+       </DockArea>
+       <DockArea name="Melt pool width and length">
+        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
+         <range bottom="-7.959919" right="611942.940732" top="326.356694" left="611752.696330"/>
+         <limitY/>
+         <curve name="/usb_cam/geometry/minor_axis" color="#ff4900">
+          <transform alias="/usb_cam/geometry/minor_axis[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/usb_cam/geometry/major_axis" color="#5e3cee">
+          <transform alias="/usb_cam/geometry/major_axis[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter sizes="0.333698;0.332604;0.333698" count="3" orientation="-">
+       <DockArea name="Melt-pool Feature Monitoring">
+        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
+         <range bottom="-1822.355556" right="611942.932898" top="74716.577778" left="611752.716370"/>
+         <limitY/>
+         <curve name="/contour_moments/moments/moments.0/area" color="#0d58ec">
+          <transform alias="/contour_moments/moments/moments.0/area[Moving Average]" name="Moving Average">
+           <options value="9" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/convex_hull/hull_area/area.0" color="#ff4027">
+          <transform alias="/convex_hull/hull_area/area.0[Moving Average]" name="Moving Average">
+           <options value="10" compensate_offset="false"/>
+          </transform>
+         </curve>
+        </plot>
+       </DockArea>
+       <DockArea name="Robot Motion Monitoring">
+        <plot style="Lines" flip_x="false" mode="TimeSeries" flip_y="false">
+         <range bottom="-74.207525" right="189.257600" top="85.092180" left="0.000000"/>
+         <limitY/>
+         <curve name="/cartesian_velocity/Speed" color="#cf0113">
+          <transform alias="/cartesian_velocity/Speed[Moving Average]" name="Moving Average">
+           <options value="100" compensate_offset="false"/>
+          </transform>
+         </curve>
+         <curve name="/cartesian_velocity/Vx" color="#546fff">
+          <transform alias="/cartesian_velocity/Vx[Moving Average]" name="Moving Average">
+           <options value="100" compensate_offset="false"/>
+          </transform>
+         </curve>
+        </plot>
+       </DockArea>
+       <DockArea name="X-Z Position">
+        <plot style="Lines" flip_x="false" mode="XYPlot" flip_y="false">
+         <range bottom="914.451014" right="3074.741956" top="943.510986" left="2980.261951"/>
+         <limitY min="918.609" max="939.353"/>
+         <curve curve_x="/cartesian_position/X" curve_y="/cartesian_position/Z" name="/cartesian_position/[X;Z]" color="#009dff"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="0"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <default delimiter="0" time_axis=""/>
+  </plugin>
+  <plugin ID="DataLoad ROS bags">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="false"/>
+   <remove_suffix_from_strings value="false"/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS Topic Subscriber">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="false"/>
+   <remove_suffix_from_strings value="false"/>
+  </plugin>
+  <plugin ID="UDP Server"/>
+  <plugin ID="WebSocket Server"/>
+  <plugin ID="Fast Fourier Transform"/>
+  <plugin ID="Quaternion to RPY"/>
+  <plugin ID="Reactive Script Editor">
+   <library code="--[[ Helper function to create a series from arrays&#xa;&#xa; new_series: a series previously created with ScatterXY.new(name)&#xa; prefix:     prefix of the timeseries, before the index of the array&#xa; suffix_X:   suffix to complete the name of the series containing the X value. If [nil], use the index of the array.&#xa; suffix_Y:   suffix to complete the name of the series containing the Y value&#xa; timestamp:   usually the tracker_time variable&#xa;              &#xa; Example:&#xa; &#xa; Assuming we have multiple series in the form:&#xa; &#xa;   /trajectory/node.{X}/position/x&#xa;   /trajectory/node.{X}/position/y&#xa;   &#xa; where {N} is the index of the array (integer). We can create a reactive series from the array with:&#xa; &#xa;   new_series = ScatterXY.new(&quot;my_trajectory&quot;) &#xa;   CreateSeriesFromArray( new_series, &quot;/trajectory/node&quot;, &quot;position/x&quot;, &quot;position/y&quot;, tracker_time );&#xa;]]--&#xa;&#xa;function CreateSeriesFromArray( new_series, prefix, suffix_X, suffix_Y, timestamp )&#xa;  &#xa;  --- clear previous values&#xa;  new_series:clear()&#xa;  &#xa;  --- Append points to new_series&#xa;  index = 0&#xa;  while(true) do&#xa;&#xa;    x = index;&#xa;    -- if not nil, get the X coordinate from a series&#xa;    if suffix_X ~= nil then &#xa;      series_x = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_X) )&#xa;      if series_x == nil then break end&#xa;      x = series_x:atTime(timestamp)&#x9; &#xa;    end&#xa;    &#xa;    series_y = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_Y) )&#xa;    if series_y == nil then break end &#xa;    y = series_y:atTime(timestamp)&#xa;    &#xa;    new_series:push_back(x,y)&#xa;    index = index+1&#xa;  end&#xa;end&#xa;&#xa;--[[ Similar to the built-in function GetSeriesNames(), but select only the names with a give prefix. ]]--&#xa;&#xa;function GetSeriesNamesByPrefix(prefix)&#xa;  -- GetSeriesNames(9 is a built-in function&#xa;  all_names = GetSeriesNames()&#xa;  filtered_names = {}&#xa;  for i, name in ipairs(all_names)  do&#xa;    -- check the prefix&#xa;    if name:find(prefix, 1, #prefix) then&#xa;      table.insert(filtered_names, name);&#xa;    end&#xa;  end&#xa;  return filtered_names&#xa;end&#xa;&#xa;--[[ Modify an existing series, applying offsets to all their X and Y values&#xa;&#xa; series: an existing timeseries, obtained with TimeseriesView.find(name)&#xa; delta_x: offset to apply to each x value&#xa; delta_y: offset to apply to each y value  &#xa;&#xa;]]--&#xa;&#xa;function ApplyOffsetInPlace(series, delta_x, delta_y)&#xa;  -- use C++ indeces, not Lua indeces&#xa;  for index=0, series:size()-1 do&#xa;    x,y = series:at(index)&#xa;    series:set(index, x + delta_x, y + delta_y)&#xa;  end&#xa;end&#xa;"/>
+   <scripts/>
+  </plugin>
+  <plugin ID="CSV Exporter"/>
+  <plugin ID="ROS /rosout Visualization"/>
+  <plugin ID="ROS Topic Re-Publisher"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - - -->
+</root>
+

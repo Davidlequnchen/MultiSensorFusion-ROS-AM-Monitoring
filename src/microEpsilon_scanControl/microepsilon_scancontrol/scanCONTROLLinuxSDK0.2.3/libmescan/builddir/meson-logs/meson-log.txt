@@ -1,29 +1,144 @@
-Build started at 2020-01-31T11:10:49.975154
+Build started at 2023-04-18T13:33:03.456032
 Main binary: /usr/bin/python3
+Build Options: 
 Python system: Linux
 The Meson build system
-Version: 0.45.1
-Source dir: /home/chenlequn/Downloads/scanCONTROL Linux SDK 0.2.3/libmescan
-Build dir: /home/chenlequn/Downloads/scanCONTROL Linux SDK 0.2.3/libmescan/builddir
+Version: 0.56.0
+Source dir: /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan
+Build dir: /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir
 Build type: native build
 Project name: mescan
+Project version: 0.2.3
+None of 'CC' are defined in the environment, not changing global flags.
+None of 'CFLAGS' are defined in the environment, not changing global flags.
+None of 'LDFLAGS' are defined in the environment, not changing global flags.
+None of 'CPPFLAGS' are defined in the environment, not changing global flags.
+None of 'CC_LD' are defined in the environment, not changing global flags.
 Sanity testing C compiler: cc
 Is cross compiler: False.
-Sanity check compiler command line: cc /home/chenlequn/Downloads/scanCONTROL Linux SDK 0.2.3/libmescan/builddir/meson-private/sanitycheckc.c -o /home/chenlequn/Downloads/scanCONTROL Linux SDK 0.2.3/libmescan/builddir/meson-private/sanitycheckc.exe
+None of 'CC_LD' are defined in the environment, not changing global flags.
+Sanity check compiler command line: cc /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/sanitycheckc.c -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/sanitycheckc.exe -pipe -D_FILE_OFFSET_BITS=64
 Sanity check compile stdout:
 
 -----
 Sanity check compile stderr:
 
 -----
-Running test binary command: /home/chenlequn/Downloads/scanCONTROL Linux SDK 0.2.3/libmescan/builddir/meson-private/sanitycheckc.exe
-Native C compiler: cc (gcc 7.4.0 "cc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0")
+Running test binary command: /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/sanitycheckc.exe
+C compiler for the host machine: cc (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the host machine: cc ld.bfd 2.34
+None of 'AR' are defined in the environment, not changing global flags.
+None of 'CC' are defined in the environment, not changing global flags.
+None of 'CFLAGS' are defined in the environment, not changing global flags.
+None of 'LDFLAGS' are defined in the environment, not changing global flags.
+None of 'CPPFLAGS' are defined in the environment, not changing global flags.
+None of 'CC_LD' are defined in the environment, not changing global flags.
+Sanity testing C compiler: cc
+Is cross compiler: False.
+None of 'CC_LD' are defined in the environment, not changing global flags.
+Sanity check compiler command line: cc /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/sanitycheckc.c -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/sanitycheckc.exe -pipe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/sanitycheckc.exe
+C compiler for the build machine: cc (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the build machine: cc ld.bfd 2.34
+None of 'AR' are defined in the environment, not changing global flags.
 Build machine cpu family: x86_64
 Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Pkg-config binary for MachineChoice.HOST is not cached.
+None of 'PKG_CONFIG' are defined in the environment, not changing global flags.
+Pkg-config binary missing from cross or native file, or env var undefined.
+Trying a default Pkg-config fallback at pkg-config
 Found pkg-config: /usr/bin/pkg-config (0.29.1)
 Determining dependency 'aravis-0.6' with pkg-config executable '/usr/bin/pkg-config'
-Native dependency aravis-0.6 found: YES 0.6.1
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --modversion aravis-0.6` -> 0
+0.6.1
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --cflags aravis-0.6` -> 0
+-pthread -I/usr/local/include/aravis-0.6 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config aravis-0.6 --libs` -> 0
+-L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -laravis-0.6 -lm -lgio-2.0 -lgobject-2.0 -lxml2 -lgthread-2.0 -pthread -lglib-2.0
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config aravis-0.6 --libs` -> 0
+-L/usr/local/lib -laravis-0.6 -lm -lgio-2.0 -lgobject-2.0 -lxml2 -lgthread-2.0 -pthread -lglib-2.0
+Using 'PKG_CONFIG_PATH' from environment with value: '/opt/ros/noetic/lib/pkgconfig'
+None of 'CC_LD' are defined in the environment, not changing global flags.
+Running compile:
+Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpp1iadk0d
+Command line:  cc /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpp1iadk0d/testfile.c -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpp1iadk0d/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 
+
+Code:
+ #include<stdio.h>
+        
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpmowjzl27
+Command line:  cc /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpmowjzl27/testfile.c -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpmowjzl27/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/9/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/9/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/9/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+None of 'CC_LD' are defined in the environment, not changing global flags.
+Running compile:
+Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpcojuj6kv
+Command line:  cc /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpcojuj6kv/testfile.c -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir/meson-private/tmpcojuj6kv/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(void) { return 0; }
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Run-time dependency aravis-0.6 found: YES 0.6.1
+Pkg-config binary for MachineChoice.HOST is cached.
 Determining dependency 'glib-2.0' with pkg-config executable '/usr/bin/pkg-config'
-Native dependency glib-2.0 found: YES 2.56.4
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --modversion glib-2.0` -> 0
+2.64.6
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config --cflags glib-2.0` -> 0
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
+-L/usr/lib/x86_64-linux-gnu -lglib-2.0
+PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
+-lglib-2.0
+Using 'PKG_CONFIG_PATH' from environment with value: '/opt/ros/noetic/lib/pkgconfig'
+Run-time dependency glib-2.0 found: YES 2.64.6
 Build targets in project: 1
-Found ninja-1.8.2 at /usr/bin/ninja
+
+Found ninja-1.10.0 at /usr/bin/ninja
+None of 'STRIP' are defined in the environment, not changing global flags.
+None of 'STRIP' are defined in the environment, not changing global flags.

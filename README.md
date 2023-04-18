@@ -1,5 +1,4 @@
-# SIMTech_ws
-
+# SIMTech Workspace: ROS-based software platform for real-time multisensor monitoring of laser-directed energy deposition (L-DED) Additive Manufacturing (AM)
 
 
 <!-- emojy can be used: 
@@ -11,6 +10,51 @@
 :x: 
 :red_circle: -->
 
+## Installation
+- install ROS-noetic on Ubuntu 20.04: http://wiki.ros.org/noetic/Installation/Ubuntu
+
+- install developer essentials:
+```
+sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev
+```
+
+- install gstreamer-1.0
+```
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+```
+- install ROS industrial and packages
+```
+sudo apt-get install ros-noetic-roscpp, ros-noetic-std-msgs
+sudo apt-get install ros-noetic-industrial-core
+sudo apt-get install ros-noetic-moveit-visual-tools
+```
+
+- install vtk
+```
+python -m pip install vtk
+
+```
+
+- install Python Packages:
+```
+pip install -r requirements.txt
+```
+
+
+
+- install Micro-Epsilon scanControl SDK:
+![./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3](README.md) 
+- install aravis from source: https://aravisproject.github.io/aravis
+
+<!-- - install BOOST library (download at: https://www.boost.org/users/download/)
+```
+sudo ./bootstrap.sh
+sudo ./b2
+``` -->
+
+
+
+
 :exclamation: Important instructions;
 :question: Remain unsolved issues, will be developed in the future;
 :red_circle: code finished but have not been tested;
@@ -20,7 +64,7 @@
 
 ## Eperiment instructions
 ### Hardware configuration
-#### Ethernet connections (pictures)
+<!-- #### Ethernet connections (pictures) -->
 <!-- ![](./src/doc/Adaptive_PID_VRFT.png?raw=true) -->
 #### Ethernet connections (Ubuntu Linux settings)
 

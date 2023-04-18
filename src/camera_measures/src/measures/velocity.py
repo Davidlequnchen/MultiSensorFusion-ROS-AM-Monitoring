@@ -72,8 +72,8 @@ if __name__ == '__main__':
 
     velocity = Velocity()
     speed, vector = velocity.instantaneous(t1, p1)
-    print "First:", vector
-    speed, vector = velocity.instantaneous(t2, p2)
-    print "Second:", vector
-    speed, vector = velocity.instantaneous(t3, p3)
-    print "Third:", vector
+    # print "First:", vector
+    # speed, vector = velocity.instantaneous(t2, p2)
+    # print "Second:", vector
+    # speed, vector = velocity.instantaneous(t3, p3)
+    # print "Third:", vector

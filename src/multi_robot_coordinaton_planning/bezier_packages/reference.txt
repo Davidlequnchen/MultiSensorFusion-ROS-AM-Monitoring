@@ -1,0 +1,11 @@
+https://github.com/ros-industrial-consortium/bezier_examples
+
+https://github.com/ros-industrial-consortium/bezier
+
+https://github.com/ros-industrial-consortium/descartes_tutorials
+
+https://gitlab.com/InstitutMaupertuis/fanuc_grinding
+
+https://rosindustrial.org/news/2016/9/12/3d-automatic-path-planning-for-surface-grinding
+
+https://rosindustrial.org/news/2015/8/2/3d-automatic-path-planning-for-surface-machining
