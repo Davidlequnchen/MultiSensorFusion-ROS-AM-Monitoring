@@ -1,7 +1,7 @@
 pandas
 scikit-learn
 scipy
-numpy
+numpy==1.23.5
 librosa==0.8.0
 opencv-python==4.7.0.72
 PyWavelets==1.4.1

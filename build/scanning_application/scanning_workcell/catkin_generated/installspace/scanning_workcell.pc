@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/install
+
+Name: scanning_workcell
+Description: Description of scanning_workcell
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

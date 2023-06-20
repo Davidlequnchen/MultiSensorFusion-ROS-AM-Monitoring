@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/install
+
+Name: kuka_resources
+Description: Description of kuka_resources
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

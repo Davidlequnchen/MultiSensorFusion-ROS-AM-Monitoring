@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="scanCONTROL_2900-50" >
+
+  <xacro:include filename="$(find microepsilon_scancontrol)/description/urdf/scanCONTROL_2900-50_macro.urdf.xacro" />
+
+  <link name="base_link"/>
+
+  <!-- sensor -->
+  <xacro:scanCONTROL_2900-50 prefix="scanCONTROL_2900-50_" parent="base_link">
+    <!-- <origin xyz="0.0383464 0.109996 0.135064" rpy="${radians(0)} ${radians(0)} ${radians(180)}" /> -->
+    <origin xyz="0.0383464 0.109996 0.135064" rpy="${radians(0)} ${radians(180)} ${radians(180)}" />
+  </xacro:scanCONTROL_2900-50>
+
+</robot>

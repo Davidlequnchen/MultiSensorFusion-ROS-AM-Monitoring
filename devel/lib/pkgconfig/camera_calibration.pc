@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/devel
+
+Name: camera_calibration
+Description: Description of camera_calibration
+Version: 1.17.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

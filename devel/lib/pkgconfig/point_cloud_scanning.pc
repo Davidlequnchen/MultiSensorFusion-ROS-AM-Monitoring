@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/devel
+
+Name: point_cloud_scanning
+Description: Description of point_cloud_scanning
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

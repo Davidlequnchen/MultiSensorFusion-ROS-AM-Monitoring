@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/devel
+
+Name: image_view
+Description: Description of image_view
+Version: 1.17.0
+Cflags: -I/home/artc/GitHub/SIMTech_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: dynamic_reconfigure

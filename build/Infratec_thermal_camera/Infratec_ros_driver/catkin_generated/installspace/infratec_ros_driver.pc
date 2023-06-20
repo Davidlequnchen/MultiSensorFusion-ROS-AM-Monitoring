@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/install
+
+Name: infratec_ros_driver
+Description: Description of infratec_ros_driver
+Version: 0.3.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

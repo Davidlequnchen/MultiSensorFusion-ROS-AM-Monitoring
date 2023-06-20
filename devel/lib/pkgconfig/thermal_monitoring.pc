@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/devel
+
+Name: thermal_monitoring
+Description: Description of thermal_monitoring
+Version: 0.3.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -156,7 +156,7 @@ class NdAudioSignal():
         ## spectral variance
         spectral_variance = scipy.stats.variation(abs(S_power))
         ## spectral crest factor
-        spectral_crest_factor = self.spectral_crest(S_power)
+        # spectral_crest_factor = self.spectral_crest(S_power)
 
         
         # initialise the message objects
@@ -175,7 +175,7 @@ class NdAudioSignal():
         msg_acoustic_feature.spectral_kurtosis = spectral_kurtosis
         msg_acoustic_feature.spectral_flatness = spectral_flatness
         msg_acoustic_feature.spectral_variance = spectral_variance
-        msg_acoustic_feature.spectral_crest_factor = spectral_crest_factor
+        # msg_acoustic_feature.spectral_crest_factor = spectral_crest_factor
         # msg_acoustic_feature.
 
         ## time-freqeuncy representations

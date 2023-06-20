@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/devel
+
+Name: stereo_image_proc
+Description: Description of stereo_image_proc
+Version: 1.17.0
+Cflags: -I/home/artc/GitHub/SIMTech_ws/devel/include -I/home/artc/GitHub/SIMTech_ws/src/ROS_utils/image_pipeline-noetic/stereo_image_proc/include
+Libs: -L${prefix}/lib -lstereo_image_proc
+Requires: image_geometry image_proc sensor_msgs stereo_msgs

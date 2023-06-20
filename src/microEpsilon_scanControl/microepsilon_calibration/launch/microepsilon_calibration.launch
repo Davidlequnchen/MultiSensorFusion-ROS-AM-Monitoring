@@ -1,0 +1,28 @@
+<launch>  
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+  <!-- <include file="$(find simtech_workcell)/launch/workcell.launch">
+    <arg name="gui" value="false" />
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="model" default="$(find microepsilon_workcell)/urdf/workcell.xacro" />
+  </include> -->
+  
+  <!-- the camera driver, publish raw image message 'microepsilon/image_raw' -->
+  <node name="camera_driver" pkg="microepsilon_calibration" type="microepsilon_camera_driver.py" />
+  
+  <!-- visualization of the microepsilon raw image message -->
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/microepsilon/image_raw"/>
+    <param name="autosize" value="true" />
+  </node>
+
+  <!-- <node name="Imviewer" pkg="calib_ros_run" type="position_recorder.py">
+    <param name="image" type="str" value="microepsilon/image_raw" />
+    <param name="config_file" type="str" value="profile3d.yaml" />
+  </node> -->
+
+
+
+
+
+</launch>

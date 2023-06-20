@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/devel
+
+Name: monitoring
+Description: Description of monitoring
+Version: 0.4.5
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

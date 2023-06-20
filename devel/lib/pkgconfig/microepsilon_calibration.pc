@@ -1,0 +1,8 @@
+prefix=/home/artc/GitHub/SIMTech_ws/devel
+
+Name: microepsilon_calibration
+Description: Description of microepsilon_calibration
+Version: 1.0.0
+Cflags: -I/home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_calibration/common/include -I/usr/local/include/mescan
+Libs: -L${prefix}/lib -lmicroepsilon_calibration /usr/local/lib/libllt.so /usr/local/lib/libmescan.so
+Requires: roscpp sensor_msgs std_srvs std_msgs
