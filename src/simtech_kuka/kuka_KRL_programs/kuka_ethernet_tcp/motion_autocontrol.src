@@ -1,0 +1,72 @@
+&ACCESS RVO1
+def motion_autocontrol()
+end
+
+global def server_motion_auto()
+   
+   ;initialize()
+   n_cartesian_command = 1
+   n_cartesian_motion = 1
+   
+   while path_finished == False
+      if (n_cartesian_command <> n_cartesian_motion) then
+         SWITCH (command_type[n_cartesian_motion])
+         CASE 1
+            LIN cartesian_target[n_cartesian_motion]
+         CASE 2
+            LIN cartesian_target[n_cartesian_motion]
+         CASE 3
+            if json_motion_complete[n_cartesian_motion] == 0.0 then
+               path_finished = False                          ; reparing tool path not finished
+            endif
+            if json_motion_complete[n_cartesian_motion] == 1.0 then
+               path_finished = TRUE                           ; reparing tool path finished, this will let jump out of while loop
+            endif 
+         CASE 14
+            wait sec wait_time  
+         DEFAULT
+            ;LIN cartesian_target
+         ENDSWITCH
+      
+         n_cartesian_motion = n_cartesian_motion + 1
+         if n_cartesian_motion > 99 then
+            n_cartesian_motion = 1
+         endif
+      endif
+      wait sec 0.01
+   endwhile
+end
+
+
+def initialize()
+   ;FOLD INI
+   ;FOLD BASISTECH INI
+   GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+   INTERRUPT ON 3 
+   BAS (#INITMOV,0 )
+   ;ENDFOLD (BASISTECH INI)
+   ;FOLD USER INI
+   ;Make your modifications here
+         
+   ;ENDFOLD (USER INI)
+   ;ENDFOLD (INI)
+   
+   $TOOL=TOOL_DATA[1] ; "LASER"
+   ;$TOOL={X -5.25,Y -259.33,Z 286.75,A 0.0,B 0.0,C 0.0}
+   $BASE={X 276.59, Y -1378.80, Z 1185.07, A 0, B 0, C 0}  ; user-defined BASE frame
+   ;$BASE=BASE_DATA[3] ; user-defined BASE frame
+   ;$BASE=BASE_DATA[1] ; "LK_BASE (TurnTable)"
+   ;$BASE={X 1622.85,Y -1582.69,Z 15.62,A 0.14,B 0.07,C 0.25}
+   
+   $VEL.CP = 0.03 ; linear speed m/s
+   $VEL.ORI1 = 300 ; swivel speed deg/s
+   $VEL.ORI2 = 300 ; rotation speed deg/s
+   
+   $APO.CDIS = 0.3 ;mm; in ABB: zonddata = z0, meaning the tolerate zone during motion commands
+
+   PTP $POS_ACT ; $POS_ACT is a system variable of structure type E6POS and contains the current Cartesian robot position(XYZABC).
+   
+   n_cartesian_command = 1
+   n_cartesian_motion = 1
+   
+end 

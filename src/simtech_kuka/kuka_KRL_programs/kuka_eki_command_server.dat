@@ -1,0 +1,37 @@
+&ACCESS RVO
+&PARAM EDITMASK = *
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\submit
+DEFDAT  KUKA_EKI_COMMAND_SERVER PUBLIC
+;FOLD EXTERNAL DECLARATIONS;%{PE}%MKUKATPBASIS,%CEXT,%VCOMMON,%P
+;FOLD BASISTECH EXT;%{PE}%MKUKATPBASIS,%CEXT,%VEXT,%P
+EXT  BAS (BAS_COMMAND  :IN,REAL  :IN )
+DECL INT SUCCESS
+;ENDFOLD (BASISTECH EXT)
+;FOLD USER EXT;%{E}%MKUKATPUSER,%CEXT,%VEXT,%P
+;Make your modifications here
+
+;ENDFOLD (USER EXT)
+;ENDFOLD (EXTERNAL DECLARATIONS)
+DECL GLOBAL INT max_command_packet=100
+DECL GLOBAL INT routine_command=0 ; tell ROS which modes the program is in (0:idle, 1:scanning, 2:control 3:json command)
+DECL GLOBAL INT instruction_code=0 ; identify which command (i.e, velocity, motion, laser, etc)
+DECL GLOBAL REAL parameters[6] ; number of received parameters in real value
+DECL GLOBAL REAL wait_time=0.0 ; wait time between move
+DECL GLOBAL FRAME initial_frame={X 0.0,Y 0.0,Z 0.0,A -89.9500,B -0.600000,C 173.130} ; for initialization
+DECL GLOBAL FRAME cartesian_target[100] ; an array of frame, frame is a sturct, X, Y, Z, A, B, C
+;decl global pos cartesian_target_pos                           ; pos: X, Y, Z, A, B, C, INT S, T
+
+; // Motion of the robot
+DECL GLOBAL INT n_cartesian_motion=1
+DECL GLOBAL INT n_cartesian_command=1
+
+DECL GLOBAL INT command_type[100]
+DECL GLOBAL REAL json_motion_complete[100] ; json motion command complete or not (read from ROS json)
+
+
+DECL GLOBAL BOOL is_defects=TRUE
+DECL GLOBAL BOOL path_finished=FALSE ; repairing path finished or not                 
+DECL GLOBAL BOOL cancel_motion=FALSE
+DECL GLOBAL BOOL motionComplete=TRUE
+
+ENDDAT

@@ -1,0 +1,288 @@
+&ACCESS RVO
+&REL 193
+&PARAM DISKPATH = KRC:\R1\Program\Lequn
+DEF Lequn_MRP_TopLeft_XY( )
+   
+   DECL E6POS LayerStartPt
+   DECL E6POS LayerStartPt2
+   DECL E6POS LayerStartPt3
+   DECL E6POS LayerStartPt4
+   DECL E6POS XP2
+   DECL E6POS XP3
+   DECL E6POS XP4
+   DECL REAL stepover
+   DECL REAL xLength
+   DECL REAL yWidth
+   DECL REAL layerHt
+   DECL INT YSTEP
+   DECL INT YSTEP_MAX
+   DECL INT XSTEP
+   DECL INT XSTEP_MAX
+   DECL INT nLayers ;  the total number of layers
+   DECL INT layer ; the current layer number
+   DECL REAL power
+   DECL INT countOdd;
+   DECL INT countEven;
+   DECL INT oddEven;
+   
+   ;---------------------RSI variable--------------------
+   ; Declaration of KRL variables
+   DECL INT ret	; Return value for RSI commands
+   DECL INT CONTID	; ContainerID
+   ;---------------------RSI variable--------------------
+   
+   ;---------------------RSI --------------------
+   ret = RSI_CREATE("ros_rsi",CONTID,TRUE)
+   IF (ret <> RSIOK) THEN
+      HALT
+   ENDIF
+   
+   ; Start RSI execution
+   ret = RSI_ON(#ABSOLUTE)
+   IF (ret <> RSIOK) THEN
+      HALT
+   ENDIF
+   ;---------------------RSI--------------------
+   
+   GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+   INTERRUPT ON 3 
+   BAS (#INITMOV,0 )
+   
+   ptp $POS_ACT
+   
+   ;FOLD LIN P1 Vel=0.02 m/s CPDAT1 Tool[1]:LASER Base[0] ;%{PE}
+      ;FOLD Parameters ;%{h}
+         ;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.old; Kuka.IsGlobalPoint=False; Kuka.PointName=P1; Kuka.BlendingEnabled=False; Kuka.MoveDataName=CPDAT1; Kuka.VelocityPath=0.02; Kuka.CurrentCDSetIndex=0; Kuka.MovementParameterFieldEnabled=True; IlfCommand=LIN
+      ;ENDFOLD
+      
+      $BWDSTART = FALSE
+      LDAT_ACT = LCPDAT1
+      FDAT_ACT = FP1
+      BAS(#CP_PARAMS, 0.02)
+      SET_CD_PARAMS (0)
+      LIN XP1
+   ;ENDFOLD
+   
+   ;--------------Process variables-----------------
+   stepover = 1.0 ;mm
+   xLength = 45.0 ;mm
+   yWidth = 20.0 ;mm
+   layerHt = 0.85 ;mm
+   nLayers = 10
+   
+   $VEL.CP=0.022 ; feed rate in m/s
+   $APO.CDIS = 0.24 ; mm ; equivalent to Zone data in ABB (Z0)
+   $ANOUT[1]= 0.205 ;0.180 ; laser power in voltage
+   ;$ANOUT[2]=0.2125 ; wire feed rate in voltage
+   ;-------------------------------------------------
+   
+   LIN XP1
+   
+   $OUT[15]=TRUE ; Wire touch signal bypass
+   
+   LaserOn_Ext() ; on laser 
+   countOdd = 1
+   countEven = 1
+   For layer = 1 TO nLayers STEP 1
+      IF(layer/2) <>(layer/2.0) THEN
+         ;odd layer
+         
+         ; move to start point 
+         LayerStartPt = XP1
+         LayerStartPt.Z = XP1.Z + layerHt * (layer - 1)
+         LayerStartPt.Y = LayerStartPt.Y - stepover*2
+         
+         ;layer1 or layer3
+         
+         ;; find out if it a layer 1 or layer
+         IF(countOdd/2) <>(countOdd/2.0)THEN
+            oddEven = 1
+            YSTEP_MAX = yWidth / stepover
+            FOR YSTEP = 0 TO YSTEP_MAX 
+               ;; layer 1
+               IF(oddEven/2) <>(oddEven/2.0)THEN
+                  
+                  LayerStartPt.Y = LayerStartPt.Y + stepover*2
+                  
+                  XP2 = LayerStartPt
+                  XP2.X = XP2.X + xLength
+                  LIN LayerStartPt  
+                  
+                  LaserStart_Ext()                   
+                  LIN XP2
+                  
+                  ;WAIT SEC 0.2
+                  LaserEnd_Ext()
+                  
+                  oddEven = oddEven+1
+               ELSE 
+                  XP3 = XP2
+                  
+                  XP3.Y = XP3.Y + stepover
+                  LIN XP3
+                  XP4 = XP3
+                  XP4.X = XP4.X - xLength
+                  
+                  LaserStart_Ext()
+                  LIN XP4
+                  
+                  ;WAIT SEC 0.2
+                  LaserEnd_Ext()
+                  
+                  oddEven = oddEven +1
+               ENDIF
+               
+            ENDFOR
+            
+            countOdd = countOdd +1
+            
+         ELSE
+            oddEven =1
+            YSTEP_MAX = yWidth / stepover
+            LayerStartPt3 = XP1
+            LayerStartPt3.Z = LayerStartPt3.Z + layerHt * (layer - 1)
+            LayerStartPt3.x = LayerStartPt3.X + xLength
+            LayerStartPt3.y = LayerStartPt3.y + yWidth
+            ;; move to layer 3 start point bottom right 
+            LIN LayerStartPt3
+            WAIT SEC 1.0
+            LayerStartPt3.y = LayerStartPt3.y + stepover * 2
+            
+            FOR YSTEP = 0 TO YSTEP_MAX 
+               ;; layer 3
+               IF(oddEven/2) <>(oddEven/2.0)THEN
+                  
+                  LayerStartPt3.y = LayerStartPt3.y - stepover * 2    
+                  
+                  LIN LayerStartPt3
+                  XP2 = LayerStartPt3
+                  XP2.X = XP2.X - xLength
+                  
+                  LaserStart_Ext()
+                  LIN XP2
+                  
+                  LaserEnd_Ext()
+                  oddEven = oddEven + 1 
+               ELSE
+                  
+                  XP3 = XP2
+                  XP3.Y = XP3.Y - stepover
+                  LIN XP3
+                  XP4 = XP3
+                  XP4.X = XP4.X + xLength
+                  
+                  LaserStart_Ext()
+                  LIN XP4
+                  ;WireFeederOff()
+                  ;WAIT SEC 0.2
+                  LaserEnd_Ext()
+                  
+                  oddEven = oddEven + 1
+               ENDIF
+               
+            ENDFOR
+            countOdd = countOdd +1
+         ENDIF
+         
+         LaserEnd_Ext()
+         
+      ELSE
+         
+         ;even layer
+         ;layer 2 
+         IF(countEven/2) <>(countEven/2.0)THEN
+            oddEven = 1          
+            LayerStartPt2 = XP1 
+            LayerStartPt2.Z = XP1.Z + layerHt * (layer - 1)
+            LayerStartPt2.X = LayerStartPt2.X + xLength
+            
+            LIN LayerStartPt2 
+            WAIT SEC 1.0
+            
+            LayerStartPt2.X = LayerStartPt2.X + stepover*2
+            XSTEP_MAX = xLength / stepover
+            
+            FOR XSTEP = 1 to XSTEP_MAX               
+               ;;LAYER 2
+               IF(oddEven/2) <>(oddEven/2.0)THEN
+                  LayerStartPt2.X = LayerStartPt2.X - stepover*2
+                  XP2 = LayerStartPt2
+                  
+                  LIN LayerStartPt2
+                  
+                  LaserStart_Ext()
+                  XP2.Y = XP2.Y + yWidth                  
+                  LIN XP2
+                  LaserEnd_Ext()
+                  
+                  oddEven = oddEven + 1
+               ELSE
+                  
+                  XP3 = XP2
+                  XP3.X = XP3.X - stepover
+                  LIN XP3
+                  XP4 = XP3
+                  XP4.Y = XP4.Y - yWidth
+                  
+                  LaserStart_Ext()
+                  LIN XP4
+                  LaserEnd_Ext()
+                  
+                  oddEven = oddEven + 1
+               ENDIF 
+            ENDFOR
+            countEven = countEven +1
+         ELSE
+            ;; even layer layer 4 
+            oddEven = 1
+            LayerStartPt4 = XP1
+            LayerStartPt4.z = XP1.Z + layerHt * (layer - 1)
+            XSTEP_MAX = xLength / stepover
+            
+            LayerStartPt4.y = LayerStartPt4.y + yWidth
+            
+            LIN LayerStartPt4
+            WAIT SEC 1.0
+            LayerStartPt4.X = LayerStartPt4.X - stepover*2
+            
+            FOR XSTEP = 1 to XSTEP_MAX 
+               ;;LAYER 4
+               IF(oddEven/2) <>(oddEven/2.0)THEN               
+                  LayerStartPt4.X = LayerStartPt4.X + stepover*2
+                  XP2 = LayerStartPt4
+                  
+                  LIN LayerStartPt4
+                  XP2.Y = XP2.Y - yWidth
+                  
+                  LaserStart_Ext()
+                  LIN XP2
+                  LaserEnd_Ext()
+                  
+                  oddEven = oddEven + 1
+                  
+               ELSE
+                  
+                  XP3 = XP2
+                  XP3.X = XP3.X + stepover
+                  LIN XP3
+                  XP4 = XP3
+                  XP4.Y = XP4.Y + yWidth
+                  
+                  LaserStart_Ext()
+                  LIN XP4
+                  LaserEnd_Ext()
+                  oddEven = oddEven + 1
+               ENDIF
+               
+            ENDFOR
+            countEven = countEven +1
+         ENDIF
+         LaserEnd_Ext()
+         
+      ENDIF
+   ENDFOR
+   LaserOff_Ext()
+   
+   $OUT[15]=FALSE ; Deactivate wire touch signal bypass
+   
+END

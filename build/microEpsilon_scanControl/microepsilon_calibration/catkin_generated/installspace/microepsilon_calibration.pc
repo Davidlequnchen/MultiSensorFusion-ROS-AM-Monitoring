@@ -3,6 +3,6 @@ prefix=/home/artc/GitHub/SIMTech_ws/install
 Name: microepsilon_calibration
 Description: Description of microepsilon_calibration
 Version: 1.0.0
-Cflags: -I${prefix}/include -I/usr/local/include/mescan
-Libs: -L${prefix}/lib -lmicroepsilon_calibration /usr/local/lib/libllt.so /usr/local/lib/libmescan.so
+Cflags: -I${prefix}/include -I/usr/local/include/mescan -I/usr/local/include/aravis-0.6 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+Libs: -L${prefix}/lib -lmicroepsilon_calibration /usr/local/lib/libllt.so /usr/local/lib/libmescan.so -laravis-0.6 -lm -lgio-2.0 -lgobject-2.0 -lxml2 -lgthread-2.0 -lglib-2.0
 Requires: roscpp sensor_msgs std_srvs std_msgs

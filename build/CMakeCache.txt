@@ -729,6 +729,15 @@ _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 _path_name:FILEPATH=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ROS_perception/vision_opencv-noetic/image_geometry/test/directed.py
 
 //Value Computed by CMake
+ackermann_steering_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/ackermann_steering_controller
+
+//Dependencies for the target
+ackermann_steering_controller_LIB_DEPENDS:STATIC=general;diff_drive_controller;general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/libtf.so;general;/opt/ros/noetic/lib/libtf2_ros.so;general;/opt/ros/noetic/lib/libactionlib.so;general;/opt/ros/noetic/lib/libmessage_filters.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libtf2.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;console_bridge::console_bridge;
+
+//Value Computed by CMake
+ackermann_steering_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/ackermann_steering_controller
+
+//Value Computed by CMake
 acoustic_feature_extraction_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/acoustic_monitoring/acoustic_feature_extraction
 
 //Value Computed by CMake
@@ -854,6 +863,15 @@ class_loader_DIR:PATH=/opt/ros/noetic/share/class_loader/cmake
 //The directory containing a CMake configuration file for cmake_modules.
 cmake_modules_DIR:PATH=/opt/ros/noetic/share/cmake_modules/cmake
 
+//The directory containing a CMake configuration file for console_bridge.
+console_bridge_DIR:PATH=/usr/lib/x86_64-linux-gnu/console_bridge/cmake
+
+//The directory containing a CMake configuration file for control_msgs.
+control_msgs_DIR:PATH=/opt/ros/noetic/share/control_msgs/cmake
+
+//The directory containing a CMake configuration file for control_toolbox.
+control_toolbox_DIR:PATH=/opt/ros/noetic/share/control_toolbox/cmake
+
 //The directory containing a CMake configuration file for controller_interface.
 controller_interface_DIR:PATH=/opt/ros/noetic/share/controller_interface/cmake
 
@@ -902,8 +920,29 @@ depth_image_proc_LIB_DEPENDS:STATIC=general;cv_bridge;general;/opt/ros/noetic/li
 //Value Computed by CMake
 depth_image_proc_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/image_pipeline-noetic/depth_image_proc
 
+//Value Computed by CMake
+diff_drive_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/diff_drive_controller
+
+//The directory containing a CMake configuration file for diff_drive_controller.
+diff_drive_controller_DIR:PATH=/home/artc/GitHub/SIMTech_ws/devel/share/diff_drive_controller/cmake
+
+//Dependencies for the target
+diff_drive_controller_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/libtf.so;general;/opt/ros/noetic/lib/libtf2_ros.so;general;/opt/ros/noetic/lib/libactionlib.so;general;/opt/ros/noetic/lib/libmessage_filters.so;general;/opt/ros/noetic/lib/libtf2.so;general;/opt/ros/noetic/lib/liburdf.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librosconsole_bridge.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+diff_drive_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/diff_drive_controller
+
 //The directory containing a CMake configuration file for dynamic_reconfigure.
 dynamic_reconfigure_DIR:PATH=/opt/ros/noetic/share/dynamic_reconfigure/cmake
+
+//Value Computed by CMake
+effort_controllers_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/effort_controllers
+
+//Dependencies for the target
+effort_controllers_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libcontrol_toolbox.so;general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/liburdf.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librosconsole_bridge.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+effort_controllers_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/effort_controllers
 
 //The directory containing a CMake configuration file for eigen_conversions.
 eigen_conversions_DIR:PATH=/opt/ros/noetic/share/eigen_conversions/cmake
@@ -916,6 +955,33 @@ experiment_data_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/experiment_da
 
 //The directory containing a CMake configuration file for flann.
 flann_DIR:PATH=flann_DIR-NOTFOUND
+
+//Value Computed by CMake
+force_torque_sensor_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/force_torque_sensor_controller
+
+//Dependencies for the target
+force_torque_sensor_controller_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+force_torque_sensor_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/force_torque_sensor_controller
+
+//Value Computed by CMake
+forward_command_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/forward_command_controller
+
+//The directory containing a CMake configuration file for forward_command_controller.
+forward_command_controller_DIR:PATH=/home/artc/GitHub/SIMTech_ws/devel/share/forward_command_controller/cmake
+
+//Value Computed by CMake
+forward_command_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/forward_command_controller
+
+//Value Computed by CMake
+four_wheel_steering_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/four_wheel_steering_controller
+
+//Value Computed by CMake
+four_wheel_steering_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/four_wheel_steering_controller
+
+//The directory containing a CMake configuration file for four_wheel_steering_msgs.
+four_wheel_steering_msgs_DIR:PATH=four_wheel_steering_msgs_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/noetic/share/gencpp/cmake
@@ -958,6 +1024,15 @@ googletest-distribution_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/gte
 
 //Value Computed by CMake
 googletest-distribution_SOURCE_DIR:STATIC=/usr/src/googletest
+
+//Value Computed by CMake
+gripper_action_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/gripper_action_controller
+
+//Dependencies for the target
+gripper_action_controller_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libactionlib.so;general;/opt/ros/noetic/lib/libcontrol_toolbox.so;general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/liburdf.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librosconsole_bridge.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+gripper_action_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/gripper_action_controller
 
 //Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/gtest/googletest
@@ -1048,6 +1123,15 @@ image_view_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libcamera_calibration_
 image_view_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/image_pipeline-noetic/image_view
 
 //Value Computed by CMake
+imu_sensor_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/imu_sensor_controller
+
+//Dependencies for the target
+imu_sensor_controller_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+imu_sensor_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/imu_sensor_controller
+
+//Value Computed by CMake
 infratec_image_processing_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/Infratec_thermal_camera/Infratec_image_processing
 
 //Value Computed by CMake
@@ -1061,6 +1145,15 @@ infratec_ros_driver_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/Infratec_
 
 //The directory containing a CMake configuration file for joint_limits_interface.
 joint_limits_interface_DIR:PATH=/opt/ros/noetic/share/joint_limits_interface/cmake
+
+//Value Computed by CMake
+joint_state_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/joint_state_controller
+
+//Dependencies for the target
+joint_state_controller_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+joint_state_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/joint_state_controller
 
 //Value Computed by CMake
 kuka_resources_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/simtech_kuka/kuka_resources
@@ -1149,6 +1242,9 @@ multimodal_monitoring_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/multi
 //Value Computed by CMake
 multimodal_monitoring_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/multimodal_monitoring
 
+//The directory containing a CMake configuration file for nav_msgs.
+nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
+
 //The directory containing a CMake configuration file for nodelet.
 nodelet_DIR:PATH=/opt/ros/noetic/share/nodelet/cmake
 
@@ -1157,6 +1253,9 @@ nodelet_topic_tools_DIR:PATH=/opt/ros/noetic/share/nodelet_topic_tools/cmake
 
 //The directory containing a CMake configuration file for octomap.
 octomap_DIR:PATH=/opt/ros/noetic/share/octomap
+
+//Path to a library.
+onelib:FILEPATH=/usr/lib/x86_64-linux-gnu/liburdfdom_world.so
 
 //Value Computed by CMake
 opencv_apps_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ROS_perception/opencv_apps
@@ -1296,8 +1395,23 @@ point_cloud_scanning_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/scanni
 //Value Computed by CMake
 point_cloud_scanning_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/scanning_application/point_cloud_scanning
 
+//Value Computed by CMake
+position_controllers_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/position_controllers
+
+//Dependencies for the target
+position_controllers_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+position_controllers_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/position_controllers
+
 //The directory containing a CMake configuration file for realtime_tools.
 realtime_tools_DIR:PATH=/opt/ros/noetic/share/realtime_tools/cmake
+
+//Value Computed by CMake
+ros_controllers_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/ros_controllers
+
+//Value Computed by CMake
+ros_controllers_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/ros_controllers
 
 //Value Computed by CMake
 ros_numpy_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_numpy
@@ -1352,6 +1466,12 @@ rostest_DIR:PATH=/opt/ros/noetic/share/rostest/cmake
 
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
+
+//Value Computed by CMake
+rqt_joint_trajectory_controller_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/rqt_joint_trajectory_controller
+
+//Value Computed by CMake
+rqt_joint_trajectory_controller_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/rqt_joint_trajectory_controller
 
 //Value Computed by CMake
 scanning_robviz_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/scanning_application/scanning_robviz
@@ -1512,8 +1632,17 @@ thermal_monitoring_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/Infratec_t
 //The directory containing a CMake configuration file for topic_tools.
 topic_tools_DIR:PATH=/opt/ros/noetic/share/topic_tools/cmake
 
+//The directory containing a CMake configuration file for trajectory_msgs.
+trajectory_msgs_DIR:PATH=/opt/ros/noetic/share/trajectory_msgs/cmake
+
 //The directory containing a CMake configuration file for urdf.
 urdf_DIR:PATH=/opt/ros/noetic/share/urdf/cmake
+
+//The directory containing a CMake configuration file for urdfdom.
+urdfdom_DIR:PATH=/usr/lib/x86_64-linux-gnu/urdfdom/cmake
+
+//The directory containing a CMake configuration file for urdfdom_headers.
+urdfdom_headers_DIR:PATH=/usr/lib/x86_64-linux-gnu/urdfdom_headers/cmake
 
 //Value Computed by CMake
 usb_cam_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ROS_perception/usb_cam
@@ -1529,6 +1658,15 @@ velocity_control_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/deprecated
 
 //Value Computed by CMake
 velocity_control_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/deprecated/velocity_control
+
+//Value Computed by CMake
+velocity_controllers_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ros_controllers-noetic-devel/velocity_controllers
+
+//Dependencies for the target
+velocity_controllers_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libcontrol_toolbox.so;general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/liburdf.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_model.so;general;/usr/lib/x86_64-linux-gnu/liburdfdom_world.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/librosconsole_bridge.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+velocity_controllers_SOURCE_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/src/ROS_utils/ros_controllers-noetic-devel/velocity_controllers
 
 //Value Computed by CMake
 vision_opencv_BINARY_DIR:STATIC=/home/artc/GitHub/SIMTech_ws/build/ROS_utils/ROS_perception/vision_opencv-noetic/vision_opencv

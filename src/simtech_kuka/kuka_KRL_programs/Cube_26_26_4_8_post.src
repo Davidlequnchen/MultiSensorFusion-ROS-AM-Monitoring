@@ -1,0 +1,646 @@
+&ACCESS RVO
+&REL 10
+DEF Cube_26_26_4_8_post ( )
+    ;FOLD INI
+      ;FOLD BASISTECH INI
+         GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+         INTERRUPT ON 3 
+         BAS (#INITMOV,0 )
+      ;ENDFOLD (BASISTECH INI)
+      ;FOLD USER INI
+         ;Make your modifications here
+         
+      ;ENDFOLD (USER INI)
+   ;ENDFOLD (INI)
+   
+   $TOOL=TOOL_DATA[1] ; "LASER"
+   ;$TOOL={X -5.25,Y -259.33,Z 286.75,A 0.0,B 0.0,C 0.0}
+   $BASE={X 1139.3, Y -1546.9, Z 1212.17, A 0, B 0, C 0}  ; user-defined BASE frame
+   ;$BASE=BASE_DATA[3] ; user-defined BASE frame
+   ;$BASE=BASE_DATA[1] ; "LK_BASE (TurnTable)"
+   ;$BASE={X 1622.85,Y -1582.69,Z 15.62,A 0.14,B 0.07,C 0.25}
+   
+   $VEL.CP = 0.02 ; linear speed m/s
+   $VEL.ORI1 = 300 ; swivel speed deg/s
+   $VEL.ORI2 = 300 ; rotation speed deg/s
+   
+   $APO.CDIS = 0.3 ;mm; in ABB: zonddata = z0
+
+   PTP $POS_ACT
+   
+   ; start scannig to record the substrate plane
+   scanning_substrate() ; call the scanning routine funciton
+
+   routine_command = 2 ; change mode to 2 (laser control)
+   
+   
+   LaserOn()
+   
+   ;FOLD ANOUT ql_Power=0.1 ;%{PE}%R 8.5.19,%MKUKATPBASIS,%CANA,%VANOUT_STAT,%P 2:CHANNEL_1, 4:0.1
+      $ANOUT[1]=0.165
+   ;ENDFOLD
+   
+   LIN {X 0.000, Y 26.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 0.000, Y 0.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 0.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 26.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 26.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 1.300, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 1.300, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 2.600, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 2.600, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 3.900, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 3.900, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 5.200, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 5.200, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 6.500, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 6.500, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 7.800, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 7.800, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 9.100, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 9.100, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 10.400, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 10.400, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 11.700, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 11.700, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 13.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 13.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 14.300, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 14.300, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 15.600, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 15.600, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 16.900, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 16.900, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 18.200, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 18.200, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 19.500, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 19.500, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 20.800, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 20.800, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 22.100, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 22.100, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 23.400, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 23.400, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 24.700, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 24.700, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 23.838, Y 0.000, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 26.000, Y 0.000, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 26.000, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 26.000, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 0.000, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 23.838, Y 0.000, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.700, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.700, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 23.400, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 23.400, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 22.100, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 22.100, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 20.800, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 20.800, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 19.500, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 19.500, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 18.200, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 18.200, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 16.900, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 16.900, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 15.600, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 15.600, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 14.300, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 14.300, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 13.000, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 13.000, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 11.700, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 11.700, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 10.400, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 10.400, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 9.100, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 9.100, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 7.800, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 7.800, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 6.500, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 6.500, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 5.200, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 5.200, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 3.900, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 3.900, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 2.600, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 2.600, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.300, Y 24.701, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.300, Y 1.299, Z 0.800, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()   
+   LIN {X 26.000, Y 0.000, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 26.000, Y 26.000, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 26.000, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 0.000, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 0.000, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 24.700, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 24.700, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 23.400, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 23.400, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 22.100, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 22.100, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 20.800, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 20.800, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 19.500, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 19.500, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 18.200, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 18.200, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 16.900, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 16.900, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 15.600, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 15.600, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 14.300, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 14.300, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 13.000, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 13.000, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 11.700, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 11.700, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 10.400, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 10.400, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 9.100, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 9.100, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 7.800, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 7.800, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 6.500, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 6.500, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 5.200, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 5.200, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 3.900, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 3.900, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 2.600, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 2.600, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 1.300, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 1.300, Z 1.600, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   
+   trap_scanning_path() ; call the scanning routine funciton
+   
+   LIN {X 0.000, Y 12.974, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 0.000, Y 0.000, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 0.000, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 26.000, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 26.000, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 12.974, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.300, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.300, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 2.600, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 2.600, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 3.900, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 3.900, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 5.200, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 5.200, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 6.500, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 6.500, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 7.800, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 7.800, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 9.100, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 9.100, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 10.400, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 10.400, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 11.700, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 11.700, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 13.000, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 13.000, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 14.300, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 14.300, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 15.600, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 15.600, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 16.900, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 16.900, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 18.200, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 18.200, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 19.500, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 19.500, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 20.800, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 20.800, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 22.100, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 22.100, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 23.400, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 23.400, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.700, Y 1.299, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.700, Y 24.701, Z 2.400, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 26.000, Y 17.351, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 26.000, Y 26.000, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 26.000, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 0.000, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 0.000, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 17.351, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 1.300, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 1.300, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 2.600, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 2.600, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 3.900, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 3.900, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 5.200, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 5.200, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 6.500, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 6.500, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 7.800, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 7.800, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 9.100, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 9.100, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 10.400, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 10.400, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 11.700, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 11.700, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 13.000, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 13.000, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 14.300, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 14.300, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 15.600, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 15.600, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 16.900, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 16.900, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 18.200, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 18.200, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 19.500, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 19.500, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 20.800, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 20.800, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 22.100, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 22.100, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.299, Y 23.400, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.701, Y 23.400, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.701, Y 24.700, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.299, Y 24.700, Z 3.200, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 26.000, Y 26.000, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 0.000, Y 26.000, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 0.000, Y 0.000, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 0.000, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+   LaserStart()
+   LIN {X 26.000, Y 26.000, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 24.700, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 24.700, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 23.400, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 23.400, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 22.100, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 22.100, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 20.800, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 20.800, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 19.500, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 19.500, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 18.200, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 18.200, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 16.900, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 16.900, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 15.600, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 15.600, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 14.300, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 14.300, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 13.000, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 13.000, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 11.700, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 11.700, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 10.400, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 10.400, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 9.100, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 9.100, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 7.800, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 7.800, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 6.500, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 6.500, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 5.200, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 5.200, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 3.900, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 3.900, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 2.600, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 2.600, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserEnd()
+   LIN {X 1.300, Y 24.701, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+   LaserStart()
+   LIN {X 1.300, Y 1.299, Z 4.000, A -90, B -0.57, C 178.12, S 22, T 18} C_DIS
+
+   
+   LaserOff()
+   
+   trap_scanning_path() ; call the scanning routine funciton
+   
+   
+   routine_command = 0; !// change to mode 0 (idle mode)
+   
+   
+   
+   HALT
+   
+END
+
+
+def trap_scanning_path ()
+   routine_command = 0  ; tell ROS current state is 0: idle
+   ;// move to the point where scanning start
+   ;LIN {X 0.0, Y 0.0, Z 10} 
+   ;LIN_REL {Z 10}
+   LIN_REL {Y -40}
+
+   wait sec 2           ; wait 5 sec to let ROS get ready
+
+   routine_command = 1  ; tell ROS current state is 1: scanning
+   $VEL.CP = 0.025      ; set default linear speed m/s
+   wait sec 1
+
+   ;// scanning start
+   ;LIN {X -300.0, Y 0.0, Z 10}
+   LIN_REL {X -250}
+   
+   wait sec 3
+   
+   routine_command = 0  ; idle mode
+   $VEL.CP = 0.02       ; set back printing linear speed m/s
+
+   wait sec 5           ; wait for ML and point cloud processing result
+   ;// defects identification result send from ROS
+   ;if is_defects == TRUE then
+   ;   path_finished = False
+   ;   routine_command = 3    ; tell ROS current state is 3: repairing tool path mode (json command generation)
+   ;   server_motion_auto()        ; go to server_motion to handle json command 
+   ;   path_finished = False
+   ;  wait sec 5 
+   ;endif
+
+   routine_command = 0       ; idle move
+
+   ;// move back to original place
+   ;LIN {X 1.600, Y 27.000, Z 0.000, A -90, B -0.57, C 178.12, S 22, T 18} 
+
+   routine_command = 2 ; laser control mode 
+end
+
+def scanning_substrate ()
+   routine_command = 0  ; tell ROS current state is 0: idle
+   ;// move to the point where scanning start
+   ;LIN {X 0.0, Y 0.0, Z 10} 
+   ;LIN_REL {Z 10}
+   LIN_REL {Y -40}
+
+   wait sec 2           ; wait 5 sec to let ROS get ready
+
+   routine_command = 1  ; tell ROS current state is 1: scanning
+   $VEL.CP = 0.025      ; set default linear speed m/s
+   wait sec 1
+
+   ;// scanning start
+   ;LIN {X -300.0, Y 0.0, Z 10}
+   LIN_REL {X -250}
+   
+   wait sec 2
+
+   routine_command = 0  ; idle mode
+   $VEL.CP = 0.02       ; set back printing linear speed m/s
+
+   routine_command = 2 ; laser control mode 
+end

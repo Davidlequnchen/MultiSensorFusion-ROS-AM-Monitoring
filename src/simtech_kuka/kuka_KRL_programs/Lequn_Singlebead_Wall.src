@@ -1,0 +1,148 @@
+&ACCESS RVO
+&REL 228
+&PARAM DISKPATH = KRC:\R1\Program\Wire printing
+DEF Lequn_Singlebead_Wall( )
+   
+ DECL E6POS LayerStartPt
+ DECL E6POS LayerStartPt2
+   DECL E6POS XP2
+   DECL E6POS XP3
+   DECL E6POS XP4
+   DECL REAL stepover
+   DECL REAL stepover1 ; step over between contour and infill 
+   DECL REAL xLength
+   DECL REAL yWidth
+   DECL REAL layerHt
+   DECL INT YSTEP
+   DECL INT YSTEP_MAX
+   DECL INT XSTEP
+   DECL INT XSTEP_MAX
+   DECL INT nLayers ;  the total number of layers
+   DECL INT layer ; the current layer number
+   DECL REAL power
+   DECL INT count;
+   DECL REAL B_angle; laser tilt in degree
+   DECL REAL C_angle; laser tilt in degree
+   DECL FRAME relpos
+   
+   
+   ;---------------------RSI variable--------------------
+   ; Declaration of KRL variables
+   DECL INT ret	; Return value for RSI commands
+   DECL INT CONTID	; ContainerID
+   ;---------------------RSI variable--------------------
+   
+   ;---------------------RSI --------------------
+   ret = RSI_CREATE("ros_rsi",CONTID,TRUE)
+   IF (ret <> RSIOK) THEN
+      HALT
+   ENDIF
+   
+   ; Start RSI execution
+   ret = RSI_ON(#ABSOLUTE)
+   IF (ret <> RSIOK) THEN
+      HALT
+   ENDIF
+   ;---------------------RSI--------------------
+   
+  
+         GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+         INTERRUPT ON 3 
+         BAS (#INITMOV,0 )
+
+   ptp $POS_ACT
+   ;FOLD LIN P1 Vel=0.02 m/s CPDAT1 Tool[1]:LASER Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.old; Kuka.IsGlobalPoint=False; Kuka.PointName=P1; Kuka.BlendingEnabled=False; Kuka.MoveDataName=CPDAT1; Kuka.VelocityPath=0.02; Kuka.CurrentCDSetIndex=0; Kuka.MovementParameterFieldEnabled=True; IlfCommand=LIN
+;ENDFOLD
+
+$BWDSTART = FALSE
+LDAT_ACT = LCPDAT1
+FDAT_ACT = FP1
+BAS(#CP_PARAMS, 0.02)
+SET_CD_PARAMS (0)
+LIN XP1
+;ENDFOLD
+
+
+   
+   
+   ;--------------Process variables-----------------
+   stepover = 2.0 ;mm
+   xLength = 90.0 ;mm
+   ;yWidth = 70.0 ;mm
+   layerHt = 0.5 ;mm
+   nLayers = 100
+   ;B_angle = 25 ; tilt @ 25 degree   
+   ;C_angle =25 ; degree
+   $VEL.CP=0.015 ; feed rate in m/s
+   $APO.CDIS = 0.2 ; mm ; equivalent to Zone data in ABB (Z0)
+   $ANOUT[1]=0.168 ; laser power in voltage
+   $ANOUT[2]=0.2125 ; wire feed rate in voltage
+   ;-------------------------------------------------
+   
+   relpos = {X 0, Y 0, Z 0, A 0, B 0, C 0}
+  
+   
+   LIN XP1
+   LaserOn_Ext() ; on laser 
+   
+   count = 1
+  
+   For layer = 1 TO nLayers STEP 1
+      IF(layer/2) <>(layer/2.0) THEN
+         ; move to start point 
+         LayerStartPt = XP1
+         LayerStartPt.z = XP1.Z + layerHt * (layer - 1)
+         LIN LayerStartPt
+         ;odd layer
+          
+         
+         WireDepositionOn()                 
+           
+         Trigger1() 
+         relpos = {X 0, Y 0, Z 0, A 0, B 0, C 0}
+         relpos.X = xLength
+         LIN_REL relpos 
+         
+         
+         WireDepositionOff()
+         ;WAIT SEC 2.0
+         count = count +1            
+           
+       
+                   
+         
+      Else
+         ;even layer
+         ; move to start point 
+         LayerStartPt = XP1
+         LayerStartPt.z = XP1.Z + layerHt * (layer - 1)
+         LayerStartPt.x = XP1.x + xLength
+         LIN LayerStartPt
+         
+           
+         ;WireDepositionOn()                 
+           
+         Trigger1()
+         relpos = {X 0, Y 0, Z 0, A 0, B 0, C 0}       
+         relpos.X = -xLength
+         LIN_REL relpos 
+
+         ;WireDepositionOff()
+         WAIT SEC 2.0
+         count = count +1            
+           
+       
+         
+
+
+       ENDIF
+         WireFeederOff()            
+         LaserEnd_Ext_Wire()
+   ENDFOR
+   LaserOff_Ext()
+   
+   $OUT[12]=True ; CDA to cool down the shielding tubes
+   
+END

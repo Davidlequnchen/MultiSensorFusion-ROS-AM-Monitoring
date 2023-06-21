@@ -1,0 +1,187 @@
+&ACCESS RVO
+&REL 230
+&PARAM DISKPATH = KRC:\R1\Program\Lequn
+DEF Lequn_wire_spiral ( )
+   
+   DECL E6POS startPt ; intial starting point (first layer)
+   DECL E6POS P1 ; starting point in each layer
+   DECL E6POS P2 ; semicircle end point in each layer
+   DECL E6POS AuxiliaryPt1 ; auxiliary point in CIRC command
+   DECL E6POS AuxiliaryPt2 ; auxiliary point in CIRC command
+   DECL REAL power ; laser power
+   DECL REAL speed  ; m/s
+   DECL REAL radius ; mm, radius of the circular motion
+   DECL BOOL clockwise ; TRUE: cloclwise circular motion, FALSE: anti-clockwise
+   DECL INT nLayers ;  the total number of layers
+   DECL INT layer ; the current layer number
+   DECL REAL layerHt ; layer height (thickness)
+   
+   ;---------------------RSI variable--------------------
+   ; Declaration of KRL variables
+   DECL INT ret	; Return value for RSI commands
+   DECL INT CONTID	; ContainerID
+   ;---------------------RSI variable--------------------
+   
+   ;---------------------RSI --------------------
+   ret = RSI_CREATE("ros_rsi",CONTID,TRUE)
+   IF (ret <> RSIOK) THEN
+      HALT
+   ENDIF
+   
+   ; Start RSI execution
+   ret = RSI_ON(#ABSOLUTE)
+   IF (ret <> RSIOK) THEN
+      HALT
+   ENDIF
+   ;---------------------RSI--------------------
+   
+   
+         GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+         INTERRUPT ON 3 
+         BAS (#INITMOV,0 )
+        
+   ptp $POS_ACT
+   ;FOLD LIN P1 Vel=0.02 m/s CPDAT1 Tool[1]:LASER Base[0] ;%{PE}
+;FOLD Parameters ;%{h}
+;Params IlfProvider=kukaroboter.basistech.inlineforms.movement.old; Kuka.IsGlobalPoint=False; Kuka.PointName=P1; Kuka.BlendingEnabled=False; Kuka.MoveDataName=CPDAT1; Kuka.VelocityPath=0.02; Kuka.CurrentCDSetIndex=0; Kuka.MovementParameterFieldEnabled=True; IlfCommand=LIN
+;ENDFOLD
+   
+$BWDSTART = FALSE
+LDAT_ACT = LCPDAT1
+FDAT_ACT = FP1
+BAS(#CP_PARAMS, 0.02)
+SET_CD_PARAMS (0)
+LIN XP1
+;ENDFOLD
+
+   ; ------------ Assign all process parameters here ----------------
+   radius = 40 ; mm
+   speed = 0.015 ; m/s
+   clockwise = TRUE
+   nLayers = 100
+   layerHt = 0.50 ; mm
+   $APO.CDIS = 2.0
+   
+   ;$BASE={X 2643.13, Y -1406.41, Z 1813.36, A 0, B 0, C 0}  ; user-defined BASE frame
+   ;P1 = {X 0, Y 0, Z 0, A -90.000, B -0.57, C 178.12, S 22, T 18} ; starting point
+   ;$BASE = {X 1199.14, Y -1903.00, Z 1261.88, A 0, B 0, C 0}  ; user-defined BASE frame
+   ;startPt = {X 0, Y 0, Z 0, A 0, B -0.48, C 179.14, S 22, T 18}
+   startPt=XP1
+   P1 = XP1
+   P2 = P1
+   P2.Y = P1.Y + 2 * radius
+   AuxiliaryPt1 = P1
+   AuxiliaryPt1.X = P1.X - radius
+   AuxiliaryPt1.Y = P1.Y + radius
+   AuxiliaryPt2 = P1
+   AuxiliaryPt2.X = P1.X + radius
+   AuxiliaryPt2.Y = P1.Y + radius
+   ;-----------------------------------------------------------------
+   
+   $TOOL = TOOL_DATA[1] ; laser
+   
+   ;PTP $POS_ACT
+   
+   BAS(#VEL_PTP, 100) ; first make sure the max. vel and acceleration is used.
+   BAS(#ACC_PTP, 100)
+   
+   $VEL.CP = speed  ; m/s
+   $ACC.CP = 9.9 ; m/s^2
+   
+   ; Laser on
+   ; Set laser power
+   
+   LaserOn_Ext()
+   $ANOUT[1]=0.168 ; laser power in voltage
+   $ANOUT[2]=0.2 ; wire feed rate in voltage 
+   
+   ;LIN startPt
+   ; Laser emission start
+   LaserStart_Ext()
+   WireDepositionOn()
+   
+   
+   FOR layer = 1 TO nLayers STEP 1
+      
+      P1.Z = XP1.Z + (layer - 1) * layerHt
+      
+      IF layer > 1 THEN
+         P2.Z = P1.Z - layerHt/2.0
+      ENDIF
+      ;P3.Z = P1.Z + layerHt
+      
+      ;LIN P1 ; move to the starting point
+      
+      IF clockwise THEN
+         
+         ; Spiral path after the 1st layer:
+         IF layer > 1 THEN
+            AuxiliaryPt1.Z = P1.Z - layerHt * 3.0 / 4.0
+            AuxiliaryPt2.Z = P1.Z - layerHt / 4.0
+         ENDIF
+         
+         ; Laser emission start
+         ;LaserStart_Ext()
+         ;WAIT SEC 0.1  
+         
+        ; WireDepositionOn() 
+         
+         ;WAIT SEC 1.2
+         
+         ;CIRC AuxiliaryPt, EndPt, CA 360 C_DIS ; move to the end point, with transition at the auxiliary point
+         CIRC AuxiliaryPt1, P2 C_DIS ; move to the semicircle end point, with transition at the auxiliary point
+         CIRC AuxiliaryPt2, P1 C_DIS ; move to the full circle end point
+         
+         ;WireDepositionOff() 
+         
+         ;WAIT SEC 0.2
+         
+         ;LaserEnd_Ext()
+         
+         ;WAIT SEC 2.0 
+         
+         ;LaserOff_Ext()
+         
+         ; Laser emission end
+         
+      ELSE
+         
+         ; Spiral path after the 1st layer:
+         IF layer > 1 THEN
+            AuxiliaryPt2.Z = P1.Z - layerHt * 3.0 / 4.0
+            AuxiliaryPt1.Z = P1.Z - layerHt / 4.0
+         ENDIF
+         
+         ;LaserStart_Ext()
+         ;WAIT SEC 0.1  
+         
+         ;WireDepositionOn()
+         $ANOUT[2]=0.08125 ; wire feed rate in voltage 
+         
+         ;WAIT SEC 1.2
+         
+         ; Laser emission start
+         ;CIRC AuxiliaryPt, EndPt, CA -360 C_DIS ; move to the end point, with transition at the auxiliary point
+         CIRC AuxiliaryPt2, P2 C_DIS
+         CIRC AuxiliaryPt1, P1 C_DIS
+         ; Laser emission end
+         
+         ;WireDepositionOff()
+         
+         ;WAIT SEC 0.2
+         
+         ;LaserEnd_Ext()
+         
+         ;WAIT SEC 2.0 
+         
+         ;LaserOff_Ext()
+      ENDIF
+      ;WireFeederOff()            
+      ;LaserEnd_Ext_Wire()
+   ENDFOR
+   WireFeederOff()            
+   LaserEnd_Ext_Wire()
+   LaserOff_Ext()
+   ; Laser off
+   
+END
