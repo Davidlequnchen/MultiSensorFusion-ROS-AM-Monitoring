@@ -19,7 +19,7 @@ rule cpp_LINKER
  description = Linking target $out
 
 rule SHSYM
- command = /usr/bin/meson --internal symbolextractor /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir $in $IMPLIB $out $CROSS
+ command = /home/artc/.local/bin/meson --internal symbolextractor /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir $in $IMPLIB $out $CROSS
  description = Generating symbol file $out
  restat = 1
 
@@ -31,7 +31,7 @@ rule CUSTOM_COMMAND
  restat = 1
 
 rule REGENERATE_BUILD
- command = /usr/bin/meson --internal regenerate /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir --backend ninja
+ command = /home/artc/.local/bin/meson --internal regenerate /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir --backend ninja
  description = Regenerating build files.
  generator = 1
 
@@ -55,14 +55,14 @@ build libllt.so.0.2.3: cpp_LINKER libllt.so.0.2.3.p/src_llt.cpp.o | /usr/lib/x86
 # Test rules
 
 build meson-test: CUSTOM_COMMAND all PHONY
- COMMAND = /usr/bin/meson test --no-rebuild --print-errorlogs
+ COMMAND = /home/artc/.local/bin/meson test --no-rebuild --print-errorlogs
  DESC = Running$ all$ tests.
  pool = console
 
 build test: phony meson-test
 
 build meson-benchmark: CUSTOM_COMMAND all PHONY
- COMMAND = /usr/bin/meson test --benchmark --logbase benchmarklog --num-processes=1 --no-rebuild
+ COMMAND = /home/artc/.local/bin/meson test --benchmark --logbase benchmarklog --num-processes=1 --no-rebuild
  DESC = Running$ benchmark$ suite.
  pool = console
 
@@ -72,14 +72,14 @@ build benchmark: phony meson-benchmark
 
 build meson-install: CUSTOM_COMMAND PHONY | all
  DESC = Installing$ files.
- COMMAND = /usr/bin/meson install --no-rebuild
+ COMMAND = /home/artc/.local/bin/meson install --no-rebuild
  pool = console
 
 build install: phony meson-install
 
 build meson-dist: CUSTOM_COMMAND PHONY
  DESC = Creating$ source$ packages
- COMMAND = /usr/bin/meson dist
+ COMMAND = /home/artc/.local/bin/meson dist
  pool = console
 
 build dist: phony meson-dist
@@ -87,7 +87,7 @@ build dist: phony meson-dist
 # Suffix
 
 build meson-uninstall: CUSTOM_COMMAND PHONY
- COMMAND = /usr/bin/meson --internal uninstall
+ COMMAND = /home/artc/.local/bin/meson --internal uninstall
  pool = console
 
 build uninstall: phony meson-uninstall

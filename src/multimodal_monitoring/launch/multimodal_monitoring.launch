@@ -1,9 +1,9 @@
 <launch>
   <arg name="audio_topic" default="/audio"/>
-  <arg name="device" default="hw:2,0" />
+  <arg name="device" default="hw:1,0" />
   <arg name="sample_rate" default="44100"/>
   <arg name="abb" default="false" />
-  <arg name="kuka" default="false" />
+  <arg name="kuka" default="true" />
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>
   <arg name="vision" default="true"/>
@@ -54,9 +54,9 @@
   </include>
 
   <!-- data recording  -->
-  <include file="$(find audio_play)/launch/play.launch" if="$(arg acoustic)">
+  <!-- <include file="$(find audio_play)/launch/play.launch" if="$(arg acoustic)">
     <arg name="dst" default="$(arg dst)"/>
-  </include>
+  </include> -->
 
   <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz_multimodal)"/>
 

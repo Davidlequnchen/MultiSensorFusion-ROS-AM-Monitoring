@@ -1,0 +1,42 @@
+[
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -ICalibration@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'Calibration@exe/Calibration_Calibration.cpp.o' -MF 'Calibration@exe/Calibration_Calibration.cpp.o.d' -o 'Calibration@exe/Calibration_Calibration.cpp.o' -c ../Calibration/Calibration.cpp",
+    "file": "../Calibration/Calibration.cpp"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -IContainerMode@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -I/usr/include/libpng16 -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'ContainerMode@exe/ContainerMode_ContainerMode.cpp.o' -MF 'ContainerMode@exe/ContainerMode_ContainerMode.cpp.o.d' -o 'ContainerMode@exe/ContainerMode_ContainerMode.cpp.o' -c ../ContainerMode/ContainerMode.cpp",
+    "file": "../ContainerMode/ContainerMode.cpp"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -IGetProfilesCallback@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'GetProfilesCallback@exe/GetProfilesCallback_GetProfilesCallback.cpp.o' -MF 'GetProfilesCallback@exe/GetProfilesCallback_GetProfilesCallback.cpp.o.d' -o 'GetProfilesCallback@exe/GetProfilesCallback_GetProfilesCallback.cpp.o' -c ../GetProfilesCallback/GetProfilesCallback.cpp",
+    "file": "../GetProfilesCallback/GetProfilesCallback.cpp"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -IGetProfilesPoll@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'GetProfilesPoll@exe/GetProfilesPoll_GetProfilesPoll.cpp.o' -MF 'GetProfilesPoll@exe/GetProfilesPoll_GetProfilesPoll.cpp.o.d' -o 'GetProfilesPoll@exe/GetProfilesPoll_GetProfilesPoll.cpp.o' -c ../GetProfilesPoll/GetProfilesPoll.cpp",
+    "file": "../GetProfilesPoll/GetProfilesPoll.cpp"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -ILLTPeakFilter@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'LLTPeakFilter@exe/LLTPeakFilter_LLTPeakFilter.cpp.o' -MF 'LLTPeakFilter@exe/LLTPeakFilter_LLTPeakFilter.cpp.o.d' -o 'LLTPeakFilter@exe/LLTPeakFilter_LLTPeakFilter.cpp.o' -c ../LLTPeakFilter/LLTPeakFilter.cpp",
+    "file": "../LLTPeakFilter/LLTPeakFilter.cpp"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -IPartialProfile@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'PartialProfile@exe/PartialProfile_PartialProfile.cpp.o' -MF 'PartialProfile@exe/PartialProfile_PartialProfile.cpp.o.d' -o 'PartialProfile@exe/PartialProfile_PartialProfile.cpp.o' -c ../PartialProfile/PartialProfile.cpp",
+    "file": "../PartialProfile/PartialProfile.cpp"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -IPartialProfile_MultiLLT@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'PartialProfile_MultiLLT@exe/PartialProfileMultiLLT_PartialProfileMultiLLT.cpp.o' -MF 'PartialProfile_MultiLLT@exe/PartialProfileMultiLLT_PartialProfileMultiLLT.cpp.o.d' -o 'PartialProfile_MultiLLT@exe/PartialProfileMultiLLT_PartialProfileMultiLLT.cpp.o' -c ../PartialProfileMultiLLT/PartialProfileMultiLLT.cpp",
+    "file": "../PartialProfileMultiLLT/PartialProfileMultiLLT.cpp"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C++/builddir",
+    "command": "c++  -IVideoMode@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -O0 -g -pthread -MD -MQ 'VideoMode@exe/VideoMode_VideoMode.cpp.o' -MF 'VideoMode@exe/VideoMode_VideoMode.cpp.o.d' -o 'VideoMode@exe/VideoMode_VideoMode.cpp.o' -c ../VideoMode/VideoMode.cpp",
+    "file": "../VideoMode/VideoMode.cpp"
+  }
+]

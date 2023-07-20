@@ -1,4 +1,4 @@
-Build started at 2023-04-18T13:33:57.078283
+Build started at 2023-07-20T11:47:00.638956
 Main binary: /usr/bin/python3
 Build Options: 
 Python system: Linux
@@ -59,23 +59,23 @@ Pkg-config binary missing from cross or native file, or env var undefined.
 Trying a default Pkg-config fallback at pkg-config
 Found pkg-config: /usr/bin/pkg-config (0.29.1)
 Determining dependency 'aravis-0.6' with pkg-config executable '/usr/bin/pkg-config'
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config --modversion aravis-0.6` -> 0
 0.6.1
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config --cflags aravis-0.6` -> 0
 -pthread -I/usr/local/include/aravis-0.6 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config aravis-0.6 --libs` -> 0
 -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -laravis-0.6 -lm -lgio-2.0 -lgobject-2.0 -lxml2 -lgthread-2.0 -pthread -lglib-2.0
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config aravis-0.6 --libs` -> 0
 -L/usr/local/lib -laravis-0.6 -lm -lgio-2.0 -lgobject-2.0 -lxml2 -lgthread-2.0 -pthread -lglib-2.0
-Using 'PKG_CONFIG_PATH' from environment with value: '/opt/ros/noetic/lib/pkgconfig'
+Using 'PKG_CONFIG_PATH' from environment with value: '/home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'
 None of 'CXX_LD' are defined in the environment, not changing global flags.
 Running compile:
-Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmptlweyya1
-Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmptlweyya1/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmptlweyya1/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive 
+Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpgmzyuean
+Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpgmzyuean/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpgmzyuean/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive 
 
 Code:
  #include<stdio.h>
@@ -96,8 +96,8 @@ Program stderr:
 
 
 Running compile:
-Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmp0wyw8ygy
-Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmp0wyw8ygy/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmp0wyw8ygy/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpkv0g9hwe
+Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpkv0g9hwe/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpkv0g9hwe/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
 
 Code:
  
@@ -110,8 +110,8 @@ Compiler stderr:
  
 None of 'CXX_LD' are defined in the environment, not changing global flags.
 Running compile:
-Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmppzdijwgk
-Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmppzdijwgk/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmppzdijwgk/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmp_wu3jpby
+Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmp_wu3jpby/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmp_wu3jpby/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -123,23 +123,23 @@ Compiler stderr:
 Run-time dependency aravis-0.6 found: YES 0.6.1
 Pkg-config binary for MachineChoice.HOST is cached.
 Determining dependency 'mescan' with pkg-config executable '/usr/bin/pkg-config'
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config --modversion mescan` -> 0
-0.2.3
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+0.2.6
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config --cflags mescan` -> 0
 -I/usr/local/include/mescan
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config mescan --libs` -> 0
 -lmescan
-PKG_CONFIG_PATH: /opt/ros/noetic/lib/pkgconfig
+PKG_CONFIG_PATH: /home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig
 Called `/usr/bin/pkg-config mescan --libs` -> 0
 -lmescan
-Using 'PKG_CONFIG_PATH' from environment with value: '/opt/ros/noetic/lib/pkgconfig'
+Using 'PKG_CONFIG_PATH' from environment with value: '/home/artc/GitHub/SIMTech_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'
 None of 'CXX_LD' are defined in the environment, not changing global flags.
 Running compile:
-Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpfc8vp3qc
-Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpfc8vp3qc/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmpfc8vp3qc/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lmescan -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmppc5ebzf3
+Command line:  c++ /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmppc5ebzf3/testfile.cpp -o /home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir/meson-private/tmppc5ebzf3/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lmescan -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -148,7 +148,7 @@ Compiler stdout:
  
 Compiler stderr:
  
-Run-time dependency mescan found: YES 0.2.3
+Run-time dependency mescan found: YES 0.2.6
 Build targets in project: 1
 
 Found ninja-1.10.0 at /usr/bin/ninja

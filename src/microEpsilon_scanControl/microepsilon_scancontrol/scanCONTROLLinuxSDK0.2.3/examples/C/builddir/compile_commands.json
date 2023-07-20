@@ -1,0 +1,22 @@
+[
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C/builddir",
+    "command": "cc  -Iget_profiles_callback@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O0 -g -pthread -MD -MQ 'get_profiles_callback@exe/get_profiles_callback_get_profiles_callback.c.o' -MF 'get_profiles_callback@exe/get_profiles_callback_get_profiles_callback.c.o.d' -o 'get_profiles_callback@exe/get_profiles_callback_get_profiles_callback.c.o' -c ../get_profiles_callback/get_profiles_callback.c",
+    "file": "../get_profiles_callback/get_profiles_callback.c"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C/builddir",
+    "command": "cc  -Iget_profiles_poll@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O0 -g -pthread -MD -MQ 'get_profiles_poll@exe/get_profiles_poll_get_profiles_poll.c.o' -MF 'get_profiles_poll@exe/get_profiles_poll_get_profiles_poll.c.o.d' -o 'get_profiles_poll@exe/get_profiles_poll_get_profiles_poll.c.o' -c ../get_profiles_poll/get_profiles_poll.c",
+    "file": "../get_profiles_poll/get_profiles_poll.c"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C/builddir",
+    "command": "cc  -Ipartial_profile@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O0 -g -pthread -MD -MQ 'partial_profile@exe/partial_profile_partial_profile.c.o' -MF 'partial_profile@exe/partial_profile_partial_profile.c.o.d' -o 'partial_profile@exe/partial_profile_partial_profile.c.o' -c ../partial_profile/partial_profile.c",
+    "file": "../partial_profile/partial_profile.c"
+  },
+  {
+    "directory": "/home/chenlequn/Downloads/scanCONTROLLinuxSDK0.2.3/examples/C/builddir",
+    "command": "cc  -Iset_ip_address@exe -I. -I.. -I/usr/local/include/aravis-0.6 -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O0 -g -pthread -MD -MQ 'set_ip_address@exe/set_ip_address_set_ip_address.c.o' -MF 'set_ip_address@exe/set_ip_address_set_ip_address.c.o.d' -o 'set_ip_address@exe/set_ip_address_set_ip_address.c.o' -c ../set_ip_address/set_ip_address.c",
+    "file": "../set_ip_address/set_ip_address.c"
+  }
+]

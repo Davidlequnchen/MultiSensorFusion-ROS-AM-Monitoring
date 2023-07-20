@@ -1,19 +1,19 @@
 <launch>
   <!-- parameter definition -->
   <arg name="audio_topic" default="/audio"/>
-  <arg name="device" default="hw:2,0" />
+  <arg name="device" default="hw:1,0" />
   <arg name="sample_rate" default="44100"/>
   <arg name="abb" default="false" />
-  <arg name="kuka" default="false" />
+  <arg name="kuka" default="true" />
   <arg name="rviz" default="true"/>
-  <arg name="thermal" default="true"/>
+  <arg name="thermal" default="false"/>
   <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
-  <arg name="image_processing" default="false"/>
+  <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
-  <arg name="plotjuggler_viz_multimodal" default="false"/>
+  <arg name="plotjuggler_viz_multimodal" default="true"/>
 
-  <arg name="dst" default="/home/chenlequn/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.wav"/>
+  <arg name="dst" default="/media/artc/External_Data_Storage/20230712-Fault_Detection/KUKA_printing_07-13-exp4.wav"/>
 
   <!-- launch multimodal monitoring program -->
   <include file="$(find multimodal_monitoring)/launch/multimodal_monitoring.launch">
@@ -33,7 +33,7 @@
   </include>
 
   <node pkg="rosbag" type="record" name="rosbag_record_multimodal_monitoring_experiment" 
-    args="-O /media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.bag 
+    args="-O /media/artc/External_Data_Storage/20230712-Fault_Detection/experiment-07-13-exp4.bag 
     /audio /audioStamped /acoustic_feature /infratec/image_raw /infratec/image_converted_mono8
     /infratec/temperature_feature /general_contours/max_contour_area /convex_hull/hull_area" />
 

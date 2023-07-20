@@ -3,7 +3,7 @@
   <arg name="gui" default="true" />
   <arg name="sim" default="false" />
   
-  <include file="$(find simtech_kuka_workcell)/launch/kuka_laam_workcell.launch">
+  <include file="$(find simtech_kuka_workcell)/launch/kuka_laam_rsi_workcell.launch">
     <arg name="gui" value="false" />
     <arg name="sim" value="$(arg sim)" />
     <arg name="model" default="$(find microepsilon_workcell)/urdf/kuka_LAAM_microepsilon_workcell.xacro" />

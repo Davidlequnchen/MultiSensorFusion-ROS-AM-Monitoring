@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(microepsilon_calibration_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "include;/usr/local/include/mescan;/usr/local/include/aravis-0.6;/usr/include/libmount;/usr/include/blkid;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include " STREQUAL " ")
+if(NOT "include;/usr/local/include/mescan " STREQUAL " ")
   set(microepsilon_calibration_INCLUDE_DIRS "")
-  set(_include_dirs "include;/usr/local/include/mescan;/usr/local/include/aravis-0.6;/usr/include/libmount;/usr/include/blkid;/usr/include/libxml2;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include")
+  set(_include_dirs "include;/usr/local/include/mescan")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "include;/usr/local/include/mescan;/usr/local/include/aravis-0.6;/usr/inc
   endforeach()
 endif()
 
-set(libraries "microepsilon_calibration;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so;aravis-0.6;m;gio-2.0;gobject-2.0;xml2;gthread-2.0;glib-2.0")
+set(libraries "microepsilon_calibration;/usr/local/lib/libllt.so;/usr/local/lib/libmescan.so")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")

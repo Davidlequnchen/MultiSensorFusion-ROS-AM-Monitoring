@@ -12,7 +12,7 @@
   <arg name="field_far" default="0.2"/>
   <arg name="field_near" default="0.0"/> -->
   <arg name="serial_number" default="218120116"/>
-  <arg name="path_to_device_properties" default="~/SIMTech_ws/src/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/misc"/>
+  <arg name="path_to_device_properties" default="~/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/misc"/>
   <arg name="ns" default="microepsilon"/>
   <node ns = "$(arg ns)" name="microepsilon_scancontrol_node" pkg="microepsilon_scancontrol" type="microepsilon_scancontrol_node" cwd="node" respawn="true" output="screen">
     <param name="shutter_time" type="int" value="$(arg shutter_time)"/>

@@ -1,0 +1,9 @@
+prefix=/usr/local
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+Name: mescan
+Description: Library for operating MICRO-EPSILON scanCONTROL sensors
+Version: 0.2.3
+Libs: -lmescan
+Cflags: -I${includedir}/mescan
