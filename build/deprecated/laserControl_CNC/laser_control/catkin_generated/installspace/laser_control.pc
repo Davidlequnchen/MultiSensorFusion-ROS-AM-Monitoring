@@ -1,8 +1,0 @@
-prefix=/home/artc/GitHub/SIMTech_ws/install
-
-Name: laser_control
-Description: Description of laser_control
-Version: 0.1.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

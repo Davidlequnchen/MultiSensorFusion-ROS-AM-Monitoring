@@ -1,8 +1,0 @@
-prefix=/home/artc/GitHub/SIMTech_ws/devel
-
-Name: acoustic_feature_extraction
-Description: Description of acoustic_feature_extraction
-Version: 0.4.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: message_runtime

@@ -1,8 +1,0 @@
-prefix=/home/artc/GitHub/SIMTech_ws/install
-
-Name: simtech_kuka_workcell
-Description: Description of simtech_kuka_workcell
-Version: 0.4.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/artc/GitHub/SIMTech_ws/devel
-
-Name: motion_planning_kuka
-Description: Description of motion_planning_kuka
-Version: 0.4.0
-Cflags: -I/home/artc/GitHub/SIMTech_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

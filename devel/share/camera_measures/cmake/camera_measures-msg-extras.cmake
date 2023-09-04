@@ -1,2 +1,0 @@
-set(camera_measures_MESSAGE_FILES "/home/artc/GitHub/SIMTech_ws/src/camera_measures/msg/MsgGeometry.msg;/home/artc/GitHub/SIMTech_ws/src/camera_measures/msg/MsgVelocity.msg;/home/artc/GitHub/SIMTech_ws/src/camera_measures/msg/MsgStatus.msg;/home/artc/GitHub/SIMTech_ws/src/camera_measures/msg/MsgPosition.msg;/home/artc/GitHub/SIMTech_ws/src/camera_measures/msg/MsgTwist.msg;/home/artc/GitHub/SIMTech_ws/src/camera_measures/msg/MsgVelocityStatus.msg;/home/artc/GitHub/SIMTech_ws/src/camera_measures/msg/MsgAcceleration.msg")
-set(camera_measures_SERVICE_FILES "")

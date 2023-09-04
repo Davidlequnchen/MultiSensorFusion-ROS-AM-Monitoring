@@ -1,8 +1,0 @@
-prefix=/home/artc/GitHub/SIMTech_ws/install
-
-Name: simtech_robot_laser_control
-Description: Description of simtech_robot_laser_control
-Version: 0.4.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

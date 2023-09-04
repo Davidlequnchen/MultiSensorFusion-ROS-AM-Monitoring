@@ -1,2 +1,0 @@
-set(laser_control_MESSAGE_FILES "/home/artc/GitHub/SIMTech_ws/src/deprecated/laserControl_CNC/laser_control/msg/MsgPower.msg;/home/artc/GitHub/SIMTech_ws/src/deprecated/laserControl_CNC/laser_control/msg/MsgStart.msg;/home/artc/GitHub/SIMTech_ws/src/deprecated/laserControl_CNC/laser_control/msg/MsgControl.msg;/home/artc/GitHub/SIMTech_ws/src/deprecated/laserControl_CNC/laser_control/msg/MsgInfo.msg;/home/artc/GitHub/SIMTech_ws/src/deprecated/laserControl_CNC/laser_control/msg/MsgEmission.msg")
-set(laser_control_SERVICE_FILES "")

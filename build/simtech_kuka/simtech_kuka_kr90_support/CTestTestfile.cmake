@@ -1,8 +1,0 @@
-# CMake generated Testfile for 
-# Source directory: /home/artc/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr90_support
-# Build directory: /home/artc/GitHub/SIMTech_ws/build/simtech_kuka/simtech_kuka_kr90_support
-# 
-# This file includes the relevant testing commands required for 
-# testing this directory and lists subdirectories to be tested as well.
-add_test(_ctest_simtech_kuka_kr90_support_roslaunch-check_test_roslaunch_test_kr90r2700.xml "/home/artc/GitHub/SIMTech_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python3" "/opt/ros/noetic/share/catkin/cmake/test/run_tests.py" "/home/artc/GitHub/SIMTech_ws/build/test_results/simtech_kuka_kr90_support/roslaunch-check_test_roslaunch_test_kr90r2700.xml.xml" "--return-code" "/usr/bin/cmake -E make_directory /home/artc/GitHub/SIMTech_ws/build/test_results/simtech_kuka_kr90_support" "/opt/ros/noetic/share/roslaunch/cmake/../scripts/roslaunch-check -o \"/home/artc/GitHub/SIMTech_ws/build/test_results/simtech_kuka_kr90_support/roslaunch-check_test_roslaunch_test_kr90r2700.xml.xml\" \"/home/artc/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr90_support/test/roslaunch_test_kr90r2700.xml\" ")
-set_tests_properties(_ctest_simtech_kuka_kr90_support_roslaunch-check_test_roslaunch_test_kr90r2700.xml PROPERTIES  _BACKTRACE_TRIPLES "/opt/ros/noetic/share/catkin/cmake/test/tests.cmake;160;add_test;/opt/ros/noetic/share/roslaunch/cmake/roslaunch-extras.cmake;66;catkin_run_tests_target;/home/artc/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr90_support/CMakeLists.txt;11;roslaunch_add_file_check;/home/artc/GitHub/SIMTech_ws/src/simtech_kuka/simtech_kuka_kr90_support/CMakeLists.txt;0;")
