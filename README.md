@@ -1,14 +1,6 @@
-# SIMTech Workspace: ROS-based software platform for real-time multisensor monitoring of laser-directed energy deposition (L-DED) Additive Manufacturing (AM)
+# MFDT Workspace: 
+ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitoring and defect detection of laser-directed energy deposition (L-DED) Additive Manufacturing (AM) process.
 
-
-<!-- emojy can be used: 
-:heavy_multiplication_x:
-:exclamation:
-:question:
-:negative_squared_cross_mark:
-:heavy_check_mark:
-:x: 
-:red_circle: -->
 
 ## Installation
 - install ROS-noetic on Ubuntu 20.04: http://wiki.ros.org/noetic/Installation/Ubuntu
@@ -43,7 +35,7 @@ pip install -r requirements.txt
 
 
 - install Micro-Epsilon scanControl SDK:
-![./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3](README.md) 
+[./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3] 
 - install aravis from source: https://aravisproject.github.io/aravis
 
 <!-- - install BOOST library (download at: https://www.boost.org/users/download/)
@@ -63,19 +55,22 @@ sudo ./b2
 :heavy_check_mark: Tested sucessfully;
 
 ## Eperiment instructions
-### Hardware configuration
+### Hardware configuration (multisensor)
 <!-- #### Ethernet connections (pictures) -->
 <!-- ![](./src/doc/Adaptive_PID_VRFT.png?raw=true) -->
-#### Ethernet connections (Ubuntu Linux settings)
+#### Connections (Ubuntu Linux settings)
 
-- PCI Ethernet port (normal ethernet): Infratec thermal camera
-- Ethernet Connection port (USB-C): RSI (KUKA)
+- Xiris 1800V thermal camera (melt pool monitoring): Ethernet Connection port
+- Xiris WeldMIC acoustic monitoring: USB port
+- KUKA RSI interface: Ethernet Connection port (USB-C)
+- Coaxial CCD melt pool camera: USB port
+- Infratec thermal camera: PCI Ethernet port (normal ethernet)
 <!-- ![](./src/doc/Adaptive_PID_VRFT.png?raw=true) -->
 
 
 
 ### 1. Multimodal monitoring 
-#### 1.1 software instruction 
+#### 1.1 Software instruction 
 - launch the monitoring (without experiments) :heavy_check_mark:
 ```
 roslaunch multimodal_monitoring multimodal_monitoring.launch
@@ -96,17 +91,21 @@ roslaunch multimodal_monitoring multimodal_monitoring_experiments.launch
 args="-O ~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.bag 
 /audio /audioStamped /acoustic_feature " />
 ```
-#### 1.3 Important instructions for conducting the experiment
+#### 1.3 Important instructions for conducting experiments
 - Before experiments, the thermal camera's focus needs to be fine-tuned. Make sure it is focused to the laser spot.
-- After calibrating the focus, the temperature range of the camera needs to be configured to the correct range. (500-2000 degrees)
-- Do a dry run to test the microphone sensor. Make sure it is capturing the acoustic signal rather than using the PC built-in microphone. :exclamation:
-- For KUKA program, need to add RSI communications in the code:
-```
+- After calibrating the focus, the temperature range of the camera needs to be configured to the correct range. (500-2000 degrees) -- __only for Infratec VarioCAM camera, Xiris no need__
+- :exclamation: Conduct a dry run to test the microphone sensor. Make sure it is capturing the acoustic signal rather than using the PC built-in microphone. 
+- For KUKA program, need to add RSI communications in the code
 
-```
-- ping kuka:
+
+- ping kuka LDED robot RSI interface:
 ```
 ping 192.168.1.3
+```
+
+- ping MicroEpsilon ScanController"
+```
+ping 169.254.87.67
 ```
 
 #### 1.4 Data recordings
@@ -153,8 +152,33 @@ rosbag record -O /media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitori
 
 
 ## 2. Single modal monitoring 
-### 2.1. Thermal monitoring
-#### 2.1.1 configuration and specifications
+
+### 2.1. Acoustic monitoring
+### 2.1.1 parameters and setup
+- device: `arecord -l` will show available input devices, use the car number as
+  the first number and the subdevice number as the second in a string
+  like hw:1,0
+```
+<arg name="device" default="hw:2,0" />
+```
+- sampling rate: 
+```
+<arg name="sample_rate" default="44100"/>
+```
+
+### 2.1.2 launch instructions
+- standalone acoustic monitoring: :heavy_check_mark:
+```
+roslaunch acoustic_feature_extraction acoustic_monitoring.launch
+```
+-  acoustic monitoring with rosbag recording: :heavy_check_mark:
+```
+roslaunch acoustic_feature_extraction acoustic_monitoring_experiment.launch
+```
+
+
+### 2.2. Thermal monitoring (Infratec VarioCAM)
+#### 2.2.1 configuration and specifications
 - set parameters for the thermal images (__max, min temp, croppings__): `~/SIMTech_ws/src/Infratec_thermal_camera/thermal_monitoring/config/thermal_camera_parameter.yaml` :exclamation::exclamation::exclamation:
 Note that chaneg the parameter in this yaml file will __overwrite__ the default settings. Hence, this is the only file you need to modify during the experiments.
 - remember to set python with network access: :heavy_check_mark:
@@ -162,7 +186,7 @@ Note that chaneg the parameter in this yaml file will __overwrite__ the default 
 setcap cap_net_raw+eip /usr/bin/python3.6
 ```
 
-#### 2.1.2 launch instructions
+#### 2.2.2 launch instructions
 - launch the basic thermal camera driver GUI(for testing the Infratec camera)  :heavy_check_mark:
 ```
 roslaunch infratec_ros_driver infratec_vario_ros_driver_basic.launch
@@ -189,30 +213,12 @@ roslaunch thermal_monitoring thermal_monitoring.launch
 roslaunch infratec_ros_driver qt_infratec_insitu_monitoring.launch
 ```
 
-### 2.1. Acoustic monitoring
-### 2.1.1 parameters and setup
-- device: `arecord -l` will show available input devices, use the car number as
-  the first number and the subdevice number as the second in a string
-  like hw:1,0
+### 2.3. Laser line scanning (MicroEpsilon)
+#### 2.2.1 configuration and specifications
 ```
-<arg name="device" default="hw:2,0" />
+ping 192.168.1.3 ## KUKA RSI
+ping 169.254.87.67 ## MicroEpsilon
 ```
-- sampling rate: 
-```
-<arg name="sample_rate" default="44100"/>
-```
-
-### 2.1.2 launch instructions
-- standalone acoustic monitoring: :heavy_check_mark:
-```
-roslaunch acoustic_feature_extraction acoustic_monitoring.launch
-```
--  acoustic monitoring with rosbag recording: :heavy_check_mark:
-```
-roslaunch acoustic_feature_extraction acoustic_monitoring_experiment.launch
-```
-
-
 ## 3. Post-experiment offline data processing
 - navigate to `experiment_data` folder
 - execute feature extraction for thermal monitoring modal:

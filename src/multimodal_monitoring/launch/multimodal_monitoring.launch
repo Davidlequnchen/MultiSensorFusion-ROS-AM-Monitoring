@@ -25,7 +25,7 @@
     <arg name="feeder_type" default="powder" />
   </include>
 
-  <include file="$(find simtech_kuka_workcell)/launch/kuka_laam_rsi_workcell.launch" if="$(arg kuka)">
+  <include file="$(find simtech_kuka_workcell)/launch/kuka_LDED_rsi_workcell.launch" if="$(arg kuka)">
     <arg name="rviz" value="$(arg rviz)" />
   </include>
 
