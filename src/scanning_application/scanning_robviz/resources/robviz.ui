@@ -36,7 +36,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>LAAM Monitoring</string>
+   <string>Robotic LDED Monitoring</string>
   </property>
   <property name="windowIcon">
    <iconset>

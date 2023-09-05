@@ -137,7 +137,7 @@ class Segmentation:
         self.zmap = None
 
     def on_select(self, xmin, xmax):
-        print xmin, xmax
+        print(xmin, xmax)
         xmin = int(round(xmin))
         xmax = int(round(xmax))
         self.rect.set_xy((xmin, 0))
@@ -224,7 +224,7 @@ def show_path_from_slice(slice):
     slice = [filter_polyline(polyline, dist=0.3) for polyline in slice]
     path = planning.get_path_from_slices([slice], 0.8)
     t1 = time.time()
-    print 'Time for path:', t1 - t0
+    print('Time for path:', t1 - t0)
 
     # # Get path with frames
     # _path = []
@@ -273,7 +273,7 @@ if __name__ == '__main__':
     #contours = approx_contours(segmentation.contours, epsilon=2)
     #contours = [hull_contour(segmentation.contours, area=1000)]
     slice = slice_of_contours(zmap, segmentation.contours)
-    print 'Slice', slice
+    print('Slice', slice)
     #show_path_from_slice(slice)
 
     contours = approx_contours(segmentation.contours, epsilon=3)
@@ -294,7 +294,7 @@ if __name__ == '__main__':
     path = planning.get_path_from_slices([slice], track_distance=1.3, focus=0)
     lines = planning.get_grated(slice, 1.3)
     surf_lines = lines_of_surface(zmap, lines)
-    print surf_lines
+    print(surf_lines)
     # TODO: Merge function for translate lines (polyline) to path
     #path = planning.get_path_from_fill_lines(surf_lines)
     path = []
@@ -302,7 +302,7 @@ if __name__ == '__main__':
         for point in line[:-1]:
             path.append([point, planning.orientation, True])
         path.append([line[-1], planning.orientation, False])
-    print path
+    print(path)
 
     from planning.mlabplot import MPlot3D
 

@@ -1,0 +1,16 @@
+
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+  
+  <include file="$(find simtech_kuka_workcell)/launch/kuka_LDED_rsi_workcell.launch">
+    <arg name="gui" value="false" />
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="model" default="$(find microepsilon_workcell)/urdf/kuka_LAAM_microepsilon_workcell.xacro" />
+  </include>
+
+  <include file="$(find microepsilon_scancontrol)/launch/scanner_driver.launch"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find microepsilon_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
+    
+</launch>

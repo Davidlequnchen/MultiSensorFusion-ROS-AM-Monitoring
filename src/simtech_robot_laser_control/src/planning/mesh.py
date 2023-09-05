@@ -48,9 +48,9 @@ class Mesh:
                         break
                     data = f.read(2)  # skip the attribute bytes
                     self.triangles.append(tri)
-            print "Loaded binary STL:", filename
+            print("Loaded binary STL:", filename)
         except:
-            print "Unable to load binary STL"
+            print("Unable to load binary STL")
             return False
         return True
 
@@ -75,9 +75,9 @@ class Mesh:
                     self.triangles.append(tri)
             else:
                 return False
-            print "Loaded binary STL:", filename
+            print("Loaded binary STL:", filename)
         except:
-            print "Unable to load text STL"
+            print("Unable to load text STL")
             return False
         return True
 
@@ -94,11 +94,11 @@ class Mesh:
     def calculate_shift_triangles(self):
         self.devmap.calculate_shift_triangles()
         self.min_z_repair = np.array(self.devmap.shift_triangles)[:, :, 2].min()
-        print 'Zmin to repair: ' + str(self.min_z_repair)
-        print 'triangels:'
-        print np.array(self.devmap.shift_triangles)
-        print 'list'
-        print self.devmap.shift_triangles
+        print('Zmin to repair: ' + str(self.min_z_repair))
+        print('triangels:')
+        print(np.array(self.devmap.shift_triangles))
+        print('list')
+        print(self.devmap.shift_triangles)
         self.rays.load_triangles(self.devmap.shift_triangles, delaunay=True)
 
     def save_stl(self, filename):
@@ -153,7 +153,7 @@ class Mesh:
             zmin, zmax = self.position[2], (self.position + self.size)[2]
         if self.min_z_repair > 0:
             zmin = self.min_z_repair
-        print 'Zmin, Zmax:', zmin, zmax
+        print('Zmin, Zmax:', zmin, zmax)
         n_vals = np.round((zmax - zmin) / zdist)
         i_min = zmin #((zmax + zmin) - (n_vals * zdist)) / 2
         i_max = ((zmax + zmin) + (n_vals * zdist)) / 2
@@ -211,7 +211,7 @@ class Mesh:
         local_ctriangles = self.ctriangles
         for triangle in local_ctriangles:
             if (triangle[0, 2] == z_level) and (triangle[2, 2] == z_level):
-                print "WARNING: Triangle in z_level!"
+                print("WARNING: Triangle in z_level!")
             elif triangle[0, 2] < z_level < triangle[2, 2]:
                 intersection = self.get_z_intersect(triangle, z_level)
                 unsorted_lines.append(intersection)
@@ -224,7 +224,7 @@ class Mesh:
             if np.array_equal(unsorted_lines[n_line][0], unsorted_lines[n_line][1]):
                 doubles = doubles +1
         if doubles > 0:
-            print 'WARNING: Puntos dobles detectados'
+            print('WARNING: Puntos dobles detectados')
         if not unsorted_lines == []:
             # Arrange the line segments so that each segment leads to the
             # nearest available segment. This is accomplished by using two
@@ -247,7 +247,7 @@ class Mesh:
             #     roll_point = self.get_roll_point(polygon)
             #     if roll_point != 0:
             #         polygons[i] = polygon[roll_point:] + polygon[:roll_point]
-            #     print 'Roll point: ' + str(roll_point)
+            #     print('Roll point: ' + str(roll_point))
             return [poly.filter_polyline(polygon, dist=0.05) for polygon in polygons]  # Polygons filter
         else:
             return None
@@ -260,7 +260,7 @@ class Mesh:
         for z_level in levels:
             slices.append(self.get_slice(z_level))
             #t1 = time.time()
-            #print '[%.2f%%] Time to slice at %.1fmm %.3f s.' % ((100.0 * (k + 1)) / len(levels), z_level, t1 - t0)
+            #print('[%.2f%%] Time to slice at %.1fmm %.3f s.' % ((100.0 * (k + 1)) / len(levels), z_level, t1 - t0))
         return slices
 
 
@@ -282,7 +282,7 @@ if __name__ == '__main__':
     t0 = time.time()
     slice = mesh.get_slice(0.7)
     t1 = time.time()
-    print 'Time for slice:', t1 - t0
+    print('Time for slice:', t1 - t0)
 
     slices = mesh.get_mesh_slices(0.5)
 

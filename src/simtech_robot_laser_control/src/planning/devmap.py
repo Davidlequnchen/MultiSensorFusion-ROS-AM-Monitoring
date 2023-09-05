@@ -55,7 +55,7 @@ class DevMap():
                     vector.append(i * dev_pair[1])
                 self.dev_vectors.append(vector)
         else:
-            print 'Insuficient normals data to calculate the deviation vectors'
+            print('Insuficient normals data to calculate the deviation vectors')
 
     def calculate_shift_triangles(self):
         if len(self.dev_vectors) >= len(self.deviation_datas):
@@ -73,7 +73,7 @@ class DevMap():
                         shift_tri.append(shift_point)
                     self.shift_triangles.append(shift_tri)
         else:
-            print 'Insuficient deviation vectors to shif the triangles'
+            print('Insuficient deviation vectors to shif the triangles')
 
     def save_stl(self, filename, triangles=None):
         import stl
@@ -340,7 +340,7 @@ class Rays():
             line.append(self.ray_end)
         lines = np.array(line)
         if len(lines) % 2 == 1:
-            print 'Error getting segments'
+            print('Error getting segments')
         self.segments = lines
 
     def divide_segment(self, segment):

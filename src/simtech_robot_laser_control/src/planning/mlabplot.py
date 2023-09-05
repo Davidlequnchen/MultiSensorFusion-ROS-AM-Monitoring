@@ -74,7 +74,7 @@ class MPlot3D():
         #y = (a * x + c * z + d) / -b
         y, z = np.mgrid[ymin:ymax:0.09, zmin:zmax:0.09]
         x = (b * y + c * z + d) / -a
-        print x, y, z
+        print(x, y, z)
         mlab.mesh(x, y, z, color=color, opacity=0.5, transparent=True)
 
     def draw_line(self, point0, point1, color=WHITE, scale=0.25):
@@ -249,19 +249,19 @@ if __name__ == '__main__':
 
     pose_arrow = calc.rpypose_to_pose((0, 0, 100), (0, np.deg2rad(90), 0))
     trans_arrow = calc.matrix_invert(calc.pose_to_matrix(pose_arrow))
-    print 'arrow quat:', calc.matrix_to_quatpose(trans_arrow)
+    print('arrow quat:', calc.matrix_to_quatpose(trans_arrow))
     points = calc.transform_points(pose_arrow, arrow)
     arrow2 = (points[0], points[1]-points[0])
-    print pose_arrow, points
+    print(pose_arrow, points)
 
     position = ((0, 20, 0), (np.deg2rad(-45), np.deg2rad(45), np.deg2rad(0)))
     pose = calc.rpypose_to_pose(*position)
-    print 'quat:', calc.rpypose_to_quatpose(*position)
+    print('quat:', calc.rpypose_to_quatpose(*position))
     trans = calc.matrix_compose([calc.pose_to_matrix(pose), calc.pose_to_matrix(pose_arrow)])
-    print 'final pose:', calc.matrix_to_quatpose(trans)
+    print('final pose:', calc.matrix_to_quatpose(trans))
     points = calc.transform_points(calc.matrix_to_pose(trans), arrow)
     arrow3 = (points[0], points[1]-points[0])
-    print pose, points
+    print(pose, points)
 
     mplot3d = MPlot3D()
     mplot3d.draw_working_area(100, 100)

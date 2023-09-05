@@ -120,4 +120,4 @@ if __name__ == '__main__':
     routine.set_process(8, 1000)
     cmds = routine.path2cmds(path)
     routine.save_commands(filename, cmds)
-    print cmds
+    print(cmds)

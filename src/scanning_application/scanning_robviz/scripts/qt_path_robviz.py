@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 import logging
@@ -171,7 +171,7 @@ class QtPath(QtWidgets.QWidget):
     def removeComamnd(self):
         item = self.listWidgetPoses.takeItem(0)
         if item:
-            print (item.text())
+            print((item.text()))
             return item.text()
         else:
             return None
@@ -186,7 +186,7 @@ class QtPath(QtWidgets.QWidget):
         filename = QtWidgets.QFileDialog.getOpenFileName(
             self, 'Load Path Routine', os.path.join(path_motion_planning, 'routines'),
             'Jason Routine Files (*.jas)')[0]
-        print ('Load routine:', filename)
+        print(('Load routine:', filename))
         commands = self.jason.load_commands(filename)
         self.loadCommands(commands)
 
@@ -198,7 +198,7 @@ class QtPath(QtWidgets.QWidget):
         if n_row > 0:
             cmds = [str(self.listWidgetPoses.item(row).text()) for row in range(n_row)]
             self.jason.save_commands(filename, cmds)
-        print ('Saved routine:', filename)
+        print(('Saved routine:', filename))
 
     def btnRunPathClicked(self):
         """Start-Stop sending commands to robot from the list of commands."""
@@ -247,7 +247,7 @@ class QtPath(QtWidgets.QWidget):
         row = self.listWidgetPoses.currentRow()
         if len(str_command[0]) > 3:
             self.insertCommand(str_command[0], insert=True, position=row)
-        print (str_command)
+        print((str_command))
 
     def btnStepClicked(self):
         n_row = self.listWidgetPoses.count()
@@ -331,8 +331,8 @@ class QtPath(QtWidgets.QWidget):
                 if command.find(',false') > 0:
                     command = command.replace(',false','')
         rob_response = self.send_command(command)
-        print ('Sended command:', command)
-        print ('Received response:', rob_response)
+        print(('Sended command:', command))
+        print(('Received response:', rob_response))
         self.ok_command = rob_response.response
 
     def timeRunPathEvent(self):

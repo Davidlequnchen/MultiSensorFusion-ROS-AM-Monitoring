@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 import rospy
@@ -7,9 +7,9 @@ import rospkg
 from python_qt_binding import loadUi
 from python_qt_binding import QtGui
 from python_qt_binding import QtCore
-from python_qt_binding import QtWidgets 
+from python_qt_binding import QtWidgets
 
-import rviz
+from rviz import bindings as rviz
 
 from camera_measures.msg import MsgVelocityStatus
 
@@ -161,9 +161,9 @@ class Robviz(QtWidgets.QMainWindow):
         self.tabWidget.setCurrentWidget(self.qtPart)
 
     def qtScanAccepted(self, path):
-        print 'Path:', path
+        print('Path:', path)
         # commands = self.qtPath.jason.path2cmds(path)
-        # print 'Commands:', commands
+        # print('Commands:', commands
         # self.qtPath.loadCommands(commands)
         # self.tabWidget.setCurrentWidget(self.qtPath)
 

@@ -1,7 +1,7 @@
 import time
 import numpy as np
 
-import calculate as calc
+import planning.calculate as calc
 
 
 class Planning:
@@ -92,7 +92,7 @@ class Planning:
                 else:
                     indexes = np.argsort(points[:, 0])
                 if len(indexes) % 2:
-                    print 'ERROR!', len(indexes), 'tangent element finded'
+                    print('ERROR!', len(indexes), 'tangent element finded')
                     indexes = indexes[:len(indexes)-1]
                 if self.start_point_dir == 'min':
                     indexes = np.flip(indexes)
@@ -166,7 +166,7 @@ class Planning:
                     pair = not pair
                     path.extend(self.get_path_from_fill_lines_old(fill_lines))
             #t1 = time.time()
-            #print '[%.2f%%] Time to path %.3f s.' % (
+            #print('[%.2f%%] Time to path %.3f s.' % ()
             #    (100.0 * (k + 1)) / len(slices), t1 - t0)
         return self.translate_path(path, np.array([0, 0, focus]))
 
@@ -192,7 +192,7 @@ class Planning:
 if __name__ == '__main__':
     import argparse
     from mesh import Mesh
-    from mlabplot import MPlot3D
+    # from mlabplot import MPlot3D
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--data', type=str,
@@ -209,7 +209,7 @@ if __name__ == '__main__':
     # t0 = time.time()
     # slices = mesh.get_mesh_slices(0.5)
     # t1 = time.time()
-    # print 'Time for slices:', t1 - t0
+    # print('Time for slices:', t1 - t0)
     slices = []
     slices.append(slice)
     fp = slice[0][0]
@@ -220,14 +220,14 @@ if __name__ == '__main__':
     t0 = time.time()
     path = planning.get_path_from_slices(slices, 2.16, degrees=45.0)
     t1 = time.time()
-    print 'Time for path:', t1 - t0
+    print('Time for path:', t1 - t0)
 
     import datetime
     length = planning.path_length(path)
     time = planning.path_time(length, 8, 50)
-    print 'Laser distance:', length[0]
-    print 'Travel distance:', length[1]
-    print 'Estimated time:', str(datetime.timedelta(seconds=int(time)))
+    print('Laser distance:', length[0])
+    print('Travel distance:', length[1])
+    print('Estimated time:', str(datetime.timedelta(seconds=int(time))))
 
     # # Get path with frames
     # _path = []
@@ -235,8 +235,8 @@ if __name__ == '__main__':
     #    frame, t = calc.quatpose_to_pose(position, orientation)
     #    _path.append([position, frame, process])
 
-    mplot3d = MPlot3D()
-    #mplot3d.draw_mesh(mesh)
-    mplot3d.draw_slices(slices)
-    mplot3d.draw_path(path)
-    mplot3d.show()
+    # mplot3d = MPlot3D()
+    # #mplot3d.draw_mesh(mesh)
+    # mplot3d.draw_slices(slices)
+    # mplot3d.draw_path(path)
+    # mplot3d.show()

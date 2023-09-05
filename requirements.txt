@@ -14,5 +14,7 @@ h5py
 prettytable==3.6.0
 pyAudioAnalysis
 tqdm
+shapely==2.0.1
+mayavi==4.4.1
 
 

@@ -1,8 +1,8 @@
 [
   {
-    "directory": "/home/artc/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir",
-    "command": "c++ -Ilibllt.so.0.2.3.p -I. -I.. -I../include -I/usr/local/include/aravis-0.6 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -pthread -MD -MQ libllt.so.0.2.3.p/src_llt.cpp.o -MF libllt.so.0.2.3.p/src_llt.cpp.o.d -o libllt.so.0.2.3.p/src_llt.cpp.o -c ../src/llt.cpp",
+    "directory": "/home/artc/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libllt/builddir",
+    "command": "c++ -Illt@sha -I. -I.. -I../include -I/usr/local/include/aravis-0.6 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/local/include/mescan -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -g -fPIC -pthread -MD -MQ 'llt@sha/src_llt.cpp.o' -MF 'llt@sha/src_llt.cpp.o.d' -o 'llt@sha/src_llt.cpp.o' -c ../src/llt.cpp",
     "file": "../src/llt.cpp",
-    "output": "libllt.so.0.2.3.p/src_llt.cpp.o"
+    "output": "llt@sha/src_llt.cpp.o"
   }
 ]

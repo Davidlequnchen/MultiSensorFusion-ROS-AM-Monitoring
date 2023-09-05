@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
     points = np.hstack((points, np.random.random_sample((len(points), 1))))
     pnts = np.array(ramerdouglas(points, 0.1))
-    print len(points), len(pnts)
+    print (len(points), len(pnts))
 
     plt.figure()
     plt.plot(points[:, 0], points[:, 1], 'o-')

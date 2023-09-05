@@ -8,3 +8,4 @@
 /usr/local/include/mescan/mescan_adv.h
 /usr/local/include/mescan/LLTDataTypes.h
 /usr/local/lib/pkgconfig/mescan.pc
+/usr/local/include/mescan

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 import rospy
@@ -13,6 +13,9 @@ from visualization_msgs.msg import MarkerArray
 from markers import ScanMarkers
 
 from python_qt_binding import loadUi
+# from PySide2 import QtGui
+# from PySide2 import QtCore
+# from PySide2 import QtWidgets
 from python_qt_binding import QtGui
 from python_qt_binding import QtCore
 from python_qt_binding import QtWidgets
@@ -151,7 +154,7 @@ class QtScan(QtWidgets.QWidget):
             self.recording = True
             self.btnRecord.setText('Stop recording...')
             # except IOError as error:
-            #     print error
+            #     print(error
 
     def btnZmapClicked(self):
         filename = QtWidgets.QFileDialog.getOpenFileName(
@@ -166,7 +169,7 @@ class QtScan(QtWidgets.QWidget):
             contours.save_zmap('%s.tif' % name, self.zmap)
             self.segmentation.plot_zmap(self.zmap)
         else:
-            print 'Create Zmap: Incorrect filename'
+            print('Create Zmap: Incorrect filename')
 
     def btnPathClicked(self):
         try:
@@ -178,7 +181,7 @@ class QtScan(QtWidgets.QWidget):
             self.scan_markers.set_path(self.path)
             self.pub_marker_array.publish(self.scan_markers.marker_array)
         except AttributeError as error:
-            print error
+            print(error)
 
     def btnScanClicked(self):
         self.accepted.emit(self.path)

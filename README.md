@@ -20,7 +20,10 @@ sudo apt-get install ros-noetic-roscpp, ros-noetic-std-msgs
 sudo apt-get install ros-noetic-industrial-core
 sudo apt-get install ros-noetic-moveit-visual-tools
 ```
-
+- Install ROS controller
+```
+sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers
+```
 - install vtk
 ```
 python -m pip install vtk
@@ -57,16 +60,19 @@ sudo ./b2
 ## Eperiment instructions
 ### Hardware configuration (multisensor)
 <!-- #### Ethernet connections (pictures) -->
-<!-- ![](./src/doc/Adaptive_PID_VRFT.png?raw=true) -->
+
 #### Connections (Ubuntu Linux settings)
 
 - Xiris 1800V thermal camera (melt pool monitoring): Ethernet Connection port
+  - (suggested configuration on monitoring PC - )
 - Xiris WeldMIC acoustic monitoring: USB port
-- KUKA RSI interface: Ethernet Connection port (USB-C)
+- KUKA RSI interface: Ethernet Connection port. 
+  - suggested configuration on monitoring PC - __IP: 192.168.1.3__
 - Coaxial CCD melt pool camera: USB port
-- Infratec thermal camera: PCI Ethernet port (normal ethernet)
-<!-- ![](./src/doc/Adaptive_PID_VRFT.png?raw=true) -->
-
+- Infratec thermal camera: PCI Ethernet port. 
+  - suggested configuration on monitoring PC - __IP: 169.254.87.1__ 
+- ABB: Ethernet port. 
+  - suggested configuration on monitoring PC - __IP: 192.168.125.3__ 
 
 
 ### 1. Multimodal monitoring 
@@ -103,9 +109,13 @@ args="-O ~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.
 ping 192.168.1.3
 ```
 
-- ping MicroEpsilon ScanController"
+- ping MicroEpsilon ScanController
 ```
 ping 169.254.87.67
+```
+- ping ABB driver
+```
+ping 192.168.125.1
 ```
 
 #### 1.4 Data recordings
