@@ -15,7 +15,7 @@
 
     <node name="robviz" pkg="scanning_robviz" type="rob_scanning_visualization.py"/>
     
-    <!--node name="pcl_subprocessing" pkg="scanning_robviz" type="pcl_subprocess_handler.py"/-->
+    <!-- node name="pcl_subprocessing" pkg="scanning_robviz" type="pcl_subprocess_handler.py"/-->
     <!-- the subprocess handler makes everything very slow -->
     <!-- <node name="pcl_subprocessing" pkg="scanning_robviz" type="nd_subprocess_handler" respawn="true" /> -->
 

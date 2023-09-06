@@ -28,8 +28,8 @@
     <remap from="~output" to="/microepsilon/laser_scan_filtered" />
     <rosparam>
       filter_field_name: y
-      filter_limit_min: 0.08
-      filter_limit_max: 0.098
+      <!-- filter_limit_min: 0.08 -->
+      <!-- filter_limit_max: 0.098 -->
     </rosparam>
   </node>
 
