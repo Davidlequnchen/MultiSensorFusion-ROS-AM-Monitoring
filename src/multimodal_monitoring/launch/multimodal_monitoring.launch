@@ -7,14 +7,18 @@
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>
   <arg name="vision" default="true"/>
-  <arg name="acoustic" default="true"/>
+  <arg name="pylon" default="true"/>
+  <arg name="acoustic" default="false"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
-  <arg name="plotjuggler_viz_multimodal" default="true"/>
+  <arg name="plotjuggler_viz_multimodal" default="false"/>
   <!-- <arg name="dst" default="/media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.wav"/> -->
   <arg name="dst" default="/home/artc/temp_data/test.wav"/>
   
+
+  <!-- Real-time quality prediction -->
+  <node name="quality_prediction" pkg="multimodal_monitoring" type="multimodal_prediction.py" />
 
 
   <!-- launch robot: ABB or KuKa -->
@@ -37,12 +41,13 @@
     <arg name="image_processing"  value="$(arg image_processing)"/>
   </include>
 
-  <!-- Coaxial CCD monitoring -->
+  <!-- Coaxial CCD monitoring (normal USB camera or Pylon camera) -->
   <include file="$(find camera_measures)/launch/coaxial_vision_measures.launch" if="$(arg vision)">
     <arg name="gui" value="true" />
+    <arg name="pylon" value="$(arg pylon)" />
     <arg name="contour_extract" value="true"/>
     <arg name="convex_hull_extract" value="true"/>
-    <arg name="moment_extract" value="false"/>
+    <arg name="moment_extract" value="true"/>
   </include>
 
   <!-- acoustic monitoring -->

@@ -27,14 +27,16 @@ sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers
 - install vtk
 ```
 python -m pip install vtk
-
 ```
 
-- install Python Packages:
+- install Python Packages: 
 ```
 pip install -r requirements.txt
 ```
-
+- For Pylon camera ROS packages (Basler USB Camera Driver): https://github.com/basler/pylon-ros-camera
+  - Installation: Clone the official repository workspace (right now it is already inside the __camera_utils__ folder): `git clone https://github.com/basler/pylon-ros-camera`
+   * Clone drag&bot public common messages: `git clone https://github.com/dragandbot/dragandbot_common.git`
+   * Install ROS dependencies: `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && rosdep update && rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
 
 
 - install Micro-Epsilon scanControl SDK:
@@ -224,11 +226,19 @@ roslaunch infratec_ros_driver qt_infratec_insitu_monitoring.launch
 ```
 
 ### 2.3. Laser line scanning (MicroEpsilon)
-#### 2.2.1 configuration and specifications
+#### 2.3.1 configuration and specifications
 ```
 ping 192.168.1.3 ## KUKA RSI
 ping 169.254.87.67 ## MicroEpsilon
 ```
+#### 2.3.2 Launch instructions
+```
+cd ~/SIMTech_ws/src/scanning_application/scanning_robviz/launch
+roslaunch scanning_robviz robviz_abb_microepsilon.launch ## for ABB hybrid laser-arc
+roslaunch scanning_robviz robviz_kuka_microepsilon.launch ## for KUKA system
+```
+
+
 ## 3. Post-experiment offline data processing
 - navigate to `experiment_data` folder
 - execute feature extraction for thermal monitoring modal:
