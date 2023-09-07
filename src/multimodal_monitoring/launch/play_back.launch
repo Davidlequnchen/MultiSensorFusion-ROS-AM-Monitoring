@@ -12,7 +12,7 @@
   <arg name="block_size" default="3" doc="Size of an average block for computing a derivative covariation matrix over each pixel neighborhood."/>
   <arg name="harris_k" default="0.04" doc="Free parameter of the Harris detector"/>
   <arg name="plotjuggler_viz" default="true"/>
-  <arg name="plotjuggler_viz_multimodal" default="true"/>
+  <arg name="plotjuggler_viz_multimodal" default="false"/>
   <arg name="camera_on" default="false"/> 
 
   <!-- <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find experiment_data)/data/13_Dec_DSO_printing/4.bag"/> -->
