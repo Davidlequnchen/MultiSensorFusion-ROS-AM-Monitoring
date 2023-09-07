@@ -1,0 +1,56 @@
+variables:
+  VAR_COMPANY:  KEBA
+  VAR_REPOSITORY_QA_NAME: products-stage-qa  
+  VERSION_ANT_IVY_MAJOR: "latest"
+  VERSION_GENVERSION_MAJOR: "latest"
+  #VAR_REPOSITORY_NAME: repo-name
+  #VAR_NAME: "component-name"
+
+workflow:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'schedule'"
+      variables:
+        IS_SCHEDULED_BUILD: "true"
+        IS_RELEASE_BUILD: "true"
+    - if: "$CI_COMMIT_REF_SLUG =~ /^feature.*$/"
+      variables:
+        IS_FEATURE_BUILD: "true"
+    - if: $CI_COMMIT_TAG != null
+      variables:
+        IS_FINAL_BUILD: "true"
+        IS_RELEASE_BUILD: "true"
+    - if: $CI_COMMIT_REF_SLUG =~ /^(devel|release|hotfix).*$/
+      variables:
+        IS_RELEASE_BUILD: "true"
+    - when: never
+
+stages:
+  - prepare-version
+
+########################
+### PREPARE VERSION  ###
+########################
+
+generate-version-job:
+  stage: prepare-version
+  image: $DOCKER_REGISTRY/keba/genversion:$VERSION_GENVERSION_MAJOR
+  variables:
+      GIT_DEPTH: 0
+  script:
+    - genversion 
+    - genversion --output=.semver --show-variable=SemVer
+                --output=.major --show-variable=Major
+                --output=.minor --show-variable=Minor
+                --output=.majorminorpatch --show-variable=MajorMinorPatch
+                --output=.prereleasetag --show-variable=PreReleaseTag
+    - major=$(<.major)
+    - minor=$(<.minor)
+    - prereleasetag=$(<.prereleasetag)
+  artifacts:
+    name: "$CI_PIPELINE_ID-$CI_PROJECT_NAME-$CI_COMMIT_REF_NAME-$CI_JOB_NAME"
+    paths:
+    - .semver
+    - .majorminorpatch
+    expire_in: 1 hours # because of manual stage job

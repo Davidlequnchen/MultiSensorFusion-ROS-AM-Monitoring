@@ -1,0 +1,8 @@
+string source
+DatastoreExternalEntry[] entries
+---
+int32 result_code
+int32 SUCCESS = 0
+int32 INVALID_SOURCE = 1
+int32 INVALID_ENTRY = 2
+string result_message

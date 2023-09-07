@@ -1,0 +1,8 @@
+{
+   "model": "multi-release",
+   "branches": {
+      "develop": {
+         "include": "^devel$"
+      }
+   }
+}
