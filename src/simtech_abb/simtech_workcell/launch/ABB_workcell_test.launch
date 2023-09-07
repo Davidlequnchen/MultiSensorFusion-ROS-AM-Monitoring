@@ -1,0 +1,22 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="sim" default="false" />
+
+  <arg name="model" default="$(find simtech_workcell)/urdf/workcell_test.xacro" />
+  <rosparam command="load" file="$(find simtech_workcell)/config/joint_params.yaml" />
+
+  <param name="/use_sim_time" value="$(arg sim)" />
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <arg name="use_gui" default="true" doc="Should the joint_state_publisher use a GUI for controlling joint states" />
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" unless="$(arg use_gui)" />
+
+
+  <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" output="screen" if="$(arg use_gui)" />
+
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simtech_workcell)/config/workcell.rviz" required="true" if="$(arg gui)" />
+</launch>

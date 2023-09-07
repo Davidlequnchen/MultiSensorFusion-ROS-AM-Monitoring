@@ -27,7 +27,7 @@
   </joint>
 
   <!-- Head -->
-  <xacro:include filename="$(find scanning_workcell)/urdf/head.xacro"/>
+  <xacro:include filename="$(find scanning_workcell)/urdf/laser_head.xacro"/>
 
   <joint name="head0" type="fixed">
     <parent link="tool0"/>

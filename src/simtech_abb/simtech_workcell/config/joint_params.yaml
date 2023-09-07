@@ -1,0 +1,10 @@
+zeros:
+  joint_1: 0.0
+  joint_2: 0.33
+  joint_3: -0.29
+  joint_4: 0.29
+  joint_5: 1.51
+  joint_6: 4.68
+  joint_d2: 0
+  irbp_a250/joint2: 0
+  irbp_a250/joint4: 0
