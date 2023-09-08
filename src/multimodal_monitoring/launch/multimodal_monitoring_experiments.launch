@@ -7,6 +7,8 @@
   <arg name="kuka" default="true" />
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>
+  <arg name="vision" default="true"/>
+  <arg name="pylon" default="true"/>
   <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
@@ -24,6 +26,8 @@
     <arg name="rviz" value="$(arg rviz)"/>
     <arg name="thermal" value="$(arg thermal)"/>
     <arg name="acoustic" value="$(arg acoustic)"/>
+    <arg name="vision" value="$(arg vision)"/>
+    <arg name="pylon" value="$(arg pylon)"/>
   </include>
 
 

@@ -3,7 +3,7 @@ import rospy
 import numpy as np  
 from collections import deque  
 from message_filters import ApproximateTimeSynchronizer, Subscriber
-# from sklearn.externals import joblib  
+import joblib
 from std_msgs.msg import String
 from opencv_apps.msg import MomentArrayStamped, ContourArea, MaxContourArea, RotatedRectArrayStamped
 from acoustic_monitoring_msgs.msg import MsgAcousticFeature
@@ -19,7 +19,7 @@ class MultimodalPredictionNode:
         self.visual_feature_buffer = deque(maxlen=100)  
         
         # Load pre-trained machine learning model
-        # self.ml_model = joblib.load('path/to/your/model.pkl')  
+        self.ml_model = joblib.load('~/Documents/GitHub/SIMTech_ws/src/multimodal_monitoring/trained_model/metamodel_KNN.sav')  
         
         # Initialize subscribers for all the required topics
         self.contour_moment_sub = Subscriber("/contour_moments/moments", MomentArrayStamped)
@@ -39,19 +39,20 @@ class MultimodalPredictionNode:
         
         # Initialize prediction publisher
         self.prediction_pub = rospy.Publisher("quality_predicted", MsgDefect, queue_size=10)
-    
+                       
+                       
     def callback(self, contour_moment_msg, convex_hull_msg, max_contour_area_msg):
         # List of variables
-        contour_moment_vars = ["mu20", "mu11", "mu02", "mu30", "mu21", "mu12", "mu03"]
+        contour_moment_vars = ["mu20", "mu02", "mu03"]
         max_contour_area_vars = ["meltpool_contour_area", "ellipse_width", "ellipse_height", "rectangle_height", "rectangle_width"]
         convex_hull_vars = ["area"]
-        acoustic_feature_vars = ["mfccs", "spectral_centroids", "spectral_bandwidth", "spectral_flatness",
-                                "spectral_crest_factor", "spectral_kurtosis", "spectral_variance"]
+        acoustic_feature_vars = ["mfccs", "spectral_centroids", "spectral_bandwidth", "spectral_flatness", "spectral_variance",
+                                 "spectral_skewness", "spectral_entropy", "spectral_flux"]
         
         features_combined = []
         # Iterate through the variables and extract their values
-        for msg, vars in zip([ max_contour_area_msg, convex_hull_msg],
-                            [ max_contour_area_vars, convex_hull_vars]):
+        for msg, vars in zip([ convex_hull_msg, max_contour_area_msg, contour_moment_msg],
+                            [ convex_hull_vars, max_contour_area_vars, contour_moment_vars]):
             for var in vars:
                 value = getattr(msg, var, None)  # Get attribute value, return None if not found
                 if value is None:
@@ -62,11 +63,11 @@ class MultimodalPredictionNode:
                 else:
                     features_combined.append(value)
         
-        
+        print (features_combined)
         # Dummy prediction using random values
-        prediction = int(np.random.choice([0,1,2,3]))
+        # prediction = int(np.random.choice([0,1,2,3]))
         # Make prediction
-        # prediction = self.ml_model.predict([feature_vector])[0]
+        prediction = self.ml_model.predict([features_combined])[0]
         
         # Publish the prediction
         prediction_msg = MsgDefect()
