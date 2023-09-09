@@ -2,20 +2,18 @@
   <arg name="audio_topic" default="/audio"/>
   <arg name="device" default="hw:1,0" />
   <arg name="sample_rate" default="44100"/>
-  <arg name="abb" default="true" />
+  <arg name="abb" default="false" />
   <arg name="kuka" default="false" />
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>
   <arg name="vision" default="true"/>
   <arg name="pylon" default="true"/>
-  <arg name="acoustic" default="false"/>
+  <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
   <arg name="plotjuggler_viz_multimodal" default="false"/>
-  <!-- <arg name="dst" default="/media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.wav"/> -->
-  <arg name="dst" default="/home/artc/temp_data/test.wav"/>
-  
+
 
   <!-- Real-time quality prediction -->
   <node name="quality_prediction" pkg="multimodal_monitoring" type="multimodal_prediction.py" />
@@ -57,11 +55,6 @@
     <arg name="sample_rate" value="$(arg sample_rate)"/>
     <arg name="plotjuggler_viz" value="$(arg plotjuggler_viz)" />
   </include>
-
-  <!-- data recording  -->
-  <!-- <include file="$(find audio_play)/launch/play.launch" if="$(arg acoustic)">
-    <arg name="dst" default="$(arg dst)"/>
-  </include> -->
 
   <node name="plot_multimodal" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz_multimodal)"/>
 
