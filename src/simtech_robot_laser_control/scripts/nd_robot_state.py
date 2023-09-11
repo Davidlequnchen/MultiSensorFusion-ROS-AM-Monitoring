@@ -16,16 +16,16 @@ class NdRobotLogger():
             'joint_states', JointState, queue_size=10)
 
         self.msg_joint_state = JointState()
-        '''
+        
         self.msg_joint_state.name = ['joint_1', 'joint_2', 'joint_3',
                                      'joint_4', 'joint_5', 'joint_6',
-                                     'irbp_a250/joint2', 'irbp_a250/joint4']
+                                     'irbp_a750/joint2', 'irbp_a750/joint4']
         self.msg_joint_state.position = [0, 0, 0, 0, 0, 0, 0, 0]
-        '''
+        
 
-        self.msg_joint_state.name = ['joint_1', 'joint_2', 'joint_3',
-                                     'joint_4', 'joint_5', 'joint_6']
-        self.msg_joint_state.position = [0, 0, 0, 0, 0, 0]
+        # self.msg_joint_state.name = ['joint_1', 'joint_2', 'joint_3',
+        #                              'joint_4', 'joint_5', 'joint_6']
+        # self.msg_joint_state.position = [0, 0, 0, 0, 0, 0]
 
         robot_ip = rospy.get_param('~robot_ip', '192.168.125.1')
         j23_coupled = rospy.get_param('~J23_coupled', True)

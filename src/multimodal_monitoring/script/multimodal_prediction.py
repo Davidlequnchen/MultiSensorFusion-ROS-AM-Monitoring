@@ -25,7 +25,9 @@ class MultimodalPredictionNode:
         self.visual_feature_buffer = deque(maxlen=100)  
         
         # Load pre-trained machine learning model
-        self.ml_model = joblib.load(os.path.join(dirname, 'trained_model', 'metamodel_KNN.sav'))
+        self.ml_model = joblib.load(os.path.join(dirname, 'config', 'metamodel_KNN.sav'))
+        # Load the saved StandardScaler model at the initialization part of your ROS node
+        self.scaler = joblib.load(os.path.join(dirname, 'config', 'StandardScaler_audio_visual.pkl'))
         
         # Initialize subscribers for all the required topics
         self.contour_moment_sub = Subscriber("/contour_moments/moments", MomentArrayStamped)
@@ -83,10 +85,16 @@ class MultimodalPredictionNode:
                         features_combined.append(value)
                         
         rospy.loginfo("Features Combined: %s", features_combined)
-        # Dummy prediction using random values
-        # prediction = int(np.random.choice([0,1,2,3]))
+        
+        # Reshape the features_combined to a 2D array as scaler expects 2D input
+        features_reshaped = np.array(features_combined).reshape(1, -1)
+# 
+        # Standardize the features
+        features_standardized = self.scaler.transform(features_reshaped)
+
         # Make prediction
-        prediction = self.ml_model.predict([features_combined])[0]
+        # prediction = int(np.random.choice([0,1,2,3]))
+        prediction = self.ml_model.predict([features_standardized[0]])[0]
         
         # Publish the prediction
         prediction_msg = MsgDefect()

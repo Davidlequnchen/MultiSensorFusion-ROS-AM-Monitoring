@@ -2,7 +2,7 @@
   <arg name="audio_topic" default="/audio"/>
   <arg name="device" default="hw:1,0" />
   <arg name="sample_rate" default="44100"/>
-  <arg name="abb" default="false" />
+  <arg name="abb" default="true" />
   <arg name="kuka" default="false" />
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>
@@ -20,11 +20,8 @@
 
 
   <!-- launch robot: ABB or KuKa -->
-  <include file="$(find simtech_robot_laser_control)/launch/simtech_robot_interface.launch" if="$(arg abb)">
-    <arg name="robot_ip" value="192.168.125.1" />
-    <arg name="J23_coupled" value="true" />
-    <arg name="laser_type" value="ipg" />
-    <arg name="feeder_type" default="powder" />
+  <include file="$(find simtech_workcell)/launch/ABB_workcell.launch" if="$(arg abb)">
+    <arg name="gui" value="$(arg rviz)" />
   </include>
 
   <include file="$(find simtech_kuka_workcell)/launch/kuka_LDED_rsi_workcell.launch" if="$(arg kuka)">
