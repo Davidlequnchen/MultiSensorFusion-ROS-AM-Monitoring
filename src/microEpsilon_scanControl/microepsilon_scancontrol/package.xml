@@ -23,12 +23,12 @@
   <build_depend>roslib</build_depend>
   <build_depend>pcl_msgs</build_depend>
   <build_depend>boost</build_depend>
-  <build_depend>glib-2.0</build_depend>
+  <build_depend>glib</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>std_srvs</build_depend>
-  <build_depend>aravis-0.4</build_depend>
+  <build_depend>aravis</build_depend>
   <build_depend>message_generation</build_depend>
 
   <run_depend>rospy</run_depend>
@@ -39,11 +39,11 @@
   <run_depend>libpcl-all</run_depend>
   <run_depend>pcl_msgs</run_depend>
   <run_depend>boost</run_depend>
-  <run_depend>glib-2.0</run_depend>
+  <run_depend>glib</run_depend>
   <run_depend>sensor_msgs</run_depend>
   <run_depend>std_msgs</run_depend>
   <run_depend>std_srvs</run_depend>
-  <run_depend>aravis-0.4</run_depend>
+  <run_depend>aravis</run_depend>
   <run_depend>message_runtime</run_depend>
 
 

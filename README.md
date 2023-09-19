@@ -7,9 +7,12 @@ ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitori
 
 - install developer essentials:
   ```
-  sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev
+  sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev intltool libglib2.0-dev
   ```
-
+<!-- - install glibc:
+  ```
+  sudo apt install glibc-source -y
+  ``` -->
 - install gstreamer-1.0
   ```
   sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
@@ -26,6 +29,7 @@ ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitori
   ```
 - install vtk
   ```
+  sudo apt install python3-pip
   python -m pip install vtk
   ```
 
@@ -43,13 +47,33 @@ ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitori
 - For Pylon camera ROS packages (Basler USB Camera Driver): https://github.com/basler/pylon-ros-camera
   - Installation: Clone the official repository workspace (right now it is already inside the __camera_utils__ folder): `git clone https://github.com/basler/pylon-ros-camera`
    * Clone drag&bot public common messages: `git clone https://github.com/dragandbot/dragandbot_common.git`
-   * Install ROS dependencies: `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && rosdep update && rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
+   * Install ROS dependencies: `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && rosdep update`
+and
+   `rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
 
 
 - install Micro-Epsilon scanControl SDK:
 [./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3] 
-- install aravis from source: https://aravisproject.github.io/aravis
+- install aravis: download the aravis-0.6.1.tar.xz package
+(version 0.7 is not stable, do not download) http://ftp.acc.umu.se/pub/GNOME/sources/aravis/0.6/
+  ````
+  ./configure
+  sudo make
+  sudo make install
+  sudo ldconfig
+  ````
+  If encounter problem like: "Error Message: checking for GTK... configure: error: Package requirements (gtk+-2.0 ¿= 2.10.0)
+were not met: No package ’gtk+-2.0’ found":
+  ````bash
+  sudo apt-get update && upgrade
+  sudo apt-get install intltool
+  sudo apt-get install libgtk2.0-dev
+  ````
 
+
+- install essential (C++ compile from souce): https://essentia.upf.edu/installing.htm
+  - download Essentia 2.1 beta5: https://github.com/MTG/essentia/releases/tag/v2.1_beta5
+  - Complie follow the instruction
 <!-- - install BOOST library (download at: https://www.boost.org/users/download/)
 ```
 sudo ./bootstrap.sh

@@ -1,6 +1,6 @@
 pandas
 scikit-learn
-scipy
+scipy==1.10.0
 numpy==1.23.5
 librosa==0.8.0
 opencv-python==4.7.0.72
@@ -15,6 +15,6 @@ prettytable==3.6.0
 pyAudioAnalysis
 tqdm
 shapely==2.0.1
-mayavi==4.4.1
-
+mayavi==4.8.1
+essentia
 

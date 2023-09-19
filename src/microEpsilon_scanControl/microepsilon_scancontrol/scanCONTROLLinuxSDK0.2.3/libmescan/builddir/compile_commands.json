@@ -1,12 +1,12 @@
 [
   {
-    "directory": "/home/artc/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir",
+    "directory": "/home/chenlequn/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir",
     "command": "cc -Imescan@sha -I. -I.. -I../include -I/usr/local/include/aravis-0.6 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -g -fPIC -pthread -MD -MQ 'mescan@sha/src_mescan_basic.c.o' -MF 'mescan@sha/src_mescan_basic.c.o.d' -o 'mescan@sha/src_mescan_basic.c.o' -c ../src/mescan_basic.c",
     "file": "../src/mescan_basic.c",
     "output": "mescan@sha/src_mescan_basic.c.o"
   },
   {
-    "directory": "/home/artc/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir",
+    "directory": "/home/chenlequn/GitHub/SIMTech_ws/src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3/libmescan/builddir",
     "command": "cc -Imescan@sha -I. -I.. -I../include -I/usr/local/include/aravis-0.6 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -g -fPIC -pthread -MD -MQ 'mescan@sha/src_mescan_adv.c.o' -MF 'mescan@sha/src_mescan_adv.c.o.d' -o 'mescan@sha/src_mescan_adv.c.o' -c ../src/mescan_adv.c",
     "file": "../src/mescan_adv.c",
     "output": "mescan@sha/src_mescan_adv.c.o"

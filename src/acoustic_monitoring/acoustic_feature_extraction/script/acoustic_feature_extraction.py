@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import rospy
 import rospkg
 import os
@@ -176,7 +175,7 @@ class NdAudioSignal():
         msg_acoustic_feature.spectral_flatness = spectral_flatness
         msg_acoustic_feature.spectral_variance = spectral_variance
         # msg_acoustic_feature.spectral_crest_factor = spectral_crest_factor
-        # msg_acoustic_feature.
+
 
         ## time-freqeuncy representations
         # msg_acoustic_feature.mel_spectrogram = mel_spectrogram

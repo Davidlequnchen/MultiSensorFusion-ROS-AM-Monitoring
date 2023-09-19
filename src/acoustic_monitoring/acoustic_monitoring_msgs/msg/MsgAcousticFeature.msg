@@ -1,21 +1,48 @@
 Header header
-# time-domain features
+# Time-domain features
 float32 rms_energy
-float32 amplitude_envelope
+float32 amplitude_envelope_mean
+float32 amplitude_envelope_std
 float32 zero_crossing_rate
-# freqeuncy domain features
-float32[] mel_spectrogram
-float32[] mfccs
-float32 ber
-float32 spectral_centroids
-float32 spectral_rolloff
-float32 spectral_bandwidth
+float32 dynamic_complexity
+float32 loudness
+float32 loudness_vickers
+# Frequency-domain features
+float32 spectral_centroid
+float32 spectral_complexity
+float32 spectral_contrast_0
+float32 spectral_contrast_1
+float32 spectral_contrast_2
+float32 spectral_contrast_3
+float32 spectral_contrast_4
+float32 spectral_contrast_5
+float32 spectral_valley_0
+float32 spectral_valley_1
+float32 spectral_valley_2
+float32 spectral_valley_3
+float32 spectral_valley_4
+float32 spectral_valley_5
+float32 spectral_decrease
+float32 spectral_energy
+float32 spectral_energy_band_ratio
 float32 spectral_flatness
-float32 spectral_crest_factor
-float32 spectral_kurtosis
+float32 spectral_flux
+float32 spectral_rolloff
+float32 spectral_strong_peak
 float32 spectral_variance
-
-
-# spectral_centroid computes the "average" frequency at each frame, where frequencies are weighted relatively by their energy.
-# spectral_bandwidth similar to centroid, but for variance (or other moments).
-# spectral_rolloff essentially the maximum: finds the frequency f such that almost all of the energy (by default, 85%)
+float32 spectral_skewness
+float32 spectral_kurtosis
+float32 spectral_crest_factor
+float32 mfcc_0
+float32 mfcc_1
+float32 mfcc_2
+float32 mfcc_3
+float32 mfcc_4
+float32 mfcc_5
+float32 mfcc_6
+float32 mfcc_7
+float32 mfcc_8
+float32 mfcc_9
+float32 mfcc_10
+float32 mfcc_11
+float32 mfcc_12
