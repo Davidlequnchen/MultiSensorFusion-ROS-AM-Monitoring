@@ -25,7 +25,7 @@ class MultimodalPredictionNode:
         self.visual_feature_buffer = deque(maxlen=100)  
         
         # Load pre-trained machine learning model
-        self.ml_model = joblib.load(os.path.join(dirname, 'config', 'metamodel_KNN.sav'))
+        self.ml_model = joblib.load(os.path.join(dirname, 'config', 'metamodel_RF.sav'))
         # Load the saved StandardScaler model at the initialization part of your ROS node
         self.scaler = joblib.load(os.path.join(dirname, 'config', 'StandardScaler_audio_visual.pkl'))
         

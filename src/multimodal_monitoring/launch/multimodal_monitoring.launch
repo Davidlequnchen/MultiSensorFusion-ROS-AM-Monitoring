@@ -2,7 +2,7 @@
   <arg name="audio_topic" default="/audio"/>
   <arg name="device" default="hw:1,0" />
   <arg name="sample_rate" default="44100"/>
-  <arg name="abb" default="true" />
+  <arg name="abb" default="false" />
   <arg name="kuka" default="false" />
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>

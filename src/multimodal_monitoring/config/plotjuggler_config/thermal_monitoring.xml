@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget name="Main Window" parent="main_window">
+  <Tab tab_name="Acoustic-thermal monitoring" containers="1">
+   <Container>
+    <DockSplitter count="1" orientation="-" sizes="1">
+     <DockSplitter count="2" orientation="|" sizes="0.490758;0.509242">
+      <DockSplitter count="4" orientation="-" sizes="0.250279;0.250279;0.249162;0.250279">
+       <DockArea name="Frequncy-domain Feature Visualization">
+        <plot style="LinesAndDots" mode="TimeSeries">
+         <range right="35.034684" top="7789.636230" left="29.035433" bottom="-123.815918"/>
+         <limitY/>
+         <curve name="/acoustic_feature/spectral_rolloff.0" color="#d62728"/>
+         <curve name="/acoustic_feature/spectral_centroids.0" color="#1ac938"/>
+         <curve name="/acoustic_feature/spectral_bandwidth.0" color="#ff7f0e"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Time-domain Feature Monitoring">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="35.034684" top="0.122787" left="29.035433" bottom="-0.107285"/>
+         <limitY/>
+         <curve name="/acoustic_feature/amplitude_envelope" color="#1f77b4"/>
+         <curve name="/acoustic_feature/rms_energy" color="#f14cc1"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Acoustic MFCC Feature">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="35.034684" top="217.563103" left="29.035433" bottom="-549.468530"/>
+         <limitY/>
+         <curve name="/acoustic_feature/mfccs.0" color="#ff7f0e"/>
+         <curve name="/acoustic_feature/mfccs.1" color="#f14cc1"/>
+         <curve name="/acoustic_feature/mfccs.3" color="#9467bd"/>
+         <curve name="/acoustic_feature/mfccs.2" color="#17becf"/>
+         <curve name="/acoustic_feature/mfccs.4" color="#bcbd22"/>
+         <curve name="/acoustic_feature/mfccs.5" color="#1f77b4"/>
+         <curve name="/acoustic_feature/mfccs.6" color="#d62728"/>
+         <curve name="/acoustic_feature/mfccs.7" color="#1ac938"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Acoustic Mel-Spectrogram Features">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="35.034684" top="0.593195" left="29.035433" bottom="-0.014458"/>
+         <limitY/>
+         <curve name="/acoustic_feature/mel_spectrogram.0" color="#ff7f0e"/>
+         <curve name="/acoustic_feature/mel_spectrogram.1" color="#f14cc1"/>
+         <curve name="/acoustic_feature/mel_spectrogram.2" color="#9467bd"/>
+         <curve name="/acoustic_feature/mel_spectrogram.3" color="#17becf"/>
+         <curve name="/acoustic_feature/mel_spectrogram.4" color="#bcbd22"/>
+         <curve name="/acoustic_feature/mel_spectrogram.5" color="#1f77b4"/>
+        </plot>
+       </DockArea>
+      </DockSplitter>
+      <DockSplitter count="5" orientation="-" sizes="0.250559;0.250559;0.124161;0.11745;0.257271">
+       <DockArea name="Melt-pool Feature Monitoring">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="35.051575" top="302.642688" left="29.087767" bottom="302.453503"/>
+         <limitY/>
+         <curve name="/infratec/temperature_feature/highest" color="#1f77b4"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Robot Motion Monitoring">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="35.051575" top="0.670984" left="29.087767" bottom="0.658784"/>
+         <limitY/>
+         <curve name="/infratec/temperature_feature/variance" color="#d62728"/>
+        </plot>
+       </DockArea>
+       <DockArea name="...">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="35.052507" top="36522.762500" left="29.064228" bottom="23428.737500"/>
+         <limitY/>
+         <curve name="/convex_hull/hull_area/area.0" color="#1ac938"/>
+         <curve name="/general_contours/max_contour_area/meltpool_contour_area" color="#ff7f0e"/>
+        </plot>
+       </DockArea>
+       <DockArea name="Melt pool height/width">
+        <plot style="Lines" mode="TimeSeries">
+         <range right="35.051791" top="341.395795" left="29.064228" bottom="177.202013"/>
+         <limitY/>
+         <curve name="/general_contours/max_contour_area/ellipse_height" color="#f14cc1"/>
+         <curve name="/general_contours/max_contour_area/ellipse_width" color="#9467bd"/>
+         <curve name="/general_contours/max_contour_area/rectangle_height" color="#17becf"/>
+         <curve name="/general_contours/max_contour_area/rectangle_width" color="#bcbd22"/>
+        </plot>
+       </DockArea>
+       <DockSplitter count="2" orientation="|" sizes="0.518797;0.481203">
+        <DockArea name="X-Y Position">
+         <plot style="Lines" mode="XYPlot">
+          <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
+          <limitY/>
+         </plot>
+        </DockArea>
+        <DockArea name="Y-Z Position">
+         <plot style="Lines" mode="XYPlot">
+          <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
+          <limitY/>
+         </plot>
+        </DockArea>
+       </DockSplitter>
+      </DockSplitter>
+     </DockSplitter>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="0"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <default time_axis="" delimiter="0"/>
+  </plugin>
+  <plugin ID="DataLoad ROS bags">
+   <use_header_stamp value="false"/>
+   <use_renaming_rules value="true"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS Topic Subscriber">
+   <use_header_stamp value="false"/>
+   <use_renaming_rules value="true"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+  </plugin>
+  <plugin ID="UDP Server"/>
+  <plugin ID="WebSocket Server"/>
+  <plugin status="idle" ID="CSV Exporter"/>
+  <plugin status="idle" ID="ROS /rosout Visualization"/>
+  <plugin status="idle" ID="ROS Topic Re-Publisher"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - - -->
+ <previouslyLoaded_Datafiles/>
+ <previouslyLoaded_Streamer name="ROS Topic Subscriber"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - - -->
+</root>
+
