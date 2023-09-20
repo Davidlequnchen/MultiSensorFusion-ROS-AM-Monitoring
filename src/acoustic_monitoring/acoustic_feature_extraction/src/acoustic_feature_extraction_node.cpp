@@ -17,7 +17,7 @@ AlgorithmFactory& factory = AlgorithmFactory::instance();
 std::deque<Real> audio_buffer;
 
 
-std::map<std::string, Real> extract_time_domain_features(std::vector<Real> &audio_signal) {
+std::map<std::string, Real> extract_time_domain_features(std::vector<essentia::Real> &audio_signal) {
     std::map<std::string, Real> features;
     AlgorithmFactory& factory = AlgorithmFactory::instance();
     
@@ -206,7 +206,7 @@ void audioCallback(const acoustic_monitoring_msgs::AudioDataStamped::ConstPtr& m
     }
 
     // Convert std::deque to std::vector
-    std::vector<float> audio_vector(audio_buffer.begin(), audio_buffer.end());
+    std::vector<essentia::Real> audio_vector(audio_buffer.begin(), audio_buffer.end());
 
     std::map<std::string, Real> time_features = extract_time_domain_features(audio_vector);
     std::map<std::string, Real> spectral_features = extract_spectral_features(audio_vector, 44100);  // or your sample rate
