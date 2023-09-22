@@ -17,15 +17,35 @@ find_package(catkin REQUIRED COMPONENTS
 
 # Find Essentia
 find_package(PkgConfig)
-pkg_check_modules(ESSENTIA essentia)
-
+# pkg_check_modules(ESSENTIA essentia)
 include_directories(${ESSENTIA_INCLUDE_DIRS})
+include_directories(/usr/local/include/essentia)
+include_directories(/usr/local/include/essentia/scheduler)
+include_directories(/usr/local/include/essentia/streaming)
+include_directories(/usr/local/include/essentia/utils)
+include_directories(/usr/include/taglib)
+include_directories(/usr/local/include/gaia2)
+include_directories(/usr/include/qt4)
+include_directories(/usr/include/qt4/QtCore)
+include_directories(/usr/include/eigen3)
 
+set(ADDITIONAL_LIBRARIES
+    essentia
+    fftw3
+    yaml
+    avcodec
+    avformat
+    avutil
+    samplerate
+    tag
+    fftw3f
+    # qt4
+    gaia2
+    chromaprint
+    avresample
+    swresample
+)
 
-#add_message_files(FILES
-#                  MsgAcoustic.msg)
-
-# catkin_python_setup()
 
 generate_messages(
   DEPENDENCIES
@@ -42,5 +62,8 @@ include_directories(
 )
 
 
+# add_executable(acoustic_feature_extraction_node src/acoustic_feature_extraction_node.cpp)
+# target_link_libraries(acoustic_feature_extraction_node ${catkin_LIBRARIES} ${ESSENTIA_LIBRARIES})
+
 add_executable(acoustic_feature_extraction_node src/acoustic_feature_extraction_node.cpp)
-target_link_libraries(acoustic_feature_extraction_node ${catkin_LIBRARIES} ${ESSENTIA_LIBRARIES})
+target_link_libraries(acoustic_feature_extraction_node ${catkin_LIBRARIES} ${ESSENTIA_LIBRARIES} ${ADDITIONAL_LIBRARIES})

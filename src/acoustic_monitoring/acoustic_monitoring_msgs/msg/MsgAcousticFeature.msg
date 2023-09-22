@@ -46,3 +46,31 @@ float32 mfcc_9
 float32 mfcc_10
 float32 mfcc_11
 float32 mfcc_12
+
+# Header header
+# # Time-domain features
+# float32 rms_energy
+# float32 amplitude_envelope_mean
+# float32 amplitude_envelope_std
+# float32 zero_crossing_rate
+# float32 dynamic_complexity
+# float32 loudness
+# float32 loudness_vickers
+# # Frequency-domain features
+# float32 spectral_centroid
+# float32 spectral_complexity
+# float32[] spectral_contrast
+# float32[] spectral_valley
+# float32 spectral_decrease
+# float32 spectral_energy
+# float32 spectral_energy_band_ratio
+# float32 spectral_flatness
+# float32 spectral_flux
+# float32 spectral_rolloff
+# float32 spectral_strong_peak
+# float32 spectral_variance
+# float32 spectral_skewness
+# float32 spectral_kurtosis
+# float32 spectral_crest_factor
+# float32[] mfcc_coeffs
+
