@@ -18,6 +18,7 @@ from audio_common_msgs.msg import AudioInfo
 from acoustic_monitoring_msgs.msg import (
     AudioDataStamped,
     MsgAcousticFeature,
+    MsgAcousticFeaturePython
 )
 
 # librosa default frame sie and hop length: 2048 and 512 samples
@@ -40,7 +41,7 @@ class NdAudioSignal():
 
         # publisher 
         self.pub_acoustic_feature = rospy.Publisher('/acoustic_feature',
-                                                    MsgAcousticFeature, queue_size = 2)
+                                                    MsgAcousticFeaturePython, queue_size = 2)
 
         rospy.spin()
         # rate = rospy.Rate(10) # 10hz
@@ -112,20 +113,15 @@ class NdAudioSignal():
 
 
 
-
     def cb_acoustic_signal(self, msg_audio):
-        # convert the audio to numpy array
-        audio_data = msg_audio.data
-        audio_data_numpy = np.frombuffer(audio_data, dtype=np.int16)  #np.int16
-        nbits = 16
-        temp = np.zeros(len(audio_data_numpy))
-        temp = audio_data_numpy/(2**(nbits - 1))
-        audio_data_numpy = temp
-        # audio_data_numpy /= 2**(nbits - 1)
+        nbits = 16 # Each sample is 2 bytes
+        scale_factor = 2**(nbits - 1)
+        # Convert the audio to a numpy array and scale it in one step
+        audio_data_numpy = np.frombuffer(msg_audio.data, dtype=np.int16) / scale_factor
 
         ## -------------------------------Time-domain feature extraction-------------------------------------------
         ae = self.amplitude_envelope(audio_data_numpy, FRAME_SIZE, HOP_LENGTH)
-        rms_energy = librosa.feature.rms(audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0]
+        rms_energy = librosa.feature.rms(y=audio_data_numpy, frame_length=FRAME_SIZE, hop_length=HOP_LENGTH)[0][0]
         zero_crossing_rate = sum(librosa.zero_crossings(audio_data_numpy, pad=False))
 
         ## -------------------------------Frequency-domain feature extraction-------------------------------------
@@ -159,7 +155,7 @@ class NdAudioSignal():
 
         
         # initialise the message objects
-        msg_acoustic_feature = MsgAcousticFeature()
+        msg_acoustic_feature = MsgAcousticFeaturePython()
         msg_acoustic_feature.header = msg_audio.header
         ## time-domain features
         msg_acoustic_feature.rms_energy = rms_energy ## without scaling

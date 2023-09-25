@@ -16,6 +16,7 @@ add_message_files(
   FILES
   MsgAcousticFeature.msg
   AudioDataStamped.msg
+  MsgAcousticFeaturePython.msg
 )
 
 

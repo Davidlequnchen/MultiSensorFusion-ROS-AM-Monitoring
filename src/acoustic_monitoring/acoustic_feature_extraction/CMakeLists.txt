@@ -62,8 +62,5 @@ include_directories(
 )
 
 
-# add_executable(acoustic_feature_extraction_node src/acoustic_feature_extraction_node.cpp)
-# target_link_libraries(acoustic_feature_extraction_node ${catkin_LIBRARIES} ${ESSENTIA_LIBRARIES})
-
 add_executable(acoustic_feature_extraction_node src/acoustic_feature_extraction_node.cpp)
 target_link_libraries(acoustic_feature_extraction_node ${catkin_LIBRARIES} ${ESSENTIA_LIBRARIES} ${ADDITIONAL_LIBRARIES})
