@@ -47,7 +47,7 @@ ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitori
 - For Pylon camera ROS packages (Basler USB Camera Driver): https://github.com/basler/pylon-ros-camera
   - Installation: Clone the official repository workspace (right now it is already inside the __camera_utils__ folder): `git clone https://github.com/basler/pylon-ros-camera`
    * Clone drag&bot public common messages: `git clone https://github.com/dragandbot/dragandbot_common.git`
-   * Install ROS dependencies: `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && sudo rosdep update && sudo rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
+   * Install ROS dependencies (In the downloaded folder): `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && sudo rosdep update && sudo rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
 
 - install Micro-Epsilon scanControl SDK:
 [./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3] 
