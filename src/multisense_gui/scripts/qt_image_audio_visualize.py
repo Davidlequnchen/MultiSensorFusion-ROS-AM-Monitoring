@@ -10,7 +10,8 @@ import os
 import pathlib as pl
 from cv_bridge import CvBridge
 import numpy as np
-# import ros_numpy
+import ros_numpy
+import threading
 import pyqtgraph as pg
 pg.setConfigOptions(imageAxisOrder='row-major')
 # from python_qt_binding import loadUi, QtGui, QtCore, QtWidgets
@@ -18,6 +19,8 @@ from python_qt_binding import loadUi
 from python_qt_binding import QtGui
 from python_qt_binding import QtCore
 from python_qt_binding import QtWidgets
+from QtCore import QTimer
+
 from collections import deque
 from acoustic_monitoring_msgs.msg import (
     AudioDataStamped,
@@ -46,6 +49,11 @@ class AudioImageVisualizer(QtWidgets.QWidget):
         self.buffer_size = 44100  # 1 second of audio at 44100 Hz
         self.audio_buffer = deque(maxlen=self.buffer_size)
 
+        # Initialize a QTimer for updating the image
+        self.image_timer = QTimer()
+        self.image_timer.timeout.connect(self.updateImage)
+        self.image_timer.start(10)  # Update approximately every 33ms (about 30 FPS)
+
         # Initialize plot for audio signal
         self.audio_plot_window = QtWidgets.QVBoxLayout(self.AudioPlotWidget)
         self.audio_plotwidget = pg.PlotWidget()
@@ -58,30 +66,26 @@ class AudioImageVisualizer(QtWidgets.QWidget):
         self.audio_plotwidget.setLabel("bottom","Time [sec]",size='5pt')
         self.audio_plotwidget.showGrid(x=True, y=True)
 
+        # Initialize plot widget for melt pool image
+        self.plotwindow = QtWidgets.QVBoxLayout(self.ImageWidget)
+        self.image = pg.ImageView()
+        self.plotwindow.addWidget(self.image)
+        self.np_img = np.zeros((640,480))
+
+        font = QtGui.QFont()
+        font.setPointSize(12) 
+        self.label_9.setFont(font)
+
         # ROS subscribers
         self.image_subscriber = rospy.Subscriber(image_topic, Image, self.image_callback)
         self.audio_subscriber = rospy.Subscriber(audio_topic, AudioDataStamped, self.audio_callback) 
         # rospy.Subscriber("/general_contours/image", Image, self.cb_contour_image, queue_size=5)
         # rospy.Subscriber("/general_contours/ellipses", RotatedRectArrayStamped, self.cb_ellipses, queue_size=5)
         
-    
-        #------------------------set up plot widget for melt pool image------------------------------------
-        self.plotwindow = QtWidgets.QVBoxLayout(self.ImageWidget)
-        self.image = pg.ImageView()
-        self.plotwindow.addWidget(self.image)
-        self.np_img = np.zeros((640,480))
+
 
       
-        # initialize variables
-        self.pixel_size = 0.26*0.26 #mm
-        self.i = 0
-        self.i_list = []
-        self.time_stamp_list = []
-        self.mps_list = []
-        self.mpw_list = []
 
-
-        
     def cb_ellipses(self, ellipses_msg):
         # stamp = ellipses_msg.header.stamp
         # # ellipses_msg.rects is a list of ellipse instance
@@ -98,12 +102,43 @@ class AudioImageVisualizer(QtWidgets.QWidget):
 
     def image_callback(self, msg_image):
         try:
-            cv_image = self.bridge.imgmsg_to_cv2(msg_image, "bgr8")
+            self.np_img = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
+            self.image.ui.histogram.hide()
+            self.image.ui.roiBtn.hide()
+            self.image.ui.roiPlot.hide()
+            self.image.ui.normGroup.hide()
+            self.image.ui.menuBtn.setVisible(False)
         except CvBridgeError as e:
             print(e)
             return
 
-        self.ImageWidget.setImage(cv_image)
+    def cb_image(self, msg_image):
+        try:
+            stamp = msg_image.header.stamp
+            # convert the ros image to OpenCV image for processing
+            # frame = self.bridge.imgmsg_to_cv2(msg_image) 
+            # if msg_image.encoding == 'mono8' or 'mono16':
+            self.np_img = ros_numpy.numpify(msg_image)
+            self.image.setImage(self.np_img)
+            self.image.ui.histogram.hide()
+            self.image.ui.roiBtn.hide()
+            self.image.ui.roiPlot.hide()
+            self.image.ui.normGroup.hide()
+            self.image.ui.menuBtn.setVisible(False)
+            self.timer_image = threading.Thread(target=self.updateImage,daemon=True)
+            self.timer_image.start()
+ 
+        except CvBridgeError as e:
+            rospy.loginfo("CvBridge Exception")
+
+    def updateImage(self):
+        self.image.setImage(self.np_img)
+        self.image.ui.histogram.hide()
+        self.image.ui.roiBtn.hide()
+        self.image.ui.roiPlot.hide()
+        self.image.ui.normGroup.hide()
+        self.image.ui.menuBtn.setVisible(False)
+
 
     def audio_callback(self, msg_audio):
         nbits = 16

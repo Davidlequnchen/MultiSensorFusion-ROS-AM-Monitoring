@@ -17,4 +17,5 @@ tqdm
 shapely==2.0.1
 mayavi==4.8.1
 essentia
+rosnumpy==0.0.5.2
 

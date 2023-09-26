@@ -7,7 +7,7 @@
   <arg name="thermal" default="false"/>
   <arg name="vision" default="true"/>
   <arg name="pylon" default="false"/>
-  <arg name="acoustic" default="false"/>
+  <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
@@ -15,6 +15,7 @@
   <arg name="audio_topic" default="/audio"/>
   <arg name="device" default="hw:0,0" />
   <arg name="video_device" default="/dev/video0" />
+  <arg name="gui_camera" default="false" />
   <arg name="image_topic_raw" default="/usb_cam/image_raw"/> <!-- "/usb_cam/image_raw" or "/pylon_camera_node/image_raw" -->
 
 
@@ -33,6 +34,7 @@
     <arg name="plotjuggler_viz_multimodal" value="$(arg plotjuggler_viz_multimodal)" />
     <arg name="audio_topic" value="$(arg audio_topic)" />
     <arg name="device" value="$(arg device)" />
+    <arg name="gui_camera" value="$(arg gui_camera)" />
     <arg name="video_device" value="$(arg video_device)" />
     <arg name="image_topic_raw" value="$(arg image_topic_raw)" />
   </include>
