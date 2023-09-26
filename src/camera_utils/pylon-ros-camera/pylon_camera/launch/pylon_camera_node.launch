@@ -5,7 +5,6 @@
     <arg name="node_name" default="pylon_camera_node" />
     <arg name="mtu_size" default="1500" />
     <arg name="startup_user_set" default="CurrentSetting" />
-    <arg name="frame_rate" default="50" />
     <arg name="enable_status_publisher" default="true" />
     <arg name="enable_current_params_publisher" default="true" />
     <arg name="config_file" default="$(find pylon_camera)/config/default.yaml" />
@@ -18,7 +17,6 @@
         <rosparam command="load" file="$(arg config_file)" />
         <param name="gige/mtu_size" value="$(arg mtu_size)"/>
         <param name="startup_user_set" value="$(arg startup_user_set)"/>
-        <param name="frame_rate" value="$(arg frame_rate)"/>
         <param name="enable_status_publisher" value="$(arg enable_status_publisher)"/>
         <param name="enable_current_params_publisher" value="$(arg enable_current_params_publisher)"/>
     </node>

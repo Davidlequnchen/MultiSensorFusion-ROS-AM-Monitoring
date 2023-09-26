@@ -1,12 +1,17 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(multimodal_monitoring_gui)
+project(multisense_gui)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   roscpp
   std_msgs
   sensor_msgs
+  cv_bridge
   message_generation
+  acoustic_monitoring_msgs
+  audio_capture
 )
+
+
 
 # add_message_files(FILES
 #                    MsgDefect.msg)

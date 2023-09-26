@@ -69,7 +69,8 @@ were not met: No package ’gtk+-2.0’ found":
 
 
 - install essential (C++ compile from souce): https://essentia.upf.edu/installing.html
-  - download Essentia 2.1 beta5: https://github.com/MTG/essentia/releases/tag/v2.1_beta5
+  <!-- - download Essentia 2.1 beta5: https://github.com/MTG/essentia/releases/tag/v2.1_beta5 -->
+  - Download the master branch (download it via Github Desktop): https://github.com/MTG/essentia
   - Complie follow the instruction
 <!-- - install BOOST library (download at: https://www.boost.org/users/download/)
 ```

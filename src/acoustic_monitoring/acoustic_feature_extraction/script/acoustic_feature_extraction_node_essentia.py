@@ -90,7 +90,7 @@ class AcousticFeatureExtractor:
             self.audio_buffer.extend([0.0] * (self.buffer_size - len(self.audio_buffer)))
         elif len(self.audio_buffer) > self.buffer_size:
             # Trim if larger than desired
-            self.audio_buffer = deque(list(self.audio_buffer)[-4410:], maxlen=4410)
+            self.audio_buffer = deque(list(self.audio_buffer)[-self.buffer_siz:], maxlen=self.buffer_siz)
 
         # Convert deque to numpy array for feature extraction
         audio_data_buffered = np.array(self.audio_buffer).astype(np.float32)
