@@ -2,5 +2,5 @@ src/microEpsilon_scanControl/
 /devel
 /build
 src/multimodal_monitoring/config/trained_model/
-src/camera_utils/dragandbot_common
-src/camera_utils/pylon-ros-camera
+src/camera_utils/dragandbot_common/
+src/camera_utils/pylon-ros-camera/
