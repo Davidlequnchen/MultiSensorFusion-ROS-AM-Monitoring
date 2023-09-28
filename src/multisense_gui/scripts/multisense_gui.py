@@ -17,6 +17,7 @@ from rviz import bindings as rviz
 # #from qt_part import QtPart
 # from qt_path_robviz import QtPath
 from qt_image_audio_visualize import AudioImageVisualizer
+from qt_image_audio_feature_visualize import AudioVisualFeatureVisualize
 
 
 path = rospkg.RosPack().get_path('multisense_gui')
@@ -33,7 +34,7 @@ class MyViz(QtWidgets.QWidget):
         reader = rviz.YamlConfigReader()
         config = rviz.Config()
 
-        reader.readFile(config, os.path.join(path, 'config', 'workcell.rviz'))
+        reader.readFile(config, os.path.join(path, 'config', 'workcell_kuka.rviz'))
         self.frame.load(config)
 
         self.setWindowTitle(config.mapGetChild("Title").getValue())
@@ -102,22 +103,16 @@ class Multisense(QtWidgets.QMainWindow):
         # self.qtScan = QtScan(self)
         # self.qtPath = QtPath(self)
         self.audio_image_visualizer = AudioImageVisualizer(self)
+        self.audio_visual_feature_visualizer = AudioVisualFeatureVisualize(self)
 
         # self.tabWidget.addTab(self.qtPath, 'Path')
         # self.tabWidget.addTab(self.qtScan, 'Scan')
         self.tabWidget_2.addTab(self.audio_image_visualizer, 'Raw melt pool image audio visualization')
+        self.tabWidget_2.addTab(self.audio_visual_feature_visualizer, 'Melt pool audio-visual feature visualization')
 
         self.btnQuit.setIcon(QtGui.QIcon.fromTheme('application-exit'))
         self.btnQuit.clicked.connect(self.btnQuitClicked)
 
-        self.speed = 0
-        #self.power = 0
-        self.running = False
-        #self.laser_on = False
-
-        # tmrInfo = QtCore.QTimer(self)
-        # tmrInfo.timeout.connect(self.updateStatus)
-        # tmrInfo.start(100)
 
     def qtDataAccepted(self):
         self.tabWidget.setCurrentWidget(self.qtParam)

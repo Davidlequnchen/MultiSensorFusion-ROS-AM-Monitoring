@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Meltpoolviz</class>
- <widget class="QWidget" name="Meltpoolviz">
+ <class>Meltpoolfeatureviz</class>
+ <widget class="QWidget" name="Meltpoolfeatureviz">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>931</width>
-    <height>333</height>
+    <width>1040</width>
+    <height>424</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,15 +19,15 @@
      <property name="title">
       <string/>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,7">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,7">
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,10">
           <item>
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>Coaxial Melt-Pool Image</string>
+             <string>Coaxial Melt-Pool Feature</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -35,14 +35,21 @@
            </widget>
           </item>
           <item>
-           <widget class="QWidget" name="ImageWidget" native="true"/>
+           <widget class="QWidget" name="ImageFeatureWidget" native="true"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QWidget" name="VisualFeaturePlotWidget" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="AudioFeaturePlotWidget" native="true"/>
           </item>
          </layout>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QWidget" name="AudioPlotWidget" native="true"/>
       </item>
      </layout>
     </widget>

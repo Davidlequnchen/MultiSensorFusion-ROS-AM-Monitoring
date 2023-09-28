@@ -16,17 +16,17 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 # Find Essentia
-find_package(PkgConfig)
+# find_package(PkgConfig)
 # pkg_check_modules(ESSENTIA essentia)
-include_directories(${ESSENTIA_INCLUDE_DIRS})
+# include_directories(${ESSENTIA_INCLUDE_DIRS})
 include_directories(/usr/local/include/essentia)
 include_directories(/usr/local/include/essentia/scheduler)
 include_directories(/usr/local/include/essentia/streaming)
 include_directories(/usr/local/include/essentia/utils)
 include_directories(/usr/include/taglib)
-include_directories(/usr/local/include/gaia2)
-include_directories(/usr/include/qt4)
-include_directories(/usr/include/qt4/QtCore)
+# include_directories(/usr/local/include/gaia2)
+include_directories(/usr/include/qt5)
+include_directories(/usr/include/qt5/QtCore)
 include_directories(/usr/include/eigen3)
 
 set(ADDITIONAL_LIBRARIES
@@ -40,7 +40,7 @@ set(ADDITIONAL_LIBRARIES
     tag
     fftw3f
     # qt4
-    gaia2
+    # gaia2
     chromaprint
     avresample
     swresample

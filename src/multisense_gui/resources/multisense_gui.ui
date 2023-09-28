@@ -63,7 +63,7 @@
      <bold>false</bold>
     </font>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,2,8">
+   <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,2,8">
     <item>
      <spacer name="horizontalSpacer_3">
       <property name="orientation">
@@ -71,7 +71,7 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>6</width>
+        <width>10</width>
         <height>20</height>
        </size>
       </property>
@@ -233,9 +233,9 @@
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="5,5">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="5,5,0">
       <item>
-       <widget class="QWidget" name="audio_wave" native="true">
+       <widget class="QWidget" name="audio_visual" native="true">
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QTabWidget" name="tabWidget_2"/>
@@ -244,11 +244,44 @@
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="boxPlot">
-        <property name="spacing">
-         <number>0</number>
-        </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="8,2,0">
+        <item>
+         <layout class="QHBoxLayout" name="boxPlot">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="tabWidget_3"/>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>

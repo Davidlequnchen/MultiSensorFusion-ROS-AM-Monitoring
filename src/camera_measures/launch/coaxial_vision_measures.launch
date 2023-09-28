@@ -16,30 +16,33 @@
   <arg name="moment_extract" default="true"/>
 
   <arg name="pylon" default="true"/>
+  <arg name="frame_rate" default="60.0" />
 
-  <!-- Define an intermediate argument that is true if pylon is false -->
-  <arg name="launch_usb_cam" value="$(eval arg('pylon') == 'false')" />
 
   <!-- USB camera driver -->
-  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" unless="$(arg pylon)">
-    <param name="video_device" value="$(arg video_device)" />
-    <!--param name="image_width" value="1280" /-->
-    <!--param name="image_height" value="720" /-->
-    <param name="autoexposure" value="false" />
-    <param name="pixel_format" value="yuyv" />
-    <param name="camera_frame_id" value="usb_cam" />
-    <param name="framerate" value="30" /> <!-- <doc="maximum is 30"/> -->
-    <param name="brightness" value="200" /> <!-- <doc="integer, 0-255"/> -->
-    <param name="autofocus" value="false" />
-    <param name="io_method" value="mmap"/>
-  </node>
+  <!-- Conditionally launch the node -->
+  <group if="$(eval arg('pylon') == 'false')">
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+      <param name="video_device" value="$(arg video_device)" />
+      <!--param name="image_width" value="1280" /-->
+      <!--param name="image_height" value="720" /-->
+      <param name="autoexposure" value="false" />
+      <param name="pixel_format" value="yuyv" />
+      <param name="camera_frame_id" value="usb_cam" />
+      <param name="framerate" value="30" />
+      <param name="brightness" value="200" />
+      <param name="autofocus" value="false" />
+      <param name="io_method" value="mmap"/>
+    </node>
+  </group>
+
 
   <!-- Pylon camera driver -->
   <include file="$(find pylon_camera)/launch/pylon_camera_node.launch" if="$(arg pylon)">
-    <arg name="frame_rate" value="50.0"/>
-    <!-- <arg name="gige/mtu_size" value="1500"/>
-    <arg name="grab_strategy" value="0"/>
-    <arg name="grab_timeout" value="500"/> -->
+    <param name="frame_rate" value="$(arg frame_rate)" />
+    <!-- <param name="gige/mtu_size" value="1500"/>
+    <param name="grab_strategy" value="0"/>
+    <param name="grab_timeout" value="500"/> -->
   </include>
 
 
@@ -54,10 +57,10 @@
     <param name="autosize" value="true" />
   </node> -->
 
-  <!-- <node name="geometry" pkg="camera_measures" type="nd_geometry.py">
+  <node name="geometry" pkg="camera_measures" type="nd_geometry.py">
     <param name="threshold" type="int" value="$(arg threshold)" />
     <param name="image" type="str" value="$(arg image_topic_raw)"/>
-  </node> -->
+  </node>
 
   <!-- <node name="moments" pkg="camera_measures" type="nd_moments.py">
     <param name="threshold" type="int" value="230" />

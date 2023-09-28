@@ -4,7 +4,7 @@
   <!-- arecord -l will show available input devices, use the car number as
   the first number and the subdevice number as the second in a string
   like hw:1,0 Looking for [USB audio CODEC]-->
-  <arg name="device" default="hw:0,0" />
+  <arg name="device" default="hw:1,0" />
   <arg name="output"      default="screen"/>
   <arg name="bitrate" default="128"/>
   <arg name="channels" default="1"/>
@@ -36,8 +36,8 @@
 
   <!-- audio feature extraction node -->
   <!-- <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction.py"/> -->
-  <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node" respawn="true" />
-  <!-- <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node_essentia.py"/> -->
+  <!-- <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node" respawn="true" /> -->
+  <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node_essentia.py"/>
 
   <!-- data visualisation  -->
   <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz)"/>

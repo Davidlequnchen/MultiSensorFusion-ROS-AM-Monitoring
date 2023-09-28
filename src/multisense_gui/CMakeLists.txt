@@ -8,18 +8,11 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   message_generation
   acoustic_monitoring_msgs
+  # opencv_apps
   audio_capture
 )
 
 
-
-# add_message_files(FILES
-#                    MsgDefect.msg)
-
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
 
 catkin_package(
   CATKIN_DEPENDS message_runtime

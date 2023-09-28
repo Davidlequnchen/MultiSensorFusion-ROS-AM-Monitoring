@@ -9,6 +9,10 @@ ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitori
   ```
   sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev intltool libglib2.0-dev
   ```
+- install OpenCV
+  ```
+  sudo apt install libopencv-dev python3-opencv
+  ```
 <!-- - install glibc:
   ```
   sudo apt install glibc-source -y
