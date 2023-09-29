@@ -57,10 +57,10 @@
     <param name="autosize" value="true" />
   </node> -->
 
-  <node name="geometry" pkg="camera_measures" type="nd_geometry.py">
+  <!-- <node name="geometry" pkg="camera_measures" type="nd_geometry.py">
     <param name="threshold" type="int" value="$(arg threshold)" />
     <param name="image" type="str" value="$(arg image_topic_raw)"/>
-  </node>
+  </node> -->
 
   <!-- <node name="moments" pkg="camera_measures" type="nd_moments.py">
     <param name="threshold" type="int" value="230" />
@@ -68,7 +68,7 @@
   </node> -->
 
   <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis /usb_cam/moments/minor_axis" if="$(arg gui)" /> -->
-  <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis" if="$(arg gui)" />
+  <!-- <node name="plot_nit" pkg="rqt_plot" type="rqt_plot" args="/usb_cam/geometry/minor_axis" if="$(arg gui)" /> -->
 
 
   <!-- Meltpool Geometric Features -->

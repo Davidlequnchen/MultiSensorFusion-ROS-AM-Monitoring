@@ -6,17 +6,18 @@
   <arg name="thermal" default="false"/>
   <arg name="vision" default="true"/>
   <arg name="pylon" default="true"/>
-  <arg name="acoustic" default="false"/>
+  <arg name="image_view" default="true" />
+  <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="plotjuggler_viz" default="false"/>
   <arg name="plotjuggler_viz_multimodal" default="false"/>
   <arg name="audio_topic" default="/audio"/>
-  <arg name="device" default="hw:0,0" />
+  <arg name="device" default="hw:1,0" /> <!-- arecord -l -->
   <arg name="gui_camera" default="true" />
   <arg name="frame_rate" default="60.0" />
   <arg name="video_device" default="/dev/video0" />
-  <arg name="image_topic_raw" default="/usb_cam/image_raw"/> <!-- "/usb_cam/image_raw" or "/pylon_camera_node/image_raw" -->
+  <arg name="image_topic_raw" default="/pylon_camera_node/image_raw"/> <!-- "/usb_cam/image_raw" or "/pylon_camera_node/image_raw" -->
 
 
   <!-- Real-time quality prediction -->
@@ -42,7 +43,7 @@
   </include>
 
   <!-- Coaxial CCD monitoring (normal USB camera or Pylon camera) -->
-  <include file="$(find camera_measures)/launch/coaxial_vision_measures.launch" if="$(arg vision)">
+  <!-- <include file="$(find camera_measures)/launch/coaxial_vision_measures.launch" if="$(arg vision)">
     <arg name="gui" value="$(arg gui_camera)" />
     <arg name="pylon" value="$(arg pylon)" />
     <arg name="contour_extract" value="true"/>
@@ -50,6 +51,13 @@
     <arg name="moment_extract" value="true"/>
     <arg name="video_device" value="$(arg video_device)" />
     <arg name="image_topic_raw" value="$(arg image_topic_raw)" />
+  </include> -->
+  <include file="$(find coaxial_melt_pool_monitoring)/launch/coaxial_meltpool_monitoring.launch" if="$(arg vision)">
+    <arg name="pylon" value="$(arg pylon)" />
+    <arg name="video_device" value="$(arg video_device)" />
+    <arg name="image_view" value="$(arg image_view)" />
+    <arg name="image_topic_raw" value="$(arg image_topic_raw)" />
+    <arg name="frame_rate" value="60.0" />
   </include>
 
   <!-- acoustic monitoring -->

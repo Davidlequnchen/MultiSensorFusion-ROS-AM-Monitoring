@@ -22,6 +22,7 @@ from QtCore import QTimer
 
 
 from opencv_apps.msg import MaxContourArea, ContourArea
+from coaxial_melt_pool_monitoring.msg import MsgCoaxialMeltPoolFeatures
 from collections import deque
 from acoustic_monitoring_msgs.msg import (
     AudioDataStamped,
@@ -107,23 +108,20 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         self.label_9.setFont(font)
 
         # ROS subscribers
-        self.image_subscriber = rospy.Subscriber('/general_contours/image', Image, self.image_callback, queue_size=10)
-        self.max_contour_area_subscriber = rospy.Subscriber('/general_contours/max_contour_area', MaxContourArea, self.cb_max_contour_area, queue_size=10)
-        self.convex_hull_subscriber = rospy.Subscriber('/convex_hull/hull_area', ContourArea, self.cb_convex_hull, queue_size=10)
+        self.image_subscriber = rospy.Subscriber('/image_general_contour', Image, self.image_callback, queue_size=10)
+        self.coaxial_visual_feature_subscriber = rospy.Subscriber('/coaxial_melt_pool_features', MsgCoaxialMeltPoolFeatures, self.cb_coaxial_visual_features, queue_size=10)
         self.audio_feature_subscriber = rospy.Subscriber('/acoustic_feature', MsgAcousticFeature, self.audio_feauture_callback, queue_size=10)
 
 
         self.visual_time = []
         self.audio_time = []
+        self.max_contour_area_data = []
         self.ellipse_width_data = []
         self.ellipse_height_data = []
         self.convex_hull_data = []
         self.spectral_centroid_data = []
 
-
         
-        
-
     def image_callback(self, msg_image):
         try:
             self.np_img = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
@@ -163,9 +161,25 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         self.image.ui.normGroup.hide()
         self.image.ui.menuBtn.setVisible(False)
 
-    def cb_max_contour_area(self, msg_max_contour):
-        # Get current time stamp from ROS header
-        current_time = msg_max_contour.header.stamp.to_sec()
+    # def cb_max_contour_area(self, msg_max_contour):
+    #     # Get current time stamp from ROS header
+    #     current_time = msg_max_contour.header.stamp.to_sec()
+    #     # If it's the first data point, initialize visual_start_time
+    #     if not hasattr(self, 'visual_start_time'):
+    #         self.visual_start_time = current_time
+    #     # Compute elapsed time relative to the first timestamp
+    #     elapsed_time = current_time - self.visual_start_time
+    #     # Append the new data
+    #     self.visual_time.append(elapsed_time)
+    #     self.max_contour_area = msg_max_contour.meltpool_contour_area
+    #     self.ellipse_width_data.append(msg_max_contour.ellipse_width)
+    #     self.ellipse_height_data.append(msg_max_contour.ellipse_height)
+    #     # self.rectangle_width = msg_max_contour.rectangle_width
+    #     # self.rectangle_height = msg_max_contour.rectangle_height
+
+
+    def cb_coaxial_visual_features(self, msg_coaxial_features):
+        current_time = msg_coaxial_features.header.stamp.to_sec()
         # If it's the first data point, initialize visual_start_time
         if not hasattr(self, 'visual_start_time'):
             self.visual_start_time = current_time
@@ -173,14 +187,13 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         elapsed_time = current_time - self.visual_start_time
         # Append the new data
         self.visual_time.append(elapsed_time)
-        self.max_contour_area = msg_max_contour.meltpool_contour_area
-        self.ellipse_width_data.append(msg_max_contour.ellipse_width)
-        self.ellipse_height_data.append(msg_max_contour.ellipse_height)
-        # self.rectangle_width = msg_max_contour.rectangle_width
-        # self.rectangle_height = msg_max_contour.rectangle_height
+        self.max_contour_area_data.append(msg_coaxial_features.max_contour_area)
+        self.ellipse_width_data.append(msg_coaxial_features.ellipse_width)
+        self.ellipse_height_data.append(msg_coaxial_features.ellipse_height)
+        # self.rectangle_width = msg_coaxial_features.rectangle_width
+        # self.rectangle_height = msg_coaxial_features.rectangle_height
+        self.convex_hull_data.append(msg_coaxial_features.max_hull_area)
 
-    def cb_convex_hull(self, msg_convex_hull):
-        self.convex_hull_data.append(msg_convex_hull.area[0])
 
     def audio_feauture_callback(self, msg_audio_feature):
         current_time = msg_audio_feature.header.stamp.to_sec()
@@ -199,8 +212,16 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
 
 
     def updateVisualFeature(self):
-        self.ellipse_width_curve.setData(self.visual_time, self.ellipse_width_data)
-        self.ellipse_height_curve.setData(self.visual_time, self.ellipse_height_data)
+        # Ensure that x and y data have the same length
+        min_len = min(len(self.visual_time), len(self.ellipse_width_data), len(self.ellipse_height_data))
+        truncated_time = self.visual_time[:min_len]
+        truncated_width_data = self.ellipse_width_data[:min_len]
+        truncated_height_data = self.ellipse_height_data[:min_len]
+
+        # Update the plot curves
+        self.ellipse_width_curve.setData(truncated_time, truncated_width_data)
+        self.ellipse_height_curve.setData(truncated_time, truncated_height_data)
+    
         # Update the axes if you have data
         if self.visual_time:
             self.ellipse_plotwidget.setXRange(min(self.visual_time), max(self.visual_time))

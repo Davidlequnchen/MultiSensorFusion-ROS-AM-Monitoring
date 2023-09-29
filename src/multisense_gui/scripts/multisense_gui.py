@@ -18,6 +18,7 @@ from rviz import bindings as rviz
 # from qt_path_robviz import QtPath
 from qt_image_audio_visualize import AudioImageVisualizer
 from qt_image_audio_feature_visualize import AudioVisualFeatureVisualize
+from qt_quality_visualize import QualityVisualize
 
 
 path = rospkg.RosPack().get_path('multisense_gui')
@@ -104,11 +105,14 @@ class Multisense(QtWidgets.QMainWindow):
         # self.qtPath = QtPath(self)
         self.audio_image_visualizer = AudioImageVisualizer(self)
         self.audio_visual_feature_visualizer = AudioVisualFeatureVisualize(self)
+        self.virtual_quality_visualizer = QualityVisualize(self)
 
         # self.tabWidget.addTab(self.qtPath, 'Path')
         # self.tabWidget.addTab(self.qtScan, 'Scan')
         self.tabWidget_2.addTab(self.audio_image_visualizer, 'Raw melt pool image audio visualization')
         self.tabWidget_2.addTab(self.audio_visual_feature_visualizer, 'Melt pool audio-visual feature visualization')
+
+        self.tabWidget_3.addTab(self.virtual_quality_visualizer, 'Location-specific quality prediction')
 
         self.btnQuit.setIcon(QtGui.QIcon.fromTheme('application-exit'))
         self.btnQuit.clicked.connect(self.btnQuitClicked)
