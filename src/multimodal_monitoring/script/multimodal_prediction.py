@@ -10,7 +10,9 @@ import joblib
 from std_msgs.msg import String
 from opencv_apps.msg import MomentArrayStamped, ContourArea, MaxContourArea, RotatedRectArrayStamped
 from acoustic_monitoring_msgs.msg import MsgAcousticFeature
+from coaxial_melt_pool_monitoring.msg import MsgCoaxialMeltPoolFeatures
 from multimodal_monitoring.msg import MsgDefect  
+
 
 dirname = rospkg.RosPack().get_path('multimodal_monitoring')
 logging.getLogger('sklearnex').setLevel(logging.WARNING)
@@ -25,23 +27,23 @@ class MultimodalPredictionNode:
         self.visual_feature_buffer = deque(maxlen=100)  
         
         # Load pre-trained machine learning model
-        self.ml_model = joblib.load(os.path.join(dirname, 'config', 'metamodel_RF.sav'))
+        self.ml_model = joblib.load(os.path.join(dirname, 'config', 'NN.joblib'))
         # Load the saved StandardScaler model at the initialization part of your ROS node
-        self.scaler = joblib.load(os.path.join(dirname, 'config', 'StandardScaler_audio_visual.pkl'))
+        self.scaler = joblib.load(os.path.join(dirname, 'config', 'StandardScaler_all.pkl'))
         
         # Initialize subscribers for all the required topics
-        self.contour_moment_sub = Subscriber("/contour_moments/moments", MomentArrayStamped)
-        self.convex_hull_sub = Subscriber("/convex_hull/hull_area", ContourArea)
-        self.max_contour_area_sub = Subscriber("/general_contours/max_contour_area", MaxContourArea)
-        # self.ellipse_sub = Subscriber("/general_contours/ellipses", RotatedRectArrayStamped)
-        # self.rectangle_sub = Subscriber("/general_contours/rectangles", RotatedRectArrayStamped)
-        self.acoustic_feature_sub = Subscriber('/acoustic_feature', MsgAcousticFeature)
+        # self.contour_moment_sub = Subscriber("/contour_moments/moments", MomentArrayStamped)
+        # self.convex_hull_sub = Subscriber("/convex_hull/hull_area", ContourArea)
+        # self.max_contour_area_sub = Subscriber("/general_contours/max_contour_area", MaxContourArea)
+        self.acoustic_feature_sub = rospy.Subscriber('/acoustic_feature', MsgAcousticFeature)
+        self.visual_feature_subscriber = rospy.Subscriber('/coaxial_melt_pool_features', MsgCoaxialMeltPoolFeatures)
 
         # Synchronize all the topics
         self.synchronizer = ApproximateTimeSynchronizer(
-            [self.contour_moment_sub, self.convex_hull_sub, self.max_contour_area_sub, self.acoustic_feature_sub],
+            # [self.contour_moment_sub, self.convex_hull_sub, self.max_contour_area_sub, self.acoustic_feature_sub],
+            [self.acoustic_feature_sub, self.visual_feature_subscriber]
             queue_size=20,
-            slop=0.1
+            slop=0.05 #ms
         )
         self.synchronizer.registerCallback(self.callback)
         
@@ -49,18 +51,16 @@ class MultimodalPredictionNode:
         self.prediction_pub = rospy.Publisher("quality_predicted", MsgDefect, queue_size=10)
                        
                        
-    def callback(self, contour_moment_msg, convex_hull_msg, max_contour_area_msg, acoustic_feature_msg):
+    def callback(self, visual_feature_msg, acoustic_feature_msg):
         # List of variables
-        contour_moment_vars = ["mu20", "mu02", "mu03"]
-        max_contour_area_vars = ["meltpool_contour_area", "ellipse_width", "ellipse_height", "rectangle_height", "rectangle_width"]
-        convex_hull_vars = ["area"]
+        visual_feature_vars = []
         acoustic_feature_vars = ["spectral_centroids", "spectral_bandwidth", "spectral_flatness", "spectral_variance",
                                  "spectral_skewness", "spectral_entropy", "spectral_flux"]
         
         features_combined = []            
         # Iterate through the variables and extract their values
-        for msg, vars in zip([convex_hull_msg, max_contour_area_msg, contour_moment_msg, acoustic_feature_msg],
-                            [convex_hull_vars, max_contour_area_vars, contour_moment_vars, acoustic_feature_vars]):
+        for msg, vars in zip([ visual_feature_msg, acoustic_feature_msg],
+                            [acoustic_feature_vars, acoustic_feature_vars]):
             # Handle array messages (MomentArrayStamped and ContourArea)
             if hasattr(msg, 'moments') or hasattr(msg, 'area'):
                 array_data = getattr(msg, 'moments', []) or getattr(msg, 'area', [])

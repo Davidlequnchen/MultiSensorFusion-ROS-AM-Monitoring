@@ -349,6 +349,8 @@ public:
     void imageCallback(const sensor_msgs::ImageConstPtr& msg) {
         try{
             coaxial_melt_pool_monitoring::MsgCoaxialMeltPoolFeatures feature_msg;
+            feature_msg.header = msg->header;
+
             // Extract features from general contours
             std::vector<double> max_contour_feature = generalContourFeatures(msg, msg->header.frame_id);
             std::vector<double> convex_hull_features = convexHullFeatures(msg, msg->header.frame_id);

@@ -8,69 +8,80 @@ float32 dynamic_complexity
 float32 loudness
 float32 loudness_vickers
 # Frequency-domain features
-float32 spectral_centroid
-float32 spectral_complexity
-float32 spectral_contrast_0
-float32 spectral_contrast_1
-float32 spectral_contrast_2
-float32 spectral_contrast_3
-float32 spectral_contrast_4
-float32 spectral_contrast_5
-float32 spectral_valley_0
-float32 spectral_valley_1
-float32 spectral_valley_2
-float32 spectral_valley_3
-float32 spectral_valley_4
-float32 spectral_valley_5
-float32 spectral_decrease
-float32 spectral_energy
-float32 spectral_energy_band_ratio
-float32 spectral_flatness
-float32 spectral_flux
-float32 spectral_rolloff
-float32 spectral_strong_peak
-float32 spectral_variance
-float32 spectral_skewness
-float32 spectral_kurtosis
-float32 spectral_crest_factor
-float32 mfcc_0
-float32 mfcc_1
-float32 mfcc_2
-float32 mfcc_3
-float32 mfcc_4
-float32 mfcc_5
-float32 mfcc_6
-float32 mfcc_7
-float32 mfcc_8
-float32 mfcc_9
-float32 mfcc_10
-float32 mfcc_11
-float32 mfcc_12
-
-# Header header
-# # Time-domain features
-# float32 rms_energy
-# float32 amplitude_envelope_mean
-# float32 amplitude_envelope_std
-# float32 zero_crossing_rate
-# float32 dynamic_complexity
-# float32 loudness
-# float32 loudness_vickers
-# # Frequency-domain features
-# float32 spectral_centroid
-# float32 spectral_complexity
-# float32[] spectral_contrast
-# float32[] spectral_valley
-# float32 spectral_decrease
-# float32 spectral_energy
-# float32 spectral_energy_band_ratio
-# float32 spectral_flatness
-# float32 spectral_flux
-# float32 spectral_rolloff
-# float32 spectral_strong_peak
-# float32 spectral_variance
-# float32 spectral_skewness
-# float32 spectral_kurtosis
-# float32 spectral_crest_factor
-# float32[] mfcc_coeffs
+float32 spectral_centroid_mean
+float32 spectral_centroid_std
+float32 spectral_complexity_mean
+float32 spectral_complexity_std
+float32 spectral_contrast_0_mean
+float32 spectral_contrast_0_std
+float32 spectral_contrast_1_mean
+float32 spectral_contrast_1_std
+float32 spectral_contrast_2_mean
+float32 spectral_contrast_2_std
+float32 spectral_contrast_3_mean
+float32 spectral_contrast_3_std
+float32 spectral_contrast_4_mean
+float32 spectral_contrast_4_std
+float32 spectral_contrast_5_mean
+float32 spectral_contrast_5_std
+float32 spectral_valley_0_mean
+float32 spectral_valley_0_std
+float32 spectral_valley_1_mean
+float32 spectral_valley_1_std
+float32 spectral_valley_2_mean
+float32 spectral_valley_2_std
+float32 spectral_valley_3_mean
+float32 spectral_valley_3_std
+float32 spectral_valley_4_mean
+float32 spectral_valley_4_std
+float32 spectral_valley_5_mean
+float32 spectral_valley_5_std
+float32 spectral_decrease_mean
+float32 spectral_decrease_std
+float32 spectral_energy_mean
+float32 spectral_energy_std
+float32 spectral_energy_band_ratio_mean
+float32 spectral_energy_band_ratio_std
+float32 spectral_flatness_mean
+float32 spectral_flatness_std
+float32 spectral_flux_mean
+float32 spectral_flux_std
+float32 spectral_rolloff_mean
+float32 spectral_rolloff_std
+float32 spectral_strong_peak_mean
+float32 spectral_strong_peak_std
+float32 spectral_variance_mean
+float32 spectral_variance_std
+float32 spectral_skewness_mean
+float32 spectral_skewness_std
+float32 spectral_kurtosis_mean
+float32 spectral_kurtosis_std
+float32 spectral_crest_factor_mean
+float32 spectral_crest_factor_std
+float32 mfcc_0_mean
+float32 mfcc_0_std
+float32 mfcc_1_mean
+float32 mfcc_1_std
+float32 mfcc_2_mean
+float32 mfcc_2_std
+float32 mfcc_3_mean
+float32 mfcc_3_std
+float32 mfcc_4_mean
+float32 mfcc_4_std
+float32 mfcc_5_mean
+float32 mfcc_5_std
+float32 mfcc_6_mean
+float32 mfcc_6_std
+float32 mfcc_7_mean
+float32 mfcc_7_std
+float32 mfcc_8_mean
+float32 mfcc_8_std
+float32 mfcc_9_mean
+float32 mfcc_9_std
+float32 mfcc_10_mean
+float32 mfcc_10_std
+float32 mfcc_11_mean
+float32 mfcc_11_std
+float32 mfcc_12_mean
+float32 mfcc_12_std
 

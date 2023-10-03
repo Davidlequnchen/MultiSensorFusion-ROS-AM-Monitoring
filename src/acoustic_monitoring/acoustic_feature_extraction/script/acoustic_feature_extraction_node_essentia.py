@@ -8,7 +8,7 @@ from scipy.io import wavfile
 import scipy
 import math
 import numpy as np
-from collections import deque
+from collections import deque, defaultdict
 import essentia.standard as es
 from essentia.standard import Spectrum, Windowing, SpectralCentroidTime, SpectralComplexity, SpectralContrast
 from essentia.standard import Decrease, Energy, EnergyBandRatio, FlatnessDB, Flux, RollOff, StrongPeak, CentralMoments
@@ -46,7 +46,7 @@ class AcousticFeatureExtractor:
         self.spectrum_algo = Spectrum()
         self.centroid_algo = SpectralCentroidTime(sampleRate=self.sample_rate)
         self.complexity_algo = SpectralComplexity(sampleRate=self.sample_rate)
-        self.contrast_algo = SpectralContrast(frameSize=self.buffer_size, highFrequencyBound=self.sample_rate/2, lowFrequencyBound=200, sampleRate=self.sample_rate)
+        self.contrast_algo = SpectralContrast(frameSize=self.frame_size, highFrequencyBound=self.sample_rate/2, lowFrequencyBound=200, sampleRate=self.sample_rate)
         self.decrease_algo = Decrease()
         self.energy_algo = Energy()
         self.energy_band_ratio_algo = EnergyBandRatio(sampleRate=self.sample_rate, stopFrequency=7000)
@@ -97,11 +97,12 @@ class AcousticFeatureExtractor:
 
 
         time_features = self.extract_time_features(audio_data_buffered)
-        freqeuncy_features = self.extract_frequency_features(audio_data_buffered)
+        freqeuncy_features = self.extract_freqeuncy_features_v2(audio_data_buffered)
 
         msg_acoustic_feature = MsgAcousticFeature()
         msg_acoustic_feature.header = msg_audio.header
-        ## time-domain features
+
+        # ## time-domain features
         msg_acoustic_feature.rms_energy = time_features["rms_energy"]
         msg_acoustic_feature.amplitude_envelope_mean = time_features['amplitude_envelope_mean'] 
         msg_acoustic_feature.amplitude_envelope_std = time_features['amplitude_envelope_std']
@@ -109,45 +110,24 @@ class AcousticFeatureExtractor:
         msg_acoustic_feature.dynamic_complexity = time_features['dynamic_complexity']
         msg_acoustic_feature.loudness = time_features['loudness']
         msg_acoustic_feature.loudness_vickers = time_features['loudness_vickers']
-        ## frequency-domain features
-        msg_acoustic_feature.spectral_centroid = freqeuncy_features['spectral_centroid']
-        msg_acoustic_feature.spectral_complexity = freqeuncy_features['spectral_complexity']
-        msg_acoustic_feature.spectral_contrast_0 = freqeuncy_features['spectral_contrast_0']
-        msg_acoustic_feature.spectral_contrast_1 = freqeuncy_features['spectral_contrast_1']
-        msg_acoustic_feature.spectral_contrast_2 = freqeuncy_features['spectral_contrast_2']
-        msg_acoustic_feature.spectral_contrast_3 = freqeuncy_features['spectral_contrast_3']
-        msg_acoustic_feature.spectral_contrast_4 = freqeuncy_features['spectral_contrast_4']
-        msg_acoustic_feature.spectral_contrast_5 = freqeuncy_features['spectral_contrast_5']
-        msg_acoustic_feature.spectral_valley_0 = freqeuncy_features['spectral_valley_0']
-        msg_acoustic_feature.spectral_valley_1 = freqeuncy_features['spectral_valley_1']
-        msg_acoustic_feature.spectral_valley_2 = freqeuncy_features['spectral_valley_2']
-        msg_acoustic_feature.spectral_valley_3 = freqeuncy_features['spectral_valley_3']
-        msg_acoustic_feature.spectral_valley_4 = freqeuncy_features['spectral_valley_4']
-        msg_acoustic_feature.spectral_valley_5 = freqeuncy_features['spectral_valley_5']
-        msg_acoustic_feature.spectral_decrease = freqeuncy_features['spectral_decrease']
-        msg_acoustic_feature.spectral_energy = freqeuncy_features['spectral_energy']
-        msg_acoustic_feature.spectral_energy_band_ratio = freqeuncy_features['spectral_energy_band_ratio']
-        msg_acoustic_feature.spectral_flatness = freqeuncy_features['spectral_flatness']
-        msg_acoustic_feature.spectral_flux = freqeuncy_features['spectral_flux']
-        msg_acoustic_feature.spectral_rolloff = freqeuncy_features['spectral_rolloff']
-        msg_acoustic_feature.spectral_strong_peak = freqeuncy_features['spectral_strong_peak']
-        msg_acoustic_feature.spectral_variance = freqeuncy_features['spectral_variance']
-        msg_acoustic_feature.spectral_skewness = freqeuncy_features['spectral_skewness']
-        msg_acoustic_feature.spectral_kurtosis = freqeuncy_features['spectral_kurtosis']
-        msg_acoustic_feature.spectral_crest_factor = freqeuncy_features['spectral_crest_factor']
-        msg_acoustic_feature.mfcc_0 = freqeuncy_features['mfcc_0']
-        msg_acoustic_feature.mfcc_1 = freqeuncy_features['mfcc_1']
-        msg_acoustic_feature.mfcc_2 = freqeuncy_features['mfcc_2']
-        msg_acoustic_feature.mfcc_3 = freqeuncy_features['mfcc_3']
-        msg_acoustic_feature.mfcc_4 = freqeuncy_features['mfcc_4']
-        msg_acoustic_feature.mfcc_5 = freqeuncy_features['mfcc_5']
-        msg_acoustic_feature.mfcc_6 = freqeuncy_features['mfcc_6']
-        msg_acoustic_feature.mfcc_7 = freqeuncy_features['mfcc_7']
-        msg_acoustic_feature.mfcc_8 = freqeuncy_features['mfcc_8']
-        msg_acoustic_feature.mfcc_9 = freqeuncy_features['mfcc_9']
-        msg_acoustic_feature.mfcc_10 = freqeuncy_features['mfcc_10']
-        msg_acoustic_feature.mfcc_11 = freqeuncy_features['mfcc_11']
-        msg_acoustic_feature.mfcc_12 = freqeuncy_features['mfcc_12']
+        # ## frequency-domain features
+        feature_names = [
+            'spectral_centroid', 'spectral_complexity', 'spectral_contrast_0', 
+            'spectral_contrast_1', 'spectral_contrast_2', 'spectral_contrast_3',
+            'spectral_contrast_4', 'spectral_contrast_5', 'spectral_valley_0',
+            'spectral_valley_1', 'spectral_valley_2', 'spectral_valley_3',
+            'spectral_valley_4', 'spectral_valley_5', 'spectral_decrease', 
+            'spectral_energy', 'spectral_energy_band_ratio', 'spectral_flatness',
+            'spectral_flux', 'spectral_rolloff', 'spectral_strong_peak',
+            'spectral_variance', 'spectral_skewness', 'spectral_kurtosis',
+            'spectral_crest_factor', 'mfcc_0', 'mfcc_1', 'mfcc_2', 'mfcc_3',
+            'mfcc_4', 'mfcc_5', 'mfcc_6', 'mfcc_7', 'mfcc_8', 'mfcc_9', 
+            'mfcc_10', 'mfcc_11', 'mfcc_12'
+        ]
+
+        for feature in feature_names:
+            setattr(msg_acoustic_feature, f"{feature}_mean", freqeuncy_features[f"{feature}_mean"])
+            setattr(msg_acoustic_feature, f"{feature}_std", freqeuncy_features[f"{feature}_std"])
 
 
         self.audio_feature_pub.publish(msg_acoustic_feature)
@@ -225,6 +205,46 @@ class AcousticFeatureExtractor:
             features[f'mfcc_{i}'] = coeff
         
         return features
+    
+    def extract_freqeuncy_features_v2(self, audio_data):
+        features = defaultdict(list)
+    
+        for frame in es.FrameGenerator(audio_data, frameSize=self.frame_size, hopSize=self.hop_size):
+            windowed_frame = self.window_algo(frame)
+            spectrum = self.spectrum_algo(windowed_frame)
+
+            features['spectral_centroid'].append(self.centroid_algo(spectrum))
+            features['spectral_complexity'].append(self.complexity_algo(spectrum))
+            spectral_contrast, spectral_valley = self.contrast_algo(spectrum)
+            for i, val in enumerate(spectral_contrast):
+                features[f'spectral_contrast_{i}'].append(val)
+            for i, val in enumerate(spectral_valley):
+                features[f'spectral_valley_{i}'].append(val)
+            features['spectral_decrease'].append(self.decrease_algo(spectrum))
+            features['spectral_energy'].append(self.energy_algo(spectrum))
+            features['spectral_energy_band_ratio'].append(self.energy_band_ratio_algo(spectrum))
+            features['spectral_flatness'].append(self.flatness_algo(spectrum))
+            features['spectral_flux'].append(self.spectral_flux(spectrum))
+            features['spectral_rolloff'].append(self.rolloff_algo(spectrum))
+            features['spectral_strong_peak'].append(self.strong_peak_algo(spectrum))
+            central_moments = self.central_moment_algo(spectrum)
+            features['spectral_variance'].append(self.distrubution_shape(central_moments)[0])
+            features['spectral_skewness'].append(self.distrubution_shape(central_moments)[1])
+            features['spectral_kurtosis'].append(self.distrubution_shape(central_moments)[2])
+            features['spectral_crest_factor'].append(self.spectral_crest_factor(spectrum))
+
+            mfcc_bands, mfcc_coeffs = self.mfcc_algo(spectrum)
+            for i, coeff in enumerate(mfcc_coeffs):
+                features[f'mfcc_{i}'].append(coeff)
+                
+        # Prepare a dictionary to store mean and std separately
+        features_separated = {}
+        for key, value in features.items():
+            mean_val = np.mean(value)
+            std_val = np.std(value)
+            features_separated[f"{key}_mean"] = mean_val
+            features_separated[f"{key}_std"] = std_val
+        return features_separated
 
 
 if __name__ == '__main__':

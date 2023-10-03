@@ -23,7 +23,6 @@ from QtCore import QTimer
 from collections import deque
 from acoustic_monitoring_msgs.msg import (
     AudioDataStamped,
-
 )
 
 
