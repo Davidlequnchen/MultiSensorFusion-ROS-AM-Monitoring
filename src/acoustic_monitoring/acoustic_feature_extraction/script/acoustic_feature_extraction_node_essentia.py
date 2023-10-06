@@ -57,7 +57,7 @@ class AcousticFeatureExtractor:
         self.central_moment_algo = CentralMoments()
         self.distrubution_shape = DistributionShape()
         self.spectral_crest_factor = Crest()
-        self.mfcc_algo = MFCC(highFrequencyBound=self.sample_rate/2, numberCoefficients=13, sampleRate=self.sample_rate)
+        self.mfcc_algo = MFCC(inputSize=self.hop_length+1, highFrequencyBound=self.sample_rate/2, numberCoefficients=13, sampleRate=self.sample_rate)
 
         self.audio_sub = rospy.Subscriber("audioStamped", AudioDataStamped, self.audio_callback, queue_size=20)
         self.audio_info_sub = rospy.Subscriber(audio_topic_info, AudioInfo, self.cb_audio_info, queue_size=1)
@@ -209,7 +209,7 @@ class AcousticFeatureExtractor:
     def extract_freqeuncy_features_v2(self, audio_data):
         features = defaultdict(list)
     
-        for frame in es.FrameGenerator(audio_data, frameSize=self.frame_size, hopSize=self.hop_size):
+        for frame in es.FrameGenerator(audio_data, frameSize=self.frame_size, hopSize=self.hop_length):
             windowed_frame = self.window_algo(frame)
             spectrum = self.spectrum_algo(windowed_frame)
 
