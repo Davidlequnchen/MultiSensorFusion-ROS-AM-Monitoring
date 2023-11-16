@@ -53,6 +53,7 @@ ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitori
    * Clone drag&bot public common messages: `git clone https://github.com/dragandbot/dragandbot_common.git`
    * Install ROS dependencies (In the downloaded folder): `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && sudo rosdep update && sudo rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
 
+- Install LightGBM (ML model): https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html#linux
 - install Micro-Epsilon scanControl SDK:
 [./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3] 
 - install aravis: download the aravis-0.6.1.tar.xz package

@@ -24,9 +24,13 @@ private:
 
 public:
     FeatureExtractionNode() : it_(nh_) {
+        // ros::NodeHandle private_nh("~"); 
         // Initialize parameters
-        nh_.param<std::string>("image", image_topic_, "/pylon_camera_node/image_raw");
-        nh_.param<int>("threshold", threshold_, 235);
+        // private_nh.param<std::string>("image", image_topic_, "/pylon_camera_node/image_raw");
+        // private_nh.param<int>("threshold", threshold_, 235);
+
+        ros::param::param<std::string>("~image", image_topic_, "/pylon_camera_node/image_raw");
+        ros::param::param<int>("~threshold", threshold_, 235);
 
         // Initialize publishers
         feature_pub_ = nh_.advertise<coaxial_melt_pool_monitoring::MsgCoaxialMeltPoolFeatures>("coaxial_melt_pool_features", 10);
@@ -101,7 +105,8 @@ public:
                 features.push_back(min_ellipse[max_contour_area_index].size.width);
                 features.push_back(min_ellipse[max_contour_area_index].size.height);
 
-                cv::Scalar color = cv::Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+                cv::Scalar color = cv::Scalar(90, 255, 100);
+                cv::Scalar color_box = cv::Scalar(90, 100, 255);
                 // contour
                 // ellipse
                 cv::ellipse(drawing, min_ellipse[max_contour_area_index], color, 2, 8);
@@ -109,7 +114,7 @@ public:
                 cv::Point2f rect_points[4];
                 min_rect[max_contour_area_index].points(rect_points);
                 for (int j = 0; j < 4; j++)
-                cv::line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
+                cv::line(drawing, rect_points[j], rect_points[(j + 1) % 4], color_box, 2, 8);
             }
             else{
                 // ---------------------publish zero or NaN---------------------
@@ -247,9 +252,6 @@ public:
             // drawing = cv::Mat::zeros(canny_output.size(), CV_8UC3);
             drawing = cv::Mat::zeros(threshold_output.size(), CV_8UC3);
             
-
-
-
             if (!contours.empty()) {
 
                 // https://stackoverflow.com/questions/13495207/opencv-c-sorting-contours-by-their-contourarea
@@ -300,9 +302,11 @@ public:
                 features.push_back(cv::arcLength(contours[index], true));
                 features.push_back(cv::contourArea(contours[index]));
             
-                cv::Scalar color = cv::Scalar(rng.uniform(0, 150), rng.uniform(0, 255), rng.uniform(0, 255));
-                cv::drawContours(drawing, contours, (int)index, color, 2, 6, hierarchy, 0, cv::Point());
-                cv::circle(drawing, mc[index], 4, color, -1, 8, 0);
+                // cv::Scalar color = cv::Scalar(rng.uniform(0, 150), rng.uniform(0, 255), rng.uniform(0, 255));
+                cv::Scalar yellow = cv::Scalar(0, 255, 255);
+                cv::Scalar blue = cv::Scalar(255, 0, 0);
+                cv::drawContours(drawing, contours, (int)index, yellow, 2, 6, hierarchy, 0, cv::Point());
+                cv::circle(drawing, mc[index], 4, (blue), -1, 8, 0);
         
             } else {
                 features.push_back(0);

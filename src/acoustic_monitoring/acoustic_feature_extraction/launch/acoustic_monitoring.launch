@@ -4,8 +4,8 @@
   <!-- arecord -l will show available input devices, use the car number as
   the first number and the subdevice number as the second in a string
   like hw:1,0 Looking for [USB audio CODEC]-->
-  <arg name="device" default="hw:2,0" />
-  <arg name="output"      default="screen"/>
+  <arg name="device" default="hw:0,0" />
+  <arg name="output" default="screen"/>
   <arg name="bitrate" default="128"/>
   <arg name="channels" default="1"/>
   <arg name="sample_rate" default="44100"/>

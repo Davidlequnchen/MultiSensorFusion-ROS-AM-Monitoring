@@ -12,7 +12,7 @@ class FeatureExtractionNode:
         # Initialize ROS node
         rospy.init_node('coaxial_feature_extraction_node')
 
-        image_topic = rospy.get_param('~image', '/usb_cam/image_raw')
+        image_topic = rospy.get_param('~image', "/pylon_camera_node/image_raw")
         self.threshold = rospy.get_param('~threshold', 235)
         
         # Initialize CvBridge
@@ -157,22 +157,20 @@ class FeatureExtractionNode:
         max_hull_area = 0.0
         drawing = np.zeros((threshold_output.shape[0], threshold_output.shape[1], 3), dtype=np.uint8)
 
-        # Check if any contour is detected
         if contours:
             # Find the convex hull object for each contour
             hull = [cv2.convexHull(cnt) for cnt in contours]
-
             # Find the bounding convex hull area for each contour
             hull_area = [cv2.contourArea(h) for h in hull]
-
             # Get the maximum convex hull area
             max_hull_area = max(hull_area)
+            # Get the index of the maximum convex hull area
+            max_hull_area_index = max(enumerate(hull_area), key=lambda x: x[1])[0]
+            # Draw only the convex hull with the maximum area
+            color = (255, 255, 0)
+            cv2.drawContours(drawing, hull, max_hull_area_index, color, 2)
 
-            # Draw contours and convex hull on the image
-            for i in range(len(contours)):
-                color = (np.random.randint(0, 256), np.random.randint(0, 256), np.random.randint(0, 256))
-                # cv2.drawContours(drawing, contours, i, color)
-                cv2.drawContours(drawing, hull, i, color, 2)
+
 
         # Publish the drawing image as a ROS topic
         self.image_convex_hull_pub.publish(self.bridge.cv2_to_imgmsg(drawing, "bgr8"))
@@ -214,6 +212,7 @@ class FeatureExtractionNode:
                 cv2.drawContours(drawing, [largest_contour], -1, (0, 255, 255), 2)
                 center = (int(features[24]), int(features[25]))
                 cv2.circle(drawing, center, 5, (255, 0, 0), -1)
+                
 
         # Convert the OpenCV image to ROS message and publish
         image_message = self.bridge.cv2_to_imgmsg(drawing, "bgr8")
