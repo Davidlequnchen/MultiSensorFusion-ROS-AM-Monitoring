@@ -69,6 +69,11 @@
     <param name="autosize" value="true" />
   </node>
 
+  <node name="image_view5" pkg="image_view" type="image_view" respawn="false" output="screen" if="$(arg image_view)">
+    <remap from="image" to="/image_binarize"/>
+    <param name="autosize" value="true" />
+  </node>
+
   
 
 </launch>

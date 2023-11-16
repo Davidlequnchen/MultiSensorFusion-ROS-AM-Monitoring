@@ -16,6 +16,7 @@ private:
     image_transport::Publisher image_general_contour_pub_;
     image_transport::Publisher image_convex_hull_pub_;
     image_transport::Publisher image_moment_pub_;
+    image_transport::Publisher image_binarize_pub_;
     ros::Publisher feature_pub_;
 
     std::string image_topic_;
@@ -37,6 +38,7 @@ public:
         image_general_contour_pub_ = it_.advertise("image_general_contour", 5);
         image_convex_hull_pub_ = it_.advertise("image_convex_hull", 5);
         image_moment_pub_ = it_.advertise("image_moment_extract", 5);
+        image_binarize_pub_ = it_.advertise("image_binarize", 5);
 
         // Initialize subscriber
         image_sub_ = it_.subscribe(image_topic_, 10, &FeatureExtractionNode::imageCallback, this);
@@ -47,7 +49,7 @@ public:
         std::vector<double> features;
         try{
             // Convert the image into something opencv can handle.
-            cv::Mat frame = cv_bridge::toCvShare(msg, sensor_msgs::image_encodings::BGR8)->image;
+            cv::Mat frame = cv_bridge::toCvShare(msg, sensor_msgs::image_encodings::RGB8)->image;
 
             cv::Mat gray, threshold_output;
 
@@ -59,6 +61,20 @@ public:
             cv::blur(gray, gray, cv::Size(3, 3));
             
             cv::threshold(gray, threshold_output, threshold_, 255, cv::THRESH_BINARY);
+
+            // // Convert the thresholded image back to a ROS message
+            // cv_bridge::CvImage cv_image_binarized;
+            // cv_image_binarized.image = threshold_output;
+            // cv_image_binarized.encoding = "mono8"; // since it's a binary image
+            // sensor_msgs::Image ros_image;
+            // cv_image_binarized.toImageMsg(ros_image);
+            // // Publish the image
+            // image_binarize_pub_.publish(ros_image);
+
+            sensor_msgs::ImagePtr ros_image = 
+                cv_bridge::CvImage(msg->header, sensor_msgs::image_encodings::MONO8, threshold_output).toImageMsg();
+            image_binarize_pub_.publish(ros_image);
+
 
             int max_thresh = 255;
             std::vector<std::vector<cv::Point> > contours;
@@ -150,7 +166,7 @@ public:
         std::vector<double> features;
         try{
             // Convert the image into something opencv can handle.
-            cv::Mat frame = cv_bridge::toCvShare(msg, sensor_msgs::image_encodings::BGR8)->image;
+            cv::Mat frame = cv_bridge::toCvShare(msg, sensor_msgs::image_encodings::RGB8)->image;
 
             cv::Mat gray, threshold_output;
             if (frame.channels() > 1) {
@@ -229,7 +245,7 @@ public:
         std::vector<double> features;
         try {
             // Convert the image into something opencv can handle.
-            cv::Mat frame = cv_bridge::toCvShare(msg, sensor_msgs::image_encodings::BGR8)->image;
+            cv::Mat frame = cv_bridge::toCvShare(msg, sensor_msgs::image_encodings::RGB8)->image;
 
             cv::Mat gray, threshold_output;
             if (frame.channels() > 1) {

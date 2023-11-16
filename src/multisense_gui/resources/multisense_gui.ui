@@ -233,7 +233,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="5,5,0">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="6,4,0">
       <item>
        <widget class="QWidget" name="audio_visual" native="true">
         <layout class="QVBoxLayout" name="verticalLayout_3">

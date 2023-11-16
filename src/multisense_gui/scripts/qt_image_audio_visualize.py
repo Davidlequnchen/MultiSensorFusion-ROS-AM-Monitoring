@@ -87,7 +87,7 @@ class AudioImageVisualizer(QtWidgets.QWidget):
 
     def image_callback(self, msg_image):
         try:
-            self.np_img = self.bridge.imgmsg_to_cv2(msg_image, "bgr8")
+            self.np_img = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
             self.image.ui.histogram.hide()
             self.image.ui.roiBtn.hide()
             self.image.ui.roiPlot.hide()

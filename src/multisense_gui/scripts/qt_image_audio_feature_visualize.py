@@ -49,15 +49,18 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
 
         # Initialize a QTimer for updating the image
         self.image_timer = QTimer()
-        self.image_timer.timeout.connect(self.updateImage)
-        self.image_timer.start(5)  # Update approximately every 33ms (about 30 FPS)
+        self.image_timer.timeout.connect(self.updateMomentImage)
+        self.image_timer.timeout.connect(self.updateConvexHullImage)
+        self.image_timer.timeout.connect(self.updateContourImage)
+        self.image_timer.timeout.connect(self.updateBinarizeImage)
+        self.image_timer.start(1)  # Update approximately every 33ms (about 30 FPS)
 
         self.audio_feature_timer = QTimer()
         self.audio_feature_timer.timeout.connect(self.updateAudioFeature)
-        self.audio_feature_timer.start(5) # refresh every 10 ms 
+        self.audio_feature_timer.start(1) # refresh every 1 ms 
         self.visual_feature_timer = QTimer()
         self.visual_feature_timer.timeout.connect(self.updateVisualFeature)
-        self.visual_feature_timer.start(5) # refresh every 10 ms 
+        self.visual_feature_timer.start(1) # refresh every 1 ms 
 
         # ---------------- Pre-calculate scaler factors ----------------
         mfcc_1_mean_index = 60
@@ -127,17 +130,37 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
 
         
         # -----------------  Initialize plot widget for melt pool image----------------- 
-        self.plotwindow = QtWidgets.QVBoxLayout(self.ImageFeatureWidget)
-        self.image = pg.ImageView()
-        self.plotwindow.addWidget(self.image)
-        self.np_img = np.zeros((640,480))
+        self.plotwindow_1 = QtWidgets.QVBoxLayout(self.ImageFeatureWidget)
+        self.convex_hull_image = pg.ImageView()
+        self.plotwindow_1.addWidget(self.convex_hull_image)
+        self.np_img_convex_hull = np.zeros((640,480))
+
+        self.plotwindow_2 = QtWidgets.QVBoxLayout(self.ImageFeatureWidget_2)
+        self.binarize_image = pg.ImageView()
+        self.plotwindow_2.addWidget(self.binarize_image)
+        self.np_img_binarize = np.zeros((640,480))
+
+        self.plotwindow_3 = QtWidgets.QVBoxLayout(self.ImageFeatureWidget_3)
+        self.contour_image = pg.ImageView()
+        self.plotwindow_3.addWidget(self.contour_image)
+        self.np_img_contour = np.zeros((640,480))
+
+        self.plotwindow_5 = QtWidgets.QVBoxLayout(self.ImageFeatureWidget_5)
+        self.moment_image = pg.ImageView()
+        self.plotwindow_5.addWidget(self.moment_image)
+        self.np_img_moment = np.zeros((640,480))
+
+    
 
         font = QtGui.QFont()
         font.setPointSize(12) 
         self.label_9.setFont(font)
 
         # ROS subscribers
-        self.image_subscriber = rospy.Subscriber('/image_moment_extract', Image, self.image_callback, queue_size=10) # /image_moment_extract, image_general_contour
+        self.image_subscriber = rospy.Subscriber('/image_moment_extract', Image, self.moment_image_callback, queue_size=10) # /image_moment_extract, image_general_contour
+        self.image_subscriber = rospy.Subscriber('/image_convex_hull', Image, self.convex_hull_image_callback, queue_size=10) # /image_moment_extract, image_general_contour
+        self.image_subscriber = rospy.Subscriber('/image_general_contour', Image, self.contour_image_callback, queue_size=10) # /image_moment_extract, image_general_contour
+        self.image_subscriber = rospy.Subscriber('/image_binarize', Image, self.binarize_image_callback, queue_size=10) # /image_moment_extract, image_general_contour
         self.coaxial_visual_feature_subscriber = rospy.Subscriber('/coaxial_melt_pool_features', MsgCoaxialMeltPoolFeatures, self.cb_coaxial_visual_features, queue_size=10)
         self.audio_feature_subscriber = rospy.Subscriber('/acoustic_feature', MsgAcousticFeature, self.audio_feauture_callback, queue_size=10)
 
@@ -153,45 +176,105 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         self.mfcc_1_mean_data = []
 
         
-    def image_callback(self, msg_image):
+    def moment_image_callback(self, msg_image):
         try:
-            self.np_img = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
-            self.image.ui.histogram.hide()
-            self.image.ui.roiBtn.hide()
-            self.image.ui.roiPlot.hide()
-            self.image.ui.normGroup.hide()
-            self.image.ui.menuBtn.setVisible(False)
+            self.np_img_moment = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
+            self.moment_image.ui.histogram.hide()
+            self.moment_image.ui.roiBtn.hide()
+            self.moment_image.ui.roiPlot.hide()
+            self.moment_image.ui.normGroup.hide()
+            self.moment_image.ui.menuBtn.setVisible(False)
         except CvBridgeError as e:
             print(e)
             return
 
-    def cb_image(self, msg_image):
+    def contour_image_callback(self, msg_image):
         try:
-            stamp = msg_image.header.stamp
-            # convert the ros image to OpenCV image for processing
-            # frame = self.bridge.imgmsg_to_cv2(msg_image) 
-            # if msg_image.encoding == 'mono8' or 'mono16':
-            self.np_img = ros_numpy.numpify(msg_image)
-            self.image.setImage(self.np_img)
-            self.image.ui.histogram.hide()
-            self.image.ui.roiBtn.hide()
-            self.image.ui.roiPlot.hide()
-            self.image.ui.normGroup.hide()
-            self.image.ui.menuBtn.setVisible(False)
-            self.timer_image = threading.Thread(target=self.updateImage,daemon=True)
-            self.timer_image.start()
- 
+            self.np_img_convex_hull = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
+            self.convex_hull_image.ui.histogram.hide()
+            self.convex_hull_image.ui.roiBtn.hide()
+            self.convex_hull_image.ui.roiPlot.hide()
+            self.convex_hull_image.ui.normGroup.hide()
+            self.convex_hull_image.ui.menuBtn.setVisible(False)
         except CvBridgeError as e:
-            rospy.loginfo("CvBridge Exception")
+            print(e)
+            return
+
+    def convex_hull_image_callback(self, msg_image):
+        try:
+            self.np_img_contour = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
+            self.contour_image.ui.histogram.hide()
+            self.contour_image.ui.roiBtn.hide()
+            self.contour_image.ui.roiPlot.hide()
+            self.contour_image.ui.normGroup.hide()
+            self.contour_image.ui.menuBtn.setVisible(False)
+        except CvBridgeError as e:
+            print(e)
+            return
+
+    def binarize_image_callback(self, msg_image):
+        try:
+            self.np_img_binarize = self.bridge.imgmsg_to_cv2(msg_image, "rgb8")
+            self.binarize_image.ui.histogram.hide()
+            self.binarize_image.ui.roiBtn.hide()
+            self.binarize_image.ui.roiPlot.hide()
+            self.binarize_image.ui.normGroup.hide()
+            self.binarize_image.ui.menuBtn.setVisible(False)
+        except CvBridgeError as e:
+            print(e)
+            return
+
+    # def cb_image(self, msg_image):
+    #     try:
+    #         stamp = msg_image.header.stamp
+    #         # convert the ros image to OpenCV image for processing
+    #         # frame = self.bridge.imgmsg_to_cv2(msg_image) 
+    #         # if msg_image.encoding == 'mono8' or 'mono16':
+    #         self.np_img = ros_numpy.numpify(msg_image)
+    #         self.image.setImage(self.np_img)
+    #         self.image.ui.histogram.hide()
+    #         self.image.ui.roiBtn.hide()
+    #         self.image.ui.roiPlot.hide()
+    #         self.image.ui.normGroup.hide()
+    #         self.image.ui.menuBtn.setVisible(False)
+    #         self.timer_image = threading.Thread(target=self.updateImage,daemon=True)
+    #         self.timer_image.start()
+ 
+    #     except CvBridgeError as e:
+    #         rospy.loginfo("CvBridge Exception")
 
 
-    def updateImage(self):
-        self.image.setImage(self.np_img)
-        self.image.ui.histogram.hide()
-        self.image.ui.roiBtn.hide()
-        self.image.ui.roiPlot.hide()
-        self.image.ui.normGroup.hide()
-        self.image.ui.menuBtn.setVisible(False)
+    def updateMomentImage(self):
+        self.moment_image.setImage(self.np_img_moment)
+        self.moment_image.ui.histogram.hide()
+        self.moment_image.ui.roiBtn.hide()
+        self.moment_image.ui.roiPlot.hide()
+        self.moment_image.ui.normGroup.hide()
+        self.moment_image.ui.menuBtn.setVisible(False)
+
+    def updateConvexHullImage(self):
+        self.convex_hull_image.setImage(self.np_img_convex_hull)
+        self.convex_hull_image.ui.histogram.hide()
+        self.convex_hull_image.ui.roiBtn.hide()
+        self.convex_hull_image.ui.roiPlot.hide()
+        self.convex_hull_image.ui.normGroup.hide()
+        self.convex_hull_image.ui.menuBtn.setVisible(False)
+
+    def updateContourImage(self):
+        self.contour_image.setImage(self.np_img_contour)
+        self.contour_image.ui.histogram.hide()
+        self.contour_image.ui.roiBtn.hide()
+        self.contour_image.ui.roiPlot.hide()
+        self.contour_image.ui.normGroup.hide()
+        self.contour_image.ui.menuBtn.setVisible(False)
+
+    def updateBinarizeImage(self):
+        self.binarize_image.setImage(self.np_img_binarize)
+        self.binarize_image.ui.histogram.hide()
+        self.binarize_image.ui.roiBtn.hide()
+        self.binarize_image.ui.roiPlot.hide()
+        self.binarize_image.ui.normGroup.hide()
+        self.binarize_image.ui.menuBtn.setVisible(False)
 
 
     def cb_coaxial_visual_features(self, msg_coaxial_features):
@@ -250,28 +333,57 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
             self.audio_feature_plotwidget.addLegend()
 
 
+    # def updateVisualFeature(self):
+    #     # Ensure that x and y data have the same length
+    #     min_len = min(len(self.visual_time), len(self.ellipse_width_data), len(self.ellipse_height_data),  len(self.nu02_data))
+    #     truncated_time = self.visual_time[:min_len]
+    #     truncated_width_data = self.visual_features_data["ellipse_width"][:min_len] #self.ellipse_width_data[:min_len]
+    #     truncated_height_data =  self.visual_features_data["ellipse_height"][:min_len] # self.ellipse_height_data[:min_len]
+    #     # truncated_max_contour_data = self.max_contour_area_data[:min_len]
+    #     truncated_nu02_data = self.visual_features_data["nu02"][:min_len]  # self.nu02_data[:min_len]
+
+    #     # Update the plot curves
+    #     self.ellipse_width_curve.setData(truncated_time, truncated_width_data)
+    #     self.ellipse_height_curve.setData(truncated_time, truncated_height_data)
+    #     # self.max_contour_curve.setData(truncated_time, truncated_max_contour_data)
+    #     self.nu02_curve.setData(truncated_time, truncated_nu02_data)
+    
+    #     # Update the axes if you have data
+    #     if self.visual_time:
+    #         self.ellipse_plotwidget.setXRange(min(self.visual_time), max(self.visual_time))
+    #         min_y = min(min(self.visual_features_data["ellipse_width"]), min(self.visual_features_data["ellipse_height"]), min(self.visual_features_data["nu02"]))
+    #         max_y = max(max(self.visual_features_data["ellipse_width"]), max(self.visual_features_data["ellipse_height"]), max(self.visual_features_data["nu02"]))
+    #         self.ellipse_plotwidget.setYRange(min_y, max_y)
+    #         self.ellipse_plotwidget.addLegend()
+
     def updateVisualFeature(self):
         # Ensure that x and y data have the same length
-        min_len = min(len(self.visual_time), len(self.ellipse_width_data), len(self.ellipse_height_data),  len(self.nu02_data))
+        min_len = min(len(self.visual_time), len(self.visual_features_data["ellipse_width"]), 
+                    len(self.visual_features_data["ellipse_height"]), len(self.visual_features_data["nu02"]))
         truncated_time = self.visual_time[:min_len]
-        truncated_width_data = self.visual_features_data["ellipse_width"][:min_len] #self.ellipse_width_data[:min_len]
-        truncated_height_data =  self.visual_features_data["ellipse_height"][:min_len] # self.ellipse_height_data[:min_len]
-        # truncated_max_contour_data = self.max_contour_area_data[:min_len]
-        truncated_nu02_data = self.visual_features_data["nu02"][:min_len]  # self.nu02_data[:min_len]
+
+        # Normalize function
+        def normalize(data):
+            min_val = min(data)
+            max_val = max(data)
+            return [(x - min_val) / (max_val - min_val) for x in data]
+
+        # Normalize and truncate data
+        truncated_width_data = normalize(self.visual_features_data["ellipse_width"])[:min_len]
+        truncated_height_data = normalize(self.visual_features_data["ellipse_height"])[:min_len]
+        truncated_nu02_data = normalize(self.visual_features_data["nu02"])[:min_len]
 
         # Update the plot curves
         self.ellipse_width_curve.setData(truncated_time, truncated_width_data)
         self.ellipse_height_curve.setData(truncated_time, truncated_height_data)
-        # self.max_contour_curve.setData(truncated_time, truncated_max_contour_data)
         self.nu02_curve.setData(truncated_time, truncated_nu02_data)
-    
+
         # Update the axes if you have data
         if self.visual_time:
             self.ellipse_plotwidget.setXRange(min(self.visual_time), max(self.visual_time))
-            min_y = min(min(self.visual_features_data["ellipse_width"]), min(self.visual_features_data["ellipse_height"]), min(self.visual_features_data["nu02"]))
-            max_y = max(max(self.visual_features_data["ellipse_width"]), max(self.visual_features_data["ellipse_height"]), max(self.visual_features_data["nu02"]))
-            self.ellipse_plotwidget.setYRange(min_y, max_y)
+            self.ellipse_plotwidget.setYRange(0, 1)  # Set y-axis range from 0 to 1 for normalization
             self.ellipse_plotwidget.addLegend()
+
 
 
     

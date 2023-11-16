@@ -6,8 +6,8 @@
   <arg name="rviz" default="true"/>
   <arg name="thermal" default="false"/>
   <arg name="vision" default="true"/>
-  <arg name="pylon" default="false"/>
   <arg name="acoustic" default="true"/>
+  <arg name="camera_type" default="usb" />
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="image_view" default="false" />
@@ -16,15 +16,9 @@
   <arg name="plotjuggler_viz_multimodal" default="false"/>
   <arg name="audio_topic" default="/audio"/>
   <arg name="audio_stamped_topic" default="/audioStamped"/>
-  <arg name="device" default="hw:2,0" />   <!-- arecord -l -->
+  <arg name="device" default="hw:0,0" />   <!-- arecord -l -->
   <arg name="video_device" default="/dev/video0" />
   <arg name="frame_rate" default="60.0" />
-
-  <!-- Derived arguments to control which nodes to launch -->
-  <arg name="launch_usb_cam" default="$(eval arg('camera_type') == 'usb')" />
-  <arg name="launch_pylon_cam" default="$(eval arg('camera_type') == 'pylon')" />
-  <arg name="image_topic_raw" default="/usb_cam/image_raw" if="$(eval arg('camera_type') == 'usb')" />
-  <arg name="image_topic_raw" default="/pylon_camera_node/image_raw" unless="$(eval arg('camera_type') == 'usb')" />
 
 
   <include file="$(find multimodal_monitoring)/launch/multimodal_monitoring.launch">
@@ -34,18 +28,17 @@
     <arg name="rviz" value="$(arg rviz)" />
     <arg name="thermal" value="$(arg thermal)" />
     <arg name="vision" value="$(arg vision)" />
-    <arg name="pylon" value="$(arg pylon)" />
     <arg name="acoustic" value="$(arg acoustic)" />
     <arg name="robot_launch" value="$(arg robot_launch)" />
     <arg name="image_processing" value="$(arg image_processing)" />
     <arg name="image_view" value="$(arg image_view)"  />
+    <arg name="camera_type" value="$(arg camera_type)"  />
     <arg name="defect_prediction" value="$(arg defect_prediction)" />
     <arg name="plotjuggler_viz" value="$(arg plotjuggler_viz)" />
     <arg name="plotjuggler_viz_multimodal" value="$(arg plotjuggler_viz_multimodal)" />
     <arg name="audio_topic" value="$(arg audio_topic)" />
     <arg name="device" value="$(arg device)" />
     <arg name="video_device" value="$(arg video_device)" />
-    <arg name="image_topic_raw" value="$(arg image_topic_raw)" />
     <arg name="frame_rate" value="$(arg frame_rate)" />
   </include>
 
