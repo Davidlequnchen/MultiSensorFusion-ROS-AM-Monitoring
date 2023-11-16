@@ -7,6 +7,7 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 import sys
 import os
+import joblib
 import pathlib as pl
 import numpy as np
 import ros_numpy
@@ -34,12 +35,14 @@ def callback(context,*args):#, aHandle, aStreamIndex):
 
 path = rospkg.RosPack().get_path('multisense_gui')
 multimodal_monitoring_path = rospkg.RosPack().get_path('multimodal_monitoring')
-
+dirname = rospkg.RosPack().get_path('multimodal_monitoring')
 
 class AudioVisualFeatureVisualize(QtWidgets.QWidget):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
         loadUi(os.path.join(path, 'resources', 'key_feature_visualizer.ui'), self)
+
+        self.scaler = joblib.load(os.path.join(dirname, 'config', 'StandardScaler_All_Features.pkl'))
 
         # Initialize CV bridge for image conversion
         self.bridge = CvBridge()
@@ -47,30 +50,52 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         # Initialize a QTimer for updating the image
         self.image_timer = QTimer()
         self.image_timer.timeout.connect(self.updateImage)
-        self.image_timer.start(33)  # Update approximately every 33ms (about 30 FPS)
+        self.image_timer.start(5)  # Update approximately every 33ms (about 30 FPS)
 
         self.audio_feature_timer = QTimer()
         self.audio_feature_timer.timeout.connect(self.updateAudioFeature)
-        self.audio_feature_timer.start(10) # refresh every 10 ms 
+        self.audio_feature_timer.start(5) # refresh every 10 ms 
         self.visual_feature_timer = QTimer()
         self.visual_feature_timer.timeout.connect(self.updateVisualFeature)
-        self.visual_feature_timer.start(10) # refresh every 10 ms 
+        self.visual_feature_timer.start(5) # refresh every 10 ms 
+
+        # ---------------- Pre-calculate scaler factors ----------------
+        mfcc_1_mean_index = 60
+        mfcc_3_mean_index = 64
+        self.mfcc_1_mean_mean = self.scaler.mean_[mfcc_1_mean_index]
+        self.mfcc_1_mean_scale = self.scaler.scale_[mfcc_1_mean_index]
+        self.mfcc_3_mean_mean = self.scaler.mean_[mfcc_3_mean_index]
+        self.mfcc_3_mean_scale = self.scaler.scale_[mfcc_3_mean_index]
+
+        # Pre-calculate scaler factors for visual features
+        self.visual_feature_indices = {
+            'max_contour_area': 84, 
+            'ellipse_width': 89, 
+            'ellipse_height': 90, 
+            'max_hull_area': 91, 
+            'nu02': 111
+        }
+        self.visual_feature_scaler_factors = {
+            key: (self.scaler.mean_[index], self.scaler.scale_[index]) for key, index in self.visual_feature_indices.items()
+        }
+        self.visual_features_data = {key: [] for key in self.visual_feature_indices.keys()}
+
 
         # -----------------Initialize plot for audio signal---------------------------------
         self.audio_feature_plot_window = QtWidgets.QVBoxLayout(self.AudioFeaturePlotWidget)
         self.audio_feature_plotwidget = pg.PlotWidget()
         self.audio_feature_plot_window.addWidget(self.audio_feature_plotwidget)
-        self.audio_feature_curve = self.audio_feature_plotwidget.plot(pen=pg.mkPen('b', width=1))
+        self.audio_feature_mfcc_1_mean_curve = self.audio_feature_plotwidget.plot(pen=pg.mkPen('b', width=1.5), name="MFCC1 Mean")
+        self.audio_feature_mfcc_3_mean_curve = self.audio_feature_plotwidget.plot(pen=pg.mkPen('r', width=1.5), name="MFCC3 Mean")
         self.audio_feature_plotwidget.setBackground('w')
-        # self.audio_feature_plotwidget.setXRange(0, 1)
-        # self.audio_feature_plotwidget.setYRange(-1, 1)
         self.audio_feature_plotwidget.setTitle("Audio Feature Visualization", color='#008080', size='10pt')
         self.audio_feature_plotwidget.setLabel("bottom","Time [sec]",size='5pt')
         self.audio_feature_plotwidget.showGrid(x=True, y=True)
 
         legend_audio = pg.LegendItem((60, 30), offset=(0, 20)) 
         legend_audio.setParentItem(self.audio_feature_plotwidget.graphicsItem())
-        legend_audio.addItem(self.audio_feature_curve, 'RMS Energy')
+        legend_audio.addItem(self.audio_feature_mfcc_1_mean_curve, 'MFCC1 Mean')
+        legend_audio.addItem(self.audio_feature_mfcc_3_mean_curve, 'MFCC3 Mean')
         # legend_audio.setPen(pg.mkPen(color=(0, 0, 0)))  # Set border color to black
         legend_audio.setBrush(pg.mkBrush((255, 255, 255, 50)))  # Set background color to white and semi-transparent (50% opacity)
 
@@ -81,6 +106,8 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         # Create curves for both ellipse width and height
         self.ellipse_width_curve = self.ellipse_plotwidget.plot(pen=pg.mkPen('b', width=1.5), name="Ellipse Width")
         self.ellipse_height_curve = self.ellipse_plotwidget.plot(pen=pg.mkPen('r', width=1.5), name="Ellipse Height")
+        # self.max_contour_curve = self.ellipse_plotwidget.plot(pen=pg.mkPen('g', width=1.5), name="Max Contour Area")
+        self.nu02_curve = self.ellipse_plotwidget.plot(pen=pg.mkPen('g', width=1.5), name="Nu 02")
         # Customize the plot
         self.ellipse_plotwidget.setBackground('w')
         self.ellipse_plotwidget.setTitle("Visual Feature Visualization", color='#008080', size='10pt')
@@ -92,6 +119,8 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         legend.setParentItem(self.ellipse_plotwidget.graphicsItem())
         legend.addItem(self.ellipse_width_curve, 'Ellipse Width')
         legend.addItem(self.ellipse_height_curve, 'Ellipse Height')
+        # legend.addItem(self.max_contour_curve, 'Max Contour Area')
+        legend.addItem(self.nu02_curve, 'Nu 02')
         # legend.setPen(pg.mkPen(color=(0, 0, 0)))  # Set border color to black
         legend.setBrush(pg.mkBrush((255, 255, 255, 50)))  # Set background color to white and semi-transparent (50% opacity)
        
@@ -108,7 +137,7 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         self.label_9.setFont(font)
 
         # ROS subscribers
-        self.image_subscriber = rospy.Subscriber('/image_general_contour', Image, self.image_callback, queue_size=10)
+        self.image_subscriber = rospy.Subscriber('/image_moment_extract', Image, self.image_callback, queue_size=10) # /image_moment_extract, image_general_contour
         self.coaxial_visual_feature_subscriber = rospy.Subscriber('/coaxial_melt_pool_features', MsgCoaxialMeltPoolFeatures, self.cb_coaxial_visual_features, queue_size=10)
         self.audio_feature_subscriber = rospy.Subscriber('/acoustic_feature', MsgAcousticFeature, self.audio_feauture_callback, queue_size=10)
 
@@ -119,7 +148,9 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         self.ellipse_width_data = []
         self.ellipse_height_data = []
         self.convex_hull_data = []
-        self.spectral_centroid_data = []
+        self.nu02_data = []
+        self.mfcc_3_mean_data = []
+        self.mfcc_1_mean_data = []
 
         
     def image_callback(self, msg_image):
@@ -153,6 +184,7 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         except CvBridgeError as e:
             rospy.loginfo("CvBridge Exception")
 
+
     def updateImage(self):
         self.image.setImage(self.np_img)
         self.image.ui.histogram.hide()
@@ -161,25 +193,16 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         self.image.ui.normGroup.hide()
         self.image.ui.menuBtn.setVisible(False)
 
-    # def cb_max_contour_area(self, msg_max_contour):
-    #     # Get current time stamp from ROS header
-    #     current_time = msg_max_contour.header.stamp.to_sec()
-    #     # If it's the first data point, initialize visual_start_time
-    #     if not hasattr(self, 'visual_start_time'):
-    #         self.visual_start_time = current_time
-    #     # Compute elapsed time relative to the first timestamp
-    #     elapsed_time = current_time - self.visual_start_time
-    #     # Append the new data
-    #     self.visual_time.append(elapsed_time)
-    #     self.max_contour_area = msg_max_contour.meltpool_contour_area
-    #     self.ellipse_width_data.append(msg_max_contour.ellipse_width)
-    #     self.ellipse_height_data.append(msg_max_contour.ellipse_height)
-    #     # self.rectangle_width = msg_max_contour.rectangle_width
-    #     # self.rectangle_height = msg_max_contour.rectangle_height
-
 
     def cb_coaxial_visual_features(self, msg_coaxial_features):
         current_time = msg_coaxial_features.header.stamp.to_sec()
+
+        # Standardize and append data for each feature
+        for feature, (mean, scale) in self.visual_feature_scaler_factors.items():
+            feature_value = getattr(msg_coaxial_features, feature)
+            standardized_value = (feature_value - mean) / scale
+            self.visual_features_data[feature].append(standardized_value)
+
         # If it's the first data point, initialize visual_start_time
         if not hasattr(self, 'visual_start_time'):
             self.visual_start_time = current_time
@@ -187,46 +210,66 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         elapsed_time = current_time - self.visual_start_time
         # Append the new data
         self.visual_time.append(elapsed_time)
-        self.max_contour_area_data.append(msg_coaxial_features.max_contour_area)
-        self.ellipse_width_data.append(msg_coaxial_features.ellipse_width)
-        self.ellipse_height_data.append(msg_coaxial_features.ellipse_height)
-        # self.rectangle_width = msg_coaxial_features.rectangle_width
-        # self.rectangle_height = msg_coaxial_features.rectangle_height
-        self.convex_hull_data.append(msg_coaxial_features.max_hull_area)
+        self.max_contour_area_data.append(self.visual_features_data["max_contour_area"])
+        self.ellipse_width_data.append(self.visual_features_data["ellipse_width"])
+        self.ellipse_height_data.append(self.visual_features_data["ellipse_height"])
+        self.convex_hull_data.append(self.visual_features_data["max_hull_area"])
+        self.nu02_data.append(self.visual_features_data["nu02"])
 
 
     def audio_feauture_callback(self, msg_audio_feature):
         current_time = msg_audio_feature.header.stamp.to_sec()
+
+        standardized_mfcc_1_mean = (msg_audio_feature.mfcc_1_mean - self.mfcc_1_mean_mean) / self.mfcc_1_mean_scale
+        standardized_mfcc_3_mean = (msg_audio_feature.mfcc_3_mean - self.mfcc_3_mean_mean) / self.mfcc_3_mean_scale
+
         # If it's the first data point, initialize start_time
         if not hasattr(self, 'audio_start_time'):
             self.audio_start_time = current_time
         elapsed_time = current_time - self.audio_start_time
         self.audio_time.append(elapsed_time)
-        self.spectral_centroid_data.append(msg_audio_feature.rms_energy)
+        self.mfcc_1_mean_data.append(standardized_mfcc_1_mean) # msg_audio_feature.mfcc_1_mean, standardized_mfcc_1_mean
+        self.mfcc_3_mean_data.append(standardized_mfcc_3_mean)
   
 
     def updateAudioFeature(self):
-        self.audio_feature_curve.setData(self.audio_time, self.spectral_centroid_data)
-        self.audio_feature_plotwidget.setXRange(min(self.audio_time), max(self.audio_time))
-        self.audio_feature_plotwidget.setYRange(min(self.spectral_centroid_data), max(self.spectral_centroid_data))
+        # Ensure that x and y data have the same length
+        min_len = min(len(self.audio_time), len(self.mfcc_1_mean_data), len(self.mfcc_3_mean_data))
+        truncated_time = self.audio_time[:min_len]
+        truncated_mfcc_1_mean_data = self.mfcc_1_mean_data[:min_len]
+        truncated_mfcc_3_mean_data = self.mfcc_3_mean_data[:min_len]
+        # Update the plot curves
+        self.audio_feature_mfcc_1_mean_curve.setData(truncated_time, truncated_mfcc_1_mean_data)
+        self.audio_feature_mfcc_3_mean_curve.setData(truncated_time, truncated_mfcc_3_mean_data)
+        # Update the axes if you have data
+        if self.audio_time:
+            self.audio_feature_plotwidget.setXRange(min(self.audio_time), max(self.audio_time))
+            min_y = min(min(self.mfcc_1_mean_data), min(self.mfcc_3_mean_data))
+            max_y = max(max(self.mfcc_1_mean_data), max(self.mfcc_3_mean_data))
+            self.audio_feature_plotwidget.setYRange(min_y, max_y)
+            self.audio_feature_plotwidget.addLegend()
 
 
     def updateVisualFeature(self):
         # Ensure that x and y data have the same length
-        min_len = min(len(self.visual_time), len(self.ellipse_width_data), len(self.ellipse_height_data))
+        min_len = min(len(self.visual_time), len(self.ellipse_width_data), len(self.ellipse_height_data),  len(self.nu02_data))
         truncated_time = self.visual_time[:min_len]
-        truncated_width_data = self.ellipse_width_data[:min_len]
-        truncated_height_data = self.ellipse_height_data[:min_len]
+        truncated_width_data = self.visual_features_data["ellipse_width"][:min_len] #self.ellipse_width_data[:min_len]
+        truncated_height_data =  self.visual_features_data["ellipse_height"][:min_len] # self.ellipse_height_data[:min_len]
+        # truncated_max_contour_data = self.max_contour_area_data[:min_len]
+        truncated_nu02_data = self.visual_features_data["nu02"][:min_len]  # self.nu02_data[:min_len]
 
         # Update the plot curves
         self.ellipse_width_curve.setData(truncated_time, truncated_width_data)
         self.ellipse_height_curve.setData(truncated_time, truncated_height_data)
+        # self.max_contour_curve.setData(truncated_time, truncated_max_contour_data)
+        self.nu02_curve.setData(truncated_time, truncated_nu02_data)
     
         # Update the axes if you have data
         if self.visual_time:
             self.ellipse_plotwidget.setXRange(min(self.visual_time), max(self.visual_time))
-            min_y = min(min(self.ellipse_width_data), min(self.ellipse_height_data))
-            max_y = max(max(self.ellipse_width_data), max(self.ellipse_height_data))
+            min_y = min(min(self.visual_features_data["ellipse_width"]), min(self.visual_features_data["ellipse_height"]), min(self.visual_features_data["nu02"]))
+            max_y = max(max(self.visual_features_data["ellipse_width"]), max(self.visual_features_data["ellipse_height"]), max(self.visual_features_data["nu02"]))
             self.ellipse_plotwidget.setYRange(min_y, max_y)
             self.ellipse_plotwidget.addLegend()
 

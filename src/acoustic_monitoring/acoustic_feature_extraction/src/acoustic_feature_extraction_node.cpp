@@ -186,129 +186,131 @@ public:
         return features;
     }
 
+    /* 
+    std::vector<float> extract_spectral_features(std::vector<essentia::Real>& audio_signal, int sample_rate, int frame_size = 512, int hop_size = 512) {
         
-    // std::vector<float> extract_spectral_features(std::vector<essentia::Real>& audio_signal, int sample_rate, int frame_size = 512, int hop_size = 512) {
+        std::vector<float> features;
+
+        if (audio_signal.size() % 2 != 0) {
+            audio_signal.push_back(0);  // Pad with zero
+        }
+
+        std::vector<Real> spectrum;
+        spectrum_algo->input("frame").set(audio_signal);
+        spectrum_algo->output("spectrum").set(spectrum);
+        spectrum_algo->compute();
         
-    //     std::vector<float> features;
-
-    //     if (audio_signal.size() % 2 != 0) {
-    //         audio_signal.push_back(0);  // Pad with zero
-    //     }
-
-    //     std::vector<Real> spectrum;
-    //     spectrum_algo->input("frame").set(audio_signal);
-    //     spectrum_algo->output("spectrum").set(spectrum);
-    //     spectrum_algo->compute();
+        Real spectral_centroid;
+        centroid_algo->input("array").set(spectrum);
+        centroid_algo->output("centroid").set(spectral_centroid);
+        centroid_algo->compute();
+        features.push_back(spectral_centroid);
         
-    //     Real spectral_centroid;
-    //     centroid_algo->input("array").set(spectrum);
-    //     centroid_algo->output("centroid").set(spectral_centroid);
-    //     centroid_algo->compute();
-    //     features.push_back(spectral_centroid);
-        
-    //     Real spectral_complexity;
-    //     complexity_algo->input("spectrum").set(spectrum);
-    //     complexity_algo->output("spectralComplexity").set(spectral_complexity);
-    //     features.push_back(spectral_complexity);
+        Real spectral_complexity;
+        complexity_algo->input("spectrum").set(spectrum);
+        complexity_algo->output("spectralComplexity").set(spectral_complexity);
+        features.push_back(spectral_complexity);
 
-    //     // Currently spectral_contrast, spectral_valley still got problems
-    //     std::vector<Real> spectral_contrast, spectral_valley;
-    //     contrast_algo->input("spectrum").set(spectrum);
-    //     contrast_algo->output("spectralContrast").set(spectral_contrast);
-    //     contrast_algo->output("spectralValley").set(spectral_valley);
-    //     contrast_algo->compute();
+        // Currently spectral_contrast, spectral_valley still got problems
+        std::vector<Real> spectral_contrast, spectral_valley;
+        contrast_algo->input("spectrum").set(spectrum);
+        contrast_algo->output("spectralContrast").set(spectral_contrast);
+        contrast_algo->output("spectralValley").set(spectral_valley);
+        contrast_algo->compute();
 
-    //     // features["spectral_contrast"] = spectral_contrast;
-    //     // features["spectral_valley"] = spectral_valley;
-    //     for (size_t i = 0; i < spectral_contrast.size(); ++i) {
-    //         features.push_back(spectral_contrast[i]);
-    //     }
-    //     for (size_t i = 0; i < spectral_valley.size(); ++i) {
-    //         features.push_back(spectral_valley[i]);
-    //     }
+        // features["spectral_contrast"] = spectral_contrast;
+        // features["spectral_valley"] = spectral_valley;
+        for (size_t i = 0; i < spectral_contrast.size(); ++i) {
+            features.push_back(spectral_contrast[i]);
+        }
+        for (size_t i = 0; i < spectral_valley.size(); ++i) {
+            features.push_back(spectral_valley[i]);
+        }
 
-    //     Real spectral_decrease;
-    //     decrease_algo->input("array").set(spectrum);
-    //     decrease_algo->output("decrease").set(spectral_decrease);
-    //     decrease_algo->compute();
-    //     features.push_back(spectral_decrease);
+        Real spectral_decrease;
+        decrease_algo->input("array").set(spectrum);
+        decrease_algo->output("decrease").set(spectral_decrease);
+        decrease_algo->compute();
+        features.push_back(spectral_decrease);
 
-    //     Real spectral_energy;
-    //     energy_algo->input("array").set(spectrum);
-    //     energy_algo->output("energy").set(spectral_energy);
-    //     energy_algo->compute();
-    //     features.push_back(spectral_energy);
+        Real spectral_energy;
+        energy_algo->input("array").set(spectrum);
+        energy_algo->output("energy").set(spectral_energy);
+        energy_algo->compute();
+        features.push_back(spectral_energy);
         
 
-    //     Real spectral_energy_band_ratio;
-    //     energy_band_ratio_algo->input("spectrum").set(spectrum);
-    //     energy_band_ratio_algo->output("energyBandRatio").set(spectral_energy_band_ratio);
-    //     energy_band_ratio_algo->compute();
-    //     features.push_back(spectral_energy_band_ratio);
+        Real spectral_energy_band_ratio;
+        energy_band_ratio_algo->input("spectrum").set(spectrum);
+        energy_band_ratio_algo->output("energyBandRatio").set(spectral_energy_band_ratio);
+        energy_band_ratio_algo->compute();
+        features.push_back(spectral_energy_band_ratio);
 
-    //     Real spectral_flatness;
-    //     flatness_algo->input("array").set(spectrum);
-    //     flatness_algo->output("flatnessDB").set(spectral_flatness);
-    //     flatness_algo->compute();
-    //     features.push_back(spectral_flatness);
+        Real spectral_flatness;
+        flatness_algo->input("array").set(spectrum);
+        flatness_algo->output("flatnessDB").set(spectral_flatness);
+        flatness_algo->compute();
+        features.push_back(spectral_flatness);
 
-    //     Real spectral_flux;
-    //     flux_algo->input("spectrum").set(spectrum);
-    //     flux_algo->output("flux").set(spectral_flux);
-    //     flux_algo->compute();
-    //     features.push_back(spectral_flux);
+        Real spectral_flux;
+        flux_algo->input("spectrum").set(spectrum);
+        flux_algo->output("flux").set(spectral_flux);
+        flux_algo->compute();
+        features.push_back(spectral_flux);
 
-    //     Real spectral_rolloff;
-    //     rolloff_algo->input("spectrum").set(spectrum);
-    //     rolloff_algo->output("rollOff").set(spectral_rolloff);
-    //     rolloff_algo->compute();
-    //     features.push_back(spectral_rolloff);
+        Real spectral_rolloff;
+        rolloff_algo->input("spectrum").set(spectrum);
+        rolloff_algo->output("rollOff").set(spectral_rolloff);
+        rolloff_algo->compute();
+        features.push_back(spectral_rolloff);
 
-    //     Real spectral_strong_peak;
-    //     strong_peak_algo->input("spectrum").set(spectrum);
-    //     strong_peak_algo->output("strongPeak").set(spectral_strong_peak);
-    //     strong_peak_algo->compute();
-    //     features.push_back(spectral_strong_peak);
+        Real spectral_strong_peak;
+        strong_peak_algo->input("spectrum").set(spectrum);
+        strong_peak_algo->output("strongPeak").set(spectral_strong_peak);
+        strong_peak_algo->compute();
+        features.push_back(spectral_strong_peak);
 
-    //     // Central Moments
-    //     std::vector<Real> central_moments;
-    //     central_moment_algo->input("array").set(spectrum);
-    //     central_moment_algo->output("centralMoments").set(central_moments);
-    //     central_moment_algo->compute();
+        // Central Moments
+        std::vector<Real> central_moments;
+        central_moment_algo->input("array").set(spectrum);
+        central_moment_algo->output("centralMoments").set(central_moments);
+        central_moment_algo->compute();
 
-    //     // Distribution Shape
-    //     Real variance, skewness, kurtosis;
-    //     distribution_shape_algo->input("centralMoments").set(central_moments);
-    //     distribution_shape_algo->output("spread").set(variance);
-    //     distribution_shape_algo->output("skewness").set(skewness);
-    //     distribution_shape_algo->output("kurtosis").set(kurtosis);
-    //     distribution_shape_algo->compute();
-    //     features.push_back(variance);
-    //     features.push_back(skewness);
-    //     features.push_back(kurtosis);
+        // Distribution Shape
+        Real variance, skewness, kurtosis;
+        distribution_shape_algo->input("centralMoments").set(central_moments);
+        distribution_shape_algo->output("spread").set(variance);
+        distribution_shape_algo->output("skewness").set(skewness);
+        distribution_shape_algo->output("kurtosis").set(kurtosis);
+        distribution_shape_algo->compute();
+        features.push_back(variance);
+        features.push_back(skewness);
+        features.push_back(kurtosis);
 
-    //     // Spectral Crest Factor
-    //     Real crest_factor;
-    //     crest_algo->input("array").set(spectrum);
-    //     crest_algo->output("crest").set(crest_factor);
-    //     crest_algo->compute();
-    //     features.push_back(crest_factor);
+        // Spectral Crest Factor
+        Real crest_factor;
+        crest_algo->input("array").set(spectrum);
+        crest_algo->output("crest").set(crest_factor);
+        crest_algo->compute();
+        features.push_back(crest_factor);
 
-    //     // MFCC
-    //     std::vector<Real> mfcc_bands, mfcc_coeffs;
-    //     mfcc_algo->input("spectrum").set(spectrum);
-    //     mfcc_algo->output("bands").set(mfcc_bands);
-    //     mfcc_algo->output("mfcc").set(mfcc_coeffs);
-    //     mfcc_algo->compute();
-    //     // features["mfcc_coeffs"] = mfcc_coeffs;
-    //     for (size_t i = 0; i < mfcc_coeffs.size(); ++i) {
-    //         features.push_back(mfcc_coeffs[i]);
-    //     }
+        // MFCC
+        std::vector<Real> mfcc_bands, mfcc_coeffs;
+        mfcc_algo->input("spectrum").set(spectrum);
+        mfcc_algo->output("bands").set(mfcc_bands);
+        mfcc_algo->output("mfcc").set(mfcc_coeffs);
+        mfcc_algo->compute();
+        // features["mfcc_coeffs"] = mfcc_coeffs;
+        for (size_t i = 0; i < mfcc_coeffs.size(); ++i) {
+            features.push_back(mfcc_coeffs[i]);
+        }
             
-    //     // }
+        // }
 
-    //     return features;
-    // }
+        return features;
+    }
+
+    */
 
     std::vector<float> extract_spectral_features(std::vector<Real>& audio_signal, int sample_rate, int frame_size = 512, int hop_size = 512) 
     {
@@ -334,7 +336,6 @@ public:
 
                 // Debugging
                 ROS_INFO("Inside the loop: Iteration %d", iterations);
-
 
                 // Break the loop if we got an empty frame (end of audio signal)
                 if (frame.empty()) {

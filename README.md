@@ -92,7 +92,7 @@ sudo ./b2
 :negative_squared_cross_mark: dead end and archived;
 :heavy_check_mark: Tested sucessfully;
 
-## Eperiment instructions
+## Experiment instructions
 ### Hardware configuration (multisensor)
 <!-- #### Ethernet connections (pictures) -->
 

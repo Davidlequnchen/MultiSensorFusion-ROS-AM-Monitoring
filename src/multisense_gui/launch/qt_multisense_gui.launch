@@ -10,11 +10,13 @@
   <arg name="acoustic" default="true"/>
   <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
+  <arg name="image_view" default="false" />
+  <arg name="defect_prediction" default="true" />
   <arg name="plotjuggler_viz" default="false"/>
   <arg name="plotjuggler_viz_multimodal" default="false"/>
   <arg name="audio_topic" default="/audio"/>
   <arg name="audio_stamped_topic" default="/audioStamped"/>
-  <arg name="device" default="hw:1,0" />   <!-- arecord -l -->
+  <arg name="device" default="hw:2,0" />   <!-- arecord -l -->
   <arg name="video_device" default="/dev/video0" />
   <arg name="gui_camera" default="false" />
   <arg name="frame_rate" default="60.0" />
@@ -32,6 +34,8 @@
     <arg name="acoustic" value="$(arg acoustic)" />
     <arg name="robot_launch" value="$(arg robot_launch)" />
     <arg name="image_processing" value="$(arg image_processing)" />
+    <arg name="image_view" value="$(arg image_view)"  />
+    <arg name="defect_prediction" value="$(arg defect_prediction)" />
     <arg name="plotjuggler_viz" value="$(arg plotjuggler_viz)" />
     <arg name="plotjuggler_viz_multimodal" value="$(arg plotjuggler_viz_multimodal)" />
     <arg name="audio_topic" value="$(arg audio_topic)" />

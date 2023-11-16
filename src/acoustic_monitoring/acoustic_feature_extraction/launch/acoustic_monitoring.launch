@@ -36,8 +36,8 @@
 
   <!-- audio feature extraction node -->
   <!-- <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction.py"/> -->
-  <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node" respawn="true" />
-  <!-- <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node_essentia.py"/> -->
+  <!-- <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node" respawn="true" /> -->
+  <node name="acoustic_signatures" pkg="acoustic_feature_extraction" type="acoustic_feature_extraction_node_essentia.py"/>
 
   <!-- data visualisation  -->
   <node name="plot_acoustic_signature" pkg="plotjuggler" type="plotjuggler" if="$(arg plotjuggler_viz)"/>

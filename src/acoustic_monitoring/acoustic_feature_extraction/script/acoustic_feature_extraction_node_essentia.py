@@ -31,7 +31,7 @@ class AcousticFeatureExtractor:
         self.frame_size = rospy.get_param("~frame_size", 1024)
         self.hop_length = rospy.get_param("~hop_length", 512)
         self.sample_rate = rospy.get_param("~sample_rate", 44100)
-        self.buffer_duration = rospy.get_param("~buffer_size", 100) #100 ms
+        self.buffer_duration = rospy.get_param("~buffer_size", 40) # ms
         self.buffer_size = int(self.buffer_duration * 0.001 * self.sample_rate)
         self.audio_buffer = deque(maxlen=self.buffer_size)  # Max buffer size to hold 100 ms of audio data (4410 samples)
         
@@ -172,39 +172,38 @@ class AcousticFeatureExtractor:
         return features
 
 
-    def extract_frequency_features(self, audio_data):
+    # def extract_frequency_features(self, audio_data):
+    #     features = {}
+    #     # for frame in es.FrameGenerator(audio_data, frameSize=self.frame_size, hopSize=self.hop_length):
+    #     windowed_frame = self.window_algo(audio_data)
+    #     spectrum = self.spectrum_algo(windowed_frame)
         
-        features = {}
-        # for frame in es.FrameGenerator(audio_data, frameSize=self.frame_size, hopSize=self.hop_length):
-        windowed_frame = self.window_algo(audio_data)
-        spectrum = self.spectrum_algo(windowed_frame)
-        
-        features['spectral_centroid'] = self.centroid_algo(spectrum)
-        features['spectral_complexity'] = self.complexity_algo(spectrum)
+    #     features['spectral_centroid'] = self.centroid_algo(spectrum)
+    #     features['spectral_complexity'] = self.complexity_algo(spectrum)
 
-        spectral_contrast, spectral_valley = self.contrast_algo(spectrum)
-        # Store spectral contrast and valley values separately
-        for i, val in enumerate(spectral_contrast):
-            features[f'spectral_contrast_{i}'] = val
-        for i, val in enumerate(spectral_valley):
-            features[f'spectral_valley_{i}'] = val
+    #     spectral_contrast, spectral_valley = self.contrast_algo(spectrum)
+    #     # Store spectral contrast and valley values separately
+    #     for i, val in enumerate(spectral_contrast):
+    #         features[f'spectral_contrast_{i}'] = val
+    #     for i, val in enumerate(spectral_valley):
+    #         features[f'spectral_valley_{i}'] = val
             
-        features['spectral_decrease'] = self.decrease_algo(spectrum)
-        features['spectral_energy'] = self.energy_algo(spectrum)
-        features['spectral_energy_band_ratio'] = self.energy_band_ratio_algo(spectrum)
-        features['spectral_flatness'] = self.flatness_algo(spectrum)
-        features['spectral_flux'] = self.spectral_flux(spectrum)
-        features['spectral_rolloff'] = self.rolloff_algo(spectrum)
-        features['spectral_strong_peak'] = self.strong_peak_algo(spectrum)
-        central_moments = self.central_moment_algo(spectrum)
-        features['spectral_variance'], features['spectral_skewness'], features['spectral_kurtosis'] = self.distrubution_shape(central_moments)
-        features['spectral_crest_factor'] = self.spectral_crest_factor(spectrum)
+    #     features['spectral_decrease'] = self.decrease_algo(spectrum)
+    #     features['spectral_energy'] = self.energy_algo(spectrum)
+    #     features['spectral_energy_band_ratio'] = self.energy_band_ratio_algo(spectrum)
+    #     features['spectral_flatness'] = self.flatness_algo(spectrum)
+    #     features['spectral_flux'] = self.spectral_flux(spectrum)
+    #     features['spectral_rolloff'] = self.rolloff_algo(spectrum)
+    #     features['spectral_strong_peak'] = self.strong_peak_algo(spectrum)
+    #     central_moments = self.central_moment_algo(spectrum)
+    #     features['spectral_variance'], features['spectral_skewness'], features['spectral_kurtosis'] = self.distrubution_shape(central_moments)
+    #     features['spectral_crest_factor'] = self.spectral_crest_factor(spectrum)
         
-        mfcc_bands, mfcc_coeffs = self.mfcc_algo(spectrum)
-        for i, coeff in enumerate(mfcc_coeffs):
-            features[f'mfcc_{i}'] = coeff
+    #     mfcc_bands, mfcc_coeffs = self.mfcc_algo(spectrum)
+    #     for i, coeff in enumerate(mfcc_coeffs):
+    #         features[f'mfcc_{i}'] = coeff
         
-        return features
+    #     return features
     
     def extract_freqeuncy_features_v2(self, audio_data):
         features = defaultdict(list)

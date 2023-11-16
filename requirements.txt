@@ -1,5 +1,5 @@
 pandas
-scikit-learn
+scikit-learn==1.2.1
 scipy==1.10.0
 numpy==1.23.5
 librosa==0.9.0
@@ -16,7 +16,11 @@ pyAudioAnalysis
 tqdm
 shapely==2.0.1
 mayavi==4.8.1
-essentia
+# essentia
+essentia==2.1b6.dev1034
 rosnumpy==0.0.5.2
 pyqtgraph==0.13.3
+imblearn
+xgboost==1.7.6
+lightgbm==4.1.0
 
