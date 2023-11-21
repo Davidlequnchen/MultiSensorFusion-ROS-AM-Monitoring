@@ -33,6 +33,12 @@ from acoustic_monitoring_msgs.msg import (
 def callback(context,*args):#, aHandle, aStreamIndex):
     context.set_image()
 
+# Normalize function
+def normalize(data):
+    min_val = min(data)
+    max_val = max(data)
+    return [(x - min_val) / (max_val - min_val) for x in data]
+
 path = rospkg.RosPack().get_path('multisense_gui')
 multimodal_monitoring_path = rospkg.RosPack().get_path('multimodal_monitoring')
 dirname = rospkg.RosPack().get_path('multimodal_monitoring')
@@ -315,22 +321,42 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         self.mfcc_3_mean_data.append(standardized_mfcc_3_mean)
   
 
+    # def updateAudioFeature(self):
+    #     # Ensure that x and y data have the same length
+    #     min_len = min(len(self.audio_time), len(self.mfcc_1_mean_data), len(self.mfcc_3_mean_data))
+    #     truncated_time = self.audio_time[:min_len]
+    #     truncated_mfcc_1_mean_data = self.mfcc_1_mean_data[:min_len]
+    #     truncated_mfcc_3_mean_data = self.mfcc_3_mean_data[:min_len]
+    #     # Update the plot curves
+    #     self.audio_feature_mfcc_1_mean_curve.setData(truncated_time, truncated_mfcc_1_mean_data)
+    #     self.audio_feature_mfcc_3_mean_curve.setData(truncated_time, truncated_mfcc_3_mean_data)
+    #     # Update the axes if you have data
+    #     if self.audio_time:
+    #         self.audio_feature_plotwidget.setXRange(min(self.audio_time), max(self.audio_time))
+    #         min_y = min(min(self.mfcc_1_mean_data), min(self.mfcc_3_mean_data))
+    #         max_y = max(max(self.mfcc_1_mean_data), max(self.mfcc_3_mean_data))
+    #         self.audio_feature_plotwidget.setYRange(min_y, max_y)
+    #         self.audio_feature_plotwidget.addLegend()
+
     def updateAudioFeature(self):
         # Ensure that x and y data have the same length
         min_len = min(len(self.audio_time), len(self.mfcc_1_mean_data), len(self.mfcc_3_mean_data))
         truncated_time = self.audio_time[:min_len]
-        truncated_mfcc_1_mean_data = self.mfcc_1_mean_data[:min_len]
-        truncated_mfcc_3_mean_data = self.mfcc_3_mean_data[:min_len]
+
+        # Normalize and truncate data
+        truncated_mfcc_1_mean_data = normalize(self.mfcc_1_mean_data)[:min_len]
+        truncated_mfcc_3_mean_data = normalize(self.mfcc_3_mean_data)[:min_len]
+
         # Update the plot curves
         self.audio_feature_mfcc_1_mean_curve.setData(truncated_time, truncated_mfcc_1_mean_data)
         self.audio_feature_mfcc_3_mean_curve.setData(truncated_time, truncated_mfcc_3_mean_data)
+
         # Update the axes if you have data
         if self.audio_time:
             self.audio_feature_plotwidget.setXRange(min(self.audio_time), max(self.audio_time))
-            min_y = min(min(self.mfcc_1_mean_data), min(self.mfcc_3_mean_data))
-            max_y = max(max(self.mfcc_1_mean_data), max(self.mfcc_3_mean_data))
-            self.audio_feature_plotwidget.setYRange(min_y, max_y)
+            self.audio_feature_plotwidget.setYRange(0, 1)  # Set y-axis range from 0 to 1 for normalization
             self.audio_feature_plotwidget.addLegend()
+
 
 
     # def updateVisualFeature(self):
@@ -361,12 +387,6 @@ class AudioVisualFeatureVisualize(QtWidgets.QWidget):
         min_len = min(len(self.visual_time), len(self.visual_features_data["ellipse_width"]), 
                     len(self.visual_features_data["ellipse_height"]), len(self.visual_features_data["nu02"]))
         truncated_time = self.visual_time[:min_len]
-
-        # Normalize function
-        def normalize(data):
-            min_val = min(data)
-            max_val = max(data)
-            return [(x - min_val) / (max_val - min_val) for x in data]
 
         # Normalize and truncate data
         truncated_width_data = normalize(self.visual_features_data["ellipse_width"])[:min_len]

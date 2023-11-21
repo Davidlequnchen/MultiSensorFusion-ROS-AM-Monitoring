@@ -2,7 +2,7 @@
   <!-- Settings -->
   <arg name="gui" default="true" />
   <arg name="image_view" default="true" />
-  <arg name="video_device" default="/dev/video0" />
+  <arg name="video_device" default="/dev/video2" />  <!-- ls /dev/vedio* -->
   <arg name="threshold" default="235" doc="threshold value"/>
   <arg name="camera_type" default="usb" />
   <arg name="frame_rate" default="30.0" />
@@ -18,10 +18,11 @@
   <!-- USB camera driver -->
   <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" if="$(arg launch_usb_cam)">
     <param name="video_device" value="$(arg video_device)" />
-    <!--param name="image_width" value="1280" /-->
-    <!--param name="image_height" value="720" /-->
+    <!-- <param name="image_width" value="1280" />
+    <param name="image_height" value="720" /> -->
     <param name="autoexposure" value="false" />
-    <param name="pixel_format" value="yuyv" />
+    <!-- pixel format is yuyv or mjpeg -->
+    <param name="pixel_format" value="yuyv" /> 
     <param name="camera_frame_id" value="usb_cam" />
     <param name="frame_rate" value="$(arg frame_rate)" />
     <param name="brightness" value="200" />

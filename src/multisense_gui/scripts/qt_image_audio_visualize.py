@@ -19,6 +19,9 @@ from python_qt_binding import QtGui
 from python_qt_binding import QtCore
 from python_qt_binding import QtWidgets
 from QtCore import QTimer
+import struct
+from collections import deque
+
 
 from collections import deque
 from acoustic_monitoring_msgs.msg import (
@@ -116,36 +119,158 @@ class AudioImageVisualizer(QtWidgets.QWidget):
         except CvBridgeError as e:
             rospy.loginfo("CvBridge Exception")
 
+    ############-------------Original Method----------------#################
     # def audio_callback(self, msg_audio):
     #     nbits = 16
-    #     scale_factor = 2**(nbits - 1)
-    #     audio_data_numpy = (np.frombuffer(msg_audio.data, dtype=np.int16) / scale_factor)
+    #     scale_factor = 2 ** (nbits - 1)
+    #     audio_data_numpy = (np.frombuffer(msg_audio.data, dtype=np.int16) / scale_factor).astype(np.float32)
     #     self.audio_buffer.extend(audio_data_numpy)
+        
+    #     # Remove old data if buffer size exceeds 1 second of audio (44100 samples)
+    #     while len(self.audio_buffer) > self.buffer_size:
+    #         self.audio_buffer.popleft()
+            
+    #     # If buffer size is less than 1 second of audio, pad with zeros
+    #     if len(self.audio_buffer) < self.buffer_size:
+    #         self.audio_buffer.extend([0.0] * (self.buffer_size - len(self.audio_buffer)))    
+    #     # Convert to numpy array for plotting
+    #     self.audio_data_buffered = np.array(self.audio_buffer, dtype=np.float32)
+
+
+    ############-------------Mehtod: Numpy For Loop-----------------#################
+    # def audio_callback(self, msg_audio):
+    #     nbits = 24
+    #     scale_factor = 2 ** (nbits - 1)
+
+    #     # Read the data as bytes, then convert to 32-bit integers
+    #     byte_data = np.frombuffer(msg_audio.data, dtype=np.uint8)
+    #     audio_data_int32 = np.zeros(len(byte_data) // 3, dtype=np.int32)
+
+    #     # Convert 3 bytes to a 32-bit integer (24-bit data)
+    #     for i in range(len(audio_data_int32)):
+    #         audio_data_int32[i] = byte_data[3*i] + (byte_data[3*i+1] << 8) + (byte_data[3*i+2] << 16)
+    #         if audio_data_int32[i] & 0x800000:  # Adjust for signed 24-bit data
+    #             audio_data_int32[i] -= 0x1000000
+  
+    #     # Normalize to float32
+    #     audio_data_float = audio_data_int32.astype(np.float32) / scale_factor
+
+    #     # Split into two channels
+    #     left_channel = audio_data_float[0::2]
+    #     right_channel = audio_data_float[1::2]
+
+    #     # Extend the buffers for each channel
+    #     self.audio_buffer.extend(left_channel)
+    #     # self.right_audio_buffer.extend(right_channel)
+
+    #     # Adjust buffer management for stereo data
+    #     # Assuming self.buffer_size is per channel
+    #     while len(self.audio_buffer) > self.buffer_size:
+    #         self.audio_buffer.popleft()
+    #         # self.right_audio_buffer.popleft()
 
     #     if len(self.audio_buffer) < self.buffer_size:
-    #         self.audio_buffer.extend([0.0] * (self.buffer_size - len(self.audio_buffer)))
-    #     elif len(self.audio_buffer) > self.buffer_size:
-    #         self.audio_buffer = deque(list(self.audio_buffer)[-self.buffer_size:], maxlen=self.buffer_size)
+    #         padding = [0.0] * (self.buffer_size - len(self.audio_buffer))
+    #         self.audio_buffer.extend(padding)
+    #         # self.right_audio_buffer.extend(padding)
 
-    #     audio_data_buffered = np.array(self.audio_buffer).astype(np.float32)
-    #     self.audio_curve.setData(audio_data_buffered)
+    #     # Convert to numpy array for plotting (if needed)
+    #     # Note: You now have two channels to handle
+    #     self.audio_data_buffered = np.array(self.audio_buffer, dtype=np.float32)
 
+
+    ############-------------Mehtod: Numpy Vectorized-----------------#################
+    # def audio_callback(self, msg_audio):
+    #     nbits = 24
+    #     scale_factor = 2 ** (nbits - 1)
+
+    #     # Read the data as bytes
+    #     byte_data = np.frombuffer(msg_audio.data, dtype=np.uint8)
+
+    #     # Reshape the data to process 3 bytes at a time
+    #     reshaped_data = byte_data.reshape(-1, 3)
+
+    #     # Convert the 24-bit data to 32-bit integers
+    #     audio_data_int32 = reshaped_data[:, 0].astype(np.int32) + \
+    #                     (reshaped_data[:, 1].astype(np.int32) << 8) + \
+    #                     (reshaped_data[:, 2].astype(np.int32) << 16)
+
+    #     # Adjust for signed 24-bit data
+    #     audio_data_int32 = np.where(audio_data_int32 & 0x800000, audio_data_int32 - 0x1000000, audio_data_int32)
+
+    #     # Normalize to float32
+    #     audio_data_float = audio_data_int32.astype(np.float32) / scale_factor
+
+    #     # Split into two channels
+    #     left_channel = audio_data_float[0::2]
+    #     # right_channel = audio_data_float[1::2]
+
+    #     # Extend the buffers for each channel
+    #     self.audio_buffer.extend(left_channel)
+
+    #     while len(self.audio_buffer) > self.buffer_size:
+    #         self.audio_buffer.popleft()
+    #         # self.right_audio_buffer.popleft()
+
+    #     if len(self.audio_buffer) < self.buffer_size:
+    #         padding = [0.0] * (self.buffer_size - len(self.audio_buffer))
+    #         self.audio_buffer.extend(padding)
+    #         # self.right_audio_buffer.extend(padding)
+
+    #     # Convert to numpy array for plotting (if needed)
+    #     # Note: You now have two channels to handle
+    #     self.audio_data_buffered = np.array(self.audio_buffer, dtype=np.float32)
+
+    
+    ############------------------------------#################
+    ############-------------Mehtod: Struct-----------------#################
     def audio_callback(self, msg_audio):
-        nbits = 16
-        scale_factor = 2 ** (nbits - 1)
-        audio_data_numpy = (np.frombuffer(msg_audio.data, dtype=np.int16) / scale_factor).astype(np.float32)
-        self.audio_buffer.extend(audio_data_numpy)
-        
-        # Remove old data if buffer size exceeds 1 second of audio (44100 samples)
+        # Read the data as bytes
+        byte_data = msg_audio.data
+
+        # Initialize lists to hold unpacked data for each channel
+        left_channel_data = []
+        right_channel_data = []
+
+        # Process the data
+        for i in range(0, len(byte_data), 6):
+            # Left channel (first 3 bytes)
+            left_padded_data = byte_data[i:i+3] + b'\x00'
+            left_unpacked_data = struct.unpack('<i', left_padded_data)[0]
+            if left_unpacked_data & 0x800000:  # Adjust for signed 24-bit data
+                left_unpacked_data -= 0x1000000
+            left_channel_data.append(left_unpacked_data)
+
+            # Right channel (next 3 bytes)
+            right_padded_data = byte_data[i+3:i+6] + b'\x00'
+            right_unpacked_data = struct.unpack('<i', right_padded_data)[0]
+            if right_unpacked_data & 0x800000:  # Adjust for signed 24-bit data
+                right_unpacked_data -= 0x1000000
+            right_channel_data.append(right_unpacked_data)
+
+        # Normalize the data
+        left_channel_data = [sample / float(2 ** 23 - 1) for sample in left_channel_data]
+        right_channel_data = [sample / float(2 ** 23 - 1) for sample in right_channel_data]
+
+        # Extend the buffers for each channel
+        self.audio_buffer.extend(left_channel_data)
+
         while len(self.audio_buffer) > self.buffer_size:
             self.audio_buffer.popleft()
-            
-        # If buffer size is less than 1 second of audio, pad with zeros
+            # self.right_audio_buffer.popleft()
+
         if len(self.audio_buffer) < self.buffer_size:
-            self.audio_buffer.extend([0.0] * (self.buffer_size - len(self.audio_buffer)))    
-        # Convert to numpy array for plotting
+            padding = [0.0] * (self.buffer_size - len(self.audio_buffer))
+            self.audio_buffer.extend(padding)
+            # self.right_audio_buffer.extend(padding)
+
+        # Convert to numpy array for plotting (if needed)
+        # Note: You now have two channels to handle
         self.audio_data_buffered = np.array(self.audio_buffer, dtype=np.float32)
-  
+
+
+
+
 
 
     def updateAudio(self):

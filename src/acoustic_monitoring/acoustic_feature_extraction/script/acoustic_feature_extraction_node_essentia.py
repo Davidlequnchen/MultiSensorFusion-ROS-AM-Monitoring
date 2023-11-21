@@ -8,6 +8,7 @@ from scipy.io import wavfile
 import scipy
 import math
 import numpy as np
+import struct
 from collections import deque, defaultdict
 import essentia.standard as es
 from essentia.standard import Spectrum, Windowing, SpectralCentroidTime, SpectralComplexity, SpectralContrast
@@ -21,6 +22,7 @@ from acoustic_monitoring_msgs.msg import (
     MsgAcousticFeature,
     MsgAcousticFeaturePython
 )
+
 
 class AcousticFeatureExtractor:
     def __init__(self):
@@ -72,26 +74,51 @@ class AcousticFeatureExtractor:
         self.sample_format = msg_audio_info.sample_format
         self.coding_format = msg_audio_info.coding_format
 
-
-        
+    
+    #### for min-DSP (dual channel 16 bits) #####
     def audio_callback(self, msg_audio):
+        # Read the data as bytes
+        byte_data = msg_audio.data
 
-        nbits = 16 # Each sample is 2 bytes
-        scale_factor = 2**(nbits - 1)
-        # Convert the audio to a numpy array and scale it in one step
-        audio_data_numpy = (np.frombuffer(msg_audio.data, dtype=np.int16) / scale_factor)
+        # Initialize lists to hold unpacked data for each channel
+        left_channel_data = []
+        # right_channel_data = []
 
-        # Update the buffer with the new audio data
-        self.audio_buffer.extend(audio_data_numpy)
+        # Process the data
+        for i in range(0, len(byte_data), 6):
+            # Left channel (first 3 bytes)
+            left_padded_data = byte_data[i:i+3] + b'\x00'
+            left_unpacked_data = struct.unpack('<i', left_padded_data)[0]
+            if left_unpacked_data & 0x800000:  # Adjust for signed 24-bit data
+                left_unpacked_data -= 0x1000000
+            left_channel_data.append(left_unpacked_data)
 
-        # Ensure that the buffer size is exactly 4410 samples
+            # # Right channel (next 3 bytes)
+            # right_padded_data = byte_data[i+3:i+6] + b'\x00'
+            # right_unpacked_data = struct.unpack('<i', right_padded_data)[0]
+            # if right_unpacked_data & 0x800000:  # Adjust for signed 24-bit data
+            #     right_unpacked_data -= 0x1000000
+            # right_channel_data.append(right_unpacked_data)
+
+        # Normalize the data
+        left_channel_data = [sample / float(2 ** 23 - 1) for sample in left_channel_data]
+        # right_channel_data = [sample / float(2 ** 23 - 1) for sample in right_channel_data]
+
+        # Extend the buffers for each channel
+        self.audio_buffer.extend(left_channel_data)
+
+        while len(self.audio_buffer) > self.buffer_size:
+            self.audio_buffer.popleft()
+            # self.right_audio_buffer.popleft()
+
         if len(self.audio_buffer) < self.buffer_size:
-            # Pad with zeros if smaller than desired
-            self.audio_buffer.extend([0.0] * (self.buffer_size - len(self.audio_buffer)))
-        elif len(self.audio_buffer) > self.buffer_size:
-            # Trim if larger than desired
-            self.audio_buffer = deque(list(self.audio_buffer)[-self.buffer_siz:], maxlen=self.buffer_siz)
+            padding = [0.0] * (self.buffer_size - len(self.audio_buffer))
+            self.audio_buffer.extend(padding)
+            # self.right_audio_buffer.extend(padding)
 
+        # Convert to numpy array for plotting (if needed)
+        # Note: You now have two channels to handle
+        audio_data_buffered = np.array(self.audio_buffer, dtype=np.float32)
         # Convert deque to numpy array for feature extraction
         audio_data_buffered = np.array(self.audio_buffer).astype(np.float32)
 
@@ -131,7 +158,64 @@ class AcousticFeatureExtractor:
 
 
         self.audio_feature_pub.publish(msg_acoustic_feature)
+    
 
+    # def audio_callback(self, msg_audio):
+
+    #     nbits = 16 # Each sample is 2 bytes
+    #     scale_factor = 2**(nbits - 1)
+    #     # Convert the audio to a numpy array and scale it in one step
+    #     audio_data_numpy = (np.frombuffer(msg_audio.data, dtype=np.int16) / scale_factor)
+
+    #     # Update the buffer with the new audio data
+    #     self.audio_buffer.extend(audio_data_numpy)
+
+    #     # Ensure that the buffer size is exactly 4410 samples
+    #     if len(self.audio_buffer) < self.buffer_size:
+    #         # Pad with zeros if smaller than desired
+    #         self.audio_buffer.extend([0.0] * (self.buffer_size - len(self.audio_buffer)))
+    #     elif len(self.audio_buffer) > self.buffer_size:
+    #         # Trim if larger than desired
+    #         self.audio_buffer = deque(list(self.audio_buffer)[-self.buffer_siz:], maxlen=self.buffer_siz)
+
+        # Convert deque to numpy array for feature extraction
+        # audio_data_buffered = np.array(self.audio_buffer).astype(np.float32)
+
+
+        # time_features = self.extract_time_features(audio_data_buffered)
+        # freqeuncy_features = self.extract_freqeuncy_features_v2(audio_data_buffered)
+
+        # msg_acoustic_feature = MsgAcousticFeature()
+        # msg_acoustic_feature.header = msg_audio.header
+
+        # # ## time-domain features
+        # msg_acoustic_feature.rms_energy = time_features["rms_energy"]
+        # msg_acoustic_feature.amplitude_envelope_mean = time_features['amplitude_envelope_mean'] 
+        # msg_acoustic_feature.amplitude_envelope_std = time_features['amplitude_envelope_std']
+        # msg_acoustic_feature.zero_crossing_rate = time_features['zero_crossing_rate']
+        # msg_acoustic_feature.dynamic_complexity = time_features['dynamic_complexity']
+        # msg_acoustic_feature.loudness = time_features['loudness']
+        # msg_acoustic_feature.loudness_vickers = time_features['loudness_vickers']
+        # # ## frequency-domain features
+        # feature_names = [
+        #     'spectral_centroid', 'spectral_complexity', 'spectral_contrast_0', 
+        #     'spectral_contrast_1', 'spectral_contrast_2', 'spectral_contrast_3',
+        #     'spectral_contrast_4', 'spectral_contrast_5', 'spectral_valley_0',
+        #     'spectral_valley_1', 'spectral_valley_2', 'spectral_valley_3',
+        #     'spectral_valley_4', 'spectral_valley_5', 'spectral_decrease', 
+        #     'spectral_energy', 'spectral_energy_band_ratio', 'spectral_flatness',
+        #     'spectral_flux', 'spectral_rolloff', 'spectral_strong_peak',
+        #     'spectral_variance', 'spectral_skewness', 'spectral_kurtosis',
+        #     'spectral_crest_factor', 'mfcc_0', 'mfcc_1', 'mfcc_2', 'mfcc_3',
+        #     'mfcc_4', 'mfcc_5', 'mfcc_6', 'mfcc_7', 'mfcc_8', 'mfcc_9', 
+        #     'mfcc_10', 'mfcc_11', 'mfcc_12'
+        # ]
+
+        # for feature in feature_names:
+        #     setattr(msg_acoustic_feature, f"{feature}_mean", freqeuncy_features[f"{feature}_mean"])
+        #     setattr(msg_acoustic_feature, f"{feature}_std", freqeuncy_features[f"{feature}_std"])
+
+        # self.audio_feature_pub.publish(msg_acoustic_feature)
 
 
     def extract_time_features(self, audio_data):

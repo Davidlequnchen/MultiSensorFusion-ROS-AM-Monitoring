@@ -66,12 +66,12 @@ class MultimodalPredictionNode:
                 # [self.contour_moment_sub, self.convex_hull_sub, self.max_contour_area_sub, self.acoustic_feature_sub],
                 [self.acoustic_feature_sub, self.visual_feature_subscriber],
                 queue_size=20,
-                slop=0.01 #s
+                slop=0.001 #s
             )
         self.synchronizer.registerCallback(self.callback)
         
         # Initialize prediction publisher
-        self.prediction_pub = rospy.Publisher("quality_predicted", MsgDefect, queue_size=10)
+        self.prediction_pub = rospy.Publisher("/quality_predicted", MsgDefect, queue_size=10)
                        
                        
     def callback(self, acoustic_feature_msg, visual_feature_msg):

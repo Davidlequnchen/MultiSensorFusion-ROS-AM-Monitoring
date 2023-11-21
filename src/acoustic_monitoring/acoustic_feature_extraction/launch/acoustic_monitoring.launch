@@ -4,13 +4,14 @@
   <!-- arecord -l will show available input devices, use the car number as
   the first number and the subdevice number as the second in a string
   like hw:1,0 Looking for [USB audio CODEC]-->
-  <arg name="device" default="hw:0,0" />
+  <arg name="device" default="hw:2,0" />
   <arg name="output" default="screen"/>
   <arg name="bitrate" default="128"/>
-  <arg name="channels" default="1"/>
-  <arg name="sample_rate" default="44100"/>
+  <arg name="channels" default="2"/>
+  <arg name="sample_rate" default="48000"/>
   <arg name="format" default="wave"/>
-  <arg name="sample_format" default="S16LE"/>
+  <arg name="depth" default="24"/>
+  <arg name="sample_format" default="S24LE"/> 
   <arg name="ns" default=""/>
   <arg name="audio_topic" default="/audio"/>
   <arg name="plotjuggler_viz" default="false"/>
@@ -19,7 +20,7 @@
   <!-- publish audio data as wav format (raw signal) to a topic -->
   <!-- <group ns="$(arg ns)"> -->
   <node name="audio_capture" pkg="audio_capture" type="audio_capture" output="screen">
-    <param name="depth" value="16" />
+    <param name="depth" value="$(arg depth)" />
     <param name="device" value="$(arg device)" />
     <!-- <param name="bitrate" value="$(arg bitrate)"/> -->
     <param name="channels" value="$(arg channels)"/>

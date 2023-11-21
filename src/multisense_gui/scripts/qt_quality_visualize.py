@@ -32,10 +32,10 @@ class QualityVisualize(QtWidgets.QWidget):
         loadUi(os.path.join(path, 'resources', 'virtual_quality_map.ui'), self)
 
         # ROS subscribers
-        self.quality_subscriber = rospy.Subscriber('/predicted_quality', MsgDefect, self.cb_quality, queue_size=10)
+        self.quality_subscriber = rospy.Subscriber('/quality_predicted', MsgDefect, self.cb_quality, queue_size=10)
 
 
-    def cb_quality(self):
+    def cb_quality(self, msg_quality):
         pass
 
     
