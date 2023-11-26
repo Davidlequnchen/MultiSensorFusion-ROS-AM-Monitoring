@@ -13,7 +13,7 @@
 
 namespace microepsilon_scancontrol
 {
-const int SCANNER_RESOLUTION = 640; // points per profile
+const int SCANNER_RESOLUTION = 640; // points per profile, 2048 for GAS, 640 for SIMTech side
 // guint32 resolution;
 
 // class TimeSync

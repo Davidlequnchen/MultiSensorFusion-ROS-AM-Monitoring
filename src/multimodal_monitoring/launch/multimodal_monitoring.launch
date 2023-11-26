@@ -15,9 +15,9 @@
   <arg name="plotjuggler_viz" default="false"/>
   <arg name="plotjuggler_viz_multimodal" default="false"/>
   <arg name="audio_topic" default="/audio"/>
-  <arg name="device" default="hw:2,0" /> <!-- arecord -l -->
+  <arg name="device" default="hw:3,0" /> <!-- arecord -l -->
   <arg name="depth" default="24"/>
-  <arg name="frame_rate" default="60.0" />
+  <arg name="frame_rate" default="30.0" />
 
 
   <!-- Real-time quality prediction -->

@@ -1,8 +1,9 @@
 # MFDT Workspace: 
-ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitoring and defect detection of laser-directed energy deposition (L-DED) Additive Manufacturing (AM) process.
+ROS-based Multisensor fusion digital twin (MFDT) platform for location-dependant real-time monitoring and defect detection of laser-directed energy deposition (L-DED) Additive Manufacturing (AM) process.
 
 
-## Installation
+## 1. Installation
+### 1.1. Install ROS-noetic and dependencies
 - install ROS-noetic on Ubuntu 20.04: http://wiki.ros.org/noetic/Installation/Ubuntu
 
 - install developer essentials:
@@ -42,21 +43,17 @@ ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitori
   sudo apt install ros-noetic-plotjuggler-ros
   ```
 
-- install Python Packages: 
-  ```
-  pip install -r requirements.txt
-  ```
-
-
+### 1.2. Install Pylon Camera-related packages
 - For Pylon camera ROS packages (Basler USB Camera Driver): https://github.com/basler/pylon-ros-camera
   - Installation: Clone the official repository workspace (right now it is already inside the __camera_utils__ folder): `git clone https://github.com/basler/pylon-ros-camera`
    * Clone drag&bot public common messages: `git clone https://github.com/dragandbot/dragandbot_common.git`
    * Install ROS dependencies (In the downloaded folder): `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && sudo rosdep update && sudo rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
 
-- Install LightGBM (ML model): https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html#linux
-- install Micro-Epsilon scanControl SDK:
+
+### 1.3. Install MicroEpsilon scanControl Packages
+- Download and install Micro-Epsilon scanControl SDK:
 [./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3] 
-- install aravis: download the aravis-0.6.1.tar.xz package
+- Install prerequisite aravis: download the __aravis-0.6.1.tar.xz__ package
 (version 0.7 is not stable, do not download) http://ftp.acc.umu.se/pub/GNOME/sources/aravis/0.6/
   ````
   ./configure
@@ -73,10 +70,58 @@ were not met: No package ’gtk+-2.0’ found":
   ````
 
 
+### 1.4. Install Audio signal processing packages
 - install essential (C++ compile from souce): https://essentia.upf.edu/installing.html
   <!-- - download Essentia 2.1 beta5: https://github.com/MTG/essentia/releases/tag/v2.1_beta5 -->
   - Download the master branch (download it via Github Desktop): https://github.com/MTG/essentia
-  - Complie follow the instruction
+  - Complie follow the instruction:
+  ```
+  pip install essentia
+  ```
+  Install depandencies
+  ```
+  sudo apt-get install build-essential libeigen3-dev libyaml-dev libfftw3-dev libavcodec-dev libavformat-dev libavutil-dev libswresample-dev libsamplerate0-dev libtag1-dev libchromaprint-dev
+  ```
+  ```
+  sudo apt-get install python3-dev python3-numpy-dev python3-numpy python3-yaml python3-six
+  ```
+  Compile
+  ```
+  python3 waf configure --build-static --with-python --with-cpptests --with-examples --with-vamp
+  ```
+  ```
+  python3 waf
+  ```
+  To install the C++ library, Python bindings, extractors and Vamp plugin 
+  ```
+  sudo python3 waf install
+  ```
+
+### 1.5. Install other packages and complie the entire workspace
+- Install LightGBM (ML model): https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html#linux
+
+- install Required Python Packages: 
+  ```
+  pip install -r requirements.txt
+  ```
+
+- Go to the ROS workspace, then complile:
+  ```
+  catkin_make
+  ```
+
+- Remember to source the package:
+go to the folder under home directory:
+  ```
+  cd
+  gedit .bashrc
+  ```
+  Then add the following line into the .bashrc file
+  ```
+  source ~/SIMTech_ws/devel/setup.bash
+  source .bashrc
+  ```
+
 <!-- - install BOOST library (download at: https://www.boost.org/users/download/)
 ```
 sudo ./bootstrap.sh
@@ -84,65 +129,103 @@ sudo ./b2
 ``` -->
 
 
-
-
-:exclamation: Important instructions;
+<!-- :exclamation: Important instructions;
 :question: Remain unsolved issues, will be developed in the future;
 :red_circle: code finished but have not been tested;
 :x: code under heavy development;
 :negative_squared_cross_mark: dead end and archived;
-:heavy_check_mark: Tested sucessfully;
+:heavy_check_mark: Tested sucessfully; -->
 
-## Experiment instructions
-### Hardware configuration (multisensor)
+## 2. Configurations and Settings
+### 2.1. Hardware configuration
 <!-- #### Ethernet connections (pictures) -->
-
-#### Connections (Ubuntu Linux settings)
-
+#### 2.1.1. Connections (Ubuntu Linux settings)
 - Xiris 1800V thermal camera (melt pool monitoring): Ethernet Connection port
   - (suggested configuration on monitoring PC - )
-- Xiris WeldMIC acoustic monitoring: USB port
+- Xiris WeldMIC acoustic monitoring: USB port 
+  - Use the command `arecord -l` to check the microphone device number (card, subdevice index)
 - KUKA RSI interface: Ethernet Connection port. 
   - suggested configuration on monitoring PC - __IP: 192.168.1.3__
-- Coaxial CCD melt pool camera: USB port
-- Infratec thermal camera: PCI Ethernet port. 
-  - suggested configuration on monitoring PC - __IP: 169.254.87.1__ 
-- ABB: Ethernet port. 
+  - suggested configuration on the KUKA controller (add additional RSI network): __IP: 192.168.1.20__
+  - try to ping the robot from the PC using:
+    ```
+    ping 192.168.1.20
+    ```
+  - Network setting for KUKA windows (for communication with workvisual): __192.168.250.20__, PC side: __IP: 192.168.250.1__
+  - Try to ping the KUKA robot from the workvisual PC:
+    ```
+    ping 192.168.1.20
+    ```
+- ABB (require multi-tasking & PC interface): Ethernet port. 
   - suggested configuration on monitoring PC - __IP: 192.168.125.3__ 
+- Coaxial CCD melt pool camera: USB port
+  - use the command `ls ~/dev/video*` to check the USB camera index
+- Infratec Vario thermal camera (NTU): PCI Ethernet port. 
+  - suggested ethernet configuration on monitoring PC - __IP: 169.254.87.1__ 
+
+#### 2.1.2. Sensor Configurations:
+- For microphone sensor:
+  - __Xiris WeldMIC__:
+    - Sampling rate: 44100
+    - Channel Number: 1
+    - Sample format: "S16LE"
+    - Bit Depth: 16
+  - __miniDSP__:
+    - Sampling rate: 48000 (must be)
+    - Channel Number: 2
+    - Sample format: "S24LE"
+    - Bit Depth: 24
+  - device: `arecord -l` will show available input devices, use the car number as
+  the first number and the subdevice number as the second in a string
+  like `hw:1,0``
+    ```
+    <arg name="device" default="hw:2,0" />
+    ```
 
 
-### 1. Multimodal monitoring 
-#### 1.1 Software instruction 
-- launch the monitoring (without experiments) :heavy_check_mark:
+- MicroEpsilon Laser Line Scaner:
+  - check "path_to_device_properties" variable in the folder `src/microEpsilon_scanControl/microepsilon_scancontrol/launch/scanner_driver.launch`
+  - check the serial number
+  - change __SCANNER_RESOLUTION__ in the `microepsilon_scancontrol.h` (640 for 2900-50 scanner (SIMTech side), 2048 for 3010)
+
+- For Coaxial Camera:
+  - pixel_format: either yuyv or mjpeg (depands on the connector)
+
+### 2.2. Experiments Instructions
+#### 2.2.1 Software instruction 
+- launch the entire program with Qt GUI :heavy_check_mark:
+   ```
+   cd ~/SIMTech_ws/src/multisense_gui/launch 
+   roslaunch qt_multisense_gui.launch
+   ```
+- launch the monitoring program (without experiments) :heavy_check_mark:
   ```
   roslaunch multimodal_monitoring multimodal_monitoring.launch
   ```
 
 - launch the monitoring for experiments (with rosbag recording) :heavy_check_mark:
-  
   ```
   roslaunch multimodal_monitoring multimodal_monitoring_experiments.launch
   ```
-#### 1.2 configurations
-- to launch the thermal monitoring, set parameter `<arg name="thermal" default="true"/>`
--  to launch the acoustic monitoring, set parameter `<arg name="acoustic" default="true"/>`
--  Change the path of recorded audio signal (wav): ` <arg name="dst" default="~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.wav"/>`
--  __Record__ the data into ___rosbag___: (change path if necessary). This is located in the ___multimodal_monitoring_experiments.launch___ file
-    ```
-    <node pkg="rosbag" type="record" name="rosbag_record_multimodal monitoring_experiment" 
-    args="-O ~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.bag 
-    /audio /audioStamped /acoustic_feature " />
-    ```
-#### 1.3 Important instructions for conducting experiments
-- Before experiments, the thermal camera's focus needs to be fine-tuned. Make sure it is focused to the laser spot.
-- After calibrating the focus, the temperature range of the camera needs to be configured to the correct range. (500-2000 degrees) -- __only for Infratec VarioCAM camera, Xiris no need__
-- :exclamation: Conduct a dry run to test the microphone sensor. Make sure it is capturing the acoustic signal rather than using the PC built-in microphone. 
-- For KUKA program, need to add RSI communications in the code
 
+#### 2.2.2 Launch file configurations
+- The configurations can be set in the launch file
+- To launch the acoustic monitoring, set parameter `<arg name="acoustic" default="true"/>`, Similarly, for Coaxial Monitoring, KUKA, ABB robot, etc.
+- For recording data, remember to change the path of recorded audio signal (wav): ` <arg name="dst" default="~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.wav"/>`
+-  __Record__ the data into ___rosbag___: (change path if necessary). This is located in the `multimodal_monitoring_experiments.launch` file
+    ```
+    <node pkg="rosbag" type="record" name="rosbag_record" 
+    args="-O **location-to-the-folder*_recorded_name.bag 
+    /audio /audioStamped /acoustic_feature" />
+    ```
+#### 2.2.3 Important instructions for conducting experiments
+- Before experiments, the thermal camera's focus needs to be fine-tuned. Make sure it is focused to the laser spot.
+- After calibrating the focus, the temperature range of the camera needs to be configured to the correct range. (500-2000 degrees) -- __(only for Infratec VarioCAM camera, Xiris no need)__
+- :exclamation: Conduct a dry run to test the microphone sensor. Make sure it is capturing the acoustic signal rather than using the PC built-in microphone. 
 
 - ping kuka LDED robot RSI interface:
   ```
-  ping 192.168.1.3
+  ping 192.168.1.20
   ```
 
 - ping MicroEpsilon ScanController
@@ -154,7 +237,7 @@ sudo ./b2
   ping 192.168.125.1
   ```
 
-#### 1.4 Data recordings
+#### 2.2.4 Data recordings
 - General format (without robot)
   ```
   rosbag record -O /media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.bag /audio /audioStamped /acoustic_feature /infratec/image_raw /infratec/image_converted_mono8 /infratec/temperature_feature /general_contours/max_contour_area /convex_hull/hull_area
@@ -164,67 +247,14 @@ sudo ./b2
   rosbag record -O /media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.bag /audio /audioStamped /acoustic_feature /infratec/image_raw /infratec/image_converted_mono8 /infratec/temperature_feature /general_contours/max_contour_area /convex_hull/hull_area /cartesian_position /cartesian_velocity
   ```
 - List out the topic to select: `rostopic list` 
-  ```
-  /acoustic_feature
-  /audio
-  /audioStamped
-  /audio_info
-  /camera/cloud
-  /cartesian_position
-  /cartesian_velocity
-  /convex_hull/hull_area
-  /convex_hull/hulls
-  ...
-  /general_contours/contour_area
-  /general_contours/ellipses
-  /general_contours/image
-  ...
-  /general_contours/rectangles
-  ...
-  /infratec/image_converted_mono8
-  /infratec/image_raw
-  /infratec/temperature_feature
-  /joint_states
-  /position_trajectory_controller/command
-  /position_trajectory_controller/follow_joint_trajectory/cancel
-  /position_trajectory_controller/follow_joint_trajectory/feedback
-  /position_trajectory_controller/follow_joint_trajectory/goal
-  /position_trajectory_controller/follow_joint_trajectory/result
-  /position_trajectory_controller/follow_joint_trajectory/status
-  /position_trajectory_controller/state
-  ```
 - Change the name of the bag file and its locations :exclamation:
 
 
-
-## 2. Single modal monitoring 
-
-### 2.1. Acoustic monitoring
-### 2.1.1 parameters and setup
-- device: `arecord -l` will show available input devices, use the car number as
-  the first number and the subdevice number as the second in a string
-  like hw:1,0
-  ```
-  <arg name="device" default="hw:2,0" />
-  ```
-- sampling rate: 
-  ```
-  <arg name="sample_rate" default="44100"/>
-  ```
-
-### 2.1.2 launch instructions
-- standalone acoustic monitoring: :heavy_check_mark:
-  ```
-  roslaunch acoustic_feature_extraction acoustic_monitoring.launch
-  ```
--  acoustic monitoring with rosbag recording: :heavy_check_mark:
-  ```
-  roslaunch acoustic_feature_extraction acoustic_monitoring_experiment.launch
-  ```
+## 3. Single modal monitoring 
 
 
-### 2.2. Thermal monitoring (Infratec VarioCAM)
-#### 2.2.1 configuration and specifications
+### 3.1. Thermal monitoring (Infratec VarioCAM)
+#### 3.1.1 configuration and specifications
 - set parameters for the thermal images (__max, min temp, croppings__): `~/SIMTech_ws/src/Infratec_thermal_camera/thermal_monitoring/config/thermal_camera_parameter.yaml` :exclamation::exclamation::exclamation:
 Note that chaneg the parameter in this yaml file will __overwrite__ the default settings. Hence, this is the only file you need to modify during the experiments.
 - remember to set python with network access: :heavy_check_mark:
@@ -232,7 +262,7 @@ Note that chaneg the parameter in this yaml file will __overwrite__ the default 
   setcap cap_net_raw+eip /usr/bin/python3.6
   ```
 
-#### 2.2.2 launch instructions
+#### 3.1.2 launch instructions
 - launch the basic thermal camera driver GUI(for testing the Infratec camera)  :heavy_check_mark:
   ```
   roslaunch infratec_ros_driver infratec_vario_ros_driver_basic.launch
@@ -259,13 +289,13 @@ Note that chaneg the parameter in this yaml file will __overwrite__ the default 
   roslaunch infratec_ros_driver qt_infratec_insitu_monitoring.launch
   ```
 
-### 2.3. Laser line scanning (MicroEpsilon)
-#### 2.3.1 configuration and specifications
+### 3.2. Laser line scanning (MicroEpsilon)
+#### 3.2.1 configuration and specifications
 ```
-ping 192.168.1.3 ## KUKA RSI
+ping 192.168.1.20 ## KUKA RSI
 ping 169.254.87.67 ## MicroEpsilon
 ```
-#### 2.3.2 Launch instructions
+#### 3.2.2 Launch instructions
 ```
 cd ~/SIMTech_ws/src/scanning_application/scanning_robviz/launch
 roslaunch scanning_robviz robviz_abb_microepsilon.launch ## for ABB hybrid laser-arc

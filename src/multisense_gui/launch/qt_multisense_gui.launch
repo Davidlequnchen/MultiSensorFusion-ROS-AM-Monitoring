@@ -2,13 +2,13 @@
   <arg name="gui" default="true" />
   <arg name="sample_rate" default="48000"/>
   <arg name="abb" default="false" />
-  <arg name="kuka" default="true" />
+  <arg name="kuka" default="false" />
   <arg name="rviz" default="false"/>
   <arg name="thermal" default="false"/>
   <arg name="vision" default="true"/>
   <arg name="acoustic" default="true"/>
   <arg name="camera_type" default="usb" />
-  <arg name="robot_launch" default="true" />
+  <arg name="robot_launch" default="false" />
   <arg name="image_processing" default="true"/>
   <arg name="image_view" default="false" />
   <arg name="defect_prediction" default="true" />
@@ -17,7 +17,7 @@
   <arg name="audio_topic" default="/audio"/>
   <arg name="audio_stamped_topic" default="/audioStamped"/>
   <arg name="device" default="hw:2,0" />   <!-- arecord -l -->
-  <arg name="video_device" default="/dev/video0" />
+  <arg name="video_device" default="/dev/video2" />
   <arg name="frame_rate" default="30.0" />
   <arg name="depth" default="24" />
 
