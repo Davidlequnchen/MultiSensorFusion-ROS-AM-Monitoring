@@ -1,4 +1,57 @@
 # MultiSensorFusion-ROS-AM-Monitoring
+<style>
+.video-title {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 2.5em; /* Ensures consistent height for titles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: start; /* Aligns grid items at the top */
+}
+.video-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+    align-items: start;
+}
+.image-container {
+    width: 100%;
+}
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.single-image-container {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+.single-video-container {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+</style>
 
 <div align="center">
 
@@ -40,13 +93,6 @@ This repository provides a comprehensive ROS-based framework for implementing mu
 [![Video Demo](https://img.shields.io/badge/Video-Demo-red)](https://www.youtube.com/watch?v=OSBqqam3sm4)
 
 Chen, L., Bi, G., Yao, X., Tan, C., Su, J., Ng, N.P.H., Chew, Y., Liu, K. and Moon, S.K., 2023. Multisensor fusion-based digital twin for localized quality prediction in robotic laser-directed energy deposition. *Robotics and Computer-Integrated Manufacturing*, 84, p.102581.
-
-<div class="single-image-container">
-    <img src="./images/digital_twin.png" alt="Digital Twin Framework">
-    <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px;">
-        Multi-sensor fusion-based digital twin (MFDT) framework
-    </p>
-</div>
 
 <div class="video-grid">
     <div class="video-container">
