@@ -52,12 +52,16 @@ Chen, L., Bi, G., Yao, X., Tan, C., Su, J., Ng, N.P.H., Chew, Y., Liu, K. and Mo
       <strong>Digital Twin for Multi-Sensor Fusion in LDED</strong><br>
       <a href="https://www.youtube.com/watch?v=OSBqqam3sm4">
         <img src="https://img.youtube.com/vi/OSBqqam3sm4/0.jpg" alt="Digital Twin Video" width="400">
+        <br>
+        <img src="https://img.shields.io/badge/Watch_on-YouTube-red?logo=youtube&style=for-the-badge">
       </a>
     </td>
     <td align="center" width="50%">
       <strong>Infrared Thermal Monitoring of LDED Process</strong><br>
       <a href="https://www.youtube.com/watch?v=RdbRIBVC3CI">
         <img src="https://img.youtube.com/vi/RdbRIBVC3CI/0.jpg" alt="Infrared Thermal Monitoring" width="400">
+        <br>
+        <img src="https://img.shields.io/badge/Watch_on-YouTube-red?logo=youtube&style=for-the-badge">
       </a>
     </td>
   </tr>
@@ -66,12 +70,16 @@ Chen, L., Bi, G., Yao, X., Tan, C., Su, J., Ng, N.P.H., Chew, Y., Liu, K. and Mo
       <strong>Melt Pool Vision-Acoustic Data Fusion for Real-Time Defect Detection</strong><br>
       <a href="https://www.youtube.com/watch?v=yQpQ-ty3PjQ">
         <img src="https://img.youtube.com/vi/yQpQ-ty3PjQ/0.jpg" alt="Melt Pool Vision-Acoustic Data Fusion" width="400">
+        <br>
+        <img src="https://img.shields.io/badge/Watch_on-YouTube-red?logo=youtube&style=for-the-badge">
       </a>
     </td>
     <td align="center" width="50%">
       <strong>Multisensor Feature Visualization for In-Situ Monitoring</strong><br>
       <a href="https://www.youtube.com/watch?v=NEZGbJvMfGA">
         <img src="https://img.youtube.com/vi/NEZGbJvMfGA/0.jpg" alt="Multisensor Feature Visualization" width="400">
+        <br>
+        <img src="https://img.shields.io/badge/Watch_on-YouTube-red?logo=youtube&style=for-the-badge">
       </a>
     </td>
   </tr>
