@@ -1,282 +1,411 @@
-# MFDT Workspace: 
-ROS-based Multisensor fusion digital twin (MFDT) platform for real-time monitoring and defect detection of laser-directed energy deposition (L-DED) Additive Manufacturing (AM) process.
+# MultiSensorFusion-ROS-AM-Monitoring
 
+<div align="center">
 
-## Installation
-- install ROS-noetic on Ubuntu 20.04: http://wiki.ros.org/noetic/Installation/Ubuntu
+![GitHub stars](https://img.shields.io/github/stars/Davidlequnchen/MultiSensorFusion-ROS-AM-Monitoring?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Davidlequnchen/MultiSensorFusion-ROS-AM-Monitoring?style=social)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![ROS](https://img.shields.io/badge/ROS-Noetic-brightgreen)
 
-- install developer essentials:
-  ```
-  sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev intltool libglib2.0-dev
-  ```
-- install OpenCV
-  ```
-  sudo apt install libopencv-dev python3-opencv
-  ```
-<!-- - install glibc:
-  ```
-  sudo apt install glibc-source -y
-  ``` -->
-- install gstreamer-1.0
-  ```
-  sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
-  ```
-- install ROS industrial and packages
-  ```
-  sudo apt-get install ros-noetic-roscpp, ros-noetic-std-msgs
-  sudo apt-get install ros-noetic-industrial-core
-  sudo apt-get install ros-noetic-moveit-visual-tools
-  ```
-- Install ROS controller
-  ```
-  sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers
-  ```
-- install vtk
-  ```
-  sudo apt install python3-pip
-  python -m pip install vtk
-  ```
+</div>
 
-- install plotjuggler
-  ```
-  sudo apt install ros-noetic-plotjuggler-ros
-  ```
+> ROS-based Multisensor Fusion Digital Twin (MFDT) platform for real-time monitoring and defect detection of Laser-Directed Energy Deposition (L-DED) Additive Manufacturing (AM) process.
 
-- install Python Packages: 
-  ```
-  pip install -r requirements.txt
-  ```
+📌 
+This repository provides a comprehensive ROS-based framework for implementing multi-sensor monitoring, defect detection, advanced robotic manipulation in Laser Additive Manufacturing systems. It integrates thermal imaging, acoustic signal processing, and laser line scanning to enable real-time defect detection and quality inspection during Laser-Directed Energy Deposition processes. The system incorporates machine learning algorithms for in-situ monitoring and represents a Digital Twin approach to advanced manufacturing processes.
 
+<div align="center">
+<img src="./images/digital_twin.png" alt="Digital Twin Framework" width="600px">
+</div>
 
-- For Pylon camera ROS packages (Basler USB Camera Driver): https://github.com/basler/pylon-ros-camera
-  - Installation: Clone the official repository workspace (right now it is already inside the __camera_utils__ folder): `git clone https://github.com/basler/pylon-ros-camera`
-   * Clone drag&bot public common messages: `git clone https://github.com/dragandbot/dragandbot_common.git`
-   * Install ROS dependencies (In the downloaded folder): `sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && sudo rosdep update && sudo rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y`
+## 📋 Table of Contents
 
-- Install LightGBM (ML model): https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html#linux
-- Python LightGBM: https://blog.csdn.net/CSDNLHCC/article/details/135053162
-- install Micro-Epsilon scanControl SDK:
-[./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3] 
-- install aravis: download the aravis-0.6.1.tar.xz package
-(version 0.7 is not stable, do not download) http://ftp.acc.umu.se/pub/GNOME/sources/aravis/0.6/
-  ````
-  ./configure
-  sudo make
-  sudo make install
-  sudo ldconfig
-  ````
-  If encounter problem like: "Error Message: checking for GTK... configure: error: Package requirements (gtk+-2.0 ¿= 2.10.0)
-were not met: No package ’gtk+-2.0’ found":
-  ````bash
-  sudo apt-get update && upgrade
-  sudo apt-get install intltool
-  sudo apt-get install libgtk2.0-dev
-  ````
+- [Publications](#-publications)
+- [Installation](#-installation)
+- [Experiment Instructions](#-experiment-instructions)
+  - [Hardware Configuration](#hardware-configuration-multisensor)
+  - [Multimodal Monitoring](#1-multimodal-monitoring)
+  - [Single Modal Monitoring](#2-single-modal-monitoring)
+    - [Acoustic Monitoring](#21-acoustic-monitoring)
+    - [Thermal Monitoring](#22-thermal-monitoring-infratec-variocam)
+    - [Laser Line Scanning](#23-laser-line-scanning-microepsilon)
+  - [Post-Experiment Data Processing](#3-post-experiment-offline-data-processing)
+- [Status Indicators](#status-indicators)
 
+## 📑 Publications
 
-- install essential (C++ compile from souce): https://essentia.upf.edu/installing.html
-  <!-- - download Essentia 2.1 beta5: https://github.com/MTG/essentia/releases/tag/v2.1_beta5 -->
-  - Download the master branch (download it via Github Desktop): https://github.com/MTG/essentia
-  - Complie follow the instruction
-<!-- - install BOOST library (download at: https://www.boost.org/users/download/)
+### Multisensor Fusion-Based Digital Twin for Localized Quality Prediction in Robotic Laser-Directed Energy Deposition
+[![Paper](https://img.shields.io/badge/Paper-Robotics_and_CIM-blue)](https://www.sciencedirect.com/science/article/pii/S0736584523000571) 
+[![arXiv](https://img.shields.io/badge/arXiv-2305.13596-b31b1b)](https://arxiv.org/abs/2305.13596)
+[![Video Demo](https://img.shields.io/badge/Video-Demo-red)](https://www.youtube.com/watch?v=OSBqqam3sm4)
+
+Chen, L., Bi, G., Yao, X., Tan, C., Su, J., Ng, N.P.H., Chew, Y., Liu, K. and Moon, S.K., 2023. Multisensor fusion-based digital twin for localized quality prediction in robotic laser-directed energy deposition. *Robotics and Computer-Integrated Manufacturing*, 84, p.102581.
+
+<div class="single-image-container">
+    <img src="./images/digital_twin.png" alt="Digital Twin Framework">
+    <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px;">
+        Multi-sensor fusion-based digital twin (MFDT) framework
+    </p>
+</div>
+
+<div class="video-grid">
+    <div class="video-container">
+        <div class="video-title">Digital Twin for Multi-Sensor Fusion in LDED</div>
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/OSBqqam3sm4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+        <div class="video-title">Infrared Thermal Monitoring of LDED Process</div>
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/RdbRIBVC3CI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div class="video-grid">
+    <div class="video-container">
+        <div class="video-title">Melt Pool Vision-Acoustic Data Fusion for Real-Time Defect Detection</div>
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/yQpQ-ty3PjQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+        <div class="video-title">Multisensor Feature Visualization for In-Situ Monitoring</div>
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/NEZGbJvMfGA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+---
+
+### Acoustic-Based Defect Detection in Laser-DED Through Deep Learning
+[![Paper](https://img.shields.io/badge/Paper-Additive_Manufacturing-blue)](https://www.sciencedirect.com/science/article/abs/pii/S2214860423001604)
+[![arXiv](https://img.shields.io/badge/arXiv-2304.04598-b31b1b)](https://arxiv.org/abs/2304.04598)
+
+Chen, L., Yao, X., Tan, C., He, W., Su, J., Weng, F., Chew, Y., Ng, N.P.H. and Moon, S.K., 2023. In-situ crack and keyhole pore detection in laser directed energy deposition through acoustic signal and deep learning. *Additive Manufacturing*, 103547.
+
+<div class="single-image-container">
+    <img src="./images/acoustic_defect_id.png" alt="Acoustic Monitoring System">
+    <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 8px;">
+        In-situ defect detection in LDED through acoustic signal and deep learning.
+    </p>
+</div>
+
+---
+
+## 💻 Installation
+
+### ROS and Ubuntu Setup
+1. Install ROS-Noetic on Ubuntu 20.04:
+   ```bash
+   # Follow the instructions at:
+   # http://wiki.ros.org/noetic/Installation/Ubuntu
+   ```
+
+### Developer Essentials
+```bash
+sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev intltool libglib2.0-dev
 ```
-sudo ./bootstrap.sh
-sudo ./b2
-``` -->
 
+### OpenCV Installation
+```bash
+sudo apt install libopencv-dev python3-opencv
+```
 
+### GStreamer Installation
+```bash
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+```
 
+### ROS Packages Installation
+```bash
+sudo apt-get install ros-noetic-roscpp ros-noetic-std-msgs
+sudo apt-get install ros-noetic-industrial-core
+sudo apt-get install ros-noetic-moveit-visual-tools
+```
 
-:exclamation: Important instructions;
-:question: Remain unsolved issues, will be developed in the future;
-:red_circle: code finished but have not been tested;
-:x: code under heavy development;
-:negative_squared_cross_mark: dead end and archived;
-:heavy_check_mark: Tested sucessfully;
+### ROS Controller Installation
+```bash
+sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers
+```
 
-## Experiment instructions
-### Hardware configuration (multisensor)
-<!-- #### Ethernet connections (pictures) -->
+### VTK Installation
+```bash
+sudo apt install python3-pip
+python -m pip install vtk
+```
 
-#### Connections (Ubuntu Linux settings)
+### PlotJuggler Installation
+```bash
+sudo apt install ros-noetic-plotjuggler-ros
+```
 
-- Xiris 1800V thermal camera (melt pool monitoring): Ethernet Connection port
-  - (suggested configuration on monitoring PC - )
-- Xiris WeldMIC acoustic monitoring: USB port
-- KUKA RSI interface: Ethernet Connection port. 
-  - suggested configuration on monitoring PC - __IP: 192.168.1.3__
-- Coaxial CCD melt pool camera: USB port
-- Infratec thermal camera: PCI Ethernet port. 
-  - suggested configuration on monitoring PC - __IP: 169.254.87.1__ 
-- ABB: Ethernet port. 
-  - suggested configuration on monitoring PC - __IP: 192.168.125.3__ 
+### Python Packages Installation
+```bash
+pip install -r requirements.txt
+```
 
+### Pylon Camera ROS Packages (Basler USB Camera Driver)
+1. Clone the official repository (already inside the __camera_utils__ folder):
+   ```bash
+   git clone https://github.com/basler/pylon-ros-camera
+   ```
+2. Clone drag&bot public common messages:
+   ```bash
+   git clone https://github.com/dragandbot/dragandbot_common.git
+   ```
+3. Install ROS dependencies:
+   ```bash
+   sudo sh -c 'echo "yaml https://raw.githubusercontent.com/basler/pylon-ros-camera/master/pylon_camera/rosdep/pylon_sdk.yaml" > /etc/ros/rosdep/sources.list.d/30-pylon_camera.list' && sudo rosdep update && sudo rosdep install --from-paths . --ignore-src --rosdistro=$ROS_DISTRO -y
+   ```
 
-### 1. Multimodal monitoring 
-#### 1.1 Software instruction 
-- launch the monitoring (without experiments) :heavy_check_mark:
-  ```
+### LightGBM Installation
+Follow the instructions at:
+- https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html#linux
+- For Python LightGBM: https://blog.csdn.net/CSDNLHCC/article/details/135053162
+
+### Micro-Epsilon ScanControl SDK Installation
+Install from:
+```
+./src/microEpsilon_scanControl/microepsilon_scancontrol/scanCONTROLLinuxSDK0.2.3
+```
+
+### Aravis Installation
+1. Download the aravis-0.6.1.tar.xz package (version 0.7 is not stable, do not download):
+   - http://ftp.acc.umu.se/pub/GNOME/sources/aravis/0.6/
+2. Install:
+   ```bash
+   ./configure
+   sudo make
+   sudo make install
+   sudo ldconfig
+   ```
+
+If you encounter: "Error Message: checking for GTK... configure: error: Package requirements (gtk+-2.0 ¿= 2.10.0) were not met: No package 'gtk+-2.0' found":
+```bash
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install intltool
+sudo apt-get install libgtk2.0-dev
+```
+
+### Essentia Installation
+1. Download the master branch via Github Desktop:
+   - https://github.com/MTG/essentia
+2. Compile following the instructions provided in the repository
+
+## 🔬 Experiment Instructions
+
+### Hardware Configuration (Multisensor)
+
+#### Connections (Ubuntu Linux Settings)
+
+- **Xiris 1800V Thermal Camera** (melt pool monitoring): 
+  - Connection: Ethernet port
+  - Suggested IP on monitoring PC: (Refer to your hardware documentation)
+
+- **Xiris WeldMIC Acoustic Monitoring**: 
+  - Connection: USB port
+
+- **KUKA RSI Interface**: 
+  - Connection: Ethernet port
+  - Suggested IP on monitoring PC: **192.168.1.3**
+
+- **Coaxial CCD Melt Pool Camera**: 
+  - Connection: USB port
+
+- **Infratec Thermal Camera**: 
+  - Connection: PCI Ethernet port
+  - Suggested IP on monitoring PC: **169.254.87.1**
+
+- **ABB**: 
+  - Connection: Ethernet port
+  - Suggested IP on monitoring PC: **192.168.125.3**
+
+### 1. Multimodal Monitoring
+
+#### 1.1 Software Instructions
+
+- Launch monitoring (without experiments):
+  ```bash
   roslaunch multimodal_monitoring multimodal_monitoring.launch
   ```
 
-- launch the monitoring for experiments (with rosbag recording) :heavy_check_mark:
-  
-  ```
+- Launch monitoring for experiments (with rosbag recording):
+  ```bash
   roslaunch multimodal_monitoring multimodal_monitoring_experiments.launch
   ```
-#### 1.2 configurations
-- to launch the thermal monitoring, set parameter `<arg name="thermal" default="true"/>`
--  to launch the acoustic monitoring, set parameter `<arg name="acoustic" default="true"/>`
--  Change the path of recorded audio signal (wav): ` <arg name="dst" default="~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.wav"/>`
--  __Record__ the data into ___rosbag___: (change path if necessary). This is located in the ___multimodal_monitoring_experiments.launch___ file
-    ```
-    <node pkg="rosbag" type="record" name="rosbag_record_multimodal monitoring_experiment" 
-    args="-O ~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.bag 
-    /audio /audioStamped /acoustic_feature " />
-    ```
-#### 1.3 Important instructions for conducting experiments
-- Before experiments, the thermal camera's focus needs to be fine-tuned. Make sure it is focused to the laser spot.
-- After calibrating the focus, the temperature range of the camera needs to be configured to the correct range. (500-2000 degrees) -- __only for Infratec VarioCAM camera, Xiris no need__
-- :exclamation: Conduct a dry run to test the microphone sensor. Make sure it is capturing the acoustic signal rather than using the PC built-in microphone. 
-- For KUKA program, need to add RSI communications in the code
 
+#### 1.2 Configurations
 
-- ping kuka LDED robot RSI interface:
+- To enable thermal monitoring, set parameter:
+  ```xml
+  <arg name="thermal" default="true"/>
   ```
+- To enable acoustic monitoring, set parameter:
+  ```xml
+  <arg name="acoustic" default="true"/>
+  ```
+- Change the path of recorded audio signal (wav):
+  ```xml
+  <arg name="dst" default="~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.wav"/>
+  ```
+- **Record** data into **rosbag** (located in the **multimodal_monitoring_experiments.launch** file):
+  ```xml
+  <node pkg="rosbag" type="record" name="rosbag_record_multimodal monitoring_experiment" 
+  args="-O ~/SIMTech_ws/src/acoustic_monitoring/data/KUKA_printing_SS_recording_6.bag 
+  /audio /audioStamped /acoustic_feature" />
+  ```
+
+#### 1.3 Important Instructions for Conducting Experiments
+
+- Before experiments, fine-tune the thermal camera's focus to the laser spot
+- Configure the temperature range of the camera (500-2000 degrees) — **only for Infratec VarioCAM camera, not needed for Xiris**
+- ⚠️ Conduct a dry run to test the microphone sensor to ensure it's capturing the acoustic signal correctly
+- For KUKA program, add RSI communications in the code
+
+**Network Connection Tests:**
+
+- Ping KUKA LDED robot RSI interface:
+  ```bash
   ping 192.168.1.3
   ```
-
-- ping MicroEpsilon ScanController
-  ```
+- Ping MicroEpsilon ScanController:
+  ```bash
   ping 169.254.87.67
   ```
-- ping ABB driver
-  ```
+- Ping ABB driver:
+  ```bash
   ping 192.168.125.1
   ```
 
-#### 1.4 Data recordings
-- General format (without robot)
-  ```
+#### 1.4 Data Recordings
+
+- General format (without robot):
+  ```bash
   rosbag record -O /media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.bag /audio /audioStamped /acoustic_feature /infratec/image_raw /infratec/image_converted_mono8 /infratec/temperature_feature /general_contours/max_contour_area /convex_hull/hull_area
   ```
-- record all the informtion
-  ```
+
+- Record all information:
+  ```bash
   rosbag record -O /media/chenlequn/Lequn_HD/Research_Projects/multimodal_monitoring/data/experiment.bag /audio /audioStamped /acoustic_feature /infratec/image_raw /infratec/image_converted_mono8 /infratec/temperature_feature /general_contours/max_contour_area /convex_hull/hull_area /cartesian_position /cartesian_velocity
   ```
-- List out the topic to select: `rostopic list` 
+
+- List all available topics:
+  ```bash
+  rostopic list
   ```
-  /acoustic_feature
-  /audio
-  /audioStamped
-  /audio_info
-  /camera/cloud
-  /cartesian_position
-  /cartesian_velocity
-  /convex_hull/hull_area
-  /convex_hull/hulls
-  ...
-  /general_contours/contour_area
-  /general_contours/ellipses
-  /general_contours/image
-  ...
-  /general_contours/rectangles
-  ...
-  /infratec/image_converted_mono8
-  /infratec/image_raw
-  /infratec/temperature_feature
-  /joint_states
-  /position_trajectory_controller/command
-  /position_trajectory_controller/follow_joint_trajectory/cancel
-  /position_trajectory_controller/follow_joint_trajectory/feedback
-  /position_trajectory_controller/follow_joint_trajectory/goal
-  /position_trajectory_controller/follow_joint_trajectory/result
-  /position_trajectory_controller/follow_joint_trajectory/status
-  /position_trajectory_controller/state
+
+- ⚠️ Remember to change the name of the bag file and its location for each experiment
+
+### 2. Single Modal Monitoring
+
+### 2.1. Acoustic Monitoring
+
+#### 2.1.1 Parameters and Setup
+
+- Device selection:
+  ```bash
+  arecord -l  # Shows available input devices
   ```
-- Change the name of the bag file and its locations :exclamation:
-
-
-
-## 2. Single modal monitoring 
-
-### 2.1. Acoustic monitoring
-### 2.1.1 parameters and setup
-- device: `arecord -l` will show available input devices, use the car number as
-  the first number and the subdevice number as the second in a string
-  like hw:1,0
-  ```
+  Use the card number and subdevice number in format `hw:1,0`:
+  ```xml
   <arg name="device" default="hw:2,0" />
   ```
-- sampling rate: 
-  ```
+
+- Set sampling rate:
+  ```xml
   <arg name="sample_rate" default="44100"/>
   ```
 
-### 2.1.2 launch instructions
-- standalone acoustic monitoring: :heavy_check_mark:
-  ```
+#### 2.1.2 Launch Instructions
+
+- Standalone acoustic monitoring:
+  ```bash
   roslaunch acoustic_feature_extraction acoustic_monitoring.launch
   ```
--  acoustic monitoring with rosbag recording: :heavy_check_mark:
-  ```
+
+- Acoustic monitoring with rosbag recording:
+  ```bash
   roslaunch acoustic_feature_extraction acoustic_monitoring_experiment.launch
   ```
 
+### 2.2. Thermal Monitoring (Infratec VarioCAM)
 
-### 2.2. Thermal monitoring (Infratec VarioCAM)
-#### 2.2.1 configuration and specifications
-- set parameters for the thermal images (__max, min temp, croppings__): `~/SIMTech_ws/src/Infratec_thermal_camera/thermal_monitoring/config/thermal_camera_parameter.yaml` :exclamation::exclamation::exclamation:
-Note that chaneg the parameter in this yaml file will __overwrite__ the default settings. Hence, this is the only file you need to modify during the experiments.
-- remember to set python with network access: :heavy_check_mark:
+#### 2.2.1 Configuration and Specifications
+
+- Set parameters for thermal images (max/min temp, croppings):
   ```
+  ~/SIMTech_ws/src/Infratec_thermal_camera/thermal_monitoring/config/thermal_camera_parameter.yaml
+  ```
+  ⚠️⚠️⚠️ Note: Changes to this YAML file will **overwrite** the default settings
+
+- Set Python with network access:
+  ```bash
   setcap cap_net_raw+eip /usr/bin/python3.6
   ```
 
-#### 2.2.2 launch instructions
-- launch the basic thermal camera driver GUI(for testing the Infratec camera)  :heavy_check_mark:
-  ```
+#### 2.2.2 Launch Instructions
+
+- Launch basic thermal camera driver GUI (for testing Infratec camera):
+  ```bash
   roslaunch infratec_ros_driver infratec_vario_ros_driver_basic.launch
   ```
 
-- launch the basic thermal camera driver GUI with thermal image conversions (to mono format) :heavy_check_mark:
-  ```
+- Launch thermal camera driver GUI with thermal image conversions:
+  ```bash
   roslaunch infratec_ros_driver infratec_driver_image_convert.launch
   ```
 
-- [__thermal camera monitoring basic__]: launch the thermal camera and connet to KUKA robot (set robot_launch to true) :ok_hand:
-  ```
+- **Thermal Camera Monitoring Basic**: Camera + KUKA robot connection:
+  ```bash
   roslaunch thermal_monitoring thermal_monitoring_basic.launch
   ```
-- [__thermal camera monitoring__]: camera + robot + in-situ image processing  :heavy_check_mark:
-    - open the launch file and set corresponding nodes to __false__ if you don't want to launch it.
-  ```
+
+- **Thermal Camera Monitoring**: Camera + robot + in-situ image processing:
+  ```bash
   roslaunch thermal_monitoring thermal_monitoring.launch
   ```
+  Note: Open the launch file and set corresponding nodes to **false** if not needed
 
-- [__thermal camera monitoring with multimodal GUI__]: camera + robot + in-situ image processing  :x:
-   - under heavy development
-  ```
+- **Thermal Camera Monitoring with Multimodal GUI** (under development):
+  ```bash
   roslaunch infratec_ros_driver qt_infratec_insitu_monitoring.launch
   ```
 
-### 2.3. Laser line scanning (MicroEpsilon)
-#### 2.3.1 configuration and specifications
+### 2.3. Laser Line Scanning (MicroEpsilon)
+
+#### 2.3.1 Configuration and Specifications
+
+```bash
+ping 192.168.1.3    # KUKA RSI
+ping 169.254.87.67  # MicroEpsilon
 ```
-ping 192.168.1.3 ## KUKA RSI
-ping 169.254.87.67 ## MicroEpsilon
-```
-#### 2.3.2 Launch instructions
-```
+
+#### 2.3.2 Launch Instructions
+
+```bash
 cd ~/SIMTech_ws/src/scanning_application/scanning_robviz/launch
-roslaunch scanning_robviz robviz_abb_microepsilon.launch ## for ABB hybrid laser-arc
-roslaunch scanning_robviz robviz_kuka_microepsilon.launch ## for KUKA system
+roslaunch scanning_robviz robviz_abb_microepsilon.launch  # for ABB hybrid laser-arc
+roslaunch scanning_robviz robviz_kuka_microepsilon.launch  # for KUKA system
 ```
 
+### 3. Post-Experiment Offline Data Processing
 
-## 3. Post-experiment offline data processing
-- navigate to `experiment_data` folder
-- execute feature extraction for thermal monitoring modal:
-  ```
+- Navigate to `experiment_data` folder
+- Execute feature extraction for thermal monitoring:
+  ```bash
   roslaunch experiment_data feature_extraction.launch
   ```
+
+## Status Indicators
+
+| Symbol | Meaning |
+|--------|---------|
+| ❗ | Important instructions |
+| ❓ | Unsolved issues (to be developed in the future) |
+| 🔴 | Code finished but not tested |
+| ❌ | Code under heavy development |
+| ⬜ | Dead end and archived |
+| ✅ | Tested successfully |
+
+---
+
+<div align="center">
+
+**MFDT Workspace** © 2023
+
+</div>
